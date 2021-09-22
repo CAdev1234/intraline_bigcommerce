@@ -6,14 +6,21 @@ import { Grid, Marquee, Hero } from '@components/ui'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { ChevronDown, ChevronRight, ChevronUp } from '@components/icons'
 
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
-// import { Swiper, SwiperSlide } from 'swiper/react'
+// import Swiper, {Navigation} from 'swiper'
 // import SwiperCore, { Navigation, Pagination, A11y, Autoplay } from 'swiper'
 // import 'swiper/css'
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // SwiperCore.use([Navigation, Pagination])
+
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
+
+
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
 
 import { RatingView } from 'react-simple-star-rating'
 
@@ -48,62 +55,213 @@ export async function getStaticProps({
   }
 }
 
-// const renderCategorySwiper = () => {
-//   return [0, 1, 2, 3, 4, 5, 6].map((item, index) => {
-//     return <SwiperSlide key={'category_' + index}>
-//       <div className="flex flex-col pt-4 pb-10 bg-white">
-//         <div className="flex">
-//           <img className="mx-auto" src="/assets/img/product1.png" alt="" />
-//         </div>
-//         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
-//       </div>
-//     </SwiperSlide>
-//   })
-// }
+interface ArrowProps{
+  disabled: boolean,
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+const ArrowLeft:FC<ArrowProps> = ({disabled, onClick}) => {
+  const disabeld = disabled ? " arrow--disabled" : ""
+  return (
+    <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')}>
+      <svg
+        className={"arrow arrow--left w-4 h-4" + disabeld}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+      </svg>
+    </button>
+  )
+}
 
-// const renderProductSwiper = () => {
-//   return [0, 1, 2, 3, 4, 5, 6].map((item, index) => {
-//     return <SwiperSlide key={'category_' + index}>
-//       <div className="flex flex-col pt-4 pb-10 bg-white relative">
-//         <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$30.00</div>
-//         <div className="flex">
-//           <img className="mx-auto" src="/assets/img/product1.png" alt="" />
-//         </div>
-//         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
-//       </div>
-//     </SwiperSlide>
-//   })
-// }
+const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
+  const disabeld = disabled ? " arrow--disabled" : ""
+  return (
+    <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
+      <svg
+        className={"arrow arrow--right w-4 h-4"}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      </svg>
+    </button>
+  )
+}
 
-// const renderProfileImgSwiper = () => {
-//   return ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
-//     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
-//     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
-//     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
-//     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"].map((item, index) => {
-//       return <SwiperSlide key={'profile_img_' + index}>
-//         <div className="">
-//           <div className="flex">
-//             <img className="mx-auto rounded-full opacity-75" src={item} width={90} height={90} alt="" />
-//           </div>
-//         </div>
-//       </SwiperSlide>
-//     })
-// }
+const RenderCategorySwiper = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: 4,
+    spacing: 20,
+    loop: true,
+    slideChanged(s) {
+      console.log("slide changed")
+      setCurrentSlide(s.details().relativeSlide)
+    }
+  })
+    return <>
+            <div className="">
+              <div ref={ele_ref} className="keen-slider">
+                {[0, 1, 2, 3, 4, 5].map((item, index) => {
+                  return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
+                          <div className="flex">
+                            <img className="mx-auto" src="/assets/img/product1.png" alt="" />
+                          </div>
+                          <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+                        </div>
+                })}
+              </div>
+              {slider && (
+                <div className="mx-172 flex items-center">
+                  <ArrowLeft
+                    onClick={(e:any) => e.stopPropagation() || slider.prev()}
+                    disabled={currentSlide === 0}
+                  />
+                  {slider && (
+                    <div className="dots mx-auto">
+                      {[...Array(slider.details().size).keys()].map((idx) => {
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              slider.moveToSlideRelative(idx)
+                            }}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
+                          ></button>
+                        )
+                      })}
+                    </div>
+                  )}
+                  <ArrowRight
+                    onClick={(e:any) => e.stopPropagation() || slider.next()}
+                    disabled={currentSlide === slider.details().size - 1}
+                  />
+                </div>
+              )}
+            </div>
+          </>
+}
 
-// const renderProfileDetailSwiper = () => {
-//   return [0, 1, 2, 3, 4].map((item, index) => {
-//     return <SwiperSlide key={'profile_detail_' + index}>
-//       <div className="">
-//         <div className="text-sm text-center" style={{ lineHeight: 17 + 'px' }}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-//         <div className="flex justify-center mt-7">
-//           <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
-//         </div>
-//         <p className="text-sm text-center mt-7 mx-auto" style={{ maxWidth: 426 + 'px' }}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-//       </div>
-//     </SwiperSlide>
-//   })
-// }
+
+const RenderProductSwiper = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: 4,
+    spacing: 20,
+    loop: true,
+    slideChanged(s) {
+      console.log("slide changed")
+      setCurrentSlide(s.details().relativeSlide)
+    }
+  })
+    return <>
+            <div className="">
+              <div ref={ele_ref} className="keen-slider">
+                {[0, 1, 2, 3, 4, 5].map((item, index) => {
+                  return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
+                          <div className="flex">
+                            <img className="mx-auto" src="/assets/img/product1.png" alt="" />
+                          </div>
+                          <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+                        </div>
+                })}
+              </div>
+              {slider && (
+                <div className="mx-172 flex items-center">
+                  <ArrowLeft
+                    onClick={(e:any) => e.stopPropagation() || slider.prev()}
+                    disabled={currentSlide === 0}
+                  />
+                  {slider && (
+                    <div className="dots mx-auto">
+                      {[...Array(slider.details().size).keys()].map((idx) => {
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              slider.moveToSlideRelative(idx)
+                            }}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
+                          ></button>
+                        )
+                      })}
+                    </div>
+                  )}
+                  <ArrowRight
+                    onClick={(e:any) => e.stopPropagation() || slider.next()}
+                    disabled={currentSlide === slider.details().size - 1}
+                  />
+                </div>
+              )}
+            </div>
+          </>
+}
+
+const RenderProfileImgSwiper = () => {
+  let profile_img_li = ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
+    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
+    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
+    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
+    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"]
+
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+      slidesPerView: 1,
+      spacing: 20,
+      loop: true,
+      slideChanged(s) {
+        console.log("slide changed")
+        setCurrentSlide(s.details().relativeSlide)
+      }
+    })
+      return <>
+              <div className="flex">
+                <div ref={ele_ref} className="keen-slider mx-auto">
+                  {profile_img_li.map((item, index) => {
+                    return <div key={'profile_img_' + index}>
+                            <div className="">
+                              <div className="flex">
+                                <img className="mx-auto rounded-full opacity-75" src={item} width={90} height={90} alt="" />
+                              </div>
+                            </div>
+                          </div>
+                  })}
+                </div>
+                
+              </div>
+            </>
+}
+
+const RenderProfileDetailSwiper = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: 3,
+    spacing: 20,
+    loop: true,
+    slideChanged(s) {
+      console.log("slide changed")
+      setCurrentSlide(s.details().relativeSlide)
+    }
+  })
+    return <>
+      <div className="flex">
+        <div ref={ele_ref} className="keen-slider mx-auto">
+        {[0, 1, 2, 3, 4].map((item, index) => {
+          return <div key={'profile_detail_' + index}>
+            <div className="">
+              <div className="text-sm text-center" style={{ lineHeight: 17 + 'px' }}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+              <div className="flex justify-center mt-7">
+                <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
+              </div>
+              <p className="text-sm text-center mt-7 mx-auto" style={{ maxWidth: 426 + 'px' }}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+            </div>
+          </div>
+        })}
+        </div>
+      </div>
+    </>
+}
 
 const RenderFAQCollapse = () => {
   const [myArray, setMyArray] = useState<Boolean[]>([]);
@@ -213,7 +371,7 @@ export default function Home({
       /> */}
 
     <img className="w-full" src="/assets/img/home-part1-bg.png"></img>
-      <div className="z-50 text-white font-bold -mt-32 mx-60 flex">
+      <div className="z-50 text-white font-bold -mt-32 mx-172 flex">
         <div className="text-4xl">Our Categories.</div>
         <div className="flex items-center ml-auto">
           <div className="">Explore All</div>
@@ -224,34 +382,8 @@ export default function Home({
       </div>
 
       {/* our category part */}
-      <div className="mt-10 ml-60">
-        {/* <Swiper
-          className="category_carousel"
-          spaceBetween={20}
-          slidesPerView={4}
-          loop={true}
-          modules={[Navigation, Pagination, A11y, Autoplay]}
-          autoplay={{
-            delay: 2000
-          }}
-          pagination={{
-            el: '.category-pagination-div',
-            clickable: true,
-          }}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}>
-          {renderCategorySwiper()}
-        </Swiper> */}
-
-      </div>
-      <div className="mt-10 flex items-center relative mx-60">
-        <div className="swiper-button-prev absolute"></div>
-        <div className="swiper-button-next absolute"></div>
-        <div className="category-pagination-div flex justify-center"></div>
+      <div className="mt-10 ml-172">
+        {RenderCategorySwiper()}
       </div>
 
 
@@ -282,30 +414,7 @@ export default function Home({
           </div>
         </div>
         <div className="mt-10">
-          {/* <Swiper
-            className="feature_carousel"
-            spaceBetween={20}
-            slidesPerView={5}
-            loop={true}
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            autoplay={{
-              delay: 2000
-            }}
-            pagination={{
-              el: '.feature-custom-pagination-div',
-              clickable: true,
-            }}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }}>
-            {renderProductSwiper()}
-          </Swiper> */}
-        </div>
-        <div className="mt-10 flex items-center relative mx-44">
-          <div className="swiper-button-prev absolute"></div>
-          <div className="swiper-button-next absolute"></div>
-          <div className="feature-custom-pagination-div flex justify-center"></div>
+          {RenderProductSwiper()}
         </div>
       </div>
 
@@ -313,37 +422,10 @@ export default function Home({
       <div className="py-24 bg-white">
         <div className="leading-36_26 text-c_00080D font-bold text-4xl text-center">Intraline Reviews.</div>
         <div className="mx-auto mt-10 w-96">
-          {/* <Swiper
-            className="profile-img-carousel"
-            spaceBetween={0}
-            slidesPerView={3}
-            loop={true}
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            autoplay={{
-              delay: 2000
-            }}>
-            {renderProfileImgSwiper()}
-          </Swiper> */}
+          {RenderProfileImgSwiper()}
         </div>
         <div className="mx-auto mt-10" style={{ maxWidth: 1094 + 'px' }}>
-          {/* <Swiper
-            className="profile-img-carousel"
-            slidesPerView={1}
-            loop={true}
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            autoplay={{
-              delay: 2000
-            }}
-            pagination={{
-              el: '.profile-custom-pagination-div',
-              clickable: true,
-            }}
-            navigation={true}>
-            {renderProfileDetailSwiper()}
-          </Swiper> */}
-        </div>
-        <div className="mt-10 flex items-center relative mx-44">
-          <div className="profile-custom-pagination-div flex justify-center"></div>
+          {RenderProfileDetailSwiper()}
         </div>
       </div>
 

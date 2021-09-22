@@ -2665,13 +2665,6 @@
   dependencies:
     "esutils" "^2.0.2"
 
-"dom7@^4.0.0":
-  "integrity" "sha512-xOJ0LAHFwktyj8Xljz4R2wzRI+Y9mR0plkMP0WlqtwqAkqn/vbdAyRifiW/w8mXe17LGktntcAwsQ5fKVDBNYg=="
-  "resolved" "https://registry.npmjs.org/dom7/-/dom7-4.0.0.tgz"
-  "version" "4.0.0"
-  dependencies:
-    "ssr-window" "^4.0.0"
-
 "domain-browser@^1.1.1":
   "integrity" "sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA=="
   "resolved" "https://registry.npmjs.org/domain-browser/-/domain-browser-1.2.0.tgz"
@@ -2739,6 +2732,11 @@
   "integrity" "sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ=="
   "resolved" "https://registry.npmjs.org/email-validator/-/email-validator-2.0.4.tgz"
   "version" "2.0.4"
+
+"embla-carousel@^4.5.3":
+  "integrity" "sha512-S7fPpoV9AsPRII8ytsDQavW4JbU3xWBAO+i158eVahVZYVb04vC+913QfO3FGzsVK/4sb58NJ42LBDh143+YhA=="
+  "resolved" "https://registry.npmjs.org/embla-carousel/-/embla-carousel-4.5.3.tgz"
+  "version" "4.5.3"
 
 "emoji-regex@^8.0.0":
   "integrity" "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
@@ -6438,11 +6436,6 @@
   "resolved" "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
   "version" "1.0.3"
 
-"ssr-window@^4.0.0":
-  "integrity" "sha512-qCg6wJNeGNTVcPK2KFNfwtHU1gA3UZDZdxogu+Ys5+Ue5PMOENxUb7sscpAWWo4mWOBkJRCwQ50IlyA7qZ0hxw=="
-  "resolved" "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.0.tgz"
-  "version" "4.0.0"
-
 "stacktrace-parser@0.1.10":
   "integrity" "sha512-KJP1OCML99+8fhOHxwwzyWrlUuVX5GQ0ZpJTd1DFXhdkrvg1szxfHhawXUZ3g9TkXORQd4/WG68jMlQZ2p8wlg=="
   "resolved" "https://registry.npmjs.org/stacktrace-parser/-/stacktrace-parser-0.1.10.tgz"
@@ -6721,14 +6714,6 @@
     "object-keys-normalizer" "1.0.1"
     "object-merge-advanced" "12.0.3"
     "qs" "6.7.0"
-
-"swiper@^7.0.6":
-  "integrity" "sha512-bd+Ax/VU6tBrOLaGsit/rkkkKDGSK2llP9yxEeUE9ZpJjRFwgBEqoDXhk+ZpJhubC25busq+GQmtHiASfNOApw=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-7.0.6.tgz"
-  "version" "7.0.6"
-  dependencies:
-    "dom7" "^4.0.0"
-    "ssr-window" "^4.0.0"
 
 "swr@^0.5.6":
   "integrity" "sha512-Bmx3L4geMZjYT5S2Z6EE6/5Cx6v1Ka0LhqZKq8d6WL2eu9y6gHWz3dUzfIK/ymZVHVfwT/EweFXiYGgfifei3w=="

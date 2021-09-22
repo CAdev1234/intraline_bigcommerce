@@ -45,3 +45,56 @@ button:focus, input:focus, select:focus {outline: none;}
 /* shop product title css */
 .s-p-title {font-size: 200px;line-height: 160px;}
 .mix_blend_multi {mix-blend-mode: multiply;}
+
+
+
+.dots {
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 20px 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #000;
+}
+.arrow {
+  fill: white;
+}
+/* .arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+} */
+
+.arrow--disabled {
+  fill: rgba(255, 255, 255, 0.5);
+}
