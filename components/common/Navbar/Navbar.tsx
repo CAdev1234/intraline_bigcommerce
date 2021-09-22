@@ -13,7 +13,8 @@ interface Link {
   label: string
 }
 interface NavbarProps {
-  links?: Link[]
+  links?: Link[],
+  c_name?: any
 }
 
 const renderShopMenu = () => {
@@ -48,10 +49,10 @@ const renderShopMenu = () => {
   })
 }
 
-const Navbar: FC<NavbarProps> = ({ links }) => {
+const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableCart, setEnableCart] = useState(false)
   return (
-    <NavbarRoot c_name="">
+    <NavbarRoot c_name={c_name || ''}>
       <Container>
         <div className="">
           <div className="flex">

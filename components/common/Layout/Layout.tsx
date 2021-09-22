@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { CommerceProvider } from '@framework'
@@ -101,10 +101,16 @@ const Layout: FC<Props> = ({
     href: `/search/${c.slug}`,
   }))
 
+  const [current_url, setCurrentUrl] = useState('')
+  useEffect(() => {
+    setCurrentUrl(window.location.pathname)  
+  })
+
   return (
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
-        <Navbar links={navBarlinks} />
+        {/* <Navbar links={navBarlinks} /> */}
+        {current_url === '/' ? <Navbar c_name="bg-transparent"/> : <Navbar c_name="bg-black"/>}
         <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />
         <ModalUI />
