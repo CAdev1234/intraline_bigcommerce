@@ -105,7 +105,7 @@ export async function getStaticProps({
 //   })
 // }
 
-const renderFAQCollapse = () => {
+const RenderFAQCollapse = () => {
   const [myArray, setMyArray] = useState<Boolean[]>([]);
   
   var items = [
@@ -360,7 +360,7 @@ export default function Home({
             </div>
           </div>
 
-          {renderFAQCollapse()}
+          {RenderFAQCollapse()}
         </div>
       </div>
 
