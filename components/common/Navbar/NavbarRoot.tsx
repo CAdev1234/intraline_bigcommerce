@@ -3,7 +3,7 @@ import throttle from 'lodash.throttle'
 import cn from 'classnames'
 import s from './Navbar.module.css'
 
-const NavbarRoot: FC = ({ children }) => {
+const NavbarRoot: FC<{c_name: String}> = ({ children, c_name }) => {
   const [hasScrolled, setHasScrolled] = useState(false)
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const NavbarRoot: FC = ({ children }) => {
   }, [hasScrolled])
 
   return (
-    <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
+    <div className={cn(s.root, { 'shadow-magical': hasScrolled }) + ' ' + c_name}>
       {children}
     </div>
   )

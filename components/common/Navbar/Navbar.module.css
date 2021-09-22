@@ -1,35 +1,35 @@
 .root {
-  @apply sticky top-0 bg-primary z-40 transition-all duration-150;
-  min-height: 74px;
+  @apply fixed top-0 z-40 w-full;
 }
-
-.nav {
-  @apply relative flex flex-row justify-between py-4 md:py-4;
+.nav_item {
+  @apply relative h-full;
 }
-
-.navMenu {
-  @apply hidden ml-6 space-x-4 lg:block;
-}
-
 .link {
-  @apply inline-flex items-center leading-6
-  transition ease-in-out duration-75 cursor-pointer
-  text-accent-5;
+  @apply relative h-full flex items-center text-white transition ease-in-out duration-75 cursor-pointer px-12 text-sm leading-14_17 tracking-widest uppercase;  
 }
 
 .link:hover {
-  @apply text-accent-9;
+  @apply text-opacity-75;
 }
-
-.link:focus {
-  @apply outline-none text-accent-8;
+.link::after, .link::before {
+  @apply transition-all duration-300;
 }
-
+.link::after {
+  @apply absolute bottom-0 left-0 right-0 m-auto w-0 text-transparent bg-white h-0.5;
+  content: '.';
+}
+.link:hover::after{
+  @apply w-full;
+}
+.submenu {
+  @apply bg-c_52B5D3 w-full py-12 fixed left-0 hidden;
+}
+.nav_item:hover .submenu {
+  @apply block;
+}
+.svg {
+  @apply mx-4 cursor-pointer
+}
 .logo {
-  @apply cursor-pointer rounded-full border transform duration-100 ease-in-out;
-
-  &:hover {
-    @apply shadow-md;
-    transform: scale(1.05);
-  }
+  @apply cursor-pointer mr-96;
 }
