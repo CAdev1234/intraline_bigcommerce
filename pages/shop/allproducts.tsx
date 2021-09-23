@@ -11,31 +11,32 @@ import { RatingView } from 'react-simple-star-rating'
 import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
+import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 
 
 
 
-// const renderCategorySwiper = () => {
-//     var category_li = [
-//         { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
-//         { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
-//         { name: 'Skincare', img: "/assets/img/skin-care.png" },
-//         { name: 'Dermal Fillers', img: "/assets/img/mseries_5.png" },
-//         { name: 'Dermal Fillers', img: "/assets/img/mseries_4.png" },
-//         { name: 'Dermal Fillers', img: "/assets/img/mseries_3.png" },
-//         { name: 'Dermal Fillers', img: "/assets/img/mseries_2.png" },
-//     ]
-//     return category_li.map((item, index) => {
-//         return <SwiperSlide key={'category_' + index}>
-//             <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
-//                 <div className="flex-1 px-20 h-0">
-//                     <img className="h-full object-contain mx-auto" src={item.img} alt="" />
-//                 </div>
-//                 <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
-//             </div>
-//         </SwiperSlide>
-//     })
-// }
+const renderCategorySwiper = () => {
+    var render_ele = [
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
+        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
+        { name: 'Skincare', img: "/assets/img/skin-care.png" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_5.png" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_4.png" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_3.png" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_2.png" },
+    ].map((item, index) => {
+        return <div className="keen-slider__slide" key={`category_${index}`}>
+                    <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
+                        <div className="flex-1 px-20 h-0">
+                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                        </div>
+                        <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
+                    </div>
+                </div>
+    })
+    return <KeenSliderA render_ele={render_ele} slidesPerView={4} navCss={"mr-172"}/>
+}
 
 const renderProducts = () => {
     var items = [];
@@ -79,7 +80,7 @@ export default function AllProducts() {
                 <div className="ml-172 my-auto">
                     <div className="ttcommon_font_bold text-4xl leading-36_26">Our Categories.</div>
                     <div className="mt-10">
-                        {/* {renderCategorySwiper()} */}
+                        {renderCategorySwiper()}
                     </div>
                     <div className="mt-10 flex items-center relative mx-60">
                         <div className="swiper-button-prev absolute"></div>

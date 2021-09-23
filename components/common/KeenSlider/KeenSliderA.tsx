@@ -41,12 +41,14 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
     )
 }
 interface KeenSliderProps{
-    render_ele: JSX.Element[]
+    render_ele: JSX.Element[],
+    navCss: string,
+    slidesPerView: number
 }
-const KeenSliderA: FC<KeenSliderProps> = ({render_ele}) => {
+const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-      slidesPerView: 4,
+      slidesPerView: slidesPerView,
       spacing: 20,
       loop: true,
       slideChanged(s) {
@@ -60,7 +62,7 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele}) => {
                   {render_ele}
                 </div>
                 {slider && (
-                  <div className="mx-172 flex items-center">
+                  <div className={`${navCss} flex items-center`}>
                     <ArrowLeft
                       onClick={(e:any) => e.stopPropagation() || slider.prev()}
                       disabled={currentSlide === 0}

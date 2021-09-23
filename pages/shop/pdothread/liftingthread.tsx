@@ -6,19 +6,20 @@ import { Navbar } from '@components/common'
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
-// const renderPDOThreadSwiper = () => {
-//     return [0, 1, 2, 3, 4].map((item, index) => {
-//         return <SwiperSlide key={'pdo_thread_' + index}>
-//                     <div className="" style={{width: 550}}>
-//                         <div className="ttcommon_font_bold text-4xl leading-36_48">Dimension 360.</div>
-//                         <div className="bg-c_CCE7EF w-full mt-10">
-//                             <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
-//                         </div>
-//                         <div className="ttcommon_font_thin mt-7 uppercase text-3xl leading-36_48">Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.</div>
-//                     </div>
-//                 </SwiperSlide>
-//     })
-// }
+const renderLiftingThreadSwiper = () => {
+    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+        return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
+                    <div className="" style={{width: 550}}>
+                        <div className="ttcommon_font_bold text-4xl leading-36_48">Dimension 360.</div>
+                        <div className="bg-c_CCE7EF w-full mt-10">
+                            <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
+                        </div>
+                        <div className="ttcommon_font_thin mt-7 uppercase text-3xl leading-36_48">Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.</div>
+                    </div>
+                </div>
+    })
+    return <KeenSliderB render_ele={render_ele} slidesPerView={3} enableDot={false} navCss={"px-7"}/>
+}
 
 const RenderTestimonialSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -27,7 +28,7 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} navCss={"-mt-5"}/>
 }
 
 
@@ -49,7 +50,7 @@ export default function LiftingThread() {
             </div>
 
             <div className="ml-15 pb-24" style={{marginTop: -240}}>
-                {/* {renderPDOThreadSwiper()} */}
+                {renderLiftingThreadSwiper()}
             </div>
             
             <div className=" bg-c_C6CBDD py-24 px-15">

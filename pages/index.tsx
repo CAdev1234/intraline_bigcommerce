@@ -90,7 +90,7 @@ const RenderCategorySwiper = () => {
             <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
           </div>
   })
-  return <KeenSliderA render_ele={render_item_ele} />
+  return <KeenSliderA render_ele={render_item_ele} slidesPerView={4} navCss="mr-172"/>
 }
 
 
@@ -103,7 +103,7 @@ const RenderProductSwiper = () => {
             <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
           </div>
   }) 
-  return <KeenSliderA render_ele = {render_ele} />
+  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-172"/>
 }
 
 const RenderProfileSwiper = () => {

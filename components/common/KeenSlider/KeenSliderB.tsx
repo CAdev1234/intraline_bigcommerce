@@ -39,9 +39,11 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 }
 interface KeenSliderBProps{
     render_ele: JSX.Element[],
-    slidesPerView: number
+    slidesPerView: number,
+    navCss: string,
+    enableDot: boolean
 }
-const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView}) => {
+const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, navCss, enableDot}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
       slidesPerView: slidesPerView,
@@ -58,7 +60,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView}) => {
                   {render_ele}
                 </div>
                 {slider && (
-                  <div className="flex items-center absolute top-0 w-full">
+                  <div className={`flex items-center absolute top-0 w-full h-full ${navCss}`}>
                     <ArrowLeft
                       onClick={(e:any) => e.stopPropagation() || slider.prev()}
                       disabled={currentSlide === 0}
@@ -70,7 +72,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView}) => {
                     />
                   </div>
                 )}
-                {slider && (
+                {slider && enableDot && (
                     <div className="dots mx-auto">
                     {[...Array(slider.details().size).keys()].map((idx) => {
                         return (

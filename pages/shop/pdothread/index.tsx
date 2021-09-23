@@ -6,16 +6,17 @@ import { Navbar } from '@components/common'
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
-// const renderPDOThreadSwiper = () => {
-//     return [0, 1, 2, 3, 4].map((item, index) => {
-//         return <SwiperSlide key={'pdo_thread_' + index}>
-//                     <div className="">
-//                         <img src="/assets/img/lifting_thread_1.png" alt="" />
-//                         <div className="uppercase text-2xl text-center font-semibold">Lifting Threads</div>
-//                     </div>
-//                 </SwiperSlide>
-//     })
-// }
+const renderPDOThreadSwiper = () => {
+    let render_ele = [0, 1].map((item, index) => {
+        return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
+                    <div className="my-auto">
+                        <img src="/assets/img/lifting_thread_1.png" alt="" />
+                        <div className="uppercase text-2xl text-center font-semibold">Lifting Threads</div>
+                    </div>
+                </div>
+    })
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} navCss={""}/>
+}
 
 const RenderTestimonialSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -24,7 +25,7 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} navCss={"-mt-5"}/>
 }
 
 
@@ -46,7 +47,7 @@ export default function PDOThread() {
                     </div>
                     <div className="w-5/12 flex flex-col">
                         <div className="my-auto">
-                            {/* {renderPDOThreadSwiper()} */}
+                            {renderPDOThreadSwiper()}
                         </div>
                     </div>
                 </div>

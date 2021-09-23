@@ -22,7 +22,7 @@
   @apply w-full;
 }
 .submenu {
-  @apply bg-c_52B5D3 w-full py-12 fixed left-0 hidden;
+  @apply bg-c_52B5D3 w-full py-12 fixed left-0 hidden z-10;
 }
 .nav_item:hover .submenu {
   @apply block;

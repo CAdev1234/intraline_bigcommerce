@@ -5,17 +5,19 @@ import { Navbar } from '@components/common'
 
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 
-// const renderMSeriesSwiper = () => {
-//     return [0, 1, 2, 3, 4].map((item, index) => {
-//         return <SwiperSlide key={'pdo_thread_' + index}>
-//                     <div className="">
-//                         <img className="mx-auto" src={"/assets/img/mseries_" + String(item + 1) + ".png"} alt="" />
-//                         <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus | $100.00</div>
-//                     </div>
-//                 </SwiperSlide>
-//     })
-// }
+const renderMSeriesSwiper = () => {
+    let render_ele = [0, 1].map((item, index) => {
+        return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
+                    <div className="my-auto">
+                        <img className="mx-auto" src={"/assets/img/mseries_" + String(item + 1) + ".png"} alt="" />
+                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus | $100.00</div>
+                    </div>
+                </div>
+    })
+    return <KeenSliderA render_ele={render_ele} slidesPerView={1} navCss={""}/>
+}
 
 const RenderTestimonialSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -24,7 +26,7 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true}  navCss={"-mt-5"}/>
 }
 
 
@@ -46,10 +48,7 @@ export default function MSeries() {
                     </div>
                     <div className="w-5/12 flex flex-col">
                         <div className="my-auto">
-                            {/* {RenderMSeriesSwiper()} */}
-                            <div className="mt-10 flex items-center relative mx-44">
-                                <div className="pdo-thread-pagination-div flex justify-center"></div>
-                            </div>
+                            {renderMSeriesSwiper()}
                         </div>
                         
                     </div>
