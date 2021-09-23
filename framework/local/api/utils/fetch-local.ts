@@ -8,7 +8,8 @@ const fetchGraphqlApi: (getConfig: () => LocalConfig) => GraphQLFetcher =
   async (query: string, { variables, preview } = {}, fetchOptions) => {
     const config = getConfig()
     const res = await fetch(config.commerceUrl, {
-      ...fetchOptions,
+      // Hazard commnet added
+      // ...fetchOptions,
       method: 'POST',
       headers: {
         ...fetchOptions?.headers,

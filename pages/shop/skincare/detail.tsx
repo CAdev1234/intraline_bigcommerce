@@ -22,59 +22,7 @@ const RenderTestimonialSwiper = () => {
     return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
 }
 
-const renderFAQCollapse = () => {
-    var items = [
-      {
-        'title': 'How does it work?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'How long do the results last?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What is the expected recovery time for my patients?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are some important safety tips to follow when using this product?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are the most common side effects?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      }
-    ]
-    const [enable_faq, setFaq] = useState(new Array(items.length).fill(false));
-  
-    function renderChevronUpDown(index: any) {
-      if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
-      else return <ChevronDown className="h-4 w-4" />
-    }
-    
-    function clickChevron(index: any) {
-      const new_enable_faq = [...enable_faq]
-      new_enable_faq[index] = !new_enable_faq[index]
-      setFaq(new_enable_faq)
-    }
-
-    return items.map((item, index) => {
-      return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
-        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => clickChevron(index)}>
-          <div className="text-base">{item.title}</div>
-          <div className="ml-auto">
-            {renderChevronUpDown(index)}
-          </div>
-        </div>
-        <div>
-          {enable_faq[index] && <div className="text-sm pt-5">{item.detail}</div>}
-        </div>
-      </div>
-    })
-  
-}
-
-const renderPDOThreads = () => {
+const RenderPDOThreads = () => {
     var items = [0, 1, 2]
     return items.map((item, index) => {
         return <div className="flex flex-col pt-9 pb-13 bg-white relative hover:bg-opacity-50" 

@@ -21,7 +21,7 @@ const RenderTestimonialSwiper = () => {
 }
 
 
-const renderFAQCollapse = () => {
+const RenderFAQCollapse = () => {
     const [myArray, setMyArray] = useState<Boolean[]>([]);
     
     var items = [
@@ -49,12 +49,12 @@ const renderFAQCollapse = () => {
     const [enable_faq, setFaq] = useState(new Array(items.length).fill(false));
     // setMyArray(new Array(items.length).fill(false))
   
-    function renderChevronUpDown(index: any) {
+    function RenderChevronUpDown(index: any) {
       if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
       else return <ChevronDown className="h-4 w-4" />
     }
     
-    function clickChevron(index: any) {
+    function ClickChevron(index: any) {
       const new_enable_faq = [...enable_faq]
       new_enable_faq[index] = !new_enable_faq[index]
       setFaq(new_enable_faq)
@@ -62,10 +62,10 @@ const renderFAQCollapse = () => {
   
     return items.map((item, index) => {
       return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
-        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => clickChevron(index)}>
+        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => ClickChevron(index)}>
           <div className="text-base">{item.title}</div>
           <div className="ml-auto">
-            {renderChevronUpDown(index)}
+            {RenderChevronUpDown(index)}
           </div>
         </div>
         <div>
@@ -145,7 +145,7 @@ export default function DemeralFiller() {
                             </div>
                         </div>
                     </div>
-                    {renderFAQCollapse()}
+                    {RenderFAQCollapse()}
                 </div>
             </div>
             
