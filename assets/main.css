@@ -58,8 +58,9 @@ button:focus, input:focus, select:focus {outline: none;}
   border: none;
   width: 10px;
   height: 10px;
-  background: #c5c5c5;
+  background: transparent;
   border-radius: 50%;
+  border: 1px solid #00080D;
   margin: 20px 5px;
   padding: 5px;
   cursor: pointer;

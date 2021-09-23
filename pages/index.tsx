@@ -8,21 +8,14 @@ import { ChevronDown, ChevronRight, ChevronUp } from '@components/icons'
 
 import { FC, useState } from 'react'
 
-// import Swiper, {Navigation} from 'swiper'
-// import SwiperCore, { Navigation, Pagination, A11y, Autoplay } from 'swiper'
-// import 'swiper/css'
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// SwiperCore.use([Navigation, Pagination])
-
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-
-
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 
+
+import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
+
 import { RatingView } from 'react-simple-star-rating'
+import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
 
 export async function getStaticProps({
@@ -90,177 +83,93 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 }
 
 const RenderCategorySwiper = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-    slidesPerView: 4,
-    spacing: 20,
-    loop: true,
-    slideChanged(s) {
-      console.log("slide changed")
-      setCurrentSlide(s.details().relativeSlide)
-    }
-  })
-    return <>
-            <div className="">
-              <div ref={ele_ref} className="keen-slider">
-                {[0, 1, 2, 3, 4, 5].map((item, index) => {
-                  return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
-                          <div className="flex">
-                            <img className="mx-auto" src="/assets/img/product1.png" alt="" />
-                          </div>
-                          <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
-                        </div>
-                })}
-              </div>
-              {slider && (
-                <div className="mx-172 flex items-center">
-                  <ArrowLeft
-                    onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                    disabled={currentSlide === 0}
-                  />
-                  {slider && (
-                    <div className="dots mx-auto">
-                      {[...Array(slider.details().size).keys()].map((idx) => {
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                              slider.moveToSlideRelative(idx)
-                            }}
-                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
-                          ></button>
-                        )
-                      })}
-                    </div>
-                  )}
-                  <ArrowRight
-                    onClick={(e:any) => e.stopPropagation() || slider.next()}
-                    disabled={currentSlide === slider.details().size - 1}
-                  />
-                </div>
-              )}
+  let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
+            <div className="flex">
+              <img className="mx-auto" src="/assets/img/product1.png" alt="" />
             </div>
-          </>
+            <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+          </div>
+  })
+  return <KeenSliderA render_ele={render_item_ele} />
 }
 
 
 const RenderProductSwiper = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-    slidesPerView: 4,
-    spacing: 20,
-    loop: true,
-    slideChanged(s) {
-      console.log("slide changed")
-      setCurrentSlide(s.details().relativeSlide)
-    }
-  })
-    return <>
-            <div className="">
-              <div ref={ele_ref} className="keen-slider">
-                {[0, 1, 2, 3, 4, 5].map((item, index) => {
-                  return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
-                          <div className="flex">
-                            <img className="mx-auto" src="/assets/img/product1.png" alt="" />
-                          </div>
-                          <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
-                        </div>
-                })}
-              </div>
-              {slider && (
-                <div className="mx-172 flex items-center">
-                  <ArrowLeft
-                    onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                    disabled={currentSlide === 0}
-                  />
-                  {slider && (
-                    <div className="dots mx-auto">
-                      {[...Array(slider.details().size).keys()].map((idx) => {
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                              slider.moveToSlideRelative(idx)
-                            }}
-                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
-                          ></button>
-                        )
-                      })}
-                    </div>
-                  )}
-                  <ArrowRight
-                    onClick={(e:any) => e.stopPropagation() || slider.next()}
-                    disabled={currentSlide === slider.details().size - 1}
-                  />
-                </div>
-              )}
+  let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
+            <div className="flex">
+              <img className="mx-auto" src="/assets/img/product1.png" alt="" />
             </div>
-          </>
+            <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+          </div>
+  }) 
+  return <KeenSliderA render_ele = {render_ele} />
 }
 
-const RenderProfileImgSwiper = () => {
+const RenderProfileSwiper = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [profile_img_ref, slider1] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: 3,
+    spacing: 20,
+    loop: true,
+    slideChanged(ss) {
+      console.log("profile img slide changed")
+      setCurrentSlide(ss.details().relativeSlide)
+    }
+  })
   let profile_img_li = ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"]
 
-    const [currentSlide, setCurrentSlide] = useState(0)
-    const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-      slidesPerView: 1,
-      spacing: 20,
-      loop: true,
-      slideChanged(s) {
-        console.log("slide changed")
-        setCurrentSlide(s.details().relativeSlide)
-      }
-    })
-      return <>
+  let render_img_ele = profile_img_li.map((item, index) => {
+    return <div key={'profile_img_' + index} className="keen-slider__slide">
+            <div>
               <div className="flex">
-                <div ref={ele_ref} className="keen-slider mx-auto">
-                  {profile_img_li.map((item, index) => {
-                    return <div key={'profile_img_' + index}>
-                            <div className="">
-                              <div className="flex">
-                                <img className="mx-auto rounded-full opacity-75" src={item} width={90} height={90} alt="" />
-                              </div>
-                            </div>
-                          </div>
-                  })}
-                </div>
-                
+                <img className="mx-auto rounded-full opacity-75" src={item} width={90} height={90} alt="" />
               </div>
-            </>
-}
-
-const RenderProfileDetailSwiper = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-    slidesPerView: 3,
+            </div>
+          </div>
+  })
+  const [profile_detail_ref, slider2] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: 1,
     spacing: 20,
     loop: true,
     slideChanged(s) {
-      console.log("slide changed")
+      console.log("profile detail slide changed")
       setCurrentSlide(s.details().relativeSlide)
     }
   })
-    return <>
-      <div className="flex">
-        <div ref={ele_ref} className="keen-slider mx-auto">
-        {[0, 1, 2, 3, 4].map((item, index) => {
-          return <div key={'profile_detail_' + index}>
+  let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+    return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
-              <div className="text-sm text-center" style={{ lineHeight: 17 + 'px' }}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+              <div className="text-sm text-center leading-14_17">DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
               <div className="flex justify-center mt-7">
                 <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
               </div>
-              <p className="text-sm text-center mt-7 mx-auto" style={{ maxWidth: 426 + 'px' }}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+              <p className="text-sm text-center mt-7 mx-auto max-w-md">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
             </div>
           </div>
-        })}
-        </div>
-      </div>
-    </>
+  })
+  
+  return <div>
+            <div className="mx-auto mt-10 w-96">
+              <div className="relative">
+                <div ref={profile_img_ref} className="keen-slider">
+                  {render_img_ele}
+                </div>
+              </div>
+            </div>
+            <div className="mx-auto mt-10 " style={{ maxWidth: 1094 + 'px' }}>
+              <div className="relative mt-7">
+                <div ref={profile_detail_ref} className="keen-slider">
+                  {render_ele}
+                </div>
+              </div>
+            </div>
+          </div> 
 }
 
 const RenderFAQCollapse = () => {
@@ -421,12 +330,8 @@ export default function Home({
       {/* Reviews part */}
       <div className="py-24 bg-white">
         <div className="leading-36_26 text-c_00080D font-bold text-4xl text-center">Intraline Reviews.</div>
-        <div className="mx-auto mt-10 w-96">
-          {RenderProfileImgSwiper()}
-        </div>
-        <div className="mx-auto mt-10" style={{ maxWidth: 1094 + 'px' }}>
-          {RenderProfileDetailSwiper()}
-        </div>
+        {RenderProfileSwiper()}
+        
       </div>
 
       {/* FAQ part */}

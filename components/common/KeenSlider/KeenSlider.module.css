@@ -1,0 +1,21 @@
+.dots {
+    @apply flex px-2 justify-center;
+}
+  
+.dot {
+    @apply w-2 h-2 bg-transparent rounded-full border border-c_00080D mx-5 my-1 p-1 cursor-pointer;
+}
+
+.dot:focus {
+    @apply outline-none;
+}
+
+.dot.active {
+    @apply bg-c_00080D;
+}
+.arrow {
+    fill: white;
+}
+.arrow--disabled {
+    fill: rgba(255, 255, 255, 0.5);
+}
