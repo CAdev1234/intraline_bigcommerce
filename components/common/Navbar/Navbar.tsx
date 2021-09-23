@@ -21,7 +21,7 @@ interface NavbarProps {
 const renderShopMenu = () => {
   const category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
-    { name: 'Dermal Fillers', link: '/shop/dermalfillers', 
+    { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
       subItem_li: [
         { name: 'M Series', link: '/shop/dermalfiller/mseries'},
         { name: 'Rejuvenation', link: '/shop/dermalfiller/detail'}
@@ -36,7 +36,7 @@ const renderShopMenu = () => {
     { name: 'Skincare', link: '/shop/skincare', 
       subItem_li: []
     },
-    { name: 'Scar Kit', link: '/shop/scarkit'}
+    { name: 'Scar Kit', link: '/'}
   ]
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
