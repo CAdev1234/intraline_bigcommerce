@@ -9,18 +9,18 @@ import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
+import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
 
-// const renderTestimonialSwiper = () => {
-//     return [0, 1, 2, 3, 4].map((item, index) => {
-//       return <SwiperSlide key={'testinominal_' + index}>
-//               <div className="">
-//                 <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-//                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-//               </div>
-//             </SwiperSlide>
-//     })
-// }
+const RenderTestimonialSwiper = () => {
+    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
+                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+            </div>
+    })
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+}
 
 const renderFAQCollapse = () => {
     var items = [
@@ -154,7 +154,7 @@ export default function PDOThreadDetail() {
 
             {/* cart part */}
             <div className="bg-c_C6CBDD w-full relative">
-                <div className="absolute h-full flex flex-col transform -translate-x-2/5">
+                <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-12_5 leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32">
@@ -264,12 +264,9 @@ export default function PDOThreadDetail() {
             {/* Reviews part */}
             <div className="bg-c_C3E0DC py-24">
                 <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Reviews.</div>
-                <div className="mx-172 mt-12">
-                    {/* {renderTestimonialSwiper()} */}
-                </div>
-                <div className="mt-10 flex items-center relative mx-44">
-                    <div className="testimonial-pagination-div flex justify-center"></div>
-                    <div className="absolute left-3/5" style={{top: -120 + 'px'}}>
+                <div className="mx-60 mt-12 relative">
+                    {RenderTestimonialSwiper()}
+                    <div className="absolute right-1/4 bottom-1/4">
                         <QuoteSvg fill="#87C1B9"/>
                     </div>
                 </div>

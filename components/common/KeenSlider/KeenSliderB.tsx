@@ -26,7 +26,7 @@ const ArrowLeft:FC<ArrowProps> = ({disabled, onClick}) => {
 const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
     const disabeld = disabled ? " arrow--disabled" : ""
     return (
-        <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
+        <button onClick={onClick} className={"ml-auto rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
         <svg
             className={"arrow arrow--right w-4 h-4"}
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView}) => {
       spacing: 20,
       loop: true,
       slideChanged(s) {
-        console.log("slide changed")
+        console.log("KeenSliderB changed")
         setCurrentSlide(s.details().relativeSlide)
       }
     })
@@ -58,31 +58,32 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView}) => {
                   {render_ele}
                 </div>
                 {slider && (
-                  <div className="flex items-center">
+                  <div className="flex items-center absolute top-0 w-full">
                     <ArrowLeft
                       onClick={(e:any) => e.stopPropagation() || slider.prev()}
                       disabled={currentSlide === 0}
                     />
-                    {slider && (
-                      <div className="dots mx-auto">
-                        {[...Array(slider.details().size).keys()].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                slider.moveToSlideRelative(idx)
-                              }}
-                              className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
-                            ></button>
-                          )
-                        })}
-                      </div>
-                    )}
+                    
                     <ArrowRight
                       onClick={(e:any) => e.stopPropagation() || slider.next()}
                       disabled={currentSlide === slider.details().size - 1}
                     />
                   </div>
+                )}
+                {slider && (
+                    <div className="dots mx-auto">
+                    {[...Array(slider.details().size).keys()].map((idx) => {
+                        return (
+                        <button
+                            key={idx}
+                            onClick={() => {
+                            slider.moveToSlideRelative(idx)
+                            }}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
+                        ></button>
+                        )
+                    })}
+                    </div>
                 )}
               </div>
             </>

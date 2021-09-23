@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react'
 
 import cn from 'classnames'
 import 'keen-slider/keen-slider.min.css'
-
+import s from './KeenSlider.module.css'
 
 import { useKeenSlider } from 'keen-slider/react'
 
@@ -54,7 +54,7 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele}) => {
         setCurrentSlide(s.details().relativeSlide)
       }
     })
-      return <>
+      return <div className={cn(s.root)}>
               <div className="">
                 <div ref={ele_ref} className="keen-slider">
                   {render_ele}
@@ -74,7 +74,7 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele}) => {
                               onClick={() => {
                                 slider.moveToSlideRelative(idx)
                               }}
-                              className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
+                              className={"dot" + (currentSlide === idx ? " active" : "") + " w-2 h-2"}
                             ></button>
                           )
                         })}
@@ -87,7 +87,7 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele}) => {
                   </div>
                 )}
               </div>
-            </>
+            </div>
   }
 
 export default KeenSliderA

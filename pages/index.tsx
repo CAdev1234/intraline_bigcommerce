@@ -15,7 +15,6 @@ import { useKeenSlider } from 'keen-slider/react'
 import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 
 import { RatingView } from 'react-simple-star-rating'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
 
 export async function getStaticProps({

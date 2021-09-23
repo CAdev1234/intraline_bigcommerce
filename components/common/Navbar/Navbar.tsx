@@ -7,6 +7,7 @@ import { Searchbar, UserNav } from '@components/common'
 import SearchSvg from '@components/icons/SearchSvg'
 import ProfileSvg from '@components/icons/ProfileSvg'
 import CartSvg from '@components/icons/CartSvg'
+import SideCart from '@components/mycp/SideCart'
 
 interface Link {
   href: string
@@ -23,12 +24,12 @@ const renderShopMenu = () => {
     { name: 'Dermal Fillers', link: '/shop/dermalfillers', 
       subItem_li: [
         { name: 'M Series', link: '/shop/dermalfiller/mseries'},
-        { name: 'Rejuvenation', link: '/shop/dermalfiller/mseries'}
+        { name: 'Rejuvenation', link: '/shop/dermalfiller/detail'}
       ]
     },
     { name: 'PDO Threads', link: '/shop/pdothread', 
       subItem_li: [
-        { name: 'The Essentials', link: '/shop/pdothread'},
+        { name: 'The Essentials', link: '/shop/pdothread/detail'},
         { name: 'Lifting Threads', link: '/shop/pdothread/liftingthread'}
       ]
     },
@@ -40,9 +41,13 @@ const renderShopMenu = () => {
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
       <div>
-        <div className="uppercase text-sm tracking-widest leading-14_17 cursor-pointer hover:underline">{item.name}</div>
+        <div className="uppercase text-sm tracking-widest leading-14_17 cursor-pointer hover:underline">
+          <Link href={item.link}>{item.name}</Link>
+        </div>
         {(item.subItem_li || []).map((item1, index1) => {
-          return <div className="text-center text-sm leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>{item1.name}</div>
+          return <div className="text-center text-sm leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>
+                    <Link href={item1.link}>{item1.name}</Link>
+                  </div>
         })}
       </div>
     </div>
@@ -103,6 +108,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
           <Searchbar id="mobile-search" />
         </div>
       </Container>
+      {enableCart && <SideCart />}
     </NavbarRoot>
   )
 }

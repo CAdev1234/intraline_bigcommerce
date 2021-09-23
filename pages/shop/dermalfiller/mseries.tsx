@@ -3,35 +3,29 @@ import React, {useState} from 'react'
 import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, A11y, Autoplay} from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import QuoteSvg from '@components/icons/QuoteSvg'
-SwiperCore.use([Navigation, Pagination])
+import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
-const renderMSeriesSwiper = () => {
-    return [0, 1, 2, 3, 4].map((item, index) => {
-        return <SwiperSlide key={'pdo_thread_' + index}>
-                    <div className="">
-                        <img className="mx-auto" src={"/assets/img/mseries_" + String(item + 1) + ".png"} alt="" />
-                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus | $100.00</div>
-                    </div>
-                </SwiperSlide>
-    })
-}
+// const renderMSeriesSwiper = () => {
+//     return [0, 1, 2, 3, 4].map((item, index) => {
+//         return <SwiperSlide key={'pdo_thread_' + index}>
+//                     <div className="">
+//                         <img className="mx-auto" src={"/assets/img/mseries_" + String(item + 1) + ".png"} alt="" />
+//                         <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus | $100.00</div>
+//                     </div>
+//                 </SwiperSlide>
+//     })
+// }
 
-const renderTestimonialSwiper = () => {
-    return [0, 1, 2, 3, 4].map((item, index) => {
-      return <SwiperSlide key={'testinominal_' + index}>
-              <div className="">
+const RenderTestimonialSwiper = () => {
+    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
                 <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-              </div>
-            </SwiperSlide>
+            </div>
     })
-  }
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+}
 
 
 export default function MSeries() {
@@ -52,21 +46,7 @@ export default function MSeries() {
                     </div>
                     <div className="w-5/12 flex flex-col">
                         <div className="my-auto">
-                            <Swiper 
-                                className="testimonial-carousel" 
-                                slidesPerView={1}
-                                loop={true}
-                                modules={[Navigation, Pagination, A11y, Autoplay]}
-                                pagination={{
-                                    el: '.pdo-thread-pagination-div',
-                                    clickable: true,
-                                }}
-                                navigation= {true}
-                                autoplay={{
-                                    delay: 2000
-                                }}>
-                                {renderMSeriesSwiper()}
-                            </Swiper>
+                            {/* {RenderMSeriesSwiper()} */}
                             <div className="mt-10 flex items-center relative mx-44">
                                 <div className="pdo-thread-pagination-div flex justify-center"></div>
                             </div>
@@ -118,23 +98,9 @@ export default function MSeries() {
             {/* Testimonials part */}
             <div className="bg-c_C3E0DC py-24">
                 <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Testimonials.</div>
-                <div className="mx-172 mt-12">
-                    <Swiper 
-                        className="testimonial-carousel" 
-                        slidesPerView={1} 
-                        modules={[Navigation, Pagination, A11y]}
-                        pagination={{
-                            el: '.testimonial-pagination-div',
-                            clickable: true,
-                        }}
-                        navigation= {true}
-                        loop={true}>
-                        {renderTestimonialSwiper()}
-                    </Swiper>
-                </div>
-                <div className="mt-10 flex items-center relative mx-44">
-                    <div className="testimonial-pagination-div flex justify-center"></div>
-                    <div className="absolute left-3/5" style={{top: -120 + 'px'}}>
+                <div className="mx-60 mt-12 relative">
+                    {RenderTestimonialSwiper()}
+                    <div className="absolute right-1/4 bottom-1/4">
                         <QuoteSvg fill="#87C1B9"/>
                     </div>
                 </div>

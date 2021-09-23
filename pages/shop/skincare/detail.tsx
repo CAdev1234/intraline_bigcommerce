@@ -9,18 +9,18 @@ import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
+import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 
 
-// const renderTestimonialSwiper = () => {
-//     return [0, 1, 2, 3, 4].map((item, index) => {
-//       return <SwiperSlide key={'testinominal_' + index}>
-//               <div className="">
-//                 <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-//                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-//               </div>
-//             </SwiperSlide>
-//     })
-// }
+const RenderTestimonialSwiper = () => {
+    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
+                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+            </div>
+    })
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} />
+}
 
 const renderFAQCollapse = () => {
     var items = [
@@ -131,7 +131,7 @@ export default function SkinCareDetail() {
                         </div>
                     </div>
                     <div className="relative flex flex-col items-center ml-auto my-auto rounded-full bg-c_CCE7EF" style={{height: 576, width: 576}}>
-                        <button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 bg-c_52B5D3 flex justify-center items-center text-lg leading-tight">$100.00</button>
+                        <button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 bg-c_52B5D3 flex justify-center items-center text-lg leading-tight">$100.00</button>
                         <div className="my-auto relative flex flex-col h-3/4">
                             <img className="h-full" src="/assets/img/skincare3.png" alt="" />
                         </div>
@@ -150,15 +150,12 @@ export default function SkinCareDetail() {
                 </div>
             </div>
 
-            {/* Reviews part */}
+            {/* Testimonials part */}
             <div className="bg-c_C6CBDD py-24">
-                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Reviews.</div>
-                <div className="mx-172 mt-12">
-                    {/* {renderTestimonialSwiper()} */}
-                </div>
-                <div className="mt-10 flex items-center relative mx-44">
-                    <div className="testimonial-pagination-div flex justify-center"></div>
-                    <div className="absolute left-3/5" style={{top: -120 + 'px'}}>
+                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Testimonials.</div>
+                <div className="mx-60 mt-12 relative">
+                    {RenderTestimonialSwiper()}
+                    <div className="absolute right-1/4 bottom-1/4">
                         <QuoteSvg fill="#87C1B9"/>
                     </div>
                 </div>

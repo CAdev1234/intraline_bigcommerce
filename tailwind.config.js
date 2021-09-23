@@ -89,7 +89,11 @@ module.exports = {
         '200_160': '0.8', // fontsize:200px;lineheight:160px
       },
       margin: {
-        '172': '172px'
+        '172': '172px',
+        '15': '60px'
+      },
+      padding: {
+        '15': '60px'
       },
       scale: {
         120: '1.2',

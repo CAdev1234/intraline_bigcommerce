@@ -55,7 +55,6 @@ button:focus, input:focus, select:focus {outline: none;}
 }
 
 .dot {
-  border: none;
   width: 10px;
   height: 10px;
   background: transparent;
