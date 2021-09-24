@@ -82,46 +82,80 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 }
 
 const RenderCategorySwiper:FC = () => {
-  const [num_slides, setNumSlides] = useState(4)
-  useEffect(() => {
-    if (window.innerWidth < 768 && window.innerWidth > 640) {
-      setNumSlides(2)
-    }else if (window.innerWidth < 640) {
-      setNumSlides(1)
-    }
-  })
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white" key={index} style={{width:352, minWidth: 352 + ' !important', height:472}}>
             <div className="flex">
               <img className="mx-auto" src="/assets/img/product1.png" alt="" />
             </div>
-            <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+            <div className="mt-auto uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
           </div>
   })
-  return <KeenSliderA render_ele={render_item_ele} slidesPerView={num_slides} navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172"/>
+  return <KeenSliderA render_ele={render_item_ele} slidesPerView={4} navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172 mt-10"/>
 }
 
 
 const RenderProductSwiper:FC = () => {
-  const [num_slides, setNumSlides] = useState(4)
-  useEffect(() => {
-    if (window.innerWidth < 768 && window.innerWidth > 640) {
-      setNumSlides(2)
-    }else if (window.innerWidth < 640) {
-      setNumSlides(1)
-    }
-  })
   let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
-            <div className="flex">
-              <img className="mx-auto" src="/assets/img/product1.png" alt="" />
-            </div>
-            <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+    return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative" key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
+              <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$30.00</div>
+              <div className="flex-1 h-0">
+                  <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
+              </div>
+              <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">intraline masque</div>
+              <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+              <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
+                  <div className="my-auto mx-auto w-10/12">
+                      <div className="flex flex-col">
+                          <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase">learn more</button>
+                          <div className="mt-2 flex items-center h-12 text-white">
+                              <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                  <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                  <div className="mx-auto">1</div>
+                                  <button className="mx-auto bg-transparent border-none p-1">+</button>
+                              </div>
+                              <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
   }) 
-  return <KeenSliderA render_ele = {render_ele} slidesPerView={num_slides} navCss="mx-5 md:mx-172 lg:mx-172 xl:mx-172"/>
+  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-5 md:mx-172 lg:mx-172 xl:mx-172 mt-10"/>
 }
 
+interface ArrowProps{
+  disabled: boolean,
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+}
+const ArrowNavLeft:FC<ArrowProps> = ({disabled, onClick}) => {
+  const disabeld = disabled ? " arrow--disabled" : ""
+  return (
+      <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-50' : '')}>
+        <svg
+            className={"arrow arrow--left w-2 h-2"}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+        </svg>
+      </button>
+  )
+}
+
+const ArrowNavRight:FC<ArrowProps> = ({disabled, onClick}) => {
+  const disabeld = disabled ? " arrow--disabled" : ""
+  return (
+      <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
+      <svg
+          className={"arrow arrow--right w-2 h-2"}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+      >
+          <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      </svg>
+      </button>
+  )
+}
 const RenderProfileSwiper = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [profile_img_ref, slider1] = useKeenSlider<HTMLDivElement>({
@@ -143,7 +177,7 @@ const RenderProfileSwiper = () => {
     return <div key={'profile_img_' + index} className="keen-slider__slide">
             <div>
               <div className="flex">
-                <img className="mx-auto rounded-full opacity-75" src={item} width={90} height={90} alt="" />
+                <img className="mx-auto rounded-full opacity-50" src={item} width={90} height={90} alt="" />
               </div>
             </div>
           </div>
@@ -160,16 +194,16 @@ const RenderProfileSwiper = () => {
   let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
     return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
-              <div className="text-sm text-center leading-14_17">DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-              <div className="flex justify-center mt-7">
+              <div className="text-sm text-center leading-14_17 tracking-widest">DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+              <div className="flex justify-center mt-7_5">
                 <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
               </div>
-              <p className="text-sm text-center mt-7 mx-auto max-w-md">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+              <p className="text-sm text-center leading-14_26 mt-4 mx-auto max-w-md">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
             </div>
           </div>
   })
   
-  return <div>
+  return <div className="relative mx-172">
             <div className="mx-auto mt-10 w-96">
               <div className="relative">
                 <div ref={profile_img_ref} className="keen-slider">
@@ -184,6 +218,38 @@ const RenderProfileSwiper = () => {
                 </div>
               </div>
             </div>
+            {slider1 && (
+                  <div className={`flex items-center`}>
+                    <div className="absolute top-1/3 left-0">
+                      <ArrowNavLeft
+                        onClick={(e:any) => {e.stopPropagation(); slider1.prev(); slider2.prev()}}
+                        disabled={currentSlide === 0}
+                      />
+                    </div>
+                    <div className="absolute top-1/3 right-0">
+                      <ArrowNavRight
+                        onClick={(e:any) => {e.stopPropagation(); slider1.next(); slider2.next()}}
+                        disabled={currentSlide === slider1.details().size - 1}
+                      />
+                    </div>
+                  </div>
+            )}
+            {slider1 && (
+                  <div className="dots mx-auto mt-11">
+                    {[...Array(slider1.details().size).keys()].map((idx) => {
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => {
+                            slider1.moveToSlideRelative(idx);
+                            slider2.moveToSlideRelative(idx);
+                          }}
+                          className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
+                        ></button>
+                      )
+                    })}
+                  </div>
+                )}
           </div> 
 }
 
@@ -231,13 +297,13 @@ const RenderFAQCollapse = () => {
   return items.map((item, index) => {
     return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
       <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => clickChevron(index)}>
-        <div className="text-base pr-5">{item.title}</div>
+        <div className="ttcommon_font_thin text-base pr-5 leading-14_17 text-c_00080D">{item.title}</div>
         <div className="ml-auto">
           {renderChevronUpDown(index)}
         </div>
       </div>
       <div>
-        {enable_faq[index] && <div className="text-sm pt-5">{item.detail}</div>}
+        {enable_faq[index] && <div className="ttcommon_font_thin text-sm pt-5 leading-14_26 text-c_00080D">{item.detail}</div>}
       </div>
     </div>
   })
@@ -298,7 +364,7 @@ export default function Home({
       <div className="z-50 text-white font-bold flex
                       -mt-20 md:-mt-32 lg:-mt-32 xl:-mt-32
                       mx-5 md:mx-15 lg:mx-172 xl:mx-172">
-        <div className="text-4xl">Our Categories.</div>
+        <div className="text-4xl leading-36_26">Our Categories.</div>
         <div className="flex items-center ml-auto">
           <div className="">Explore All</div>
           <div className="ml-2">
@@ -314,12 +380,12 @@ export default function Home({
       </div>
 
 
-      {/* learn more part */}
+      {/* about us part */}
       <div className="mt-20 bg-white text-center py-24 relative" style={{ height: 469 + 'px' }}>
         <div className="flex flex-col h-full">
           <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
-          <p className="my-auto text-c_00080D text-4xl mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
-          <button className="w-52 h-11 uppercase bg-c_00090D flex justify-center items-center text-white text-sm mx-auto my-auto">learn more</button>
+          <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
+          <button className="w-52 h-11 uppercase bg-c_00090D flex justify-center items-center text-white text-sm tracking-widest mx-auto my-auto">About us</button>
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto lg:w-auto xl:w-auto">
@@ -336,7 +402,7 @@ export default function Home({
         <div className="mx-10 md:mx-60 lg:mx-60 xl:mx-60 flex items-center">
           <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
           <div className="flex items-center ml-auto">
-            <div className="leading-36_26 font-bold text-lg">See All</div>
+            <div className=" leading-snug font-bold text-lg">See All</div>
             <div className="ml-2">
               <ChevronRight className="h-4 w-4" />
             </div>

@@ -103,12 +103,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
                     </a>
                   </Link>
                   <p className="textellipsis_4 leading-14_26 text-white text-sm">We believe confidence is created  in many forms and looks different for everyone. We believe in individuality. Intraline is a family owned, innovative aesthetics company comitted to your overall health and well-being: both inside and out. We belive that confidence is ageless.</p>
-                  <div className="text-white text-sm mt-4">2021 Intraline. All rights reserved.</div>
+                  <div className="text-white text-sm mt-5">2021 Intraline. All rights reserved.</div>
                 </div>
                 <div className="ml-auto flex flex-col
                                 w-5/12 md:w-4/12 lg:w-4/12 xl:w-4/12">
                   <Link href="/">
-                    <div className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Infraline</div>
+                    <div className="uppercase text-white text-sm tracking-widest flex items-center h-15">Infraline</div>
                   </Link>
                   <div className="mb-auto">
                     <Link href="/">

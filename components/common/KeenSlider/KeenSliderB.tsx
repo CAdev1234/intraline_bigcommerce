@@ -48,9 +48,28 @@ interface KeenSliderBProps{
 const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-      slidesPerView: slidesPerView,
+      // slidesPerView: 3,
       spacing: 20,
-      loop: true,
+      loop: false,
+      mode: 'free',
+      breakpoints: {
+        '(max-width: 600px)': {
+          slidesPerView: 1
+        },
+        '(min-width: 600px) and (max-width: 960px)': {
+          slidesPerView: 2
+        },
+        '(min-width: 960px) and (max-width: 1264px)': {
+          slidesPerView: 3
+        },
+        '(min-width: 1264px) and (max-width: 1904px)': {
+          slidesPerView: 4
+        },
+        '(min-width: 1904px)': {
+          slidesPerView: 5
+        },
+      },
+      resetSlide: true,
       slideChanged(s) {
         console.log("KeenSliderB changed")
         setCurrentSlide(s.details().relativeSlide)
@@ -86,7 +105,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
                             onClick={() => {
                             slider.moveToSlideRelative(idx)
                             }}
-                            className={"dot" + (currentSlide === idx ? " active" : "") + " h-4 w-4"}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
                         ></button>
                         )
                     })}
