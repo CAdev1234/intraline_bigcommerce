@@ -17,7 +17,7 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true}  navCss={"-mt-5"}/>
+    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-0 left-0"} nextNavCss={"top-0 right-0"}/>
 }
 
 
@@ -135,7 +135,8 @@ export default function DemeralFiller() {
 
             {/* FAQ part */}
             <div className="bg-white">
-                <div className="mx-60 py-24">
+                <div className="mx-15 lg:mx-60 xl:mx-60 
+                                py-24">
                     <div className="flex text-c_00080D mb-2">
                         <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
                         <div className="flex items-center ml-auto">

@@ -40,10 +40,12 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 interface KeenSliderBProps{
     render_ele: JSX.Element[],
     slidesPerView: number,
-    navCss: string,
+    prevNavCss: string,
+    nextNavCss: string,
+
     enableDot: boolean
 }
-const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, navCss, enableDot}) => {
+const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
       slidesPerView: slidesPerView,
@@ -55,25 +57,28 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, navCss, e
       }
     })
       return <>
-              <div className="relative">
+              <div className="relative z-10">
                 <div ref={ele_ref} className="keen-slider">
                   {render_ele}
                 </div>
                 {slider && (
-                  <div className={`flex items-center absolute top-0 w-full h-full ${navCss}`}>
-                    <ArrowLeft
-                      onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                      disabled={currentSlide === 0}
-                    />
-                    
-                    <ArrowRight
-                      onClick={(e:any) => e.stopPropagation() || slider.next()}
-                      disabled={currentSlide === slider.details().size - 1}
-                    />
+                  <div className={``}>
+                    <div className={`absolute ${prevNavCss}`}>
+                      <ArrowLeft
+                        onClick={(e:any) => e.stopPropagation() || slider.prev()}
+                        disabled={currentSlide === 0}
+                      />
+                    </div>
+                    <div className={`absolute ${nextNavCss}`}>
+                      <ArrowRight
+                        onClick={(e:any) => e.stopPropagation() || slider.next()}
+                        disabled={currentSlide === slider.details().size - 1}
+                      />
+                    </div>
                   </div>
                 )}
                 {slider && enableDot && (
-                    <div className="dots mx-auto">
+                    <div className={`dots mx-auto`}>
                     {[...Array(slider.details().size).keys()].map((idx) => {
                         return (
                         <button

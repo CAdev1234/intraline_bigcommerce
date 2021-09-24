@@ -6,7 +6,7 @@ import { Grid, Marquee, Hero } from '@components/ui'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { ChevronDown, ChevronRight, ChevronUp } from '@components/icons'
 
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -81,7 +81,15 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
   )
 }
 
-const RenderCategorySwiper = () => {
+const RenderCategorySwiper:FC = () => {
+  const [num_slides, setNumSlides] = useState(4)
+  useEffect(() => {
+    if (window.innerWidth < 768 && window.innerWidth > 640) {
+      setNumSlides(2)
+    }else if (window.innerWidth < 640) {
+      setNumSlides(1)
+    }
+  })
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
     return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
             <div className="flex">
@@ -90,11 +98,19 @@ const RenderCategorySwiper = () => {
             <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
           </div>
   })
-  return <KeenSliderA render_ele={render_item_ele} slidesPerView={4} navCss="mr-172"/>
+  return <KeenSliderA render_ele={render_item_ele} slidesPerView={num_slides} navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172"/>
 }
 
 
-const RenderProductSwiper = () => {
+const RenderProductSwiper:FC = () => {
+  const [num_slides, setNumSlides] = useState(4)
+  useEffect(() => {
+    if (window.innerWidth < 768 && window.innerWidth > 640) {
+      setNumSlides(2)
+    }else if (window.innerWidth < 640) {
+      setNumSlides(1)
+    }
+  })
   let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
     return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white max-w-sm" key={index}>
             <div className="flex">
@@ -103,7 +119,7 @@ const RenderProductSwiper = () => {
             <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
           </div>
   }) 
-  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-172"/>
+  return <KeenSliderA render_ele = {render_ele} slidesPerView={num_slides} navCss="mx-5 md:mx-172 lg:mx-172 xl:mx-172"/>
 }
 
 const RenderProfileSwiper = () => {
@@ -215,7 +231,7 @@ const RenderFAQCollapse = () => {
   return items.map((item, index) => {
     return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
       <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => clickChevron(index)}>
-        <div className="text-base">{item.title}</div>
+        <div className="text-base pr-5">{item.title}</div>
         <div className="ml-auto">
           {renderChevronUpDown(index)}
         </div>
@@ -279,7 +295,9 @@ export default function Home({
       /> */}
 
     <img className="w-full" src="/assets/img/home-part1-bg.png"></img>
-      <div className="z-50 text-white font-bold -mt-32 mx-172 flex">
+      <div className="z-50 text-white font-bold flex
+                      -mt-20 md:-mt-32 lg:-mt-32 xl:-mt-32
+                      mx-5 md:mx-15 lg:mx-172 xl:mx-172">
         <div className="text-4xl">Our Categories.</div>
         <div className="flex items-center ml-auto">
           <div className="">Explore All</div>
@@ -290,8 +308,9 @@ export default function Home({
       </div>
 
       {/* our category part */}
-      <div className="mt-10 ml-172">
-        {RenderCategorySwiper()}
+      <div className="mt-4 md:mt-10 lg:mt-10 xl:mt-10
+                      sm:ml-5 md:ml-15 lg:ml-172 xl:ml-172">
+        <RenderCategorySwiper />
       </div>
 
 
@@ -302,17 +321,19 @@ export default function Home({
           <p className="my-auto text-c_00080D text-4xl mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <button className="w-52 h-11 uppercase bg-c_00090D flex justify-center items-center text-white text-sm mx-auto my-auto">learn more</button>
         </div>
-        <div className="absolute top-0 left-0">
+        <div className="absolute top-0 left-0
+                        w-52 md:w-auto lg:w-auto xl:w-auto">
           <img src="/assets/img/triple_red.png" alt="" />
         </div>
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute bottom-0 right-0
+                        w-52 md:w-auto lg:w-auto xl:w-auto">
           <img src="/assets/img/triple_blue.png" alt="" />
         </div>
       </div>
 
       {/* Feature products part */}
       <div className="bg-c_C6CBDD py-24">
-        <div className="mx-60 flex">
+        <div className="mx-10 md:mx-60 lg:mx-60 xl:mx-60 flex items-center">
           <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
           <div className="flex items-center ml-auto">
             <div className="leading-36_26 font-bold text-lg">See All</div>
@@ -322,7 +343,7 @@ export default function Home({
           </div>
         </div>
         <div className="mt-10">
-          {RenderProductSwiper()}
+          <RenderProductSwiper />
         </div>
       </div>
 
@@ -335,7 +356,8 @@ export default function Home({
 
       {/* FAQ part */}
       <div className="bg-c_C3E0DC">
-        <div className="mx-60 py-24">
+        <div className="mx-10 md:mx-60 lg:mx-60 xl:mx-60 
+                        py-24">
           <div className="flex text-c_00080D mb-2">
             <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
             <div className="flex items-center ml-auto">
@@ -345,7 +367,6 @@ export default function Home({
               </div>
             </div>
           </div>
-
           {RenderFAQCollapse()}
         </div>
       </div>

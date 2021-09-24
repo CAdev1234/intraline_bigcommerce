@@ -110,7 +110,7 @@ const Layout: FC<Props> = ({
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
         {/* <Navbar links={navBarlinks} /> */}
-        {current_url === '/' ? <Navbar c_name="bg-transparent"/> : <Navbar c_name="bg-black"/>}
+        <Navbar c_name="bg-c_00080D"/>
         <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />
         <ModalUI />

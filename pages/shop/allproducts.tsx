@@ -3,7 +3,7 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 
 
-import { useRef, useState } from 'react'
+import { FC, useRef, useState, useEffect } from 'react'
 
 
 
@@ -16,7 +16,18 @@ import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 
 
 
-const renderCategorySwiper = () => {
+const RenderCategorySwiper:FC = () => {
+    const [num_slides, setNumSlides] = useState(4)
+    useEffect(() => {
+        if (window.innerWidth > 768 && window.innerWidth < 1024) {
+            setNumSlides(3)
+        }
+        else if (window.innerWidth < 768 && window.innerWidth > 640) {
+        setNumSlides(2)
+        }else if (window.innerWidth < 640) {
+        setNumSlides(1)
+        }
+    })
     var render_ele = [
         { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
         { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
@@ -35,7 +46,7 @@ const renderCategorySwiper = () => {
                     </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={4} navCss={"mr-172"}/>
+    return <KeenSliderA render_ele={render_ele} slidesPerView={num_slides} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172"}/>
 }
 
 const renderProducts = () => {
@@ -77,10 +88,11 @@ export default function AllProducts() {
 
             {/* our category part */}
             <div className="relative bg-c_CCE7EF w-full flex flex-col" style={{ height: 900 + 'px' }}>
-                <div className="ml-172 my-auto">
+                <div className="my-auto
+                                ml-10 lg:ml-28 xl:ml-172 2xl:ml-172">
                     <div className="ttcommon_font_bold text-4xl leading-36_26">Our Categories.</div>
                     <div className="mt-10">
-                        {renderCategorySwiper()}
+                        <RenderCategorySwiper />
                     </div>
                     <div className="mt-10 flex items-center relative mx-60">
                         <div className="swiper-button-prev absolute"></div>
@@ -94,7 +106,8 @@ export default function AllProducts() {
 
             {/* Products part */}
             <div className="bg-c_C6CBDD py-24 flex flex-col">
-                <div className="mx-172 flex items-center text-sm tracking-widest uppercase">
+                <div className="flex items-center text-sm tracking-widest uppercase
+                                mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     <div className="">SHOWING All products <span className="ttcommon_font_bold">(250)</span></div>
                     <div className="flex items-center ml-auto">
                         <div className="">Filter</div>
@@ -109,7 +122,8 @@ export default function AllProducts() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-10 mx-172 grid grid-cols-3 gap-5">
+                <div className="mt-10 grid grid-cols-3 gap-5
+                                mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     {renderProducts()}
                 </div>
                 <div className="mt-20 flex items-center mx-auto">

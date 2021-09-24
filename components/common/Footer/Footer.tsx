@@ -180,7 +180,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
                     </Link>
                   </div>
                 </div>
-                <div className="w-5/12 md:w-8/12 lg:w-8/12 xl:w-8/12 flex flex-col">
+                <div className="flex flex-col ml-auto
+                                w-5/12 md:w-8/12 lg:w-8/12 xl:w-8/12">
                   <Link href="/">
                     <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Subscribe to our newsletter</a>
                   </Link>
