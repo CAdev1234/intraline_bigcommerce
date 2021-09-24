@@ -83,7 +83,7 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 
 const RenderCategorySwiper:FC = () => {
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white" key={index} style={{width:352, minWidth: 352 + ' !important', height:472}}>
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white" key={index} style={{width:352, minWidth: 352 + 'px !important', height:472}}>
             <div className="flex">
               <img className="mx-auto" src="/assets/img/product1.png" alt="" />
             </div>
@@ -177,7 +177,7 @@ const RenderProfileSwiper = () => {
     return <div key={'profile_img_' + index} className="keen-slider__slide">
             <div>
               <div className="flex">
-                <img className="mx-auto rounded-full opacity-50" src={item} width={90} height={90} alt="" />
+                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25' : 'opacity-50 w-22_5') + ' mx-auto rounded-full'} src={item} width={90} height={90} alt="" />
               </div>
             </div>
           </div>
@@ -189,6 +189,7 @@ const RenderProfileSwiper = () => {
     slideChanged(s) {
       console.log("profile detail slide changed")
       setCurrentSlide(s.details().relativeSlide)
+      
     }
   })
   let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -206,7 +207,7 @@ const RenderProfileSwiper = () => {
   return <div className="relative mx-172">
             <div className="mx-auto mt-10 w-96">
               <div className="relative">
-                <div ref={profile_img_ref} className="keen-slider">
+                <div ref={profile_img_ref} className="keen-slider flex items-center">
                   {render_img_ele}
                 </div>
               </div>
@@ -243,6 +244,7 @@ const RenderProfileSwiper = () => {
                           onClick={() => {
                             slider1.moveToSlideRelative(idx);
                             slider2.moveToSlideRelative(idx);
+                            
                           }}
                           className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
                         ></button>
