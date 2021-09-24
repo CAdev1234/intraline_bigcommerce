@@ -162,9 +162,14 @@ const RenderProfileSwiper = () => {
     slidesPerView: 3,
     spacing: 20,
     loop: true,
-    slideChanged(ss) {
+    controls: false,
+    slideChanged(s) {
       console.log("profile img slide changed")
-      setCurrentSlide(ss.details().relativeSlide)
+      setCurrentSlide(s.details().relativeSlide)
+      // slider2.moveToSlide(currentSlide)
+    },
+    afterChange(s) {
+      console.log("beforeChange event")
     }
   })
   let profile_img_li = ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
@@ -177,7 +182,7 @@ const RenderProfileSwiper = () => {
     return <div key={'profile_img_' + index} className="keen-slider__slide">
             <div>
               <div className="flex">
-                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25' : 'opacity-50 w-22_5') + ' mx-auto rounded-full'} src={item} width={90} height={90} alt="" />
+                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25' : 'opacity-50 w-22_5') + ' mx-auto rounded-full'} src={item} alt="" />
               </div>
             </div>
           </div>
@@ -186,12 +191,17 @@ const RenderProfileSwiper = () => {
     slidesPerView: 1,
     spacing: 20,
     loop: true,
+    controls: false,
     slideChanged(s) {
       console.log("profile detail slide changed")
       setCurrentSlide(s.details().relativeSlide)
+      // slider1.moveToSlide(s.details().relativeSlide)
       
     }
   })
+
+
+
   let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
     return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
@@ -219,7 +229,7 @@ const RenderProfileSwiper = () => {
                 </div>
               </div>
             </div>
-            {slider1 && (
+            {slider1 && slider2 && (
                   <div className={`flex items-center`}>
                     <div className="absolute top-1/3 left-0">
                       <ArrowNavLeft
@@ -235,7 +245,7 @@ const RenderProfileSwiper = () => {
                     </div>
                   </div>
             )}
-            {slider1 && (
+            {slider1 && slider2 && (
                   <div className="dots mx-auto mt-11">
                     {[...Array(slider1.details().size).keys()].map((idx) => {
                       return (
@@ -244,7 +254,6 @@ const RenderProfileSwiper = () => {
                           onClick={() => {
                             slider1.moveToSlideRelative(idx);
                             slider2.moveToSlideRelative(idx);
-                            
                           }}
                           className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
                         ></button>
