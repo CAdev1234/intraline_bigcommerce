@@ -48,12 +48,12 @@ const RenderPDOThreads = () => {
 export default function SkinCareDetail() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
                 <div className="flex my-auto w-full h-full z-10">
                     <div className="flex flex-col ml-15 max-w-xl">
                         <div className="my-auto">
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Restorative</div>
-                            <div className="ttcommon_font_thin text-120 font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Moisturizer</span></div>
+                            <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Moisturizer</span></div>
                             <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Sed ut perspiciatis unde omnis iste.</div>
                             <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                             <div className="ttcommon_font_bold mt-5 flex items-center">

@@ -54,7 +54,7 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) =
       spacing: 20,
       loop: true,
       // duration: 1000,
-      mode: 'free-snap',
+      mode: 'snap',
       breakpoints: {
         '(max-width: 600px)': {
           slidesPerView: 1

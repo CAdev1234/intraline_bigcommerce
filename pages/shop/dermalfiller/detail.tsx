@@ -89,12 +89,12 @@ const RenderMseries = () => {
 export default function DermalFillerDetail() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="relative bg-c_CCE7EF w-full flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-c_CCE7EF w-full flex flex-col">
                 <div className="flex my-auto w-full h-full z-10">
                     <div className="w-6/12 flex flex-col pl-15">
                         <div className="my-auto">
                             <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                            <div className="ttcommon_font_thin text-12_5 leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
+                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
                             <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
                             <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                             <div className="ttcommon_font_bold mt-5 flex items-center">
@@ -136,7 +136,7 @@ export default function DermalFillerDetail() {
             {/* cart part */}
             <div className="bg-c_C6CBDD w-full relative">
                 <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
-                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-12_5 leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
+                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32">
                     <div className="w-full flex items-center">
@@ -207,7 +207,7 @@ export default function DermalFillerDetail() {
                         </div>
                         <div className="w-1/2">
                             <div className="ttcommon_font_thin text-4xl leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
-                            <div className="ttcommon_font_bold mt-12 text-4xl leading-36_26">Rheology.</div>
+                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Rheology.</div>
                             <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
                         </div>
                     </div>
@@ -218,16 +218,6 @@ export default function DermalFillerDetail() {
             
             
             {/* Reviews part */}
-            <div className="bg-white py-24">
-                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Reviews.</div>
-                <div className="mx-60 mt-12 relative">
-                    {RenderTestimonialSwiper()}
-                    <div className="absolute right-1/4 bottom-1/4">
-                        <QuoteSvg fill="#CCE7EF"/>
-                    </div>
-                </div>
-            </div>
-
             <TestimonialCp 
                 head_line={"Reviews."} 
                 bg_color={"bg-white"} 

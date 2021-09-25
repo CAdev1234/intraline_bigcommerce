@@ -25,7 +25,7 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
     })
     return <div className={`py-24 ${bg_color}`}>
                 <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">{head_line}</div>
-                    <div className="mt-12 relative
+                    <div className="mt-12_5 relative
                                     mx-5 sm:mx-10 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
                         <KeenSliderB 
                             render_ele={render_ele} 

@@ -60,11 +60,11 @@ const RenderFAQCollapse = () => {
 export default function DemeralFiller() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="relative bg-c_CCE7EF w-full px-15 pb-32 flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-c_CCE7EF w-full px-15 pb-32 flex flex-col">
                 <div className="flex my-auto w-full items-end">
                     <div className="w-1/2">
-                        <div className="ttcommon_font_thin font-semibold text-12_5 leading-200_160">Dermal</div>
-                        <div className="ttcommon_font_bold text-12_5 leading-200_160" >Fillers</div>
+                        <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Dermal</div>
+                        <div className="ttcommon_font_bold text-200px leading-200_160" >Fillers</div>
                     </div>
                     <div className="w-1/2 text-4xl leading-36_48 ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
@@ -80,9 +80,9 @@ export default function DemeralFiller() {
                     <div className="w-1/2 mr-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The Essential Series.</div>
                         <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-15 justify-center items-end">
+                            <div className="flex h-full px-5 justify-center items-end w-full">
                                 {[1, 2, 3].map((item, index) => {
-                                    return <div key={index} className="flex flex-col" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
+                                    return <div key={index} className="flex flex-col w-5/12" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
                                                 <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
                                             </div>
                                 })}
@@ -96,9 +96,9 @@ export default function DemeralFiller() {
                     <div className="w-1/2 ml-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The M Series.</div>
                         <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-15 justify-center items-end">
+                            <div className="flex h-full px-5 justify-center items-end w-full">
                                 {[4, 5, 6].map((item, index) => {
-                                    return <div key={index} className="flex flex-col" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
+                                    return <div key={index} className="flex flex-col w-5/12" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
                                                 <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
                                             </div>
                                 })}

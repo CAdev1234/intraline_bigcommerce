@@ -251,8 +251,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <div className="mr-auto text_overflow_one_line text">+1 (778) 738-0351</div>
             <div className="flex items-center ml-auto">
               <label htmlFor="" className="text_overflow_one_line">Payment Methods:</label>
-              <img className="ml-5" src="../assets/img/master_card.png" alt="" />
-              <img className="ml-5" src="../assets/img/visa.png" alt="" />
+              <img className="ml-5" src="/assets/img/master_card.png" alt="" />
+              <img className="ml-5" src="/assets/img/visa.png" alt="" />
             </div>
           </div>
         </div>

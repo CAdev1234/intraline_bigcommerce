@@ -68,12 +68,12 @@ const renderPDOThreads = () => {
 export default function PDOThreadDetail() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="relative bg-c_F5DBDD w-full flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
                 <div className="flex my-auto w-full h-full z-10">
                     <div className="w-6/12 flex flex-col ml-172">
                         <div className="my-auto">
                             <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
-                            <div className="ttcommon_font_thin text-12_5 leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
+                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
                             <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
                             <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                             <div className="ttcommon_font_bold mt-5 flex items-center">
@@ -115,7 +115,7 @@ export default function PDOThreadDetail() {
             {/* cart part */}
             <div className="bg-c_C6CBDD w-full relative">
                 <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
-                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-12_5 leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
+                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32">
                     <div className="w-full flex items-center">
@@ -177,7 +177,7 @@ export default function PDOThreadDetail() {
                         </div>
                         <div className="w-1/2">
                             <div className="ttcommon_font_thin text-4xl leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
-                            <div className="ttcommon_font_bold mt-12 text-4xl leading-36_26">Dimension 720 Offerings.</div>
+                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Dimension 720 Offerings.</div>
                             <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                         </div>
                     </div>

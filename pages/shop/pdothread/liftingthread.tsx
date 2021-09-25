@@ -34,12 +34,12 @@ const renderLiftingThreadSwiper = () => {
 export default function LiftingThread() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="relative bg-c_F5DBDD w-full flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
                 <div className="flex my-auto w-full h-full px-15 z-10">
                     <div className="w-7/12 flex flex-col">
                         <div className="my-auto">
-                            <div className="ttcommon_font_thin text-12_5 leading-200_160 font-semibold">Lifting</div>
-                            <div className="ttcommon_font_bold text-12_5 leading-200_160" >Threads</div>
+                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">Lifting</div>
+                            <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
                         </div>
                     </div>
                     <div className="w-5/12 flex flex-col">

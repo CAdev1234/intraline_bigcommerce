@@ -44,11 +44,11 @@ const RenderFAQCollapse = () => {
 export default function SkinCare() {
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="bg-c_C6CBDD w-full px-15 pb-32 flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
                 <div className="flex items-end my-auto w-full">
                     <div className="w-1/2">
-                        <div className="ttcommon_font_thin font-semibold text-12_5 leading-200_160">Skin</div>
-                        <div className="ttcommon_font_bold text-12_5 leading-200_160" >Care</div>
+                        <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Skin</div>
+                        <div className="ttcommon_font_bold text-200px leading-200_160" >Care</div>
                     </div>
                     <div className="w-1/2 text-4xl ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
                         Immerse your skin in intense moisture while smoothing, tightening & rejuvenating.
@@ -112,7 +112,7 @@ export default function SkinCare() {
             {/* cart part */}
             <div className="bg-c_CCE7EF w-full relative">
                 <div className="absolute h-full flex flex-col" style={{left: -20 + '%'}}>
-                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_99CEE0 text-12_5 leading-200_160" style={{transformOrigin: 'center'}}>Skincare</div>
+                    <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_99CEE0 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Skincare</div>
                 </div>
                 <div className="ml-172 mr-15 my-32">
                     <div className="w-full flex items-center">
@@ -148,7 +148,7 @@ export default function SkinCare() {
                             
                         </div>
                         <div className="w-1/2">
-                            <div className="ttcommon_font_bold mt-12 text-4xl leading-36_48">What is Sea Bucktorn?</div>
+                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is Sea Bucktorn?</div>
                             <div className="ttcommon_font_thin mt-5 text-sm leading-14_26">Sea Buckthorn is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.</div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const renderPDOThreadSwiper = () => {
 export default function PDOThread() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="relative bg-white w-full flex flex-col" style={{height: 900 + 'px'}}>
+            <div className="h-225 relative bg-white w-full flex flex-col">
                 <div className="absolute w-full h-full flex">
                     <div className="w-5/12 h-full"></div>
                     <div className="w-7/12 h-full bg-c_F5DBDD"></div>
@@ -39,8 +39,8 @@ export default function PDOThread() {
                 <div className="flex my-auto w-full h-full px-15 z-10">
                     <div className="w-7/12 flex flex-col">
                         <div className="my-auto">
-                            <div className="ttcommon_font_thin text-12_5 leading-200_160 font-semibold">PDO</div>
-                            <div className="ttcommon_font_bold text-12_5 leading-200_160" >Threads</div>
+                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">PDO</div>
+                            <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
                             <div className="leading-36_48 ttcommon_font_thin w-7/12 font-semibold mt-8 mx-auto text-4xl text-c_00080D">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                         </div>
                     </div>
