@@ -59,7 +59,7 @@ export default function AboutUs() {
                         return <div key={`our_sec_${index}`}>
                                     <div className="ttcommon_font_bold leading-36_48 text-4xl">{item.title}</div>
                                     <div className="mt-7_5">
-                                        <img src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
+                                        <img className="w-full" src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
                                     </div>
                                     <div className="mt-7_5 ttcommon_font_thin text-sm leading-14_26">{item.detail}</div>
                                 </div>
