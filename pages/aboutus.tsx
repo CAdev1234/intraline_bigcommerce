@@ -15,7 +15,7 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 
 
-export default function ContactUs() {
+export default function AboutUs() {
     const our_sec = [
         {
             title: 'Education.',
@@ -37,7 +37,7 @@ export default function ContactUs() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="relative w-full flex flex-col">
-                <img className="w-full" src="/assets/img/contactus_banner.png" alt="" />
+                <img className="w-full" src="/assets/img/aboutus_banner.png" alt="" />
             </div>
 
             {/* Confidence is Ageless. */}
@@ -59,7 +59,7 @@ export default function ContactUs() {
                         return <div key={`our_sec_${index}`}>
                                     <div className="ttcommon_font_bold leading-36_48 text-4xl">{item.title}</div>
                                     <div className="mt-7_5">
-                                        <img src={`/assets/img/contactus_sec_${index + 1}.png`} alt="" />
+                                        <img src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
                                     </div>
                                     <div className="mt-7_5 ttcommon_font_thin text-sm leading-14_26">{item.detail}</div>
                                 </div>
@@ -113,4 +113,4 @@ export default function ContactUs() {
     )
 }
 
-ContactUs.Layout = Layout
+AboutUs.Layout = Layout
