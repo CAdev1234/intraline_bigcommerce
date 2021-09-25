@@ -123,7 +123,8 @@ export default function AllProducts() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-10 grid grid-cols-3 gap-5
+                <div className="mt-10 grid gap-5
+                                grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     {renderProducts()}
                 </div>
