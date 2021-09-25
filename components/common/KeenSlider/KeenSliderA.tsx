@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useEffect, useRef, useState} from 'react'
 
 import cn from 'classnames'
 import 'keen-slider/keen-slider.min.css'
@@ -47,10 +47,13 @@ interface KeenSliderProps{
 }
 const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+    // const [pause, setPause] = useState(false)
+    
+    const [slider_ref, slider] = useKeenSlider<HTMLDivElement>({
       // slidesPerView: 3,
       spacing: 20,
       loop: true,
+      // duration: 1000,
       mode: 'free-snap',
       breakpoints: {
         '(max-width: 600px)': {
@@ -72,42 +75,69 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) =
       slideChanged(s) {
         console.log("slide changed")
         setCurrentSlide(s.details().relativeSlide)
-      }
+      },
+      // dragStart: () => {
+      //   setPause(true)
+      // },
+      // dragEnd: () => {
+      //   setPause(false)
+      // }
     })
-      return <div className={cn(s.root)}>
-              <div className="">
-                <div ref={ele_ref} className="keen-slider">
-                  {render_ele}
-                </div>
-                {slider && (
-                  <div className={`${navCss} flex items-center`}>
-                    <ArrowLeft
-                      onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                      disabled={currentSlide === 0}
-                    />
-                    {slider && (
-                      <div className="dots mx-auto">
-                        {[...Array(slider.details().size).keys()].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                slider.moveToSlideRelative(idx)
-                              }}
-                              className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
-                            ></button>
-                          )
-                        })}
-                      </div>
-                    )}
-                    <ArrowRight
-                      onClick={(e:any) => e.stopPropagation() || slider.next()}
-                      disabled={currentSlide === slider.details().size - 1}
-                    />
-                  </div>
-                )}
+
+    // useEffect(() => {
+    //   slider_ref.current?.addEventListener("mouseover", () => {
+    //     setPause(true)
+    //   })
+    //   slider_ref.current?.addEventListener("mouseout", () => {
+    //     setPause(false)
+    //   })
+    // }, [slider_ref])
+
+    // useEffect(() => {
+    //   const timer: ReturnType<typeof setInterval> = setInterval(() => {
+    //     if(!pause && slider) {
+    //       slider.next()
+    //     }
+    //   }, 2000)
+    //   return () => {
+    //     clearInterval(timer)
+    //   }
+    // }, [pause, slider])
+
+    return <div className={cn(s.root)}>
+            <div className="">
+              <div ref={slider_ref} className="keen-slider">
+                {render_ele}
               </div>
+              {slider && (
+                <div className={`${navCss} flex items-center`}>
+                  <ArrowLeft
+                    onClick={(e:any) => e.stopPropagation() || slider.prev()}
+                    disabled={currentSlide === 0}
+                  />
+                  {slider && (
+                    <div className="dots mx-auto">
+                      {[...Array(slider.details().size).keys()].map((idx) => {
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              slider.moveToSlideRelative(idx)
+                            }}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
+                          ></button>
+                        )
+                      })}
+                    </div>
+                  )}
+                  <ArrowRight
+                    onClick={(e:any) => e.stopPropagation() || slider.next()}
+                    disabled={currentSlide === slider.details().size - 1}
+                  />
+                </div>
+              )}
             </div>
+          </div>
   }
 
 export default KeenSliderA

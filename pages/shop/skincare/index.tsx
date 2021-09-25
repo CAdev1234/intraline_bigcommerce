@@ -9,23 +9,9 @@ import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
+import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 
-const RenderTestimonialSwiper = () => {
-    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
-      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
-                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-            </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={1} 
-                enableDot={true} 
-                prevNavCss={"top-0 left-0"} 
-                nextNavCss={"top-0 right-0"}
-                dotCss={"mt-7_5"}/>
-}
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -171,15 +157,11 @@ export default function SkinCare() {
             </div>
 
             {/* testimonial part */}
-            <div className="bg-white py-24">
-                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Testimonials.</div>
-                <div className="mx-60 mt-12 relative">
-                    {RenderTestimonialSwiper()}
-                    <div className="absolute right-1/4 bottom-1/4">
-                        <QuoteSvg fill="#C6CBDD"/>
-                    </div>
-                </div>
-            </div>
+            <TestimonialCp
+                head_line={"Testimonials."} 
+                bg_color={"bg-white"} 
+                quote_color={"#C6CBDD"} 
+                testimonial_li={[0,1,2,3,4]}/>
 
             {/* FAQ part */}
             <div className="bg-c_C3E0DC">

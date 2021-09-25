@@ -9,23 +9,24 @@ import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
+import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 
-const RenderTestimonialSwiper = () => {
-    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
-      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
-                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-            </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={1} 
-                enableDot={true} 
-                prevNavCss={"top-0 left-0"} 
-                nextNavCss={"top-0 right-0"} 
-                dotCss={"mt-7_5"}/>
-}
+// const RenderTestimonialSwiper = () => {
+//     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+//       return <div className="keen-slider__slide" key={`testimonial_${index}`}>
+//                 <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+//                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+//             </div>
+//     })
+//     return <KeenSliderB 
+//                 render_ele={render_ele} 
+//                 slidesPerView={1} 
+//                 enableDot={true} 
+//                 prevNavCss={"top-0 left-0"} 
+//                 nextNavCss={"top-0 right-0"} 
+//                 dotCss={"mt-7_5"}/>
+// }
 
 
 const RenderFAQCollapse = () => {
@@ -79,9 +80,11 @@ export default function DemeralFiller() {
                     <div className="w-1/2 mr-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The Essential Series.</div>
                         <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-15 justify-center">
+                            <div className="flex h-full px-15 justify-center items-end">
                                 {[1, 2, 3].map((item, index) => {
-                                    return <img key={index} style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}} src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
+                                    return <div key={index} className="flex flex-col" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
+                                                <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
+                                            </div>
                                 })}
                             </div>
                             <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
@@ -92,10 +95,12 @@ export default function DemeralFiller() {
                     </div>
                     <div className="w-1/2 ml-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The M Series.</div>
-                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-15 justify-center">
+                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
+                            <div className="flex h-full px-15 justify-center items-end">
                                 {[4, 5, 6].map((item, index) => {
-                                    return <img key={index} style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}} src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
+                                    return <div key={index} className="flex flex-col" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
+                                                <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
+                                            </div>
                                 })}
                             </div>
                             <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
@@ -108,20 +113,17 @@ export default function DemeralFiller() {
             </div>
 
             
-            <div className="bg-c_C3E0DC py-24">
-                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Testimonials.</div>
-                <div className="mx-60 mt-12 relative">
-                    {RenderTestimonialSwiper()}
-                    <div className="absolute right-1/4 bottom-1/4">
-                        <QuoteSvg fill="#87C1B9"/>
-                    </div>
-                </div>
-            </div>
+            {/* Testimonial part */}
+            <TestimonialCp 
+                head_line={"Testimonials."} 
+                bg_color={"bg-c_C3E0DC"} 
+                quote_color={"#87C1B9"} 
+                testimonial_li={[0,1,2,3]}/>
 
             {/* FAQ part */}
             <div className="bg-white">
-                <div className="mx-15 lg:mx-60 xl:mx-60 
-                                py-24">
+                <div className="py-24
+                                mx-5 sm:mx-10 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
                     <div className="flex text-c_00080D mb-2">
                         <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
                         <div className="flex items-center ml-auto">
@@ -137,8 +139,9 @@ export default function DemeralFiller() {
             
             {/* Download Catalog */}
             <div className="bg-c_F5DBDD">
-                <div className="mx-60 py-28">
-                    <div className="flex flex-col max-w-md mx-auto">
+                <div className="py-28">
+                    <div className="flex flex-col mx-auto
+                                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
                         <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-10">

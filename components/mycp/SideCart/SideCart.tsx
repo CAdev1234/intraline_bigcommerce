@@ -1,3 +1,4 @@
+import Link from '@components/ui/Link'
 import { FC, useState, useEffect } from 'react'
 
 const SideCart: FC = () => {
@@ -64,8 +65,16 @@ const SideCart: FC = () => {
                     <div className="ttcommon_font_bold ml-auto">$300.00</div>
                 </div>
                 <div className="mt-7">
-                    <button className="bg-c_00080D uppercase h-11 text-white w-full tracking-widest">View Bag</button>
-                    <button className="mt-2 bg-c_00080D uppercase h-11 text-white w-full tracking-widest">Checkout</button>
+                    <Link href="/shop/shoppingbag">
+                        <button className="bg-c_00080D uppercase h-11 text-white w-full tracking-widest">View Bag</button>
+                    </Link>
+                    <Link href="/shop/checkout">
+                        <button className="mt-2 bg-c_00080D uppercase h-11 text-white w-full tracking-widest">Checkout</button>
+                    </Link>
+                    
+                    <Link href="/shop/shoppingbag">
+                        <button className="mt-2 bg-c_00080D text-white tracking-widest uppercase h-11 w-full flex items-center justify-center">Edit Bag</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { Layout } from "@components/common"
 import { Cross } from "@components/icons"
+import Link from "@components/ui/Link"
 
 export default function ShoppingBag() {
     const bag_product_li = [
@@ -76,7 +77,9 @@ export default function ShoppingBag() {
                             <div className=" ttcommon_font_bold ml-auto">$300.00</div>
                         </div>
                         <div className="ttcommon_font_thin mt-2">Addtional taxes and duties may apply. <a href="/">Details.</a></div>
-                        <button className="mt-15 bg-c_00080D text-white tracking-widest uppercase h-11 w-full flex items-center justify-center">Checkout</button>
+                        <Link href="/shop/checkout">
+                            <button className="mt-15 bg-c_00080D text-white tracking-widest uppercase h-11 w-full flex items-center justify-center">Checkout</button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
+import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 
 const RenderTestimonialSwiper = () => {
@@ -226,6 +227,12 @@ export default function DermalFillerDetail() {
                     </div>
                 </div>
             </div>
+
+            <TestimonialCp 
+                head_line={"Reviews."} 
+                bg_color={"bg-white"} 
+                quote_color={"#CCE7EF"} 
+                testimonial_li={[0,1,2,3,4]}/>
             
             
             {/* FAQ part */}

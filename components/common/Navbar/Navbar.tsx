@@ -42,17 +42,17 @@ const renderShopMenu = () => {
   ]
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
-      <div>
-        <div className="uppercase text-sm tracking-widest leading-14_17 cursor-pointer hover:underline">
-          <Link href={item.link}>{item.name}</Link>
-        </div>
-        {(item.subItem_li || []).map((item1, index1) => {
-          return <div className="text-center text-sm leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>
-                    <Link href={item1.link}>{item1.name}</Link>
-                  </div>
-        })}
-      </div>
-    </div>
+            <div>
+              <div className="uppercase text-sm tracking-widest leading-14_17 cursor-pointer hover:underline">
+                <Link href={item.link}>{item.name}</Link>
+              </div>
+              {(item.subItem_li || []).map((item1, index1) => {
+                return <div className="text-center text-sm leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>
+                          <Link href={item1.link}>{item1.name}</Link>
+                        </div>
+              })}
+            </div>
+          </div>
   })
 }
 
@@ -75,13 +75,14 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 <Logo />
               </a>
             </Link>
-            <div className="items-center mx-auto ttcommon_font font-normal
+            <div className="items-center ml-auto ttcommon_font font-normal
                             hidden md:flex xl:flex 2xl:flex">
               <div className={s.nav_item}>
                 <div className={s.link}>SHOP</div>
                 {/* shop menu */}
                 <div className={s.submenu}>
-                  <div className="flex justify-between mx-auto max-w-7xl flex-wrap">
+                  <div className="flex justify-between flex-wrap w-full
+                                  px-10 lg:px-32 xl:px-56 2xl:px-56">
                     {renderShopMenu()}
                   </div>
                 </div>
@@ -90,13 +91,17 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 <a className={s.link}>ABOUT US</a>
               </Link>
               <Link href="/">
+                <a className={s.link}>TREATMENTS</a>
+              </Link>
+              <Link href="/">
                 <a className={s.link}>INDUSTRY</a>
               </Link>
               <Link href="/">
                 <a className={s.link}>CONTACT</a>
               </Link>
             </div>
-            <div className="items-center ml-auto
+            <div className="items-center
+                            ml-0 lg:ml-20 xl:ml-44 2xl:ml-32
                             hidden md:flex lg:flex xl:flex 2xl:flex">
               <SearchSvg className={s.svg} />
               <ProfileSvg className={s.svg} />

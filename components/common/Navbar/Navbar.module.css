@@ -5,7 +5,7 @@
   @apply relative h-full;
 }
 .link {
-  @apply relative h-full flex items-center text-white transition ease-in-out duration-75 cursor-pointer text-sm leading-14_17 tracking-widest uppercase md:px-6 lg:px-12 xl:px-12 2xl:px-12;  
+  @apply relative h-full flex items-center text-white transition ease-in-out duration-75 cursor-pointer text-sm leading-14_17 tracking-widest uppercase md:px-3 lg:px-5 xl:px-10 2xl:px-10;  
 }
 
 .link:hover {
@@ -22,7 +22,8 @@
   @apply w-full;
 }
 .submenu {
-  @apply bg-c_52B5D3 w-full py-12 fixed left-0 hidden z-10;
+  @apply bg-white w-full py-12 fixed left-0 hidden z-10;
+  box-shadow: 10px -10px 40px rgba(0, 0, 0, 0.05);
 }
 .nav_item:hover .submenu {
   @apply block;
@@ -31,5 +32,5 @@
   @apply mx-4 cursor-pointer
 }
 .logo {
-  @apply cursor-pointer mr-0 md:mr-3 lg:mr-24 xl:mr-80 2xl:mr-96;
+  @apply cursor-pointer;
 }

@@ -6,6 +6,7 @@ import { Navbar } from '@components/common'
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
+import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 const renderMSeriesSwiper = () => {
     let render_ele = [0, 1].map((item, index) => {
@@ -22,22 +23,6 @@ const renderMSeriesSwiper = () => {
                 enableDot={true} 
                 prevNavCss={"top-1/2 transform -translate-x-1/2 left-0"} 
                 nextNavCss={"top-1/2 transform -translate-x-1/2 right-0"}
-                dotCss={"mt-7_5"}/>
-}
-
-const RenderTestimonialSwiper = () => {
-    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
-      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
-                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-            </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={1} 
-                enableDot={true} 
-                prevNavCss={"top-0 left-0"} 
-                nextNavCss={"top-0 right-0"}
                 dotCss={"mt-7_5"}/>
 }
 
@@ -106,59 +91,13 @@ export default function MSeries() {
                 </div>
             </div>
             
-            {/* Testimonials part */}
-            <div className="bg-c_C3E0DC py-24">
-                <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Testimonials.</div>
-                <div className="mx-60 mt-12 relative">
-                    {RenderTestimonialSwiper()}
-                    <div className="absolute right-1/4 bottom-1/4">
-                        <QuoteSvg fill="#87C1B9"/>
-                    </div>
-                </div>
-            </div>
-
+            {/* Testimonial part */}
+            <TestimonialCp
+                head_line={"Testimonials."} 
+                bg_color={"bg-c_C3E0DC"} 
+                quote_color={"#87C1B9"} 
+                testimonial_li={[0,1,2,3,4]}/>
             
-            
-            {/* Question part */}
-            <div className=" bg-c_C6CBDD">
-                <div className="mx-60 py-28">
-                    <div className="flex flex-col max-w-lg mx-auto">
-                        <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
-                        <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First name"/>
-                        </div>
-                        <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
-                        </div>
-                        <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
-                        </div>
-                        <div className="mt-10">
-                            <select className="h-11 border-none bg-white w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
-                                <option value="Choose Country or Region">Choose Country or Region</option>
-                            </select>
-                        </div>
-                        <div className="mt-10">
-                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment!"></textarea>
-                        </div>
-                        <div className="mt-5">
-                            <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
-                        </div>
-                        <div className="mt-5 flex items-center">
-                            <div>
-                                <input type="checkbox" name="" id="" />
-                            </div>
-                            <div className="ml-2">I agree to receive other communications from Intraline.</div>
-                        </div>
-                        <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
-                        <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase tracking-widest bg-c_00090D text-white h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     )
 }

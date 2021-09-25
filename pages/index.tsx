@@ -218,7 +218,8 @@ const RenderProfileSwiper = () => {
           </div>
   })
   
-  return <div className="relative mx-172">
+  return <div className="relative 
+                        mx-5 md:mx-15 lg:mx-172 xl:mx-172">
             <div className="mx-auto mt-10 w-96">
               <div className="relative">
                 <div ref={profile_img_ref} className="keen-slider flex items-center">
