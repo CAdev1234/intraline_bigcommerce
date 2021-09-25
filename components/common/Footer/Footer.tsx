@@ -90,7 +90,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
       </Container> */}
 
 
-<Container className="bg-black">
+      <Container className="bg-black">
         <div className="pt-20 pb-24 ttcommon_font">
           <div className="block w-full md:flex lg:flex xl:flex">
             <div className="flex

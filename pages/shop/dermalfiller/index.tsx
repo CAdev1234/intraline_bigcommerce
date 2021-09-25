@@ -8,6 +8,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
 
 const RenderTestimonialSwiper = () => {
@@ -17,13 +18,17 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-0 left-0"} nextNavCss={"top-0 right-0"}/>
+    return <KeenSliderB 
+                render_ele={render_ele} 
+                slidesPerView={1} 
+                enableDot={true} 
+                prevNavCss={"top-0 left-0"} 
+                nextNavCss={"top-0 right-0"} 
+                dotCss={"mt-7_5"}/>
 }
 
 
 const RenderFAQCollapse = () => {
-    const [myArray, setMyArray] = useState<Boolean[]>([]);
-    
     var items = [
       {
         'title': 'How does it work?',
@@ -46,33 +51,7 @@ const RenderFAQCollapse = () => {
         'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
       }
     ]
-    const [enable_faq, setFaq] = useState(new Array(items.length).fill(false));
-    // setMyArray(new Array(items.length).fill(false))
-  
-    function RenderChevronUpDown(index: any) {
-      if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
-      else return <ChevronDown className="h-4 w-4" />
-    }
-    
-    function ClickChevron(index: any) {
-      const new_enable_faq = [...enable_faq]
-      new_enable_faq[index] = !new_enable_faq[index]
-      setFaq(new_enable_faq)
-    }
-  
-    return items.map((item, index) => {
-      return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
-        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => ClickChevron(index)}>
-          <div className="text-base">{item.title}</div>
-          <div className="ml-auto">
-            {RenderChevronUpDown(index)}
-          </div>
-        </div>
-        <div>
-          {enable_faq[index] && <div className="text-sm pt-5">{item.detail}</div>}
-        </div>
-      </div>
-    })
+    return <FAQCp faq_li={items}/>
 }
 
 
@@ -81,12 +60,12 @@ export default function DemeralFiller() {
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="relative bg-c_CCE7EF w-full px-15 pb-32 flex flex-col" style={{height: 900 + 'px'}}>
-                <div className="flex my-auto w-full">
+                <div className="flex my-auto w-full items-end">
                     <div className="w-1/2">
                         <div className="ttcommon_font_thin font-semibold text-12_5 leading-200_160">Dermal</div>
                         <div className="ttcommon_font_bold text-12_5 leading-200_160" >Fillers</div>
                     </div>
-                    <div className="w-1/2 text-4xl ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
+                    <div className="w-1/2 text-4xl leading-36_48 ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
                     </div>
                 </div>
@@ -99,25 +78,31 @@ export default function DemeralFiller() {
                 <div className="w-full px-15 flex absolute z-10" style={{top: -224 + 'px'}}>
                     <div className="w-1/2 mr-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The Essential Series.</div>
-                        <div className="mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
+                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
                             <div className="flex h-full px-15 justify-center">
                                 {[1, 2, 3].map((item, index) => {
                                     return <img key={index} style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}} src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
                                 })}
                             </div>
+                            <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
+                                <button className="w-64 h-11 m-auto bg-c_00080D text-sm text-white tracking-widest uppercase flex justify-center items-center">Learn more</button>
+                            </div>
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
+                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
                     </div>
                     <div className="w-1/2 ml-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The M Series.</div>
-                        <div className="mt-10 pt-5 bg-c_C6CBDD w-full border-none" style={{height: 400 + 'px'}}>
+                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none" style={{height: 400 + 'px'}}>
                             <div className="flex h-full px-15 justify-center">
                                 {[4, 5, 6].map((item, index) => {
                                     return <img key={index} style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}} src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
                                 })}
                             </div>
+                            <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
+                                <button className="w-64 h-11 m-auto bg-c_00080D text-sm text-white tracking-widest uppercase flex justify-center items-center">Learn more</button>
+                            </div>
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">The next generation of monophasic dermal fillers with lidocaine.</div>
+                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">The next generation of monophasic dermal fillers with lidocaine.</div>
                     </div>
                 </div>
             </div>

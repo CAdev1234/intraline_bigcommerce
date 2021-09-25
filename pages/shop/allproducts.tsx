@@ -37,16 +37,19 @@ const RenderCategorySwiper:FC = () => {
         { name: 'Dermal Fillers', img: "/assets/img/mseries_3.png" },
         { name: 'Dermal Fillers', img: "/assets/img/mseries_2.png" },
     ].map((item, index) => {
-        return <div className="keen-slider__slide" key={`category_${index}`}>
+        return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
                         <div className="flex-1 px-20 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
                     </div>
+                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <button className="my-auto mx-10 bg-c_00080D h-11 flex justify-center items-center text-sm text-white tracking-widest uppercase">Learn more</button>
+                    </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={num_slides} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172"}/>
+    return <KeenSliderA render_ele={render_ele} slidesPerView={num_slides} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 const renderProducts = () => {
@@ -86,25 +89,24 @@ export default function AllProducts() {
         <div className="ttcommon_font">
 
             {/* our category part */}
-            <div className="relative bg-c_CCE7EF w-full flex flex-col" style={{ height: 900 + 'px' }}>
-                <div className="my-auto
+            <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15" style={{ height: 900 + 'px' }}>
+                <div className="mt-auto
                                 ml-10 lg:ml-28 xl:ml-172 2xl:ml-172">
                     <div className="ttcommon_font_bold text-4xl leading-36_26">Our Categories.</div>
                     <div className="mt-10">
                         <RenderCategorySwiper />
                     </div>
-                    <div className="mt-10 flex items-center relative mx-60">
-                        <div className="swiper-button-prev absolute"></div>
-                        <div className="swiper-button-next absolute"></div>
-                        <div className="category-pagination-div flex justify-center"></div>
-                    </div>
+                </div>
+                <div className="mt-10 mx-auto flex items-center justify-center">
+                    <div className="uppercase text-sm tracking-widest text-c_00080D">Scroll to browser all</div>
+                    <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
                 </div>
             </div>
 
 
 
             {/* Products part */}
-            <div className="bg-c_C6CBDD py-24 flex flex-col">
+            <div className="bg-c_C6CBDD py-25 flex flex-col">
                 <div className="flex items-center text-sm tracking-widest uppercase
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     <div className="">SHOWING All products <span className="ttcommon_font_bold">(250)</span></div>

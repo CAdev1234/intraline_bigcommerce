@@ -15,7 +15,13 @@ const renderPDOThreadSwiper = () => {
                     </div>
                 </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-1/2 transform -translate-x-1/2 left-0"} nextNavCss={"top-1/2 transform -translate-x-1/2 right-0"}/>
+    return <KeenSliderB 
+                render_ele={render_ele} 
+                slidesPerView={1} 
+                enableDot={true} 
+                prevNavCss={"top-1/2 transform -translate-x-1/2 left-0"} 
+                nextNavCss={"top-1/2 transform -translate-x-1/2 right-0"}
+                dotCss={"mt-7_5"}/>
 }
 
 const RenderTestimonialSwiper = () => {
@@ -25,7 +31,13 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-0 left-0"} nextNavCss={"top-0 right-0"}/>
+    return <KeenSliderB 
+                render_ele={render_ele} 
+                slidesPerView={1} 
+                enableDot={true} 
+                prevNavCss={"top-0 left-0"} 
+                nextNavCss={"top-0 right-0"}
+                dotCss={"mt-7_5"}/>
 }
 
 

@@ -42,10 +42,10 @@ interface KeenSliderBProps{
     slidesPerView: number,
     prevNavCss: string,
     nextNavCss: string,
-
-    enableDot: boolean
+    enableDot: boolean,
+    dotCss: string
 }
-const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot}) => {
+const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot, dotCss}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
       slidesPerView: slidesPerView,
@@ -80,7 +80,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
                   </div>
                 )}
                 {slider && enableDot && (
-                    <div className={`dots mx-auto`}>
+                    <div className={`dots mx-auto ${dotCss}`}>
                     {[...Array(slider.details().size).keys()].map((idx) => {
                         return (
                         <button

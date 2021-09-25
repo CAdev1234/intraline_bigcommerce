@@ -10,6 +10,7 @@ import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
 
 const RenderTestimonialSwiper = () => {
@@ -19,9 +20,14 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-0 left-0"} nextNavCss={"top-0 right-0"}/>
+    return <KeenSliderB 
+                render_ele={render_ele} 
+                slidesPerView={1} 
+                enableDot={true} 
+                prevNavCss={"top-0 left-0"} 
+                nextNavCss={"top-0 right-0"}
+                dotCss={"mt-7_5"}/>
 }
-
 const RenderFAQCollapse = () => {
     var items = [
       {
@@ -45,33 +51,7 @@ const RenderFAQCollapse = () => {
         'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
       }
     ]
-    const [enable_faq, setFaq] = useState(new Array(items.length).fill(false));
-  
-    function RenderChevronUpDown(index: any) {
-      if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
-      else return <ChevronDown className="h-4 w-4" />
-    }
-    
-    function ClickChevron(index: any) {
-      const new_enable_faq = [...enable_faq]
-      new_enable_faq[index] = !new_enable_faq[index]
-      setFaq(new_enable_faq)
-    }
-
-    return items.map((item, index) => {
-      return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
-        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => ClickChevron(index)}>
-          <div className="text-base">{item.title}</div>
-          <div className="ml-auto">
-            {RenderChevronUpDown(index)}
-          </div>
-        </div>
-        <div>
-          {enable_faq[index] && <div className="text-sm pt-5">{item.detail}</div>}
-        </div>
-      </div>
-    })
-  
+    return <FAQCp faq_li={items}/>
 }
 
 const RenderMseries = () => {

@@ -10,6 +10,7 @@ import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
 
 const RenderTestimonialSwiper = () => {
@@ -19,8 +20,15 @@ const RenderTestimonialSwiper = () => {
                 <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
             </div>
     })
-    return <KeenSliderB render_ele={render_ele} slidesPerView={1} enableDot={true} prevNavCss={"top-0 left-0"} nextNavCss={"top-0 right-0"}/>
+    return <KeenSliderB 
+                render_ele={render_ele} 
+                slidesPerView={1} 
+                enableDot={true} 
+                prevNavCss={"top-0 left-0"} 
+                nextNavCss={"top-0 right-0"} 
+                dotCss={"mt-7_5"}/>
 }
+
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -45,58 +53,25 @@ const RenderFAQCollapse = () => {
         'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
       }
     ]
-    const [enable_faq, setFaq] = useState(new Array(items.length).fill(false));
-  
-    function RenderChevronUpDown(index: any) {
-      if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
-      else return <ChevronDown className="h-4 w-4" />
-    }
-    
-    function ClickChevron(index: any) {
-      const new_enable_faq = [...enable_faq]
-      new_enable_faq[index] = !new_enable_faq[index]
-      setFaq(new_enable_faq)
-    }
-
-    return items.map((item, index) => {
-      return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
-        <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => ClickChevron(index)}>
-          <div className="text-base">{item.title}</div>
-          <div className="ml-auto">
-            {RenderChevronUpDown(index)}
-          </div>
-        </div>
-        <div>
-          {enable_faq[index] && <div className="text-sm pt-5">{item.detail}</div>}
-        </div>
-      </div>
-    })
-  
+    return <FAQCp faq_li={items}/>
 }
 
 const renderPDOThreads = () => {
     var items = [0, 1, 2]
     return items.map((item, index) => {
-        return <div className="flex flex-col pt-9 pb-13 bg-white relative hover:bg-opacity-50" 
-                    key={'m' + String(index + 1) + '-product'}>
+        return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
+                    key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
                     <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>
-                    <div className="flex">
-                        <img className="mix_blend_multi mx-auto " src="/assets/img/lifting-1-1.png" alt="" />
+                    <div className="flex-1 h-0">
+                        <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
                     </div>
                     <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">Dimension 360</div>
                     <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase">learn more</button>
-                                <div className="mt-2 flex items-center h-12 text-white">
-                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
-                                    </div>
-                                    <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
-                                </div>
+                                <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase tracking-widest">learn more</button>
+                                
                             </div>
                         </div>
                     </div>
