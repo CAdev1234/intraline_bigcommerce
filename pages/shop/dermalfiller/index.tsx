@@ -79,33 +79,15 @@ export default function DemeralFiller() {
                 <div className="w-full px-15 flex absolute z-10" style={{top: -224 + 'px'}}>
                     <div className="w-1/2 mr-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The Essential Series.</div>
-                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-5 justify-center items-end w-full">
-                                {[1, 2, 3].map((item, index) => {
-                                    return <div key={index} className="flex flex-col w-5/12" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
-                                                <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
-                                            </div>
-                                })}
-                            </div>
-                            <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
-                                <button className="w-64 h-11 m-auto bg-c_00080D text-sm text-white tracking-widest uppercase flex justify-center items-center">Learn more</button>
-                            </div>
+                        <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
+                            <img className="h-full" src="/assets/img/essential_series.jpg" alt="" />
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
                     </div>
                     <div className="w-1/2 ml-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The M Series.</div>
-                        <div className="relative mt-10 pt-5 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-5 justify-center items-end w-full">
-                                {[4, 5, 6].map((item, index) => {
-                                    return <div key={index} className="flex flex-col w-5/12" style={{marginLeft: (item + 1) % 2 * -100 + 'px', marginRight: (item + 1) % 2 * -100 + 'px'}}>
-                                                <img className=""  src={"/assets/img/shop-dermalfiller-" + item + ".png"} alt="" />
-                                            </div>
-                                })}
-                            </div>
-                            <div className="absolute top-0 left-0 h-full w-full flex flex-col opacity-0 hover:opacity-100">
-                                <button className="w-64 h-11 m-auto bg-c_00080D text-sm text-white tracking-widest uppercase flex justify-center items-center">Learn more</button>
-                            </div>
+                        <div className="relative mt-10 w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
+                            <img className="h-full" src="/assets/img/m_series.jpg" alt="" />
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">The next generation of monophasic dermal fillers with lidocaine.</div>
                     </div>

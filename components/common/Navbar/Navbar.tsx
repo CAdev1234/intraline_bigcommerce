@@ -90,7 +90,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               <Link href="/">
                 <a className={s.link}>ABOUT US</a>
               </Link>
-              <Link href="/">
+              <Link href="/treatments">
                 <a className={s.link}>TREATMENTS</a>
               </Link>
               <Link href="/">
