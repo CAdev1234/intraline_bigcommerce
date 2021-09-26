@@ -60,13 +60,18 @@ const RenderFAQCollapse = () => {
 export default function DemeralFiller() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="h-225 relative bg-c_CCE7EF w-full px-15 pb-32 flex flex-col">
+            <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
+                             h-150 lg:h-150 xl:h-225 2xl:h-225
+                             px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                 <div className="flex my-auto w-full items-end">
                     <div className="w-1/2">
-                        <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Dermal</div>
-                        <div className="ttcommon_font_bold text-200px leading-200_160" >Fillers</div>
+                        <div className="ttcommon_font_thin font-semibold leading-200_160
+                                        text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">Dermal</div>
+                        <div className="ttcommon_font_bold leading-200_160
+                                        text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >Fillers</div>
                     </div>
-                    <div className="w-1/2 text-4xl leading-36_48 ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
+                    <div className="w-1/2 leading-36_48 ttcommon_font_thin
+                                    text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl" style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
                     </div>
                 </div>
@@ -75,21 +80,29 @@ export default function DemeralFiller() {
                 </div>
             </div>
 
-            <div className="bg-white w-full relative" style={{height: 488 + "px"}}>
-                <div className="w-full px-15 flex absolute z-10" style={{top: -224 + 'px'}}>
-                    <div className="w-1/2 mr-3">
-                        <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The Essential Series.</div>
-                        <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <img className="h-full" src="/assets/img/essential_series.jpg" alt="" />
+            <div className="bg-white w-full relative
+                            h-225 md:h-96 lg:h-96 xl:h-122 2xl:h-122">
+                <div className="w-full grid gap-6 absolute z-10
+                                grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
+                                -top-224 lg:-top-224 xl:-top-224 2xl:-top-224
+                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="">
+                        <div className="leading-36_48 ttcommon_font_bold text-c_00080D
+                                        text-3xl xl:text-4xl 2xl:text-4xl">The Essential Series.</div>
+                        <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
+                            <img className="max-h-96" src="/assets/img/essential_series.jpg" alt="" />
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
+                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
+                                        text-2xl xl:text-4xl 2xl:text-4xl">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
                     </div>
-                    <div className="w-1/2 ml-3">
-                        <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">The M Series.</div>
-                        <div className="relative mt-10 w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
-                            <img className="h-full" src="/assets/img/m_series.jpg" alt="" />
+                    <div className="">
+                        <div className="leading-36_48 ttcommon_font_bold text-c_00080D
+                                        text-3xl xl:text-4xl 2xl:text-4xl">The M Series.</div>
+                        <div className="relative mt-10 w-full border-none flex flex-col">
+                            <img className="max-h-96" src="/assets/img/m_series.jpg" alt="" />
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-4xl text-c_00080D">The next generation of monophasic dermal fillers with lidocaine.</div>
+                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
+                                        text-2xl xl:text-4xl 2xl:text-4xl">The next generation of monophasic dermal fillers with lidocaine.</div>
                     </div>
                 </div>
             </div>
@@ -123,7 +136,8 @@ export default function DemeralFiller() {
             <div className="bg-c_F5DBDD">
                 <div className="py-28">
                     <div className="flex flex-col mx-auto
-                                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
+                                    px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
                         <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-10">
