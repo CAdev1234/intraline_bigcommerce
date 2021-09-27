@@ -124,7 +124,7 @@ const RenderProductSwiper:FC = () => {
               </div>
           </div>
   }) 
-  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-5 md:mx-172 lg:mx-172 xl:mx-172 mt-10"/>
+  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
 }
 
 interface ArrowProps{
