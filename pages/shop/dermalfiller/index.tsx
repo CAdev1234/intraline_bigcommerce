@@ -61,17 +61,21 @@ export default function DemeralFiller() {
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
-                             h-150 lg:h-150 xl:h-225 2xl:h-225
+                             h-150 lg:h-225 xl:h-225 2xl:h-225
                              px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                <div className="flex my-auto w-full items-end">
-                    <div className="w-1/2">
+                <div className="my-auto w-full items-end
+                                block sm:flex md:flex lg:flex xl:flex 2xl:flex">
+                    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
                         <div className="ttcommon_font_thin font-semibold leading-200_160
-                                        text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">Dermal</div>
+                                        text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">Dermal</div>
                         <div className="ttcommon_font_bold leading-200_160
-                                        text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >Fillers</div>
+                                        text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >Fillers</div>
                     </div>
-                    <div className="w-1/2 leading-36_48 ttcommon_font_thin
-                                    text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl" style={{maxWidth: 427 + 'px'}}>
+                    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2
+                                    leading-36_48 ttcommon_font_thin
+                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
+                                    mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0
+                                    " style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
                     </div>
                 </div>
@@ -81,10 +85,10 @@ export default function DemeralFiller() {
             </div>
 
             <div className="bg-white w-full relative
-                            h-225 md:h-96 lg:h-96 xl:h-122 2xl:h-122">
+                                h-175 sm:h-225 md:h-96 lg:h-96 xl:h-122 2xl:h-122">
                 <div className="w-full grid gap-6 absolute z-10
                                 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
-                                -top-224 lg:-top-224 xl:-top-224 2xl:-top-224
+                                -top-44 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <div className="">
                         <div className="leading-36_48 ttcommon_font_bold text-c_00080D
@@ -120,9 +124,10 @@ export default function DemeralFiller() {
                 <div className="py-24
                                 mx-5 sm:mx-10 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
                     <div className="flex text-c_00080D mb-2">
-                        <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
-                        <div className="flex items-center ml-auto">
-                            <div className="font-bold text-lg">Read More</div>
+                        <div className="font-bold text-4xl
+                                         leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
+                        <div className="flex items-center ml-auto w-36">
+                            <div className="font-bold text-lg ml-auto">Read More</div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>

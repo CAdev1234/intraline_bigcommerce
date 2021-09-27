@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
 import s from './Navbar.module.css'
 import NavbarRoot from './NavbarRoot'
@@ -59,6 +59,10 @@ const renderShopMenu = () => {
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableCart, setEnableCart] = useState(false)
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
+  const [current_url, setCurrentUrl] = useState('/')
+  useEffect(() => {
+    setCurrentUrl(window.location.pathname)
+  })
 
   function showMobileMenu() {
     setEnableMobileMenu(!enableMobileMenu)
@@ -87,7 +91,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   </div>
                 </div>
               </div>
-              <Link href="/">
+              <Link href="/aboutus">
                 <a className={s.link}>ABOUT US</a>
               </Link>
               <Link href="/treatments">

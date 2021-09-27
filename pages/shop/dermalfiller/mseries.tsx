@@ -44,23 +44,31 @@ export default function MSeries() {
     ]
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-white w-full flex flex-col">
+            <div className="relative bg-white w-full flex flex-col
+                            h-150 sm:h-225 lg:h-225 xl:h-225 2xl:h-225">
                 <div className="absolute w-full h-full flex">
                     <div className="h-full
                                     w-0 xl:w-154_5 2xl:w-154_5"></div>
                     <div className="flex-1 h-full bg-c_CCE7EF rounded-l-full"></div>
                 </div>
-                <div className="flex my-auto w-full h-full px-15 z-10">
-                    <div className="w-8/12 flex flex-col">
+                <div className="flex my-auto w-full h-full z-10
+                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="flex flex-col">
                         <div className="my-auto">
-                            <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                            text-9xl xl:text-200px 2xl:text-200px">The</div>
-                            <div className="ttcommon_font_bold leading-200_160
-                                            text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
-                            <div className="leading-36_48 ttcommon_font_thin w-7/12 font-semibold mt-8 ml-28 text-4xl text-c_00080D">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                            <div>
+                                <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
+                                <div className="ttcommon_font_bold leading-200_160
+                                                text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
+                            </div>
+                            <div className="w-full ml-auto mr-10" style={{maxWidth:538}}>
+                                <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
+                                                text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                            </div>
+                            
                         </div>
                     </div>
-                    <div className="w-4/12 flex flex-col">
+                    <div className="w-4/12 flex flex-col ml-auto">
                         <div className="my-auto">
                             {renderMSeriesSwiper()}
                         </div>
@@ -92,11 +100,12 @@ export default function MSeries() {
                         </div>
                     </div>
 
-                    <div className="absolute right-0 top-0 flex flex-col" style={{maxWidth: 538, height:870}}>
+                    <div className="absolute right-0 top-0 flex flex-col w-5/12" style={{maxWidth: 538, height:870}}>
                         <div className="my-auto">
                             <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
-                            <div className="ttcommon_font_thin mt-7 leading-36_48 text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                            <div className="ttcommon_font_thin mt-7 leading-36_48
+                                            text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                         </div>
                     </div>
                 </div>
