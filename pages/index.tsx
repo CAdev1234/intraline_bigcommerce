@@ -384,7 +384,7 @@ export default function Home({
 
       {/* Feature products part */}
       <div className="bg-c_C6CBDD py-24">
-        <div className="mx-10 md:mx-60 lg:mx-60 xl:mx-60 flex items-center">
+        <div className="mx-5 md:mx-15 lg:mx-172 xl:mx-172 flex items-center">
           <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
           <div className="flex items-center ml-auto">
             <div className=" leading-snug font-bold text-lg">See All</div>
@@ -407,7 +407,7 @@ export default function Home({
 
       {/* FAQ part */}
       <div className="bg-c_C3E0DC">
-        <div className="mx-10 md:mx-60 lg:mx-60 xl:mx-60 
+        <div className="mx-5 md:mx-15 lg:mx-172 xl:mx-172 
                         py-24">
           <div className="flex text-c_00080D mb-2">
             <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>

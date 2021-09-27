@@ -25,8 +25,8 @@ const RenderTestimonialSwiper = () => {
                 render_ele={render_ele} 
                 slidesPerView={1} 
                 enableDot={true} 
-                prevNavCss={"top-0 left-0"} 
-                nextNavCss={"top-0 right-0"}
+                prevNavCss={"my-auto"} 
+                nextNavCss={"my-auto"}
                 dotCss={"mt-7_5"}/>
 }
 const RenderFAQCollapse = () => {

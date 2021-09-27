@@ -65,17 +65,21 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
                 </div>
                 {slider && (
                   <div className={``}>
-                    <div className={`absolute ${prevNavCss}`}>
-                      <ArrowLeft
-                        onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                        disabled={currentSlide === 0}
-                      />
+                    <div className={`absolute top-0 left-0 flex flex-col h-full`}>
+                      <div className={`${prevNavCss}`}>
+                        <ArrowLeft
+                          onClick={(e:any) => e.stopPropagation() || slider.prev()}
+                          disabled={currentSlide === 0}
+                        />
+                      </div>
                     </div>
-                    <div className={`absolute ${nextNavCss}`}>
-                      <ArrowRight
-                        onClick={(e:any) => e.stopPropagation() || slider.next()}
-                        disabled={currentSlide === slider.details().size - 1}
-                      />
+                    <div className={`absolute top-0 right-0 flex flex-col h-full`}>
+                      <div className={`${nextNavCss}`}>
+                        <ArrowRight
+                          onClick={(e:any) => e.stopPropagation() || slider.next()}
+                          disabled={currentSlide === slider.details().size - 1}
+                        />
+                      </div>
                     </div>
                   </div>
                 )}

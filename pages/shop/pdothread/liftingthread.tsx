@@ -23,8 +23,8 @@ const renderLiftingThreadSwiper = () => {
                 render_ele={render_ele} 
                 slidesPerView={3} 
                 enableDot={false} 
-                prevNavCss={"top-1/2 transform -translate-x-1/2 left-7"} 
-                nextNavCss={"top-1/2 transform -translate-x-1/2 right-7"}
+                prevNavCss={"my-auto"} 
+                nextNavCss={"my-auto"}
                 dotCss={"mt-7_5"}/>
 }
 
