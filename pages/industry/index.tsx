@@ -1,0 +1,140 @@
+import { Layout } from "@components/common"
+import { ChevronLeft, ChevronRight } from "@components/icons"
+
+export default function IndustryIndex() {
+    return <div className="ttcommon_font_thin">
+                <div className="bg-white pt-40 pb-25 px-15">
+                    <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
+                    <div className="mt-2.5">Read the latest industry news.</div>
+                    <div className="mt-10 flex items-center">
+                        <div className="w-1/2 bg-c_F5DBDD" style={{height: 411}}></div>
+                        <div className="w-1/2" style={{paddingInline: 132}}>
+                            <div className="text-sm leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
+                            <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
+                            <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
+                            <button className="mt-7_5 bg-c_00080D text-white uppercase flex justify-center items-center w-60 h-11 tracking-widest">Start Reading</button>
+                        </div>
+                    </div>
+                    <div className="mt-15 grid grid-cols-3 gap-x-5">
+                        {[0, 1, 2].map((item, index) => {
+                            return <div key={`article_${index}`}>
+                                        <div className="bg-c_F5DBDD w-full" style={{height: 270}}></div>
+                                        <div className="mt-12 uppercase text-sm leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
+                                        <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
+                                        <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
+                                        <button className="mt-7_5 bg-c_00080D text-white uppercase flex justify-center items-center w-full h-11 tracking-widest">Start Reading</button>
+                                    </div>
+                        })}
+                    </div>
+                    <div className="mt-15 flex items-center justify-center">
+                        <div className="text-sm uppercase tracking-widest">Browse All Articles</div>
+                        <ChevronRight className="ml-3 w-3 h-3"/>
+                    </div>
+                </div>
+
+                {/* course part */}
+                <div className="relative px-15 py-25 bg-c_CCE7EF">
+                    <div className="flex flex-col">
+                        <div className="mx-auto text-center flex flex-col">
+                            <div className="ttcommon_font_bold text-4xl leading-36_26">Intraline’s Courses.</div>
+                            <div className="mt-6 text-4xl leading-36_48" style={{maxWidth: 650}}>Boost your skills, increase patient satisfaction, and accelerate your growth. I AM Academy was designed with you in mind.</div>
+                            <button className="mt-7_5 mx-auto bg-c_00080D text-white uppercase text-sm tracking-widest w-60 h-11 flex justify-center items-center">Enroll Now</button>
+                        </div>
+                        <div className="mt-25 grid grid-cols-2 gap-x-5 relative z-10">
+                            <div className="flex flex-col">
+                                <div className="ttcommon_font_bold uppercase text-2xl leading-36_48">Dermal Filler Course.</div>
+                                <div className="mt-7_5 bg-c_C6CBDD" style={{height: 411}}></div>
+                                <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div className="ttcommon_font_bold uppercase text-2xl leading-36_48">PDO Thread COURSE.</div>
+                                <div className="mt-7_5 bg-c_C6CBDD" style={{height: 411}}></div>
+                                <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-full">
+                        <div className="bg-white h-96"></div>
+                    </div>
+                </div>
+
+                {/* partner part */}
+                <div className="bg-c_C3E0DC px-15 py-25 flex flex-col">
+                    <div className="mx-auto">
+                        <div className="ttcommon_font_bold text-4xl leading-36_48 text-center">Intraline's Partners.</div>
+                        <div className="mt-2.5 text-sm text-center">Learn more about our Medical Director, Key Opinion Leaders & Brands Ambassadors.</div>
+                        <div className="mt-7_5 flex items-center justify-center">
+                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
+                        </div>
+                        <div className="flex mt-15">
+                            <img src="/assets/img/doctor-1.png" alt="" />
+                            <div className="ml-16 flex-1 flex flex-col">
+                                <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>
+                                <div className="mt-2.5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
+                                <button className="mt-auto flex justify-center items-center h-11 w-60 bg-c_00080D uppercase text-white text-sm tracking-widest">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* report part */}
+                <div className="bg-white mx-172 py-25">
+                    <div className="flex items-center">
+                        <div className="w-106_5">
+                            <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Rheology Report</div>
+                            <div className="mt-5 text-sm leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
+                            <div className="">
+                                <div className="mt-10">
+                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="First name"/>
+                                </div>
+                                <div className="mt-5">
+                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
+                                </div>
+                                <div className="mt-5">
+                                    <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
+                                        <option value="Choose Country or Region">Choose Country or Region</option>
+                                    </select>
+                                </div>
+                                <div className="mt-5">
+                                    <div className="text-sm leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
+                                </div>
+                                <div className="mt-2.5">
+                                    <div className="flex items-center">
+                                        <input type="radio" />
+                                        <label htmlFor="" className="text-sm leading-14_26 ml-3">Yes</label>
+                                    </div>
+                                    <div className="mt-1 flex items-center">
+                                        <input type="radio" />
+                                        <label htmlFor="" className="text-sm leading-14_26 ml-3">No</label>
+                                    </div>
+                                </div>
+                                <div className="mt-4">
+                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="What is your Dermal Filler of choice?"/>
+                                </div>
+                                <div className="mt-5">
+                                    <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                                </div>
+                                <div className="mt-5 flex items-center">
+                                    <div>
+                                        <input type="checkbox" name="" id="" />
+                                    </div>
+                                    <div className="ml-2">I agree to receive other communications from Intraline.</div>
+                                </div>
+                                <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                                <div className="mt-10">
+                                    <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex-1" style={{marginLeft: 132}}>
+                            <img className="w-full" src="/assets/img/report.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+
+IndustryIndex.Layout = Layout

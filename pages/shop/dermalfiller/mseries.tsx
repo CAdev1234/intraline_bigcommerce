@@ -4,8 +4,6 @@ import { Layout } from '@components/common'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
-import ReadProgressBar from 'read-progressbar';
-
 const renderMSeriesSwiper = () => {
     let render_ele = [0, 1, 2].map((item, index) => {
         return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
@@ -41,6 +39,26 @@ export default function MSeries() {
             headline: 'Volume.',
             title: 'Unique cross-linked technology',
             detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+        },
+        {
+            headline: 'Innovative.',
+            title: 'Unique cross-linked technology',
+            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+        },
+        {
+            headline: 'Volume.',
+            title: 'Unique cross-linked technology',
+            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+        },
+        {
+            headline: 'Innovative.',
+            title: 'Unique cross-linked technology',
+            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+        },
+        {
+            headline: 'Volume.',
+            title: 'Unique cross-linked technology',
+            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
         }
     ]
     const [scroll_perc, setScrollPerc] = useState(0)
@@ -51,14 +69,6 @@ export default function MSeries() {
         let client_height = ele.clientHeight
         setScrollPerc(scroll_top / (scroll_height - client_height) * 100)
     }
-    useEffect(() => {
-        
-        // document.querySelector(".pure_scroll_part")?.addEventListener()
-        
-        return () => {
-            // document.querySelector('.pure_scroll_part').removeEventListener('scroll', scrollHandler)
-        }
-    })
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="relative bg-white w-full flex flex-col
@@ -68,7 +78,8 @@ export default function MSeries() {
                                     w-0 xl:w-154_5 2xl:w-154_5"></div>
                     <div className="flex-1 h-full bg-c_CCE7EF rounded-l-full"></div>
                 </div>
-                <div className="flex my-auto w-full h-full z-10
+                <div className="my-auto w-full h-full z-10
+                                block sm:flex
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <div className="flex flex-col">
                         <div className="my-auto">
@@ -85,7 +96,8 @@ export default function MSeries() {
                             
                         </div>
                     </div>
-                    <div className="w-4/12 flex flex-col ml-auto">
+                    <div className="flex flex-col ml-auto
+                                    w-full sm:w-4/12">
                         <div className="my-auto">
                             {renderMSeriesSwiper()}
                         </div>
@@ -100,7 +112,7 @@ export default function MSeries() {
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32
                                         w-1/2 overflow-y-auto
-                                        pure_scroll_part" 
+                                        no-scrollbar" 
                                         style={{height: 830, scrollbarWidth: 'none'}}
                                         onScroll={(event) => scrollHandler(event.target as any)}>
                             {m_series_li.map((item, index) => {
@@ -139,8 +151,9 @@ export default function MSeries() {
             {/* Mesmerizing, Modern, and Memorable */}
             <div className="bg-white">
                 <div className="flex flex-col mx-auto py-28
-                                w-full md:w-146 lg:w-146 xl:w-146 2xl:w-146">
-                    <div className="ttcommon_font_bold leading-36_26 text-4xl text-center mx-auto">Mesmerizing, Modern, and Memorable.</div>
+                                w-11/12 sm:w-146">
+                    <div className="ttcommon_font_bold text-4xl text-center mx-auto
+                                    sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">Shop now the m series</button>

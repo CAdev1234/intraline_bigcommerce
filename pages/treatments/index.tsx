@@ -9,54 +9,94 @@ export default function Treatments() {
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_1.png',
+            img: '/assets/img/treatment_face_1.jpg',
         },
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_2.png',
+            img: '/assets/img/treatment_face_2.jpg',
         },
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_3.png',
+            img: '/assets/img/treatment_face_3.jpg',
         },
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_1.png',
+            img: '/assets/img/treatment_face_4.jpg',
         },
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_2.png',
-        }
+            img: '/assets/img/treatment_face_5.jpg',
+        },
+        {
+            title: 'Lips.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_face_6.jpg',
+        },
+        {
+            title: 'Lips.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_face_7.jpg',
+        },
+        {
+            title: 'Lips.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_face_8.jpg',
+        },
+        {
+            title: 'Lips.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_face_9.jpg',
+        },
     ]
     const body_treatment_li = [
         {
             title: 'ARMS & ELBOWS.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_body_1.png',
+            img: '/assets/img/treatment_body_1.jpg',
         },
         {
             title: 'ARMS & ELBOWS.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_body_2.png',
+            img: '/assets/img/treatment_body_2.jpg',
         },
         {
             title: 'ARMS & ELBOWS.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_body_3.png',
+            img: '/assets/img/treatment_body_3.jpg',
         },
         {
             title: 'ARMS & ELBOWS.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_body_1.png',
+            img: '/assets/img/treatment_body_1.jpg',
         },
         {
             title: 'ARMS & ELBOWS.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_body_2.png',
+            img: '/assets/img/treatment_body_1.jpg',
+        },
+        {
+            title: 'ARMS & ELBOWS.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_body_1.jpg',
+        },
+        {
+            title: 'ARMS & ELBOWS.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_body_1.jpg',
+        },
+        {
+            title: 'ARMS & ELBOWS.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_body_1.jpg',
+        },
+        {
+            title: 'ARMS & ELBOWS.',
+            detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
+            img: '/assets/img/treatment_body_1.jpg',
         }
     ]
     const render_ele = facial_treatment_li.map((item, index) => {

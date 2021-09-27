@@ -19,27 +19,9 @@ interface NavbarProps {
   links?: Link[],
   c_name?: any
 }
-
-const renderShopMenu = () => {
-  const category_li = [
-    { name: 'All products', link: '/shop/allproducts', subItem_li: []},
-    { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
-      subItem_li: [
-        { name: 'M Series', link: '/shop/dermalfiller/mseries'},
-        { name: 'Rejuvenation', link: '/shop/dermalfiller/detail'}
-      ]
-    },
-    { name: 'PDO Threads', link: '/shop/pdothread', 
-      subItem_li: [
-        { name: 'The Essentials', link: '/shop/pdothread/detail'},
-        { name: 'Lifting Threads', link: '/shop/pdothread/liftingthread'}
-      ]
-    },
-    { name: 'Skincare', link: '/shop/skincare', 
-      subItem_li: []
-    },
-    { name: 'Scar Kit', link: '/'}
-  ]
+type SubLinkArray = Array<{name: string, link: string}>
+type NavLinkArray = Array<{name: string, link:string, subItem_li: SubLinkArray}>
+const renderSubMenu = (category_li: NavLinkArray) => {
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
             <div>
@@ -60,6 +42,37 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableCart, setEnableCart] = useState(false)
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
+  let shop_category_li = [
+    { name: 'All products', link: '/shop/allproducts', subItem_li: []},
+    { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
+      subItem_li: [
+        { name: 'M Series', link: '/shop/dermalfiller/mseries'},
+        { name: 'Rejuvenation', link: '/shop/dermalfiller/detail'}
+      ]
+    },
+    { name: 'PDO Threads', link: '/shop/pdothread', 
+      subItem_li: [
+        { name: 'The Essentials', link: '/shop/pdothread/detail'},
+        { name: 'Lifting Threads', link: '/shop/pdothread/liftingthread'}
+      ]
+    },
+    { name: 'Skincare', link: '/shop/skincare', 
+      subItem_li: []
+    },
+    { name: 'Scar Kit', link: '/'}
+  ]
+  let industry_category_li = [
+    { name: 'Industry', link: '/industry', subItem_li: []},
+    { name: 'Blog', link: '/industry/blog', subItem_li: []},
+    { name: 'Courses', link: '/industry', 
+      subItem_li: [
+        { name: 'Dermal Filler', link: '/industry'},
+        { name: 'PDO Thread', link: '/industry'}
+      ]
+    },
+    { name: 'Partners', link: '/industry', subItem_li: []},
+    { name: 'Rheology Report', link: '/'}
+  ]
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
   })
@@ -87,7 +100,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 <div className={s.submenu}>
                   <div className="flex justify-between flex-wrap w-full
                                   px-10 lg:px-32 xl:px-56 2xl:px-56">
-                    {renderShopMenu()}
+                    {renderSubMenu(shop_category_li as any)}
                   </div>
                 </div>
               </div>
@@ -97,9 +110,16 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               <Link href="/treatments">
                 <a className={s.link}>TREATMENTS</a>
               </Link>
-              <Link href="/">
-                <a className={s.link}>INDUSTRY</a>
-              </Link>
+              <div className={s.nav_item}>
+                <div className={s.link}>INDUSTRY</div>
+                {/* shop menu */}
+                <div className={s.submenu}>
+                  <div className="flex justify-between flex-wrap w-full
+                                  px-10 lg:px-32 xl:px-56 2xl:px-56">
+                    {renderSubMenu(industry_category_li as any)}
+                  </div>
+                </div>
+              </div>
               <Link href="/">
                 <a className={s.link}>CONTACT</a>
               </Link>
@@ -144,7 +164,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   {/* shop menu */}
                   <div className={s.submenu}>
                     <div className="flex justify-between mx-auto max-w-7xl flex-wrap">
-                      {renderShopMenu()}
+                      {renderSubMenu(shop_category_li as any)}
                     </div>
                   </div>
                 </div>

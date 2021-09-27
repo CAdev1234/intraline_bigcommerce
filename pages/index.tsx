@@ -17,6 +17,8 @@ import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 import { RatingView } from 'react-simple-star-rating'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
+import ReactPlayer from 'react-player';
+
 
 export async function getStaticProps({
   preview,
@@ -299,6 +301,11 @@ const RenderFAQCollapse = () => {
 export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const play_icon = () => {
+    return <div>
+              <div className="w-25 h-25 rounded-full border border-white"></div>     
+          </div>
+  }
   return (
     <div className="bg-c_CCE7EF ttcommon_font">
       {/* <Grid variant="filled">
@@ -345,10 +352,19 @@ export default function Home({
         brands={brands}
       /> */}
 
-    <img className="w-full" src="/assets/img/home-part1-bg.png"></img>
+      <img className="w-full" src="/assets/img/home-part1-bg.png"></img>
+      {/* <div className="w-full mt-15">
+        <ReactPlayer 
+          url="https://www.youtube.com/watch?v=giRyQtkecqA"
+          width="100vw"
+          height="800px"
+          // light
+          // playIcon={play_icon()} 
+          />
+      </div> */}
       <div className="z-50 text-white font-bold flex
-                      -mt-20 md:-mt-32 lg:-mt-32 xl:-mt-32
-                      mx-5 md:mx-15 lg:mx-172 xl:mx-172">
+                      -mt-20 md:-mt-32
+                      mx-5 md:mx-15 lg:mx-172">
         <div className="text-4xl leading-36_26">Our Categories.</div>
         <div className="flex items-center ml-auto">
           <div className="">Explore All</div>
@@ -359,8 +375,8 @@ export default function Home({
       </div>
 
       {/* our category part */}
-      <div className="mt-4 md:mt-10 lg:mt-10 xl:mt-10
-                      sm:ml-5 md:ml-15 lg:ml-172 xl:ml-172">
+      <div className="mt-4 md:mt-10
+                      sm:ml-5 md:ml-15 lg:ml-172">
         <RenderCategorySwiper />
       </div>
 
@@ -373,18 +389,19 @@ export default function Home({
           <button className="w-52 h-11 uppercase bg-c_00090D flex justify-center items-center text-white text-sm tracking-widest mx-auto my-auto">About us</button>
         </div>
         <div className="absolute top-0 left-0
-                        w-52 md:w-auto lg:w-auto xl:w-auto">
+                        w-52 md:w-auto">
           <img src="/assets/img/triple_red.png" alt="" />
         </div>
         <div className="absolute bottom-0 right-0
-                        w-52 md:w-auto lg:w-auto xl:w-auto">
+                        w-52 md:w-auto">
           <img src="/assets/img/triple_blue.png" alt="" />
         </div>
       </div>
 
       {/* Feature products part */}
       <div className="bg-c_C6CBDD py-24">
-        <div className="mx-5 md:mx-15 lg:mx-172 xl:mx-172 flex items-center">
+        <div className="flex items-center
+                        mx-5 md:mx-15 lg:mx-172">
           <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
           <div className="flex items-center ml-auto">
             <div className=" leading-snug font-bold text-lg">See All</div>
@@ -407,7 +424,7 @@ export default function Home({
 
       {/* FAQ part */}
       <div className="bg-c_C3E0DC">
-        <div className="mx-5 md:mx-15 lg:mx-172 xl:mx-172 
+        <div className="mx-5 md:mx-15 lg:mx-172
                         py-24">
           <div className="flex text-c_00080D mb-2">
             <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
