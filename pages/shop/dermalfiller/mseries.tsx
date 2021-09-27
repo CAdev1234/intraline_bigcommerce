@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 
 import { Layout } from '@components/common'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
+import ReadProgressBar from 'read-progressbar';
 
 const renderMSeriesSwiper = () => {
     let render_ele = [0, 1, 2].map((item, index) => {
@@ -42,6 +43,22 @@ export default function MSeries() {
             detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
         }
     ]
+    const [scroll_perc, setScrollPerc] = useState(0)
+    
+    let scrollHandler = (ele:HTMLDivElement) => {
+        let scroll_height = ele.scrollHeight
+        let scroll_top = ele.scrollTop
+        let client_height = ele.clientHeight
+        setScrollPerc(scroll_top / (scroll_height - client_height) * 100)
+    }
+    useEffect(() => {
+        
+        // document.querySelector(".pure_scroll_part")?.addEventListener()
+        
+        return () => {
+            // document.querySelector('.pure_scroll_part').removeEventListener('scroll', scrollHandler)
+        }
+    })
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="relative bg-white w-full flex flex-col
@@ -78,21 +95,25 @@ export default function MSeries() {
             </div>
 
             {/* pure part */}
-            <div className="bg-c_C6CBDD w-full overflow-y-auto" style={{height: 870}}>
-                <div className="mt-12_5 relative z-10
-                                mx-5 md:mx-10 lg:mx-20 xl:mx-172 2xl:mx-172">
+            <div className="bg-c_C6CBDD w-full" style={{height: 880}}>
+                <div className="mt-12_5 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32
-                                        w-1/2">
+                                        w-1/2 overflow-y-auto
+                                        pure_scroll_part" 
+                                        style={{height: 830, scrollbarWidth: 'none'}}
+                                        onScroll={(event) => scrollHandler(event.target as any)}>
                             {m_series_li.map((item, index) => {
                                 return <div className="mb-7_5" key={`pure_part_${index}`}>
-                                            <div className="ttcommon_font_bold text-6xl leading-64_76">{item.headline}</div>
+                                            <div className="ttcommon_font_bold text-6xl leading-64_76
+                                                            ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">{item.headline}</div>
                                             <div className="relative">
-                                                <div className="mt-2 bg-white py-12 px-10 relative z-10">
+                                                <div className="mt-2 bg-white py-12 px-10 relative z-10
+                                                                ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">
                                                     <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                     <div className="mt-2 text-sm leading-14_26 text-c_00080D">{item.detail}</div>
                                                 </div>
-                                                <div className="ttcommon_font_bold text-200px text-c_8D97BC leading-14_17 absolute" style={{left: -172, bottom: -60}}>0{index + 1}</div>
+                                                <div className="ttcommon_font_bold text-200px text-c_8D97BC leading-14_17 absolute" style={{bottom: -60}}>0{index + 1}</div>
                                             </div>        
                                         </div>
                             })}
@@ -100,12 +121,16 @@ export default function MSeries() {
                         </div>
                     </div>
 
-                    <div className="absolute right-0 top-0 flex flex-col w-5/12" style={{maxWidth: 538, height:870}}>
+                    <div className="absolute right-0 top-0 flex flex-col w-5/12 h-full
+                                    mr-5 md:mr-10 lg:mr-20 xl:mr-172 2xl:mr-172" style={{maxWidth: 538}}>
                         <div className="my-auto">
                             <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
                             <div className="ttcommon_font_thin mt-7 leading-36_48
                                             text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                            <div className="progress-bar-container bg-white w-full h-1 mt-12_5">
+                                <div className="progress-bar bg-c_00080D h-full" style={{width: `${scroll_perc}%`}}></div>
+                            </div>
                         </div>
                     </div>
                 </div>
