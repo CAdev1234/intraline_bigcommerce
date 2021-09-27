@@ -85,7 +85,7 @@ export default function MSeries() {
                         <div className="pr-5 xl:pr-32 2xl:pr-32
                                         w-1/2">
                             {m_series_li.map((item, index) => {
-                                return <div className="mb-7_5">
+                                return <div className="mb-7_5" key={`pure_part_${index}`}>
                                             <div className="ttcommon_font_bold text-6xl leading-64_76">{item.headline}</div>
                                             <div className="relative">
                                                 <div className="mt-2 bg-white py-12 px-10 relative z-10">
