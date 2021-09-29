@@ -1,5 +1,6 @@
 import { Layout } from "@components/common"
 import Button from '@components/mycp/Button'
+import Link from "@components/ui/Link"
 
 export default function IndustryCourse() {
     return <div className="ttcommon_font_thin">
@@ -16,7 +17,7 @@ export default function IndustryCourse() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                         <div className="my-auto mx-auto w-64">
                                             <div className="flex flex-col">
-                                                <Button className=" h-11">Learn more</Button>
+                                                <Button className=" h-11 text-sm">Learn more</Button>
                                             </div>
                                         </div>
                                     </div>
@@ -29,7 +30,7 @@ export default function IndustryCourse() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                         <div className="my-auto mx-auto w-64">
                                             <div className="flex flex-col">
-                                                <Button className=" h-11">Learn more</Button>
+                                                <Button className=" h-11 text-sm">Learn more</Button>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +76,12 @@ export default function IndustryCourse() {
                                 <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="What is your Dermal Filler of choice?"/>
                             </div>
                             <div className="mt-5">
-                                <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                                <div className="ttcommon_font_thin text-xs">
+                                <Link href="/privacypolicy">
+                                    <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
+                                </Link> 
+                                If you consent to us contacting you for this purpose, please tick below:
+                            </div>
                             </div>
                             <div className="mt-5 flex items-center">
                                 <div>
@@ -85,7 +91,7 @@ export default function IndustryCourse() {
                             </div>
                             <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                             <div className="mt-10">
-                                <Button className="h-11 w-full">SUBMIT</Button>
+                                <Button className="h-11 w-full text-sm">SUBMIT</Button>
                             </div>
                         </div>
                     </div>

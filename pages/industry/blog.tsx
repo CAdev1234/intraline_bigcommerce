@@ -18,7 +18,7 @@ export default function IndustryBlog() {
                             <div className="text-sm leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                             <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                             <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                            <Button className="mt-7_5 w-60 h-11">Start Reading</Button>
+                            <Button className="mt-7_5 w-60 h-11 text-sm">Start Reading</Button>
                         </div>
                     </div>
                     <div className="mt-15 grid grid-cols-3 gap-x-5 gap-y-14">
@@ -28,7 +28,7 @@ export default function IndustryBlog() {
                                         <div className="mt-12 uppercase text-sm leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                                         <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                                         <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                                        <Button className="mt-7_5 w-full h-11">Start Reading</Button>
+                                        <Button className="mt-7_5 w-full h-11 text-sm">Start Reading</Button>
                                     </div>
                         })}
                     </div>

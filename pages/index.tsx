@@ -97,7 +97,7 @@ const RenderCategorySwiper:FC = () => {
             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
                 <div className="my-auto mx-auto w-10/12">
                     <div className="flex flex-col">
-                        <Button className=" h-11">browse</Button>
+                        <Button className=" h-11 text-sm">browse</Button>
                     </div>
                 </div>
             </div>
@@ -122,14 +122,14 @@ const RenderProductSwiper:FC = () => {
               <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                   <div className="my-auto mx-auto w-10/12">
                       <div className="flex flex-col">
-                          <Button className=" h-11">learn more</Button>
+                          <Button className=" h-11 text-sm">learn more</Button>
                           <div className="mt-2 flex items-center h-11 text-white">
                               <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                   <button className="mx-auto bg-transparent border-none p-1">-</button>
                                   <div className="mx-auto">1</div>
                                   <button className="mx-auto bg-transparent border-none p-1">+</button>
                               </div>
-                              <Button className="ml-3 h-full w-full">Add to cart</Button>
+                              <Button className="ml-3 h-full w-full text-sm">Add to cart</Button>
                           </div>
                       </div>
                   </div>
@@ -400,7 +400,7 @@ export default function Home({
         <div className="flex flex-col h-full">
           <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
           <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
-          <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
+          <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">

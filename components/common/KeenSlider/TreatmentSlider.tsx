@@ -2,6 +2,7 @@
 import { FC, useState } from "react";
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import { ChevronRight } from "@components/icons";
 
 interface ArrowProps{
     disabled: boolean,
@@ -90,6 +91,14 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
     
     return <div className="flex h-225 w-full">
                 <div className={`w-1/3 flex flex-col px-15 ${leftside_bg}`}>
+                    <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                        <div className="flex items-center
+                                        px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                            <span>Home</span>
+                            <span className="ml-1"><ChevronRight className="w-4"/></span>
+                            <span className="ttcommon_font_bold ml-1">Treatment</span>
+                        </div>
+                    </div>
                     <div className="my-auto">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">{headline}</div>
                         <div className="ttcommon_font_thin text-sm leading-14_26 mt-2">{sub_headline}</div>

@@ -7,6 +7,8 @@ import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
+import Link from '@components/ui/Link'
+import { ChevronRight } from '@components/icons'
 
 const renderLiftingThreadSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -36,6 +38,16 @@ export default function LiftingThread() {
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Dermal fillers</span>
+                    </div>
+                </div>
                 <div className="flex my-auto w-full h-full px-15 z-10">
                     <div className="w-7/12 flex flex-col">
                         <div className="my-auto">
@@ -80,32 +92,37 @@ export default function LiftingThread() {
                         <div className="mt-10">
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Full Name"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <select className="h-11 border-none bg-white w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
                                 <option value="Choose Country or Region">Choose Country or Region</option>
                             </select>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-xs"><strong className="ttcommon_font_bold underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                            <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                                <Link href="/privacypolicy">
+                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                </Link> 
+                                If you consent to us contacting you for this purpose, please tick below:
+                            </div>
                         </div>
                         <div className="mt-5 flex items-center">
-                            <div>
-                                <input type="checkbox" name="" id="agree-checkbox" />
+                            <div className="flex">
+                                <input type="checkbox" name="" id="agree-checkbox" className="w-3_5 h-3_5"/>
                             </div>
-                            <label className="ttcommon_font_thin ml-2 text-xs" htmlFor="agree-checkbox">I agree to receive other communications from Intraline.</label>
+                            <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="agree-checkbox">I agree to receive other communications from Intraline.</label>
                         </div>
-                        <div className="ttcommon_font_thin text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
-                        <div className="mt-10">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                        <div className="ttcommon_font_thin text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="mt-7_5">
+                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

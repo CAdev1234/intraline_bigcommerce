@@ -1,6 +1,7 @@
 import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
 import Button from '@components/mycp/Button'
+import Link from "@components/ui/Link"
 
 export default function IndustryIndex() {
     return <div className="ttcommon_font_thin">
@@ -13,7 +14,7 @@ export default function IndustryIndex() {
                             <div className="text-sm leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                             <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                             <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                            <Button className="mt-7_5 w-60 h-11">Start Reading</Button>
+                            <Button className="mt-7_5 w-60 h-11 text-sm">Start Reading</Button>
                         </div>
                     </div>
                     <div className="mt-15 grid grid-cols-3 gap-x-5">
@@ -23,7 +24,7 @@ export default function IndustryIndex() {
                                         <div className="mt-12 uppercase text-sm leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                                         <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                                         <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                                        <Button className="mt-7_5 w-full h-11">Start Reading</Button>
+                                        <Button className="mt-7_5 w-full h-11 text-sm">Start Reading</Button>
                                     </div>
                         })}
                     </div>
@@ -39,7 +40,7 @@ export default function IndustryIndex() {
                         <div className="mx-auto text-center flex flex-col">
                             <div className="ttcommon_font_bold text-4xl leading-36_26">Intraline’s Courses.</div>
                             <div className="mt-6 text-4xl leading-36_48" style={{maxWidth: 650}}>Boost your skills, increase patient satisfaction, and accelerate your growth. I AM Academy was designed with you in mind.</div>
-                            <Button className="mt-7_5 mx-auto w-60 h-11">Enroll Now</Button>
+                            <Button className="mt-7_5 mx-auto w-60 h-11 text-sm">Enroll Now</Button>
                         </div>
                         <div className="mt-25 grid grid-cols-2 gap-x-5 relative z-10">
                             <div className="flex flex-col">
@@ -75,7 +76,7 @@ export default function IndustryIndex() {
                             <div className="ml-16 flex-1 flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>
                                 <div className="mt-2.5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
-                                <Button className="mt-auto h-11 w-60">Learn More</Button>
+                                <Button className="mt-auto h-11 w-60 text-sm">Learn More</Button>
                             </div>
                         </div>
                     </div>
@@ -116,7 +117,12 @@ export default function IndustryIndex() {
                                     <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="What is your Dermal Filler of choice?"/>
                                 </div>
                                 <div className="mt-5">
-                                    <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                                    <div className="ttcommon_font_thin text-xs">
+                                        <Link href="/privacypolicy">
+                                            <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
+                                        </Link> 
+                                        If you consent to us contacting you for this purpose, please tick below:
+                                    </div>
                                 </div>
                                 <div className="mt-5 flex items-center">
                                     <div>
@@ -126,7 +132,7 @@ export default function IndustryIndex() {
                                 </div>
                                 <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                                 <div className="mt-10">
-                                    <Button className="h-11 w-full">SUBMIT</Button>
+                                    <Button className="h-11 w-full text-sm">SUBMIT</Button>
                                 </div>
                             </div>
                         </div>

@@ -56,7 +56,7 @@ const renderPDOThreads = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <Button className="h-11 w-full">learn more</Button>
+                                <Button className="h-11 w-full text-sm">learn more</Button>
                                 
                             </div>
                         </div>
@@ -68,38 +68,61 @@ const renderPDOThreads = () => {
 
 export default function PDOThreadDetail() {
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+        <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
-                <div className="flex my-auto w-full h-full z-10">
-                    <div className="w-6/12 flex flex-col ml-172">
-                        <div className="my-auto">
-                            <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
-                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
-                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                            <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
-                            <div className="ttcommon_font_bold mt-5 flex items-center">
-                                <span>USD $100.00</span>
-                                <span className="ml-5">Volume: 1.1ML</span>
-                            </div>
-                            <div className="mt-5 flex items-center h-11 text-white">
-                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                    <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                    <div className="mx-auto">1</div>
-                                    <button className="mx-auto bg-transparent border-none p-1">+</button>
-                                </div>
-                                <Button className="ml-3 w-52 h-full">Add to cart</Button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="relative flex flex-1 flex-col items-end mr-15">
-                        <div className="absolute h-full flex flex-col">
-                            <div className="bg-white rounded-full my-auto" style={{width: 526, height: 526}}></div>
-                        </div>
-                        <div className="mb-auto h-full relative flex flex-col">
-                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
-                        </div>
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">Pdo threads</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">Lifting threads</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Dimension 720 PDO</span>
                     </div>
                 </div>
+                <div className="mt-auto mb-15 flex flex-col">
+                    <div className="flex my-auto w-full h-full z-10">
+                        <div className="w-6/12 flex flex-col ml-172">
+                            <div className="my-auto">
+                                <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
+                                <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                <div className="ttcommon_font_bold mt-5 flex items-center">
+                                    <span>USD $100.00</span>
+                                    <span className="ml-5">Volume: 1.1ML</span>
+                                </div>
+                                <div className="mt-5 flex items-center h-11 text-white">
+                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                        <div className="mx-auto">1</div>
+                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                    </div>
+                                    <Button className="ml-3 w-52 h-full text-sm">Add to cart</Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="relative flex flex-1 flex-col items-end mr-15">
+                            <div className="absolute h-full flex flex-col">
+                                <div className="relative bg-white rounded-full my-auto" style={{width: 526, height: 526}}>
+                                    <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                                </div>
+                            </div>
+                            <div className="mb-auto h-full relative flex flex-col">
+                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </div>
+                </div>
+                
             </div>
 
             {/* Indications */}
@@ -108,7 +131,7 @@ export default function PDOThreadDetail() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72 text-sm">download indication chart</Button>
                     </div>
                 </div>
             </div>
@@ -164,7 +187,7 @@ export default function PDOThreadDetail() {
                                         <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">BUY 720 PDO NOW</Button>
+                                        <Button className="h-full flex-1 text-sm">BUY 720 PDO NOW</Button>
                                     </div>
                                 </div>
                                 
@@ -222,7 +245,7 @@ export default function PDOThreadDetail() {
                 head_line={"Reviews."} 
                 bg_color={"bg-c_C3E0DC"} 
                 quote_color={"#87C1B9"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
 
             
             

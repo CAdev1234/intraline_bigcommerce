@@ -70,14 +70,14 @@ const RenderMseries = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <Button className="h-11">learn more</Button>
+                                <Button className="h-11 text-sm">learn more</Button>
                                 <div className="mt-2 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1">-</button>
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1 h-full">Add to cart</Button>
+                                    <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
                                 </div>
                             </div>
                         </div>
@@ -95,14 +95,12 @@ export default function DermalFillerDetail() {
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
-                        <span>
-                            <ChevronRight className="w-4" />
-                        </span>
-                        <span>Shop</span>
-                        <span><ChevronRight className="w-4"/></span>
-                        <span>MONOPHASIC DERMAL FILLERS</span>
-                        <span><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold">M2 Plus</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">M2 Plus</span>
                     </div>
                 </div>
                 <div className="h-full z-10 mb-15 flex flex-col">
@@ -123,7 +121,7 @@ export default function DermalFillerDetail() {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full">Add to cart</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm">Add to cart</Button>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +150,7 @@ export default function DermalFillerDetail() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-64 text-sm">download indication chart</Button>
                     </div>
                 </div>
             </div>
@@ -217,7 +215,7 @@ export default function DermalFillerDetail() {
                                         </div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">Buy m2 plus now</Button>
+                                        <Button className="h-full flex-1 text-sm">Buy m2 plus now</Button>
                                     </div>
                                 </div>
                                 

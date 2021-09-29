@@ -19,7 +19,7 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
-                    <Button className="mt-8 w-full h-11">Login</Button>
+                    <Button className="mt-8 w-full h-11 text-sm">Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
                             <span className="leading-36_26 text-base underline">Don't have an account?</span>

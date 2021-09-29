@@ -84,14 +84,12 @@ export default function MSeries() {
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
-                        <span>
-                            <ChevronRight className="w-4" />
-                        </span>
-                        <span>Shop</span>
-                        <span><ChevronRight className="w-4"/></span>
-                        <span>Dermal fillers</span>
-                        <span><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">Dermal fillers</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
@@ -178,7 +176,7 @@ export default function MSeries() {
                                     sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64">Shop now the m series</Button>
+                        <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>
                     </div>
                 </div>
             </div>
@@ -188,7 +186,7 @@ export default function MSeries() {
                 head_line={"Testimonials."} 
                 bg_color={"bg-c_C3E0DC"} 
                 quote_color={"#87C1B9"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
             
         </div>
     )

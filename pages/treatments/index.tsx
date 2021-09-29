@@ -107,6 +107,7 @@ export default function Treatments() {
                 </div>
     })
     return <div className="ttcommon_font flex flex-col">
+
                 <TreatmentSlider 
                     headline={"Facial Treatments."}
                     sub_headline={"The choice is yours. Find the perfect treatment for you."}
@@ -124,7 +125,7 @@ export default function Treatments() {
                     head_line={"Testimonials."} 
                     bg_color={"bg-c_C3E0DC"} 
                     quote_color={"#87C1B9"} 
-                    testimonial_li={[0,1,2,3,4]}/>
+                    testimonial_li={[0,1,2,3]}/>
             </div>
 }
 

@@ -46,12 +46,22 @@ export default function SkinCare() {
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="h-225 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Skin Care</span>
+                    </div>
+                </div>
                 <div className="flex items-end my-auto w-full">
                     <div className="w-1/2">
                         <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Skin</div>
                         <div className="ttcommon_font_bold text-200px leading-200_160" >Care</div>
                     </div>
-                    <div className="w-1/2 text-4xl ttcommon_font_thin max-w-md" style={{maxWidth: 427 + 'px'}}>
+                    <div className="max-w-128 w-1/2 text-4xl ttcommon_font_thin">
                         Immerse your skin in intense moisture while smoothing, tightening & rejuvenating.
                     </div>
                 </div>
@@ -68,17 +78,20 @@ export default function SkinCare() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                 <div className="my-auto mx-auto w-10/12">
                                     <div className="flex flex-col text-white w-64 mx-auto">
-                                        <Button className="h-11 w-full">learn more</Button>
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
                                         <div className="mt-2 flex items-center h-12 text-white">
                                             <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                                 <button className="mx-auto bg-transparent border-none p-1">-</button>
                                                 <div className="mx-auto">1</div>
                                                 <button className="mx-auto bg-transparent border-none p-1">+</button>
                                             </div>
-                                            <Button className="ml-3 flex-1 h-full">Add to cart</Button>
+                                            <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="absolute top-0 right-0">
+                                <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>
                             </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
@@ -92,17 +105,20 @@ export default function SkinCare() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                 <div className="my-auto mx-auto w-10/12">
                                     <div className="flex flex-col text-white w-64 mx-auto">
-                                        <button className=" bg-c_00080D flex items-center justify-center h-11 text-white uppercase tracking-widest">learn more</button>
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
                                         <div className="mt-2 flex items-center h-12 text-white">
                                             <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                                 <button className="mx-auto bg-transparent border-none p-1">-</button>
                                                 <div className="mx-auto">1</div>
                                                 <button className="mx-auto bg-transparent border-none p-1">+</button>
                                             </div>
-                                            <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                                            <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="absolute top-0 right-0">
+                                <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>
                             </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
@@ -162,7 +178,7 @@ export default function SkinCare() {
                 head_line={"Testimonials."} 
                 bg_color={"bg-white"} 
                 quote_color={"#C6CBDD"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
 
             {/* FAQ part */}
             <div className="bg-c_C3E0DC">

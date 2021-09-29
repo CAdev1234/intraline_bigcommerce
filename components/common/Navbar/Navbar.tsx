@@ -59,7 +59,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     { name: 'Skincare', link: '/shop/skincare', 
       subItem_li: []
     },
-    { name: 'Scar Kit', link: '/'}
+    { name: 'Scar Kit', link: '/shop/scarkit'}
   ]
   let industry_category_li = [
     { name: 'Industry', link: '/industry', subItem_li: []},

@@ -13,6 +13,7 @@ import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 import Button from '@components/mycp/Button'
+import Link from '@components/ui/Link'
 
 
 
@@ -75,34 +76,39 @@ export default function AboutUs() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="First name"/>
+                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Full name"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Company Name"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
                                 <option value="Choose Country or Region">Choose Country or Region</option>
                             </select>
                         </div>
-                        <div className="mt-10">
-                            <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment!"></textarea>
+                        <div className="mt-5">
+                            <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                            <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                                <Link href="/privacypolicy">
+                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                </Link> 
+                                If you consent to us contacting you for this purpose, please tick below:
+                            </div>
                         </div>
                         <div className="mt-5 flex items-center">
-                            <div>
-                                <input type="checkbox" name="" id="" />
+                            <div className="flex">
+                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5"/>
                             </div>
-                            <div className="ml-2">I agree to receive other communications from Intraline.</div>
+                            <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label>
                         </div>
-                        <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
-                        <div className="mt-10">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                        <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="mt-7_5">
+                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

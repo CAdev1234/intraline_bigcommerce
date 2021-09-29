@@ -69,34 +69,50 @@ export default function ScarKit() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_C3E0DC w-full flex flex-col">
-                <div className="flex my-auto w-full h-full z-10">
-                    <div className="w-6/12 flex flex-col ml-172">
-                        <div className="my-auto">
-                            <div className="ttcommon_font_thin text-200px leading-200_160">Scar</div>
-                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">Kit</span></div>
-                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                            <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
-                            <div className="ttcommon_font_bold mt-5 flex items-center">
-                                <span>USD $100.00</span>
-                                <span className="ml-5">Volume: 1.1ML</span>
-                            </div>
-                            <div className="mt-5 flex items-center h-12 text-white">
-                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                    <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                    <div className="mx-auto">1</div>
-                                    <button className="mx-auto bg-transparent border-none p-1">+</button>
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">The Scar Kit</span>
+                    </div>
+                </div>
+                <div className="mt-auto flex flex-col mb-15">
+                    <div className="flex w-full h-full z-10">
+                        <div className="w-6/12 flex flex-col ml-172">
+                            <div className="my-auto">
+                                <div className="ttcommon_font_thin text-200px leading-200_160">Scar</div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">Kit</span></div>
+                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                <div className="ttcommon_font_bold mt-5 flex items-center">
+                                    <span>USD $100.00</span>
+                                    <span className="ml-5">Volume: 1.1ML</span>
                                 </div>
-                                <Button className="ml-3 w-52 h-full">Add to cart</Button>
+                                <div className="mt-5 flex items-center h-12 text-white">
+                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                        <div className="mx-auto">1</div>
+                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                    </div>
+                                    <Button className="ml-3 w-52 h-full text-sm">Add to cart</Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="relative flex flex-1 flex-col items-end mr-15">
+                            <div className="absolute h-full flex flex-col">
+                                <div className="bg-white rounded-full my-auto relative" style={{width: 526, height: 526}}>
+                                    <img className="mix_blend_multi ml-auto h-full" src="/assets/img/scarkit.png" alt="" />
+                                    <Button className="ttcommon_font_bold absolute right-16 top-0 h-9 w-30" variant="primary">$100.00</Button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="relative flex flex-1 flex-col items-end mr-15">
-                        <div className="absolute h-full flex flex-col">
-                            <div className="bg-white rounded-full my-auto" style={{width: 526, height: 526}}>
-                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/scarkit.png" alt="" />
-                            </div>
-                        </div>
-                        <div className="absolute right-0 top-0 h-11 w-30 bg-c_52B5D3 text-c_00080D flex justify-center items-center">$100.00</div>
+                    <div className="flex items-center justify-center mt-9">
+                        <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
             </div>
@@ -128,7 +144,7 @@ export default function ScarKit() {
                             </div>
                             
                         </div>
-                        <div className="w-1/2">
+                        <div className="flex-1 mr-32">
                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Product Specifics.</div>
                             <div className="ttcommon_font_thin mt-5 text-sm leading-14_26">A specially designed single-use GTI Cannula® for precise control through higher density and fibrotic tissue, for the subcision of minor facial surface defects.
 The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in partnership with Sterimedix, which makes the treatments of small facial and body scars or surface defects safer and easier to perform. The GTI is a smooth cannula with a precision manufactured groove in the tip. The grooved tip was designed to reduce the risk of damage to nerves or important vessels which might otherwise be at risk from a sharp cutting device. The Cannula’s tip gives greater control to the practitioner as it passes through the fibrous tissue aiding the treatment of small scars or defects. The precise design of the grooved tip is to release the surface indentation and allow the lifting of the scar with Intraline Two Dermal Filler. After the subcision, the GTI Cannula can then be used to inject Intraline Two Dermal Filler into the space under the elevated skin.</div>
@@ -152,7 +168,7 @@ The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in pa
                 head_line={"Testimonials."} 
                 bg_color={"bg-white"} 
                 quote_color={"#C3E0DC"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
 
             
             
@@ -167,7 +183,7 @@ The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in pa
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

@@ -46,7 +46,7 @@ const RenderCategorySwiper:FC = () => {
                         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
                     </div>
                     <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <Button className="my-auto mx-10 h-11">Learn more</Button>
+                        <Button className="my-auto mx-10 h-11 text-sm">Learn more</Button>
                     </div>
                 </div>
     })
@@ -69,14 +69,14 @@ const renderProducts = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <Button className="h-11">learn more</Button>
+                                <Button className="h-11 text-sm">learn more</Button>
                                 <div className="mt-2 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1">-</button>
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1">Add to cart</Button>
+                                    <Button className="ml-3 flex-1 text-sm">Add to cart</Button>
                                 </div>
                             </div>
                         </div>

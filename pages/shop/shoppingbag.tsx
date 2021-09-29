@@ -79,7 +79,7 @@ export default function ShoppingBag() {
                         </div>
                         <div className="ttcommon_font_thin mt-2">Addtional taxes and duties may apply. <a href="/">Details.</a></div>
                         <Link href="/shop/checkout">
-                            <Button className="mt-15 h-11 w-full">Checkout</Button>
+                            <Button className="mt-15 h-11 w-full text-sm">Checkout</Button>
                         </Link>
                     </div>
                 </div>

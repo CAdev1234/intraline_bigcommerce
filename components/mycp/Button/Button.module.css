@@ -1,5 +1,5 @@
 .root {
-    @apply flex justify-center items-center transition ease-in-out duration-150 uppercase border border-transparent text-sm tracking-widest;
+    @apply flex justify-center items-center transition ease-in-out duration-150 uppercase border border-transparent tracking-widest;
 }
 
 /* .root:hover {
@@ -25,7 +25,7 @@
     @apply bg-white border-c_00080D text-c_00080D;
 }
 .default:active {
-    @apply bg-opacity-50;
+    background-color: #414141;
 }
 
 
@@ -33,10 +33,10 @@
     @apply bg-c_52B5D3 text-c_00080D;
 }
 .primary:hover {
-    @apply bg-opacity-30;
+    background-color: #CCE7EF;
 }
 .primary:active {
-    @apply bg-opacity-50;
+    background-color: #2B94B4;
 }
 .disabled {
     @apply opacity-20;

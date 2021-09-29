@@ -42,21 +42,23 @@ const SideCart: FC = () => {
     ]
     return (
         <div className="ttcommon_font_thin flex flex-col bg-white w-96 py-12 fixed right-0 max-h-screen" style={{height: 'calc(100% - 60px)'}}>
-            <div className="px-7">
+            <div className="px-7 flex flex-col flex-1 h-0">
                 <div className="text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag</span>(3)</div>
-                <div className="mt-10 overflow-y-auto" style={{height: 450}}>
-                    {cart_product_li.map((item, index) => {
-                        return <div className="flex items-center mb-3" key={`cart_item_${index}`}>
-                                    <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD">
-                                        <img className="w-full" src={item.img} alt="" />
+                <div className="mt-10 mb-3 flex-1 h-0">
+                    <div className="h-full overflow-y-auto">
+                        {cart_product_li.map((item, index) => {
+                            return <div className="flex items-center mb-3" key={`cart_item_${index}`}>
+                                        <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD">
+                                            <img className="w-full" src={item.img} alt="" />
+                                        </div>
+                                        <div className="flex-1 ml-5">
+                                            <div>{item.shop_name}</div>
+                                            <div className="ttcommon_font_bold">{item.product_name}</div>
+                                            <div>{item.amount} X <span className="ttcommon_font_bold tracking-widest">${item.price}</span></div>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 ml-5">
-                                        <div>{item.shop_name}</div>
-                                        <div className="ttcommon_font_bold">{item.product_name}</div>
-                                        <div>{item.amount} X <span className="ttcommon_font_bold tracking-widest">${item.price}</span></div>
-                                    </div>
-                                </div>
-                    })}
+                        })}
+                    </div>
                 </div>
             </div>
             <div className="h-px w-full bg-gray-500 mt-auto"></div>
@@ -67,14 +69,14 @@ const SideCart: FC = () => {
                 </div>
                 <div className="mt-7">
                     <Link href="/shop/shoppingbag">
-                        <Button className="h-11 w-full">View Bag</Button>
+                        <Button className="h-11 w-full text-sm">View Bag</Button>
                     </Link>
                     <Link href="/shop/checkout">
-                        <Button className="mt-2 h-11 w-full">Checkout</Button>
+                        <Button className="mt-2 h-11 w-full text-sm">Checkout</Button>
                     </Link>
                     
                     <Link href="/shop/shoppingbag">
-                        <Button className="mt-2 h-11 w-full">Edit Bag</Button>
+                        <Button className="mt-2 h-11 w-full text-sm">Edit Bag</Button>
                     </Link>
                 </div>
             </div>

@@ -1,12 +1,24 @@
 import { Navbar } from '@components/common'
+import { ChevronRight } from '@components/icons';
 import Button from '@components/mycp/Button'
 
 export default function Checkout() {
     return (
         <div className="bg-c_CCE7EF h-screen">
             <Navbar c_name="bg-black sticky"></Navbar>
-            <div className="px-15 pt-44 max-w-4xl overflow-y-auto h-screen">
-                
+            <div className="px-15 pt-44 max-w-4xl overflow-y-auto h-screen relative">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shopping Bag</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">Checkout</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Review</span>
+                    </div>
+                </div>
                 {/* auth part */}
                 <div className="bg-white p-7 flex items-center">
                     <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">1</div>
@@ -18,7 +30,7 @@ export default function Checkout() {
                             <div className="ml-7">sameerhaque@sameer.com</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase">Change</div>
+                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
                 </div>
 
                 {/* shipping address */}
@@ -74,8 +86,8 @@ export default function Checkout() {
                             </div>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <Button className="h-11 w-64">Save & Continue</Button>
-                            <button className="uppercase ml-7 text-sm tracking-widest">Cancel</button>
+                            <Button className="h-11 w-64 text-sm">Save & Continue</Button>
+                            <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                         </div>
                     </div>
                 
@@ -89,7 +101,7 @@ export default function Checkout() {
                                 <div className="">Lake City, Utah, United States 230 654</div>
                             </div>
                         </div>
-                        <div className="ml-auto text-sm leading-14_17 uppercase">Change</div>
+                        <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
                     </div>
                 </div>
 
@@ -104,7 +116,7 @@ export default function Checkout() {
                             <div className="">Lake City, Utah, United States 230 654</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase">Change</div>
+                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
                 </div>
 
                 {/* payment method */}
@@ -131,12 +143,17 @@ export default function Checkout() {
                             </div>
                             <div className="w-1/2 ml-2">
                                 <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">CVC</label>
-                                <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="xxx"/>
+                                <div className="relative">
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="xxx"/>
+                                    <div className="absolute top-0 -right-6 h-full flex flex-col">
+                                        <button className="my-auto text-white text-10px w-4 h-4 rounded-full bg-c_00080D flex items-center justify-center">?</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <Button className="h-11 w-64">Save & Continue</Button>
-                            <button className="uppercase ml-7 text-sm tracking-widest">Cancel</button>
+                            <Button className="h-11 w-64 text-sm">Save & Continue</Button>
+                            <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                         </div>
                     </div>
                 </div>

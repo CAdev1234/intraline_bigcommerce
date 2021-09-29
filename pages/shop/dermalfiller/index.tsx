@@ -68,12 +68,10 @@ export default function DemeralFiller() {
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
-                        <span>
-                            <ChevronRight className="w-4" />
-                        </span>
-                        <span>Shop</span>
-                        <span><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold">Dermal fillers</span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Dermal fillers</span>
                     </div>
                 </div>
                 <div className="my-auto w-full items-end
@@ -111,7 +109,7 @@ export default function DemeralFiller() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
-                                        <Button className=" h-11">Learn more</Button>
+                                        <Button className=" h-11 text-sm">Learn more</Button>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +125,7 @@ export default function DemeralFiller() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
-                                        <Button className=" h-11">Learn more</Button>
+                                        <Button className=" h-11 text-sm">Learn more</Button>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +174,7 @@ export default function DemeralFiller() {
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
                         </div>
                     </div>
                 </div>
