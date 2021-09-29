@@ -12,6 +12,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
 
 
 
@@ -55,7 +56,7 @@ const renderPDOThreads = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <button className=" bg-c_00080D flex items-center justify-center h-11 text-white uppercase tracking-widest">learn more</button>
+                                <Button className="h-11 w-full">learn more</Button>
                                 
                             </div>
                         </div>
@@ -80,13 +81,13 @@ export default function PDOThreadDetail() {
                                 <span>USD $100.00</span>
                                 <span className="ml-5">Volume: 1.1ML</span>
                             </div>
-                            <div className="mt-5 flex items-center h-12 text-white">
+                            <div className="mt-5 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                     <button className="mx-auto bg-transparent border-none p-1">-</button>
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1">+</button>
                                 </div>
-                                <div className="ml-3 bg-c_00080D flex items-center justify-center w-52 h-full uppercase">Add to cart</div>
+                                <Button className="ml-3 w-52 h-full">Add to cart</Button>
                             </div>
                         </div>
                     </div>
@@ -107,7 +108,7 @@ export default function PDOThreadDetail() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">download indication chart</button>
+                        <Button className="mx-auto h-11 w-64">download indication chart</Button>
                     </div>
                 </div>
             </div>
@@ -162,13 +163,8 @@ export default function PDOThreadDetail() {
                                         </div>
                                         <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
-                                    <div className="mt-10 flex items-center h-12 text-white">
-                                        <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                            <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                            <div className="mx-auto">1</div>
-                                            <button className="mx-auto bg-transparent border-none p-1">+</button>
-                                        </div>
-                                        <div className="ml-3 bg-c_00080D flex items-center justify-center h-full uppercase flex-1">Add to cart</div>
+                                    <div className="mt-10 flex items-center h-11 text-white">
+                                        <Button className="h-full flex-1">BUY 720 PDO NOW</Button>
                                     </div>
                                 </div>
                                 

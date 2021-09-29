@@ -1,4 +1,5 @@
 import { Navbar } from '@components/common'
+import Button from '@components/mycp/Button'
 
 export default function Checkout() {
     return (
@@ -73,7 +74,7 @@ export default function Checkout() {
                             </div>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <button className="uppercase bg-c_00080D text-white text-sm tracking-widest h-11 w-64 flex items-center justify-center">Save & Continue</button>
+                            <Button className="h-11 w-64">Save & Continue</Button>
                             <button className="uppercase ml-7 text-sm tracking-widest">Cancel</button>
                         </div>
                     </div>
@@ -134,7 +135,7 @@ export default function Checkout() {
                             </div>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <button className="uppercase bg-c_00080D text-white text-sm tracking-widest h-11 w-64 flex items-center justify-center">Save & Continue</button>
+                            <Button className="h-11 w-64">Save & Continue</Button>
                             <button className="uppercase ml-7 text-sm tracking-widest">Cancel</button>
                         </div>
                     </div>

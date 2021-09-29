@@ -12,6 +12,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
+import Button from '@components/mycp/Button'
 
 
 
@@ -45,7 +46,7 @@ const RenderCategorySwiper:FC = () => {
                         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
                     </div>
                     <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <button className="my-auto mx-10 bg-c_00080D h-11 flex justify-center items-center text-sm text-white tracking-widest uppercase">Learn more</button>
+                        <Button className="my-auto mx-10 h-11">Learn more</Button>
                     </div>
                 </div>
     })
@@ -68,14 +69,14 @@ const renderProducts = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase">learn more</button>
-                                <div className="mt-2 flex items-center h-12 text-white">
+                                <Button className="h-11">learn more</Button>
+                                <div className="mt-2 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1">-</button>
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                                    <Button className="ml-3 flex-1">Add to cart</Button>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +125,7 @@ export default function AllProducts() {
                     </div>
                 </div>
                 <div className="mt-10 grid gap-5
-                                grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4
+                                grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     {renderProducts()}
                 </div>

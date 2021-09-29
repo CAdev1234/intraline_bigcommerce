@@ -27,6 +27,22 @@ const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
   const rootClassName = cn(s.root, className)
 
+  let infraline_link_li = [
+    {title: 'Products', link: '/shop/allproducts'},
+    {title: 'Treatments', link: '/treatments'},
+    {title: 'About Us', link: '/aboutus'},
+    {title: 'Contact', link: '/contact'},
+    {title: 'Privacy Policy', link: '/'},
+    {title: 'Cookie Policy', link: '/'},
+  ]
+
+  let account_link_li = [
+    {title: 'My Account', link: '/'},
+    {title: 'Register/Login', link: '/account/login'},
+    {title: 'My Orders', link: '/'},
+    {title: 'My Reviews', link: '/'},
+  ]
+
   return (
     <footer className={rootClassName}>
       {/* <Container>
@@ -90,8 +106,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
       </Container> */}
 
 
-      <Container className="bg-black">
-        <div className="pt-20 pb-24 ttcommon_font">
+      <Container className="bg-black px-15">
+        <div className="pt-20 pb-17_5 ttcommon_font">
           <div className="block w-full md:flex lg:flex xl:flex">
             <div className="flex
                             w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
@@ -112,34 +128,13 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   <Link href="/">
                     <div className="uppercase text-white text-sm tracking-widest flex items-center h-15">Infraline</div>
                   </Link>
-                  <div className="mb-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Dermal Fillers</a>
-                    </Link>
-                  </div>
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Pdo Threads</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Skincare</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Treatments</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Privacy Policy</a>
-                    </Link>
-                  </div>
+                  {infraline_link_li.map((item, index) => {
+                    return <div key={`infraline_link_${index}`} className="mb-1">
+                              <Link href={item.link}>
+                                <a className="text-white text-sm leading-14_26" >{item.title}</a>
+                              </Link>
+                          </div>
+                  })}
                 </div>
               </div>
             </div>
@@ -154,34 +149,13 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   <Link href="/">
                     <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Account</a>
                   </Link>
-                  <div className="mb-auto">
-                    <Link href="/">
-                      <a className=" text-white text-sm" >Orders</a>
-                    </Link>
-                  </div>
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className=" text-white text-sm" >Compare</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Wishlist</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="my-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Log In</a>
-                    </Link>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <Link href="/">
-                      <a className="text-white text-sm" >Register</a>
-                    </Link>
-                  </div>
+                  {account_link_li.map((item, index) => {
+                    return <div className="mb-1" key={`account_link_${index}`}>
+                              <Link href={item.link}>
+                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                              </Link>
+                          </div>
+                  })}
                 </div>
                 <div className="flex flex-col
                                 w-full sm:w-5/12 md:w-8/12 lg:w-8/12 xl:w-8/12
@@ -189,13 +163,13 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   <Link href="/">
                     <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Subscribe to our newsletter</a>
                   </Link>
-                  <div className="flex h-11 my-auto">
+                  <div className="flex h-11 mt-4">
                     <input type="text" className="h-full w-full border-none bg-white pl-5 py-2 placeholder-c_00080D" placeholder="Your email address"/>
                     <button className="w-36 h-full uppercase text-white bg-c_52B5D3">submit</button>
                   </div>
                   
                   <div className="flex items-center
-                                  mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0">
+                                  mt-5 sm:mt-0 md:mt-0 lg:mt-16 xl:mt-16 2xl:mt-16">
                     <div>
                       <svg width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.80545 23C19.3715 23 25.1507 14.1505 25.1507 6.47614C25.1507 6.22482 25.1507 5.9746 25.1339 5.72548C26.2582 4.90334 27.2287 3.88549 28 2.71941C26.9516 3.18906 25.8393 3.497 24.7005 3.63311C25.8995 2.90755 26.7974 1.76547 27.2261 0.42094C26.0985 1.09735 24.8647 1.57413 23.5782 1.8306C22.492 0.662923 20.975 0 19.3896 0C16.2351 0 13.6394 2.62405 13.6394 5.81289C13.6394 6.25528 13.6894 6.69629 13.7883 7.12718C9.1717 6.89327 4.8644 4.68574 1.94879 1.05954C0.432633 3.69807 1.21712 7.11745 3.72734 8.81193C2.81323 8.78457 1.91877 8.53523 1.12 8.08504V8.15863C1.12077 10.9126 3.05851 13.3063 5.72879 13.8515C4.8831 14.0847 3.99558 14.1187 3.13491 13.9512C3.8856 16.311 6.05035 17.9377 8.50194 17.9842C6.46811 19.6 3.95429 20.4777 1.36752 20.4751C0.910438 20.4742 0.453797 20.4463 0 20.3913C2.62686 22.0955 5.68422 22.9997 8.80545 22.9955" fill="white"/>
@@ -261,8 +235,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <div className="mr-auto text_overflow_one_line text">+1 (778) 738-0351</div>
             <div className="flex items-center ml-auto">
               <label htmlFor="" className="text_overflow_one_line">Payment Methods:</label>
-              <img className="ml-5" src="/assets/img/master_card.png" alt="" />
               <img className="ml-5" src="/assets/img/visa.png" alt="" />
+              <img className="ml-5" src="/assets/img/master_card.png" alt="" />
             </div>
           </div>
         </div>

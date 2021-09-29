@@ -1,5 +1,6 @@
 import Link from '@components/ui/Link'
 import { FC, useState, useEffect } from 'react'
+import Button from '@components/mycp/Button'
 
 const SideCart: FC = () => {
     const cart_product_li = [
@@ -66,14 +67,14 @@ const SideCart: FC = () => {
                 </div>
                 <div className="mt-7">
                     <Link href="/shop/shoppingbag">
-                        <button className="bg-c_00080D uppercase h-11 text-white w-full tracking-widest">View Bag</button>
+                        <Button className="h-11 w-full">View Bag</Button>
                     </Link>
                     <Link href="/shop/checkout">
-                        <button className="mt-2 bg-c_00080D uppercase h-11 text-white w-full tracking-widest">Checkout</button>
+                        <Button className="mt-2 h-11 w-full">Checkout</Button>
                     </Link>
                     
                     <Link href="/shop/shoppingbag">
-                        <button className="mt-2 bg-c_00080D text-white tracking-widest uppercase h-11 w-full flex items-center justify-center">Edit Bag</button>
+                        <Button className="mt-2 h-11 w-full">Edit Bag</Button>
                     </Link>
                 </div>
             </div>

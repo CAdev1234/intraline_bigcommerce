@@ -6,13 +6,21 @@ import { Navbar } from '@components/common'
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
+import { Plus } from '@components/icons'
 
 const renderPDOThreadSwiper = () => {
     let render_ele = [0, 1].map((item, index) => {
-        return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
+        return <div className="keen-slider__slide relative" key={`pdo_thread_${index}`}>
                     <div className="my-auto">
                         <img src="/assets/img/lifting_thread_1.png" alt="" />
                         <div className="uppercase text-2xl text-center font-semibold">Lifting Threads</div>
+                    </div>
+
+                    <div className="absolute top-0 left-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
+                            <Plus />
+                        </button>
                     </div>
                 </div>
     })
@@ -57,7 +65,7 @@ export default function PDOThread() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Polydioxanone Threads.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline’s PDO threads are CE marked with an excellent safety profile and virtually non-allergenic. PDO suture use has nearly 40 years of medical history supporting its use.</p>
                     <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">Browse catalog</button>
+                        <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
             </div>
@@ -101,9 +109,9 @@ export default function PDOThread() {
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
+                        <p className="ttcommon_font_thin mt-5 text-sm leading-14_26">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First name"/>
+                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-10">
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
@@ -112,25 +120,20 @@ export default function PDOThread() {
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-10">
-                            <select className="h-11 border-none bg-white w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
-                                <option value="Choose Country or Region">Choose Country or Region</option>
-                            </select>
-                        </div>
-                        <div className="mt-10">
-                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment!"></textarea>
+                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                            <div className="ttcommon_font_thin text-xs"><strong className="ttcommon_font_bold underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
                         </div>
                         <div className="mt-5 flex items-center">
                             <div>
-                                <input type="checkbox" name="" id="" />
+                                <input type="checkbox" name="" id="checkbox_infra" />
                             </div>
-                            <div className="ml-2">I agree to receive other communications from Intraline.</div>
+                            <label className="ttcommon_font_thin ml-2 text-xs" htmlFor="checkbox_infra">I agree to receive other communications from Intraline.</label>
                         </div>
-                        <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="ttcommon_font_thin text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

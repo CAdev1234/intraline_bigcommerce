@@ -12,7 +12,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-
+import Button from '@components/mycp/Button'
 
 
 const RenderFAQCollapse = () => {
@@ -86,7 +86,7 @@ export default function ScarKit() {
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1">+</button>
                                 </div>
-                                <div className="ml-3 bg-c_00080D flex items-center justify-center w-52 h-full uppercase">Add to cart</div>
+                                <Button className="ml-3 w-52 h-full">Add to cart</Button>
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@ The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in pa
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

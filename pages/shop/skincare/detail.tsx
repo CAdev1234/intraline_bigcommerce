@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import { Layout } from '@components/common'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-
+import Button from '@components/mycp/Button'
 
 
 export default function SkinCareDetail() {
@@ -26,12 +26,12 @@ export default function SkinCareDetail() {
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1">+</button>
                                 </div>
-                                <button className="ml-3 bg-c_00080D flex items-center justify-center w-52 h-full uppercase">Add to cart</button>
+                                <Button className="ml-3 w-52 h-full">Add to cart</Button>
                             </div>
                         </div>
                     </div>
                     <div className="relative flex flex-col items-center ml-auto my-auto rounded-full bg-c_CCE7EF" style={{height: 576, width: 576}}>
-                        <button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 bg-c_52B5D3 flex justify-center items-center text-lg leading-tight">$100.00</button>
+                        <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg leading-tight font-bold" variant="primary">$100.00</Button>
                         <div className="my-auto relative flex flex-col h-3/4">
                             <img className="h-full" src="/assets/img/skincare3.png" alt="" />
                         </div>
@@ -45,7 +45,7 @@ export default function SkinCareDetail() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Lorem Ipsum.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">Browse catalog</button>
+                        <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ export default function SkinCareDetail() {
                         </div>
                         <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

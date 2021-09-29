@@ -10,6 +10,7 @@ import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
 
 
 
@@ -67,14 +68,14 @@ export default function SkinCare() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                 <div className="my-auto mx-auto w-10/12">
                                     <div className="flex flex-col text-white w-64 mx-auto">
-                                        <button className=" bg-c_00080D flex items-center justify-center h-11 text-white uppercase tracking-widest">learn more</button>
+                                        <Button className="h-11 w-full">learn more</Button>
                                         <div className="mt-2 flex items-center h-12 text-white">
                                             <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                                 <button className="mx-auto bg-transparent border-none p-1">-</button>
                                                 <div className="mx-auto">1</div>
                                                 <button className="mx-auto bg-transparent border-none p-1">+</button>
                                             </div>
-                                            <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                                            <Button className="ml-3 flex-1 h-full">Add to cart</Button>
                                         </div>
                                     </div>
                                 </div>

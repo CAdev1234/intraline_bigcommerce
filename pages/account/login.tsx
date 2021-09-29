@@ -1,5 +1,6 @@
 import { Navbar } from '@components/common'
 import Link from '@components/ui/Link';
+import Button from '@components/mycp/Button'
 
 export default function Login() {
     return (
@@ -18,7 +19,7 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
-                    <button className="mt-8 uppercase bg-c_00090D text-white py-4 w-full text-sm tracking-widest">Login</button>
+                    <Button className="mt-8 w-full h-11">Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
                             <span className="leading-36_26 text-base underline">Don't have an account?</span>

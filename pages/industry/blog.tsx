@@ -1,5 +1,5 @@
 import { Layout } from "@components/common"
-import { ChevronLeft, ChevronRight } from "@components/icons"
+import Button from '@components/mycp/Button'
 
 export default function IndustryBlog() {
     const tag_li = ['all articles', 'intraline', 'dermal filler', 'aesthetics education', 'medical aesthetics', 'anti-ageing', 'moisturizer', 'treatments', 'moisturizer', 'news & media', 'biocellulose', 'skincare', 'faq']
@@ -18,17 +18,17 @@ export default function IndustryBlog() {
                             <div className="text-sm leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                             <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                             <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                            <button className="mt-7_5 bg-c_00080D text-white uppercase flex justify-center items-center w-60 h-11 tracking-widest">Start Reading</button>
+                            <Button className="mt-7_5 w-60 h-11">Start Reading</Button>
                         </div>
                     </div>
-                    <div className="mt-15 grid grid-cols-3 gap-x-5">
+                    <div className="mt-15 grid grid-cols-3 gap-x-5 gap-y-14">
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
                             return <div key={`article_${index}`}>
                                         <div className="bg-c_F5DBDD w-full" style={{height: 270}}></div>
                                         <div className="mt-12 uppercase text-sm leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                                         <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
                                         <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                                        <button className="mt-7_5 bg-c_00080D text-white uppercase flex justify-center items-center w-full h-11 tracking-widest">Start Reading</button>
+                                        <Button className="mt-7_5 w-full h-11">Start Reading</Button>
                                     </div>
                         })}
                     </div>

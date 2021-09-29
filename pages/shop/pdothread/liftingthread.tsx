@@ -6,6 +6,7 @@ import { Navbar } from '@components/common'
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
 
 const renderLiftingThreadSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
@@ -66,7 +67,7 @@ export default function LiftingThread() {
                 head_line={"Testimonials."} 
                 bg_color={"bg-white"} 
                 quote_color={"#F5DBDD"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
             
             
             {/* Question part */}
@@ -75,9 +76,9 @@ export default function LiftingThread() {
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
+                        <p className="ttcommon_font_thin mt-5 text-sm leading-14_26">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First name"/>
+                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-10">
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
@@ -91,20 +92,20 @@ export default function LiftingThread() {
                             </select>
                         </div>
                         <div className="mt-10">
-                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment!"></textarea>
+                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="text-xs"><strong className="underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
+                            <div className="ttcommon_font_thin text-xs"><strong className="ttcommon_font_bold underline">Intraline’s Privacy Policy.</strong> If you consent to us contacting you for this purpose, please tick below:</div>
                         </div>
                         <div className="mt-5 flex items-center">
                             <div>
-                                <input type="checkbox" name="" id="" />
+                                <input type="checkbox" name="" id="agree-checkbox" />
                             </div>
-                            <div className="ml-2">I agree to receive other communications from Intraline.</div>
+                            <label className="ttcommon_font_thin ml-2 text-xs" htmlFor="agree-checkbox">I agree to receive other communications from Intraline.</label>
                         </div>
-                        <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="ttcommon_font_thin text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

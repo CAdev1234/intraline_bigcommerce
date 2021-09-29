@@ -10,12 +10,16 @@ import type { Category } from '@commerce/types/site'
 import ShippingView from '@components/checkout/ShippingView'
 import CartSidebarView from '@components/cart/CartSidebarView'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
-import { Sidebar, Button, Modal, LoadingDots } from '@components/ui'
+import { Sidebar, Modal, LoadingDots } from '@components/ui'
 import PaymentMethodView from '@components/checkout/PaymentMethodView'
 import CheckoutSidebarView from '@components/checkout/CheckoutSidebarView'
 
+
+import Button from '@components/mycp/Button'
+
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'
+import { ChevronUp } from '@components/icons'
 
 const Loading = () => (
   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
@@ -102,8 +106,22 @@ const Layout: FC<Props> = ({
   }))
 
   const [current_url, setCurrentUrl] = useState('')
+
+  const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
+  
+  
   useEffect(() => {
-    setCurrentUrl(window.location.pathname)  
+    setCurrentUrl(window.location.pathname)
+    let scrollHandler = () => {
+      let scroll_top = window.scrollY
+      if (scroll_top > 0) {
+        setEnableScrollUpBtn(true)
+      }else {
+        setEnableScrollUpBtn(false)
+      }
+    }
+    window.addEventListener('scroll', () => scrollHandler())
+    return window.removeEventListener('scroll', scrollHandler)
   })
 
   return (
@@ -116,15 +134,24 @@ const Layout: FC<Props> = ({
         <ModalUI />
         <SidebarUI />
         <FeatureBar
-          title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
+          title="Our site uses cookies for a more optimal experience. By continuing to browse the site you are agreeing to our use of cookies. You can view our cookie information here."
           hide={acceptedCookies}
           action={
-            <Button className="mx-5" onClick={() => onAcceptCookies()}>
-              Accept cookies
-            </Button>
+            <div className="ml-auto flex items-center">
+              <button className="text-c_00080D uppercase underline text-sm tracking-widest">Delete Account</button>
+              <Button 
+                className="ml-7_5 h-11 w-64"
+                onClick={() => onAcceptCookies()}>Log out</Button>
+            </div>
           }
         />
       </div>
+      {enableScrollUpBtn && 
+        <Button className="fixed bottom-10 right-10 h-20 w-20" variant="scrollup" onClick={() => {window.scrollTo(0, 0)}}>
+          <ChevronUp />
+        </Button>
+      }
+      
     </CommerceProvider>
   )
 }

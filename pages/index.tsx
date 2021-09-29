@@ -15,6 +15,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 
 import { RatingView } from 'react-simple-star-rating'
+import Button from '@components/mycp/Button'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
 import ReactPlayer from 'react-player';
@@ -86,11 +87,20 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 
 const RenderCategorySwiper:FC = () => {
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white" key={index} style={{width:352, minWidth: 352 + 'px !important', height:472}}>
-            <div className="flex">
-              <img className="mx-auto" src="/assets/img/product1.png" alt="" />
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white relative" key={index} style={{width:352, minWidth: 352 + 'px !important', height:472}}>
+            <div>
+              <div className="flex">
+                <img className="mx-auto" src="/assets/img/product1.png" alt="" />
+              </div>
+              <div className="mt-auto uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
             </div>
-            <div className="mt-auto uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
+            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
+                <div className="my-auto mx-auto w-10/12">
+                    <div className="flex flex-col">
+                        <Button className=" h-11">browse</Button>
+                    </div>
+                </div>
+            </div>
           </div>
   })
   return <KeenSliderA 
@@ -112,14 +122,14 @@ const RenderProductSwiper:FC = () => {
               <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                   <div className="my-auto mx-auto w-10/12">
                       <div className="flex flex-col">
-                          <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase">learn more</button>
-                          <div className="mt-2 flex items-center h-12 text-white">
+                          <Button className=" h-11">learn more</Button>
+                          <div className="mt-2 flex items-center h-11 text-white">
                               <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                   <button className="mx-auto bg-transparent border-none p-1">-</button>
                                   <div className="mx-auto">1</div>
                                   <button className="mx-auto bg-transparent border-none p-1">+</button>
                               </div>
-                              <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                              <Button className="ml-3 h-full w-full">Add to cart</Button>
                           </div>
                       </div>
                   </div>
@@ -170,12 +180,8 @@ const RenderProfileSwiper = () => {
     loop: true,
     controls: false,
     slideChanged(s) {
-      console.log("profile img slide changed")
       setCurrentSlide(s.details().relativeSlide)
       // slider2.moveToSlide(currentSlide)
-    },
-    afterChange(s) {
-      console.log("beforeChange event")
     }
   })
   let profile_img_li = ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
@@ -199,7 +205,6 @@ const RenderProfileSwiper = () => {
     loop: true,
     controls: false,
     slideChanged(s) {
-      console.log("profile detail slide changed")
       setCurrentSlide(s.details().relativeSlide)
       // slider1.moveToSlide(s.details().relativeSlide)
       
@@ -306,6 +311,15 @@ export default function Home({
               <div className="w-25 h-25 rounded-full border border-white"></div>     
           </div>
   }
+  const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
+  let scrollHandler = (ele:HTMLDivElement) => {
+    let scroll_top = ele.scrollTop
+    console.log("scroll_top=")
+    if (scroll_top > 0) {
+      setEnableScrollUpBtn(true)
+    }
+  }
+
   return (
     <div className="bg-c_CCE7EF ttcommon_font">
       {/* <Grid variant="filled">
@@ -386,7 +400,7 @@ export default function Home({
         <div className="flex flex-col h-full">
           <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
           <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
-          <button className="w-52 h-11 uppercase bg-c_00090D flex justify-center items-center text-white text-sm tracking-widest mx-auto my-auto">About us</button>
+          <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
@@ -438,7 +452,12 @@ export default function Home({
           {RenderFAQCollapse()}
         </div>
       </div>
-
+      
+      {enableScrollUpBtn && 
+        <Button className="fixed bottom-10 right-10 h-20 w-20" variant="scrollup">
+          <ChevronUp />
+        </Button>
+      }
     </div>
   )
 }

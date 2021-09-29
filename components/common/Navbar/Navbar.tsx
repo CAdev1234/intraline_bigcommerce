@@ -47,7 +47,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
       subItem_li: [
         { name: 'M Series', link: '/shop/dermalfiller/mseries'},
-        { name: 'Rejuvenation', link: '/shop/dermalfiller/detail'}
+        { name: 'Rejuvenation Threads', link: '/shop/dermalfiller/detail'}
       ]
     },
     { name: 'PDO Threads', link: '/shop/pdothread', 

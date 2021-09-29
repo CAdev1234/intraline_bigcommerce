@@ -12,6 +12,8 @@ import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
+import Button from '@components/mycp/Button'
+
 
 
 
@@ -46,9 +48,7 @@ export default function AboutUs() {
                 <div className="flex flex-col max-w-2xl mx-auto py-28">
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Confidence is Ageless.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">We believe that people matter, therefore we listen and commit ourselves to excellence in all that we do. Your story is our story, and we are proud to grow together.</p>
-                    <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">Browse catalog</button>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -102,7 +102,7 @@ export default function AboutUs() {
                         </div>
                         <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

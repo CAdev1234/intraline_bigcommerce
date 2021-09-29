@@ -1,0 +1,54 @@
+.root {
+    @apply flex justify-center items-center transition ease-in-out duration-150 uppercase border border-transparent text-sm tracking-widest;
+}
+
+/* .root:hover {
+@apply ;
+} */
+
+/* .root:focus {
+@apply shadow-outline-normal outline-none;
+} */
+
+.root[data-active] {
+    @apply bg-accent-6;
+}
+
+.loading {
+    @apply bg-accent-1 text-accent-3 border-accent-2 cursor-not-allowed;
+}
+
+.default {
+    @apply bg-c_00080D text-white;
+}
+.default:hover {
+    @apply bg-white border-c_00080D text-c_00080D;
+}
+.default:active {
+    @apply bg-opacity-50;
+}
+
+
+.primary {
+    @apply bg-c_52B5D3 text-c_00080D;
+}
+.primary:hover {
+    @apply bg-opacity-30;
+}
+.primary:active {
+    @apply bg-opacity-50;
+}
+.disabled {
+    @apply opacity-20;
+}
+
+
+.scrollup {
+    @apply rounded-full bg-c_00080D text-white;
+}
+.scrollup:hover {
+    @apply bg-white border-c_00080D text-c_00080D;
+}
+.scrollup:active {
+    @apply bg-opacity-50;
+}

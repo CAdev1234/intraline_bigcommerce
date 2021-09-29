@@ -54,7 +54,6 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
       mode: 'snap',
       resetSlide: true,
       slideChanged(s) {
-        console.log("KeenSliderB changed")
         setCurrentSlide(s.details().relativeSlide)
       }
     })

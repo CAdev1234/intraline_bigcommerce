@@ -12,6 +12,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
 
 
 const RenderTestimonialSwiper = () => {
@@ -69,14 +70,14 @@ const RenderMseries = () => {
                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
-                                <button className=" bg-c_00080D flex items-center justify-center h-12 text-white uppercase">learn more</button>
-                                <div className="mt-2 flex items-center h-12 text-white">
+                                <Button className="h-11">learn more</Button>
+                                <div className="mt-2 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1">-</button>
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <button className="ml-3 bg-c_00080D flex items-center justify-center flex-1 h-full uppercase">Add to cart</button>
+                                    <Button className="ml-3 flex-1 h-full">Add to cart</Button>
                                 </div>
                             </div>
                         </div>
@@ -90,36 +91,59 @@ export default function DermalFillerDetail() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_CCE7EF w-full flex flex-col">
-                <div className="flex my-auto w-full h-full z-10">
-                    <div className="w-6/12 flex flex-col pl-15">
-                        <div className="my-auto">
-                            <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
-                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
-                            <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
-                            <div className="ttcommon_font_bold mt-5 flex items-center">
-                                <span>USD $100.00</span>
-                                <span className="ml-5">Volume: 1.1ML</span>
-                            </div>
-                            <div className="mt-5 flex items-center h-12 text-white">
-                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                    <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                    <div className="mx-auto">1</div>
-                                    <button className="mx-auto bg-transparent border-none p-1">+</button>
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span>
+                            <ChevronRight className="w-4" />
+                        </span>
+                        <span>Shop</span>
+                        <span><ChevronRight className="w-4"/></span>
+                        <span>MONOPHASIC DERMAL FILLERS</span>
+                        <span><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">M2 Plus</span>
+                    </div>
+                </div>
+                <div className="h-full z-10 mb-15 flex flex-col">
+                    <div className="flex my-auto w-full">
+                        <div className="w-6/12 flex flex-col pl-15">
+                            <div className="my-auto">
+                                <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
+                                <div className="ttcommon_font mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
+                                <div className="ttcommon_font_bold mt-5 flex items-center">
+                                    <span>USD $100.00</span>
+                                    <span className="ml-5">Volume: 1.1ML</span>
                                 </div>
-                                <div className="ml-3 bg-c_00080D flex items-center justify-center w-52 h-full uppercase">Add to cart</div>
+                                <div className="mt-5 flex items-center h-11 text-white">
+                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                        <div className="mx-auto">1</div>
+                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                    </div>
+                                    <Button className="ml-3 w-52 h-full">Add to cart</Button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="w-6/12 flex flex-col items-end">
-                        <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
-                            <div className="w-full h-full flex absolute">
-                                <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                        <div className="w-6/12 flex flex-col items-end">
+                            <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
+                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
+                                <div className="w-full h-full flex absolute">
+                                    <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="absolute bottom-14 w-full flex flex-col z-10">
+                    <div className="flex items-center justify-center">
+                        <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </div>
+                </div>
+                
             </div>
 
             {/* Indications */}
@@ -128,7 +152,7 @@ export default function DermalFillerDetail() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">download indication chart</button>
+                        <Button className="mx-auto h-11 w-64">download indication chart</Button>
                     </div>
                 </div>
             </div>
@@ -192,13 +216,8 @@ export default function DermalFillerDetail() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-10 flex items-center h-12 text-white">
-                                        <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                            <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                            <div className="mx-auto">1</div>
-                                            <button className="mx-auto bg-transparent border-none p-1">+</button>
-                                        </div>
-                                        <div className="ml-3 bg-c_00080D flex items-center justify-center h-full uppercase flex-1">Add to cart</div>
+                                    <div className="mt-10 flex items-center h-11 text-white">
+                                        <Button className="h-full flex-1">Buy m2 plus now</Button>
                                     </div>
                                 </div>
                                 
@@ -222,7 +241,7 @@ export default function DermalFillerDetail() {
                 head_line={"Reviews."} 
                 bg_color={"bg-white"} 
                 quote_color={"#CCE7EF"} 
-                testimonial_li={[0,1,2,3,4]}/>
+                testimonial_li={[0,1,2,3]}/>
             
             
             {/* FAQ part */}

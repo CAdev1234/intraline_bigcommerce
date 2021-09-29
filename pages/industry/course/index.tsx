@@ -1,5 +1,5 @@
 import { Layout } from "@components/common"
-import { ChevronLeft, ChevronRight } from "@components/icons"
+import Button from '@components/mycp/Button'
 
 export default function IndustryCourse() {
     return <div className="ttcommon_font_thin">
@@ -12,12 +12,28 @@ export default function IndustryCourse() {
                         <div className="mt-25 grid grid-cols-2 gap-x-5">
                             <div className="flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">I Am Academy Courses.</div>
-                                <div className="mt-7_5 bg-c_C3E0DC" style={{height: 411}}></div>
+                                <div className="mt-7_5 bg-c_C3E0DC relative" style={{height: 411}}>
+                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                                        <div className="my-auto mx-auto w-64">
+                                            <div className="flex flex-col">
+                                                <Button className=" h-11">Learn more</Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="mt-7_5 text-4xl leading-36_48 pr-10">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
                             </div>
                             <div className="flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">Intraline Sponsored Courses.</div>
-                                <div className="mt-7_5 bg-c_C3E0DC" style={{height: 411}}></div>
+                                <div className="relative mt-7_5 bg-c_C3E0DC" style={{height: 411}}>
+                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                                        <div className="my-auto mx-auto w-64">
+                                            <div className="flex flex-col">
+                                                <Button className=" h-11">Learn more</Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="mt-7_5 text-4xl leading-36_48 pr-10">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
                             </div>
                         </div>
@@ -69,7 +85,7 @@ export default function IndustryCourse() {
                             </div>
                             <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                             <div className="mt-10">
-                                <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                                <Button className="h-11 w-full">SUBMIT</Button>
                             </div>
                         </div>
                     </div>

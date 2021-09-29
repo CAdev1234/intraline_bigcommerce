@@ -3,13 +3,15 @@ import React, {useEffect, useRef, useState} from 'react'
 import { Layout } from '@components/common'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
+import { ChevronDown, ChevronRight } from '@components/icons'
 
 const renderMSeriesSwiper = () => {
     let render_ele = [0, 1, 2].map((item, index) => {
         return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
                     <div className="my-auto">
-                        <img className="mx-auto" src={"/assets/img/mseries_" + String(item + 1) + ".png"} alt="" />
-                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus | $100.00</div>
+                        <img className="mx-auto" src={"/assets/img/mseries_3.png"} alt="" />
+                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus</div>
                     </div>
                 </div>
     })
@@ -78,32 +80,52 @@ export default function MSeries() {
                                     w-0 xl:w-154_5 2xl:w-154_5"></div>
                     <div className="flex-1 h-full bg-c_CCE7EF rounded-l-full"></div>
                 </div>
-                <div className="my-auto w-full h-full z-10
-                                block sm:flex
-                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <div className="flex flex-col">
-                        <div className="my-auto">
-                            <div>
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
-                                <div className="ttcommon_font_bold leading-200_160
-                                                text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
-                            </div>
-                            <div className="w-full ml-auto mr-10" style={{maxWidth:538}}>
-                                <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
-                                                text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div className="flex flex-col ml-auto
-                                    w-full sm:w-4/12">
-                        <div className="my-auto">
-                            {renderMSeriesSwiper()}
-                        </div>
-                        
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span>
+                            <ChevronRight className="w-4" />
+                        </span>
+                        <span>Shop</span>
+                        <span><ChevronRight className="w-4"/></span>
+                        <span>Dermal fillers</span>
+                        <span><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
+                <div className="mb-15 z-10 h-full flex flex-col
+                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="my-auto w-full
+                                    block sm:flex">
+                        <div className="flex flex-col">
+                            <div className="my-auto">
+                                <div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">The</div>
+                                    <div className="ttcommon_font_bold leading-200_160
+                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px" >M Series</div>
+                                </div>
+                                <div className="w-full ml-auto mr-10" style={{maxWidth:538}}>
+                                    <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
+                                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div className="flex flex-col ml-auto
+                                        w-full sm:w-4/12">
+                            <div className="my-auto">
+                                {renderMSeriesSwiper()}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </div>
+                </div>
+                
             </div>
 
             {/* pure part */}
@@ -156,7 +178,7 @@ export default function MSeries() {
                                     sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
-                        <button className="mx-auto ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-64 flex items-center justify-center text-sm">Shop now the m series</button>
+                        <Button className="mx-auto h-11 w-64">Shop now the m series</Button>
                     </div>
                 </div>
             </div>

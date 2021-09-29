@@ -74,7 +74,6 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
         loop: true,
         controls: false,
         slideChanged(s) {
-            console.log("profile img slide changed")
             setCurrentSlide(s.details().relativeSlide)
         },
     })

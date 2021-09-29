@@ -10,6 +10,7 @@ import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+import Button from '@components/mycp/Button'
 
 
 // const RenderTestimonialSwiper = () => {
@@ -63,6 +64,18 @@ export default function DemeralFiller() {
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
                              h-150 lg:h-225 xl:h-225 2xl:h-225
                              px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span>Home</span>
+                        <span>
+                            <ChevronRight className="w-4" />
+                        </span>
+                        <span>Shop</span>
+                        <span><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Dermal fillers</span>
+                    </div>
+                </div>
                 <div className="my-auto w-full items-end
                                 block sm:flex md:flex lg:flex xl:flex 2xl:flex">
                     <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
@@ -95,6 +108,13 @@ export default function DemeralFiller() {
                                         text-3xl xl:text-4xl 2xl:text-4xl">The Essential Series.</div>
                         <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
                             <img className="max-h-96" src="/assets/img/essential_series.jpg" alt="" />
+                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                                <div className="my-auto mx-auto w-64">
+                                    <div className="flex flex-col">
+                                        <Button className=" h-11">Learn more</Button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
                                         text-2xl xl:text-4xl 2xl:text-4xl">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
@@ -104,6 +124,13 @@ export default function DemeralFiller() {
                                         text-3xl xl:text-4xl 2xl:text-4xl">The M Series.</div>
                         <div className="relative mt-10 w-full border-none flex flex-col">
                             <img className="max-h-96" src="/assets/img/m_series.jpg" alt="" />
+                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                                <div className="my-auto mx-auto w-64">
+                                    <div className="flex flex-col">
+                                        <Button className=" h-11">Learn more</Button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
                                         text-2xl xl:text-4xl 2xl:text-4xl">The next generation of monophasic dermal fillers with lidocaine.</div>
@@ -149,7 +176,7 @@ export default function DemeralFiller() {
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
-                            <button className="ttcommon_font_thin uppercase bg-c_00090D text-white tracking-widest h-11 w-full flex items-center justify-center text-sm">SUBMIT</button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

@@ -73,7 +73,6 @@ const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) =
         },
       },
       slideChanged(s) {
-        console.log("slide changed")
         setCurrentSlide(s.details().relativeSlide)
       },
       // dragStart: () => {
