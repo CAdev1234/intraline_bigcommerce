@@ -1,4 +1,5 @@
 import { Layout } from "@components/common"
+import { ChevronRight } from "@components/icons"
 import Button from '@components/mycp/Button'
 import Link from "@components/ui/Link"
 
@@ -6,6 +7,16 @@ export default function IndustryCourse() {
     return <div className="ttcommon_font_thin">
                 {/* course part */}
                 <div className="relative px-15 mt-28 pb-25 bg-white">
+                    <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                        <div className="ttcommon_font flex items-center
+                                        px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                            <span className="">Home</span>
+                            <span className="ml-1"><ChevronRight className="w-4"/></span>
+                            <span className="ml-1">Industry</span>
+                            <span className="ml-1"><ChevronRight className="w-4"/></span>
+                            <span className="ttcommon_font_bold ml-1">Blog</span>
+                        </div>
+                    </div>
                     <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
                     <div className="text-200px leading-200_160">I am</div>
                     <div className="ttcommon_font_bold text-200px leading-200_160">Academy</div>

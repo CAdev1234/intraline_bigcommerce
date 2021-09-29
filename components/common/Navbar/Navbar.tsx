@@ -120,7 +120,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   </div>
                 </div>
               </div>
-              <Link href="/">
+              <Link href="/contact">
                 <a className={s.link}>CONTACT</a>
               </Link>
             </div>
@@ -169,7 +169,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   </div>
                 </div>
                 <div>
-                  <Link href="/">
+                  <Link href="/aboutus">
                     <a className="text-3xl text-white">ABOUT US</a>
                   </Link>
                 </div>
@@ -179,7 +179,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   </Link>
                 </div>
                 <div>
-                  <Link href="/">
+                  <Link href="/contact">
                     <a className="text-3xl text-white">CONTACT</a>
                   </Link>
                 </div>

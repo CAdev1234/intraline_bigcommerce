@@ -4,7 +4,15 @@ import Button from '@components/mycp/Button'
 import Link from "@components/ui/Link"
 
 export default function IndustryIndex() {
-    return <div className="ttcommon_font_thin">
+    return <div className="ttcommon_font_thin relative">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span className="ttcommon_font">Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Industry</span>
+                    </div>
+                </div>
                 <div className="bg-white pt-40 pb-25 px-15">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
                     <div className="mt-2.5">Read the latest industry news.</div>
@@ -45,12 +53,28 @@ export default function IndustryIndex() {
                         <div className="mt-25 grid grid-cols-2 gap-x-5 relative z-10">
                             <div className="flex flex-col">
                                 <div className="ttcommon_font_bold uppercase text-2xl leading-36_48">Dermal Filler Course.</div>
-                                <div className="mt-7_5 bg-c_C6CBDD" style={{height: 411}}></div>
+                                <div className="mt-7_5 bg-c_C6CBDD relative" style={{height: 411}}>
+                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                                        <div className="my-auto mx-auto w-10/12">
+                                            <div className="flex flex-col text-white w-64 mx-auto">
+                                                <Button className="h-11 w-full text-sm">learn more</Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
                             </div>
                             <div className="flex flex-col">
                                 <div className="ttcommon_font_bold uppercase text-2xl leading-36_48">PDO Thread COURSE.</div>
-                                <div className="mt-7_5 bg-c_C6CBDD" style={{height: 411}}></div>
+                                <div className="mt-7_5 bg-c_C6CBDD relative" style={{height: 411}}>
+                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                                        <div className="my-auto mx-auto w-10/12">
+                                            <div className="flex flex-col text-white w-64 mx-auto">
+                                                <Button className="h-11 w-full text-sm">learn more</Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
                             </div>
                         </div>
@@ -117,7 +141,7 @@ export default function IndustryIndex() {
                                     <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="What is your Dermal Filler of choice?"/>
                                 </div>
                                 <div className="mt-5">
-                                    <div className="ttcommon_font_thin text-xs">
+                                    <div className="ttcommon_font_thin text-10px leading-extra-loose">
                                         <Link href="/privacypolicy">
                                             <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
                                         </Link> 
@@ -125,12 +149,12 @@ export default function IndustryIndex() {
                                     </div>
                                 </div>
                                 <div className="mt-5 flex items-center">
-                                    <div>
+                                    <div className="flex">
                                         <input type="checkbox" name="" id="" />
                                     </div>
-                                    <div className="ml-2">I agree to receive other communications from Intraline.</div>
+                                    <div className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</div>
                                 </div>
-                                <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                                <div className="text-c_00080D mt-5 text-10px leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                                 <div className="mt-10">
                                     <Button className="h-11 w-full text-sm">SUBMIT</Button>
                                 </div>

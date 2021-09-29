@@ -102,7 +102,7 @@ export default function AboutUs() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5"/>
+                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" checked/>
                             </div>
                             <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label>
                         </div>

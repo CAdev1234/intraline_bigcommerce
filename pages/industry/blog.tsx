@@ -1,9 +1,20 @@
 import { Layout } from "@components/common"
+import { ChevronRight } from "@components/icons"
 import Button from '@components/mycp/Button'
 
 export default function IndustryBlog() {
     const tag_li = ['all articles', 'intraline', 'dermal filler', 'aesthetics education', 'medical aesthetics', 'anti-ageing', 'moisturizer', 'treatments', 'moisturizer', 'news & media', 'biocellulose', 'skincare', 'faq']
     return <div className="ttcommon_font_thin">
+                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="ttcommon_font flex items-center
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                        <span className="">Home</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1">Industry</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Blog</span>
+                    </div>
+                </div>
                 <div className="bg-white pt-40 pb-25 px-15">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
                     <div className="mt-2.5">Read the latest industry news.</div>
