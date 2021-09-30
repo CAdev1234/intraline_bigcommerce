@@ -87,7 +87,9 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 
 const RenderCategorySwiper:FC = () => {
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white relative" key={index} style={{width:352, minWidth: 352 + 'px !important', height:472}}>
+    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white relative" 
+                key={index} 
+                style={{width:352, minWidth: 352 + 'px !important', height:472}}>
             <div>
               <div className="flex">
                 <img className="mx-auto" src="/assets/img/product1.png" alt="" />
@@ -105,7 +107,7 @@ const RenderCategorySwiper:FC = () => {
   })
   return <KeenSliderA 
             render_ele={render_item_ele} 
-            slidesPerView={4} 
+            slidesPerView={[1,2,3,3.5,5]} 
             navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172 mt-10"/>
 }
 
@@ -129,14 +131,14 @@ const RenderProductSwiper:FC = () => {
                                   <div className="mx-auto">1</div>
                                   <button className="mx-auto bg-transparent border-none p-1">+</button>
                               </div>
-                              <Button className="ml-3 h-full w-full text-sm">Add to cart</Button>
+                              <Button className="ml-3 h-full w-full text-sm">Add to bag</Button>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
   }) 
-  return <KeenSliderA render_ele = {render_ele} slidesPerView={4} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
+  return <KeenSliderA render_ele = {render_ele} slidesPerView={[1,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
 }
 
 interface ArrowProps{

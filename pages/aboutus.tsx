@@ -14,6 +14,7 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
+import SelectInput from '@components/mycp/SelectInput'
 
 
 
@@ -85,9 +86,10 @@ export default function AboutUs() {
                             <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
-                            <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
+                            {/* <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
                                 <option value="Choose Country or Region">Choose Country or Region</option>
-                            </select>
+                            </select> */}
+                            <SelectInput option_li={['Choose Country or Region', 'UK', "US"]}/>
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

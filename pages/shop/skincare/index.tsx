@@ -85,7 +85,7 @@ export default function SkinCare() {
                                                 <div className="mx-auto">1</div>
                                                 <button className="mx-auto bg-transparent border-none p-1">+</button>
                                             </div>
-                                            <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
+                                            <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ export default function SkinCare() {
                                                 <div className="mx-auto">1</div>
                                                 <button className="mx-auto bg-transparent border-none p-1">+</button>
                                             </div>
-                                            <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
+                                            <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
                                         </div>
                                     </div>
                                 </div>

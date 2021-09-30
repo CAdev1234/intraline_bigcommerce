@@ -1,6 +1,7 @@
 import { Navbar } from '@components/common'
 import { ChevronRight } from '@components/icons';
 import Button from '@components/mycp/Button'
+import SelectInput from '@components/mycp/SelectInput';
 
 export default function Checkout() {
     return (
@@ -67,9 +68,10 @@ export default function Checkout() {
                             </div>
                             <div className="w-1/2 ml-2">
                                 <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
-                                <select className="h-11 border-none bg-white w-full pl-5 py-2">
-                                    <option value="United States">United States</option>
-                                </select>
+                                <SelectInput 
+                                    option_li={['United States', 'United Kingdom']} 
+                                    className="bg-white"
+                                    option_class="bg-white"/>
                             </div>
                         </div>
                         <div className="mt-3 flex items-center">

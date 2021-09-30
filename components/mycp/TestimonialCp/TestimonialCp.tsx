@@ -29,7 +29,7 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
                                     mx-5 sm:mx-10 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
                         <KeenSliderB 
                             render_ele={render_ele} 
-                            slidesPerView={1} 
+                            slidesPerView={[1,1,1,1,1]} 
                             enableDot={true} 
                             prevNavCss={"top-0 left-0"} 
                             nextNavCss={"top-0 right-0"} 

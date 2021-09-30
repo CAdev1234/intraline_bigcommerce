@@ -39,7 +39,7 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
 }
 interface KeenSliderBProps{
     render_ele: JSX.Element[],
-    slidesPerView: number,
+    slidesPerView: Array<number>,
     prevNavCss: string,
     nextNavCss: string,
     enableDot: boolean,
@@ -48,11 +48,28 @@ interface KeenSliderBProps{
 const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot, dotCss}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
-      slidesPerView: slidesPerView,
+      // slidesPerView: slidesPerView,
       spacing: 20,
       loop: true,
       mode: 'snap',
       resetSlide: true,
+      breakpoints: {
+        '(max-width: 600px)': {
+          slidesPerView: slidesPerView[0]
+        },
+        '(min-width: 600px) and (max-width: 960px)': {
+          slidesPerView: slidesPerView[1]
+        },
+        '(min-width: 960px) and (max-width: 1264px)': {
+          slidesPerView: slidesPerView[2]
+        },
+        '(min-width: 1264px) and (max-width: 1904px)': {
+          slidesPerView: slidesPerView[3]
+        },
+        '(min-width: 1904px)': {
+          slidesPerView: slidesPerView[4]
+        },
+      },
       slideChanged(s) {
         setCurrentSlide(s.details().relativeSlide)
       }

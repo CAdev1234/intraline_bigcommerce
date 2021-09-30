@@ -3,7 +3,6 @@ import { ChevronRight, Cross } from "@components/icons"
 import Button from '@components/mycp/Button'
 import { RatingView, Rating } from 'react-simple-star-rating'
 import { useState } from "react"
-import TriangleDown from "@components/icons/TriangleDown"
 import SelectInput from "@components/mycp/SelectInput"
 
 export default function MyAccount() {
@@ -62,8 +61,8 @@ export default function MyAccount() {
         }
     }
 
-    const handleRating = () => {
-
+    const handleRating = (rate: number) => {
+        setRating(rate)
     }
 
     let item_li = ['Dermal filler1', 'Dermal filler2', 'Dermal filler3']
@@ -261,7 +260,10 @@ export default function MyAccount() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_26">Add Review.</div>
                                 <div className="mt-5 text-sm leading-14_26">Add a new review from a previous purchase.</div>
                                 <div className="mt-10">
-                                    <SelectInput option_li={item_li} />
+                                    <SelectInput 
+                                        option_li={item_li} 
+                                        className="bg-c_F7F7F7"
+                                        option_class="bg-c_F5DBDD"/>
                                 </div>
                                 <div className="mt-5">
                                     <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Review title"/>

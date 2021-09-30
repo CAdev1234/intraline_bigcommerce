@@ -70,9 +70,10 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
                 </div>
     })
     const [facial_img_ref, slider1] = useKeenSlider<HTMLDivElement>({
-        slidesPerView: 3,
+        slidesPerView: 2,
         spacing: 20,
         loop: true,
+        centered: true,
         controls: false,
         slideChanged(s) {
             setCurrentSlide(s.details().relativeSlide)

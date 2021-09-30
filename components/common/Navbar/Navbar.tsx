@@ -25,7 +25,7 @@ const renderSubMenu = (category_li: NavLinkArray) => {
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
             <div>
-              <div className="uppercase text-sm tracking-widest leading-14_17 cursor-pointer hover:underline">
+              <div className="uppercase text-sm text-center tracking-widest leading-14_17 cursor-pointer hover:underline">
                 <Link href={item.link}>{item.name}</Link>
               </div>
               {(item.subItem_li || []).map((item1, index1) => {
@@ -41,18 +41,18 @@ const renderSubMenu = (category_li: NavLinkArray) => {
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableCart, setEnableCart] = useState(false)
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
+  const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
     { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
       subItem_li: [
         { name: 'M Series', link: '/shop/dermalfiller/mseries'},
-        { name: 'Rejuvenation Threads', link: '/shop/dermalfiller/detail'}
       ]
     },
     { name: 'PDO Threads', link: '/shop/pdothread', 
       subItem_li: [
-        { name: 'The Essentials', link: '/shop/pdothread/detail'},
+        { name: 'Rejuvenation Threads', link: '/shop/pdothread/detail'},
         { name: 'Lifting Threads', link: '/shop/pdothread/liftingthread'}
       ]
     },
@@ -77,7 +77,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     setCurrentUrl(window.location.pathname)
   })
 
-  function showMobileMenu() {
+  let showMobileMenu = () => {
     setEnableMobileMenu(!enableMobileMenu)
     if (enableMobileMenu) (document.querySelector("body") as HTMLBodyElement).style.overflow = 'hidden'
     else (document.querySelector("body") as HTMLBodyElement).style.overflow = "auto"
@@ -127,7 +127,23 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
             <div className="items-center
                             ml-0 lg:ml-20 xl:ml-44 2xl:ml-32
                             hidden md:flex lg:flex xl:flex 2xl:flex">
-              <SearchSvg className={s.svg} />
+              <div className="flex relative">
+                <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={s.svg} /></button>
+                {enableSearchBar && 
+                  <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
+                    <div className="mx-15 flex items-center my-auto">
+                      <input type="text" className="bg-transparent w-154_5 text-white" placeholder="Search for product or category. Hit enter to submit or escape to close."/>
+                      <button 
+                        className="underline uppercase text-sm text-white tracking-widest ml-auto"
+                        onClick={() => {setEnableSearchBar(false)}}>Enter</button>
+                      <button className="ml-9 text-white" onClick={() => {setEnableSearchBar(false)}}>
+                        <Cross />
+                      </button>
+                    </div>
+                  </div>
+                }
+              </div>
+              
               <ProfileSvg className={s.svg} />
               <div onClick={() => setEnableCart(!enableCart)}>
                 <CartSvg className={s.svg} />

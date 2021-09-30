@@ -102,7 +102,7 @@ export default function PDOThreadDetail() {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to cart</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>

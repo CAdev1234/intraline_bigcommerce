@@ -9,25 +9,26 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
 import { ChevronRight } from '@components/icons'
+import SelectInput from '@components/mycp/SelectInput'
 
 const renderLiftingThreadSwiper = () => {
     let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
         return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
-                    <div className="" style={{width: 550}}>
+                    <div className="">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">Dimension 360.</div>
                         <div className="bg-c_CCE7EF w-full mt-10">
                             <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
                         </div>
-                        <div className="ttcommon_font_thin mt-7 uppercase text-3xl leading-36_48">Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.</div>
+                        <div className="ttcommon_font_thin mt-7 text-3xl leading-36_48 w-125">Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.</div>
                     </div>
                 </div>
     })
     return <KeenSliderB 
                 render_ele={render_ele} 
-                slidesPerView={3} 
+                slidesPerView={[1, 2, 2.5, 2.5, 5]} 
                 enableDot={false} 
-                prevNavCss={"my-auto"} 
-                nextNavCss={"my-auto"}
+                prevNavCss={"my-auto ml-7_5"} 
+                nextNavCss={"my-auto mr-22_5"}
                 dotCss={"mt-7_5"}/>
 }
 
@@ -99,9 +100,10 @@ export default function LiftingThread() {
                             <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
-                            <select className="h-11 border-none bg-white w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
-                                <option value="Choose Country or Region">Choose Country or Region</option>
-                            </select>
+                            <SelectInput 
+                                option_li={['Choose Country or Region', 'United States', 'United Kingdom']} 
+                                className="bg-white"
+                                option_class="bg-white" />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

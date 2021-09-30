@@ -15,21 +15,6 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 
 
-const RenderTestimonialSwiper = () => {
-    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
-      return <div className="keen-slider__slide" key={`testimonial_${index}`}>
-                <p className="ttcommon_font_thin text-sm text-center mx-auto" style={{maxWidth: 426 + 'px'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                <div className="text-sm text-center mt-7" style={{lineHeight: 17 + 'px'}}>DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
-            </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={1} 
-                enableDot={true} 
-                prevNavCss={"my-auto"} 
-                nextNavCss={"my-auto"}
-                dotCss={"mt-7_5"}/>
-}
 const RenderFAQCollapse = () => {
     var items = [
       {
@@ -77,7 +62,7 @@ const RenderMseries = () => {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1 h-full text-sm">Add to cart</Button>
+                                    <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +106,7 @@ export default function DermalFillerDetail() {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to cart</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>

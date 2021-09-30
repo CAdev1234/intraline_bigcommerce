@@ -13,22 +13,12 @@ import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
 import Button from '@components/mycp/Button'
+import TriangleDown from '@components/icons/TriangleDown'
 
 
 
 
 const RenderCategorySwiper:FC = () => {
-    const [num_slides, setNumSlides] = useState(4)
-    useEffect(() => {
-        if (window.innerWidth > 768 && window.innerWidth < 1024) {
-            setNumSlides(3)
-        }
-        else if (window.innerWidth < 768 && window.innerWidth > 640) {
-        setNumSlides(2)
-        }else if (window.innerWidth < 640) {
-        setNumSlides(1)
-        }
-    })
     var render_ele = [
         { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
         { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
@@ -50,7 +40,7 @@ const RenderCategorySwiper:FC = () => {
                     </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={num_slides} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3,3.5,5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 const renderProducts = () => {
@@ -76,7 +66,7 @@ const renderProducts = () => {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1 text-sm">Add to cart</Button>
+                                    <Button className="ml-3 flex-1 text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>
@@ -111,16 +101,16 @@ export default function AllProducts() {
                 <div className="flex items-center text-sm tracking-widest uppercase
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     <div className="">SHOWING All products <span className="ttcommon_font_bold">(250)</span></div>
-                    <div className="flex items-center ml-auto">
+                    <div className="flex items-center ml-auto cursor-pointer">
                         <div className="">Filter</div>
-                        <div className="ml-2">
-                            <ChevronDown className="h-4 w-4" />
+                        <div className="ml-4">
+                            <TriangleDown className="h-4 w-4" />
                         </div>
                     </div>
-                    <div className="flex items-center ml-10">
+                    <div className="flex items-center ml-10 cursor-pointer">
                         <div className="">Sort by price(lowest)</div>
-                        <div className="ml-2">
-                            <ChevronDown className="h-4 w-4" />
+                        <div className="ml-4">
+                            <TriangleDown className="h-4 w-4" />
                         </div>
                     </div>
                 </div>
