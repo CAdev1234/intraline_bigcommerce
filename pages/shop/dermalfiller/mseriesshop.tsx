@@ -1,6 +1,7 @@
 import { Layout } from "@components/common";
 import { ChevronRight } from "@components/icons";
 import Button from '@components/mycp/Button'
+import Link from "@components/ui/Link";
 
 export default function MseriesShop() {
     const RenderMseries = () => {
@@ -17,7 +18,9 @@ export default function MseriesShop() {
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
-                                    <Button className="h-11 text-sm">learn more</Button>
+                                    <Link href="/shop/dermalfiller/detail">
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                    </Link>
                                     <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                             <button className="mx-auto bg-transparent border-none p-1">-</button>

@@ -72,7 +72,7 @@ export default function PDOThread() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 left-0 w-full">
+                <div className="absolute top-0 right-0 w-5/12">
                     <div className="flex flex-col ml-auto mr-15 h-120_5">
                         <div className="">
                             {renderPDOThreadSwiper()}
