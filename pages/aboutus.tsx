@@ -9,7 +9,7 @@ import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 import Button from '@components/mycp/Button'

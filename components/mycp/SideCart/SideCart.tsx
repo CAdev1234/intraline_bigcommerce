@@ -2,8 +2,10 @@ import Link from '@components/ui/Link'
 import { FC, useState, useEffect } from 'react'
 import Button from '@components/mycp/Button'
 import { Cross } from '@components/icons'
-
-const SideCart: FC = () => {
+interface SideCartProps {
+    closeSideCart: any
+}
+const SideCart: FC<SideCartProps> = ({closeSideCart}) => {
     const cart_product_li = [
         {
             shop_name: "Intraline's",
@@ -41,9 +43,7 @@ const SideCart: FC = () => {
             img: "/assets/img/lifting-1-1.png",
         },
     ]
-    let closeSideCart = () => {
-        
-    }
+    
     return (
         <div className="ttcommon_font_thin flex flex-col bg-white w-96 fixed right-0 max-h-screen" style={{height: 'calc(100% - 60px)', boxShadow: '0px -10px 40px rgba(0, 0, 0, 0.05);'}}>
             <div className="relative h-full flex flex-col py-12">
@@ -74,20 +74,20 @@ const SideCart: FC = () => {
                     </div>
                     <div className="mt-7">
                         <Link href="/shop/shoppingbag">
-                            <Button className="h-11 w-full text-sm">View Bag</Button>
+                            <Button className="h-11 w-full text-sm" onClick={() => {closeSideCart(false)}}>View Bag</Button>
                         </Link>
                         <Link href="/shop/checkout">
-                            <Button className="mt-2 h-11 w-full text-sm">Checkout</Button>
+                            <Button className="mt-2 h-11 w-full text-sm" onClick={() => {closeSideCart(false)}}>Checkout</Button>
                         </Link>
                         
-                        <Link href="/shop/shoppingbag">
+                        {/* <Link href="/shop/shoppingbag">
                             <Button className="mt-2 h-11 w-full text-sm">Edit Bag</Button>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
-                <div className="absolute top-6 right-4">
+                <button className="absolute top-6 right-4" onClick={() => {closeSideCart(false)}}>
                     <Cross />
-                </div>
+                </button>
             </div>
         </div>
     )

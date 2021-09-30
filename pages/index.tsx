@@ -12,7 +12,7 @@ import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 
 
-import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
+import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 
 import { RatingView } from 'react-simple-star-rating'
 import Button from '@components/mycp/Button'

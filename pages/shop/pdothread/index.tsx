@@ -4,7 +4,7 @@ import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
 
 import QuoteSvg from '@components/icons/QuoteSvg'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { ChevronDown, ChevronRight, Plus } from '@components/icons'
@@ -39,6 +39,34 @@ const renderPDOThreadSwiper = () => {
 
 
 export default function PDOThread() {
+    let pdo_question_li = [
+        {
+            title: 'What is PDO?', 
+            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+        },
+        {
+            title: 'What are PDO Threads?', 
+            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+        },
+        {
+            title: 'What is a PDO Treatment?', 
+            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+        },
+        {
+            title: 'Types of PDO Threads.', 
+            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+        },
+        {
+            title: "PDO FAQ's.", 
+            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+        },
+    ]
+    const [enablePDOQues, setEnablePDOQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
+    let updatePDOQues = (index:number) => {
+        let new_array = new Array(enablePDOQues.length).fill(false)
+        new_array[index] = true
+        setEnablePDOQues(new_array)
+    }
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="bg-transparent w-full h-15"></div>
@@ -94,24 +122,31 @@ export default function PDOThread() {
             {/* what is pdo? */}
             <div className="bg-c_CCE7EF flex items-center py-40 relative overflow-hidden">
                 <div className="ttcommon_font_bold absolute bottom-0 transform -rotate-90 text-c_99CEE0" style={{fontSize: 200,lineHeight: 160 + 'px',transformOrigin: 'bottom left', left:160}}>PDO Threads</div>
-                <div className="w-1/2 pr-32 pl-44">
+                <div className="w-1/2 pr-28 pl-44">
                     <div className="bg-white pt-8 pl-7 pb-16 flex flex-col divide-y">
                         <div className="pb-8">
                             <div className="text-6xl ttcommon_font_bold" style={{lineHeight: 76 + "px"}}>PDO Threads.</div>
                             <div className="uppercase tracking-widest mt-3">Select a question to learn more.</div>
                         </div>
                         <div className="pt-8 text-4xl">
-                            <div className="ttcommon_font_bold leading-36_48">What is PDO?</div>
-                            <div className="mt-7 ttcommon_font_thin">What are PDO Threads?</div>
-                            <div className="mt-7 ttcommon_font_thin">What is a PDO Treatment?</div>
-                            <div className="mt-7 ttcommon_font_thin">Types of PDO Threads.</div>
-                            <div className="mt-7 ttcommon_font_thin">PDO FAQ's.</div>
+                            {pdo_question_li.map((item, index) => {
+                                return <div key={`pdo_ques_${index}`}>
+                                           <button className={`leading-36_48 ${index != 0 && 'mt-7'} ${enablePDOQues[index] ? 'ttcommon_font_bold' : 'ttcommon_font_thin'}`}
+                                                onClick={() => {updatePDOQues(index)}}>{item.title}</button>         
+                                        </div>
+                            })}
                         </div>
                     </div>
                 </div>
                 <div className="w-1/2 pr-44">
-                    <div className="ttcommon_font_bold text-4xl leading-36_48">What is PDO?</div>
-                    <p className="ttcommon_font_thin text-sm mt-5">Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin.</p>
+                    {pdo_question_li.map((item, index) => {
+                        return enablePDOQues[index] && 
+                        <div key={`pdo_ques_detail_${index}`}>
+                            <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
+                            <p className="ttcommon_font_thin text-sm mt-5">{item.detail}</p>
+                        </div>
+                    })}
+                    
                 </div>
             </div>
 

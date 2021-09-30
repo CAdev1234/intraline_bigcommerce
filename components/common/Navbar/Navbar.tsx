@@ -82,6 +82,10 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     if (enableMobileMenu) (document.querySelector("body") as HTMLBodyElement).style.overflow = 'hidden'
     else (document.querySelector("body") as HTMLBodyElement).style.overflow = "auto"
   }
+
+  const closeSideCart = (bool_bar:boolean) => {
+    setEnableCart(bool_bar)
+  }
   return (
     <NavbarRoot c_name={c_name || ''}>
       <Container>
@@ -146,7 +150,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               
               <div>
                 <Link href="/account/myaccount">
-                  <ProfileSvg className={s.svg} />
+                  <button><ProfileSvg className={s.svg} /></button>
                 </Link>
               </div>
               <div onClick={() => setEnableCart(!enableCart)}>
@@ -173,7 +177,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
           <Searchbar id="mobile-search" />
         </div> */}
       </Container>
-      {enableCart && <SideCart />}
+      {enableCart && <SideCart closeSideCart={closeSideCart}/>}
       {enableMobileMenu && 
         <div className="fixed top-0 left-0 w-screen h-screen">
           <div className="bg-black bg-opacity-70 w-screen h-screen absolute top-0 left-0 pt-12 px-5">

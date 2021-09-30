@@ -11,7 +11,7 @@ import { RatingView } from 'react-simple-star-rating'
 import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
-import KeenSliderA from '@components/common/KeenSlider/KeenSliderA'
+import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import Button from '@components/mycp/Button'
 import TriangleDown from '@components/icons/TriangleDown'
 
@@ -66,7 +66,7 @@ const renderProducts = () => {
                                         <div className="mx-auto">1</div>
                                         <button className="mx-auto bg-transparent border-none p-1">+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1 text-sm">Add to bag</Button>
+                                    <Button className="ml-3 h-full flex-1 text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>

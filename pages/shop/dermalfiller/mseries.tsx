@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 
 import { Layout } from '@components/common'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { ChevronDown, ChevronRight } from '@components/icons'

@@ -7,7 +7,7 @@ import QuoteSvg from '@components/icons/QuoteSvg'
 import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
@@ -43,6 +43,34 @@ const RenderFAQCollapse = () => {
 
 
 export default function SkinCare() {
+    let ingredient_li = [
+        {
+            title: 'Sea Buckthorn.', 
+            detail: 'Sea Buckthorn is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
+        },
+        {
+            title: 'Hyaluronic Acid.', 
+            detail: 'Hyaluronic Acid is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
+        },
+        {
+            title: 'Vitamin A, B & C.', 
+            detail: 'Vitamin A, B & C is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
+        },
+        {
+            title: 'Vitamin B3.', 
+            detail: 'Vitamin B3 is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
+        },
+        {
+            title: 'Skincare FAQ’s.', 
+            detail: 'Skincare FAQ’s is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
+        },
+    ]
+    const [enableIngredient, setEnableIngredient] = useState([true, ...new Array(ingredient_li.length - 1).fill(false)])
+    let updateIngredientParagra = (index:number) => {
+        let new_array = new Array(enableIngredient.length).fill(false)
+        new_array[index] = true
+        setEnableIngredient(new_array)
+    }
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="w-full h-15 bg-transparent"></div>
@@ -131,7 +159,7 @@ export default function SkinCare() {
                 <div className="absolute h-full flex flex-col" style={{left: -20 + '%'}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_99CEE0 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Skincare</div>
                 </div>
-                <div className="ml-172 mr-15 my-32">
+                <div className="ml-172 mr-15 my-32 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="w-5/12 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
@@ -141,23 +169,11 @@ export default function SkinCare() {
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
-                                        <div className="flex items-start w-full">
-                                            <div className="ttcommon_font_bold text-4xl leading-36_48">Sea Buckthorn</div>
-                                        </div>
-                                        <div className="mt-7 flex items-start w-full">
-                                            <div className="ttcommon_font_thin text-4xl leading-36_48">Hyaluronic Acid.</div>
-                                        </div>
-                                        <div className="mt-7 flex items-start w-full">
-                                            <div className="ttcommon_font_thin text-4xl leading-36_48">Vitamin A, B & C.</div>
-                                        </div>
-                                        
-                                        <div className="mt-7 flex items-start w-full">
-                                            <div className="ttcommon_font_thin text-4xl leading-36_48">Vitamin B3.</div>
-                                        </div>
-
-                                        <div className="mt-7 w-full">
-                                            <div className="ttcommon_font_thin text-4xl leading-36_48">Skincare FAQ’s.</div>
-                                        </div>
+                                        {ingredient_li.map((item, index) => {
+                                            return <div className={`flex items-start w-full ${index != 0 ? 'mt-7' : ''}`} key={`ingredient_${index}`}>
+                                                        <button className={`text-4xl leading-36_48 ${enableIngredient[index] && 'ttcommon_font_bold'}`} onClick={() => {updateIngredientParagra(index)}}>{item.title}</button>
+                                                    </div>
+                                        })}
                                     </div>
                                 </div>
                                 
@@ -165,8 +181,14 @@ export default function SkinCare() {
                             
                         </div>
                         <div className="w-1/2">
-                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is Sea Bucktorn?</div>
-                            <div className="ttcommon_font_thin mt-5 text-sm leading-14_26">Sea Buckthorn is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.</div>
+                            {ingredient_li.map((item, index) => {
+                                return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
+                                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
+                                            <div className="ttcommon_font_thin mt-5 text-sm leading-14_26">{item.detail}</div>
+                                        </div>
+                            })}
+                            
+                            
                         </div>
                     </div>
                     

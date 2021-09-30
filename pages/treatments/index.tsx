@@ -1,5 +1,5 @@
 import { Layout } from "@components/common";
-import TreatmentSlider from "@components/common/KeenSlider/TreatmentSlider";
+import TreatmentSlider from "@components/mycp/KeenSlider/TreatmentSlider";
 import TestimonialCp from "@components/mycp/TestimonialCp/TestimonialCp";
 
 

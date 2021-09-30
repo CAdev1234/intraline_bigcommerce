@@ -1,4 +1,4 @@
-import KeenSliderB from "@components/common/KeenSlider/KeenSliderB"
+import KeenSliderB from "@components/mycp/KeenSlider/KeenSliderB"
 import QuoteSvg from "@components/icons/QuoteSvg"
 import { FC } from "react"
 

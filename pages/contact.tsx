@@ -2,6 +2,7 @@ import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
 import Link from "@components/ui/Link"
 import Button from '@components/mycp/Button'
+import SelectInput from "@components/mycp/SelectInput"
 
 export default function ContactUs() {
     return (
@@ -25,9 +26,10 @@ export default function ContactUs() {
                             <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
-                            <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
-                                <option value="Choose Country or Region">Choose Country or Region</option>
-                            </select>
+                            <SelectInput 
+                                option_li={['Choose Country or Region', 'UK', "US"]} 
+                                option_class="bg-c_F7F7F7" 
+                                className="bg-c_F7F7F7"/>
                         </div>
                         <div className="mt-5">
                             <div className="text-sm leading-14_26">How can we best help you?</div>

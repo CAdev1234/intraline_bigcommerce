@@ -32,15 +32,15 @@ const Footer: FC<Props> = ({ className, pages }) => {
     {title: 'Treatments', link: '/treatments'},
     {title: 'About Us', link: '/aboutus'},
     {title: 'Contact', link: '/contact'},
-    {title: 'Privacy Policy', link: '/'},
+    {title: 'Privacy Policy', link: '/privacypolicy'},
     {title: 'Cookie Policy', link: '/'},
   ]
 
   let account_link_li = [
-    {title: 'My Account', link: '/'},
+    {title: 'My Account', link: '/account/myaccount'},
     {title: 'Register/Login', link: '/account/login'},
-    {title: 'My Orders', link: '/'},
-    {title: 'My Reviews', link: '/'},
+    {title: 'My Orders', link: '/account/myaccount'},
+    {title: 'My Reviews', link: '/account/myaccount'},
   ]
 
   return (

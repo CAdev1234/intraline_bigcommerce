@@ -4,7 +4,7 @@ import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
 
 import QuoteSvg from '@components/icons/QuoteSvg'
-import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
+import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
@@ -12,10 +12,10 @@ import { ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
 
 const renderLiftingThreadSwiper = () => {
-    let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+    let render_ele = ['Dimension 720.', 'Dimension 360.', 'Nose Threads','Dimension 720.', 'Dimension 360.', 'Nose Threads'].map((item, index) => {
         return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
                     <div className="">
-                        <div className="ttcommon_font_bold text-4xl leading-36_48">Dimension 360.</div>
+                        <div className="ttcommon_font_bold text-4xl leading-36_48">{item}</div>
                         <div className="bg-c_CCE7EF w-full mt-10">
                             <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
                         </div>
