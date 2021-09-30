@@ -5,14 +5,13 @@ import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { ChevronDown, ChevronRight } from '@components/icons'
-import Link from '@components/ui/Link'
 
 const renderMSeriesSwiper = () => {
     let render_ele = [0, 1, 2].map((item, index) => {
         return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
                     <div className="my-auto">
-                        <img className="mx-auto" src={"/assets/img/mseries_3.png"} alt="" />
-                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus</div>
+                        <img className="mx-auto" src={"/assets/img/mseries_5.png"} alt="" />
+                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">Essential</div>
                     </div>
                 </div>
     })
@@ -26,8 +25,8 @@ const renderMSeriesSwiper = () => {
 }
 
 
-export default function MSeries() {
-    const m_series_li = [
+export default function EssentialSeries() {
+    const essential_series_li = [
         {
             headline: 'Pure.',
             title: 'Purely hyaluronic acid',
@@ -92,7 +91,7 @@ export default function MSeries() {
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1">Dermal fillers</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ttcommon_font_bold ml-1">Essential Series</span>
                     </div>
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
@@ -103,13 +102,13 @@ export default function MSeries() {
                             <div className="my-auto">
                                 <div>
                                     <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">The</div>
+                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">Essential</div>
                                     <div className="ttcommon_font_bold leading-200_160
-                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px" >M Series</div>
+                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px" >Series</div>
                                 </div>
                                 <div className="w-full ml-auto mr-10" style={{maxWidth:538}}>
                                     <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
-                                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The Essential Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
                                 
                             </div>
@@ -138,7 +137,7 @@ export default function MSeries() {
                                         no-scrollbar" 
                                         style={{height: 830, scrollbarWidth: 'none'}}
                                         onScroll={(event) => scrollHandler(event.target as any)}>
-                            {m_series_li.map((item, index) => {
+                            {essential_series_li.map((item, index) => {
                                 return <div className="mb-7_5" key={`pure_part_${index}`}>
                                             <div className="ttcommon_font_bold text-6xl leading-64_76
                                                             ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">{item.headline}</div>
@@ -179,9 +178,7 @@ export default function MSeries() {
                                     sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
-                        <Link href="/shop/dermalfiller/mseriesshop">
-                            <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>
-                        </Link>
+                        <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>
                     </div>
                 </div>
             </div>
@@ -197,4 +194,4 @@ export default function MSeries() {
     )
 }
 
-MSeries.Layout = Layout
+EssentialSeries.Layout = Layout

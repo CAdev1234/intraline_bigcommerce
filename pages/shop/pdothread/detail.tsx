@@ -47,7 +47,6 @@ const renderPDOThreads = () => {
     return items.map((item, index) => {
         return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
                     key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-                    <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>
                     <div className="flex-1 h-0">
                         <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
                     </div>
@@ -57,10 +56,10 @@ const renderPDOThreads = () => {
                         <div className="my-auto mx-auto w-10/12">
                             <div className="flex flex-col">
                                 <Button className="h-11 w-full text-sm">learn more</Button>
-                                
                             </div>
                         </div>
                     </div>
+                    <Button className="ttcommon_font_bold absolute top-0 right-0 text-lg h-11 w-30" variant="primary">$100.00</Button>
                 </div>
     })
 }
@@ -69,8 +68,9 @@ const renderPDOThreads = () => {
 export default function PDOThreadDetail() {
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+            <div className="bg-transparent w-full h-15"></div>
+            <div className="h-210 relative bg-c_F5DBDD w-full flex flex-col">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
@@ -84,10 +84,10 @@ export default function PDOThreadDetail() {
                         <span className="ttcommon_font_bold ml-1">Dimension 720 PDO</span>
                     </div>
                 </div>
-                <div className="mt-auto mb-15 flex flex-col">
+                <div className="mt-28 mb-15 flex flex-col h-full">
                     <div className="flex my-auto w-full h-full z-10">
                         <div className="w-6/12 flex flex-col ml-172">
-                            <div className="my-auto">
+                            <div className="">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
                                 <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
@@ -106,23 +106,26 @@ export default function PDOThreadDetail() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative flex flex-1 flex-col items-end mr-15">
-                            <div className="absolute h-full flex flex-col">
-                                <div className="relative bg-white rounded-full my-auto" style={{width: 526, height: 526}}>
-                                    <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
-                                </div>
-                            </div>
-                            <div className="mb-auto h-full relative flex flex-col">
-                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
-                            </div>
-                        </div>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="mt-auto flex items-center justify-center">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                
+                <div className="absolute top-0 left-0 w-full h-full flex flex-col pb-24">
+                    <div className="relative h-full flex flex-col">
+                        <div className="ml-auto my-auto">
+                            <div className="relative bg-white rounded-full my-auto" style={{width: 526, height: 526}}>
+                                <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                            </div>
+                        </div>
+                        <div className="h-full absolute top-0 left-0 w-full flex flex-col">
+                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
+                        </div>
+                    </div>
+                    
+                    
+                </div>
             </div>
 
             {/* Indications */}

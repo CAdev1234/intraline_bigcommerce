@@ -41,12 +41,13 @@ const renderPDOThreadSwiper = () => {
 export default function PDOThread() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="h-225 relative bg-white w-full flex flex-col">
+            <div className="bg-transparent w-full h-15"></div>
+            <div className="h-210 relative bg-white w-full flex flex-col">
                 <div className="absolute w-full h-full flex">
                     <div className="w-5/12 h-full"></div>
                     <div className="w-7/12 h-full bg-c_F5DBDD"></div>
                 </div>
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
@@ -56,24 +57,26 @@ export default function PDOThread() {
                         <span className="ttcommon_font_bold ml-1">PDO Threads</span>
                     </div>
                 </div>
-                <div className="mt-auto z-10 flex flex-col mb-15">
-                    <div className="flex my-auto w-full h-full px-15">
+                <div className="mt-30 z-10 flex flex-col h-full mb-15">
+                    <div className="flex w-full h-full px-15">
                         <div className="w-7/12 flex flex-col">
-                            <div className="my-auto">
+                            <div className="">
                                 <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">PDO</div>
                                 <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
                                 <div className="leading-36_48 ttcommon_font_thin font-semibold mt-8 mx-auto text-4xl max-w-134_5">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                             </div>
                         </div>
-                        <div className="w-5/12 flex flex-col">
-                            <div className="my-auto">
-                                {renderPDOThreadSwiper()}
-                            </div>
-                        </div>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-auto">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
+                    </div>
+                </div>
+                <div className="absolute top-0 left-0 w-full">
+                    <div className="flex flex-col ml-auto mr-15 h-120_5">
+                        <div className="">
+                            {renderPDOThreadSwiper()}
+                        </div>
                     </div>
                 </div>
             </div>

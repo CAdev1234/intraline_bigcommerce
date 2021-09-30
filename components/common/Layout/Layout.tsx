@@ -138,10 +138,10 @@ const Layout: FC<Props> = ({
           hide={acceptedCookies}
           action={
             <div className="ml-auto flex items-center">
-              <button className="text-c_00080D uppercase underline text-sm tracking-widest">Delete Account</button>
+              <button className="text-c_00080D uppercase underline text-sm tracking-widest">Dismiss</button>
               <Button 
                 className="ml-7_5 h-11 w-64"
-                onClick={() => onAcceptCookies()}>Log out</Button>
+                onClick={() => onAcceptCookies()}>Accept</Button>
             </div>
           }
         />

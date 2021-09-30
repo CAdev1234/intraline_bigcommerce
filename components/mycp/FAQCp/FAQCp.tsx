@@ -31,7 +31,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
             {faq_li.map((item, index) => {
                 return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
                             <div className="flex items-center w-full mt-10 pb-5 cursor-pointer" onClick={() => clickChevron(index)}>
-                            <div className="ttcommon_font_thin text-base pr-5 leading-14_17 text-c_00080D">{item.title}</div>
+                            <div className="ttcommon_font text-base uppercase pr-5 leading-14_17 text-c_00080D">{item.title}</div>
                             <div className="ml-auto">
                                 {renderChevronUpDown(index)}
                             </div>

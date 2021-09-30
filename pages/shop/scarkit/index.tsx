@@ -68,8 +68,9 @@ const renderPDOThreads = () => {
 export default function ScarKit() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-c_C3E0DC w-full flex flex-col">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+            <div className="h-15 w-full bg-transparent"></div>
+            <div className="h-210 relative bg-c_C3E0DC w-full flex flex-col">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
@@ -79,12 +80,12 @@ export default function ScarKit() {
                         <span className="ttcommon_font_bold ml-1">The Scar Kit</span>
                     </div>
                 </div>
-                <div className="mt-auto flex flex-col mb-15">
+                <div className="mt-20 flex flex-col mb-15 h-full">
                     <div className="flex w-full h-full z-10">
                         <div className="w-6/12 flex flex-col ml-172">
-                            <div className="my-auto">
+                            <div className="">
                                 <div className="ttcommon_font_thin text-200px leading-200_160">Scar</div>
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">Kit</span></div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold" ><span className="ttcommon_font_bold">Kit</span></div>
                                 <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
                                 <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 <div className="ttcommon_font_bold mt-5 flex items-center">
@@ -110,7 +111,7 @@ export default function ScarKit() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center mt-9">
+                    <div className="flex items-center justify-center">
                         <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
@@ -158,7 +159,7 @@ The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in pa
                 <div className="mx-172 my-30 flex flex-col">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">How the GTI Cannula works.</div>
                     <div className="mt-5 w-full">
-                        <img src="/assets/img/scarkit-works.png" alt="" />
+                        <img className="w-full" src="/assets/img/scarkit-works.png" alt="" />
                     </div>
                 </div>
             </div>

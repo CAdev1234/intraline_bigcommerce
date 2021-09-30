@@ -45,10 +45,10 @@ const RenderFAQCollapse = () => {
 export default function SkinCare() {
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="h-225 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+            <div className="w-full h-15 bg-transparent"></div>
+            <div className="h-210 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center">
                         <span>Home</span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
@@ -56,7 +56,7 @@ export default function SkinCare() {
                         <span className="ttcommon_font_bold ml-1">Skin Care</span>
                     </div>
                 </div>
-                <div className="flex items-end my-auto w-full">
+                <div className="mt-28 flex items-end w-full">
                     <div className="w-1/2">
                         <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Skin</div>
                         <div className="ttcommon_font_bold text-200px leading-200_160" >Care</div>
@@ -67,11 +67,11 @@ export default function SkinCare() {
                 </div>
             </div>
 
-            <div className="bg-white w-full relative" style={{height: 488 + "px"}}>
-                <div className="w-full px-15 flex absolute z-10" style={{top: -224 + 'px'}}>
+            <div className="bg-white w-full relative h-122">
+                <div className="w-full px-15 flex absolute z-10 -top-56">
                     <div className="w-1/2 mr-3">
                         <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">Restorative Moisturizer.</div>
-                        <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full border-none flex flex-col" style={{height: 400 + 'px'}}>
+                        <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full h-100 border-none flex flex-col">
                             <div className="flex h-full px-15 justify-center">
                                 <img src="/assets/img/skincare1.png" alt="" />
                             </div>

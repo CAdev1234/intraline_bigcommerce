@@ -99,6 +99,27 @@ button:focus, input:focus, select:focus {outline: none;}
   fill: rgba(0, 8, 13, 0.5);
 }
 
+/* scrollbar customize */
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #C4C4C4;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #01080D;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(1, 8, 13, 0.5);
+}
+
 /* scrollbar disable */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

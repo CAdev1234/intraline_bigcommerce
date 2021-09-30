@@ -144,7 +144,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 }
               </div>
               
-              <ProfileSvg className={s.svg} />
+              <div>
+                <Link href="/account/myaccount">
+                  <ProfileSvg className={s.svg} />
+                </Link>
+              </div>
               <div onClick={() => setEnableCart(!enableCart)}>
                 <CartSvg className={s.svg} />
               </div>

@@ -11,6 +11,7 @@ import KeenSliderB from '@components/common/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
+import Link from '@components/ui/Link'
 
 
 
@@ -46,10 +47,11 @@ const RenderFAQCollapse = () => {
 export default function DemeralFiller() {
     return(
         <div className="ttcommon_font text-c_00080D">
+            <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
-                             h-150 lg:h-225 xl:h-225 2xl:h-225
+                             h-150 lg:h-210 xl:h-210 2xl:h-210
                              px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
@@ -59,13 +61,13 @@ export default function DemeralFiller() {
                         <span className="ttcommon_font_bold ml-1">Dermal fillers</span>
                     </div>
                 </div>
-                <div className="my-auto w-full items-end
+                <div className="mt-28 w-full items-end
                                 block sm:flex md:flex lg:flex xl:flex 2xl:flex">
                     <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
                         <div className="ttcommon_font_thin font-semibold leading-200_160
-                                        text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">Dermal</div>
+                                        text-200px">Dermal</div>
                         <div className="ttcommon_font_bold leading-200_160
-                                        text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >Fillers</div>
+                                        text-200px" >Fillers</div>
                     </div>
                     <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2
                                     leading-36_48 ttcommon_font_thin
@@ -94,7 +96,9 @@ export default function DemeralFiller() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
-                                        <Button className=" h-11 text-sm">Learn more</Button>
+                                        <Link href="/shop/dermalfiller/essentials">
+                                            <Button className="w-full h-11 text-sm">Learn more</Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +114,9 @@ export default function DemeralFiller() {
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
-                                        <Button className=" h-11 text-sm">Learn more</Button>
+                                        <Link href="/shop/dermalfiller/mseries">
+                                            <Button className="w-full h-11 text-sm">Learn more</Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

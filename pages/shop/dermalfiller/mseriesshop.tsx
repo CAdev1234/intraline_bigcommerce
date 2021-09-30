@@ -34,7 +34,7 @@ export default function MseriesShop() {
     }
     return (
         <div className="ttcommon_font h-225 flex flex-col">
-            <div className="w-full min-h-15 bg-c_00080D"></div>
+            <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
                 <div className="px-15 mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center

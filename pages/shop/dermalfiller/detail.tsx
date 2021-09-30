@@ -75,15 +75,16 @@ const RenderMseries = () => {
 export default function DermalFillerDetail() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-c_CCE7EF w-full flex flex-col">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+            <div className="h-15 w-full bg-transparent"></div>
+            <div className="h-210 relative bg-c_CCE7EF w-full flex flex-col">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span className="ttcommon_font">Home</span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
+                        <span className="ml-1 ttcommon_font">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ml-1 ttcommon_font">MONOPHASIC DERMAL FILLERS</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold ml-1">M2 Plus</span>
                     </div>
@@ -91,7 +92,7 @@ export default function DermalFillerDetail() {
                 <div className="h-full z-10 mb-15 flex flex-col">
                     <div className="flex my-auto w-full">
                         <div className="w-6/12 flex flex-col pl-15">
-                            <div className="my-auto">
+                            <div className="mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
                                 <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
@@ -110,14 +111,7 @@ export default function DermalFillerDetail() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-6/12 flex flex-col items-end">
-                            <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
-                                <div className="w-full h-full flex absolute">
-                                    <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="absolute bottom-14 w-full flex flex-col z-10">
@@ -127,6 +121,16 @@ export default function DermalFillerDetail() {
                     </div>
                 </div>
                 
+            </div>
+            <div className="absolute top-0 right-0 w-full">
+                <div className="w-6/12 flex flex-col items-end ml-auto">
+                    <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
+                        <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
+                        <div className="w-full h-full flex absolute">
+                            <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Indications */}

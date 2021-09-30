@@ -19,6 +19,7 @@ import Button from '@components/mycp/Button'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
 import ReactPlayer from 'react-player';
+import Link from '@components/ui/Link'
 
 
 export async function getStaticProps({
@@ -402,7 +403,9 @@ export default function Home({
         <div className="flex flex-col h-full">
           <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
           <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
-          <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
+          <Link href="/aboutus">
+            <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
+          </Link>
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">

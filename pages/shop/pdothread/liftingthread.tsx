@@ -38,8 +38,9 @@ const renderLiftingThreadSwiper = () => {
 export default function LiftingThread() {
     return(
         <div className="ttcommon_font text-c_00080D">
-            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+            <div className="bg-transparent w-full h-15"></div>
+            <div className="h-210 relative bg-c_F5DBDD w-full flex flex-col">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span>Home</span>
@@ -49,15 +50,17 @@ export default function LiftingThread() {
                         <span className="ttcommon_font_bold ml-1">Dermal fillers</span>
                     </div>
                 </div>
-                <div className="flex my-auto w-full h-full px-15 z-10">
-                    <div className="w-7/12 flex flex-col">
-                        <div className="my-auto">
-                            <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">Lifting</div>
-                            <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
+                <div className="flex mt-28 w-full px-15 z-10">
+                    <div className="flex items-end">
+                        <div className="w-7/12 flex flex-col">
+                            <div className="">
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">Lifting</div>
+                                <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="w-5/12 flex flex-col">
-                        <div className="ttcommon_font_thin my-auto text-4xl leading-36_48">The goal of Lifting Threads is to provide a small amount of lift while also stimulating skin rejuvenation.</div>
+                        <div className="w-5/12 flex flex-col">
+                            <div className="ttcommon_font_thin text-4xl leading-36_48">The goal of Lifting Threads is to provide a small amount of lift while also stimulating skin rejuvenation.</div>
+                        </div>
                     </div>
                 </div>
             </div>
