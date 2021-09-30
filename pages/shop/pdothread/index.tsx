@@ -28,7 +28,7 @@ const renderPDOThreadSwiper = () => {
     })
     return <KeenSliderB 
                 render_ele={render_ele} 
-                slidesPerView={1} 
+                slidesPerView={[1,1,1,1,1]} 
                 enableDot={true} 
                 prevNavCss={"my-auto"} 
                 nextNavCss={"my-auto"}
