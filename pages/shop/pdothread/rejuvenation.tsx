@@ -11,7 +11,7 @@ import Link from '@components/ui/Link'
 import { ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
 
-const renderLiftingThreadSwiper = () => {
+const renderRejuvenationSwiper = () => {
     let thread_cate_li = [
         {
             title: 'Dimension 720',
@@ -21,7 +21,7 @@ const renderLiftingThreadSwiper = () => {
         {
             title: 'Dimension 360',
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
-            link: '/shop/pdothread/dimension360'
+            link: '/shop/pdothread/demension360'
         },
         {
             title: 'Nose Threads',
@@ -36,7 +36,7 @@ const renderLiftingThreadSwiper = () => {
         {
             title: 'Dimension 360',
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
-            link: '/shop/pdothread/dimension360'
+            link: '/shop/pdothread/demension360'
         },
         {
             title: 'Nose Threads',
@@ -69,7 +69,7 @@ const renderLiftingThreadSwiper = () => {
 
 
 
-export default function LiftingThread() {
+export default function Rejuvenation() {
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="bg-transparent w-full h-15"></div>
@@ -83,33 +83,33 @@ export default function LiftingThread() {
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">PDO Threads</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Lifting Threads</span>
+                        <span className="ttcommon_font_bold ml-1">Rejuvenation Threads</span>
                     </div>
                 </div>
                 <div className="flex mt-28 w-full px-15 z-10">
                     <div className="flex items-end">
                         <div className="w-7/12 flex flex-col">
                             <div className="">
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">Lifting</div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold">Reju</div>
                                 <div className="ttcommon_font_bold text-200px leading-200_160" >Threads</div>
                             </div>
                         </div>
                         <div className="w-5/12 flex flex-col">
-                            <div className="ttcommon_font_thin text-4xl leading-36_48">The goal of Lifting Threads is to provide a small amount of lift while also stimulating skin rejuvenation.</div>
+                            <div className="ttcommon_font_thin text-4xl leading-36_48">The goal of Rejuvenation Threads is to provide a small amount of lift while also stimulating skin rejuvenation.</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="ml-15 pb-24" style={{marginTop: -240}}>
-                {renderLiftingThreadSwiper()}
+                {renderRejuvenationSwiper()}
             </div>
             
             <div className=" bg-c_C6CBDD py-24 px-15">
-                <div className="ttcommon_font_bold text-4xl leading-36_26">Lifting PDO Threads.</div>
+                <div className="ttcommon_font_bold text-4xl leading-36_26">Rejuvenation PDO Threads.</div>
                 <div className="mt-6 flex items-center">
-                    <div className="ttcommon_font_thin w-1/2 text-4xl leading-36_48 pr-28">Lifting threads have barbs, also known as Cogs along the length of the thread with the aim of affixing the skin in a position to give the appearance of a minor facelift. </div>
-                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-sm leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point lifting and non-surgical rhinoplasty.</div>
+                    <div className="ttcommon_font_thin w-1/2 text-4xl leading-36_48 pr-28">Rejuvenation threads have barbs, also known as Cogs along the length of the thread with the aim of affixing the skin in a position to give the appearance of a minor facelift. </div>
+                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-sm leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point Rejuvenation and non-surgical rhinoplasty.</div>
                 </div>
             </div>
 
@@ -173,4 +173,4 @@ export default function LiftingThread() {
     )
 }
 
-LiftingThread.Layout = Layout
+Rejuvenation.Layout = Layout

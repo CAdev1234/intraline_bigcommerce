@@ -65,7 +65,7 @@ const renderPDOThreads = () => {
 }
 
 
-export default function PDOThreadDetail() {
+export default function Dimension720() {
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="bg-transparent w-full h-15"></div>
@@ -112,12 +112,10 @@ export default function PDOThreadDetail() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col pb-24">
-                    <div className="relative h-full flex flex-col">
-                        <div className="ml-auto my-auto">
-                            <div className="relative bg-white rounded-full my-auto" style={{width: 526, height: 526}}>
-                                <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
-                            </div>
+                <div className="absolute top-0 right-15 w-131_5 h-full flex flex-col pb-24">
+                    <div className="relative h-full w-full flex flex-col">
+                        <div className="relative h-131_5 bg-white rounded-full my-auto">
+                            <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
                         </div>
                         <div className="h-full absolute top-0 left-0 w-full flex flex-col">
                             <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
@@ -292,4 +290,4 @@ export default function PDOThreadDetail() {
     )
 }
 
-PDOThreadDetail.Layout = Layout
+Dimension720.Layout = Layout

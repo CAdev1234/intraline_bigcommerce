@@ -8,7 +8,7 @@ import { ChevronDown, ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
 
 
-export default function SkinCareDetail() {
+export default function Masque() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
@@ -21,17 +21,17 @@ export default function SkinCareDetail() {
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1">Skin Care</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Moisturizer</span>
+                        <span className="ttcommon_font_bold ml-1">Masque</span>
                     </div>
                 </div>
                 <div className="mt-auto mb-15 flex flex-col">
                     <div className="flex w-full h-full z-10">
                         <div className="flex flex-col max-w-xl">
                             <div className="my-auto">
-                                <div className="ttcommon_font_bold text-4xl leading-36_48">Restorative</div>
-                                <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Moisturizer</span></div>
+                                <div className="ttcommon_font_bold text-4xl leading-36_48">Biocellulose</div>
+                                <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Masque</span></div>
                                 <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Sed ut perspiciatis unde omnis iste.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 100ML</span>
@@ -49,7 +49,7 @@ export default function SkinCareDetail() {
                         <div className="relative flex flex-col items-center ml-auto my-auto rounded-full bg-c_CCE7EF" style={{height: 576, width: 576}}>
                             <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>
                             <div className="my-auto relative flex flex-col h-3/4">
-                                <img className="h-full" src="/assets/img/skincare3.png" alt="" />
+                                <img className="h-full" src="/assets/img/skincare2.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -131,4 +131,4 @@ export default function SkinCareDetail() {
     )
 }
 
-SkinCareDetail.Layout = Layout
+Masque.Layout = Layout

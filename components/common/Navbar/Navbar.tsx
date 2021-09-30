@@ -52,7 +52,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     },
     { name: 'PDO Threads', link: '/shop/pdothread', 
       subItem_li: [
-        { name: 'Rejuvenation Threads', link: '/shop/pdothread/detail'},
+        { name: 'Rejuvenation Threads', link: '/shop/pdothread/rejuvenation'},
         { name: 'Lifting Threads', link: '/shop/pdothread/liftingthread'}
       ]
     },
