@@ -23,6 +23,9 @@ import Link from '@components/ui/Link'
 
 import {getCookie} from 'utils/cookie'
 
+import {useDispatch, useSelector} from 'react-redux'
+import {openSideCart, closeSideCart} from '../utils/redux/slices/cartSlice'
+
 
 export async function getStaticProps({
   preview,
@@ -69,7 +72,9 @@ const RenderCategorySwiper:FC = () => {
             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
                 <div className="my-auto mx-auto w-10/12">
                     <div className="flex flex-col">
-                        <Button className=" h-11 text-sm">browse</Button>
+                        <Link href="/shop/dermalfiller/detail">
+                          <Button className=" h-11 text-sm">browse</Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -77,7 +82,7 @@ const RenderCategorySwiper:FC = () => {
   })
   return <KeenSliderA 
             render_ele={render_item_ele} 
-            slidesPerView={[1,2,3,3.5,5]} 
+            slidesPerView={[1.5,2.5,3.5,3.5,5]} 
             navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172 mt-10"/>
 }
 
@@ -271,6 +276,12 @@ export default function Home({
     }
   })
 
+  const dispatch = useDispatch() 
+
+  const addToBag = () => {
+
+  }
+
   const RenderProductSwiper:FC = () => {
     let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative" key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
@@ -290,7 +301,7 @@ export default function Home({
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1">+</button>
                                 </div>
-                                <Button className="ml-3 h-full w-full text-sm">Add to bag</Button>
+                                <Button className="ml-3 h-full w-full text-sm" onClick={() => {dispatch(openSideCart())}}>Add to bag</Button>
                             </div>
                         </div>
                     </div>
@@ -400,10 +411,14 @@ export default function Home({
                         mx-5 md:mx-15 lg:mx-172">
           <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
           <div className="flex items-center ml-auto">
-            <div className=" leading-snug font-bold text-lg">See All</div>
-            <div className="ml-2">
-              <ChevronRight className="h-4 w-4" />
-            </div>
+            <Link href="/shop/allproducts">
+              <div className="flex items-center">
+                <div className=" leading-snug font-bold text-lg">See All</div>
+                <div className="ml-2">
+                  <ChevronRight className="h-4 w-4" />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="mt-10">
@@ -425,10 +440,14 @@ export default function Home({
           <div className="flex text-c_00080D mb-2">
             <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
             <div className="flex items-center ml-auto">
-              <div className="font-bold text-lg">Read More</div>
-              <div className="ml-2">
-                <ChevronRight className="h-4 w-4" />
-              </div>
+              <Link href="/faq">
+                <div className="flex items-center">
+                  <span className="font-bold text-lg">Read More</span>
+                  <span className="ml-2">
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
           {RenderFAQCollapse()}

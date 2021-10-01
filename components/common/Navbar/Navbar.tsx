@@ -11,6 +11,9 @@ import SideCart from '@components/mycp/SideCart'
 import HamburgerMenu from '@components/icons/HamburgerMenu'
 import { Cross } from '@components/icons'
 
+import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
+
+
 interface Link {
   href: string
   label: string
@@ -43,6 +46,10 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
+
+  const dd = useAppSelector((state) => state.cart.enableSideCart)
+    // setEnableCart(dd)
+
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
     { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
@@ -76,6 +83,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   ]
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
+    
   })
 
   let showMobileMenu = () => {

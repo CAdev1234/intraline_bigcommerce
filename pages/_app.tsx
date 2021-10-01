@@ -7,7 +7,8 @@ import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
 
-
+import {store} from '../utils/redux/store'
+import { Provider } from 'react-redux'
 
 const Noop: FC = ({ children }) => <>{children}</>
 
@@ -22,9 +23,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head />
       <ManagedUIContext>
-        <Layout pageProps={pageProps}>
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={store}>
+          <Layout pageProps={pageProps}>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
       </ManagedUIContext>
     </>
   )

@@ -12,11 +12,15 @@ import Link from '@components/ui/Link'
 import SelectInput from '@components/mycp/SelectInput'
 
 const renderPDOThreadSwiper = () => {
-    let render_ele = [0, 1].map((item, index) => {
+    let pdothread_li = [
+        {title: 'Lifting Threads', img: '/assets/img/lifting_thread_1.png'},
+        {title: 'Rejuvenation Threads', img: '/assets/img/lifting_thread_1.png'}
+    ]
+    let render_ele = pdothread_li.map((item, index) => {
         return <div className="keen-slider__slide relative" key={`pdo_thread_${index}`}>
                     <div className="my-auto">
-                        <img src="/assets/img/lifting_thread_1.png" alt="" />
-                        <div className="uppercase text-2xl text-center font-semibold">Lifting Threads</div>
+                        <img src={item.img} alt="" />
+                        <div className="uppercase text-2xl text-center font-semibold">{item.title}</div>
                     </div>
 
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">

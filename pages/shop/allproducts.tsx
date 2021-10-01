@@ -26,10 +26,6 @@ const RenderCategorySwiper:FC = () => {
         { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
         { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
         { name: 'Skincare', img: "/assets/img/skin-care.png" },
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_5.png" },
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_4.png" },
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_3.png" },
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_2.png" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
@@ -114,10 +110,6 @@ export default function AllProducts() {
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     <div className="">SHOWING All products <span className="ttcommon_font_bold">(250)</span></div>
                     <div className="flex items-center ml-auto cursor-pointer">
-                        {/* <div className="">Filter</div>
-                        <div className="ml-4">
-                            <TriangleDown className="h-4 w-4" />
-                        </div> */}
                         <SelectInput
                             enable_underline={false}
                             default_option="Filters" 
@@ -125,18 +117,17 @@ export default function AllProducts() {
                             className={"bg-transparent relative z-10 w-30"} 
                             option_class={"bg-white justify-center hover:bg-gray-100"} />
                     </div>
-                    <div className="flex items-center ml-10 cursor-pointer">
-                        {/* <div className="">Sort by price(lowest)</div>
-                        <div className="ml-4">
-                            <TriangleDown className="h-4 w-4" />
-                        </div> */}
-                        <SelectInput 
-                            enable_underline={false}
-                            default_option="SORT BY PRICE(LOWEST)" 
-                            option_li={['PRICE (LOWEST)', 'PRICE (HIGHEST)', 'TOP RATED', 'NEWEST']} 
-                            className={"bg-transparent relative z-10 w-60"} 
-                            option_class={"bg-white justify-center hover:bg-gray-100"} />
-                    </div>
+                    {logined && 
+                        <div className="flex items-center ml-10 cursor-pointer">
+                            <SelectInput 
+                                enable_underline={false}
+                                default_option="SORT BY PRICE(LOWEST)" 
+                                option_li={['PRICE (LOWEST)', 'PRICE (HIGHEST)', 'TOP RATED', 'NEWEST']} 
+                                className={"bg-transparent relative z-10 w-60"} 
+                                option_class={"bg-white justify-center hover:bg-gray-100"} />
+                        </div>
+                    }
+                    
                 </div>
                 <div className="mt-10 grid gap-5
                                 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4

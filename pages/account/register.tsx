@@ -27,7 +27,7 @@ export default function Register() {
                     <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
                     <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password"/>
                             
-                    <Button className="mt-8 w-full text-sm">Register</Button>
+                    <Button className="mt-8 w-full h-11 text-sm">Register</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/login">
                             <span className="leading-36_26 text-base underline">Already have an account?</span>

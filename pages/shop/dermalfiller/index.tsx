@@ -142,11 +142,15 @@ export default function DemeralFiller() {
                     <div className="flex text-c_00080D mb-2">
                         <div className="font-bold text-4xl
                                          leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
-                        <div className="flex items-center ml-auto w-36">
-                            <div className="font-bold text-lg ml-auto">Read More</div>
-                            <div className="ml-2">
-                                <ChevronRight className="h-4 w-4" />
-                            </div>
+                        <div className="flex items-center ml-auto">
+                            <Link href="/faq">
+                                <div className="flex items-center">
+                                    <div className="font-bold text-lg ml-auto">Read More</div>
+                                    <div className="ml-2">
+                                        <ChevronRight className="h-4 w-4" />
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                     {RenderFAQCollapse()}

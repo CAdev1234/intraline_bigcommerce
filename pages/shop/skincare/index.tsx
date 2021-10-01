@@ -117,7 +117,7 @@ export default function SkinCare() {
                                         <Link href="/shop/skincare/moisturizer">
                                             <Button className="h-11 w-full text-sm">learn more</Button>
                                         </Link>
-                                        <div className="mt-2 flex items-center h-12 text-white">
+                                        <div className="mt-2 flex items-center h-11 text-white">
                                             <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                                 <button className="mx-auto bg-transparent border-none p-1">-</button>
                                                 <div className="mx-auto">1</div>
@@ -220,10 +220,14 @@ export default function SkinCare() {
                     <div className="flex text-c_00080D mb-2">
                         <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
                         <div className="flex items-center ml-auto">
-                            <div className="font-bold text-lg">Read More</div>
-                            <div className="ml-2">
-                                <ChevronRight className="h-4 w-4" />
-                            </div>
+                            <Link href="/faq">
+                                <div className="flex items-center">
+                                    <div className="ttcommon_font_bold text-lg">Read More</div>
+                                    <div className="ml-2">
+                                        <ChevronRight className="h-4 w-4" />
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                     {RenderFAQCollapse()}

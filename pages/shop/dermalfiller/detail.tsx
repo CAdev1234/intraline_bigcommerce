@@ -14,12 +14,15 @@ import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { getCookie } from '@utils/cookie'
+import Link from '@components/ui/Link'
+import SideReview from '@components/mycp/SideReview'
 
 
 
 
 
 export default function DermalFillerDetail() {
+    const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -80,6 +83,15 @@ export default function DermalFillerDetail() {
                         </div>
                     </div>
         })
+    }
+
+    const ShowEnableSideReview = (bool_var: boolean) => {
+        (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
+        setEnableSideReview(bool_var)
+    }
+    const CloseSideReview = (bool_bar:boolean) => {
+        setEnableSideReview(bool_bar);
+        (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
     }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
@@ -160,13 +172,13 @@ export default function DermalFillerDetail() {
                 <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
-                <div className="ml-172 mr-15 my-32">
+                <div className="ml-172 mr-15 my-32 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">M2 Plus.</div>
-                                    <div className="flex items-center">
+                                    <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
                                         <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-sm ">(22)</div>
                                     </div>
@@ -248,10 +260,14 @@ export default function DermalFillerDetail() {
                 <div className="flex text-c_00080D mb-2">
                     <div className="ttcommon_font_bold leading-36_26 text-4xl">Frequently Asked Questions.</div>
                     <div className="flex items-center ml-auto">
-                    <div className="ttcommon_font_bold text-lg">Read More</div>
-                    <div className="ml-2">
-                        <ChevronRight className="h-4 w-4" />
-                    </div>
+                        <Link href="/faq">
+                            <div className="flex items-center">
+                                <div className="ttcommon_font_bold text-lg">Read More</div>
+                                <div className="ml-2">
+                                    <ChevronRight className="h-4 w-4" />
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 
@@ -276,8 +292,8 @@ export default function DermalFillerDetail() {
                     </div>
                 </div>
             </div>
-            
 
+            {enableSideReview && <SideReview closeSideReview={CloseSideReview} />}
         </div>
     )
 }

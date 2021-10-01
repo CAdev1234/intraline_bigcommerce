@@ -21,7 +21,7 @@ const renderRejuvenationSwiper = () => {
         {
             title: 'Dimension 360',
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
-            link: '/shop/pdothread/demension360'
+            link: '/shop/pdothread/dimension360'
         },
         {
             title: 'Nose Threads',
@@ -36,7 +36,7 @@ const renderRejuvenationSwiper = () => {
         {
             title: 'Dimension 360',
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
-            link: '/shop/pdothread/demension360'
+            link: '/shop/pdothread/dimension360'
         },
         {
             title: 'Nose Threads',
@@ -45,16 +45,31 @@ const renderRejuvenationSwiper = () => {
         },
     ]
     let render_ele = thread_cate_li.map((item, index) => {
-        return <div className="keen-slider__slide" key={`pdo_thread_${index}`}>
-                    <Link href={item.link}>
-                        <div className="">
-                            <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
-                            <div className="bg-c_CCE7EF w-full mt-10">
-                                <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
-                            </div>
-                            <div className="ttcommon_font_thin mt-7 text-3xl leading-36_48 w-125">{item.detail}</div>
+        return <div className="keen-slider__slide relative" key={`pdo_thread_${index}`}>
+                    <div className="">
+                        <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
+                        <div className="bg-c_CCE7EF w-full mt-10">
+                            <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
                         </div>
-                    </Link>
+                        <div className="ttcommon_font_thin mt-7 text-3xl leading-36_48 w-125">{item.detail}</div>
+                    </div>
+                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <div className="my-auto mx-auto w-10/12">
+                            <div className="flex flex-col text-white w-64 mx-auto">
+                                <Link href={item.link}>
+                                    <Button className="h-11 w-full text-sm">learn more</Button>
+                                </Link>
+                                <div className="mt-2 flex items-center h-11 text-white">
+                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                        <div className="mx-auto">1</div>
+                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                    </div>
+                                    <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
     })
     return <KeenSliderB 
