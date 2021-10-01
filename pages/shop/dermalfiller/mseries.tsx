@@ -7,23 +7,9 @@ import Button from '@components/mycp/Button'
 import { ChevronDown, ChevronRight } from '@components/icons'
 import Link from '@components/ui/Link'
 
-const renderMSeriesSwiper = () => {
-    let render_ele = [0, 1, 2].map((item, index) => {
-        return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
-                    <div className="my-auto">
-                        <img className="mx-auto" src={"/assets/img/mseries_3.png"} alt="" />
-                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus</div>
-                    </div>
-                </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={[1,1,1,1,1]} 
-                enableDot={true} 
-                prevNavCss={"my-auto"} 
-                nextNavCss={"my-auto"}
-                dotCss={"mt-7_5"}/>
-}
+import { getCookie } from 'utils/cookie'
+
+
 
 
 export default function MSeries() {
@@ -65,6 +51,7 @@ export default function MSeries() {
         }
     ]
     const [scroll_perc, setScrollPerc] = useState(0)
+    const [logined, setLogined] = useState(false)
     
     let scrollHandler = (ele:HTMLDivElement) => {
         let scroll_height = ele.scrollHeight
@@ -72,6 +59,34 @@ export default function MSeries() {
         let client_height = ele.clientHeight
         setScrollPerc(scroll_top / (scroll_height - client_height) * 100)
     }
+
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
+
+    const renderMSeriesSwiper = () => {
+        let render_ele = [0, 1, 2].map((item, index) => {
+            return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
+                        <div className="my-auto">
+                            <img className="mx-auto" src={"/assets/img/mseries_3.png"} alt="" />
+                            <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus</div>
+                        </div>
+                        {logined && <div className="absolute top-0 right-15">
+                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">$100.00</Button>
+                        </div>}
+                    </div>
+        })
+        return <KeenSliderB 
+                    render_ele={render_ele} 
+                    slidesPerView={[1,1,1,1,1]} 
+                    enableDot={true} 
+                    prevNavCss={"my-auto"} 
+                    nextNavCss={"my-auto"}
+                    dotCss={"mt-7_5"}/>
+    }
+
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="absolute top-0 left-0 w-full h-225 flex">

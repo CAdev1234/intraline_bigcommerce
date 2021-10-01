@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
@@ -13,6 +13,7 @@ import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
+import { getCookie } from '@utils/cookie'
 
 
 const RenderFAQCollapse = () => {
@@ -66,6 +67,12 @@ const renderPDOThreads = () => {
 
 
 export default function ScarKit() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
     let specific_li = [
         {
             title: 'Product Specifics.', 
@@ -134,7 +141,7 @@ export default function ScarKit() {
                             <div className="absolute h-full flex flex-col">
                                 <div className="bg-white rounded-full my-auto relative" style={{width: 526, height: 526}}>
                                     <img className="mix_blend_multi ml-auto h-full" src="/assets/img/scarkit.png" alt="" />
-                                    <Button className="ttcommon_font_bold absolute right-16 top-0 h-9 w-30" variant="primary">$100.00</Button>
+                                    {logined && <Button className="ttcommon_font_bold absolute right-16 top-0 h-9 w-30" variant="primary">$100.00</Button>}
                                 </div>
                             </div>
                         </div>

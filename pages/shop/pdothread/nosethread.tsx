@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
@@ -13,59 +13,64 @@ import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
+import { getCookie } from '@utils/cookie'
 
-
-
-const RenderFAQCollapse = () => {
-    var items = [
-      {
-        'title': 'How does it work?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'How long do the results last?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What is the expected recovery time for my patients?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are some important safety tips to follow when using this product?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are the most common side effects?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      }
-    ]
-    return <FAQCp faq_li={items}/>
-}
-
-const renderPDOThreads = () => {
-    var items = [0, 1, 2]
-    return items.map((item, index) => {
-        return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
-                    key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-                    <div className="flex-1 h-0">
-                        <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
-                    </div>
-                    <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">Dimension Nose</div>
-                    <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
-                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <div className="my-auto mx-auto w-10/12">
-                            <div className="flex flex-col">
-                                <Button className="h-11 w-full text-sm">learn more</Button>
-                            </div>
-                        </div>
-                    </div>
-                    <Button className="ttcommon_font_bold absolute top-0 right-0 text-lg h-11 w-30" variant="primary">$100.00</Button>
-                </div>
-    })
-}
 
 
 export default function NoseThread() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
+    const RenderFAQCollapse = () => {
+        var items = [
+          {
+            'title': 'How does it work?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'How long do the results last?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What is the expected recovery time for my patients?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What are some important safety tips to follow when using this product?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What are the most common side effects?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          }
+        ]
+        return <FAQCp faq_li={items}/>
+    }
+    
+    const renderPDOThreads = () => {
+        var items = [0, 1, 2]
+        return items.map((item, index) => {
+            return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
+                        key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
+                        <div className="flex-1 h-0">
+                            <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
+                        </div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">Dimension Nose</div>
+                        <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                            <div className="my-auto mx-auto w-10/12">
+                                <div className="flex flex-col">
+                                    <Button className="h-11 w-full text-sm">learn more</Button>
+                                </div>
+                            </div>
+                        </div>
+                        {logined && <Button className="ttcommon_font_bold absolute top-0 right-0 text-lg h-11 w-30" variant="primary">$100.00</Button>}
+                    </div>
+        })
+    }
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="bg-transparent w-full h-15"></div>
@@ -115,7 +120,7 @@ export default function NoseThread() {
                 <div className="absolute top-0 right-15 w-131_5 h-full flex flex-col pb-24">
                     <div className="relative h-full w-full flex flex-col">
                         <div className="relative h-131_5 bg-white rounded-full my-auto">
-                            <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                            {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
                         </div>
                         <div className="h-full absolute top-0 left-0 w-full flex flex-col">
                             <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />

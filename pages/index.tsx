@@ -21,6 +21,8 @@ import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import ReactPlayer from 'react-player';
 import Link from '@components/ui/Link'
 
+import {getCookie} from 'utils/cookie'
+
 
 export async function getStaticProps({
   preview,
@@ -52,39 +54,6 @@ export async function getStaticProps({
   }
 }
 
-interface ArrowProps{
-  disabled: boolean,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
-const ArrowLeft:FC<ArrowProps> = ({disabled, onClick}) => {
-  const disabeld = disabled ? " arrow--disabled" : ""
-  return (
-    <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')}>
-      <svg
-        className={"arrow arrow--left w-4 h-4" + disabeld}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-      </svg>
-    </button>
-  )
-}
-
-const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
-  const disabeld = disabled ? " arrow--disabled" : ""
-  return (
-    <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
-      <svg
-        className={"arrow arrow--right w-4 h-4"}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      </svg>
-    </button>
-  )
-}
 
 const RenderCategorySwiper:FC = () => {
   let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
@@ -113,34 +82,7 @@ const RenderCategorySwiper:FC = () => {
 }
 
 
-const RenderProductSwiper:FC = () => {
-  let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative" key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-              <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$30.00</div>
-              <div className="flex-1 h-0">
-                  <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
-              </div>
-              <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">intraline masque</div>
-              <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
-              <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
-                  <div className="my-auto mx-auto w-10/12">
-                      <div className="flex flex-col">
-                          <Button className=" h-11 text-sm">learn more</Button>
-                          <div className="mt-2 flex items-center h-11 text-white">
-                              <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                  <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                  <div className="mx-auto">1</div>
-                                  <button className="mx-auto bg-transparent border-none p-1">+</button>
-                              </div>
-                              <Button className="ml-3 h-full w-full text-sm">Add to bag</Button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-  }) 
-  return <KeenSliderA render_ele = {render_ele} slidesPerView={[1,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
-}
+
 
 interface ArrowProps{
   disabled: boolean,
@@ -315,12 +257,47 @@ export default function Home({
           </div>
   }
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
+  const [logined, setLogined] = useState(false)
   let scrollHandler = (ele:HTMLDivElement) => {
     let scroll_top = ele.scrollTop
-    console.log("scroll_top=")
     if (scroll_top > 0) {
       setEnableScrollUpBtn(true)
     }
+  }
+
+  useEffect(() => {
+    if (getCookie('jwt', '') != null) {
+        setLogined(true)
+    }
+  })
+
+  const RenderProductSwiper:FC = () => {
+    let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
+      return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative" key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
+                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$30.00</div>}
+                <div className="flex-1 h-0">
+                    <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
+                </div>
+                <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">intraline masque</div>
+                <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
+                    <div className="my-auto mx-auto w-10/12">
+                        <div className="flex flex-col">
+                            <Button className=" h-11 text-sm">learn more</Button>
+                            <div className="mt-2 flex items-center h-11 text-white">
+                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                    <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                    <div className="mx-auto">1</div>
+                                    <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                </div>
+                                <Button className="ml-3 h-full w-full text-sm">Add to bag</Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }) 
+    return <KeenSliderA render_ele = {render_ele} slidesPerView={[1,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
   }
 
   return (

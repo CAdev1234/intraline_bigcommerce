@@ -27,8 +27,10 @@ export default function ContactUs() {
                         </div>
                         <div className="mt-5">
                             <SelectInput 
+                                enable_underline={false}
+                                default_option="Choose Country or Region"
                                 option_li={['Choose Country or Region', 'UK', "US"]} 
-                                option_class="bg-c_F7F7F7" 
+                                option_class="bg-c_F7F7F7 hover:bg-opacity-80" 
                                 className="bg-c_F7F7F7"/>
                         </div>
                         <div className="mt-5">

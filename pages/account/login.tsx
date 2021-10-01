@@ -2,8 +2,13 @@ import { Layout, Navbar } from '@components/common'
 import Link from '@components/ui/Link';
 import Button from '@components/mycp/Button'
 import { ChevronRight } from '@components/icons';
+import Cookies from 'js-cookie'
+import login from 'pages/api/login';
 
 export default function Login() {
+    let loginSubmit = () => {
+        Cookies.set('jwt', 'logined')
+    } 
     return (
         <div>
             <div className="h-15 w-full bg-transparent"></div>
@@ -30,7 +35,7 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
-                    <Button className="mt-8 w-full h-11 text-sm">Login</Button>
+                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {loginSubmit()}}>Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
                             <span className="leading-36_26 text-base underline">Don't have an account?</span>

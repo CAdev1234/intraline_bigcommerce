@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
@@ -13,66 +13,74 @@ import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
+import { getCookie } from '@utils/cookie'
 
 
-const RenderFAQCollapse = () => {
-    var items = [
-      {
-        'title': 'How does it work?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'How long do the results last?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What is the expected recovery time for my patients?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are some important safety tips to follow when using this product?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are the most common side effects?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      }
-    ]
-    return <FAQCp faq_li={items}/>
-}
 
-const RenderMseries = () => {
-    var items = [0, 1, 2]
-    return items.map((item, index) => {
-        return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" 
-                    key={'m' + String(index + 1) + '-product'}>
-                    <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>
-                    <div className="flex">
-                        <img className="mix_blend_multi mx-auto " src="/assets/img/product1.png" alt="" />
-                    </div>
-                    <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">M{index + 1} PLUS</div>
-                    <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
-                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <div className="my-auto mx-auto w-10/12">
-                            <div className="flex flex-col">
-                                <Button className="h-11 text-sm">learn more</Button>
-                                <div className="mt-2 flex items-center h-11 text-white">
-                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+
+
+export default function DermalFillerDetail() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
+    const RenderFAQCollapse = () => {
+        var items = [
+          {
+            'title': 'How does it work?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'How long do the results last?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What is the expected recovery time for my patients?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What are some important safety tips to follow when using this product?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          },
+          {
+            'title': 'What are the most common side effects?',
+            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+          }
+        ]
+        return <FAQCp faq_li={items}/>
+    }
+    
+    const RenderMseries = () => {
+        var items = [0, 1, 2]
+        return items.map((item, index) => {
+            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" 
+                        key={'m' + String(index + 1) + '-product'}>
+                        {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">$100.00</Button>}
+                        <div className="flex">
+                            <img className="mix_blend_multi mx-auto " src="/assets/img/product1.png" alt="" />
+                        </div>
+                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">M{index + 1} PLUS</div>
+                        <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                            <div className="my-auto mx-auto w-10/12">
+                                <div className="flex flex-col">
+                                    <Button className="h-11 text-sm">learn more</Button>
+                                    <div className="mt-2 flex items-center h-11 text-white">
+                                        <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                            <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                            <div className="mx-auto">1</div>
+                                            <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        </div>
+                                        <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
                                     </div>
-                                    <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-    })
-}
-
-
-export default function DermalFillerDetail() {
+        })
+    }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-15 w-full bg-transparent"></div>
@@ -126,8 +134,11 @@ export default function DermalFillerDetail() {
                 <div className="w-6/12 flex flex-col items-end ml-auto">
                     <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
                         <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
-                        <div className="w-full h-full flex absolute">
-                            <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                        <div className="w-full h-full flex absolute items-center justify-center">
+                            <div className="relative">
+                                <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
+                            </div>
                         </div>
                     </div>
                 </div>

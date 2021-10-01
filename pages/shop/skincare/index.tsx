@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import { Navbar } from '@components/common'
@@ -12,6 +12,7 @@ import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
+import { getCookie } from '@utils/cookie'
 
 
 
@@ -44,6 +45,12 @@ const RenderFAQCollapse = () => {
 
 
 export default function SkinCare() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
     let ingredient_li = [
         {
             title: 'Sea Buckthorn.', 
@@ -122,7 +129,7 @@ export default function SkinCare() {
                                 </div>
                             </div>
                             <div className="absolute top-0 right-0">
-                                <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>
+                                {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>}
                             </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
@@ -151,7 +158,7 @@ export default function SkinCare() {
                                 </div>
                             </div>
                             <div className="absolute top-0 right-0">
-                                <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>
+                                {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>}
                             </div>
                         </div>
                         <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>

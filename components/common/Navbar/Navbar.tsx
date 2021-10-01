@@ -48,6 +48,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     { name: 'Dermal Fillers', link: '/shop/dermalfiller', 
       subItem_li: [
         { name: 'M Series', link: '/shop/dermalfiller/mseries'},
+        { name: 'The Essentials', link: '/shop/dermalfiller/essentials'},
       ]
     },
     { name: 'PDO Threads', link: '/shop/pdothread', 
@@ -148,7 +149,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 }
               </div>
               
-              <div>
+              <div className="flex">
                 <Link href="/account/myaccount">
                   <button><ProfileSvg className={s.svg} /></button>
                 </Link>

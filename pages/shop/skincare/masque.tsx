@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
@@ -6,9 +6,16 @@ import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
 import { ChevronDown, ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
+import { getCookie } from '@utils/cookie'
 
 
 export default function Masque() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
@@ -47,7 +54,7 @@ export default function Masque() {
                             </div>
                         </div>
                         <div className="relative flex flex-col items-center ml-auto my-auto rounded-full bg-c_CCE7EF" style={{height: 576, width: 576}}>
-                            <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>
+                            {logined && <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
                             <div className="my-auto relative flex flex-col h-3/4">
                                 <img className="h-full" src="/assets/img/skincare2.png" alt="" />
                             </div>
@@ -97,9 +104,11 @@ export default function Masque() {
                         </div>
                         <div className="mt-5">
                             <SelectInput 
-                                option_li={['Choose Country or Region', 'United States', 'United Kingdom']} 
+                                enable_underline={false}
+                                default_option="Choose Country or Region"
+                                option_li={['United States', 'United Kingdom']} 
                                 className="bg-white"
-                                option_class="bg-white" />
+                                option_class="bg-white hover:bg-opacity-80" />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

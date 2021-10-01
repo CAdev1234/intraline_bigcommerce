@@ -2,14 +2,23 @@ import { Layout } from "@components/common";
 import { ChevronRight } from "@components/icons";
 import Button from '@components/mycp/Button'
 import Link from "@components/ui/Link";
+import { useEffect, useState } from "react";
+
+import { getCookie } from "@utils/cookie";
 
 export default function MseriesShop() {
+    const [logined, setLogined] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
     const RenderMseries = () => {
         var items = [0, 1, 2]
         return items.map((item, index) => {
             return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" 
                         key={'m' + String(index + 1) + '-product'}>
-                        <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>
+                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>}
                         <div className="flex">
                             <img className="mix_blend_multi mx-auto " src="/assets/img/product1.png" alt="" />
                         </div>

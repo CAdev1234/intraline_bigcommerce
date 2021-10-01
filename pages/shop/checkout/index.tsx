@@ -75,10 +75,12 @@ export default function Checkout() {
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
-                                    <SelectInput 
+                                    <SelectInput
+                                        enable_underline={false}
+                                        default_option="Please select country"
                                         option_li={['United States', 'United Kingdom']} 
                                         className="bg-white"
-                                        option_class="bg-white"/>
+                                        option_class="bg-white hover:bg-opacity-80"/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
