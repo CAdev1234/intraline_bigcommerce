@@ -7,7 +7,7 @@ import login from 'pages/api/login';
 
 export default function Login() {
     let loginSubmit = () => {
-        Cookies.set('jwt', 'logined')
+        Cookies.set('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
     } 
     return (
         <div>
