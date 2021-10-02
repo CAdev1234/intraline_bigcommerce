@@ -17,15 +17,21 @@ import TriangleDown from '@components/icons/TriangleDown'
 import SelectInput from '@components/mycp/SelectInput'
 
 import {getCookie} from 'utils/cookie'
+import Link from '@components/ui/Link'
 
 
 
 
 const RenderCategorySwiper:FC = () => {
     var render_ele = [
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png" },
-        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png" },
-        { name: 'Skincare', img: "/assets/img/skin-care.png" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller" },
+        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
+        { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
+        { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
+        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller/" },
+        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
+        { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
+        { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
@@ -35,11 +41,15 @@ const RenderCategorySwiper:FC = () => {
                         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
                     </div>
                     <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <Button className="my-auto mx-10 h-11 text-sm">Learn more</Button>
+                        <div className="my-auto flex flex-col">
+                            <Link href={item.link}>
+                                <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3,3.5,5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,4]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 

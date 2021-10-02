@@ -4,10 +4,11 @@ import Button from '@components/mycp/Button'
 import { ChevronRight } from '@components/icons';
 import Cookies from 'js-cookie'
 import login from 'pages/api/login';
-import LoginForm from '@components/mycp/LoginForm';
 
 export default function Login() {
-    
+    let loginSubmitHandler = () => {
+        Cookies.set('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
+    } 
     return (
         <div>
             <div className="h-15 w-full bg-transparent"></div>
@@ -24,7 +25,17 @@ export default function Login() {
                 </div>
                 <div className="my-52 mx-auto 
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                    <LoginForm />
+                    <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
+                    <input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
+                    <div className="mt-5 flex items-center">
+                        <input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
+                        <div className="-ml-40">
+                            <Link href="/">
+                                <span className="text-c_8D97BC">Forgot Your Password?</span>
+                            </Link>
+                        </div>
+                    </div>
+                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {loginSubmitHandler()}}>Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
                             <span className="leading-36_26 text-base underline">Don't have an account?</span>

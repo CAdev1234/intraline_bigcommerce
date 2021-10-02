@@ -5,28 +5,15 @@ import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { ChevronDown, ChevronRight } from '@components/icons'
+import Link from '@components/ui/Link'
 
-const renderMSeriesSwiper = () => {
-    let render_ele = [0, 1, 2].map((item, index) => {
-        return <div className="keen-slider__slide flex flex-col" key={`mseries_${index}`}>
-                    <div className="my-auto">
-                        <img className="mx-auto" src={"/assets/img/mseries_5.png"} alt="" />
-                        <div className="uppercase text-2xl text-center tracking-widest font-semibold">Essential</div>
-                    </div>
-                </div>
-    })
-    return <KeenSliderB 
-                render_ele={render_ele} 
-                slidesPerView={[1,1,1,1,1]} 
-                enableDot={true} 
-                prevNavCss={"my-auto"} 
-                nextNavCss={"my-auto"}
-                dotCss={"mt-7_5"}/>
-}
+import { getCookie } from 'utils/cookie'
 
 
-export default function EssentialSeries() {
-    const essential_series_li = [
+
+
+export default function Essentials() {
+    const m_series_li = [
         {
             headline: 'Pure.',
             title: 'Purely hyaluronic acid',
@@ -64,6 +51,7 @@ export default function EssentialSeries() {
         }
     ]
     const [scroll_perc, setScrollPerc] = useState(0)
+    const [logined, setLogined] = useState(false)
     
     let scrollHandler = (ele:HTMLDivElement) => {
         let scroll_height = ele.scrollHeight
@@ -71,6 +59,43 @@ export default function EssentialSeries() {
         let client_height = ele.clientHeight
         setScrollPerc(scroll_top / (scroll_height - client_height) * 100)
     }
+
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
+
+    const renderEssentialSeriesSwiper = () => {
+        let essential_series_li = [
+            {title: "M2 Plus", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "M2 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "M2 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
+        ]
+        let render_ele = essential_series_li.map((item, index) => {
+            return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
+                        <div className="my-auto">
+                            <Link href={item.link}>
+                                <div className="flex flex-col">
+                                    <img className="mx-auto" src={item.img} alt="" />
+                                    <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
+                                </div>
+                            </Link>
+                        </div>
+                        {logined && <div className="absolute top-0 right-15">
+                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}.00</Button>
+                        </div>}
+                    </div>
+        })
+        return <KeenSliderB 
+                    render_ele={render_ele} 
+                    slidesPerView={[1,1,1,1,1]} 
+                    enableDot={true} 
+                    prevNavCss={"my-auto"} 
+                    nextNavCss={"my-auto"}
+                    dotCss={"mt-7_5"}/>
+    }
+
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
             <div className="absolute top-0 left-0 w-full h-225 flex">
@@ -91,15 +116,15 @@ export default function EssentialSeries() {
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1">Dermal fillers</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Essential Series</span>
+                        <span className="ttcommon_font_bold ml-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <div className="my-auto w-full
+                    <div className="mt-30 w-full
                                     block sm:flex">
                         <div className="flex flex-col">
-                            <div className="my-auto">
+                            <div className="">
                                 <div>
                                     <div className="ttcommon_font_thin leading-200_160 font-semibold
                                                     text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">Essential</div>
@@ -113,19 +138,19 @@ export default function EssentialSeries() {
                                 
                             </div>
                         </div>
-                        <div className="flex flex-col ml-auto
-                                        w-full sm:w-4/12">
-                            <div className="my-auto">
-                                {renderMSeriesSwiper()}
-                            </div>
-                        </div>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-auto">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                
+                <div className="absolute top-0 right-15 w-125">
+                    <div className="flex flex-col ml-auto">
+                        <div className="my-auto">
+                            {renderEssentialSeriesSwiper()}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* pure part */}
@@ -137,7 +162,7 @@ export default function EssentialSeries() {
                                         no-scrollbar" 
                                         style={{height: 830, scrollbarWidth: 'none'}}
                                         onScroll={(event) => scrollHandler(event.target as any)}>
-                            {essential_series_li.map((item, index) => {
+                            {m_series_li.map((item, index) => {
                                 return <div className="mb-7_5" key={`pure_part_${index}`}>
                                             <div className="ttcommon_font_bold text-6xl leading-64_76
                                                             ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">{item.headline}</div>
@@ -176,9 +201,11 @@ export default function EssentialSeries() {
                                 w-11/12 sm:w-146">
                     <div className="ttcommon_font_bold text-4xl text-center mx-auto
                                     sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
+                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline Essential Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>
+                        <Link href="/shop/dermalfiller/mseriesshop">
+                            <Button className="mx-auto h-11 w-64 text-sm">Shop now the essential series</Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -194,4 +221,4 @@ export default function EssentialSeries() {
     )
 }
 
-EssentialSeries.Layout = Layout
+Essentials.Layout = Layout

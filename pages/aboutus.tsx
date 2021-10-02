@@ -15,6 +15,7 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
 import SelectInput from '@components/mycp/SelectInput'
+import ReactPlayer from 'react-player'
 
 
 
@@ -40,8 +41,15 @@ export default function AboutUs() {
     ]
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="relative w-full flex flex-col">
-                <img className="w-full" src="/assets/img/aboutus_banner.png" alt="" />
+            <div className="relative w-full flex flex-col mt-15">
+                {/* <img className="w-full" src="/assets/img/aboutus_banner.png" alt="" /> */}
+                <ReactPlayer 
+                    url="https://play.vidyard.com/wjgxW7mpQaeE3mWaa6gFMV?disable_popouts=1&v=4.2.30&viral_sharing=0&embed_button=0&hide_playlist=1&color=FFFFFF&playlist_color=FFFFFF&play_button_color=2A2A2A&gdpr_enabled=1&type=inline&autoplay=0&loop=0&muted=0&hidden_controls=0&pomo=2"
+                    width="100%"
+                    height="800px"
+                    // light
+                    // playIcon={play_icon()} 
+                />
             </div>
 
             {/* Confidence is Ageless. */}

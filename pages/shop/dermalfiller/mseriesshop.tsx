@@ -27,7 +27,7 @@ export default function MseriesShop() {
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
-                                    <Link href="/shop/dermalfiller/detail">
+                                    <Link href="/shop/dermalfiller/m2plus">
                                         <Button className="h-11 w-full text-sm">learn more</Button>
                                     </Link>
                                     <div className="mt-2 flex items-center h-11 text-white">

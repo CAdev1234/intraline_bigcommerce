@@ -7,11 +7,11 @@ import SelectInput from "@components/mycp/SelectInput"
 
 export default function MyAccount() {
     let product_info = {
-        title: 'Dermal Filler M3 PLUS',
+        title: 'Dermal Filler M2 PLUS',
         quantity: 2,
         price: '$100.00',
         reference: '1234567890',
-        img: '/assets/img/mseries_3.png'
+        img: '/assets/img/m2plus.png'
     }
     let order_info = {
         order_date: '30 April 2021',

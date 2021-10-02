@@ -26,6 +26,7 @@ import {getCookie} from 'utils/cookie'
 import {useAppDispatch, useAppSelector} from '../utils/redux/hooks'
 import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slices/cartSlice'
 import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
+import TriangleRight from '@components/icons/TriangleRight'
 
 
 export async function getStaticProps({
@@ -73,7 +74,7 @@ const RenderCategorySwiper:FC = () => {
             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
                 <div className="my-auto mx-auto w-10/12">
                     <div className="flex flex-col w-full">
-                        <Link href="/shop/dermalfiller/detail">
+                        <Link href="/shop/dermalfiller/m2plus">
                           <Button className="w-full h-11 text-sm">browse</Button>
                         </Link>
                     </div>
@@ -259,7 +260,9 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const play_icon = () => {
     return <div>
-              <div className="w-25 h-25 rounded-full border border-white"></div>     
+              <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
+                <TriangleRight className="text-white"/>
+              </div>     
           </div>
   }
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
@@ -370,8 +373,8 @@ export default function Home({
         brands={brands}
       /> */}
 
-      <img className="w-full" src="/assets/img/home-part1-bg.png"></img>
-      {/* <div className="w-full mt-15">
+      {/* <img className="w-full" src="/assets/img/home-part1-bg.png"></img> */}
+      <div className="w-full mt-15">
         <ReactPlayer 
           url="https://www.youtube.com/watch?v=giRyQtkecqA"
           width="100vw"
@@ -379,8 +382,8 @@ export default function Home({
           // light
           // playIcon={play_icon()} 
           />
-      </div> */}
-      <div className="z-50 text-white font-bold flex
+      </div>
+      <div className="relative z-10 text-white font-bold flex
                       -mt-20 md:-mt-32
                       mx-5 md:mx-15 lg:mx-172">
         <div className="text-4xl leading-36_26">Our Categories.</div>

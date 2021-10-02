@@ -13,6 +13,7 @@ import { Cross } from '@components/icons'
 
 import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
 import { openSideCart } from '@utils/redux/slices/cartSlice'
+import { getCookie } from '@utils/cookie'
 
 
 interface Link {
@@ -43,6 +44,7 @@ const renderSubMenu = (category_li: NavLinkArray) => {
 }
 
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
+  const [logined, setLogined] = useState(false);
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
@@ -82,7 +84,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   ]
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
-    
+    if (getCookie('jwt', '') != null) {
+        setLogined(true)
+    }
   })
 
   let showMobileMenu = () => {
@@ -158,9 +162,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   <button><ProfileSvg className={s.svg} /></button>
                 </Link>
               </div>
-              <div onClick={() => {dispatch(openSideCart())}}>
-                <CartSvg className={s.svg} />
-              </div>
+              {logined && 
+                <div onClick={() => {dispatch(openSideCart())}}>
+                  <CartSvg className={s.svg} />
+                </div>
+              }
             </div>
             <div className="ml-auto w-12 text-white
                             flex md:hidden lg:hidden xl:hidden 2xl:hidden"

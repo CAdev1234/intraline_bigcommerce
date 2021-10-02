@@ -1,6 +1,7 @@
 import { Layout } from "@components/common"
 import { Check, ChevronRight } from "@components/icons"
 import Button from '@components/mycp/Button'
+import Link from "@components/ui/Link"
 
 export default function CheckoutConfirm() {
     return (
@@ -37,7 +38,9 @@ export default function CheckoutConfirm() {
                             If you have any questions about your order, you can emai us at <span className="ttcommon_font_bold">info@intraline.com</span> or call us at <span className="ttcommon_font_bold">+1 (778) 738-0351</span>.
                         </div>
                         <div className="mt-10">
-                            <Button className="h-11 w-72 text-sm mx-auto">View your orders</Button>
+                            <Link href="/account/myaccount">
+                                <Button className="h-11 w-72 text-sm mx-auto">View your orders</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

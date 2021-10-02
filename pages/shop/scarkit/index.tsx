@@ -14,6 +14,7 @@ import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { getCookie } from '@utils/cookie'
+import ReactPlayer from 'react-player'
 
 
 const RenderFAQCollapse = () => {
@@ -199,7 +200,14 @@ export default function ScarKit() {
                 <div className="mx-172 my-30 flex flex-col">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">How the GTI Cannula works.</div>
                     <div className="mt-5 w-full">
-                        <img className="w-full" src="/assets/img/scarkit-works.png" alt="" />
+                        {/* <img className="w-full" src="/assets/img/scarkit-works.png" alt="" /> */}
+                        <ReactPlayer 
+                            url="https://www.youtube.com/watch?v=nnexOCQOa0w"
+                            width="100%"
+                            height="800px"
+                            // light
+                            // playIcon={play_icon()} 
+                        />
                     </div>
                 </div>
             </div>

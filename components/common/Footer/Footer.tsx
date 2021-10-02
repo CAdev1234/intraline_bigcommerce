@@ -33,7 +33,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
     {title: 'About Us', link: '/aboutus'},
     {title: 'Contact', link: '/contact'},
     {title: 'Privacy Policy', link: '/privacypolicy'},
-    {title: 'Cookie Policy', link: '/'},
+    {title: 'Cookie Policy', link: '/privacypolicy'},
   ]
 
   let account_link_li = [

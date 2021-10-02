@@ -60,7 +60,7 @@ export default function Dimension360() {
     })
 
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+        dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: 100, img: '/assets/img/thread_detail.png'}))
     }
     
     const ShowEnableSideReview = (bool_var: boolean) => {

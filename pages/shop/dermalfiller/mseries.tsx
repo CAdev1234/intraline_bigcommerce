@@ -67,14 +67,23 @@ export default function MSeries() {
     })
 
     const renderMSeriesSwiper = () => {
-        let render_ele = [0, 1, 2].map((item, index) => {
+        let mseries_li = [
+            {title: "M2 Plus", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "M2 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "M2 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
+        ]
+        let render_ele = mseries_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
                         <div className="my-auto">
-                            <img className="mx-auto" src={"/assets/img/mseries_3.png"} alt="" />
-                            <div className="uppercase text-2xl text-center tracking-widest font-semibold">M2 Plus</div>
+                            <Link href={item.link}>
+                                <div className="flex flex-col">
+                                    <img className="mx-auto" src={item.img} alt="" />
+                                    <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
+                                </div>
+                            </Link>
                         </div>
                         {logined && <div className="absolute top-0 right-15">
-                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">$100.00</Button>
+                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}.00</Button>
                         </div>}
                     </div>
         })
@@ -112,10 +121,10 @@ export default function MSeries() {
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <div className="my-auto w-full
+                    <div className="mt-30 w-full
                                     block sm:flex">
                         <div className="flex flex-col">
-                            <div className="my-auto">
+                            <div className="">
                                 <div>
                                     <div className="ttcommon_font_thin leading-200_160 font-semibold
                                                     text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">The</div>
@@ -129,19 +138,19 @@ export default function MSeries() {
                                 
                             </div>
                         </div>
-                        <div className="flex flex-col ml-auto
-                                        w-full sm:w-4/12">
-                            <div className="my-auto">
-                                {renderMSeriesSwiper()}
-                            </div>
-                        </div>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-auto">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                
+                <div className="absolute top-0 right-15 w-125">
+                    <div className="flex flex-col ml-auto">
+                        <div className="my-auto">
+                            {renderMSeriesSwiper()}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* pure part */}

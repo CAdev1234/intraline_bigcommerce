@@ -21,7 +21,7 @@ import SideReview from '@components/mycp/SideReview'
 
 
 
-export default function DermalFillerDetail() {
+export default function M2Plus() {
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     useEffect(() => {
@@ -148,7 +148,7 @@ export default function DermalFillerDetail() {
                         <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
                         <div className="w-full h-full flex absolute items-center justify-center">
                             <div className="relative">
-                                <img className="m-auto" src="/assets/img/mseries_3.png" alt="" />
+                                <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
                                 {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
                             </div>
                         </div>
@@ -298,4 +298,4 @@ export default function DermalFillerDetail() {
     )
 }
 
-DermalFillerDetail.Layout = Layout
+M2Plus.Layout = Layout

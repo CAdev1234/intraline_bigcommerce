@@ -1,41 +1,35 @@
 import { Navbar } from '@components/common'
 import { ChevronRight } from '@components/icons';
 import Button from '@components/mycp/Button'
-import LoginForm from '@components/mycp/LoginForm';
-import RegisterForm from '@components/mycp/RegisterForm';
 import SelectInput from '@components/mycp/SelectInput';
 import Link from '@components/ui/Link';
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import {getCookie} from 'utils/cookie'
 
-import { updateCheckOutStatus } from 'utils/redux/slices/checkoutSlice'
-import { useAppDispatch, useAppSelector} from 'utils/redux/hooks'
-
 export default function Checkout() {
-    const dispatch = useAppDispatch()
-    let logined = useAppSelector((state) => state.checkout.logined)
-    let enableLoginForm = useAppSelector((state) => state.checkout.enableLoginForm)
-    let checkedShippingAddress = useAppSelector((state) => state.checkout.checkedShippingAddress)
-    let checkedBillAddress = useAppSelector((state) => state.checkout.checkedBillAddress)
-    let checkedPayment = useAppSelector((state) => state.checkout.checkedPayment)
-    // const [enableRegister, setEnableRegister] = useState(false)
-    // const [checkedShippingAddress, setCheckShippingAddress] = useState(false)
-    // const [checkedBillAddress, setCheckedBillAddress] = useState(false)
-    // const [checkedPayment, setCheckedPayment] = useState(false)
-    // useEffect(() => {
-    //     if (getCookie('jwt', '') != null) {setLogined(true)}
-    // })
-    const registerHandler = () => {
-        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: false,checkedShippingAddress: checkedShippingAddress,checkedBillAddress: checkedBillAddress,checkedPayment: checkedPayment}))
+    const [logined, setLogined] = useState(false)
+    const [enableRegister, setEnableRegister] = useState(false)
+    const [checkedShippingAddress, setCheckedShippingAddress] = useState(false)
+    const [checkedBillAddress, setCheckedBillAddress] = useState(false)
+    const [checkedPayment, setCheckedPayment] = useState(false)
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    })
+    let loginSubmitHandler = () => {
+        Cookies.set('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
+        setLogined(true)
     }
-    const loginHandler = () => {
-        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: true,checkedShippingAddress: checkedShippingAddress,checkedBillAddress: checkedShippingAddress,checkedPayment: checkedPayment}))
+    const updateAccountHandler = () => {
+        setLogined(false)
     }
-    const shippingAddressHandler = () => {
-        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: enableLoginForm,checkedShippingAddress: true,checkedBillAddress: true,checkedPayment: checkedPayment}))
+    const updateShippindAddressHandler = () => {
+        setCheckedShippingAddress(false)
     }
-    const paymentHandler = () => {
-        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: enableLoginForm,checkedShippingAddress: true,checkedBillAddress: checkedBillAddress,checkedPayment: checkedPayment}))
+    const updateBillingAddressHandler = () => {
+
     }
     return (
         <div className="ttcommon_font text-c_00080D bg-c_CCE7EF h-screen">
@@ -52,21 +46,43 @@ export default function Checkout() {
                     </div>
                 </div>
                 {/* auth part */}
-                {!logined && enableLoginForm &&
-                    <div className="my-52 mx-auto w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                        <LoginForm />
-                        <div className="text-center mt-5">
-                            <button className="leading-36_26 text-base underline" onClick={() => {registerHandler()}}>Don't have an account?</button>
+                {!logined && !enableRegister &&
+                    <div>
+                        <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
+                            <div className="my-52 mx-auto 
+                                        w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                                <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
+                                <input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
+                                <div className="mt-5 flex items-center">
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
+                                    <div className="-ml-40">
+                                        <Link href="/">
+                                            <span className="text-c_8D97BC">Forgot Your Password?</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <Button className="mt-8 w-full h-11 text-sm" onClick={() => {loginSubmitHandler()}}>Login</Button>
+                                <div className="text-center mt-5">
+                                    <button className="leading-36_26 text-base underline" onClick={() => {setEnableRegister(true)}}>Don't have an account?</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 }
 
-                {!logined && !enableLoginForm && 
-                    <div className="my-25 mx-auto w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                        <RegisterForm />
+                {!logined && enableRegister && 
+                    <div className="my-25 mx-auto
+                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                        <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
+                        <input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
+                        <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name"/>
+                        <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name"/>
+                        <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
+                        <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password"/>
+                                
+                        <Button className="mt-8 w-full h-11 text-sm">Register</Button>
                         <div className="text-center mt-5">
-                            <button className="leading-36_26 text-base underline" onClick={() => {loginHandler()}}>Already have an account?</button>
-                            
+                            <button className="leading-36_26 text-base underline" onClick={() => {setEnableRegister(false)}}>Already have an account?</button>
                         </div>
                     </div>
                 }
@@ -82,7 +98,7 @@ export default function Checkout() {
                                 <div className="ml-7">sameerhaque@sameer.com</div>
                             </div>
                         </div>
-                        <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
+                        <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => {updateAccountHandler()}}>Change</button>
                     </div>
                 }
 
@@ -143,7 +159,10 @@ export default function Checkout() {
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
-                                <Button className="h-11 w-64 text-sm" onClick={() => {shippingAddressHandler()}}>Save & Continue</Button>
+                                <Button className="h-11 w-64 text-sm" onClick={() => {
+                                    setCheckedShippingAddress(true)
+                                    setCheckedBillAddress(true)
+                                }}>Save & Continue</Button>
                                 <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                             </div>
                         </div>
@@ -151,7 +170,7 @@ export default function Checkout() {
                 }
 
                 <div>
-                    {logined && checkedShippingAddress && 
+                    {checkedShippingAddress && 
                         <div className="bg-white p-7 flex items-center mt-5">
                             <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">2</div>
                             <div className="ml-11">
@@ -162,13 +181,13 @@ export default function Checkout() {
                                     <div className="">Lake City, Utah, United States 230 654</div>
                                 </div>
                             </div>
-                            <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
+                            <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => {updateShippindAddressHandler()}}>Change</button>
                         </div>
                     }
                 </div>
 
                 {/* billing address */}
-                {logined && checkedShippingAddress && checkedBillAddress && 
+                {checkedBillAddress && 
                     <div className="bg-white p-7 flex items-center mt-5">
                         <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">3</div>
                         <div className="ml-11">
@@ -179,7 +198,7 @@ export default function Checkout() {
                                 <div className="">Lake City, Utah, United States 230 654</div>
                             </div>
                         </div>
-                        <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
+                        <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => {updateBillingAddressHandler()}}>Change</button>
                     </div>
                 }
 
@@ -218,7 +237,7 @@ export default function Checkout() {
                             </div>
                             <div className="mt-7 flex items-center">
                                 <Link href="/shop/checkout/review">
-                                    <Button className="h-11 w-64 text-sm" onClick={() => paymentHandler()}>Save & Continue</Button>
+                                    <Button className="h-11 w-64 text-sm" onClick={() => setCheckedPayment(true)}>Save & Continue</Button>
                                 </Link>
                                 <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                             </div>

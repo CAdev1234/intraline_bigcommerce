@@ -10,7 +10,7 @@ export default function ShoppingBag() {
             product_name: "Dermal Filler M2 Plus",
             amount: 1,
             price: '$100.00',
-            img: "/assets/img/mseries_3.png",
+            img: "/assets/img/m2plus.png",
         },
         {
             shop_name: "Intraline's",
