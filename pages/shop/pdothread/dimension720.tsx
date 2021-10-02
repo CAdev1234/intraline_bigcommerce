@@ -18,6 +18,10 @@ import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'
 
 
+import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
+import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -51,12 +55,15 @@ const RenderFAQCollapse = () => {
 export default function Dimension720() {
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
+    const [numDimension720, setNumDimension720] = useState(1)
+    const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
-    const ShowEnableSideReview = (bool_var: boolean) => {
+    // const showSideCart
+    const showEnableSideReviewHandler = (bool_var: boolean) => {
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
         setEnableSideReview(bool_var)
     }
@@ -84,6 +91,21 @@ export default function Dimension720() {
                         {logined && <Button className="ttcommon_font_bold absolute top-0 right-0 text-lg h-11 w-30" variant="primary">$100.00</Button>}
                     </div>
         })
+    }
+
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'Dimension 720 PDO', amount: numDimension720, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+    }
+
+    const decreaseNumHandler = () => {
+        if (numDimension720 > 1) {
+            setNumDimension720(numDimension720 - 1)
+        }else {
+            setNumDimension720(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumDimension720(numDimension720 + 1)
     }
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
@@ -117,11 +139,11 @@ export default function Dimension720() {
                                 </div>
                                 <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numDimension720}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +189,7 @@ export default function Dimension720() {
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">720 PDO</div>
-                                    <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
+                                    <div className="flex items-center" onClick={() => {showEnableSideReviewHandler(true)}}>
                                         <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-sm ">(22)</div>
                                     </div>

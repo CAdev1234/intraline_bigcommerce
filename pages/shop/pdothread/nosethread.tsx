@@ -17,11 +17,17 @@ import { getCookie } from '@utils/cookie'
 import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'
 
+import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
+import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+
 
 
 export default function NoseThread() {
+    const [numNoseThread, setNumNoseThread] = useState(1)
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
+    const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
@@ -61,7 +67,21 @@ export default function NoseThread() {
         setEnableSideReview(bool_bar);
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
     }
-    
+
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'Dimension Nose PDO', amount: numNoseThread, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+    }
+    const decreaseNumHandler = () => {
+        if (numNoseThread > 1) {
+            setNumNoseThread(numNoseThread - 1)
+        }else {
+            setNumNoseThread(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumNoseThread(numNoseThread + 1)
+    }
+
     const renderPDOThreads = () => {
         var items = [0, 1, 2]
         return items.map((item, index) => {
@@ -115,11 +135,11 @@ export default function NoseThread() {
                                 </div>
                                 <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numNoseThread}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

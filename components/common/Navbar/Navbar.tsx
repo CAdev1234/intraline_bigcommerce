@@ -12,6 +12,7 @@ import HamburgerMenu from '@components/icons/HamburgerMenu'
 import { Cross } from '@components/icons'
 
 import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
+import { openSideCart } from '@utils/redux/slices/cartSlice'
 
 
 interface Link {
@@ -42,13 +43,11 @@ const renderSubMenu = (category_li: NavLinkArray) => {
 }
 
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
-  const [enableCart, setEnableCart] = useState(false)
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
-
-  const dd = useAppSelector((state) => state.cart.enableSideCart)
-    // setEnableCart(dd)
+  const dispatch = useAppDispatch()
+  const enableSideCart = useAppSelector((state) => state.cart.enableSideCart)
 
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
@@ -92,9 +91,6 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     else (document.querySelector("body") as HTMLBodyElement).style.overflow = "auto"
   }
 
-  const closeSideCart = (bool_bar:boolean) => {
-    setEnableCart(bool_bar)
-  }
   return (
     <NavbarRoot c_name={c_name || ''}>
       <Container>
@@ -162,7 +158,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   <button><ProfileSvg className={s.svg} /></button>
                 </Link>
               </div>
-              <div onClick={() => setEnableCart(!enableCart)}>
+              <div onClick={() => {dispatch(openSideCart())}}>
                 <CartSvg className={s.svg} />
               </div>
             </div>
@@ -186,7 +182,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
           <Searchbar id="mobile-search" />
         </div> */}
       </Container>
-      {enableCart && <SideCart closeSideCart={closeSideCart}/>}
+      {enableSideCart && <SideCart />}
       {enableMobileMenu && 
         <div className="fixed top-0 left-0 w-screen h-screen">
           <div className="bg-black bg-opacity-70 w-screen h-screen absolute top-0 left-0 pt-12 px-5">

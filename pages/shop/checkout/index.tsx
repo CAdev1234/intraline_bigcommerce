@@ -1,15 +1,42 @@
 import { Navbar } from '@components/common'
 import { ChevronRight } from '@components/icons';
 import Button from '@components/mycp/Button'
+import LoginForm from '@components/mycp/LoginForm';
+import RegisterForm from '@components/mycp/RegisterForm';
 import SelectInput from '@components/mycp/SelectInput';
 import Link from '@components/ui/Link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import {getCookie} from 'utils/cookie'
+
+import { updateCheckOutStatus } from 'utils/redux/slices/checkoutSlice'
+import { useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 
 export default function Checkout() {
-    const [checkedAuth, setCheckedAuth] = useState(true)
-    const [checkedShippingAddress, setCheckShippingAddress] = useState(false)
-    const [checkedBillAddress, setCheckedBillAddress] = useState(false)
-    const [checkedPayment, setCheckedPayment] = useState(false)
+    const dispatch = useAppDispatch()
+    let logined = useAppSelector((state) => state.checkout.logined)
+    let enableLoginForm = useAppSelector((state) => state.checkout.enableLoginForm)
+    let checkedShippingAddress = useAppSelector((state) => state.checkout.checkedShippingAddress)
+    let checkedBillAddress = useAppSelector((state) => state.checkout.checkedBillAddress)
+    let checkedPayment = useAppSelector((state) => state.checkout.checkedPayment)
+    // const [enableRegister, setEnableRegister] = useState(false)
+    // const [checkedShippingAddress, setCheckShippingAddress] = useState(false)
+    // const [checkedBillAddress, setCheckedBillAddress] = useState(false)
+    // const [checkedPayment, setCheckedPayment] = useState(false)
+    // useEffect(() => {
+    //     if (getCookie('jwt', '') != null) {setLogined(true)}
+    // })
+    const registerHandler = () => {
+        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: false,checkedShippingAddress: checkedShippingAddress,checkedBillAddress: checkedBillAddress,checkedPayment: checkedPayment}))
+    }
+    const loginHandler = () => {
+        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: true,checkedShippingAddress: checkedShippingAddress,checkedBillAddress: checkedShippingAddress,checkedPayment: checkedPayment}))
+    }
+    const shippingAddressHandler = () => {
+        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: enableLoginForm,checkedShippingAddress: true,checkedBillAddress: true,checkedPayment: checkedPayment}))
+    }
+    const paymentHandler = () => {
+        dispatch(updateCheckOutStatus({logined:logined, enableLoginForm: enableLoginForm,checkedShippingAddress: true,checkedBillAddress: checkedBillAddress,checkedPayment: checkedPayment}))
+    }
     return (
         <div className="ttcommon_font text-c_00080D bg-c_CCE7EF h-screen">
             <Navbar c_name="bg-black fixed"></Navbar>
@@ -25,7 +52,26 @@ export default function Checkout() {
                     </div>
                 </div>
                 {/* auth part */}
-                {checkedAuth &&
+                {!logined && enableLoginForm &&
+                    <div className="my-52 mx-auto w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                        <LoginForm />
+                        <div className="text-center mt-5">
+                            <button className="leading-36_26 text-base underline" onClick={() => {registerHandler()}}>Don't have an account?</button>
+                        </div>
+                    </div>
+                }
+
+                {!logined && !enableLoginForm && 
+                    <div className="my-25 mx-auto w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                        <RegisterForm />
+                        <div className="text-center mt-5">
+                            <button className="leading-36_26 text-base underline" onClick={() => {loginHandler()}}>Already have an account?</button>
+                            
+                        </div>
+                    </div>
+                }
+                   
+                {logined &&
                     <div className="mt-12_5 bg-white p-7 flex items-center">
                         <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">1</div>
                         <div className="ml-11">
@@ -36,12 +82,12 @@ export default function Checkout() {
                                 <div className="ml-7">sameerhaque@sameer.com</div>
                             </div>
                         </div>
-                        <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                        <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                     </div>
                 }
 
                 {/* shipping address */}
-                {!checkedShippingAddress && 
+                {!checkedShippingAddress && logined &&
                     <div>
                         <div className="mt-5 bg-white p-7 flex items-center">
                             <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">2</div>
@@ -51,27 +97,27 @@ export default function Checkout() {
                             <div className="flex items-center">
                                 <div className="w-1/2 mr-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">First Name</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="Sameer"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Last Name</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="Haque"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Address</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="234 HK, Avenue Lake City, Utah"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Apt, Suite</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="23H UN3"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">City</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="Lake City, Utah"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
@@ -86,7 +132,7 @@ export default function Checkout() {
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Postal Code</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="Sameer"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26 invisible" htmlFor="">Postal Code</label>
@@ -97,10 +143,7 @@ export default function Checkout() {
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
-                                <Button className="h-11 w-64 text-sm" onClick={() => {
-                                    setCheckShippingAddress(true)
-                                    setCheckedBillAddress(true)
-                                }}>Save & Continue</Button>
+                                <Button className="h-11 w-64 text-sm" onClick={() => {shippingAddressHandler()}}>Save & Continue</Button>
                                 <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                             </div>
                         </div>
@@ -108,7 +151,7 @@ export default function Checkout() {
                 }
 
                 <div>
-                    {checkedShippingAddress && 
+                    {logined && checkedShippingAddress && 
                         <div className="bg-white p-7 flex items-center mt-5">
                             <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">2</div>
                             <div className="ml-11">
@@ -119,13 +162,13 @@ export default function Checkout() {
                                     <div className="">Lake City, Utah, United States 230 654</div>
                                 </div>
                             </div>
-                            <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                            <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                         </div>
                     }
                 </div>
 
                 {/* billing address */}
-                {checkedBillAddress && 
+                {logined && checkedShippingAddress && checkedBillAddress && 
                     <div className="bg-white p-7 flex items-center mt-5">
                         <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">3</div>
                         <div className="ml-11">
@@ -136,12 +179,12 @@ export default function Checkout() {
                                 <div className="">Lake City, Utah, United States 230 654</div>
                             </div>
                         </div>
-                        <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                        <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                     </div>
                 }
 
                 {/* payment method */}
-                {!checkedPayment && checkedAuth && checkedShippingAddress && checkedBillAddress && 
+                {!checkedPayment && logined && checkedShippingAddress && checkedBillAddress && 
                     <div>
                         <div className="mt-5 bg-white p-7 flex items-center">
                             <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">4</div>
@@ -151,11 +194,11 @@ export default function Checkout() {
                             <div className="flex items-center">
                                 <div className="w-1/2 mr-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Name on Card</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="Sameer Haque"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Name on Card"/>
                                 </div>
                                 <div className="w-1/2 ml-2">
                                     <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Card Number</label>
-                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" value="1234 5678 1234 5678 0000"/>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="1234 5678 1234 5678 0000"/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
@@ -175,7 +218,7 @@ export default function Checkout() {
                             </div>
                             <div className="mt-7 flex items-center">
                                 <Link href="/shop/checkout/review">
-                                    <Button className="h-11 w-64 text-sm" onClick={() => setCheckedPayment(true)}>Save & Continue</Button>
+                                    <Button className="h-11 w-64 text-sm" onClick={() => paymentHandler()}>Save & Continue</Button>
                                 </Link>
                                 <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                             </div>

@@ -23,8 +23,9 @@ import Link from '@components/ui/Link'
 
 import {getCookie} from 'utils/cookie'
 
-import {useDispatch, useSelector} from 'react-redux'
-import {openSideCart, closeSideCart} from '../utils/redux/slices/cartSlice'
+import {useAppDispatch, useAppSelector} from '../utils/redux/hooks'
+import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slices/cartSlice'
+import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
 
 
 export async function getStaticProps({
@@ -71,9 +72,9 @@ const RenderCategorySwiper:FC = () => {
             </div>
             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
                 <div className="my-auto mx-auto w-10/12">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full">
                         <Link href="/shop/dermalfiller/detail">
-                          <Button className=" h-11 text-sm">browse</Button>
+                          <Button className="w-full h-11 text-sm">browse</Button>
                         </Link>
                     </div>
                 </div>
@@ -263,6 +264,7 @@ export default function Home({
   }
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
   const [logined, setLogined] = useState(false)
+  const [numProduct, setNumProduct] = useState(1)
   let scrollHandler = (ele:HTMLDivElement) => {
     let scroll_top = ele.scrollTop
     if (scroll_top > 0) {
@@ -276,10 +278,21 @@ export default function Home({
     }
   })
 
-  const dispatch = useDispatch() 
+  const dispatch = useAppDispatch()
 
-  const addToBag = () => {
+  const addToBagHandler = () => {
+    dispatch(addProductToCart({title: 'Dimension 720 PDO', amount: numProduct, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+  }
 
+  const decreaseNumHandler = () => {
+    if (numProduct > 1) {
+        setNumProduct(numProduct - 1)
+    }else {
+        setNumProduct(1)
+    }
+  }
+  const increaseNumHandler = () => {
+      setNumProduct(numProduct + 1)
   }
 
   const RenderProductSwiper:FC = () => {
@@ -297,11 +310,11 @@ export default function Home({
                             <Button className=" h-11 text-sm">learn more</Button>
                             <div className="mt-2 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                    <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                    <div className="mx-auto">1</div>
-                                    <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                    <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                    <div className="mx-auto">{numProduct}</div>
+                                    <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                 </div>
-                                <Button className="ml-3 h-full w-full text-sm" onClick={() => {dispatch(openSideCart())}}>Add to bag</Button>
+                                <Button className="ml-3 h-full w-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                             </div>
                         </div>
                     </div>

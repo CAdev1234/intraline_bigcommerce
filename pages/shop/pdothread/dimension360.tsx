@@ -17,7 +17,9 @@ import { getCookie } from '@utils/cookie'
 import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'
 
-
+import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
+import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -49,11 +51,17 @@ const RenderFAQCollapse = () => {
 export default function Dimension360() {
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
+    const [numDimension360, setNumDimension360] = useState(1)
+    const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
+
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+    }
     
     const ShowEnableSideReview = (bool_var: boolean) => {
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
@@ -62,6 +70,17 @@ export default function Dimension360() {
     const CloseSideReview = (bool_bar:boolean) => {
         setEnableSideReview(bool_bar);
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
+    }
+
+    const decreaseNumHandler = () => {
+        if (numDimension360 > 1) {
+            setNumDimension360(numDimension360 - 1)
+        }else {
+            setNumDimension360(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumDimension360(numDimension360 + 1)
     }
 
     const renderPDOThreads = () => {
@@ -118,11 +137,11 @@ export default function Dimension360() {
                                 </div>
                                 <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numDimension360}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

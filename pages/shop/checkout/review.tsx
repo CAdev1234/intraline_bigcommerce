@@ -33,7 +33,7 @@ export default function CheckoutReview() {
                             <div className="ml-7">sameerhaque@sameer.com</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                    <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                 </div>
 
                 {/* shipping address */}
@@ -47,7 +47,7 @@ export default function CheckoutReview() {
                             <div className="">Lake City, Utah, United States 230 654</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                    <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                 </div>
 
                 {/* billing address */}
@@ -61,7 +61,7 @@ export default function CheckoutReview() {
                             <div className="">Lake City, Utah, United States 230 654</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                    <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                 </div>
 
                 {/* payment method */}
@@ -75,7 +75,7 @@ export default function CheckoutReview() {
                             <div className="">Expires 01/24 CVC: 123</div>
                         </div>
                     </div>
-                    <div className="ml-auto text-sm leading-14_17 uppercase underline">Change</div>
+                    <button className="ml-auto text-sm leading-14_17 uppercase underline">Change</button>
                 </div>
 
                 <div className="mt-7 flex items-center">
