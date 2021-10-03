@@ -1,6 +1,6 @@
 import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
-import Button from '@components/mycp/Button'
+import { Button, Input} from '@components/mycp'
 import Link from "@components/ui/Link"
 
 export default function IndustryIndex() {
@@ -114,10 +114,10 @@ export default function IndustryIndex() {
                             <div className="mt-5 text-sm leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
                             <div className="">
                                 <div className="mt-10">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="First name"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="First name"/>
                                 </div>
                                 <div className="mt-5">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
                                 </div>
                                 <div className="mt-5">
                                     <select className="h-11 border-none bg-c_F7F7F7 w-full pl-5 pr-3 py-2 text-c_8D97BC" name="" id="">
@@ -138,7 +138,7 @@ export default function IndustryIndex() {
                                     </div>
                                 </div>
                                 <div className="mt-4">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="What is your Dermal Filler of choice?"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="What is your Dermal Filler of choice?"/>
                                 </div>
                                 <div className="mt-5">
                                     <div className="ttcommon_font_thin text-10px leading-extra-loose">

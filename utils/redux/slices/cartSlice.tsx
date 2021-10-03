@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getCookie } from '@utils/cookie'
-import Cookies from 'js-cookie'
-import type { RootState } from '../store'
+import { getCookie, setCookie } from '@utils/cookie'
 
 
 type Product = {
@@ -36,34 +34,38 @@ const cartSlice = createSlice({
     , initialState
     , reducers: {
         openSideCart: state => {
-            state.enableSideCart = true
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+            state.enableSideCart = true;
         },
         closeSideCart: state => {
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
             state.enableSideCart = false
         },
         addProductToCart: (state, {payload}) => {
             let result = (state.products as Array<Product>).filter(item => item.title.toLowerCase() === payload.title.toLowerCase())
             if (result.length === 0) {
-                state.products.push(payload)
+                state.products.push(payload);
             }else {
-                result[0].amount = result[0].amount + payload.amount
+                result[0].amount = result[0].amount + payload.amount;
             }
-            Cookies.set('cart_products', JSON.stringify(state.products))
-            state.totalAmount = calcTotalAmount(state.products)
-            state.totalPrice = calcTotalPrice(state.products)
-            state.enableSideCart = true
+            setCookie('cart_products', JSON.stringify(state.products));
+            state.totalAmount = calcTotalAmount(state.products);
+            state.totalPrice = calcTotalPrice(state.products);
+            
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+            state.enableSideCart = true;
         },
         updateProductInCart: (state, {payload}) => {
             let result = (state.products as Array<Product>).filter(item => item.title.toLowerCase() === payload.title.toLowerCase())
             result[0].amount = payload.amount
-            Cookies.set('cart_products', JSON.stringify(state.products))
+            setCookie('cart_products', JSON.stringify(state.products))
             state.totalAmount = calcTotalAmount(state.products)
             state.totalPrice = calcTotalPrice(state.products)
             // state.enableSideCart = true
         },
         deleteProduct: (state, {payload}) => {
             state.products = (state.products as Array<Product>).filter(item => item.title.toLowerCase() !== payload.title.toLowerCase())
-            Cookies.set('cart_products', JSON.stringify(state.products))
+            setCookie('cart_products', JSON.stringify(state.products))
             state.totalAmount = calcTotalAmount(state.products)
             state.totalPrice = calcTotalPrice(state.products)
         }

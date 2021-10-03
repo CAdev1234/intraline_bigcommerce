@@ -5,6 +5,7 @@ import { Cross } from '@components/icons'
 
 import {useAppDispatch, useAppSelector} from '../../../utils/redux/hooks'
 import {openSideCart, closeSideCart} from '../../../utils/redux/slices/cartSlice'
+import { useRouter } from 'next/router'
 
 interface SideCartProps {
 }
@@ -16,11 +17,20 @@ type Product = {
 }
 
 const SideCart: FC<SideCartProps> = () => {
+    const [currentUrl, setCurrentUrl] = useState('')
+    const router = useRouter()
     const dispatch = useAppDispatch()
+    useEffect(() => {
+        setCurrentUrl(window.location.href)
+    })
     const cart_product_li = useAppSelector(state => state.cart.products) as Array<Product>
     const total_price = useAppSelector(state => state.cart.totalPrice)
     const total_amount = useAppSelector(state => state.cart.totalAmount)
     
+    const editBagHandler = () => {
+        dispatch(closeSideCart())
+        router.push('/shop/shoppingbag')
+    }
     return (
         <div>
             <div className="fixed top-0 left-0 w-screen h-screen bg-c_00080D bg-opacity-40 z-20"></div>
@@ -52,16 +62,20 @@ const SideCart: FC<SideCartProps> = () => {
                             <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
                         <div className="mt-7">
-                            <Link href="/shop/shoppingbag">
-                                <Button className="h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>View Bag</Button>
-                            </Link>
-                            <Link href="/shop/checkout">
-                                <Button className="mt-2 h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>Checkout</Button>
-                            </Link>
+                            {!currentUrl.includes('/shop/checkout') && 
+                                <div>
+                                    <Link href="/shop/shoppingbag">
+                                        <Button className="h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>View Bag</Button>
+                                    </Link>
+                                    <Link href="/shop/checkout">
+                                        <Button className="mt-2 h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>Checkout</Button>
+                                    </Link>
+                                </div>
+                            }
                             
-                            {/* <Link href="/shop/shoppingbag">
-                                <Button className="mt-2 h-11 w-full text-sm">Edit Bag</Button>
-                            </Link> */}
+                            {currentUrl.includes('/shop/checkout') && 
+                                <Button className="mt-2 h-11 w-full text-sm" onClick={() => {editBagHandler()}}>Edit Bag</Button>
+                            }
                         </div>
                     </div>
                     <button className="absolute top-6 right-4" onClick={() => {dispatch(closeSideCart())}}>

@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+import {Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
 import { ChevronDown, ChevronRight } from '@components/icons'
-import SelectInput from '@components/mycp/SelectInput'
 import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
@@ -111,13 +110,13 @@ export default function Masque() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Full Name"/>
+                            <Input type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
+                            <Input type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
+                            <Input type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 
@@ -140,9 +139,9 @@ export default function Masque() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <input type="checkbox" name="" id="" className="w-3_5 h-3_5"/>
+                                <input type="checkbox" name="" id="masque_checkbox" className="w-3_5 h-3_5"/>
                             </div>
-                            <div className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</div>
+                            <label htmlFor="masque_checkbox" className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</label>
                         </div>
                         <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

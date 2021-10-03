@@ -1,0 +1,8 @@
+.root {
+    @apply h-11 border-none w-full pl-5 py-2 appearance-none transition duration-150 ease-in-out;
+  }
+  
+  .root:focus {
+    @apply outline-none shadow-outline-normal;
+  }
+  

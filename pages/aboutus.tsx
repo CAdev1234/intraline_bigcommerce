@@ -12,9 +12,8 @@ import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
-import Button from '@components/mycp/Button'
+import { Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
-import SelectInput from '@components/mycp/SelectInput'
 import ReactPlayer from 'react-player'
 
 
@@ -85,13 +84,13 @@ export default function AboutUs() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Full name"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="Full name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Company Name"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

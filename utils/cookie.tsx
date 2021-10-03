@@ -1,20 +1,11 @@
 import cookie from 'js-cookie';
 
 export const setCookie = (key: string, value: string) => {
-  if (process.browser) {
-    cookie.set(key, value, {
-      expires: 1,
-      path: '/'
-    });
-  }
+  cookie.set(key, value, {expires: 1, path: '/'});
 };
 
 export const removeCookie = (key: string) => {
-  if (process.browser) {
-    cookie.remove(key, {
-      expires: 1
-    });
-  }
+  cookie.remove(key, {expires: 1});
 };
 
 export const getCookie = (key: string, req: string) => {

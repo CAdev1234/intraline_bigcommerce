@@ -8,9 +8,7 @@ import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import FAQCp from '@components/mycp/FAQCp/FAQCp'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+import { Button, Input, TestimonialCp, FAQCp } from '@components/mycp'
 import Link from '@components/ui/Link'
 
 
@@ -166,7 +164,7 @@ export default function DemeralFiller() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
                         <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
+                            <Input type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
                             <Button className="h-11 w-full text-sm">SUBMIT</Button>

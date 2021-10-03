@@ -1,6 +1,7 @@
 import { Layout, Navbar } from '@components/common'
 import Link from '@components/ui/Link';
 import Button from '@components/mycp/Button'
+import Input from '@components/mycp/Input'
 import { ChevronRight } from '@components/icons';
 
 export default function Register() {
@@ -21,11 +22,11 @@ export default function Register() {
                 <div className="my-25 mx-auto
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
-                    <input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
-                    <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name"/>
-                    <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name"/>
-                    <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
-                    <input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password"/>
+                    <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name"/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name"/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password"/>
                             
                     <Button className="mt-8 w-full h-11 text-sm">Register</Button>
                     <div className="text-center mt-5">

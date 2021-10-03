@@ -1,9 +1,10 @@
 import { Layout } from "@components/common"
 import { ChevronRight, Cross } from "@components/icons"
-import Button from '@components/mycp/Button'
+import { Button, Input, SelectInput } from '@components/mycp'
 import { RatingView, Rating } from 'react-simple-star-rating'
 import { useState } from "react"
-import SelectInput from "@components/mycp/SelectInput"
+import { removeCookie } from "@utils/cookie"
+import { useRouter } from "next/router"
 
 export default function MyAccount() {
     let product_info = {
@@ -36,12 +37,37 @@ export default function MyAccount() {
         }
     ]
     
+    const router = useRouter()
     const[enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
     const[enableEditAccountModal, setEnableAccountModal] = useState(false)
     const[enableAddReviewModal, setEnableAddReviewModal] = useState(false)
     const[rating, setRating] = useState(0)
 
-    const showEditAccountModal = (bool_var: boolean) => {
+    const editAccountHandler = () => {
+
+    }
+    const logoutHandler = () => {
+        removeCookie('jwt')
+        router.push('/account/login')
+    }
+    const delAccountHandler = () => {
+        removeCookie('jwt')
+        router.push('/account/login')
+    }
+    const editShippingAddressHandler = () => {
+        router.push('/shop/checkout')
+    }
+    const addBillAddressHandler = () => {
+        router.push('/shop/checkout')
+    }
+    const editPaymentHandler = () => {
+        router.push('/shop/checkout')
+    }
+    const addPaymentHandler = () => {
+        router.push('/shop/checkout')
+    }
+
+    const showEditAccountModalHandler = (bool_var: boolean) => {
         setEnableAccountModal(!bool_var)
         let body_ele = document.querySelector('body') as HTMLBodyElement
         if (!bool_var) {
@@ -51,7 +77,7 @@ export default function MyAccount() {
         }
     }
 
-    const showAddReviewModal = (bool_var: boolean) => {
+    const showAddReviewModalHandler = (bool_var: boolean) => {
         setEnableAddReviewModal(!bool_var)
         let body_ele = document.querySelector('body') as HTMLBodyElement
         if (!bool_var) {
@@ -61,7 +87,7 @@ export default function MyAccount() {
         }
     }
 
-    const handleRating = (rate: number) => {
+    const handleRatingHandler = (rate: number) => {
         setRating(rate)
     }
 
@@ -94,10 +120,18 @@ export default function MyAccount() {
                             <span className="ttcommon_font_bold">Phone:</span>
                             <span className="ml-2.5">+808 445 4454</span>
                         </div>
-                        <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
-                                onClick={() => {showEditAccountModal(enableEditAccountModal)}}>Edit information</button>
-                        <div className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline">Log out</div>
-                        <div className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline">Delete account</div>
+                        <div>
+                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Edit information</button>
+                        </div>
+                        <div>
+                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {logoutHandler()}}>Log out</button>
+                        </div>
+                        <div>
+                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {delAccountHandler()}}>Delete account</button>
+                        </div>
                     </div>
                     <div className="w-1/3">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Addresses</div>
@@ -110,12 +144,18 @@ export default function MyAccount() {
                             <div>234 HK, Avenue Lake City, Utah 23H UN3</div>
                             <div>Lake City, Utah, United States 230 654</div>
                         </div>
-                        <div className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline">Edit information</div>
+                        <div>
+                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {editShippingAddressHandler()}}>Edit information</button>
+                        </div>
                         <div className="mt-7_5 text-sm leading-14_26">
                             <div className="ttcommon_font_bold">Billing Address:</div>
                             <div className="mt-2.5">Not Provided</div>
                         </div>
-                        <div className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline">Add Address</div>
+                        <div>
+                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {addBillAddressHandler()}}>Add Address</button>
+                        </div>
                     </div>
                     <div className="w-1/3">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Payment method</div>
@@ -128,8 +168,14 @@ export default function MyAccount() {
                             <div>1234 5678 1234 5678 000</div>
                             <div>Expires 01/24 CVC: 123</div>
                         </div>
-                        <div className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline">Edit Payment Method</div>
-                        <div className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline">Add Payment Method</div>
+                        <div>
+                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {editPaymentHandler()}}>Edit Payment Method</button>
+                        </div>
+                        <div>
+                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {addPaymentHandler()}}>Add Payment Method</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -212,7 +258,7 @@ export default function MyAccount() {
                         })}
                     </div>
                     <div className="mt-5">
-                        <Button className="h-11 w-72 text-sm" onClick={() => {showAddReviewModal(enableAddReviewModal)}}>Add new review</Button>
+                        <Button className="h-11 w-72 text-sm" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Add new review</Button>
                     </div>
                 </div>
             </div>
@@ -227,21 +273,21 @@ export default function MyAccount() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_26">Edit Information.</div>
                                 <div className="mt-5 text-sm leading-14_26">Make changes to your account info.</div>
                                 <div className="mt-10">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Full Name"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Full Name"/>
                                 </div>
                                 <div className="mt-5">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
                                 </div>
                                 <div className="mt-5">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Phone"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Phone"/>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-sm h-11 w-64"
-                                        onClick={() => {showEditAccountModal(enableEditAccountModal)}}>Submit</Button>
+                                        onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Submit</Button>
                                     <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
-                                        onClick={() => {showEditAccountModal(enableEditAccountModal)}}>Cancel</button>
+                                        onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Cancel</button>
                                 </div>
-                                <button className="absolute top-6 right-6" onClick={() => {showEditAccountModal(enableEditAccountModal)}}>
+                                <button className="absolute top-6 right-6" onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>
                                     <Cross/>
                                 </button>
                             </div>
@@ -268,7 +314,7 @@ export default function MyAccount() {
                                         option_class="bg-c_F5DBDD hover:bg-opacity-80"/>
                                 </div>
                                 <div className="mt-5">
-                                    <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Review title"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Review title"/>
                                 </div>
                                 <div className="mt-5">
                                     <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write your review"/>
@@ -276,16 +322,16 @@ export default function MyAccount() {
                                 <div className="mt-5 flex items-center">
                                     <span>Rating:</span>
                                     <div className="ml-5 mt-2">
-                                        <Rating onClick={handleRating} ratingValue={rating} size={28} stars={5} fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)"/>
+                                        <Rating onClick={handleRatingHandler} ratingValue={rating} size={28} stars={5} fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)"/>
                                     </div>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-sm h-11 w-64"
-                                        onClick={() => {showAddReviewModal(enableAddReviewModal)}}>Submit</Button>
+                                        onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Submit</Button>
                                     <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
-                                        onClick={() => {showAddReviewModal(enableAddReviewModal)}}>Cancel</button>
+                                        onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Cancel</button>
                                 </div>
-                                <button className="absolute top-6 right-6" onClick={() => {showAddReviewModal(enableAddReviewModal)}}>
+                                <button className="absolute top-6 right-6" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>
                                     <Cross/>
                                 </button>
                             </div>

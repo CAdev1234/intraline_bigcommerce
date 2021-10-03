@@ -5,8 +5,7 @@ import { Navbar } from '@components/common'
 
 import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+import {Button, Input, TestimonialCp} from '@components/mycp'
 import Link from '@components/ui/Link'
 import { ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
@@ -176,13 +175,13 @@ export default function LiftingThread() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="ttcommon_font_thin mt-5 text-sm leading-14_26">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Full Name"/>
+                            <Input type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Company Name"/>
+                            <Input type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email"/>
+                            <Input type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

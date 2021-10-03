@@ -1,8 +1,7 @@
 import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
 import Link from "@components/ui/Link"
-import Button from '@components/mycp/Button'
-import SelectInput from "@components/mycp/SelectInput"
+import {Button, SelectInput, Input} from '@components/mycp'
 
 export default function ContactUs() {
     return (
@@ -20,10 +19,10 @@ export default function ContactUs() {
                         <div className="ttcommon_font_bold text-4xl leading-36_26">Contact Intraline.</div>
                         <div className="mt-5">We are here to help-reach out with any questions.</div>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="First name"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="First name"/>
                         </div>
                         <div className="mt-5">
-                            <input className="h-11 border-none bg-c_F7F7F7 w-full pl-5 py-2" type="text" placeholder="Email"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

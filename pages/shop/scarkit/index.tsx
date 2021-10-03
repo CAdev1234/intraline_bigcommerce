@@ -11,8 +11,7 @@ import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+import {Button, Input, TestimonialCp} from '@components/mycp'
 import { getCookie } from '@utils/cookie'
 import ReactPlayer from 'react-player'
 import { useAppDispatch } from '@utils/redux/hooks'
@@ -71,7 +70,7 @@ const renderPDOThreads = () => {
 
 export default function ScarKit() {
     const [logined, setLogined] = useState(false)
-    const [numScarkit, setNumScarkit] = useState(0)
+    const [numScarkit, setNumScarkit] = useState(1)
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -246,7 +245,7 @@ export default function ScarKit() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
                         <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-10">
-                            <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Your Email Address"/>
+                            <Input type="text" placeholder="Your Email Address"/>
                         </div>
                         <div className="mt-10">
                             <Button className="h-11 w-full text-sm">SUBMIT</Button>
