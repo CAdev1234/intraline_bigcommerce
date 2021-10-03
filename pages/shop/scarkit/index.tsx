@@ -15,6 +15,8 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import { getCookie } from '@utils/cookie'
 import ReactPlayer from 'react-player'
+import { useAppDispatch } from '@utils/redux/hooks'
+import { addProductToCart } from '@utils/redux/slices/cartSlice'
 
 
 const RenderFAQCollapse = () => {
@@ -69,6 +71,8 @@ const renderPDOThreads = () => {
 
 export default function ScarKit() {
     const [logined, setLogined] = useState(false)
+    const [numScarkit, setNumScarkit] = useState(0)
+    const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
@@ -97,6 +101,19 @@ export default function ScarKit() {
         },
     ]
     const [enableSpecific, setEnableSpecific] = useState([true, ...new Array(specific_li.length - 1).fill(false)])
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'ScarKit', amount: numScarkit, price: 100, img: '/assets/img/scarkit.png'}))
+    }
+    const decreaseNumHandler = () => {
+        if (numScarkit > 1) {
+            setNumScarkit(numScarkit - 1)
+        }else {
+            setNumScarkit(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumScarkit(numScarkit + 1)
+    }
     const updateSpecificDetail = (index:number) => {
         let new_array = new Array(enableSpecific.length).fill(false)
         new_array[index] = true
@@ -130,11 +147,11 @@ export default function ScarKit() {
                                 </div>
                                 <div className="mt-5 flex items-center h-12 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numScarkit}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

@@ -3,23 +3,38 @@ import { ChevronRight, Cross } from "@components/icons"
 import Link from "@components/ui/Link"
 import Button from '@components/mycp/Button'
 
+import { useAppSelector, useAppDispatch} from 'utils/redux/hooks'
+import { AddToCartByDom } from "@utils/addToCartByDom"
+import React from "react"
+import { deleteProduct } from "@utils/redux/slices/cartSlice"
+
+type Product = {
+    title: string,
+    price: number,
+    amount: number,
+    img: string,
+    detail: string,
+    link: string
+}
+
 export default function ShoppingBag() {
-    const bag_product_li = [
-        {
-            shop_name: "Intraline's",
-            product_name: "Dermal Filler M2 Plus",
-            amount: 1,
-            price: '$100.00',
-            img: "/assets/img/m2plus.png",
-        },
-        {
-            shop_name: "Intraline's",
-            product_name: "Dermal Filler M2 Plus",
-            amount: 2,
-            price: '$100.00',
-            img: "/assets/img/lifting-1-1.png",
-        },
-    ]
+    const dispatch = useAppDispatch()
+    const cart_product_li = useAppSelector(state => state.cart.products) as Array<Product>
+    const total_price = useAppSelector(state => state.cart.totalPrice)
+    const total_amount = useAppSelector(state => state.cart.totalAmount)
+    const addToCartByDom = new AddToCartByDom(cart_product_li)
+    const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        if (cart_product_li[index].amount > 1) {
+            addToCartByDom.decreaseNumHandler(event, false, index)
+        }
+    }
+    const increaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        addToCartByDom.increaseNumHandler(event, false, index)
+    }
+    const delNumHandler = (index: number) => {
+        dispatch(deleteProduct(cart_product_li[index]))
+    }
+
     return (
         <div className="ttcommon_font bg-white px-15">
             <div className="bg-transparent h-15 w-full"></div>
@@ -35,28 +50,28 @@ export default function ShoppingBag() {
                 <div className=" w-8/12">
                     <div className="h-0.5 w-full bg-c_00080D"></div>
                     <div className="mt-7">
-                        {bag_product_li.map((item, index) => {
+                        {cart_product_li.map((item, index) => {
                             return <div className="flex items-center mb-5" key={`bag_item_${index}`}>
-                                        <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD">
-                                            <img className="w-full" src={item.img} alt="" />
+                                        <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD flex flex-col">
+                                            <img className="w-full my-auto" src={item.img} alt="" />
                                         </div>
-                                        <div className="ml-5 text-sm leading-14_26">
-                                            <div className="">{item.shop_name}</div>
-                                            <div className="ttcommon_font_bold">{item.product_name}</div>
+                                        <div className="ml-5 text-sm leading-14_26 w-1/3">
+                                            <div className="">Intraline's</div>
+                                            <div className="ttcommon_font_bold">{item.title}</div>
                                         </div>
-                                        <div className="ttcommon_font_bold mx-auto tracking-widest text-sm leading-14_17">{item.price}</div>
+                                        <div className="ttcommon_font_bold mx-auto tracking-widest text-sm leading-14_17">${item.price}</div>
                                         <div className="border border-c_00080D h-11 w-24 flex items-center mx-auto">
-                                            <button className="mx-auto">-</button>
+                                            <button className="mx-auto" onClick={(event) => {decreaseNumHandler(event, index)}}>-</button>
                                             <div className="mx-auto">{item.amount}</div>
-                                            <button className="mx-auto">+</button>
+                                            <button className="mx-auto" onClick={(event) => {increaseNumHandler(event, index)}}>+</button>
                                         </div>
                                         <div className="ml-auto">
-                                            <Cross />
+                                            <button onClick={() => {delNumHandler(index)}}><Cross /></button>
                                         </div>
                                     </div>
                         })}
                     </div>
-                    <div className=" bg-c_F7F7F7 w-full p-7 flex items-center mt-44">
+                    <div className="bg-c_F7F7F7 w-full p-7 flex items-center mt-44">
                         <div className="text-sm leading-14_26">
                             <div className="ttcommon_font_bold">Free Shipping</div>
                             <div>Free standard shipping when you spend $500+. <Link href="/"><span className="underline">Details.</span></Link></div>
@@ -72,7 +87,7 @@ export default function ShoppingBag() {
                         <div className="ttcommon_font_bold uppercase tracking-widest text-2xl leading-24_29">Order Summary</div>
                         <div className="flex items-center tracking-widest text-sm leading-14_17 mt-8">
                             <div className="uppercase">Subtotal:</div>
-                            <div className="ttcommon_font_bold ml-auto">$300.00</div>
+                            <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
                         <div className="flex items-center tracking-widest text-sm leading-14_17 mt-5">
                             <div className="uppercase">Shipping Estimate:</div>
@@ -83,7 +98,7 @@ export default function ShoppingBag() {
                     <div className="pt-7">
                         <div className="flex items-center text-sm leading-14_17 tracking-widest">
                             <div className="uppercase">Total:</div>
-                            <div className=" ttcommon_font_bold ml-auto">$300.00</div>
+                            <div className=" ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
                         <div className="ttcommon_font_thin mt-2 text-sm leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
                         <Link href="/shop/checkout">

@@ -10,46 +10,75 @@ import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
 import { ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
+import { AddToCartByDom } from '@utils/addToCartByDom'
 
 const renderRejuvenationSwiper = () => {
     let thread_cate_li = [
         {
             title: 'Dimension 720',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/dimension720'
         },
         {
             title: 'Dimension 360',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/dimension360'
         },
         {
             title: 'Nose Threads',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/nosethread'
         },
         {
             title: 'Dimension 720',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/dimension720'
         },
         {
             title: 'Dimension 360',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/dimension360'
         },
         {
             title: 'Nose Threads',
+            img: "/assets/img/lifting-1.png",
+            price: 100,
+            amount: 1,
             detail: "Lorem ipsum doloris sit estimatum estiumen ipsum doloris sit estimatum.",
             link: '/shop/pdothread/nosethread'
         },
     ]
+    const addToCartByDom = new AddToCartByDom(thread_cate_li)
+    const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.decreaseNumHandler(event, true, -1)
+    }
+    const increaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.increaseNumHandler(event, true, -1)
+    }
+    const addToBagHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        addToCartByDom.addToBagHandler(event, index)
+    }
     let render_ele = thread_cate_li.map((item, index) => {
         return <div className="keen-slider__slide relative" key={`pdo_thread_${index}`}>
                     <div className="">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
                         <div className="bg-c_CCE7EF w-full mt-10">
-                            <img className="w-full" src="/assets/img/lifting-1.png" alt="" />
+                            <img className="w-full" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_thin mt-7 text-3xl leading-36_48 w-125">{item.detail}</div>
                     </div>
@@ -61,11 +90,11 @@ const renderRejuvenationSwiper = () => {
                                 </Link>
                                 <div className="mt-2 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
                                         <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                     </div>
-                                    <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

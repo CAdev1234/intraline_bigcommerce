@@ -50,6 +50,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [current_url, setCurrentUrl] = useState('/')
   const dispatch = useAppDispatch()
   const enableSideCart = useAppSelector((state) => state.cart.enableSideCart)
+  const totalAmount = useAppSelector((state) => state.cart.totalAmount)
 
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
@@ -157,14 +158,19 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 }
               </div>
               
-              <div className="flex">
+              <div className="flex ml-7_5">
                 <Link href="/account/myaccount">
                   <button><ProfileSvg className={s.svg} /></button>
                 </Link>
               </div>
               {logined && 
-                <div onClick={() => {dispatch(openSideCart())}}>
+                <div className="ml-7_5 relative" onClick={() => {dispatch(openSideCart())}}>
                   <CartSvg className={s.svg} />
+                  {totalAmount > 0 && 
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-c_CCE7EF flex justify-center items-center">
+                      <div className="ttcommon_font_bold" style={{fontSize: 8}}>{totalAmount}</div>
+                    </div>
+                  }
                 </div>
               }
             </div>

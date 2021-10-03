@@ -49,12 +49,27 @@ const cartSlice = createSlice({
                 result[0].amount = result[0].amount + payload.amount
             }
             Cookies.set('cart_products', JSON.stringify(state.products))
+            state.totalAmount = calcTotalAmount(state.products)
+            state.totalPrice = calcTotalPrice(state.products)
             state.enableSideCart = true
         },
-
+        updateProductInCart: (state, {payload}) => {
+            let result = (state.products as Array<Product>).filter(item => item.title.toLowerCase() === payload.title.toLowerCase())
+            result[0].amount = payload.amount
+            Cookies.set('cart_products', JSON.stringify(state.products))
+            state.totalAmount = calcTotalAmount(state.products)
+            state.totalPrice = calcTotalPrice(state.products)
+            // state.enableSideCart = true
+        },
+        deleteProduct: (state, {payload}) => {
+            state.products = (state.products as Array<Product>).filter(item => item.title.toLowerCase() !== payload.title.toLowerCase())
+            Cookies.set('cart_products', JSON.stringify(state.products))
+            state.totalAmount = calcTotalAmount(state.products)
+            state.totalPrice = calcTotalPrice(state.products)
+        }
     }
 })
 
-export const {openSideCart, closeSideCart, addProductToCart} = cartSlice.actions
+export const {openSideCart, closeSideCart, addProductToCart, updateProductInCart, deleteProduct} = cartSlice.actions
 // export const enableSideCart = (state:RootState) => state.cart.enableSideCart
 export default cartSlice.reducer

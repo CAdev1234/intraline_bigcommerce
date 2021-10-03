@@ -19,6 +19,8 @@ import SelectInput from '@components/mycp/SelectInput'
 import {getCookie} from 'utils/cookie'
 import Link from '@components/ui/Link'
 
+import {AddToCartByDom} from 'utils/addToCartByDom'
+
 
 
 
@@ -55,38 +57,64 @@ const RenderCategorySwiper:FC = () => {
 
 
 export default function AllProducts() {
+    type ProductType = {
+        title: string,
+        detail: string,
+        price: number,
+        amount: number,
+        link: string,
+        img: string
+    }
+    let items: Array<ProductType> = []
+    for (let index = 0; index < 12; index++) {
+        items.push({
+            title: "M2 Plus",
+            detail: "Lorem ipsum doloris sit estimatum estiumen.",
+            price: 100,
+            amount: 1,
+            link: "/shop/dermalfiller/m2plus",
+            img: "/assets/img/product1.png"
+        });
+    }
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
+    const addToCartByDom = new AddToCartByDom(items)
+    const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.decreaseNumHandler(event, true, -1)
+    }
+    const increaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.increaseNumHandler(event, true, -1)
+    }
+    const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index:number) => {
+        addToCartByDom.addToBagHandler(event, index)
+    }
 
     const renderProducts = () => {
-        var items = [];
-        for (let index = 0; index < 12; index++) {
-            items.push(index);
-        }
-        
         return items.map((item, index) => {
-            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" key={'m' + String(index + 1) + '-product'}>
-                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>}
+            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" key={`product_${index}`}>
+                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}.00</div>}
                         <div className="flex">
-                            <img className="mix_blend_multi mx-auto " src="/assets/img/product1.png" alt="" />
+                            <img className="mix_blend_multi mx-auto " src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">M{index + 1} PLUS</div>
-                        <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
+                        <div className="mt-2 text-sm leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
-                                    <Button className="h-11 text-sm">learn more</Button>
+                                    <Link href={item.link}>
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                    </Link>
                                     <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                            <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => decreaseNumHandler(event)}>-</button>
                                             <div className="mx-auto">1</div>
-                                            <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => increaseNumHandler(event)}>+</button>
                                         </div>
-                                        <Button className="ml-3 h-full flex-1 text-sm">Add to bag</Button>
+                                        <Button className="ml-3 h-full flex-1 text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>
                                 </div>
                             </div>

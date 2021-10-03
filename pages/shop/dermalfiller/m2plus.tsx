@@ -17,18 +17,55 @@ import { getCookie } from '@utils/cookie'
 import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'
 
-
+import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
+import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+import { AddToCartByDom } from '@utils/addToCartByDom'
 
 
 
 export default function M2Plus() {
+    let mseries_li = [
+        {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m2plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
+        {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m2plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
+        {title: "M4 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m2plux", detail: "Lorem ipsum doloris sit estimatum estiumen."},
+    ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
+    const [numM2Plus, setNumM2Plus] = useState(1)
+    
+    const dispatch = useAppDispatch()
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'M2 Plus', amount: numM2Plus, price: 100, img: '/assets/img/m2plus.png'}))
+    }
+    const decreaseNumHandler = () => {
+        if (numM2Plus > 1) {
+            setNumM2Plus(numM2Plus - 1)
+        }else {
+            setNumM2Plus(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumM2Plus(numM2Plus + 1)
+    }
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
+
+    const addToCartByDom = new AddToCartByDom(mseries_li)
+    const addToBagMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+        addToCartByDom.addToBagHandler(event, index)
+    }
+    const decreaseNumMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.decreaseNumHandler(event, true, -1)
+    
+    }
+    const increaseNumMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.increaseNumHandler(event, true, -1)
+    }
+
     const RenderFAQCollapse = () => {
         var items = [
           {
@@ -55,28 +92,31 @@ export default function M2Plus() {
         return <FAQCp faq_li={items}/>
     }
     
+
     const RenderMseries = () => {
-        var items = [0, 1, 2]
-        return items.map((item, index) => {
+        return mseries_li.map((item, index) => {
             return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" 
-                        key={'m' + String(index + 1) + '-product'}>
-                        {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">$100.00</Button>}
+                        key={`mseires_${index}`}>
+                        {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">${item.price}</Button>}
                         <div className="flex">
-                            <img className="mix_blend_multi mx-auto " src="/assets/img/product1.png" alt="" />
+                            <img className="mix_blend_multi mx-auto " src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">M{index + 1} PLUS</div>
-                        <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
+                        <div className="mt-2 text-sm leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
-                                    <Button className="h-11 text-sm">learn more</Button>
+                                    <Link href={item.link}>
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                    </Link>
+                                    
                                     <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                            <button className="mx-auto bg-transparent border-none p-1">-</button>
+                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumMseriesHandler(event)}}>-</button>
                                             <div className="mx-auto">1</div>
-                                            <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumMseriesHandler(event)}}>+</button>
                                         </div>
-                                        <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
+                                        <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => {addToBagMseriesHandler(event, index)}}>Add to bag</Button>
                                     </div>
                                 </div>
                             </div>
@@ -123,11 +163,11 @@ export default function M2Plus() {
                                 </div>
                                 <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numM2Plus}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

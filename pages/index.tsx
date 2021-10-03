@@ -27,6 +27,7 @@ import {useAppDispatch, useAppSelector} from '../utils/redux/hooks'
 import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slices/cartSlice'
 import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
 import TriangleRight from '@components/icons/TriangleRight'
+import { AddToCartByDom } from '@utils/addToCartByDom'
 
 
 export async function getStaticProps({
@@ -61,20 +62,29 @@ export async function getStaticProps({
 
 
 const RenderCategorySwiper:FC = () => {
-  let render_item_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
+  let category_li = [
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
+  ]
+  let render_item_ele = category_li.map((item, index) => {
     return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white relative" 
                 key={index} 
                 style={{width:352, minWidth: 352 + 'px !important', height:472}}>
             <div>
               <div className="flex">
-                <img className="mx-auto" src="/assets/img/product1.png" alt="" />
+                <img className="mx-auto" src={item.img} alt="" />
               </div>
               <div className="mt-auto uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
             </div>
             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
                 <div className="my-auto mx-auto w-10/12">
                     <div className="flex flex-col w-full">
-                        <Link href="/shop/dermalfiller/m2plus">
+                        <Link href={item.link}>
                           <Button className="w-full h-11 text-sm">browse</Button>
                         </Link>
                     </div>
@@ -265,9 +275,17 @@ export default function Home({
               </div>     
           </div>
   }
+  let featured_product_li = [
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+  ]
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
   const [logined, setLogined] = useState(false)
-  const [numProduct, setNumProduct] = useState(1)
   let scrollHandler = (ele:HTMLDivElement) => {
     let scroll_top = ele.scrollTop
     if (scroll_top > 0) {
@@ -281,31 +299,29 @@ export default function Home({
     }
   })
 
-  const dispatch = useAppDispatch()
+  const addToCartByDom = new AddToCartByDom(featured_product_li)
 
-  const addToBagHandler = () => {
-    dispatch(addProductToCart({title: 'Dimension 720 PDO', amount: numProduct, price: '$100.00', img: '/assets/img/thread_detail.png'}))
+  const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+    addToCartByDom.addToBagHandler(event, index)
   }
 
-  const decreaseNumHandler = () => {
-    if (numProduct > 1) {
-        setNumProduct(numProduct - 1)
-    }else {
-        setNumProduct(1)
-    }
+  const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+    addToCartByDom.decreaseNumHandler(event, true, -1)
+    
   }
-  const increaseNumHandler = () => {
-      setNumProduct(numProduct + 1)
+  const increaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+    addToCartByDom.increaseNumHandler(event, true, -1)
   }
 
   const RenderProductSwiper:FC = () => {
-    let render_ele = [0, 1, 2, 3, 4, 5].map((item, index) => {
-      return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative" key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$30.00</div>}
+    
+    let render_ele = featured_product_li.map((item, index) => {
+      return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative h-118" key={`m_${index}_product`}>
+                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                 <div className="flex-1 h-0">
                     <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
                 </div>
-                <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">intraline masque</div>
+                <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                 <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
                 <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                     <div className="my-auto mx-auto w-10/12">
@@ -313,11 +329,11 @@ export default function Home({
                             <Button className=" h-11 text-sm">learn more</Button>
                             <div className="mt-2 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                    <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
-                                    <div className="mx-auto">{numProduct}</div>
-                                    <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
+                                    <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
+                                    <div className="mx-auto">1</div>
+                                    <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                 </div>
-                                <Button className="ml-3 h-full w-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                <Button className="ml-3 h-full w-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
                             </div>
                         </div>
                     </div>

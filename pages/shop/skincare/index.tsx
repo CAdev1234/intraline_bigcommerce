@@ -13,6 +13,7 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
 import Link from '@components/ui/Link'
 import { getCookie } from '@utils/cookie'
+import { AddToCartByDom } from '@utils/addToCartByDom'
 
 
 
@@ -45,12 +46,27 @@ const RenderFAQCollapse = () => {
 
 
 export default function SkinCare() {
+    let skincare_li = [
+        {title: "Restorative Moisturizer", price: 30, amount: 1, img: "/assets/img/skincare1.png", link: "/shop/skincare/moisturizer", detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."},
+        {title: "Biocellulose Masque", price: 30, amount: 1, img: "/assets/img/skincare2.png", link: "/shop/dermalfiller/masque", detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."},
+    ]
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
+    const addToCartByDom = new AddToCartByDom(skincare_li)
+    const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+        addToCartByDom.addToBagHandler(event, index)
+    }
+    const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.decreaseNumHandler(event, true, -1)
+    
+    }
+    const increaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.increaseNumHandler(event, true, -1)
+    }
     let ingredient_li = [
         {
             title: 'Sea Buckthorn.', 
@@ -104,65 +120,39 @@ export default function SkinCare() {
             </div>
 
             <div className="bg-white w-full relative h-122">
-                <div className="w-full px-15 flex absolute z-10 -top-56">
-                    <div className="w-1/2 mr-3">
-                        <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">Restorative Moisturizer.</div>
-                        <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full h-100 border-none flex flex-col">
-                            <div className="flex h-full px-15 justify-center">
-                                <img src="/assets/img/skincare1.png" alt="" />
-                            </div>
-                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                                <div className="my-auto mx-auto w-10/12">
-                                    <div className="flex flex-col text-white w-64 mx-auto">
-                                        <Link href="/shop/skincare/moisturizer">
-                                            <Button className="h-11 w-full text-sm">learn more</Button>
-                                        </Link>
-                                        <div className="mt-2 flex items-center h-11 text-white">
-                                            <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                                <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                                <div className="mx-auto">1</div>
-                                                <button className="mx-auto bg-transparent border-none p-1">+</button>
+                <div className="w-full px-15 absolute z-10 -top-56 grid grid-cols-2 gap-x-5">
+                    {skincare_li.map((item, index) => {
+                        return <div className="" key={`skincare_${index}`}>
+                                    <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">{item.title}.</div>
+                                    <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full border-none h-100">
+                                        <div className="flex h-full px-15 justify-center">
+                                            <img src={item.img} alt="" />
+                                        </div>
+                                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                                            <div className="my-auto mx-auto w-10/12">
+                                                <div className="flex flex-col text-white w-64 mx-auto">
+                                                    <Link href={item.link}>
+                                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                                    </Link>
+                                                    <div className="mt-2 flex items-center h-12 text-white">
+                                                        <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
+                                                            <div className="mx-auto">1</div>
+                                                            <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
+                                                        </div>
+                                                        <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
+                                        </div>
+                                        <div className="absolute top-0 right-0">
+                                            {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">${item.price}</Button>}
                                         </div>
                                     </div>
+                                    <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">{item.detail}</div>
                                 </div>
-                            </div>
-                            <div className="absolute top-0 right-0">
-                                {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>}
-                            </div>
-                        </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                    </div>
-                    <div className="w-1/2 ml-3">
-                        <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">Biocellulose Masque.</div>
-                        <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full border-none" style={{height: 400 + 'px'}}>
-                            <div className="flex h-full px-15 justify-center">
-                                <img src="/assets/img/skincare2.png" alt="" />
-                            </div>
-                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                                <div className="my-auto mx-auto w-10/12">
-                                    <div className="flex flex-col text-white w-64 mx-auto">
-                                        <Link href="/shop/skincare/masque">
-                                            <Button className="h-11 w-full text-sm">learn more</Button>
-                                        </Link>
-                                        <div className="mt-2 flex items-center h-12 text-white">
-                                            <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                                <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                                <div className="mx-auto">1</div>
-                                                <button className="mx-auto bg-transparent border-none p-1">+</button>
-                                            </div>
-                                            <Button className="ml-3 flex-1 h-full text-sm">Add to bag</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="absolute top-0 right-0">
-                                {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">$30.00</Button>}
-                            </div>
-                        </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-8 text-4xl text-c_00080D">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                    </div>
+                    })}
+                    
                 </div>
             </div>
 

@@ -82,8 +82,8 @@ export default function MSeries() {
                                 </div>
                             </Link>
                         </div>
-                        {logined && <div className="absolute top-0 right-15">
-                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}.00</Button>
+                        {logined && <div className="absolute top-8 right-15">
+                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
                         </div>}
                     </div>
         })

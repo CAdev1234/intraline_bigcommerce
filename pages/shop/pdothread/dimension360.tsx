@@ -62,16 +62,6 @@ export default function Dimension360() {
     const addToBagHandler = () => {
         dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: 100, img: '/assets/img/thread_detail.png'}))
     }
-    
-    const ShowEnableSideReview = (bool_var: boolean) => {
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
-        setEnableSideReview(bool_var)
-    }
-    const CloseSideReview = (bool_bar:boolean) => {
-        setEnableSideReview(bool_bar);
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
-    }
-
     const decreaseNumHandler = () => {
         if (numDimension360 > 1) {
             setNumDimension360(numDimension360 - 1)
@@ -82,6 +72,16 @@ export default function Dimension360() {
     const increaseNumHandler = () => {
         setNumDimension360(numDimension360 + 1)
     }
+    const ShowEnableSideReview = (bool_var: boolean) => {
+        (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
+        setEnableSideReview(bool_var)
+    }
+    const CloseSideReview = (bool_bar:boolean) => {
+        setEnableSideReview(bool_bar);
+        (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
+    }
+
+    
 
     const renderPDOThreads = () => {
         var items = [0, 1, 2]

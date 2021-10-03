@@ -8,14 +8,32 @@ import { ChevronDown, ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
 import { getCookie } from '@utils/cookie'
 
+import { useAppDispatch } from '@utils/redux/hooks'
+import { addProductToCart } from '@utils/redux/slices/cartSlice'
+
 
 export default function Moisturizer() {
     const [logined, setLogined] = useState(false)
+    const [numMoisturizer, setNumMoisturizer] = useState(1)
+    const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     })
+    const addToBagHandler = () => {
+        dispatch(addProductToCart({title: 'Restorative Moisturizer', amount: numMoisturizer, price: 100, img: '/assets/img/skincare1.png'}))
+    }
+    const decreaseNumHandler = () => {
+        if (numMoisturizer > 1) {
+            setNumMoisturizer(numMoisturizer - 1)
+        }else {
+            setNumMoisturizer(1)
+        }
+    }
+    const increaseNumHandler = () => {
+        setNumMoisturizer(numMoisturizer + 1)
+    }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
@@ -45,11 +63,11 @@ export default function Moisturizer() {
                                 </div>
                                 <div className="mt-5 flex items-center h-12 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
-                                        <button className="mx-auto bg-transparent border-none p-1">-</button>
-                                        <div className="mx-auto">1</div>
-                                        <button className="mx-auto bg-transparent border-none p-1">+</button>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
+                                        <div className="mx-auto">{numMoisturizer}</div>
+                                        <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm">Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>
                             </div>
                         </div>

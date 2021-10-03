@@ -161,9 +161,8 @@ export default function Checkout() {
                             <div className="mt-7 flex items-center">
                                 <Button className="h-11 w-64 text-sm" onClick={() => {
                                     setCheckedShippingAddress(true)
-                                    setCheckedBillAddress(true)
                                 }}>Save & Continue</Button>
-                                <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
+                                <button className="uppercase ml-7 text-sm tracking-widest underline" onClick={() => {}}>Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -187,6 +186,70 @@ export default function Checkout() {
                 </div>
 
                 {/* billing address */}
+                {checkedShippingAddress && logined && !checkedBillAddress &&
+                    <div>
+                        <div className="mt-5 bg-white p-7 flex items-center">
+                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">3</div>
+                            <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Billing address</div>
+                        </div>
+                        <div className="mt-5">
+                            <div className="flex items-center">
+                                <div className="w-1/2 mr-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">First Name</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                                <div className="w-1/2 ml-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Last Name</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                            </div>
+                            <div className="mt-3 flex items-center">
+                                <div className="w-1/2 mr-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Address</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                                <div className="w-1/2 ml-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Apt, Suite</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                            </div>
+                            <div className="mt-3 flex items-center">
+                                <div className="w-1/2 mr-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">City</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                                <div className="w-1/2 ml-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
+                                    <SelectInput
+                                        enable_underline={false}
+                                        default_option="Please select country"
+                                        option_li={['United States', 'United Kingdom']} 
+                                        className="bg-white"
+                                        option_class="bg-white hover:bg-opacity-80"/>
+                                </div>
+                            </div>
+                            <div className="mt-3 flex items-center">
+                                <div className="w-1/2 mr-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Postal Code</label>
+                                    <input className="h-11 border-none bg-white w-full pl-5 py-2" type="text"/>
+                                </div>
+                                <div className="w-1/2 ml-2">
+                                    <label className="ttcommon_font_bold text-sm leading-14_26 invisible" htmlFor="">Postal Code</label>
+                                    <div className="flex items-center">
+                                        <input className="h-3" type="radio" id="billing_address_cb"/>
+                                        <label className="ml-2 text-sm leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mt-7 flex items-center">
+                                <Button className="h-11 w-64 text-sm" onClick={() => {
+                                    setCheckedBillAddress(true)
+                                }}>Save & Continue</Button>
+                                <button className="uppercase ml-7 text-sm tracking-widest underline" onClick={() => {}}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                }
                 {checkedBillAddress && 
                     <div className="bg-white p-7 flex items-center mt-5">
                         <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">3</div>
