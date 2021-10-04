@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
 import s from './Navbar.module.css'
 import NavbarRoot from './NavbarRoot'
@@ -14,6 +14,8 @@ import { Cross } from '@components/icons'
 import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
 import { openSideCart } from '@utils/redux/slices/cartSlice'
 import { getCookie } from '@utils/cookie'
+import { search } from '@utils/redux/slices/productSlice'
+import router from 'next/router'
 
 
 interface Link {
@@ -48,9 +50,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
+  const [searchKey, setSearchKey] = useState('')
   const dispatch = useAppDispatch()
   const enableSideCart = useAppSelector((state) => state.cart.enableSideCart)
   const totalAmount = useAppSelector((state) => state.cart.totalAmount)
+  const searchResult = useAppSelector((state) => state.product.searchResult)
 
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
@@ -89,6 +93,14 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
         setLogined(true)
     }
   })
+
+  const searchProduct = () => {
+    router.push({
+      pathname: '/searchresult',
+      query: {keyword: searchKey}
+    })
+    setEnableSearchBar(false)
+  }
 
   let showMobileMenu = () => {
     setEnableMobileMenu(!enableMobileMenu)
@@ -144,15 +156,22 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               <div className="flex relative">
                 <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={s.svg} /></button>
                 {enableSearchBar && 
-                  <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
-                    <div className="mx-15 flex items-center my-auto">
-                      <input type="text" className="bg-transparent w-154_5 text-white" placeholder="Search for product or category. Hit enter to submit or escape to close."/>
-                      <button 
-                        className="underline uppercase text-sm text-white tracking-widest ml-auto"
-                        onClick={() => {setEnableSearchBar(false)}}>Enter</button>
-                      <button className="ml-9 text-white" onClick={() => {setEnableSearchBar(false)}}>
-                        <Cross />
-                      </button>
+                  <div className="fixed top-15 left-0 w-screen bg-black bg-opacity-50" style={{height: 'calc(100vh - 60px)'}}>
+                    <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
+                      <div className="mx-15 flex items-center my-auto">
+                        <input 
+                          type="text" 
+                          className="bg-transparent w-154_5 text-white" 
+                          placeholder="Search for product or category. Hit enter to submit or escape to close."
+                          onChange={(event) => {setSearchKey(event.target.value)}}/>
+                        <button 
+                          className="underline uppercase text-sm text-white tracking-widest ml-auto"
+                          onClick={() => {searchProduct()}}>Enter</button>
+                        <button className="ml-9 text-white" onClick={() => {setEnableSearchBar(false)}}>
+                          <Cross />
+                        </button>
+                      </div>
+                      <div></div>
                     </div>
                   </div>
                 }

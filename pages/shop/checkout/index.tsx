@@ -48,7 +48,6 @@ function Checkout() {
             setPayment(payment_info)
         }
 
-        console.log(router.query)
         if (router.query !== {}) {
             if (router.query.status === 'shipping_address') {
                 setCheckedShippingAddress(false)

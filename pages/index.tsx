@@ -28,7 +28,6 @@ import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slic
 import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
 import TriangleRight from '@components/icons/TriangleRight'
 import { AddToCartByDom } from '@utils/addToCartByDom'
-import { Parallax, ParallaxLayer, IParallax} from '@react-spring/parallax'
 
 
 export async function getStaticProps({
@@ -61,7 +60,6 @@ export async function getStaticProps({
   }
 }
 
-const parallax = useRef<IParallax>(null!)
 const RenderCategorySwiper:FC = () => {
   let category_li = [
     {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
