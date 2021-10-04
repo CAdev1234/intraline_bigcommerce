@@ -35,7 +35,7 @@ const RenderCategorySwiper:FC = () => {
         { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
         { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
     ].map((item, index) => {
-        return <div className="keen-slider__slide relative" key={`category_${index}`}>
+        return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
                     <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
                         <div className="flex-1 px-20 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
@@ -97,8 +97,10 @@ export default function AllProducts() {
 
     const renderProducts = () => {
         return items.map((item, index) => {
-            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" key={`product_${index}`}>
-                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}.00</div>}
+            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
+                        {logined && 
+                            <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8 animate-pulse" variant="primary">${item.price}.00</Button>
+                        }
                         <div className="flex">
                             <img className="mix_blend_multi mx-auto " src={item.img} alt="" />
                         </div>

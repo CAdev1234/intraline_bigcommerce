@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -25,6 +25,8 @@ const links = [
 
 const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
+  const [subescribeEmail, setSubscribe] = useState('')
+  const [enableSubscribeModal, setEnableSubscribeModal] = useState(false)
   const rootClassName = cn(s.root, className)
 
   let infraline_link_li = [
@@ -42,6 +44,17 @@ const Footer: FC<Props> = ({ className, pages }) => {
     {title: 'My Orders', link: '/account/myaccount'},
     {title: 'My Reviews', link: '/account/myaccount'},
   ]
+
+  const subscribeHandle = (bool_var: boolean) => {
+    setEnableSubscribeModal(bool_var);
+    if (bool_var) {
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
+    }else {
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
+    }
+    
+    
+  }
 
   return (
     <footer className={rootClassName}>
@@ -164,8 +177,11 @@ const Footer: FC<Props> = ({ className, pages }) => {
                     <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Subscribe to our newsletter</a>
                   </Link>
                   <div className="flex h-11 mt-4">
-                    <input type="text" className="h-full w-full border-none bg-white pl-5 py-2 placeholder-c_00080D" placeholder="Your email address"/>
-                    <button className="w-36 h-full uppercase text-white bg-c_52B5D3">submit</button>
+                    <input 
+                      type="text" 
+                      className="h-full w-full border-none bg-white pl-5 py-2" 
+                      placeholder="Your email address"/>
+                    <button className="w-36 h-full uppercase text-white bg-c_52B5D3" onClick={() => {subscribeHandle(true)}}>submit</button>
                   </div>
                   
                   <div className="flex items-center
@@ -241,6 +257,32 @@ const Footer: FC<Props> = ({ className, pages }) => {
           </div>
         </div>
       </Container>
+
+      {/* subscribe success modal */}
+      {enableSubscribeModal &&
+        <div className="fixed top-0 left-0 w-screen h-screen flex flex-col z-40 bg-black bg-opacity-50">
+          <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
+            <div className="flex justify-between border-b border-gray-100 px-5 py-4">
+              <div>
+                  <i className="fas fa-exclamation-circle text-blue-500"></i>
+                  <span className="font-bold text-gray-700 text-lg">Success</span>
+                </div>
+              <div>
+                  <button><i className="fa fa-times-circle text-red-500 hover:text-red-600 transition duration-150"></i></button>
+                </div>
+            </div>
+          
+            <div className="px-10 py-5 text-gray-600">
+              Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          
+            <div className="px-5 py-4 flex justify-end">
+              <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                onClick={() => {subscribeHandle(false)}}>Close</button>
+            </div>
+          </div>
+        </div>
+      }
     </footer>
   )
 }

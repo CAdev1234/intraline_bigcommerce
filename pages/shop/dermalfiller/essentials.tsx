@@ -68,16 +68,16 @@ export default function Essentials() {
 
     const renderEssentialSeriesSwiper = () => {
         let essential_series_li = [
-            {title: "INTRALINE ONE", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "INTRALINE TWO", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "INTRALINE THREE", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE ONE", price: 100, img: '/assets/img/mseries_1.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE TWO", price: 100, img: '/assets/img/mseries_2.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.png', link: '/shop/dermalfiller/m2plus'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
                         <div className="my-auto">
                             <Link href={item.link}>
-                                <div className="flex flex-col">
-                                    <img className="mx-auto" src={item.img} alt="" />
+                                <div className="flex flex-col bg-c_CCE7EF">
+                                    <img className="mx-auto mix-blend-multiply" src={item.img} alt="" />
                                     <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
                                 </div>
                             </Link>
@@ -144,8 +144,8 @@ export default function Essentials() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 right-15 w-125">
-                    <div className="flex flex-col ml-auto">
+                <div className="absolute top-0 right-15 w-125 h-full">
+                    <div className="flex flex-col ml-auto h-full">
                         <div className="my-auto">
                             {renderEssentialSeriesSwiper()}
                         </div>

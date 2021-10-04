@@ -39,11 +39,8 @@ export default function MyAccount() {
     
     const router = useRouter()
     const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
-
     const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
-    
     const [bill_address, setBillAddress] = useState({f_name: '', l_name: '', address: '', city: '', apt: '', country: '', postcode: ''})
-    
     const [payment, setPayment] = useState({name: '', number: '', date: '', cvc: ''})
 
     const [new_review_product, setNewReviewProduct] = useState('')
@@ -203,33 +200,41 @@ export default function MyAccount() {
                         </div>
                         <div className="mt-7_5 text-sm leading-14_26">
                             <div className="ttcommon_font_bold">Billing Address:</div>
-                            {/* <div className="mt-2.5">Not Provided</div> */}
-                            <div className="mt-2.5 text-sm leading-14_26">
-                                <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
-                                <div>{bill_address.address}</div>
-                                <div>{bill_address.city}, {bill_address.country} {bill_address.postcode}</div>
-                            </div>
+                            {bill_address.address === "" && <div className="mt-2.5">Not Provided</div>}
+                            {bill_address.address !== "" && 
+                                <div className="mt-2.5 text-sm leading-14_26">
+                                    <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
+                                    <div>{bill_address.address}</div>
+                                    <div>{bill_address.city}, {bill_address.country} {bill_address.postcode}</div>
+                                </div>
+                            }
                         </div>
                         <div>
                             <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
                                 onClick={() => {editBillAddressHandler()}}>Edit information</button>
                         </div>
-                        <div>
-                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
-                                onClick={() => {addBillAddressHandler()}}>Add Address</button>
-                        </div>
+                        {bill_address.address === "" && 
+                            <div>
+                                <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                    onClick={() => {addBillAddressHandler()}}>Add Address</button>
+                            </div>
+                        }
                     </div>
                     <div className="w-1/3">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Payment method</div>
-                        <div className="mt-5 text-sm leading-14_26">
-                            <span className="ttcommon_font_bold">Payment Method 1:</span>
-                            <span className="ml-2.5"></span>
-                        </div>
-                        <div className="mt-2.5 text-sm leading-14_26">
-                            <div className="">{payment.name}</div>
-                            <div>{payment.number}</div>
-                            <div>{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
-                        </div>
+                        {[0].map((item, index) => {
+                            return <div key={`payment_${index}`}>
+                                        <div className="mt-5 text-sm leading-14_26">
+                                            <span className="ttcommon_font_bold">Payment Method {index + 1}:</span>
+                                            <span className="ml-2.5"></span>
+                                        </div>
+                                        <div className="mt-2.5 text-sm leading-14_26">
+                                            <div className="">{payment.name}</div>
+                                            <div>{payment.number}</div>
+                                            <div>{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
+                                        </div>        
+                                    </div>
+                        })}
                         <div>
                             <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
                                 onClick={() => {editPaymentHandler()}}>Edit Payment Method</button>

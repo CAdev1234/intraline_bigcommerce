@@ -317,7 +317,7 @@ export default function Home({
     
     let render_ele = featured_product_li.map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative h-118" key={`m_${index}_product`}>
-                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
+                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 animate-pulse">${item.price}</div>}
                 <div className="flex-1 h-0">
                     <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
                 </div>

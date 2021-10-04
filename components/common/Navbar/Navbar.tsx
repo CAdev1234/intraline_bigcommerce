@@ -167,8 +167,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 <div className="ml-7_5 relative" onClick={() => {dispatch(openSideCart())}}>
                   <CartSvg className={s.svg} />
                   {totalAmount > 0 && 
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-c_CCE7EF flex justify-center items-center">
-                      <div className="ttcommon_font_bold" style={{fontSize: 8}}>{totalAmount}</div>
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-c_CCE7EF">
+                      <div className="relative w-full h-full flex justify-center items-center">
+                        <div className="ttcommon_font_bold" style={{fontSize: 8}}>{totalAmount}</div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-c_CCE7EF rounded-full animate-ping"></div>
+                      </div>
                     </div>
                   }
                 </div>
