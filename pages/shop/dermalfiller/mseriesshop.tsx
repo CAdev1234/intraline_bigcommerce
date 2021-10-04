@@ -18,7 +18,7 @@ export default function MseriesShop() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
 
     const addToCartByDom = new AddToCartByDom(items)
     const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
@@ -68,9 +68,9 @@ export default function MseriesShop() {
             <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
                 <div className="px-15 mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span className="ttcommon_font">Home</span>
+                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1 ttcommon_font">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>

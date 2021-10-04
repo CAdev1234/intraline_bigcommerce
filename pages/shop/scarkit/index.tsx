@@ -17,6 +17,7 @@ import ReactPlayer from 'react-player'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import TriangleRight from '@components/icons/TriangleRight'
+import Link from '@components/ui/Link'
 
 
 const RenderFAQCollapse = () => {
@@ -77,7 +78,7 @@ export default function ScarKit() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
     let specific_li = [
         {
             title: 'Product Specifics.', 
@@ -131,9 +132,9 @@ export default function ScarKit() {
             <div className="h-15 w-full bg-transparent"></div>
             <div className="h-210 relative bg-c_C3E0DC w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>

@@ -24,7 +24,7 @@ export default function Moisturizer() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
     const addToBagHandler = () => {
         dispatch(addProductToCart({title: 'Restorative Moisturizer', amount: numMoisturizer, price: 100, img: '/assets/img/skincare1.png'}))
     }
@@ -44,11 +44,11 @@ export default function Moisturizer() {
                 <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1">Skin Care</span>
+                        <span className="ml-1"><Link href="/shop/skincare">Skin Care</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold ml-1">Moisturizer</span>
                     </div>

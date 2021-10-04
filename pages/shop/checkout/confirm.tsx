@@ -10,14 +10,14 @@ export default function CheckoutConfirm() {
             <div className="flex items-center w-full h-full">
                 <div className="w-1/2 px-15 pb-40 bg-c_CCE7EF">
                     <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                        <div className="flex items-center">
-                            <span className="ttcommon_font">Home</span>
+                        <div className="flex items-center cursor-pointer">
+                            <span className="ttcommon_font"><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4" /></span>
-                            <span className="ttcommon_font ml-1">Shopping Bag</span>
+                            <span className="ttcommon_font ml-1"><Link href="/shop/shoppingbag">Shopping Bag</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4"/></span>
-                            <span className="ttcommon_font ml-1">Checkout</span>
+                            <span className="ttcommon_font ml-1"><Link href="/shop/checkout">Checkout</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4"/></span>
-                            <span className="ttcommon_font_bold ml-1">Confirmation</span>
+                            <span className="ttcommon_font_bold ml-1"><Link href="/shop/checkout/confirm">Confirmation</Link></span>
                         </div>
                     </div>
                     <div className="mt-22_5">

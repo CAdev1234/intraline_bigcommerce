@@ -5,6 +5,7 @@ import { RatingView, Rating } from 'react-simple-star-rating'
 import { useEffect, useState } from "react"
 import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
+import Link from "@components/ui/Link"
 
 export default function MyAccount() {
     let product_info = {
@@ -51,6 +52,7 @@ export default function MyAccount() {
     const[rating, setRating] = useState(0)
 
     useEffect(() => {
+        
         let user_info = JSON.parse(getCookie('user', '') as string)
         setUser(user_info)
 
@@ -147,13 +149,13 @@ export default function MyAccount() {
             <div className="h-15 w-full"></div>
             <div className="pt-12_5 px-15 pb-25 bg-c_CCE7EF">
                 <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center">
-                        <span className="ttcommon_font">Home</span>
+                    <div className="flex items-center cursor-pointer">
+                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Account</span>
+                        <span className="ttcommon_font_bold ml-1"><Link href="/account/myaccount">Account</Link></span>
                     </div>
                 </div>
-                <div className="ttcommon_font_bold mt-10 text-4xl leading-36_26">Hello Sameer Haque.</div>
+                <div className="ttcommon_font_bold mt-10 text-4xl leading-36_26">Hello {`${user.f_name} ${user.l_name}`}.</div>
                 <div className="mt-5 text-sm leading-14_26">Edit your account information, check your orders or write a product review.</div>
                 <div className="mt-10 flex items-start w-full">
                     <div className="w-1/3">

@@ -57,7 +57,7 @@ export default function Dimension360() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
 
     const addToBagHandler = () => {
         dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: 100, img: '/assets/img/thread_detail.png'}))
@@ -110,15 +110,15 @@ export default function Dimension360() {
             <div className="bg-transparent w-full h-15"></div>
             <div className="h-210 relative bg-c_F5DBDD w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1">Pdo threads</span>
+                        <span className="ml-1"><Link href="/shop/pdothread">Pdo threads</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1">Lifting threads</span>
+                        <span className="ml-1"><Link href="/shop/pdothread/liftingthread">Lifting threads</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold ml-1">Dimension 360 PDO</span>
                     </div>

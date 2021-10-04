@@ -52,7 +52,7 @@ export default function M3Plus() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
 
     const addToCartByDom = new AddToCartByDom(mseries_li)
     const addToBagMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
@@ -138,13 +138,13 @@ export default function M3Plus() {
             <div className="h-15 w-full bg-transparent"></div>
             <div className="h-210 relative bg-c_CCE7EF w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span className="ttcommon_font">Home</span>
+                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1 ttcommon_font">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1 ttcommon_font">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold ml-1">M3 Plus</span>
                     </div>

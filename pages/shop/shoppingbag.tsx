@@ -39,8 +39,8 @@ export default function ShoppingBag() {
         <div className="ttcommon_font bg-white px-15">
             <div className="bg-transparent h-15 w-full"></div>
             <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                <div className="flex items-center">
-                    <span>Home</span>
+                <div className="flex items-center cursor-pointer">
+                    <span><Link href="/">Home</Link></span>
                     <span className="ml-1"><ChevronRight className="w-4"/></span>
                     <span className="ttcommon_font_bold ml-1">Shopping Bag</span>
                 </div>

@@ -83,7 +83,7 @@ export default function AllProducts() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
     const addToCartByDom = new AddToCartByDom(items)
     const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
         addToCartByDom.decreaseNumHandler(event, true, -1)
@@ -128,17 +128,25 @@ export default function AllProducts() {
     }
     return (
         <div className="ttcommon_font">
-
+            <div className="bg-transparent w-full h-15"></div>
             {/* our category part */}
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15" style={{ height: 900 + 'px' }}>
-                <div className="mt-auto
+                <div className="flex items-center cursor-pointer mt-12_5
+                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <span className="ttcommon_font"><Link href="/">Home</Link></span>
+                    <span className="ml-1"><ChevronRight className="w-4" /></span>
+                    <span className="ml-1 ttcommon_font uppercase">Shop</span>
+                    <span className="ml-1"><ChevronRight className="w-4"/></span>
+                    <span className="ttcommon_font_bold ml-1 uppercase">All Products</span>
+                </div>
+                <div className="mt-12_5
                                 ml-10 lg:ml-28 xl:ml-172 2xl:ml-172">
                     <div className="ttcommon_font_bold text-4xl leading-36_26">Our Categories.</div>
                     <div className="mt-10">
                         <RenderCategorySwiper />
                     </div>
                 </div>
-                <div className="mt-10 mx-auto flex items-center justify-center">
+                <div className="mt-auto mx-auto flex items-center justify-center">
                     <div className="uppercase text-sm tracking-widest text-c_00080D">Scroll to browser all</div>
                     <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
                 </div>

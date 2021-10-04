@@ -2,13 +2,14 @@ import { FC, useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
+import router, { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
 import { Github, Vercel } from '@components/icons'
 import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
+import { getCookie } from '@utils/cookie'
 
 interface Props {
   className?: string
@@ -52,8 +53,15 @@ const Footer: FC<Props> = ({ className, pages }) => {
     }else {
       (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
     }
-    
-    
+  }
+
+  const toMyAccountHandler =() => {
+    if (getCookie('user', '') === undefined) {
+        router.push("/account/register")
+        return
+    }else {
+      router.push('/account/myaccount')
+    }
   }
 
   return (
@@ -164,9 +172,14 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   </Link>
                   {account_link_li.map((item, index) => {
                     return <div className="mb-1" key={`account_link_${index}`}>
-                              <Link href={item.link}>
-                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
-                              </Link>
+                              {item.title === "Register/Login" && 
+                                <Link href={item.link}>
+                                  <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                                </Link>
+                              }
+                              {item.title !== "Register/Login" && 
+                                <button className="text-white text-sm leading-14_26" onClick={() => {toMyAccountHandler()}}>{item.title}</button>
+                              }
                           </div>
                   })}
                 </div>

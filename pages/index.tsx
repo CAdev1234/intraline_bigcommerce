@@ -296,7 +296,7 @@ export default function Home({
     if (getCookie('jwt', '') != null) {
         setLogined(true)
     }
-  })
+  }, [])
 
   const addToCartByDom = new AddToCartByDom(featured_product_li)
 

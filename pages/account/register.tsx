@@ -29,13 +29,13 @@ export default function Register() {
             <div className="bg-transparent h-15 w-full"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Account</span>
+                        <span className="ml-1"><Link href="/account/myaccount">Account</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Register</span>
+                        <span className="ttcommon_font_bold ml-1"><Link href="/account/register">Register</Link></span>
                     </div>
                 </div>
                 <div className="my-25 mx-auto

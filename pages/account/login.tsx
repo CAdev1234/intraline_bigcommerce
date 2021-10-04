@@ -45,13 +45,13 @@ export default function Login() {
             <div className="h-15 w-full bg-transparent"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
+                    <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Account</span>
+                        <span className="ml-1"><Link href="/account/myaccount">Account</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Login</span>
+                        <span className="ttcommon_font_bold ml-1"><Link href="/account/login">Login</Link></span>
                     </div>
                 </div>
                 <div className="my-52 mx-auto 

@@ -9,10 +9,10 @@ export default function ContactUs() {
             <div className="flex items-start mb-25">
                 <div className="w-154_5 pl-15 pt-28">
                     <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                        <div className="flex items-center">
-                            <span>Home</span>
+                        <div className="flex items-center cursor-pointer">
+                            <span className="ttcommon_font"><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4"/></span>
-                            <span className="ttcommon_font_bold ml-1">Contact</span>
+                            <span className="ttcommon_font_bold ml-1"><Link href="/contact">Contact</Link></span>
                         </div>
                     </div>
                     <div className="mt-10 max-w-106_5">
@@ -32,28 +32,28 @@ export default function ContactUs() {
                         </div>
                         <div className="mt-2.5">
                             <div className="flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Distributor Inquiry</label>
+                                <input type="radio" id="contact_radio_1" name="contact_radio"/>
+                                <label htmlFor="contact_radio_1" className="text-sm leading-14_26 ml-3">Distributor Inquiry</label>
                             </div>
                             <div className="mt-1 flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
+                                <input type="radio" id="contact_radio_2" name="contact_radio"/>
+                                <label htmlFor="contact_radio_2" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <input type="radio" id="contact_radio_3" name="contact_radio"/>
+                                <label htmlFor="contact_radio_3" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
+                                <input type="radio" id="contact_radio_4" name="contact_radio"/>
+                                <label htmlFor="contact_radio_4" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <input type="radio" id="contact_radio_5" name="contact_radio"/>
+                                <label htmlFor="contact_radio_5" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
-                                <input type="radio" />
-                                <label htmlFor="" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <input type="radio" id="contact_radio_6" name="contact_radio"/>
+                                <label htmlFor="contact_radio_6" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                         </div>
                         <div className="mt-4">
@@ -69,7 +69,7 @@ export default function ContactUs() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <input type="checkbox" name="" id="contact_checkbox" checked/>
+                                <input type="checkbox" name="" id="contact_checkbox" defaultChecked/>
                             </div>
                             <label htmlFor="contact_checkbox" className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</label>
                         </div>

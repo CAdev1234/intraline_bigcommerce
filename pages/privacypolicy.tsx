@@ -1,12 +1,13 @@
 import { Layout } from "@components/common";
 import { ChevronRight } from "@components/icons";
+import Link from "@components/ui/Link";
 
 export default function PrivacyPolicy() {
     return <div className="ttcommon_font text-c_00080D0">
               <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span>Home</span>
+                        <span><Link href="/">Home</Link></span>
                         <span>
                             <ChevronRight className="w-4" />
                         </span>

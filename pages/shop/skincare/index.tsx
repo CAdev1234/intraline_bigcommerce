@@ -55,7 +55,7 @@ export default function SkinCare() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-    })
+    }, [])
     const addToCartByDom = new AddToCartByDom(skincare_li)
     const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
         addToCartByDom.addToBagHandler(event, index)
@@ -100,8 +100,8 @@ export default function SkinCare() {
             <div className="w-full h-15 bg-transparent"></div>
             <div className="h-210 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center">
-                        <span>Home</span>
+                    <div className="flex items-center cursor-pointer">
+                        <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>

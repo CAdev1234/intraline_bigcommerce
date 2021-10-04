@@ -92,14 +92,23 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     if (getCookie('jwt', '') != null) {
         setLogined(true)
     }
-  })
+  }, [])
 
-  const searchProduct = () => {
+  const searchProductHandler = () => {
     router.push({
       pathname: '/searchresult',
       query: {keyword: searchKey}
     })
     setEnableSearchBar(false)
+  }
+
+  const toMyAccountHandler =() => {
+    if (getCookie('user', '') === undefined) {
+        router.push("/account/register")
+        return
+    }else {
+      router.push('/account/myaccount')
+    }
   }
 
   let showMobileMenu = () => {
@@ -163,10 +172,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                           type="text" 
                           className="bg-transparent w-154_5 text-white" 
                           placeholder="Search for product or category. Hit enter to submit or escape to close."
+                          onKeyPress={(event) => {event.key === 'Enter' && searchProductHandler()}}
                           onChange={(event) => {setSearchKey(event.target.value)}}/>
                         <button 
                           className="underline uppercase text-sm text-white tracking-widest ml-auto"
-                          onClick={() => {searchProduct()}}>Enter</button>
+                          onClick={() => {searchProductHandler()}}>Enter</button>
                         <button className="ml-9 text-white" onClick={() => {setEnableSearchBar(false)}}>
                           <Cross />
                         </button>
@@ -178,9 +188,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               </div>
               
               <div className="flex ml-7_5">
-                <Link href="/account/myaccount">
-                  <button><ProfileSvg className={s.svg} /></button>
-                </Link>
+                <button onClick={() => {toMyAccountHandler()}}><ProfileSvg className={s.svg} /></button>
+                
               </div>
               {logined && 
                 <div className="ml-7_5 relative" onClick={() => {dispatch(openSideCart())}}>
