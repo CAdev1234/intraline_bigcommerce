@@ -6,7 +6,7 @@ import { Grid, Marquee, Hero } from '@components/ui'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { ChevronDown, ChevronRight, ChevronUp } from '@components/icons'
 
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -28,6 +28,7 @@ import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slic
 import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
 import TriangleRight from '@components/icons/TriangleRight'
 import { AddToCartByDom } from '@utils/addToCartByDom'
+import { Parallax, ParallaxLayer, IParallax} from '@react-spring/parallax'
 
 
 export async function getStaticProps({
@@ -60,7 +61,7 @@ export async function getStaticProps({
   }
 }
 
-
+const parallax = useRef<IParallax>(null!)
 const RenderCategorySwiper:FC = () => {
   let category_li = [
     {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
@@ -314,7 +315,6 @@ export default function Home({
   }
 
   const RenderProductSwiper:FC = () => {
-    
     let render_ele = featured_product_li.map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative h-118" key={`m_${index}_product`}>
                 {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 animate-pulse">${item.price}</div>}

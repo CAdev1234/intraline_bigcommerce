@@ -20,6 +20,7 @@
     "node": ">=14.x"
   },
   "dependencies": {
+    "@react-spring/parallax": "^9.2.5",
     "@react-spring/web": "^9.2.1",
     "@reduxjs/toolkit": "^1.6.1",
     "@types/js-cookie": "^3.0.0",
