@@ -68,9 +68,9 @@ export default function Essentials() {
 
     const renderEssentialSeriesSwiper = () => {
         let essential_series_li = [
-            {title: "M2 Plus", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "M2 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "M2 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE ONE", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE TWO", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "INTRALINE THREE", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
@@ -82,7 +82,7 @@ export default function Essentials() {
                                 </div>
                             </Link>
                         </div>
-                        {logined && <div className="absolute top-0 right-15">
+                        {logined && <div className="absolute top-8 right-15">
                             <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}.00</Button>
                         </div>}
                     </div>

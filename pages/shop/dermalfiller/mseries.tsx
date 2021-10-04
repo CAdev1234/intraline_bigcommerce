@@ -69,8 +69,8 @@ export default function MSeries() {
     const renderMSeriesSwiper = () => {
         let mseries_li = [
             {title: "M2 Plus", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "M2 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "M2 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m2plus'},
+            {title: "M3 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m3plus'},
+            {title: "M4 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>

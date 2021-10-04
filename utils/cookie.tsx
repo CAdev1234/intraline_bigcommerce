@@ -1,11 +1,11 @@
-import cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 export const setCookie = (key: string, value: string) => {
-  cookie.set(key, value, {expires: 1, path: '/'});
+  Cookies.set(key, value, {expires: 1, path: '/'});
 };
 
 export const removeCookie = (key: string) => {
-  cookie.remove(key, {expires: 1});
+  Cookies.remove(key, {expires: 1});
 };
 
 export const getCookie = (key: string, req: string) => {
@@ -16,7 +16,8 @@ export const getCookie = (key: string, req: string) => {
 };
 
 const getCookieFromBrowser = (key: string) => {
-  return cookie.get(key);
+  // console.log(Cookies.get(key))
+  return Cookies.get(key);
 };
 
 // const getCookieFromServer = (key: string, req: string) => {

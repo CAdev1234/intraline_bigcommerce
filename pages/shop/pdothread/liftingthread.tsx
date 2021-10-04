@@ -115,6 +115,11 @@ const renderLiftingThreadSwiper = () => {
 
 
 export default function LiftingThread() {
+    const [fullName, setFullName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [email, setEmail] = useState('')
+    const [country, setCountry] = useState('')
+    const [comment, setComment] = useState('')
     return(
         <div className="ttcommon_font text-c_00080D">
             <div className="bg-transparent w-full h-15"></div>
@@ -189,7 +194,8 @@ export default function LiftingThread() {
                                 default_option="Choose Country or Region"
                                 option_li={['United States', 'United Kingdom']} 
                                 className="bg-white"
-                                option_class="bg-white hover:bg-opacity-80" />
+                                option_class="bg-white hover:bg-opacity-80"
+                                returnVal={setCountry} />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

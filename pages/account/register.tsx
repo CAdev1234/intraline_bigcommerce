@@ -3,8 +3,27 @@ import Link from '@components/ui/Link';
 import Button from '@components/mycp/Button'
 import Input from '@components/mycp/Input'
 import { ChevronRight } from '@components/icons';
+import { useState } from 'react';
+import { setCookie } from '@utils/cookie';
+import { useRouter } from 'next/router';
 
 export default function Register() {
+    const [email, setEmail] = useState('')
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
+    const [mobile, setMobile] = useState('')
+    const [password, setPassword] = useState('')
+    const [c_password, setCPassword] = useState('')
+    const router = useRouter()
+
+    const registerHandler = () => {
+        if (email !== "" && f_name !== "" && l_name !== "" && mobile !== '' && password !== "" && c_password !== "" && password === c_password) {
+            setCookie('user', JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile}))
+            router.push('/account/login')
+        }else {
+            
+        }
+    }
     return (
         <div>
             <div className="bg-transparent h-15 w-full"></div>
@@ -22,13 +41,14 @@ export default function Register() {
                 <div className="my-25 mx-auto
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
-                    <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address"/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name"/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name"/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password"/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password"/>
+                    <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address" onChange={setEmail}/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name" onChange={setFName}/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name" onChange={setLName}/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Phone Number" onChange={setMobile}/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
+                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>
                             
-                    <Button className="mt-8 w-full h-11 text-sm">Register</Button>
+                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {registerHandler()}}>Register</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/login">
                             <span className="leading-36_26 text-base underline">Already have an account?</span>

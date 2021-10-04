@@ -8,9 +8,10 @@ interface SelectInputProps {
     className: string,
     option_class: string,
     enable_underline: boolean,
+    returnVal: any
 }
 
-const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class, default_option, enable_underline}) => {
+const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class, default_option, enable_underline, returnVal}) => {
     // let item_li = ['Dermal filler1', 'Dermal filler2', 'Dermal filler3']
     const [enableSelect, setEnableSelect] = useState(false)
     const [currentVal, setCurrentVal] = useState(default_option)
@@ -31,6 +32,8 @@ const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class,
                                     return <div key={`index_${index}`} onClick={() => {
                                         setCurrentVal(item)
                                         setEnableSelect(false)
+                                        returnVal(item)
+                                        return item
                                         }}> 
                                                 <div className={`h-11 flex items-center px-5 border-c_00080D cursor-pointer ${option_class}`}>{item}</div>
                                                 {index !== option_li.length - 1 && enable_underline && 

@@ -2,8 +2,8 @@ import { Layout } from "@components/common"
 import { ChevronRight, Cross } from "@components/icons"
 import { Button, Input, SelectInput } from '@components/mycp'
 import { RatingView, Rating } from 'react-simple-star-rating'
-import { useState } from "react"
-import { removeCookie } from "@utils/cookie"
+import { useEffect, useState } from "react"
+import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
 
 export default function MyAccount() {
@@ -38,33 +38,86 @@ export default function MyAccount() {
     ]
     
     const router = useRouter()
+    const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
+
+    const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
+    
+    const [bill_address, setBillAddress] = useState({f_name: '', l_name: '', address: '', city: '', apt: '', country: '', postcode: ''})
+    
+    const [payment, setPayment] = useState({name: '', number: '', date: '', cvc: ''})
+
+    const [new_review_product, setNewReviewProduct] = useState('')
+
     const[enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
     const[enableEditAccountModal, setEnableAccountModal] = useState(false)
     const[enableAddReviewModal, setEnableAddReviewModal] = useState(false)
     const[rating, setRating] = useState(0)
+
+    useEffect(() => {
+        let user_info = JSON.parse(getCookie('user', '') as string)
+        setUser(user_info)
+
+        if (getCookie('sa', '')) {
+            let shipping_address = JSON.parse(getCookie('sa', '') as string)
+            setShipAddress(shipping_address)
+        }
+
+        if (getCookie('ba', '')) {
+            let bill_address = JSON.parse(getCookie('ba', '') as string)
+            setBillAddress(bill_address)
+        }
+
+        if (getCookie('pm', '')) {
+            let payment_info = JSON.parse(getCookie('pm', '') as string)
+            setPayment(payment_info)
+        }
+    }, [])
 
     const editAccountHandler = () => {
 
     }
     const logoutHandler = () => {
         removeCookie('jwt')
+        removeCookie('user')
+        removeCookie('sa')
+        removeCookie('ba')
+        removeCookie('pm')
         router.push('/account/login')
     }
     const delAccountHandler = () => {
         removeCookie('jwt')
+        removeCookie('user')
+        removeCookie('sa')
+        removeCookie('ba')
+        removeCookie('pm')
         router.push('/account/login')
     }
     const editShippingAddressHandler = () => {
-        router.push('/shop/checkout')
+        router.push({
+            pathname: '/shop/checkout',
+            query: {status: 'shipping_address'}
+        })
     }
     const addBillAddressHandler = () => {
-        router.push('/shop/checkout')
+        router.push({
+            pathname: '/shop/checkout',
+            query: {status: 'bill_address'}
+        })
+    }
+    const editBillAddressHandler = () => {
+        router.push({
+            pathname: '/shop/checkout',
+            query: {status: 'bill_address'}
+        })
     }
     const editPaymentHandler = () => {
-        router.push('/shop/checkout')
+        router.push({
+            pathname: '/shop/checkout',
+            query: {status: 'payment'}
+        })
     }
     const addPaymentHandler = () => {
-        router.push('/shop/checkout')
+        
     }
 
     const showEditAccountModalHandler = (bool_var: boolean) => {
@@ -110,15 +163,15 @@ export default function MyAccount() {
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">My Account</div>
                         <div className="mt-5 text-sm leading-14_26">
                             <span className="ttcommon_font_bold">Name:</span>
-                            <span className="ml-2.5">Sameer Haque</span>
+                            <span className="ml-2.5">{`${user.f_name} ${user.l_name}`}</span>
                         </div>
                         <div className="mt-2.5 text-sm leading-14_26">
                             <span className="ttcommon_font_bold">Email:</span>
-                            <span className="ml-2.5">sameer@haque.com</span>
+                            <span className="ml-2.5">{user.email}</span>
                         </div>
                         <div className="mt-2.5 text-sm leading-14_26">
                             <span className="ttcommon_font_bold">Phone:</span>
-                            <span className="ml-2.5">+808 445 4454</span>
+                            <span className="ml-2.5">{user.mobile}</span>
                         </div>
                         <div>
                             <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
@@ -140,9 +193,9 @@ export default function MyAccount() {
                             <span className="ml-2.5"></span>
                         </div>
                         <div className="mt-2.5 text-sm leading-14_26">
-                            <div className="">Sameer Haque</div>
-                            <div>234 HK, Avenue Lake City, Utah 23H UN3</div>
-                            <div>Lake City, Utah, United States 230 654</div>
+                            <div className="">{`${ship_address.f_name} ${ship_address.l_name}`}</div>
+                            <div>{ship_address.address}</div>
+                            <div>{ship_address.city}, {ship_address.country} {ship_address.postcode}</div>
                         </div>
                         <div>
                             <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
@@ -150,7 +203,16 @@ export default function MyAccount() {
                         </div>
                         <div className="mt-7_5 text-sm leading-14_26">
                             <div className="ttcommon_font_bold">Billing Address:</div>
-                            <div className="mt-2.5">Not Provided</div>
+                            {/* <div className="mt-2.5">Not Provided</div> */}
+                            <div className="mt-2.5 text-sm leading-14_26">
+                                <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
+                                <div>{bill_address.address}</div>
+                                <div>{bill_address.city}, {bill_address.country} {bill_address.postcode}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                onClick={() => {editBillAddressHandler()}}>Edit information</button>
                         </div>
                         <div>
                             <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
@@ -164,9 +226,9 @@ export default function MyAccount() {
                             <span className="ml-2.5"></span>
                         </div>
                         <div className="mt-2.5 text-sm leading-14_26">
-                            <div className="">Sameer Haque</div>
-                            <div>1234 5678 1234 5678 000</div>
-                            <div>Expires 01/24 CVC: 123</div>
+                            <div className="">{payment.name}</div>
+                            <div>{payment.number}</div>
+                            <div>{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
                         </div>
                         <div>
                             <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
@@ -308,10 +370,11 @@ export default function MyAccount() {
                                 <div className="mt-10">
                                     <SelectInput 
                                         enable_underline={true}
-                                        default_option="Select Dermal filler"
+                                        default_option="Select Product"
                                         option_li={item_li} 
                                         className="bg-c_F7F7F7"
-                                        option_class="bg-c_F5DBDD hover:bg-opacity-80"/>
+                                        option_class="bg-c_F5DBDD hover:bg-opacity-80"
+                                        returnVal={setNewReviewProduct}/>
                                 </div>
                                 <div className="mt-5">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="Review title"/>

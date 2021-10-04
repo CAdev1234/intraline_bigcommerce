@@ -65,6 +65,12 @@ export default function PDOThread() {
         },
     ]
     const [enablePDOQues, setEnablePDOQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
+    const [fullName, setFullName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [email, setEmail] = useState('')
+    const [country, setCountry] = useState('')
+    const [comment, setComment] = useState('')
+
     let updatePDOQues = (index:number) => {
         let new_array = new Array(enablePDOQues.length).fill(false)
         new_array[index] = true
@@ -184,7 +190,8 @@ export default function PDOThread() {
                                 default_option="Choose Country or Region"
                                 option_li={['United States', 'United Kingdom']} 
                                 className="bg-white"
-                                option_class="bg-white hover:bg-opacity-80" />
+                                option_class="bg-white hover:bg-opacity-80"
+                                returnVal={setCountry} />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

@@ -5,7 +5,7 @@ import Input from '@components/mycp/Input'
 import { ChevronRight } from '@components/icons';
 import login from 'pages/api/login';
 import { useRouter } from 'next/router';
-import { setCookie } from '@utils/cookie';
+import { getCookie, setCookie } from '@utils/cookie';
 import { useCallback, useEffect, useState } from 'react';
 import { validate } from 'email-validator'
 import { toast, ToastContainer } from 'react-toastify';
@@ -17,12 +17,13 @@ export default function Login() {
     const [password, setPassword] = useState('')
 
     const loginSubmitHandler = () => {
-        if (email !== '' && password !== '') {
+        
+        if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email) {
             setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
             router.push('/')
         }else {
             toast.error("Email and Password error.", {
-                position: toast.POSITION.BOTTOM_RIGHT
+                position: toast.POSITION.TOP_RIGHT
             });
         }
         
@@ -56,16 +57,15 @@ export default function Login() {
                 <div className="my-52 mx-auto 
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
-                    <Input
-                        className="mt-10" 
-                        placeholder="Email Address"
-                        onChange={setEmail}/>
+                    <div className="mt-10">
+                        <Input placeholder="Email Address" onChange={setEmail}/>
+                    </div>
                     <div className="mt-5 flex items-center">
                         <div className="w-full">
-                            <Input className="w-full" type="password" placeholder="Password"/>
+                            <Input className="w-full" type="password" placeholder="Password" onChange={setPassword}/>
                         </div>
                         <div className="-ml-40">
-                            <Link href="/">
+                            <Link href="/account/forgotpassword">
                                 <span className="text-c_8D97BC">Forgot Your Password?</span>
                             </Link>
                         </div>

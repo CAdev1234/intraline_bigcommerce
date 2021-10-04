@@ -24,7 +24,7 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 
 
 
-export default function M2Plus() {
+export default function M3Plus() {
     let mseries_li = [
         {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m2plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
         {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m3plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
@@ -32,21 +32,21 @@ export default function M2Plus() {
     ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
-    const [numM2Plus, setNumM2Plus] = useState(1)
+    const [numM3Plus, setNumM3Plus] = useState(1)
     
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'M2 Plus', amount: numM2Plus, price: 100, img: '/assets/img/m2plus.png'}))
+        dispatch(addProductToCart({title: 'M3 Plus', amount: numM3Plus, price: 100, img: '/assets/img/m2plus.png'}))
     }
     const decreaseNumHandler = () => {
-        if (numM2Plus > 1) {
-            setNumM2Plus(numM2Plus - 1)
+        if (numM3Plus > 1) {
+            setNumM3Plus(numM3Plus - 1)
         }else {
-            setNumM2Plus(1)
+            setNumM3Plus(1)
         }
     }
     const increaseNumHandler = () => {
-        setNumM2Plus(numM2Plus + 1)
+        setNumM3Plus(numM3Plus + 1)
     }
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -146,7 +146,7 @@ export default function M2Plus() {
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1 ttcommon_font">MONOPHASIC DERMAL FILLERS</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">M2 Plus</span>
+                        <span className="ttcommon_font_bold ml-1">M3 Plus</span>
                     </div>
                 </div>
                 <div className="h-full z-10 mb-15 flex flex-col">
@@ -154,7 +154,7 @@ export default function M2Plus() {
                         <div className="w-6/12 flex flex-col pl-15">
                             <div className="mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
+                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M3</span> Plus</div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
                                 <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 <div className="ttcommon_font_bold mt-5 flex items-center">
@@ -164,7 +164,7 @@ export default function M2Plus() {
                                 <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
-                                        <div className="mx-auto">{numM2Plus}</div>
+                                        <div className="mx-auto">{numM3Plus}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
                                     <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
@@ -188,8 +188,8 @@ export default function M2Plus() {
                         <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
                         <div className="w-full h-full flex absolute items-center justify-center">
                             <div className="relative">
-                                <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
+                                <img className="m-auto" src="/assets/img/m3plus.png" alt="" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
                             </div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ export default function M2Plus() {
             <div className="bg-white px-40">
                 <div className="flex flex-col max-w-2xl mx-auto py-28">
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
+                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M3 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-64 text-sm">download indication chart</Button>
                     </div>
@@ -217,7 +217,7 @@ export default function M2Plus() {
                         <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">M2 Plus.</div>
+                                    <div className="ttcommon_font_bold text-6xl leading-64_76">M3 Plus.</div>
                                     <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
                                         <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-sm ">(22)</div>
@@ -267,7 +267,7 @@ export default function M2Plus() {
                                         </div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1 text-sm">Buy m2 plus now</Button>
+                                        <Button className="h-full flex-1 text-sm">Buy m3 plus now</Button>
                                     </div>
                                 </div>
                                 
@@ -338,4 +338,4 @@ export default function M2Plus() {
     )
 }
 
-M2Plus.Layout = Layout
+M3Plus.Layout = Layout

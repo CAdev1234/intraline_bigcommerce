@@ -395,8 +395,8 @@ export default function Home({
           url="https://www.youtube.com/watch?v=giRyQtkecqA"
           width="100vw"
           height="800px"
-          // light
-          // playIcon={play_icon()} 
+          light
+          playIcon={play_icon()} 
           />
       </div>
       <div className="relative z-10 text-white font-bold flex

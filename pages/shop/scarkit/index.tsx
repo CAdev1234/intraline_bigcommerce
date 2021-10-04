@@ -16,6 +16,7 @@ import { getCookie } from '@utils/cookie'
 import ReactPlayer from 'react-player'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
+import TriangleRight from '@components/icons/TriangleRight'
 
 
 const RenderFAQCollapse = () => {
@@ -117,6 +118,13 @@ export default function ScarKit() {
         let new_array = new Array(enableSpecific.length).fill(false)
         new_array[index] = true
         setEnableSpecific(new_array)
+    }
+    const play_icon = () => {
+        return <div>
+                  <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
+                    <TriangleRight className="text-white"/>
+                  </div>     
+              </div>
     }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
@@ -221,8 +229,8 @@ export default function ScarKit() {
                             url="https://www.youtube.com/watch?v=nnexOCQOa0w"
                             width="100%"
                             height="800px"
-                            // light
-                            // playIcon={play_icon()} 
+                            light
+                            playIcon={play_icon()} 
                         />
                     </div>
                 </div>

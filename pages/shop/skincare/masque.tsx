@@ -13,6 +13,11 @@ import { addProductToCart } from '@utils/redux/slices/cartSlice'
 export default function Masque() {
     const [logined, setLogined] = useState(false)
     const [numMasque, setNumMasque] = useState(1)
+    const [fullName, setFullName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [email, setEmail] = useState('')
+    const [country, setCountry] = useState('')
+    const [comment, setComment] = useState('')
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -124,7 +129,8 @@ export default function Masque() {
                                 default_option="Choose Country or Region"
                                 option_li={['United States', 'United Kingdom']} 
                                 className="bg-white"
-                                option_class="bg-white hover:bg-opacity-80" />
+                                option_class="bg-white hover:bg-opacity-80"
+                                returnVal={setCountry} />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>

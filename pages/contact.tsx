@@ -25,12 +25,7 @@ export default function ContactUs() {
                             <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
-                            <SelectInput 
-                                enable_underline={false}
-                                default_option="Choose Country or Region"
-                                option_li={['Choose Country or Region', 'UK', "US"]} 
-                                option_class="bg-c_F7F7F7 hover:bg-opacity-80" 
-                                className="bg-c_F7F7F7"/>
+                            <Input className="bg-c_F7F7F7" type="text" placeholder="Phone Number"/>
                         </div>
                         <div className="mt-5">
                             <div className="text-sm leading-14_26">How can we best help you?</div>

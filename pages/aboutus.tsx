@@ -15,11 +15,17 @@ import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import { Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
 import ReactPlayer from 'react-player'
+import TriangleRight from '@components/icons/TriangleRight'
 
 
 
 
 export default function AboutUs() {
+    const [fullName, setFullName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [email, setEmail] = useState('')
+    const [country, setCountry] = useState('')
+    const [comment, setComment] = useState('')
     const our_sec = [
         {
             title: 'Education.',
@@ -38,6 +44,13 @@ export default function AboutUs() {
             detail: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.'
         }
     ]
+    const play_icon = () => {
+        return <div>
+                  <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
+                    <TriangleRight className="text-white"/>
+                  </div>     
+              </div>
+    }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="relative w-full flex flex-col mt-15">
@@ -98,7 +111,9 @@ export default function AboutUs() {
                                 default_option="Choose Country or Region"
                                 option_li={['Choose Country or Region', 'UK', "US"]} 
                                 option_class="bg-c_F7F7F7 hover:bg-opacity-80" 
-                                className="bg-c_F7F7F7"/>
+                                className="bg-c_F7F7F7"
+                                returnVal={setCountry}
+                                />
                         </div>
                         <div className="mt-5">
                             <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
@@ -113,7 +128,7 @@ export default function AboutUs() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" checked/>
+                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" defaultChecked/>
                             </div>
                             <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label>
                         </div>

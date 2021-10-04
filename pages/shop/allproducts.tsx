@@ -77,6 +77,8 @@ export default function AllProducts() {
         });
     }
     const [logined, setLogined] = useState(false)
+    const [filter, setFilter] = useState('')
+    const [sort, setSort] = useState('')
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
@@ -153,7 +155,8 @@ export default function AllProducts() {
                             default_option="Filters" 
                             option_li={['Filter 1', 'Filter 2', 'Filter 3']} 
                             className={"bg-transparent relative z-10 w-30"} 
-                            option_class={"bg-white justify-center hover:bg-gray-100"} />
+                            option_class={"bg-white justify-center hover:bg-gray-100"} 
+                            returnVal={setFilter}/>
                     </div>
                     {logined && 
                         <div className="flex items-center ml-10 cursor-pointer">
@@ -162,7 +165,8 @@ export default function AllProducts() {
                                 default_option="SORT BY PRICE(LOWEST)" 
                                 option_li={['PRICE (LOWEST)', 'PRICE (HIGHEST)', 'TOP RATED', 'NEWEST']} 
                                 className={"bg-transparent relative z-10 w-60"} 
-                                option_class={"bg-white justify-center hover:bg-gray-100"} />
+                                option_class={"bg-white justify-center hover:bg-gray-100"} 
+                                returnVal={setSort}/>
                         </div>
                     }
                     
