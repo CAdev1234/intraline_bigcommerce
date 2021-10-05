@@ -26,29 +26,41 @@ export default function MSeries() {
         },
         {
             headline: 'Volume.',
-            title: 'Unique cross-linked technology',
-            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+            title: 'HIGH VISCO-ELASTICITY',
+            detail: 'Due to our patent-pending manufacturing process the M Series has higher levels of visco-elasticity than the prior generation of competing monophasic products. The supple consistency of our gel provides unwavering volume while allowing the product to break down evenly with a natural finish..'
         },
         {
-            headline: 'Innovative.',
-            title: 'Unique cross-linked technology',
-            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+            headline: 'Consistent.',
+            title: 'HIGHLY CONSISTENT MONOPHASIC STRUCTURE',
+            detail: 'The M Series gel is a uniform monophasic structure, making the product stable and consistent. This results in predictable placement in the skin with a smooth delivery of product.'
         },
         {
-            headline: 'Volume.',
-            title: 'Unique cross-linked technology',
-            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+            headline: 'Movement.',
+            title: 'Low phase angle percentage',
+            detail: 'The M Series has a low percentage of product migration, meaning that once injected the product is more likely to stay close to the injection site until the gel is reabsorbed into the body.'
+        },
+    ]
+    let testimonial_li = [
+        {
+            title: 'SAMMI-PEONY DOVEY',
+            detail: 'Just want to say I’ve had the best feedback since I started using Intraline from patients xx'
         },
         {
-            headline: 'Innovative.',
-            title: 'Unique cross-linked technology',
-            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
+            title: 'SUSSEX AESTHETICS',
+            detail: 'We are seeing amazing results from Intraline as we would expect as their PDO Threads are a market leader.'
         },
         {
-            headline: 'Volume.',
-            title: 'Unique cross-linked technology',
-            detail: 'The M Series has been manufactured using a patent-pending exclusive cross-linking technology that harnesses the power of hyaluronic acid to significantly increase both the volume and the duration of our dermal fillers once injected into the skin.'
-        }
+            title: 'DR. AMRIT THIARA TIARA AESTHETICS INTRALINE KOL',
+            detail: 'Clients are reporting that they are getting an overall more attractive appearance, which is also looking so natural. They mention that it’s very difficult for friends and family to pinpoint what they’ve had done other than they look more refreshed.'
+        },
+        {
+            title: 'DR. THOMAS F. KENNEY AVANT-GARDE PROFESSIONAL AESTHETICS',
+            detail: 'Excellent product, perfect density and flow, results were outstanding.'
+        },
+        {
+            title: 'Intraline M Series is a dream to use',
+            detail: 'AESTHETICS BY ALICIA, NMC REGISTERED STAFF NURSE'
+        },
     ]
     const [scroll_perc, setScrollPerc] = useState(0)
     const [logined, setLogined] = useState(false)
@@ -215,7 +227,7 @@ export default function MSeries() {
                 head_line={"Testimonials."} 
                 bg_color={"bg-c_C3E0DC"} 
                 quote_color={"#87C1B9"} 
-                testimonial_li={[0,1,2,3]}/>
+                testimonial_li={testimonial_li}/>
             
         </div>
     )

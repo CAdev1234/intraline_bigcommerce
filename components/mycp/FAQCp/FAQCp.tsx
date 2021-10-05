@@ -37,7 +37,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                             </div>
                             </div>
                             <div>
-                            {enable_faq[index] && <div className="ttcommon_font_thin text-sm pt-5 leading-14_26 text-c_00080D">{item.detail}</div>}
+                            {enable_faq[index] && <div className="ttcommon_font_thin text-sm pt-5 leading-14_26 text-c_00080D whitespace-pre-wrap">{item.detail}</div>}
                             </div>
                         </div>
             })}

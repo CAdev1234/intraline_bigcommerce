@@ -147,7 +147,7 @@ const Layout: FC<Props> = ({
         />
       </div>
       {enableScrollUpBtn && 
-        <Button className="fixed bottom-10 right-10 h-20 w-20 animate-bounce" variant="scrollup" onClick={() => {window.scrollTo(0, 0)}}>
+        <Button className="fixed bottom-10 right-10 h-20 w-20 animate-bounce z-20" variant="scrollup" onClick={() => {window.scrollTo(0, 0)}}>
           <ChevronUp />
         </Button>
       }

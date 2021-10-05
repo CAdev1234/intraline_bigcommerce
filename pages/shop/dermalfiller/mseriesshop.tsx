@@ -49,14 +49,14 @@ export default function MseriesShop() {
                                     <Link href={item.link}>
                                         <Button className="h-11 w-full text-sm">learn more</Button>
                                     </Link>
-                                    <div className="mt-2 flex items-center h-11 text-white">
+                                    {logined && <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
                                             <div className="mx-auto">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                         </div>
                                         <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
-                                    </div>
+                                    </div>}
                                 </div>
                             </div>
                         </div>

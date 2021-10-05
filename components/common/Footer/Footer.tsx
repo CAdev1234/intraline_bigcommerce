@@ -26,7 +26,7 @@ const links = [
 
 const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
-  const [subescribeEmail, setSubscribe] = useState('')
+  const [subescribeEmail, setSubscribeEmail] = useState('')
   const [enableSubscribeModal, setEnableSubscribeModal] = useState(false)
   const rootClassName = cn(s.root, className)
 
@@ -47,7 +47,11 @@ const Footer: FC<Props> = ({ className, pages }) => {
   ]
 
   const subscribeHandle = (bool_var: boolean) => {
-    setEnableSubscribeModal(bool_var);
+    if (subescribeEmail) {
+      setEnableSubscribeModal(bool_var);
+    }else {
+      return
+    }
     if (bool_var) {
       (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
     }else {
@@ -193,11 +197,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
                     <input 
                       type="text" 
                       className="h-full w-full border-none bg-white pl-5 py-2" 
-                      placeholder="Your email address"/>
+                      placeholder="Your email address"
+                      onChange={(event) => {setSubscribeEmail(event.target.value)}}/>
                     <button className="w-36 h-full uppercase text-white bg-c_52B5D3" onClick={() => {subscribeHandle(true)}}>submit</button>
                   </div>
                   
-                  <div className="flex items-center
+                  <div className="flex items-center cursor-pointer
                                   mt-5 sm:mt-0 md:mt-0 lg:mt-16 xl:mt-16 2xl:mt-16">
                     <div>
                       <Link href="https://twitter.com">
@@ -294,7 +299,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             </div>
           
             <div className="px-10 py-5 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Your email is subscribed successfully and thanks.
             </div>
           
             <div className="px-5 py-4 flex justify-end">

@@ -62,6 +62,7 @@ module.exports = {
         c_F297F6: '#F297F6',
         c_D5CBA1: '#D5CBA1',
         c_F7F7F7: '#F7F7F7',
+        c_F4511E: '#F4511E',
       },
       textColor: {
         base: 'var(--text-base)',

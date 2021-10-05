@@ -17,14 +17,13 @@ export default function Login() {
     const [password, setPassword] = useState('')
 
     const loginSubmitHandler = () => {
-        
         if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email) {
             setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
             router.push('/')
         }else {
-            toast.error("Email and Password error.", {
-                position: toast.POSITION.TOP_RIGHT
-            });
+            // toast.error("Email and Password error.", {
+            //     position: toast.POSITION.TOP_RIGHT
+            // });
         }
         
     }

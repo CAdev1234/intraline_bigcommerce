@@ -21,6 +21,7 @@ import Link from '@components/ui/Link'
 
 import {AddToCartByDom} from 'utils/addToCartByDom'
 
+import {useAppSelector} from 'utils/redux/hooks'
 
 type ProductType = {
     title: string,
@@ -57,10 +58,10 @@ const RenderCategorySwiper:FC = () => {
         { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
         { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
         { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller/" },
-        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
-        { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
-        { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
+        // { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller/" },
+        // { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
+        // { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
+        // { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
                     <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
@@ -84,18 +85,7 @@ const RenderCategorySwiper:FC = () => {
 
 
 export default function AllProducts() {
-    
-    let items: Array<ProductType> = []
-    for (let index = 0; index < 12; index++) {
-        items.push({
-            title: "M2 Plus",
-            detail: "Lorem ipsum doloris sit estimatum estiumen.",
-            price: 100,
-            amount: 1,
-            link: "/shop/dermalfiller/m2plus",
-            img: "/assets/img/product1.png"
-        });
-    }
+    let all_product_li = useAppSelector((state) => state.product.products)
     const [logined, setLogined] = useState(false)
     const [filter, setFilter] = useState('')
     const [sort, setSort] = useState('')
@@ -104,7 +94,7 @@ export default function AllProducts() {
             setLogined(true)
         }
     }, [])
-    const addToCartByDom = new AddToCartByDom(items)
+    const addToCartByDom = new AddToCartByDom(all_product_li)
     const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
         addToCartByDom.decreaseNumHandler(event, true, -1)
     }
@@ -116,7 +106,7 @@ export default function AllProducts() {
     }
 
     const renderProducts = () => {
-        return items.map((item, index) => {
+        return all_product_li.map((item, index) => {
             return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
                         {logined && 
                             <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8 animate-pulse" variant="primary">${item.price}.00</Button>
@@ -132,14 +122,14 @@ export default function AllProducts() {
                                     <Link href={item.link}>
                                         <Button className="h-11 w-full text-sm">learn more</Button>
                                     </Link>
-                                    <div className="mt-2 flex items-center h-11 text-white">
+                                    {logined && <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => decreaseNumHandler(event)}>-</button>
                                             <div className="mx-auto">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => increaseNumHandler(event)}>+</button>
                                         </div>
                                         <Button className="ml-3 h-full flex-1 text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
-                                    </div>
+                                    </div>}
                                 </div>
                             </div>
                         </div>

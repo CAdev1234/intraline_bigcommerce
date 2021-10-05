@@ -325,14 +325,14 @@ export default function Home({
                     <div className="my-auto mx-auto w-10/12">
                         <div className="flex flex-col">
                             <Button className=" h-11 text-sm">learn more</Button>
-                            <div className="mt-2 flex items-center h-11 text-white">
+                            {logined && <div className="mt-2 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                 </div>
                                 <Button className="ml-3 h-full w-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>
@@ -393,8 +393,8 @@ export default function Home({
           url="https://www.youtube.com/watch?v=giRyQtkecqA"
           width="100vw"
           height="800px"
-          light
-          playIcon={play_icon()} 
+          // light
+          // playIcon={play_icon()} 
           />
       </div>
       <div className="relative z-10 text-white font-bold flex
@@ -402,7 +402,7 @@ export default function Home({
                       mx-5 md:mx-15 lg:mx-172">
         <div className="text-4xl leading-36_26">Our Categories.</div>
         <div className="flex items-center ml-auto">
-          <div className="">Explore All</div>
+          <div className=""><Link href="/shop/allproducts">Explore All</Link></div>
           <div className="ml-2">
             <ChevronRight className="h-4 w-4" />
           </div>
@@ -420,7 +420,7 @@ export default function Home({
       <div className="mt-20 bg-white text-center py-24 relative" style={{ height: 469 + 'px' }}>
         <div className="flex flex-col h-full">
           <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
-          <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
+          <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">We believe confidence is created in many forms and looks different for everyone. We believe in individuality.</p>
           <Link href="/aboutus">
             <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
           </Link>

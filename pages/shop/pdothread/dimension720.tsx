@@ -26,25 +26,49 @@ import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 const RenderFAQCollapse = () => {
     var items = [
       {
-        'title': 'How does it work?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+        'title': 'WHAT IS A PDO THREAD?',
+        'detail': 'An Intraline PDO Thread treatment uses the highest quality CE market PDO (Polydioxanone). Threads which are specially designed for accurate insertion and effective dermal retention providing optimum results. Polydioxanone (PDO) has been used in medicine for over 30 years as sutures in both Cardiovascular and Orthopedic surgery due to its high degree of safety, predictability and reliability. PDO Threads are surgical threads made from Polydioxanone which is a colorless, crystalline, biodegradable synthetic polymer. Polydioxanone, the material in which the Threads are made up, once inserted into the skin tissue ultimately lift, tighten and rejuvenate the overall appearance of the skin.'
       },
       {
-        'title': 'How long do the results last?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+        'title': 'WHAT ARE THE BENEFITS OF PDO THREAD TREATMENTS?',
+        'detail': 'The Intraline PDO Thread Treatment is designed to combat facial ageing, skin stress, asymmetry and other related concerns. Once inserted, the Intraline PDO Threads will form part of an integrated support structure for the tissue of the face and body due to collagen synthesis which biologically rejuvenates the quality of the skin and slows down the ageing process. Specifically, PDO Threads:\nImproved skin laxity and reduced pore size, enhancing overall skin tone.\nStimulation of the hypodermis, which increases the production of collagen, elastin and hyaluronic acid (HA), while accelerating skin metabolism.\nCollagen regeneration accelerates over time, improving the appearance of wrinkles and folds, enhancing elasticity and brightening the patient’s complexion of ageing skin.\nImproved blood and lymph circulation. The results show a significant improvement in the complexion and skin texture, providing a more relaxed, rested appearance.\nThe activation of the circulation and lymph channels help mobilize and eliminate fatty deposits.\nThe implanted threads stimulate the macrophagues. The stimulation of these cells result in a reduction in inflammation and a stimulation of the immune system, which aids in natural healing.'
       },
       {
-        'title': 'What is the expected recovery time for my patients?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+        'title': 'HOW DO PDO THREAD’S WORK?',
+        'detail': 'The treatment method is based on implanting the biodegradable, absorbable and nonallergenic medical “sutures”, otherwise known as threads into the skin that stimulate collagen production. The PDO Threads are slowly broken down and bio-absorbed naturally in the skin tissue over a four to six-month time period. Intraline PDO Threads have a powerful dual effect. The first is to provide immediate tightening of the skin. The second is to stimulate your body’s own ability to generate collagen, elastin and hyaluronic acid (HA). Collagen is a protein responsible for the tension and firmness of skin. Elastin is responsible for skin firmness and elasticity. HA causes the skin to rehydrate. Stimulating HA growth, resulting in improved skin moisture and the reduction of fine lines and wrinkles. An Intraline PDO Thread treatment is clinically proven to tighten, rejuvenate and restore sagging and loose skin, ultimately enhancing the integrity and appearance of the skin. '
       },
       {
-        'title': 'What are some important safety tips to follow when using this product?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
+        'title': 'WHO IS A GOOD CANDIDATE FOR A PDO THREAD TREATMENT?',
+        'detail': 'The best candidates are men and women who are experiencing the appearance of drooping brow, lines to the forehead, skin laxity or skin sagging to the mid or lower face, visible jowls and loose skin to the neck and other areas of the body. he Thread treatment is intended for men and women age 30 and above.'
       },
       {
-        'title': 'What are the most common side effects?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      }
+        'title': 'WHEN WILL A NOTICE THE RESULTS?',
+        'detail': 'The Intraline PDO Thread treatment results will depend on the patient’s age, lifestyle, medical background and skin quality. You will notice some visible results immediately after treatment, however results will improve over of a period of 2 to 6 weeks as the Intraline PDO Threads will stimulate the body’s natural ability to produce new collagen, elastin and hyaluronic acid (HA).'
+      },
+      {
+          'title': 'HOW LONG WILL THE RESULTS OF MY PDO THREAD TREATMENT LAST?',
+          'detail': 'The Intraline PDO Threads will gradually bio-absorb over a 6 month period leaving your skin younger and more radiant, lasting on average for 12-18 months. For longer lasting results it is recommended to have additional threads injected at regular intervals after the initial treatment. Your clinician can advise you on the appropriate timing for additional injections.'
+      },
+      {
+          'title': 'HOW SHOULD I PREPARE FOR A PDO THREAD TREATMENT?',
+          'detail': 'Generally, we recommend speaking with your clinician on specifics of before treatment care. However, we have created a list of best practice here.\nAvoid taking any anti-inflammatory medications for 24 hours\nAvoid taking Vitamins C & E for 10 days\nDo not exercise for at least 24 hours\nDo not drink alcohol for at least 24 hours\nThe Intraline PDO Thread treatment must be carried out by a qualified and trained medical\npractitioner\nIf you are having a treatment prior to an event, discuss your scheduling needs with your\npractitioner to allow for sufficient recovery time'
+      },
+      {
+          'title': 'WHAT CAN I EXPECT DURING MY TREATMENT?',
+          'detail': 'Come prepared to your appointment by following any instructions provided to you by your clinician during your consultation. Your clinician will clean the injection site thoroughly. You can expect to experience some mild discomfort at the injection site during your treatment, but most sensation will be numbed by the use of local and/or topical anesthetic which will be applied prior to your treatment. Threads are inserted through needles, if barbed threads are used these cogs or barbs will grasp, lift and suspend the skin. Needles are withdrawn and tissue is gathered over the threads. The excess thread is cut at the end of the treatment.'
+      },
+      {
+          'title': 'WHAT CAN I EXPECT AFTER MY TREATMENT?',
+          'detail': 'You can expect to feel some mild discomfort at the injection site after the treatment. Your clinician will provide you a list of “Do’s and Don’ts” for post-treatment care which will be outlined in the aftercare card. Follow these instructions carefully to avoid excess bruising and swelling, and to guarantee the best possible results. In order to maximize results and decrease recovery time it is essential that you read, understand and follow the Intraline PDO Thread aftercare leaflet provided by your clinician.'
+      },
+      {
+          'title': 'WHAT IS THE RECOVERY TIME FOR AN PDO THREAD TREATMENT?',
+          'detail': 'The Intraline PDO Thread treatment is a minimally invasive procedure and requires little recovery time. Side effects may include bruising, swelling and mild discomfort. Your practitioner may advise you to take medications (pre or post treatment) to reduce the chances of infection or complications.'
+      },
+      {
+          'title': 'WHAT ARE THE RISKS OR POTENTIAL COMPLICATIONS OF A PDO THREAD TREATMENT?',
+          'detail': 'PDO thread lifting is a relatively new procedure, however, results continue to improve as aesthetic practitioners become more and more experienced. Some risks and complications associated with treatment are \nAsymmetry\nThreads become visible underneath their skin shortly after the procedure\nRippling\nLack of sensitivity or numbness in the treated area, which usually subsides within weeks of the procedure\nInfection in the treatment area, however this is a less frequent complication.We recommend that all patients interested in a PDO Thread lift source a clinician that has professional and accredited PDO Thread Training to avoid risks or complications.'
+      },
     ]
     return <FAQCp faq_li={items}/>
 }
@@ -53,6 +77,40 @@ const RenderFAQCollapse = () => {
 
 
 export default function Dimension720() {
+    let testimonial_li = [
+        {
+            title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
+            detail: 'Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.'
+        },
+        {
+            title: 'Dr Amrit Thiara,Intraline KOL Cosmetic Doctor and Trainer in Aesthetic Medicine Tiara Aesthetics',
+            detail: 'Intraline One is a product I enjoy using for all of my tear trough filler treatments. I regularly perform these procedures and have tried a variety of competitor products but none compare to the consistency, and predictable results that Intraline One gives. With its minimally hydrophilic properties its ideal for use in tear troughs as post procedure little water retention/ attraction occurs, hence avoiding any "puffiness" in the area. Great durability thanks to its highly cross-linked nature means my clients have lasting results with excellent value for money.'
+        },
+        {
+            title: 'Claire NewmanIntraline KOL & Brand AmbassadorSOFT TOUCHES AESTHETICS',
+            detail: 'I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.'
+        },
+        {
+            title: "Marissa Freeman (patient)",
+            detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men"
+        },
+        {
+            title: 'Cole Harrison (patient)',
+            detail: 'Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!'
+        },
+        {
+            title: 'Mica Amos Aesthetics by Mica',
+            detail: 'Beautiful product giving just perfect results.'
+        },
+        {
+            title: 'Dr. TuğbaYalçın Director Lumière Aesthetics',
+            detail: 'Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.'
+        },
+        {
+            title: 'Dr. Mark Homes KOL INTRALINE MEDICAL AESTHETICS',
+            detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
+        },
+    ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     const [numDimension720, setNumDimension720] = useState(1)
@@ -133,18 +191,18 @@ export default function Dimension720() {
                                 <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
                                 <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
-                                <div className="ttcommon_font_bold mt-5 flex items-center">
+                                {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
-                                </div>
-                                <div className="mt-5 flex items-center h-11 text-white">
+                                </div>}
+                                {logined && <div className="mt-5 flex items-center h-11 text-white">
                                     <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
                                         <div className="mx-auto">{numDimension720}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
                                     <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
-                                </div>
+                                </div>}
                             </div>
                         </div>
                     </div>
@@ -287,7 +345,7 @@ export default function Dimension720() {
                 head_line={"Reviews."} 
                 bg_color={"bg-c_C3E0DC"} 
                 quote_color={"#87C1B9"} 
-                testimonial_li={[0,1,2,3]}/>
+                testimonial_li={testimonial_li}/>
 
             
             

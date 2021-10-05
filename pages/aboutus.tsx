@@ -29,19 +29,19 @@ export default function AboutUs() {
     const our_sec = [
         {
             title: 'Education.',
-            detail: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.'
+            detail: 'Intraline places a high value on providing proper education on our products and the necessary tools to use them safely and effectively. Intraline supports medical professionals.'
         },
         {
             title: 'Confidence.',
-            detail: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.'
+            detail: 'Intraline believes in inspiring confidence through the use of safe and effective medical aesthetic products.'
         },
         {
             title: 'Individuality.',
-            detail: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.'
+            detail: 'Intraline respects that each individual has their own story and desired outcomefrom a treatment. We value listening to the patients and encouraging diversity.'
         },
         {
             title: 'Excellence.',
-            detail: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.'
+            detail: 'Intraline believes in upholding the highest standards for our high quality products and our genuine customer care with a focus on building long-lasting and trusting relationships.'
         }
     ]
     const play_icon = () => {
@@ -56,7 +56,7 @@ export default function AboutUs() {
             <div className="relative w-full flex flex-col mt-15">
                 {/* <img className="w-full" src="/assets/img/aboutus_banner.png" alt="" /> */}
                 <ReactPlayer 
-                    url="https://play.vidyard.com/wjgxW7mpQaeE3mWaa6gFMV?disable_popouts=1&v=4.2.30&viral_sharing=0&embed_button=0&hide_playlist=1&color=FFFFFF&playlist_color=FFFFFF&play_button_color=2A2A2A&gdpr_enabled=1&type=inline&autoplay=0&loop=0&muted=0&hidden_controls=0&pomo=2"
+                    url="https://www.youtube.com/watch?v=rW_3OCbQEHg"
                     width="100%"
                     height="800px"
                     // light
