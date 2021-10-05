@@ -22,7 +22,34 @@ import Link from '@components/ui/Link'
 import {AddToCartByDom} from 'utils/addToCartByDom'
 
 
+type ProductType = {
+    title: string,
+    detail: string,
+    price: number,
+    amount: number,
+    link: string,
+    img: string
+}
 
+
+export async function getStaticProps() {
+    let items: Array<ProductType> = []
+    for (let index = 0; index < 12; index++) {
+        items.push({
+            title: "M2 Plus",
+            detail: "Lorem ipsum doloris sit estimatum estiumen.",
+            price: 100,
+            amount: 1,
+            link: "/shop/dermalfiller/m2plus",
+            img: "/assets/img/product1.png"
+        });
+    }
+    return {
+        props: {
+            items
+        }
+    }
+}
 
 const RenderCategorySwiper:FC = () => {
     var render_ele = [
@@ -57,14 +84,7 @@ const RenderCategorySwiper:FC = () => {
 
 
 export default function AllProducts() {
-    type ProductType = {
-        title: string,
-        detail: string,
-        price: number,
-        amount: number,
-        link: string,
-        img: string
-    }
+    
     let items: Array<ProductType> = []
     for (let index = 0; index < 12; index++) {
         items.push({
