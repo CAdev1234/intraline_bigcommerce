@@ -13,7 +13,7 @@ import SelectInput from '@components/mycp/SelectInput'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
 
-const renderRejuvenationSwiper = () => {
+const RenderRejuvenationSwiper = () => {
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -193,7 +193,7 @@ export default function Rejuvenation() {
             </div>
 
             <div className="ml-15 pb-24" style={{marginTop: -240}}>
-                {renderRejuvenationSwiper()}
+                {RenderRejuvenationSwiper()}
             </div>
             
             <div className=" bg-c_C6CBDD py-24 px-15">

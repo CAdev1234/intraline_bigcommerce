@@ -14,7 +14,7 @@ import { getCookie } from '@utils/cookie'
 
 
 
-const renderLiftingThreadSwiper = () => {
+const RenderLiftingThreadSwiper = () => {
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -169,7 +169,7 @@ export default function LiftingThread() {
             </div>
 
             <div className="ml-15 pb-24" style={{marginTop: -240}}>
-                {renderLiftingThreadSwiper()}
+                {RenderLiftingThreadSwiper()}
             </div>
             
             <div className=" bg-c_C6CBDD py-24 px-15">
