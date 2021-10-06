@@ -54,18 +54,16 @@ export async function getStaticProps() {
 
 const RenderCategorySwiper:FC = () => {
     var render_ele = [
-        { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller" },
-        { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
-        { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
-        { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
-        // { name: 'Dermal Fillers', img: "/assets/img/mseries_1.png", link: "/shop/dermalfiller/" },
-        // { name: 'PDO Threads', img: "/assets/img/lifting-1-1.png", link: "/shop/pdothread" },
-        // { name: 'Scar Kit', img: "/assets/img/scarkit.png", link: "/shop/scarkit" },
-        // { name: 'Skincare', img: "/assets/img/skin-care.png", link: "/shop/skincare" },
+        { name: 'M Series', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/70-1.jpg?width=300&name=70-1.jpg", link: "/shop/dermalfiller/mseries" },
+        { name: 'Essentials', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/63.jpg?width=300&name=63.jpg", link: "/shop/dermalfiller/essentials" },
+        { name: 'Rejuvenation Threads', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/65-1.jpg?width=300&name=65-1.jpg", link: "/shop/pdothread/rejuvenation" },
+        { name: 'Lifting Threads', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/Intraline%20Distributor%20Instagram%20Posts%20%285%29.jpg?width=400&name=Intraline%20Distributor%20Instagram%20Posts%20%285%29.jpg", link: "/shop/pdothread/liftingthread" },
+        { name: 'Skincare', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/7-12.jpg?width=400&name=7-12.jpg", link: "/shop/skincare" },
+        { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
-                    <div className="flex flex-col bg-white pt-5 pb-12" style={{ height: 472 }}>
-                        <div className="flex-1 px-20 h-0">
+                    <div className="flex flex-col bg-white pt-5 px-5 pb-12" style={{ height: 472 }}>
+                        <div className="flex-1 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
@@ -79,8 +77,9 @@ const RenderCategorySwiper:FC = () => {
                     </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,4]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
-}
+    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+  }
+  
 
 
 
@@ -168,7 +167,7 @@ export default function AllProducts() {
             <div className="bg-c_C6CBDD py-25 flex flex-col">
                 <div className="flex items-center text-sm tracking-widest uppercase
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
-                    <div className="">SHOWING All products <span className="ttcommon_font_bold">(250)</span></div>
+                    <div className="">SHOWING All products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
                     <div className="flex items-center ml-auto cursor-pointer">
                         <SelectInput
                             enable_underline={false}

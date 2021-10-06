@@ -77,10 +77,10 @@ export default function MyAccount() {
     }
     const logoutHandler = () => {
         removeCookie('jwt')
-        removeCookie('user')
-        removeCookie('sa')
-        removeCookie('ba')
-        removeCookie('pm')
+        // removeCookie('user')
+        // removeCookie('sa')
+        // removeCookie('ba')
+        // removeCookie('pm')
         router.push('/account/login')
     }
     const delAccountHandler = () => {

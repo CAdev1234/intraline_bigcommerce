@@ -3,7 +3,7 @@ import Link from '@components/ui/Link';
 import Button from '@components/mycp/Button'
 import Input from '@components/mycp/Input'
 import { ChevronRight } from '@components/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { setCookie } from '@utils/cookie';
 import { useRouter } from 'next/router';
 
@@ -14,16 +14,30 @@ export default function Register() {
     const [mobile, setMobile] = useState('')
     const [password, setPassword] = useState('')
     const [c_password, setCPassword] = useState('')
+    const [disabledSubmitBtn, setDisabledSubmitBtn] = useState(true)
+    const [registerResultFail, setRegisterResultFail] = useState(false)
+    const [numValiSpan, setNumValiSpan] = useState(0)
     const router = useRouter()
 
     const registerHandler = () => {
         if (email !== "" && f_name !== "" && l_name !== "" && mobile !== '' && password !== "" && c_password !== "" && password === c_password) {
-            setCookie('user', JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile}))
+            setCookie('user', JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile, password: password}))
             router.push('/account/login')
         }else {
-            
+            setRegisterResultFail(true)
         }
     }
+    const validateEmail = (str: string) => {      
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        console.log(emailPattern.test(str))
+        return emailPattern.test(str); 
+    } 
+    useEffect(() => {
+        let vali_span_li = document.querySelectorAll('body span.vali-span')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisabledSubmitBtn(true)
+        else setDisabledSubmitBtn(false)
+    }, [disabledSubmitBtn, numValiSpan, email, f_name, l_name, mobile, password, c_password])
     return (
         <div>
             <div className="bg-transparent h-15 w-full"></div>
@@ -41,14 +55,37 @@ export default function Register() {
                 <div className="my-25 mx-auto
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
-                    <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address" onChange={setEmail}/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name" onChange={setFName}/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name" onChange={setLName}/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Phone Number" onChange={setMobile}/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
-                    <Input className="mt-5 h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>
+                    <div className="w-full">
+                        {registerResultFail && <span className="vali-span text-c_F4511E text-sm">Oops, Sorry, register was failed.</span>}
+                        <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address" onChange={setEmail}/>
+                        {email === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {email !== '' && !validateEmail(email) &&
+                            <span className="vali-span text-c_F4511E text-sm">Email is incorrect.</span>
+                        }
+                    </div>
+                    <div className="w-full mt-5 flex flex-col">
+                        <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name" onChange={setFName}/>
+                        {f_name === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                    </div>
+                    <div className="mt-5 w-full flex flex-col">
+                        <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name" onChange={setLName}/>
+                        {l_name === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                    </div>
+                    <div className="mt-5 w-full flex flex-col">
+                        <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="number" placeholder="Phone Number" onChange={setMobile}/>
+                        {mobile === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                    </div>
+                    <div className="mt-5 w-full flex flex-col">
+                        <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
+                        {password === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                    </div>
+                    <div className="mt-5 w-full flex flex-col">
+                        <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>
+                        {c_password === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {c_password !== '' && c_password !== password && <span className="vali-span text-c_F4511E text-sm">Not matched.</span>}
+                    </div>
                             
-                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {registerHandler()}}>Register</Button>
+                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {registerHandler()}} disabled={disabledSubmitBtn}>Register</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/login">
                             <span className="leading-36_26 text-base underline">Already have an account?</span>

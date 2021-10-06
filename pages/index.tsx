@@ -61,40 +61,31 @@ export async function getStaticProps({
 }
 
 const RenderCategorySwiper:FC = () => {
-  let category_li = [
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-    {title: "Dermal Fillers", img: "/assets/img/product1.png", link: "/shop/dermalfiller"},
-  ]
-  let render_item_ele = category_li.map((item, index) => {
-    return <div className="keen-slider__slide flex flex-col pt-4 pb-10 bg-white relative" 
-                key={index} 
-                style={{width:352, minWidth: 352 + 'px !important', height:472}}>
-            <div>
-              <div className="flex">
-                <img className="mx-auto" src={item.img} alt="" />
+  var render_ele = [
+      { name: 'M Series', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/70-1.jpg?width=300&name=70-1.jpg", link: "/shop/dermalfiller/mseries" },
+      { name: 'Essentials', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/63.jpg?width=300&name=63.jpg", link: "/shop/dermalfiller/essentials" },
+      { name: 'Rejuvenation Threads', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/65-1.jpg?width=300&name=65-1.jpg", link: "/shop/pdothread/rejuvenation" },
+      { name: 'Lifting Threads', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/Intraline%20Distributor%20Instagram%20Posts%20%285%29.jpg?width=400&name=Intraline%20Distributor%20Instagram%20Posts%20%285%29.jpg", link: "/shop/pdothread/liftingthread" },
+      { name: 'Skincare', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/7-12.jpg?width=400&name=7-12.jpg", link: "/shop/skincare" },
+      { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
+  ].map((item, index) => {
+      return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
+                  <div className="flex flex-col bg-white pt-5 px-5 pb-12" style={{ height: 472 }}>
+                      <div className="flex-1 h-0">
+                          <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                      </div>
+                      <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
+                  </div>
+                  <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                      <div className="my-auto flex flex-col">
+                          <Link href={item.link}>
+                              <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                          </Link>
+                      </div>
+                  </div>
               </div>
-              <div className="mt-auto uppercase text-center text-color_1 tracking-widest font-bold text-2xl">DERMAL FILLERS</div>
-            </div>
-            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_CCE7EF bg-opacity-50 hover:opacity-100">
-                <div className="my-auto mx-auto w-10/12">
-                    <div className="flex flex-col w-full">
-                        <Link href={item.link}>
-                          <Button className="w-full h-11 text-sm">browse</Button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-          </div>
   })
-  return <KeenSliderA 
-            render_ele={render_item_ele} 
-            slidesPerView={[1.5,2.5,3.5,3.5,5]} 
-            navCss="sm:mr-5 md:mr-15 lg:mr-172 xl:mr-172 mt-10"/>
+  return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 

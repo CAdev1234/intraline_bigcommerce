@@ -15,18 +15,27 @@ export default function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loginResult, setLoginResult] = useState(true)
+
+    const validateEmail = (str: string) => {      
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        console.log(emailPattern.test(str))
+        return emailPattern.test(str); 
+    }
 
     const loginSubmitHandler = () => {
-        if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email) {
+        if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email && password === JSON.parse(getCookie('user', '') as string).password) {
             setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
             router.push('/')
         }else {
+            setLoginResult(false)
             // toast.error("Email and Password error.", {
             //     position: toast.POSITION.TOP_RIGHT
             // });
         }
-        
     }
+
+
     return (
         <div>
             <ToastContainer
@@ -57,7 +66,14 @@ export default function Login() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
                     <div className="mt-10">
+                        {!loginResult && 
+                            <div className="mb-5 w-full py-3 px-7_5 rounded-lg bg-c_F4511E bg-opacity-30 text-c_F4511E">Wrong email and password. If you don't have account, please sign up.</div>
+                        }
                         <Input placeholder="Email Address" onChange={setEmail}/>
+                        {email === '' && <span className=" text-c_F4511E text-sm">Required</span>}
+                        {email !== '' && !validateEmail(email) &&
+                            <span className="vali-span text-c_F4511E text-sm">Email is incorrect.</span>
+                        }
                     </div>
                     <div className="mt-5 flex items-center">
                         <div className="w-full">
@@ -69,6 +85,7 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
+                    {password === '' && <span className=" text-c_F4511E text-sm">Required</span>}
                     <Button className="mt-8 w-full h-11 text-sm" onClick={() => {loginSubmitHandler()}}>Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
