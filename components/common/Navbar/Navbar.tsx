@@ -148,16 +148,15 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 <Link href="/treatments">
                   <a className={s.link}>TREATMENTS</a>
                 </Link>
-                <div className={s.nav_item}>
+                {/* <div className={s.nav_item}>
                   <div className={s.link}>INDUSTRY</div>
-                  {/* shop menu */}
                   <div className={s.submenu}>
                     <div className="flex justify-between flex-wrap w-full
                                     px-10 lg:px-32 xl:px-56 2xl:px-56">
                       {renderSubMenu(industry_category_li as any)}
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <Link href="/contact">
                   <a className={s.link}>CONTACT</a>
                 </Link>
@@ -249,11 +248,11 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                     <a className="text-3xl text-white">ABOUT US</a>
                   </Link>
                 </div>
-                <div>
+                {/* <div>
                   <Link href="/">
                     <a className="text-3xl text-white">INDUSTRY</a>
                   </Link>
-                </div>
+                </div> */}
                 <div>
                   <Link href="/contact">
                     <a className="text-3xl text-white">CONTACT</a>
