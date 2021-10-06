@@ -86,7 +86,7 @@ const RenderRejuvenationSwiper = () => {
                     <div className="">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
                         <div className="bg-c_CCE7EF w-full mt-10">
-                            <img className="w-full" src={item.img} alt="" />
+                            <img className="w-full" src={item.img} alt="" style={{aspectRatio: '1.6'}}/>
                         </div>
                         <div className="ttcommon_font_thin mt-7 text-3xl leading-36_48">{item.detail}</div>
                     </div>
@@ -126,10 +126,6 @@ export default function Rejuvenation() {
         {
             title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
             detail: 'Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.'
-        },
-        {
-            title: 'Dr Amrit Thiara,Intraline KOL Cosmetic Doctor and Trainer in Aesthetic Medicine Tiara Aesthetics',
-            detail: 'Intraline One is a product I enjoy using for all of my tear trough filler treatments. I regularly perform these procedures and have tried a variety of competitor products but none compare to the consistency, and predictable results that Intraline One gives. With its minimally hydrophilic properties its ideal for use in tear troughs as post procedure little water retention/ attraction occurs, hence avoiding any "puffiness" in the area. Great durability thanks to its highly cross-linked nature means my clients have lasting results with excellent value for money.'
         },
         {
             title: 'Claire NewmanIntraline KOL & Brand AmbassadorSOFT TOUCHES AESTHETICS',

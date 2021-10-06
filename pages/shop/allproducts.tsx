@@ -111,7 +111,7 @@ export default function AllProducts() {
                             <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>
                         }
                         <div className="flex">
-                            <img className="w-full" src={item.img} alt="" />
+                            <img className="w-full" src={item.img} alt="" style={{aspectRatio: '1'}} />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                         <div className="mt-2 text-sm leading-14_26 px-3">{item.detail}</div>
@@ -195,7 +195,7 @@ export default function AllProducts() {
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     {renderProducts()}
                 </div>
-                <div className="mt-20 flex items-center mx-auto">
+                {/* <div className="mt-20 flex items-center mx-auto">
                     <div className="p-2 text-sm tracking-widest mx-4">1</div>
                     <div className="p-2 text-sm tracking-widest mx-4">2</div>
                     <div className="p-2 text-sm tracking-widest mx-4">3</div>
@@ -204,7 +204,7 @@ export default function AllProducts() {
                     <div className="p-2 text-sm tracking-widest mx-4">8</div>
                     <div className="p-2 text-sm tracking-widest mx-4">9</div>
                     <div className="ttcommon_font_bold p-2 text-sm tracking-widest mx-4 uppercase">next</div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

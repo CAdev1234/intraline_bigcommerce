@@ -43,7 +43,7 @@ export default function MSeries() {
     let testimonial_li = [
         {
             title: 'SAMMI-PEONY DOVEY',
-            detail: 'Just want to say I’ve had the best feedback since I started using Intraline from patients xx'
+            detail: 'Just want to say I’ve had the best feedback since I started using Intraline from patients xx.'
         },
         {
             title: 'SUSSEX AESTHETICS',
@@ -58,8 +58,8 @@ export default function MSeries() {
             detail: 'Excellent product, perfect density and flow, results were outstanding.'
         },
         {
-            title: 'Intraline M Series is a dream to use',
-            detail: 'AESTHETICS BY ALICIA, NMC REGISTERED STAFF NURSE'
+            title: 'AESTHETICS BY ALICIA, NMC REGISTERED STAFF NURSE',
+            detail: 'Intraline M Series is a dream to use.'
         },
     ]
     const [scroll_perc, setScrollPerc] = useState(0)

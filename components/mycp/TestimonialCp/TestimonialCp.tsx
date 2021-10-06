@@ -18,9 +18,9 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
     let render_ele = testimonial_li.map((item, index) => {
       return <div className="keen-slider__slide text-center" key={`testimonial_${index}`}>
                 <div className="w-full flex justify-center items-center">
-                    <p className="ttcommon_font_thin text-sm text-center" style={{maxWidth: 426 + 'px'}}>{item.detail}</p>
+                    <p className="ttcommon_font_thin text-sm text-center" style={{maxWidth: 426}}>{item.detail}</p>
                 </div>
-                <div className="text-sm text-center mt-7 tracking-widest" style={{lineHeight: 17 + 'px'}}>{item.title}</div>
+                <div className="text-sm leading-14_17 text-center mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
             </div>
     })
     return <div className={`py-24 ${bg_color}`}>
