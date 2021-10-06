@@ -148,7 +148,7 @@ const RenderProfileSwiper = () => {
     return <div key={'profile_img_' + index} className="keen-slider__slide">
             <div>
               <div className="flex">
-                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25' : 'opacity-50 w-22_5') + ' mx-auto rounded-full'} src={item} alt="" />
+                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25 h-25' : 'opacity-50 w-22_5 h-22_5') + ' mx-auto rounded-full'} src={item} alt="" />
               </div>
             </div>
           </div>
