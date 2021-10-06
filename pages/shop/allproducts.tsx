@@ -106,15 +106,15 @@ export default function AllProducts() {
 
     const renderProducts = () => {
         return all_product_li.map((item, index) => {
-            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
                         {logined && 
-                            <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8 animate-pulse" variant="primary">${item.price}.00</Button>
+                            <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>
                         }
                         <div className="flex">
-                            <img className="mix_blend_multi mx-auto " src={item.img} alt="" />
+                            <img className="w-full" src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 text-sm leading-14_26 text-center">{item.detail}</div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
+                        <div className="mt-2 text-sm leading-14_26 px-3">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
@@ -191,7 +191,7 @@ export default function AllProducts() {
                     
                 </div>
                 <div className="mt-10 grid gap-5
-                                grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4
+                                grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4
                                 mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
                     {renderProducts()}
                 </div>
