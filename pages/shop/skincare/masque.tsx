@@ -55,7 +55,7 @@ export default function Masque() {
         }
     }, [])
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Biocellulose Masque', amount: numMasque, price: 100, img: '/assets/img/skincare2.png'}))
+        dispatch(addProductToCart({title: 'Biocellulose Masque', amount: numMasque, price: 100, img: '/assets/img/products/masque.png'}))
     }
     const decreaseNumHandler = () => {
         if (numMasque > 1) {
@@ -88,7 +88,7 @@ export default function Masque() {
                             <div className="my-auto">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">Biocellulose</div>
                                 <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Masque</span></div>
-                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Sed ut perspiciatis unde omnis iste.</div>
+                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
                                 <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>

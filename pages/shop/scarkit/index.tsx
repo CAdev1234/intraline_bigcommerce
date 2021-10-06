@@ -46,30 +46,6 @@ const RenderFAQCollapse = () => {
     return <FAQCp faq_li={items}/>
 }
 
-const renderPDOThreads = () => {
-    var items = [0, 1, 2]
-    return items.map((item, index) => {
-        return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
-                    key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-                    <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">$100.00</div>
-                    <div className="flex-1 h-0">
-                        <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
-                    </div>
-                    <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">Dimension 360</div>
-                    <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
-                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                        <div className="my-auto mx-auto w-10/12">
-                            <div className="flex flex-col">
-                                <button className=" bg-c_00080D flex items-center justify-center h-11 text-white uppercase tracking-widest">learn more</button>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    })
-}
-
-
 export default function ScarKit() {
     let testimonial_li = [
         {
@@ -133,7 +109,7 @@ export default function ScarKit() {
     ]
     const [enableSpecific, setEnableSpecific] = useState([true, ...new Array(specific_li.length - 1).fill(false)])
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'ScarKit', amount: numScarkit, price: 100, img: '/assets/img/scarkit.png'}))
+        dispatch(addProductToCart({title: 'ScarKit', amount: numScarkit, price: 100, img: '/assets/img/products/scarkit.png'}))
     }
     const decreaseNumHandler = () => {
         if (numScarkit > 1) {

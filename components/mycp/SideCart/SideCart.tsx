@@ -42,8 +42,8 @@ const SideCart: FC<SideCartProps> = () => {
                             <div className="h-full overflow-y-auto">
                                 {cart_product_li.map((item, index) => {
                                     return <div className="flex items-center mb-3" key={`cart_item_${index}`}>
-                                                <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD flex flex-col">
-                                                    <img className="w-full my-auto" src={item.img} alt="" />
+                                                <div className="w-24 flex flex-col">
+                                                    <img className="w-full my-auto" src={item.img} alt="" style={{aspectRatio: '1'}} />
                                                 </div>
                                                 <div className="flex-1 ml-5">
                                                     <div>Intraline's</div>

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -28,6 +28,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
   const [subescribeEmail, setSubscribeEmail] = useState('')
   const [enableSubscribeModal, setEnableSubscribeModal] = useState(false)
+  const [logined, setLogined] = useState(false)
   const rootClassName = cn(s.root, className)
 
   let infraline_link_li = [
@@ -45,6 +46,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
     {title: 'My Orders', link: '/account/myaccount'},
     {title: 'My Reviews', link: '/account/myaccount'},
   ]
+
+  useEffect(() => {
+    if (getCookie('jwt', '') != null) {
+        setLogined(true)
+    }
+  }, [])
 
   const subscribeHandle = (bool_var: boolean) => {
     if (subescribeEmail) {
@@ -176,7 +183,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   </Link>
                   {account_link_li.map((item, index) => {
                     return <div className="mb-1" key={`account_link_${index}`}>
-                              {item.title === "Register/Login" && 
+                              {item.title === "Register/Login" && logined &&
+                                <Link href="/account/myaccount">
+                                  <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                                </Link>
+                              }
+                              {item.title === "Register/Login" && !logined &&
                                 <Link href={item.link}>
                                   <a className=" text-white text-sm leading-14_26" >{item.title}</a>
                                 </Link>

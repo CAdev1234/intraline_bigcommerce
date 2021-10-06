@@ -105,13 +105,17 @@ export default function SkinCare() {
         {title: "Restorative Moisturizer", price: 30, amount: 1, img: "/assets/img/skincare1.png", link: "/shop/skincare/moisturizer", detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration."},
         {title: "Biocellulose Masque", price: 30, amount: 1, img: "/assets/img/skincare2.png", link: "/shop/skincare/masque", detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture."},
     ]
+    let skincare_li_another_bg = [
+        {title: "Restorative Moisturizer", price: 30, amount: 1, img: "/assets/img/products/moisturizer.png", link: "/shop/skincare/moisturizer", detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration."},
+        {title: "Biocellulose Masque", price: 30, amount: 1, img: "/assets/img/products/masque.png", link: "/shop/skincare/masque", detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture."},
+    ]
     const [logined, setLogined] = useState(false)
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     }, [])
-    const addToCartByDom = new AddToCartByDom(skincare_li)
+    const addToCartByDom = new AddToCartByDom(skincare_li_another_bg)
     const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
         addToCartByDom.addToBagHandler(event, index)
     }

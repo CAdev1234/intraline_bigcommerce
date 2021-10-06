@@ -148,7 +148,7 @@ export default function Dimension720() {
     }
 
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Dimension 720 PDO', amount: numDimension720, price: 100, img: '/assets/img/thread_detail.png'}))
+        dispatch(addProductToCart({title: 'Dimension 720 PDO', amount: numDimension720, price: 100, img: '/assets/img/products/lifting_dimension720.png'}))
     }
 
     const decreaseNumHandler = () => {

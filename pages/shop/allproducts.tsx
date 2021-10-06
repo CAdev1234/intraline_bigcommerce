@@ -38,7 +38,7 @@ export async function getStaticProps() {
     for (let index = 0; index < 12; index++) {
         items.push({
             title: "M2 Plus",
-            detail: "Lorem ipsum doloris sit estimatum estiumen.",
+            detail: "",
             price: 100,
             amount: 1,
             link: "/shop/dermalfiller/m2plus",

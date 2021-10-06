@@ -123,7 +123,7 @@ export default function NoseThread() {
     }
 
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Dimension Nose PDO', amount: numNoseThread, price: 100, img: '/assets/img/thread_detail.png'}))
+        dispatch(addProductToCart({title: 'Dimension Nose PDO', amount: numNoseThread, price: 100, img: '/assets/img/products/lifting_nose.png'}))
     }
     const decreaseNumHandler = () => {
         if (numNoseThread > 1) {

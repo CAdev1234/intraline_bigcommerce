@@ -52,8 +52,8 @@ export default function ShoppingBag() {
                     <div className="mt-7">
                         {cart_product_li.map((item, index) => {
                             return <div className="flex items-center mb-5" key={`bag_item_${index}`}>
-                                        <div className="w-24 h-32 px-7 py-5 bg-c_F5DBDD flex flex-col">
-                                            <img className="w-full my-auto" src={item.img} alt="" />
+                                        <div className="w-24 flex flex-col">
+                                            <img className="w-full my-auto" src={item.img} alt="" style={{aspectRatio: '1'}}/>
                                         </div>
                                         <div className="ml-5 text-sm leading-14_26 w-1/3">
                                             <div className="">Intraline's</div>

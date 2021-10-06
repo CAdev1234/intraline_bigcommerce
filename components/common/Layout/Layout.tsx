@@ -124,6 +124,14 @@ const Layout: FC<Props> = ({
     return window.removeEventListener('scroll', scrollHandler)
   })
 
+  const scrollToUpHandler = () => {
+    window.scrollTo(
+      {
+        top: 0,
+        behavior: 'smooth'
+      }
+    )
+  }
   return (
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
@@ -147,7 +155,7 @@ const Layout: FC<Props> = ({
         />
       </div>
       {enableScrollUpBtn && 
-        <Button className="fixed bottom-10 right-10 h-20 w-20 animate-bounce z-20" variant="scrollup" onClick={() => {window.scrollTo(0, 0)}}>
+        <Button className="fixed bottom-10 right-10 h-20 w-20 animate-bounce z-20" variant="scrollup" onClick={() => {scrollToUpHandler()}}>
           <ChevronUp />
         </Button>
       }

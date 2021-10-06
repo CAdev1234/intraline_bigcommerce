@@ -56,9 +56,9 @@ export default function M4Plus() {
         },
     ]
     let mseries_li = [
-        {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m2plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
-        {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m3plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
-        {title: "M4 Plus", price: 100, amount: 1, img: "/assets/img/product1.png", link: "/shop/dermalfiller/m4plus", detail: "Lorem ipsum doloris sit estimatum estiumen."},
+        {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/products/m2plus.png", link: "/shop/dermalfiller/m2plus", detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love."},
+        {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/products/m3plus.png", link: "/shop/dermalfiller/m3plus", detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact."},
+        {title: "M4 Plus", price: 100, amount: 1, img: "/assets/img/products/m4plus.png", link: "/shop/dermalfiller/m4plus", detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave."},
     ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
@@ -66,7 +66,7 @@ export default function M4Plus() {
     
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'M4 Plus', amount: numM4Plus, price: 100, img: '/assets/img/m2plus.png'}))
+        dispatch(addProductToCart({title: 'M4 Plus', amount: numM4Plus, price: 100, img: '/assets/img/products/m4plus.png'}))
     }
     const decreaseNumHandler = () => {
         if (numM4Plus > 1) {
@@ -125,14 +125,14 @@ export default function M4Plus() {
 
     const RenderMseries = () => {
         return mseries_li.map((item, index) => {
-            return <div className="flex flex-col pt-5 pb-12 bg-white relative hover:bg-opacity-50" 
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
                         key={`mseires_${index}`}>
                         {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">${item.price}</Button>}
                         <div className="flex">
-                            <img className="mix_blend_multi mx-auto " src={item.img} alt="" />
+                            <img className="w-full mx-auto " src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 text-sm leading-14_26 text-center">{item.detail}</div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
+                        <div className="mt-2 px-3 text-sm leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
