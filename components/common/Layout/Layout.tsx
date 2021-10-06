@@ -155,7 +155,7 @@ const Layout: FC<Props> = ({
         />
       </div>
       {enableScrollUpBtn && 
-        <Button className="fixed bottom-10 right-10 h-20 w-20 animate-bounce z-20" variant="scrollup" onClick={() => {scrollToUpHandler()}}>
+        <Button className="fixed bottom-10 right-10 h-20 w-20 z-20" variant="scrollup" onClick={() => {scrollToUpHandler()}}>
           <ChevronUp />
         </Button>
       }

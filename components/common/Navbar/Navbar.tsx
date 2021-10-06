@@ -103,7 +103,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   }
 
   const toMyAccountHandler =() => {
+    console.log("ddddddd")
     if (getCookie('user', '') === undefined) {
+      console.log(getCookie('user', ''))
         router.push("/account/register")
         return
     }else {
@@ -121,51 +123,53 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     <NavbarRoot c_name={c_name || ''}>
       <Container>
         <div className="">
-          <div className="flex">
+          <div className="flex relative">
             <Link href="/">
               <a className={s.logo} aria-label="Logo">
                 <Logo />
               </a>
             </Link>
-            <div className="items-center ml-auto ttcommon_font font-normal
-                            hidden md:flex xl:flex 2xl:flex">
-              <div className={s.nav_item}>
-                <div className={s.link}>SHOP</div>
-                {/* shop menu */}
-                <div className={s.submenu}>
-                  <div className="flex justify-between flex-wrap w-full
-                                  px-10 lg:px-32 xl:px-56 2xl:px-56">
-                    {renderSubMenu(shop_category_li as any)}
+            <div className="absolute top-0 left-0 h-full flex w-full">
+              <div className="h-full items-center mx-auto ttcommon_font font-normal
+                              hidden md:flex xl:flex 2xl:flex">
+                <div className={s.nav_item}>
+                  <div className={s.link}>SHOP</div>
+                  {/* shop menu */}
+                  <div className={s.submenu}>
+                    <div className="flex justify-between flex-wrap w-full
+                                    px-10 lg:px-32 xl:px-56 2xl:px-56">
+                      {renderSubMenu(shop_category_li as any)}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <Link href="/aboutus">
-                <a className={s.link}>ABOUT US</a>
-              </Link>
-              <Link href="/treatments">
-                <a className={s.link}>TREATMENTS</a>
-              </Link>
-              <div className={s.nav_item}>
-                <div className={s.link}>INDUSTRY</div>
-                {/* shop menu */}
-                <div className={s.submenu}>
-                  <div className="flex justify-between flex-wrap w-full
-                                  px-10 lg:px-32 xl:px-56 2xl:px-56">
-                    {renderSubMenu(industry_category_li as any)}
+                <Link href="/aboutus">
+                  <a className={s.link}>ABOUT US</a>
+                </Link>
+                <Link href="/treatments">
+                  <a className={s.link}>TREATMENTS</a>
+                </Link>
+                <div className={s.nav_item}>
+                  <div className={s.link}>INDUSTRY</div>
+                  {/* shop menu */}
+                  <div className={s.submenu}>
+                    <div className="flex justify-between flex-wrap w-full
+                                    px-10 lg:px-32 xl:px-56 2xl:px-56">
+                      {renderSubMenu(industry_category_li as any)}
+                    </div>
                   </div>
                 </div>
+                <Link href="/contact">
+                  <a className={s.link}>CONTACT</a>
+                </Link>
               </div>
-              <Link href="/contact">
-                <a className={s.link}>CONTACT</a>
-              </Link>
             </div>
-            <div className="items-center
-                            ml-0 lg:ml-20 xl:ml-44 2xl:ml-32
+            
+            <div className="items-center ml-auto relative z-40
                             hidden md:flex lg:flex xl:flex 2xl:flex">
               <div className="flex relative">
                 <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={s.svg} /></button>
                 {enableSearchBar && 
-                  <div className="fixed top-15 left-0 w-screen bg-black bg-opacity-50" style={{height: 'calc(100vh - 60px)'}}>
+                  <div className="fixed top-15 left-0 w-full bg-black bg-opacity-50" style={{height: 'calc(100vh - 60px)'}}>
                     <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
                       <div className="mx-15 flex items-center my-auto">
                         <input 
@@ -205,7 +209,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 </div>
               }
             </div>
-            <div className="ml-auto w-12 text-white
+            <div className="absolute left-0 top-0 h-full w-12 text-white
                             flex md:hidden lg:hidden xl:hidden 2xl:hidden"
                 onClick={showMobileMenu}>
               <HamburgerMenu/>
@@ -227,8 +231,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
       </Container>
       {enableSideCart && <SideCart />}
       {enableMobileMenu && 
-        <div className="fixed top-0 left-0 w-screen h-screen">
-          <div className="bg-black bg-opacity-70 w-screen h-screen absolute top-0 left-0 pt-12 px-5">
+        <div className="fixed top-0 left-0 w-full h-screen">
+          <div className="bg-black bg-opacity-70 w-full h-screen absolute top-0 left-0 pt-12 px-5">
             <div className="relative">
               <div className="ttcommon_font font-normal">
                 <div className={s.nav_item}>

@@ -1,0 +1,46 @@
+/*style root to give some space*/
+.root {
+    @apply relative flex items-center;
+}
+
+/*style label to give some more space*/
+.root label {
+    @apply block pl-5;
+}
+
+/*style and hide original checkbox*/
+.root input {
+    @apply absolute left-0 top-0 opacity-0;
+    height: 14px;
+    width: 14px;
+}
+
+/*position new box*/
+.root input + label::before {
+    @apply border border-solid absolute left-0 top-0 bg-white;
+    content: "";
+    height: 14px;
+    width: 14px;
+}
+
+/*svg background styles*/
+.root input + label::after {
+    @apply absolute top-0.5 left-0.5 bg-no-repeat opacity-0;
+    content: "";
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check.svg");
+    height: 10px;
+    width: 15px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/*reveal check for 'on' state*/
+.root input:checked + label::after {
+  @apply opacity-100;
+}
+
+/*focus styles*/
+/* .root input:focus + label::before {
+  box-shadow: 0 0 0 3px #ffbf47;	
+    outline: 3px solid transparent;
+
+} */

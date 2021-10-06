@@ -22,6 +22,7 @@ import Link from '@components/ui/Link'
 import {AddToCartByDom} from 'utils/addToCartByDom'
 
 import {useAppSelector} from 'utils/redux/hooks'
+import router from 'next/router'
 
 type ProductType = {
     title: string,
@@ -104,6 +105,10 @@ export default function AllProducts() {
         addToCartByDom.addToBagHandler(event, index)
     }
 
+    const loginToPurchaseHandler = () => {
+        router.push('/account/login')
+    }
+
     const renderProducts = () => {
         return all_product_li.map((item, index) => {
             return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
@@ -129,6 +134,11 @@ export default function AllProducts() {
                                         </div>
                                         <Button className="ml-3 h-full flex-1 text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>}
+                                    {!logined && 
+                                        <div className="mt-2 flex items-center h-11 text-white">
+                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

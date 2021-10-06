@@ -9,6 +9,7 @@ import { getCookie } from '@utils/cookie'
 
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
+import Checkbox from '@components/mycp/Checkbox'
 
 
 export default function Moisturizer() {
@@ -174,11 +175,8 @@ export default function Moisturizer() {
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
-                        <div className="mt-5 flex items-center">
-                            <div className="flex">
-                                <input type="checkbox" name="" id="moisturizer_check" className="w-3_5 h-3_5"/>
-                            </div>
-                            <label htmlFor="moisturizer_check" className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</label>
+                        <div className="mt-5">
+                            <Checkbox id="moisturizer_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

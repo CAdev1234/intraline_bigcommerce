@@ -9,6 +9,7 @@ import {Button, Input, TestimonialCp} from '@components/mycp'
 import { ChevronDown, ChevronRight, Plus } from '@components/icons'
 import Link from '@components/ui/Link'
 import SelectInput from '@components/mycp/SelectInput'
+import Checkbox from '@components/mycp/Checkbox'
 
 const renderPDOThreadSwiper = () => {
     let pdothread_li = [
@@ -16,13 +17,13 @@ const renderPDOThreadSwiper = () => {
         {title: 'Rejuvenation Threads', img: '/assets/img/lifting_thread_1.png'}
     ]
     let render_ele = pdothread_li.map((item, index) => {
-        return <div className="keen-slider__slide relative" key={`pdo_thread_${index}`}>
+        return <div className="keen-slider__slide relative group" key={`pdo_thread_${index}`}>
                     <div className="my-auto">
                         <img src={item.img} alt="" />
                         <div className="uppercase text-2xl text-center font-semibold">{item.title}</div>
                     </div>
 
-                    <div className="absolute top-0 left-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
                         <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
                             <Plus />
                         </button>
@@ -234,11 +235,8 @@ export default function PDOThread() {
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
-                        <div className="mt-5 flex items-center">
-                            <div className="flex">
-                                <input type="checkbox" name="" id="checkbox_infra" className="w-3_5 h-3_5"/>
-                            </div>
-                            <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="checkbox_infra">I agree to receive other communications from Intraline.</label>
+                        <div className="mt-5">
+                            <Checkbox id="pdo_thread_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="ttcommon_font_thin text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

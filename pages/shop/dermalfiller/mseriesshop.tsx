@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import { getCookie } from "@utils/cookie";
 import { AddToCartByDom } from "@utils/addToCartByDom";
+import router from "next/router";
 
 export default function MseriesShop() {
     let items = [
@@ -32,6 +33,9 @@ export default function MseriesShop() {
         addToCartByDom.increaseNumHandler(event, true, -1)
     }
 
+    const loginToPurchaseHandler = () => {
+        router.push('/account/login')
+    }
     const RenderMseries = () => {
         
         return items.map((item, index) => {
@@ -57,6 +61,11 @@ export default function MseriesShop() {
                                         </div>
                                         <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>}
+                                    {!logined && 
+                                        <div className="mt-2 flex items-center h-11 text-white">
+                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

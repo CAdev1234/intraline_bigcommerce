@@ -18,6 +18,7 @@ import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import TriangleRight from '@components/icons/TriangleRight'
 import Link from '@components/ui/Link'
+import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 
 
 const RenderFAQCollapse = () => {
@@ -231,14 +232,7 @@ export default function ScarKit() {
                 <div className="mx-172 my-30 flex flex-col">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">How the GTI Cannula works.</div>
                     <div className="mt-5 w-full">
-                        {/* <img className="w-full" src="/assets/img/scarkit-works.png" alt="" /> */}
-                        <ReactPlayer 
-                            url="https://www.youtube.com/watch?v=nnexOCQOa0w"
-                            width="100%"
-                            height="800px"
-                            // light
-                            // playIcon={play_icon()} 
-                        />
+                        <ResponsivePlayer url="https://www.youtube.com/watch?v=nnexOCQOa0w"/>
                     </div>
                 </div>
             </div>

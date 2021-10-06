@@ -12,6 +12,7 @@ import { ChevronRight } from '@components/icons'
 import SelectInput from '@components/mycp/SelectInput'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
+import Checkbox from '@components/mycp/Checkbox'
 
 const RenderRejuvenationSwiper = () => {
     const [logined, setLogined] = useState(false)
@@ -245,11 +246,8 @@ export default function Rejuvenation() {
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
-                        <div className="mt-5 flex items-center">
-                            <div className="flex">
-                                <input type="checkbox" name="" id="agree-checkbox" className="w-3_5 h-3_5"/>
-                            </div>
-                            <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="agree-checkbox">I agree to receive other communications from Intraline.</label>
+                        <div className="mt-5">
+                            <Checkbox id="reju_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="ttcommon_font_thin text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

@@ -10,6 +10,7 @@ import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
 import { getCookie } from '@utils/cookie'
+import { Button } from '@components/mycp'
 
 interface Props {
   className?: string
@@ -211,7 +212,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                       className="h-full w-full border-none bg-white pl-5 py-2" 
                       placeholder="Your email address"
                       onChange={(event) => {setSubscribeEmail(event.target.value)}}/>
-                    <button className="w-36 h-full uppercase text-white bg-c_52B5D3" onClick={() => {subscribeHandle(true)}}>submit</button>
+                    <Button className="w-36 h-full text-white" variant="primary" onClick={() => {subscribeHandle(true)}}>submit</Button>
                   </div>
                   
                   <div className="flex items-center cursor-pointer
@@ -298,7 +299,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
 
       {/* subscribe success modal */}
       {enableSubscribeModal &&
-        <div className="fixed top-0 left-0 w-screen h-screen flex flex-col z-40 bg-black bg-opacity-50">
+        <div className="fixed top-0 left-0 w-full h-screen flex flex-col z-40 bg-black bg-opacity-50">
           <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
             <div className="flex justify-between border-b border-gray-100 px-5 py-4">
               <div>

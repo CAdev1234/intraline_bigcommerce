@@ -4,7 +4,7 @@ import { Layout } from '@components/common'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
-import { ChevronDown, ChevronRight } from '@components/icons'
+import { ChevronDown, ChevronRight, Plus } from '@components/icons'
 import Link from '@components/ui/Link'
 
 import { getCookie } from 'utils/cookie'
@@ -85,7 +85,7 @@ export default function MSeries() {
             {title: "M4 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
-            return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
+            return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
                         <div className="my-auto">
                             <Link href={item.link}>
                                 <div className="flex flex-col">
@@ -97,6 +97,11 @@ export default function MSeries() {
                         {logined && <div className="absolute top-8 right-15">
                             <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
                         </div>}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
+                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
+                                <Plus />
+                            </button>
+                        </div>
                     </div>
         })
         return <KeenSliderB 
@@ -110,10 +115,12 @@ export default function MSeries() {
 
     return(
         <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="absolute top-0 left-0 w-full h-225 flex">
+            <div className="absolute top-0 left-0 w-full h-225 flex overflow-hidden">
                 <div className="h-full
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>
-                <div className="flex-1 h-full bg-c_CCE7EF rounded-l-full"></div>
+                <div className="relative flex-1 h-full">
+                    <div className="absolute left-0 rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128}}></div>
+                </div>
             </div>
             <div className="w-full h-15 bg-transparent"></div>
             <div className="relative bg-white bg-opacity-0 w-full flex flex-col

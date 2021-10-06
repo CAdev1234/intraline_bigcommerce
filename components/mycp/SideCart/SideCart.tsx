@@ -33,7 +33,7 @@ const SideCart: FC<SideCartProps> = () => {
     }
     return (
         <div>
-            <div className="fixed top-0 left-0 w-screen h-screen bg-c_00080D bg-opacity-40 z-20"></div>
+            <div className="fixed top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40 z-20"></div>
             <div className="ttcommon_font_thin flex flex-col bg-white w-96 fixed right-0 max-h-screen z-20" style={{height: 'calc(100% - 60px)', boxShadow: '0px -10px 40px rgba(0, 0, 0, 0.05)'}}>
                 <div className="relative h-full flex flex-col py-12">
                     <div className="px-7 flex flex-col flex-1 h-0">

@@ -16,6 +16,10 @@ import { Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
 import ReactPlayer from 'react-player'
 import TriangleRight from '@components/icons/TriangleRight'
+import Checkbox from '@components/mycp/Checkbox'
+import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
+
+// import 'pretty-checkbox/src/pretty-checkbox.scss';
 
 
 
@@ -54,14 +58,7 @@ export default function AboutUs() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="relative w-full flex flex-col mt-15">
-                {/* <img className="w-full" src="/assets/img/aboutus_banner.png" alt="" /> */}
-                <ReactPlayer 
-                    url="https://www.youtube.com/watch?v=rW_3OCbQEHg"
-                    width="100%"
-                    height="800px"
-                    // light
-                    // playIcon={play_icon()} 
-                />
+                <ResponsivePlayer url="https://www.youtube.com/watch?v=rW_3OCbQEHg"/>
             </div>
 
             {/* Confidence is Ageless. */}
@@ -128,9 +125,10 @@ export default function AboutUs() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" defaultChecked/>
+                                {/* <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" defaultChecked/> */}
+                                <Checkbox id="aboutus_checkbox" className="ttcommon_font_thin text-10px" type="checkbox" label="I agree to receive other communications from Intraline."/>
                             </div>
-                            <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label>
+                            {/* <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label> */}
                         </div>
                         <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

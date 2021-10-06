@@ -4,7 +4,7 @@ import { Layout } from '@components/common'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
-import { ChevronDown, ChevronRight } from '@components/icons'
+import { ChevronDown, ChevronRight, Plus } from '@components/icons'
 import Link from '@components/ui/Link'
 
 import { getCookie } from 'utils/cookie'
@@ -83,7 +83,7 @@ export default function Essentials() {
             {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.png', link: '/shop/dermalfiller/m2plus'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
-            return <div className="keen-slider__slide flex flex-col relative" key={`mseries_${index}`}>
+            return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
                         <div className="my-auto">
                             <Link href={item.link}>
                                 <div className="flex flex-col bg-c_CCE7EF">
@@ -95,6 +95,11 @@ export default function Essentials() {
                         {logined && <div className="absolute top-8 right-15">
                             <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}.00</Button>
                         </div>}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 grpup-hover:opacity-100">
+                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
+                                <Plus />
+                            </button>
+                        </div>
                     </div>
         })
         return <KeenSliderB 
@@ -214,7 +219,7 @@ export default function Essentials() {
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline Essential Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/mseriesshop">
-                            <Button className="mx-auto h-11 w-64 text-sm">Shop now the essential series</Button>
+                            <Button className="mx-auto h-11 w-72 text-sm">Shop now the essential series</Button>
                         </Link>
                     </div>
                 </div>

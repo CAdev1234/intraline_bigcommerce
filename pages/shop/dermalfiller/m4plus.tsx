@@ -21,6 +21,7 @@ import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
 import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
+import router from 'next/router'
 
 
 
@@ -78,6 +79,11 @@ export default function M4Plus() {
     const increaseNumHandler = () => {
         setNumM4Plus(numM4Plus + 1)
     }
+
+    const loginToPurchaseHandler = () => {
+        router.push('/account/login')
+    }
+
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
@@ -148,6 +154,12 @@ export default function M4Plus() {
                                         </div>
                                         <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => {addToBagMseriesHandler(event, index)}}>Add to bag</Button>
                                     </div>}
+
+                                    {!logined && 
+                                        <div className="mt-2 flex items-center h-11 text-white">
+                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

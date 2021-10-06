@@ -28,6 +28,8 @@ import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slic
 import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
 import TriangleRight from '@components/icons/TriangleRight'
 import { AddToCartByDom } from '@utils/addToCartByDom'
+import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
+import router from 'next/router'
 
 
 export async function getStaticProps({
@@ -303,6 +305,10 @@ export default function Home({
     addToCartByDom.increaseNumHandler(event, true, -1)
   }
 
+  const loginToPurchaseHandler = () => {
+    router.push('/account/login')
+  }
+
   const RenderProductSwiper:FC = () => {
     let render_ele = featured_product_li.map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative h-118" key={`m_${index}_product`}>
@@ -324,6 +330,11 @@ export default function Home({
                                 </div>
                                 <Button className="ml-3 h-full w-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
                             </div>}
+                            {!logined && 
+                              <div className="mt-2 flex items-center h-11 text-white">
+                                <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                              </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -380,13 +391,7 @@ export default function Home({
 
       {/* <img className="w-full" src="/assets/img/home-part1-bg.png"></img> */}
       <div className="w-full mt-15">
-        <ReactPlayer 
-          url="https://www.youtube.com/watch?v=giRyQtkecqA"
-          width="100vw"
-          height="800px"
-          // light
-          // playIcon={play_icon()} 
-          />
+        <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
       </div>
       <div className="relative z-10 text-white font-bold flex
                       -mt-20 md:-mt-32

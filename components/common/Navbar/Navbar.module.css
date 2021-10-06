@@ -29,8 +29,8 @@
   @apply block;
 }
 .svg {
-  @apply mx-4 cursor-pointer
+  @apply mx-4 cursor-pointer;
 }
 .logo {
-  @apply cursor-pointer;
+  @apply cursor-pointer z-40;
 }
