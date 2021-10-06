@@ -1,8 +1,10 @@
 import { Layout } from "@components/common"
-import { ChevronRight } from "@components/icons"
+import { ChevronRight, Cross } from "@components/icons"
 import Link from "@components/ui/Link"
 import {Button, SelectInput, Input} from '@components/mycp'
 import React, { useEffect, useState } from "react"
+
+import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +13,14 @@ import Checkbox from "@components/mycp/Checkbox"
 export default function ContactUs() {
     const [contact_info, setContactInfo] = useState({full_name: '', email: '', mobile: '', help_type: '', msg: ''})
     const [enableSubmit, setEnableSubmit] = useState(false)
+    const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
+
+    const { loaded, error, formCreated } = useHubspotForm({
+        portalId: '2718899',
+        formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
+        target: '#my-hubspot-form'
+    });
+
     const setFullNameHandler = (str: string) => {
         setContactInfo({...contact_info, full_name: str})
     } 
@@ -33,12 +43,19 @@ export default function ContactUs() {
 
     const submitHandler = () => {
         if (contact_info.full_name && contact_info.email && contact_info.mobile) {
-            toast.success("Submit Success.", {
-                position: toast.POSITION.BOTTOM_RIGHT
-            });
+            setEnableContactHubspotForm(true);
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
+            // toast.success("Submit Success.", {
+            //     position: toast.POSITION.BOTTOM_RIGHT
+            // });
         }else {
             return
         }
+    }
+
+    const closeHubspotModal = () => {
+        setEnableContactHubspotForm(false);
+        (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
     }
 
     useEffect(() => {
@@ -61,6 +78,7 @@ export default function ContactUs() {
                 pauseOnHover
                 className="toast-container"
             />
+            {/* <div id="my-hubspot-form"></div> */}
             <div className="flex items-start mb-25">
                 <div className="w-154_5 pl-15 pt-28">
                     <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
@@ -70,6 +88,7 @@ export default function ContactUs() {
                             <span className="ttcommon_font_bold ml-1"><Link href="/contact">Contact</Link></span>
                         </div>
                     </div>
+                    
                     <div className="mt-10 max-w-106_5">
                         <div className="ttcommon_font_bold text-4xl leading-36_26">Contact Intraline.</div>
                         <div className="mt-5">We are here to help-reach out with any questions.</div>
@@ -178,6 +197,29 @@ export default function ContactUs() {
                     </div>
                 </div>
             </div>
+            
+            {/* <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col py-7_5 px-5">
+                    <div className=" w-146 h-131_5 bg-white my-auto mx-auto">
+                        <div id="my-hubspot-form"></div>
+                    </div>
+                    
+                </div> */}
+
+                <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
+                    <div className="relative w-146 pl-5 pr-2 py-7_5 bg-white my-auto mx-auto flex flex-col" style={{height: '80vh'}}>
+                        <div className="tt_common_font_bold text-4xl text-center">Hubspot Form</div>
+                        <div className="flex-1 h-0 mt-3">
+                            <div className="h-full overflow-y-auto pr-2">
+                                <div id="my-hubspot-form"></div>
+                            </div>
+                        </div>
+                        <div className="absolute top-2 right-2 cursor-pointer" onClick={() => {closeHubspotModal()}}>
+                            <Cross />
+                        </div>
+                    </div>
+
+                    
+                </div>
         </div>
     )
 }

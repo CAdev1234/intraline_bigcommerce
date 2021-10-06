@@ -197,7 +197,7 @@ export default function M2Plus() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
                                 <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>

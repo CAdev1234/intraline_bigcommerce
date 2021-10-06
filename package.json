@@ -20,6 +20,7 @@
     "node": ">=14.x"
   },
   "dependencies": {
+    "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@react-spring/parallax": "^9.2.5",
     "@react-spring/web": "^9.2.1",
     "@reduxjs/toolkit": "^1.6.1",
