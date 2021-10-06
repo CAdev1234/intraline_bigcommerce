@@ -1,5 +1,5 @@
 .root {
-    @apply ttcommon_font flex justify-center items-center transition ease-in-out duration-150 uppercase border border-transparent tracking-widest;
+    @apply flex justify-center items-center transition ease-in-out duration-150 uppercase border border-transparent tracking-widest;
 }
 
 /* .root:hover {
