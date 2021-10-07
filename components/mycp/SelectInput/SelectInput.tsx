@@ -3,12 +3,12 @@ import TriangleUp from "@components/icons/TriangleUp";
 import { FC, useState } from "react";
 
 interface SelectInputProps {
-    default_option: string,
-    option_li: Array<string>,
-    className: string,
-    option_class: string,
-    enable_underline: boolean,
-    returnVal: any
+    default_option?: string,
+    option_li?: Array<string>,
+    className?: string,
+    option_class?: string,
+    enable_underline?: boolean,
+    returnVal?: any
 }
 
 const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class, default_option, enable_underline, returnVal}) => {

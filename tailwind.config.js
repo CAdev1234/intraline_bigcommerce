@@ -3,6 +3,10 @@ module.exports = {
     purgeLayersByDefault: true,
     applyComplexClasses: true,
   },
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    // ...
+  ],
   purge: {
     content: [
       './pages/**/*.{js,ts,jsx,tsx}',
@@ -98,6 +102,7 @@ module.exports = {
         '22_5': '90px',
         '25': '100px',
         '30': '120px',
+        '31': '124',
         '172': '172px'
       },
       padding: {
@@ -141,15 +146,21 @@ module.exports = {
         '21_5': '86px',
         '22_5': '90px',
         '25': '100px',
+        '74': '296px',
         '100': '400px',
+        '103': '412px',
+        '117': '468px',
         '118': '472px',
         '120_5': '482px',
         '122': '488px',
         '131_5': '526px',
         '150': '600px',
+        '160': '640px',
         '175': '700px',
         '210': '840px',
-        '225': '900px'
+        '225': '900px',
+
+        '150vw': '150vw',
       },
       minHeight: {
         '15': '60px'

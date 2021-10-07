@@ -41,8 +41,8 @@ const ArrowRight:FC<ArrowProps> = ({disabled, onClick}) => {
     )
 }
 interface KeenSliderProps{
-    render_ele: JSX.Element[],
-    navCss: string,
+    render_ele?: JSX.Element[],
+    navCss?: string,
     slidesPerView: Array<number>
 }
 const KeenSliderA: FC<KeenSliderProps> = ({render_ele, slidesPerView, navCss}) => {

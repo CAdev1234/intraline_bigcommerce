@@ -39,9 +39,10 @@ export default function Register() {
         else setDisabledSubmitBtn(false)
     }, [disabledSubmitBtn, numValiSpan, email, f_name, l_name, mobile, password, c_password])
     return (
-        <div>
+        <div className="mt-16 md:mt-0">
             <div className="bg-transparent h-15 w-full"></div>
-            <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
+            <div className="bg-c_CCE7EF flex flex-col ttcommon_font
+                            px-5 md:px-0">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">

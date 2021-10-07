@@ -94,14 +94,14 @@ export default function DemeralFiller() {
         },
     ]
     return(
-        <div className="ttcommon_font text-c_00080D">
+        <div className="ttcommon_font text-c_00080D
+                        mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
-                             h-150 lg:h-210 xl:h-210 2xl:h-210
+                            h-160 sm:h-160 md:h-150 lg:h-175 xl:h-210 2xl:h-210
                              px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="flex items-center">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
@@ -109,36 +109,39 @@ export default function DemeralFiller() {
                         <span className="ttcommon_font_bold ml-1">Dermal fillers</span>
                     </div>
                 </div>
-                <div className="mt-28 w-full items-end
+                <div className="w-full items-end
+                                mt-16 sm:mt-10 md:mt-15 lg:mt-28
                                 block sm:flex md:flex lg:flex xl:flex 2xl:flex">
                     <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
                         <div className="ttcommon_font_thin font-semibold leading-200_160
-                                        text-200px">Dermal</div>
+                                        text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">Dermal</div>
                         <div className="ttcommon_font_bold leading-200_160
-                                        text-200px" >Fillers</div>
+                                        text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >Fillers</div>
                     </div>
-                    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2
+                    <div className="flex-1
                                     leading-36_48 ttcommon_font_thin
-                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
+                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
                                     mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0
                                     " style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
                     </div>
                 </div>
-                <div className="absolute top-0 right-0 h-full">
+                <div className="absolute top-0 right-0 h-full
+                                hidden sm:block">
                     <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.png" alt="" />
                 </div>
             </div>
 
             <div className="bg-white w-full relative
-                                h-175 sm:h-225 md:h-96 lg:h-96 xl:h-122 2xl:h-122">
+                            h-150vw sm:h-225 md:h-60 lg:h-96 xl:h-122 2xl:h-122">
                 <div className="w-full grid gap-6 absolute z-10
                                 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
-                                -top-44 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
+                                 -top-50 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <div className="">
-                        <div className="leading-36_48 ttcommon_font_bold text-c_00080D
-                                        text-3xl xl:text-4xl 2xl:text-4xl">The Essential Series.</div>
+                        <div className="ttcommon_font_bold text-c_00080D
+                                        text-3xl xl:text-4xl 2xl:text-4xl
+                                        leading-none sm:leading-36_48">The Essential Series.</div>
                         <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
                             <img className="max-h-96" src="/assets/img/essential_series.jpg" alt="" />
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
@@ -151,8 +154,9 @@ export default function DemeralFiller() {
                                 </div>
                             </div>
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
-                                        text-2xl xl:text-4xl 2xl:text-4xl">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
+                        <div className="ttcommon_font_thin mt-7_5 text-c_00080D
+                                        text-2xl xl:text-4xl 2xl:text-4xl
+                                        leading-8 sm:leading-36_48">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
                     </div>
                     <div className="">
                         <div className="leading-36_48 ttcommon_font_bold text-c_00080D

@@ -45,19 +45,24 @@ export default function FAQ() {
         return <FAQCp faq_li={items}/>
     }
     return (
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+                        mt-16 sm:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="bg-c_C3E0DC">
-                <div className="mt-12_5 px-15 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest
+                                px-5 sm:px-15">
+                    <div className="flex items-center">
                         <span className="ttcommon_font">Home</span>
                         <span className="ml-1 ttcommon_font"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold ml-1">FAQ</span>
                     </div>
                 </div>
-                <div className="mx-172 mt-12_5 mb-25">
-                    <div className="ttcommon_font_bold text-4xl leading-36_26">Frequently Asked Questions.</div>
+                <div className="mt-12_5 mb-25
+                                mx-5 sm:mx-15 md:mx-172">
+                    <div className="ttcommon_font_bold text-4xl leading-36_26
+                                    hidden sm:block">Frequently Asked Questions.</div>
+                    <div className="ttcommon_font_bold text-4xl leading-36_26
+                                    block sm:hidden">FAQs.</div>
                     {RenderFAQCollapse()}
                 </div>
             </div>

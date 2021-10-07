@@ -71,14 +71,20 @@ const RenderCategorySwiper:FC = () => {
       { name: 'Skincare', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/7-12.jpg?width=400&name=7-12.jpg", link: "/shop/skincare" },
       { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
   ].map((item, index) => {
-      return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
-                  <div className="flex flex-col bg-white pt-5 px-5 pb-12" style={{ height: 472 }}>
+      return <div className="keen-slider__slide relative" key={`category_${index}`}>
+                  <div className="flex flex-col bg-white
+                                  h-74 md:h-118
+                                  pt-2.5 md:pt-5
+                                  px-2.5 md:px-5
+                                  pb-5 md:pb-12">
                       <div className="flex-1 h-0">
                           <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                       </div>
-                      <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
+                      <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
+                                       text-sm md:text-2xl
+                                       leading-14_17 md:leading-none">{item.name}</div>
                   </div>
-                  <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                  <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                       <div className="my-auto flex flex-col">
                           <Link href={item.link}>
                               <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
@@ -87,7 +93,7 @@ const RenderCategorySwiper:FC = () => {
                   </div>
               </div>
   })
-  return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+  return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,2.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 
@@ -165,8 +171,6 @@ const RenderProfileSwiper = () => {
     }
   })
 
-
-
   let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
     return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
@@ -181,7 +185,7 @@ const RenderProfileSwiper = () => {
   
   return <div className="relative 
                         mx-5 md:mx-15 lg:mx-172 xl:mx-172">
-            <div className="mx-auto mt-10 w-96">
+            <div className="mx-auto mt-10 w-full" style={{maxWidth: 384}}>
               <div className="relative">
                 <div ref={profile_img_ref} className="keen-slider flex items-center">
                   {render_img_ele}
@@ -311,13 +315,19 @@ export default function Home({
 
   const RenderProductSwiper:FC = () => {
     let render_ele = featured_product_li.map((item, index) => {
-      return <div className="keen-slider__slide flex flex-col pt-5 pb-12 bg-white relative h-118" key={`m_${index}_product`}>
+      return <div className="keen-slider__slide flex flex-col pt-5 bg-white relative
+                             h-74 sm:h-118
+                             pb-5 sm:pb-12" key={`m_${index}_product`}>
                 {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 animate-pulse">${item.price}</div>}
                 <div className="flex-1 h-0">
                     <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
                 </div>
-                <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                <div className="ttcommon_font_bold uppercase text-center text-c_00080D tracking-widest
+                                text-sm sm:text-2xl
+                                leading-14_17 sm:leading-none">{item.title}</div>
+                <div className="mt-2 text-center
+                                text-xs sm:text-sm
+                                leading-normal sm:leading-14_26">Lorem ipsum doloris sit estimatum estiumen.</div>
                 <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                     <div className="my-auto mx-auto w-10/12">
                         <div className="flex flex-col">
@@ -340,11 +350,12 @@ export default function Home({
                 </div>
             </div>
     }) 
-    return <KeenSliderA render_ele = {render_ele} slidesPerView={[1,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
+    return <KeenSliderA render_ele = {render_ele} slidesPerView={[1.5,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
   }
 
   return (
-    <div className="bg-c_CCE7EF ttcommon_font">
+    <div className="bg-c_CCE7EF ttcommon_font
+                    pt-16 md:pt-0">
       {/* <Grid variant="filled">
         {products.slice(0, 3).map((product: any, i: number) => (
           <ProductCard
@@ -393,10 +404,12 @@ export default function Home({
       <div className="w-full mt-15">
         <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
       </div>
-      <div className="relative z-10 text-white font-bold flex
-                      -mt-20 md:-mt-32
+      <div className="relative z-10 flex ttcommon_font_bold
+                      text-c_00080D md:text-white
+                      mt-16 md:-mt-32
                       mx-5 md:mx-15 lg:mx-172">
-        <div className="text-4xl leading-36_26">Our Categories.</div>
+        <div className="text-2xl md:text-4xl 
+                        leading-7 md:leading-36_26">Our Categories.</div>
         <div className="flex items-center ml-auto">
           <div className=""><Link href="/shop/allproducts">Explore All</Link></div>
           <div className="ml-2">
@@ -407,16 +420,22 @@ export default function Home({
 
       {/* our category part */}
       <div className="mt-4 md:mt-10
-                      sm:ml-5 md:ml-15 lg:ml-172">
+                      ml-5 md:ml-15 lg:ml-172">
         <RenderCategorySwiper />
       </div>
 
 
       {/* about us part */}
-      <div className="mt-20 bg-white text-center py-24 relative" style={{ height: 469 + 'px' }}>
+      <div className="mt-20 bg-white text-center py-24 relative
+                      h-103 md:h-117
+                      px-5 md:px-0">
         <div className="flex flex-col h-full">
-          <div className="leading-36_26 text-4xl font-bold my-auto">Intraline is Confidence.</div>
-          <p className="ttcommon_font_thin my-auto text-c_00080D text-4xl leading-36_48 mx-auto max-w-lg">We believe confidence is created in many forms and looks different for everyone. We believe in individuality.</p>
+          <div className="ttcommon_font_bold my-auto
+                          text-2xl md:text-4xl
+                          leading-tight md:leading-36_26">Intraline is Confidence.</div>
+          <p className="ttcommon_font_thin my-auto text-c_00080D mx-auto max-w-lg
+                        text-2xl md:text-4xl
+                        leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <Link href="/aboutus">
             <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
           </Link>
@@ -432,14 +451,17 @@ export default function Home({
       </div>
 
       {/* Feature products part */}
-      <div className="bg-c_C6CBDD py-24">
+      <div className="bg-c_C6CBDD
+                        py-16 sm:py-24">
         <div className="flex items-center
                         mx-5 md:mx-15 lg:mx-172">
-          <div className="leading-36_26 font-bold text-4xl">Featured Products.</div>
+          <div className="ttcommon_font_bold
+                          text-2xl md:text-4xl
+                          leading-tight md:leading-36_26">Featured Products.</div>
           <div className="flex items-center ml-auto">
             <Link href="/shop/allproducts">
               <div className="flex items-center">
-                <div className=" leading-snug font-bold text-lg">See All</div>
+                <div className="ttcommon_font_bold leading-snug text-lg">See All</div>
                 <div className="ml-2">
                   <ChevronRight className="h-4 w-4" />
                 </div>
@@ -447,14 +469,18 @@ export default function Home({
             </Link>
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-5 md:mt-10
+                        pl-5 md:pl-0">
           <RenderProductSwiper />
         </div>
       </div>
 
       {/* Reviews part */}
-      <div className="py-24 bg-white">
-        <div className="leading-36_26 text-c_00080D font-bold text-4xl text-center">Intraline Reviews.</div>
+      <div className="bg-white
+                      py-10 sm:py-24">
+        <div className="text-center ttcommon_font_bold
+                        text-2xl md:text-4xl
+                        leading-tight md:leading-36_26">Intraline Reviews.</div>
         {RenderProfileSwiper()}
         
       </div>
@@ -462,13 +488,16 @@ export default function Home({
       {/* FAQ part */}
       <div className="bg-c_C3E0DC">
         <div className="mx-5 md:mx-15 lg:mx-172
-                        py-24">
+                        py-15 sm:py-24">
           <div className="flex text-c_00080D mb-2">
-            <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
+            <div className="ttcommon_font_bold leading-36_26 text-4xl hidden sm:block">Frequently Asked Questions.</div>
+            <div className="ttcommon_font_bold text-2xl leading-tight block sm:hidden">FAQs.</div>
             <div className="flex items-center ml-auto">
               <Link href="/faq">
                 <div className="flex items-center">
-                  <span className="font-bold text-lg">Read More</span>
+                  <span className="ttcommon_font_bold 
+                                  text-xs sm:text-lg
+                                   leading-loose sm:leading-none">Read More</span>
                   <span className="ml-2">
                     <ChevronRight className="h-4 w-4" />
                   </span>

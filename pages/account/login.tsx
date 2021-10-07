@@ -37,7 +37,7 @@ export default function Login() {
 
 
     return (
-        <div>
+        <div className="mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
                 autoClose={1500}
@@ -51,7 +51,8 @@ export default function Login() {
                 className="toast-container"
             />
             <div className="h-15 w-full bg-transparent"></div>
-            <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
+            <div className="bg-c_CCE7EF flex flex-col ttcommon_font
+                            px-5 md:px-0">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
@@ -62,8 +63,9 @@ export default function Login() {
                         <span className="ttcommon_font_bold ml-1"><Link href="/account/login">Login</Link></span>
                     </div>
                 </div>
-                <div className="my-52 mx-auto 
-                            w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                <div className="mx-auto 
+                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
+                                sm:my-52 my-25">
                     <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
                     <div className="mt-10">
                         {!loginResult && 

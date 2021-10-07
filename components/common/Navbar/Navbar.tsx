@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
 import { openSideCart } from '@utils/redux/slices/cartSlice'
 import { getCookie } from '@utils/cookie'
 import { search } from '@utils/redux/slices/productSlice'
-import router from 'next/router'
+import router, { useRouter } from 'next/router'
 
 
 interface Link {
@@ -45,6 +45,8 @@ const renderSubMenu = (category_li: NavLinkArray) => {
   })
 }
 
+
+
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [logined, setLogined] = useState(false);
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
@@ -55,6 +57,14 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const enableSideCart = useAppSelector((state) => state.cart.enableSideCart)
   const totalAmount = useAppSelector((state) => state.cart.totalAmount)
   const searchResult = useAppSelector((state) => state.product.searchResult)
+  const route = useRouter()
+
+  let page_li = [
+    { name: 'Shop', link: '' },
+    { name: 'About Us', link: '/aboutus' },
+    { name: 'Treatments', link: '/treatment' },
+    { name: 'Contact', link: '/contact' },
+  ]
 
   let shop_category_li = [
     { name: 'All products', link: '/shop/allproducts', subItem_li: []},
@@ -113,22 +123,49 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     }
   }
 
-  let showMobileMenu = () => {
-    setEnableMobileMenu(!enableMobileMenu)
-    if (enableMobileMenu) (document.querySelector("body") as HTMLBodyElement).style.overflow = 'hidden'
+  const showMobileMenuHandler = (bool_var: boolean) => {
+    setEnableMobileMenu(bool_var)
+    if (bool_var) (document.querySelector("body") as HTMLBodyElement).style.overflow = 'hidden'
     else (document.querySelector("body") as HTMLBodyElement).style.overflow = "auto"
+  }
+
+  const gotoOtherPageHandler = (path: string) => {
+    showMobileMenuHandler(false)
+    route.push(path)
+  }
+
+  const renderSubMenuInMobile = (category_li: NavLinkArray) => {
+    return category_li.map((item, index) => {
+      return <div key={`shop_menu_${index}`}>
+              <div className="text-xs text-left tracking-widest leading-tight">
+                <div className="mb-10 cursor-pointer">
+                <div className="ttcommon_font uppercase" onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</div>
+                  {(item.subItem_li || []).map((item1, index1) => {
+                    return <div className="ttcommon_font mt-5 cursor-pointer" key={`shop_menu-${index}-${index1}`}>
+                              <div onClick={() => {gotoOtherPageHandler(item1.link)}}>{item1.name}</div>
+                            </div>
+                  })}
+                </div>
+                
+              </div>
+            </div>
+    })
   }
 
   return (
     <NavbarRoot c_name={c_name || ''}>
       <Container>
-        <div className="">
-          <div className="flex relative">
-            <Link href="/">
-              <a className={s.logo} aria-label="Logo">
-                <Logo />
-              </a>
-            </Link>
+        <div className="h-15">
+          <div className="flex relative h-full">
+            <div className="absolute top-0 left-0 h-full flex
+                             justify-center md:justify-start
+                             w-full md:w-auto">
+              <Link href="/">
+                <div className={`${s.logo}`} aria-label="Logo">
+                  <Logo />
+                </div>
+              </Link>
+            </div>
             <div className="absolute top-0 left-0 h-full flex w-full">
               <div className="h-full items-center mx-auto ttcommon_font font-normal
                               hidden md:flex xl:flex 2xl:flex">
@@ -163,10 +200,10 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               </div>
             </div>
             
-            <div className="items-center ml-auto relative z-40
-                            hidden md:flex lg:flex xl:flex 2xl:flex">
-              <div className="flex relative">
-                <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={s.svg} /></button>
+            <div className="items-center ml-auto relative z-40 flex">
+              <div className="relative
+                              hidden md:flex">
+                <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={`${s.svg}`} color="white" /></button>
                 {enableSearchBar && 
                   <div className="fixed top-15 left-0 w-full bg-black bg-opacity-50" style={{height: 'calc(100vh - 60px)'}}>
                     <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
@@ -189,6 +226,22 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                   </div>
                 }
               </div>
+              <div className="bg-white h-16 fixed top-15 left-0 w-full flex-col
+                                flex md:hidden">
+                <div className="w-11/12 h-11 mx-auto my-auto relative">
+                  <input 
+                      type="text" 
+                      className="bg-c_F7F7F7 w-full h-full text-c_00080D pl-2.5" 
+                      placeholder="Search for product or category."
+                      onKeyPress={(event) => {event.key === 'Enter' && searchProductHandler()}}
+                      onChange={(event) => {setSearchKey(event.target.value)}}/>
+                  <button className="absolute top-0 right-3 h-full text-c_00080D"
+                          onClick={() => {searchProductHandler()}}>
+                    <SearchSvg color={'#00080D'} />
+                  </button>
+                </div>
+                
+              </div>
               
               <div className="flex ml-7_5">
                 <button onClick={() => {toMyAccountHandler()}}><ProfileSvg className={s.svg} /></button>
@@ -209,9 +262,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               }
             </div>
             <div className="absolute left-0 top-0 h-full w-12 text-white
-                            flex md:hidden lg:hidden xl:hidden 2xl:hidden"
-                onClick={showMobileMenu}>
-              <HamburgerMenu/>
+                            flex md:hidden lg:hidden xl:hidden 2xl:hidden">
+              {!enableMobileMenu && <button className="w-8 h-8 my-auto" onClick={() => showMobileMenuHandler(true)}><HamburgerMenu/></button>}
+              {enableMobileMenu && <button className="w-8 h-8 my-auto" onClick={() => showMobileMenuHandler(false)}><Cross /></button>}
             </div>
           </div>
 
@@ -230,42 +283,21 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
       </Container>
       {enableSideCart && <SideCart />}
       {enableMobileMenu && 
-        <div className="fixed top-0 left-0 w-full h-screen">
-          <div className="bg-black bg-opacity-70 w-full h-screen absolute top-0 left-0 pt-12 px-5">
-            <div className="relative">
-              <div className="ttcommon_font font-normal">
-                <div className={s.nav_item}>
-                  <div className="text-3xl text-white">SHOP</div>
-                  {/* shop menu */}
-                  <div className={s.submenu}>
-                    <div className="flex justify-between mx-auto max-w-7xl flex-wrap">
-                      {renderSubMenu(shop_category_li as any)}
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Link href="/aboutus">
-                    <a className="text-3xl text-white">ABOUT US</a>
-                  </Link>
-                </div>
-                {/* <div>
-                  <Link href="/">
-                    <a className="text-3xl text-white">INDUSTRY</a>
-                  </Link>
-                </div> */}
-                <div>
-                  <Link href="/contact">
-                    <a className="text-3xl text-white">CONTACT</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="absolute top-0 right-0 text-white" onClick={() => {setEnableMobileMenu(false)}}>
-                <Cross />
-              </div>
+        <div className="fixed top-15 left-0 w-full h-screen z-40">
+          <div className="w-full h-screen absolute top-0 left-0 flex">
+            <div className="w-36 bg-c_00080D bg-opacity-95 pt-12_5 pl-5">
+              {page_li.map((item, index) => {
+                return <div key={`page_${index}_mobile`} className="mb-8 flex">
+                        <span className="pb-1 uppercase text-white text-xs leading-tight border-c_52B5D3 border-b-2 flex">{item.name}</span>      
+                      </div>
+              })}
+            </div>
+            <div className="flex-1 bg-white pt-12_5 pl-14">
+              {renderSubMenuInMobile(shop_category_li as any)}
             </div>
           </div>
-          
-        </div>}
+        </div>
+      }
     </NavbarRoot>
   )
 }

@@ -145,7 +145,8 @@ export default function MyAccount() {
 
     let item_li = ['Dermal filler1', 'Dermal filler2', 'Dermal filler3']
     return (
-        <div className="ttcommon_font_thin text-c_00080D">
+        <div className="ttcommon_font_thin text-c_00080D
+                        mt-16 md:mt-0">
             <div className="h-15 w-full"></div>
             <div className="pt-12_5 px-15 pb-25 bg-c_CCE7EF">
                 <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">

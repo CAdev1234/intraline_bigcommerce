@@ -62,14 +62,20 @@ const RenderCategorySwiper:FC = () => {
         { name: 'Skincare', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/7-12.jpg?width=400&name=7-12.jpg", link: "/shop/skincare" },
         { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
     ].map((item, index) => {
-        return <div className="keen-slider__slide relative shadow-custom" key={`category_${index}`}>
-                    <div className="flex flex-col bg-white pt-5 px-5 pb-12" style={{ height: 472 }}>
+        return <div className="keen-slider__slide relative" key={`category_${index}`}>
+                    <div className="flex flex-col bg-white
+                                    h-74 md:h-118
+                                    pt-2.5 md:pt-5
+                                    px-2.5 md:px-5
+                                    pb-5 md:pb-12">
                         <div className="flex-1 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
-                        <div className="uppercase text-center text-color_1 tracking-widest font-bold text-2xl mt-auto">{item.name}</div>
+                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
+                                         text-sm md:text-2xl
+                                         leading-14_17 md:leading-none">{item.name}</div>
                     </div>
-                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-30 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                         <div className="my-auto flex flex-col">
                             <Link href={item.link}>
                                 <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
@@ -78,8 +84,8 @@ const RenderCategorySwiper:FC = () => {
                     </div>
                 </div>
     })
-    return <KeenSliderA render_ele={render_ele} slidesPerView={[1,2,3.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
-  }
+    return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,2.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+}
   
 
 
@@ -118,25 +124,39 @@ export default function AllProducts() {
                         <div className="flex">
                             <img className="w-full" src={item.img} alt="" style={{aspectRatio: '1'}} />
                         </div>
-                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 text-sm leading-14_26 px-3">{item.detail}</div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest
+                                        text-sm sm:text-2xl
+                                        leading-14_17 sm:leading-none">{item.title}</div>
+                        <div className="mt-2 px-3
+                                        sm:text-sm text-xs
+                                        sm:leading-14_26 leading-normal">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
-                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                        <Button className="h-11 w-full
+                                                            text-xs sm:text-sm">learn more</Button>
                                     </Link>
-                                    {logined && <div className="mt-2 flex items-center h-11 text-white">
-                                        <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                    {logined && <div className="mt-2 items-center h-11 text-white
+                                                                block sm:flex">
+                                        <div className="bg-c_00080D flex items-center justify-center h-full
+                                                        w-full sm:w-24">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => decreaseNumHandler(event)}>-</button>
-                                            <div className="mx-auto">1</div>
+                                            <div className="mx-auto
+                                                            text-xs sm:text-sm">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => increaseNumHandler(event)}>+</button>
                                         </div>
-                                        <Button className="ml-3 h-full flex-1 text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
+                                        <Button className="h-full flex-1
+                                                           ml-0 sm:ml-3
+                                                           mt-2 sm:mt-0
+                                                           w-full sm:w-auto
+                                                           text-xs sm:text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>}
                                     {!logined && 
                                         <div className="mt-2 flex items-center h-11 text-white">
-                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                            <Button className="h-full w-full
+                                                                text-xs sm:text-sm" 
+                                                    onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
                                         </div>
                                     }
                                 </div>
@@ -146,10 +166,11 @@ export default function AllProducts() {
         })
     }
     return (
-        <div className="ttcommon_font">
+        <div className="ttcommon_font
+                        sm:mt-0 mt-16">
             <div className="bg-transparent w-full h-15"></div>
             {/* our category part */}
-            <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15" style={{ height: 900 + 'px' }}>
+            <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="flex items-center cursor-pointer mt-12_5
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <span className="ttcommon_font"><Link href="/">Home</Link></span>
@@ -165,7 +186,7 @@ export default function AllProducts() {
                         <RenderCategorySwiper />
                     </div>
                 </div>
-                <div className="mt-auto mx-auto flex items-center justify-center">
+                <div className="mt-10 mx-auto flex items-center justify-center">
                     <div className="uppercase text-sm tracking-widest text-c_00080D">Scroll to browser all</div>
                     <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
                 </div>
@@ -175,34 +196,40 @@ export default function AllProducts() {
 
             {/* Products part */}
             <div className="bg-c_C6CBDD py-25 flex flex-col">
+                <div className="uppercase text-xs ml-5 mb-8
+                                block sm:hidden">Showing All Products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
                 <div className="flex items-center text-sm tracking-widest uppercase
-                                mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
-                    <div className="">SHOWING All products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
-                    <div className="flex items-center ml-auto cursor-pointer">
+                                mx-0 lg:mx-28 xl:mx-172 2xl:mx-172">
+                    <div className="uppercase text-xs
+                                    hidden sm:block">Showing All Products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
+                    <div className="flex items-center cursor-pointer
+                                    ml-0 sm:ml-auto">
                         <SelectInput
                             enable_underline={false}
                             default_option="Filters" 
                             option_li={['Filter 1', 'Filter 2', 'Filter 3']} 
-                            className={"bg-transparent relative z-10 w-30"} 
+                            className={"bg-transparent relative z-10 w-30 text-xs sm:text-sm"} 
                             option_class={"bg-white justify-center hover:bg-gray-100"} 
                             returnVal={setFilter}/>
                     </div>
                     {logined && 
-                        <div className="flex items-center ml-10 cursor-pointer">
+                        <div className="flex items-center cursor-pointer
+                                        ml-0 sm:ml-10">
                             <SelectInput 
                                 enable_underline={false}
                                 default_option="SORT BY PRICE(LOWEST)" 
                                 option_li={['PRICE (LOWEST)', 'PRICE (HIGHEST)', 'TOP RATED', 'NEWEST']} 
-                                className={"bg-transparent relative z-10 w-60"} 
+                                className={"bg-transparent relative z-10 w-60 text-xs sm:text-sm"} 
                                 option_class={"bg-white justify-center hover:bg-gray-100"} 
                                 returnVal={setSort}/>
                         </div>
                     }
                     
                 </div>
-                <div className="mt-10 grid gap-5
-                                grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4
-                                mx-10 lg:mx-28 xl:mx-172 2xl:mx-172">
+                <div className="grid gap-5
+                                grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4
+                                mx-5 lg:mx-28 xl:mx-172 2xl:mx-172
+                                mt-7_5 sm:mt-10">
                     {renderProducts()}
                 </div>
                 {/* <div className="mt-20 flex items-center mx-auto">

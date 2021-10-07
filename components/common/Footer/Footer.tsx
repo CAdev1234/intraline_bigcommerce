@@ -10,7 +10,7 @@ import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
 import { getCookie } from '@utils/cookie'
-import { Button } from '@components/mycp'
+import { Button, SelectInput } from '@components/mycp'
 
 interface Props {
   className?: string
@@ -139,74 +139,85 @@ const Footer: FC<Props> = ({ className, pages }) => {
       </Container> */}
 
 
-      <Container className="bg-black px-15">
-        <div className="pt-20 pb-17_5 ttcommon_font">
-          <div className="block w-full md:flex lg:flex xl:flex">
-            <div className="flex
-                            w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
-              <div className="w-full
-                              block sm:flex md:flex lg:flex xl:flex 2xl:flex">
-                <div className="w-full sm:w-5/12 md:w-7/12 lg:w-7/12 xl:w-7/12">
-                  <Link href="/">
-                    <a className={s.logo} aria-label="Logo">
-                      <Logo />
-                    </a>
-                  </Link>
-                  <p className="textellipsis_4 leading-14_26 text-white text-sm">We believe confidence is created  in many forms and looks different for everyone. We believe in individuality. Intraline is a family owned, innovative aesthetics company comitted to your overall health and well-being: both inside and out. We belive that confidence is ageless.</p>
+      <Container className="bg-black 
+                              px-5 sm:px-15">
+        <div className=" ttcommon_font
+                         pt-5 sm:pt-20
+                         pb-10 sm:pb-17_5">
+          <div className="w-full grid
+                          grid-cols-1 sm:grid-cols-3">
+            <div className="flex">
+              <div className="w-full">
+
+                {/* intraline part */}
+                <div className="w-full flex flex-col
+                                text-center sm:text-left">
+                  <div className="flex 
+                                  justify-center sm:justify-start">
+                    <Link href="/">
+                      <a className={s.logo} aria-label="Logo">
+                        <Logo />
+                      </a>
+                    </Link>
+                  </div>
+                  <p className="leading-14_26 text-white
+                                 text-xs sm:text-sm">We believe confidence is created  in many forms and looks different for everyone. We believe in individuality. Intraline is a family owned, innovative aesthetics company comitted to your overall health and well-being: both inside and out. We belive that confidence is ageless.</p>
                   <div className="text-white text-sm mt-5">2021 Intraline. All rights reserved.</div>
                 </div>
-                <div className="flex flex-col
-                                ml-0 sm:ml-auto md:ml-auto lg:ml-auto xl:ml-auto 2xl:ml-auto
-                                w-5/12 md:w-4/12 lg:w-4/12 xl:w-4/12">
-                  <Link href="/">
-                    <div className="uppercase text-white text-sm tracking-widest flex items-center h-15">Infraline</div>
-                  </Link>
-                  {infraline_link_li.map((item, index) => {
-                    return <div key={`infraline_link_${index}`} className="mb-1">
-                              <Link href={item.link}>
-                                <a className="text-white text-sm leading-14_26" >{item.title}</a>
-                              </Link>
-                          </div>
-                  })}
-                </div>
+
               </div>
             </div>
             <div className="flex
-                            w-full md:w-6/12 lg:w-6/12 xl:w-6/12
-                            mt-5 md:mt-0 lg:mt-0 xl:mt-0">
+                            mt-12 sm:mt-0">
+              {/* intraline link part */}
+              <div className="flex flex-col mx-auto">
+                <Link href="/">
+                  <div className="uppercase text-white text-sm tracking-widest flex items-center h-15">Infraline</div>
+                </Link>
+                {infraline_link_li.map((item, index) => {
+                  return <div key={`infraline_link_${index}`} className="mb-1">
+                            <Link href={item.link}>
+                              <a className="text-white text-sm leading-14_26" >{item.title}</a>
+                            </Link>
+                        </div>
+                })}
+              </div>
+              {/* account link part */}
+              <div className="flex flex-col mx-auto">
+                <Link href="/">
+                  <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Account</a>
+                </Link>
+                {account_link_li.map((item, index) => {
+                  return <div className="mb-1" key={`account_link_${index}`}>
+                            {item.title === "Register/Login" && logined &&
+                              <Link href="/account/myaccount">
+                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                              </Link>
+                            }
+                            {item.title === "Register/Login" && !logined &&
+                              <Link href={item.link}>
+                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                              </Link>
+                            }
+                            {item.title !== "Register/Login" && 
+                              <button className="text-white text-sm leading-14_26" onClick={() => {toMyAccountHandler()}}>{item.title}</button>
+                            }
+                        </div>
+                })}
+              </div>
+            </div>
+            <div className="flex">
               <div className="w-full
                               block sm:flex md:flex lg:flex xl:flex 2xl:flex">
-                <div className="flex flex-col
-                                w-6/12 md:w-4/12 lg:w-4/12 xl:w-4/12
-                                ml-0 md:ml-auto lg:ml-auto xl:ml-auto">
+                {/* subscribe part */}
+                <div className="flex flex-col w-full ml-auto
+                                mt-12 sm:mt-0">
                   <Link href="/">
-                    <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Account</a>
+                    <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center
+                                  text-center sm:text-left">Subscribe to our newsletter</a>
                   </Link>
-                  {account_link_li.map((item, index) => {
-                    return <div className="mb-1" key={`account_link_${index}`}>
-                              {item.title === "Register/Login" && logined &&
-                                <Link href="/account/myaccount">
-                                  <a className=" text-white text-sm leading-14_26" >{item.title}</a>
-                                </Link>
-                              }
-                              {item.title === "Register/Login" && !logined &&
-                                <Link href={item.link}>
-                                  <a className=" text-white text-sm leading-14_26" >{item.title}</a>
-                                </Link>
-                              }
-                              {item.title !== "Register/Login" && 
-                                <button className="text-white text-sm leading-14_26" onClick={() => {toMyAccountHandler()}}>{item.title}</button>
-                              }
-                          </div>
-                  })}
-                </div>
-                <div className="flex flex-col
-                                w-full sm:w-5/12 md:w-8/12 lg:w-8/12 xl:w-8/12
-                                ml-0 sm:ml-auto md:ml-auto lg:ml-auto xl:ml-auto 2xl:ml-auto">
-                  <Link href="/">
-                    <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Subscribe to our newsletter</a>
-                  </Link>
-                  <div className="flex h-11 mt-4">
+                  <div className="flex h-11
+                                  mt-0 sm:mt-4">
                     <input 
                       type="text" 
                       className="h-full w-full border-none bg-white pl-5 py-2" 
@@ -216,7 +227,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   </div>
                   
                   <div className="flex items-center cursor-pointer
-                                  mt-5 sm:mt-0 md:mt-0 lg:mt-16 xl:mt-16 2xl:mt-16">
+                                  justify-center sm:justify-start
+                                  mt-7_5 sm:mt-10 md:mt-10 lg:mt-16 xl:mt-16 2xl:mt-16">
                     <div>
                       <Link href="https://twitter.com">
                         <svg width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -255,12 +267,13 @@ const Footer: FC<Props> = ({ className, pages }) => {
       </Container>
 
       <Container className="bg-c_CCE7EF">
-        <div className="items-center py-3
+        <div className="items-center py-5
                         block md:flex lg:flex xl:flex">
-          <div className="flex
+          <div className="flex items-center
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
             <div className="flex items-center">
-              <label htmlFor="Currency">Currency:</label>
+              <label className="text-xs md:text-sm" htmlFor="Currency ">Currency:</label>
+              {/* <SelectInput option_li={['$US', '$US', '$US', '$US']} default_option="$US" /> */}
               <select name="" id="" className="bg-transparent">
                 <option value="us">$US</option>
                 <option value="us">$US</option>
@@ -270,7 +283,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
               </select>
             </div>
             <div className="flex items-center mx-auto">
-              <label htmlFor="Currency">Language:</label>
+              <label className="text-xs md:text-sm" htmlFor="Currency">Language:</label>
               <select name="" id="" className="bg-transparent">
                 <option value="en">EN</option>
                 <option value="en">EN</option>
@@ -281,17 +294,27 @@ const Footer: FC<Props> = ({ className, pages }) => {
               </select>
             </div>
             <div className="text_overflow_one_line
-                            mr-0 md:mr-12 lg:mr-12 xl:mr-12">info@intraline.com</div>
+                            mr-0 md:mr-12 lg:mr-12 xl:mr-12
+                            text-xs md:text-sm">info@intraline.com</div>
           </div>
           
           <div className="flex items-center
+                          flex-row-reverse sm:flex-row
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2
-                          mt-2 md:mt-0 lg:mt-0 xl:mt-0">
-            <div className="mr-auto text_overflow_one_line text">+1 (778) 738-0351</div>
-            <div className="flex items-center ml-auto">
-              <label htmlFor="" className="text_overflow_one_line">Payment Methods:</label>
-              <img className="ml-5" src="/assets/img/visa.png" alt="" />
-              <img className="ml-5" src="/assets/img/master_card.png" alt="" />
+                          mt-6 md:mt-0 lg:mt-0 xl:mt-0">
+            <div className="text_overflow_one_line 
+                            text-xs sm:text-sm
+                            ml-auto sm:ml-0
+                            mr-0 sm:mr-auto">+1 (778) 738-0351</div>
+            <div className="flex items-center 
+                            ml-0 sm:ml-auto">
+              <label htmlFor="" 
+                    className="text_overflow_one_line
+                              text-xs sm:text-sm">Payment Methods:</label>
+              <img className="ml-2.5 sm:ml-5 
+                              w-12 sm:w-auto" src="/assets/img/visa.png" alt="" />
+              <img className="ml-2.5 sm:ml-5
+                              w-12 sm:w-auto" src="/assets/img/master_card.png" alt="" />
             </div>
           </div>
         </div>
