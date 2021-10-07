@@ -28,7 +28,7 @@ const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class,
                     {enableSelect && 
                         <div className="absolute top-11 left-0 w-full">
                             <div>
-                                {option_li.map((item, index) => {
+                                {(option_li as Array<string>).map((item, index) => {
                                     return <div key={`index_${index}`} onClick={() => {
                                         setCurrentVal(item)
                                         setEnableSelect(false)
@@ -36,7 +36,7 @@ const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class,
                                         return item
                                         }}> 
                                                 <div className={`h-11 flex items-center px-5 border-c_00080D cursor-pointer ${option_class}`}>{item}</div>
-                                                {index !== option_li.length - 1 && enable_underline && 
+                                                {index !== (option_li as Array<string>).length - 1 && enable_underline && 
                                                     <div className="h-px bg-transparent mx-5"></div>    
                                                 }
                                             </div>
