@@ -133,10 +133,10 @@ export default function DemeralFiller() {
             </div>
 
             <div className="bg-white w-full relative
-                            h-150vw sm:h-225 md:h-60 lg:h-96 xl:h-122 2xl:h-122">
+                            h-190vw sm:h-225 md:h-60 lg:h-96 xl:h-122 2xl:h-122">
                 <div className="w-full grid gap-6 absolute z-10
                                 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
-                                 -top-52 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
+                                 -top-40 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <div className="">
                         <div className="ttcommon_font_bold text-c_00080D
@@ -189,15 +189,21 @@ export default function DemeralFiller() {
 
             {/* FAQ part */}
             <div className="bg-white">
-                <div className="py-24
+                <div className="py-15 sm:py-24
                                 mx-5 sm:mx-10 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
+                    
                     <div className="flex text-c_00080D mb-2">
+                        <div className="ttcommon_font_bold text-2xl
+                                        block sm:hidden
+                                        leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">FAQs.</div>
                         <div className="font-bold text-4xl
+                                        hidden sm:block
                                          leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
                         <div className="flex items-center ml-auto">
                             <Link href="/faq">
                                 <div className="flex items-center">
-                                    <div className="font-bold text-lg ml-auto">Read More</div>
+                                    <div className="ttcommon_font_bold ml-auto
+                                                    text-xs sm:text-lg">Read More</div>
                                     <div className="ml-2">
                                         <ChevronRight className="h-4 w-4" />
                                     </div>
@@ -215,12 +221,15 @@ export default function DemeralFiller() {
                     <div className="flex flex-col mx-auto
                                     w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
                                     px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">
-                        <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
-                        <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
-                        <div className="mt-10">
+                        <div className="ttcommon_font_bold leading-36_26
+                                        text-2xl sm:text-4xl">Download Our Catalog.</div>
+                        <p className="mt-5
+                                    text-xs sm:text-sm 
+                                    leading-14_26 sm:leading-none">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
+                        <div className="mt-7_5 sm:mt-10">
                             <Input type="text" placeholder="Your Email Address"/>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-7_5 sm:mt-10">
                             <Button className="h-11 w-full text-sm">SUBMIT</Button>
                         </div>
                     </div>

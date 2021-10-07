@@ -222,13 +222,13 @@ const RenderProfileSwiper = () => {
             </div>
             {slider1 && slider2 && (
                   <div className={`flex items-center`}>
-                    <div className="absolute top-1/3 left-0">
+                    <div className="absolute top-1/3 left-0 mt-auto sm:mt-0 hidden sm:block">
                       <ArrowNavLeft
                         onClick={(e:any) => {e.stopPropagation(); slider1.prev(); slider2.prev()}}
                         disabled={currentSlide === 0}
                       />
                     </div>
-                    <div className="absolute top-1/3 right-0">
+                    <div className="absolute top-1/3 right-0 mt-auto sm:mt-0 hidden sm:block">
                       <ArrowNavRight
                         onClick={(e:any) => {e.stopPropagation(); slider1.next(); slider2.next()}}
                         disabled={currentSlide === slider1.details().size - 1}
@@ -237,19 +237,33 @@ const RenderProfileSwiper = () => {
                   </div>
             )}
             {slider1 && slider2 && (
-                  <div className="dots mx-auto mt-11">
-                    {[...Array(slider1.details().size).keys()].map((idx) => {
-                      return (
-                        <button
-                          key={idx}
-                          onClick={() => {
-                            slider1.moveToSlideRelative(idx);
-                            slider2.moveToSlideRelative(idx);
-                          }}
-                          className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
-                        ></button>
-                      )
-                    })}
+                  <div>
+                    <div className="absolute bottom-0 left-0 block sm:hidden">
+                      <ArrowNavLeft
+                        onClick={(e:any) => {e.stopPropagation(); slider1.prev(); slider2.prev()}}
+                        disabled={currentSlide === 0}
+                      />
+                    </div>
+                    <div className="dots mx-auto mt-11">
+                      {[...Array(slider1.details().size).keys()].map((idx) => {
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              slider1.moveToSlideRelative(idx);
+                              slider2.moveToSlideRelative(idx);
+                            }}
+                            className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
+                          ></button>
+                        )
+                      })}
+                    </div>
+                    <div className="absolute bottom-0 right-0 block sm:hidden">
+                      <ArrowNavRight
+                        onClick={(e:any) => {e.stopPropagation(); slider1.next(); slider2.next()}}
+                        disabled={currentSlide === slider1.details().size - 1}
+                      />
+                    </div>
                   </div>
                 )}
           </div> 

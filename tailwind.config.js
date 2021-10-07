@@ -161,6 +161,7 @@ module.exports = {
         '225': '900px',
 
         '150vw': '150vw',
+        '190vw': '190vw'
       },
       minHeight: {
         '15': '60px'

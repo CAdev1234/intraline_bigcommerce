@@ -81,7 +81,7 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
                 </div>
                 {slider && (
                   <div className={``}>
-                    <div className={`absolute top-0 left-0 flex flex-col h-full`}>
+                    <div className={`absolute bottom-0 left-0 flex flex-col h-full`}>
                       <div className={`${prevNavCss}`}>
                         <ArrowLeft
                           onClick={(e:any) => e.stopPropagation() || slider.prev()}
