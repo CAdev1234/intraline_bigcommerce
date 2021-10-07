@@ -136,7 +136,7 @@ export default function DemeralFiller() {
                             h-150vw sm:h-225 md:h-60 lg:h-96 xl:h-122 2xl:h-122">
                 <div className="w-full grid gap-6 absolute z-10
                                 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
-                                 -top-50 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
+                                 -top-52 sm:-top-224 lg:-top-224 xl:-top-224 2xl:-top-224
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                     <div className="">
                         <div className="ttcommon_font_bold text-c_00080D

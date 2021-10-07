@@ -144,17 +144,43 @@ const RenderProfileSwiper = () => {
       // slider2.moveToSlide(currentSlide)
     }
   })
-  let profile_img_li = ["http://demos.thementic.com/wordpress/WC01/WC010007/wp-content/uploads/2019/02/t3.jpg",
+  let profile_img_li = ["https://scontent-frt3-2.cdninstagram.com/v/t51.2885-19/s150x150/12797691_1122267087797710_376720300_a.jpg?_nc_ht=scontent-frt3-2.cdninstagram.com&_nc_ohc=GByRKpvipucAX9HxW1D&edm=ABfd0MgBAAAA&ccb=7-4&oh=008715cf60c433c8f33be44c27879157&oe=616521C2&_nc_sid=7bff83",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
     "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"]
-
-  let render_img_ele = profile_img_li.map((item, index) => {
+  let profile_li = [
+    {
+      title: "DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC",
+      detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
+      img: "https://liniaskinclinic.com/wp-content/uploads/2018/11/ThermiLaunch_LR-8281-214x300.jpg"
+    },
+    {
+      title: "Claire Newman Intraline KOL & Brand Ambassador SOFT TOUCHES AESTHETICS",
+      detail: "I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG"
+    },
+    {
+      title: "Marissa Freeman (patient)",
+      detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG"
+    },
+    {
+      title: "Cole Harrison (patient)",
+      detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg"
+    },
+    {
+      title: "Dr. Tuğba Yalçın Director Lumière Aesthetics",
+      detail: "Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"
+    },
+  ]
+  let render_img_ele = profile_li.map((item, index) => {
     return <div key={'profile_img_' + index} className="keen-slider__slide">
             <div>
               <div className="flex">
-                <img className={((currentSlide + 1) % profile_img_li.length === index ? 'opacity-100 w-25 h-25' : 'opacity-50 w-22_5 h-22_5') + ' mx-auto rounded-full'} src={item} alt="" />
+                <img className={((currentSlide + 1) % profile_li.length === index ? 'opacity-100 w-25 h-25' : 'opacity-50 w-22_5 h-22_5') + ' mx-auto rounded-full'} src={item.img} alt="" />
               </div>
             </div>
           </div>
@@ -171,14 +197,14 @@ const RenderProfileSwiper = () => {
     }
   })
 
-  let render_ele = [0, 1, 2, 3, 4].map((item, index) => {
+  let render_ele = profile_li.map((item, index) => {
     return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
-              <div className="text-sm text-center leading-14_17 tracking-widest">DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS</div>
+              <div className="text-sm text-center uppercase leading-14_17 tracking-widest max-w-md mx-auto">{item.title}</div>
               <div className="flex justify-center mt-7_5">
                 <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
               </div>
-              <p className="text-sm text-center leading-14_26 mt-4 mx-auto max-w-md">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+              <p className="text-sm text-center leading-14_26 mt-4 mx-auto max-w-md">{item.detail}</p>
             </div>
           </div>
   })
