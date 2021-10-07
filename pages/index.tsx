@@ -144,11 +144,6 @@ const RenderProfileSwiper = () => {
       // slider2.moveToSlide(currentSlide)
     }
   })
-  let profile_img_li = ["https://scontent-frt3-2.cdninstagram.com/v/t51.2885-19/s150x150/12797691_1122267087797710_376720300_a.jpg?_nc_ht=scontent-frt3-2.cdninstagram.com&_nc_ohc=GByRKpvipucAX9HxW1D&edm=ABfd0MgBAAAA&ccb=7-4&oh=008715cf60c433c8f33be44c27879157&oe=616521C2&_nc_sid=7bff83",
-    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
-    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
-    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
-    "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"]
   let profile_li = [
     {
       title: "DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC",
@@ -202,7 +197,7 @@ const RenderProfileSwiper = () => {
             <div className="">
               <div className="text-sm text-center uppercase leading-14_17 tracking-widest max-w-md mx-auto">{item.title}</div>
               <div className="flex justify-center mt-7_5">
-                <RatingView ratingValue={3} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
+                <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
               </div>
               <p className="text-sm text-center leading-14_26 mt-4 mx-auto max-w-md">{item.detail}</p>
             </div>
