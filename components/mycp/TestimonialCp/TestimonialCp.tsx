@@ -1,17 +1,20 @@
 import KeenSliderB from "@components/mycp/KeenSlider/KeenSliderB"
 import QuoteSvg from "@components/icons/QuoteSvg"
 import { FC } from "react"
+import { RatingView } from "react-simple-star-rating"
 
 type TestimonialArray = Array<{
     title: string,
-    detail: string
+    detail: string,
+    img?: string,
+    rate?: number
 }>
 
 interface TestimonialProps{
-    bg_color: string,
-    quote_color: string,
-    head_line: string,
-    testimonial_li: TestimonialArray
+    bg_color?: string,
+    quote_color?: string,
+    head_line?: string,
+    testimonial_li: TestimonialArray,
 }
 
 const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, testimonial_li}) => {
@@ -20,6 +23,11 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
                 <div className="w-full flex justify-center items-center">
                     <p className="ttcommon_font_thin text-sm text-center" style={{maxWidth: 426}}>{item.detail}</p>
                 </div>
+                {Object.keys(item).includes('rate') && 
+                    <div className="flex justify-center mt-7_5">
+                        <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
+                    </div>
+                }
                 <div className="text-sm leading-14_17 text-center mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
             </div>
     })

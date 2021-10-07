@@ -30,6 +30,8 @@ import TriangleRight from '@components/icons/TriangleRight'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import router from 'next/router'
+import { TestimonialCp } from '@components/mycp'
+import { isStringObject } from 'util/types'
 
 
 export async function getStaticProps({
@@ -206,13 +208,13 @@ const RenderProfileSwiper = () => {
   
   return <div className="relative 
                         mx-5 md:mx-15 lg:mx-172 xl:mx-172">
-            <div className="mx-auto mt-10 w-full" style={{maxWidth: 384}}>
+            {/* <div className="mx-auto mt-10 w-full" style={{maxWidth: 384}}>
               <div className="relative">
                 <div ref={profile_img_ref} className="keen-slider flex items-center">
                   {render_img_ele}
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="mx-auto mt-10 " style={{ maxWidth: 1094 + 'px' }}>
               <div className="relative mt-7">
                 <div ref={profile_detail_ref} className="keen-slider">
@@ -220,32 +222,32 @@ const RenderProfileSwiper = () => {
                 </div>
               </div>
             </div>
-            {slider1 && slider2 && (
+            {slider2 && (
                   <div className={`flex items-center`}>
                     <div className="absolute top-1/3 left-0 mt-auto sm:mt-0 hidden sm:block">
                       <ArrowNavLeft
-                        onClick={(e:any) => {e.stopPropagation(); slider1.prev(); slider2.prev()}}
+                        onClick={(e:any) => {e.stopPropagation(); slider2.prev()}}
                         disabled={currentSlide === 0}
                       />
                     </div>
                     <div className="absolute top-1/3 right-0 mt-auto sm:mt-0 hidden sm:block">
                       <ArrowNavRight
-                        onClick={(e:any) => {e.stopPropagation(); slider1.next(); slider2.next()}}
+                        onClick={(e:any) => {e.stopPropagation(); slider2.next()}}
                         disabled={currentSlide === slider1.details().size - 1}
                       />
                     </div>
                   </div>
             )}
-            {slider1 && slider2 && (
+            {slider2 && (
                   <div>
                     <div className="absolute bottom-0 left-0 block sm:hidden">
                       <ArrowNavLeft
-                        onClick={(e:any) => {e.stopPropagation(); slider1.prev(); slider2.prev()}}
+                        onClick={(e:any) => {e.stopPropagation(); slider2.prev()}}
                         disabled={currentSlide === 0}
                       />
                     </div>
                     <div className="dots mx-auto mt-11">
-                      {[...Array(slider1.details().size).keys()].map((idx) => {
+                      {[...Array(slider2.details().size).keys()].map((idx) => {
                         return (
                           <button
                             key={idx}
@@ -260,7 +262,7 @@ const RenderProfileSwiper = () => {
                     </div>
                     <div className="absolute bottom-0 right-0 block sm:hidden">
                       <ArrowNavRight
-                        onClick={(e:any) => {e.stopPropagation(); slider1.next(); slider2.next()}}
+                        onClick={(e:any) => {e.stopPropagation(); slider2.next()}}
                         disabled={currentSlide === slider1.details().size - 1}
                       />
                     </div>
@@ -306,17 +308,43 @@ export default function Home({
               </div>     
           </div>
   }
-  let featured_product_li = [
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
-    {title: "Intraline MasQue", price: 100, amount: 1, img: "/assets/img/product1.png", link: "", detail: ""},
+  
+  let profile_li = [
+    {
+      title: "DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC",
+      detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
+      img: "https://liniaskinclinic.com/wp-content/uploads/2018/11/ThermiLaunch_LR-8281-214x300.jpg",
+      rate: 5
+    },
+    {
+      title: "Claire Newman Intraline KOL & Brand Ambassador SOFT TOUCHES AESTHETICS",
+      detail: "I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
+      rate: 5
+    },
+    {
+      title: "Marissa Freeman (patient)",
+      detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
+      rate: 5
+    },
+    {
+      title: "Cole Harrison (patient)",
+      detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
+      rate: 5
+    },
+    {
+      title: "Dr. Tuğba Yalçın Director Lumière Aesthetics",
+      detail: "Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.",
+      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg",
+      rate: 5
+    },
   ]
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
   const [logined, setLogined] = useState(false)
+  
+  let all_product_li = useAppSelector((state) => state.product.products)
   let scrollHandler = (ele:HTMLDivElement) => {
     let scroll_top = ele.scrollTop
     if (scroll_top > 0) {
@@ -330,7 +358,7 @@ export default function Home({
     }
   }, [])
 
-  const addToCartByDom = new AddToCartByDom(featured_product_li)
+  const addToCartByDom = new AddToCartByDom(all_product_li)
 
   const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
     addToCartByDom.addToBagHandler(event, index)
@@ -348,25 +376,30 @@ export default function Home({
     router.push('/account/login')
   }
 
+  const gotoProductHandler = (product_path: string) => {
+    router.push(product_path)
+  }
+
   const RenderProductSwiper:FC = () => {
-    let render_ele = featured_product_li.map((item, index) => {
+
+    let render_ele = all_product_li.map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 bg-white relative
-                             h-74 sm:h-118
+                             
                              pb-5 sm:pb-12" key={`m_${index}_product`}>
                 {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 animate-pulse">${item.price}</div>}
-                <div className="flex-1 h-0">
-                    <img className="mix_blend_multi mx-auto h-full " src="/assets/img/product1.png" alt="" />
+                <div className="flex-1 w-full h-0">
+                    <img className="mx-auto h-full w-11/12" src={item.img} alt="" />
                 </div>
-                <div className="ttcommon_font_bold uppercase text-center text-c_00080D tracking-widest
+                <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
                                 text-sm sm:text-2xl
                                 leading-14_17 sm:leading-none">{item.title}</div>
-                <div className="mt-2 text-center
+                <div className="mt-2 text-center px-4
                                 text-xs sm:text-sm
-                                leading-normal sm:leading-14_26">Lorem ipsum doloris sit estimatum estiumen.</div>
+                                leading-normal sm:leading-14_26">{item.detail}</div>
                 <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                     <div className="my-auto mx-auto w-10/12">
                         <div className="flex flex-col">
-                            <Button className=" h-11 text-sm">learn more</Button>
+                            <Button className=" h-11 text-sm" onClick={() => {gotoProductHandler(item.link)}}>learn more</Button>
                             {logined && <div className="mt-2 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
@@ -513,11 +546,15 @@ export default function Home({
       {/* Reviews part */}
       <div className="bg-white
                       py-10 sm:py-24">
-        <div className="text-center ttcommon_font_bold
+        {/* <div className="text-center ttcommon_font_bold
                         text-2xl md:text-4xl
-                        leading-tight md:leading-36_26">Intraline Reviews.</div>
-        {RenderProfileSwiper()}
-        
+                        leading-tight md:leading-36_26">Intraline Reviews.</div> */}
+        {/* {RenderProfileSwiper()} */}
+        <TestimonialCp
+                head_line={"Intraline Reviews."} 
+                bg_color={"bg-white"} 
+                quote_color={"#52B5D3"} 
+                testimonial_li={profile_li}/>
       </div>
 
       {/* FAQ part */}

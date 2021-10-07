@@ -127,15 +127,16 @@ export default function MSeries() {
                             h-150 sm:h-210 lg:h-210 xl:h-210 2xl:h-210">
                 
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="flex flex-wrap cursor-pointer
+                                    pl-5 md:pl-15 lg:pl-15 xl:pl-15 2xl:pl-15">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">MONOPHASIC DERMAL FILLERS</span>
+                        <span className="ttcommon_font_bold
+                                        ml-0 lg:ml-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
@@ -145,12 +146,15 @@ export default function MSeries() {
                         <div className="flex flex-col">
                             <div className="">
                                 <div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px">The</div>
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    leading-200_160 md:leading-200_160 lg:leading-200_160 xl:leading-200_160 2xl:leading-200_160
+                                                    text-8xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
                                     <div className="ttcommon_font_bold leading-200_160
-                                                    text-8xl md:text-200px lg:text-200px xl:text-200px 2xl:text-200px" >M Series</div>
+                                                    text-8xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
                                 </div>
-                                <div className="w-full ml-auto mr-10" style={{maxWidth:538}}>
+                                <div className="mr-10
+                                                ml-0 lg:ml-auto
+                                                md:w-10/12 lg:w-131_5">
                                     <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
                                                     text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
@@ -163,7 +167,7 @@ export default function MSeries() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 right-15 w-125">
+                <div className="absolute top-0 right-15 w-100">
                     <div className="flex flex-col ml-auto">
                         <div className="my-auto">
                             {renderMSeriesSwiper()}

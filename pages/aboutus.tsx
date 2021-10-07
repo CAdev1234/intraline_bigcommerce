@@ -71,6 +71,7 @@ export default function AboutUs() {
                 </div>
             </div>
 
+            {/* education part */}
             <div className="px-15 py-25 bg-c_CCE7EF">
                 <div className="grid gap-x-5 gap-y-12
                                 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2">
@@ -80,7 +81,7 @@ export default function AboutUs() {
                                     <div className="mt-7_5">
                                         <img className="w-full" src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
                                     </div>
-                                    <div className="mt-7_5 ttcommon_font_thin text-sm leading-14_26">{item.detail}</div>
+                                    <div className="mt-7_5 ttcommon_font_thin text-base leading-14_26">{item.detail}</div>
                                 </div>
                     })}
                 </div>

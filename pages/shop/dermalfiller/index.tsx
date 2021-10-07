@@ -225,7 +225,7 @@ export default function DemeralFiller() {
                                         text-2xl sm:text-4xl">Download Our Catalog.</div>
                         <p className="mt-5
                                     text-xs sm:text-sm 
-                                    leading-14_26 sm:leading-none">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
+                                    leading-14_26 sm:leading-14_26">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-7_5 sm:mt-10">
                             <Input type="text" placeholder="Your Email Address"/>
                         </div>
