@@ -11,6 +11,11 @@ import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
 import { getCookie } from '@utils/cookie'
 import { Button, SelectInput } from '@components/mycp'
+import { useAppSelector } from '@utils/redux/hooks'
+import { validateEmail } from 'utils/simpleMethod'
+
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Props {
   className?: string
@@ -29,7 +34,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
   const [subescribeEmail, setSubscribeEmail] = useState('')
   const [enableSubscribeModal, setEnableSubscribeModal] = useState(false)
-  const [logined, setLogined] = useState(false)
+  // const [logined, setLogined] = useState(false)
+  const logined = useAppSelector((state) => state.user.logined)
   const rootClassName = cn(s.root, className)
 
   let infraline_link_li = [
@@ -49,12 +55,16 @@ const Footer: FC<Props> = ({ className, pages }) => {
   ]
 
   useEffect(() => {
-    if (getCookie('jwt', '') != null) {
-        setLogined(true)
-    }
+    
   }, [])
 
   const subscribeHandle = (bool_var: boolean) => {
+    if (!validateEmail(subescribeEmail)) {
+      toast.error("Invalid Email.", {
+          position: toast.POSITION.TOP_RIGHT
+      });
+      return
+    }
     if (subescribeEmail) {
       setEnableSubscribeModal(bool_var);
     }else {
@@ -68,7 +78,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
   }
 
   const toMyAccountHandler =() => {
-    if (getCookie('user', '') === undefined) {
+    if (!logined) {
         router.push("/account/register")
         return
     }else {
@@ -138,9 +148,21 @@ const Footer: FC<Props> = ({ className, pages }) => {
         </div>
       </Container> */}
 
+      <ToastContainer
+          position="bottom-center"
+          autoClose={1500}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          className="toast-container"
+      />
 
       <Container className="bg-black 
-                              px-5 sm:px-15">
+                              px-5 sm:px-5">
         <div className=" ttcommon_font
                          pt-5 sm:pt-20
                          pb-10 sm:pb-17_5">
@@ -226,18 +248,19 @@ const Footer: FC<Props> = ({ className, pages }) => {
                     <Button className="w-36 h-full text-white" variant="primary" onClick={() => {subscribeHandle(true)}}>submit</Button>
                   </div>
                   
+                  {/* social media links */}
                   <div className="flex items-center cursor-pointer
                                   justify-center sm:justify-start
                                   mt-7_5 sm:mt-10 md:mt-10 lg:mt-16 xl:mt-16 2xl:mt-16">
                     <div>
-                      <Link href="https://twitter.com">
+                      <Link href="https://twitter.com/weareintraline">
                         <svg width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M8.80545 23C19.3715 23 25.1507 14.1505 25.1507 6.47614C25.1507 6.22482 25.1507 5.9746 25.1339 5.72548C26.2582 4.90334 27.2287 3.88549 28 2.71941C26.9516 3.18906 25.8393 3.497 24.7005 3.63311C25.8995 2.90755 26.7974 1.76547 27.2261 0.42094C26.0985 1.09735 24.8647 1.57413 23.5782 1.8306C22.492 0.662923 20.975 0 19.3896 0C16.2351 0 13.6394 2.62405 13.6394 5.81289C13.6394 6.25528 13.6894 6.69629 13.7883 7.12718C9.1717 6.89327 4.8644 4.68574 1.94879 1.05954C0.432633 3.69807 1.21712 7.11745 3.72734 8.81193C2.81323 8.78457 1.91877 8.53523 1.12 8.08504V8.15863C1.12077 10.9126 3.05851 13.3063 5.72879 13.8515C4.8831 14.0847 3.99558 14.1187 3.13491 13.9512C3.8856 16.311 6.05035 17.9377 8.50194 17.9842C6.46811 19.6 3.95429 20.4777 1.36752 20.4751C0.910438 20.4742 0.453797 20.4463 0 20.3913C2.62686 22.0955 5.68422 22.9997 8.80545 22.9955" fill="white"/>
                         </svg>
                       </Link>
                     </div>
                     <div className="mx-8">
-                      <Link href="https://www.facebook.com/login">
+                      <Link href="https://www.facebook.com/weareintraline">
                         <svg width="12" height="23" viewBox="0 0 12 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M8.50798 0C4.22616 0 2.81296 1.8824 2.81296 5.11069V7.66604H0V11.5019H2.81296V23H8.00066V11.5019H11.5262L12 7.66604H8.00066V5.38684C8.00066 4.35666 8.23661 3.83396 9.90558 3.83396H12V0H8.50798Z" fill="white"/>
                         </svg>
@@ -251,7 +274,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                       </Link>
                     </div>
                     <div className="mx-8">
-                      <Link href="https://linkedin.com">
+                      <Link href="https://www.linkedin.com/company/intraline%C2%AE/">
                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M4.90521 6.97713V23H0.363349V6.97713H4.90521ZM5.26856 2.55945C5.26856 3.99695 4.06951 5.15396 2.61611 5.15396C1.16272 5.15396 0 3.99695 0 2.55945C0 1.15701 1.16272 0 2.61611 0C4.06951 0 5.26856 1.15701 5.26856 2.55945ZM23 13.1479V23H18.4581V14.8308C18.4581 9.92226 12.4265 10.3079 12.4265 14.8308V23H7.92101V6.97713H12.4265V9.57165C14.534 5.78506 23 5.50457 23 13.1479Z" fill="white"/>
                         </svg>

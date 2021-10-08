@@ -89,7 +89,8 @@ export default function MSeries() {
                         <div className="my-auto">
                             <Link href={item.link}>
                                 <div className="flex flex-col">
-                                    <img className="mx-auto" src={item.img} alt="" />
+                                    <img className="mx-auto
+                                                    h-80 md:h-146" src={item.img} alt=""/>
                                     <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
                                 </div>
                             </Link>
@@ -114,21 +115,27 @@ export default function MSeries() {
     }
 
     return(
-        <div className="ttcommon_font text-c_00080D flex flex-col">
-            <div className="absolute top-0 left-0 w-full h-225 flex overflow-hidden">
+        <div className="ttcommon_font text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
+            <div className="absolute top-0 left-0 w-full flex overflow-hidden
+                            h-auto sm:h-175 md:h-225 lg:h-225 xl:h-225 2xl:h-225">
                 <div className="h-full
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>
-                <div className="relative flex-1 h-full">
+                <div className="relative flex-1 h-full
+                                hidden sm:block">
                     <div className="absolute left-0 rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128}}></div>
                 </div>
             </div>
             <div className="w-full h-15 bg-transparent"></div>
-            <div className="relative bg-white bg-opacity-0 w-full flex flex-col
-                            h-150 sm:h-210 lg:h-210 xl:h-210 2xl:h-210">
+            <div className="relative w-full flex flex-col
+                            h-auto sm:h-160 md:h-210 lg:h-210 xl:h-210 2xl:h-210
+                            bg-c_CCE7EF sm:bg-white
+                            bg-opacity-100 sm:bg-opacity-0">
                 
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex flex-wrap cursor-pointer
-                                    pl-5 md:pl-15 lg:pl-15 xl:pl-15 2xl:pl-15">
+                    <div className="flex items-center flex-wrap cursor-pointer
+                                    pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
+                                    md:w-90 lg:w-full">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
@@ -140,35 +147,46 @@ export default function MSeries() {
                     </div>
                 </div>
                 <div className="mb-15 z-10 h-full flex flex-col
-                                px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <div className="mt-30 w-full
+                                px-5 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="w-full
+                                    mt-12 md:mt-30
                                     block sm:flex">
                         <div className="flex flex-col">
                             <div className="">
                                 <div>
                                     <div className="ttcommon_font_thin font-semibold
                                                     leading-200_160 md:leading-200_160 lg:leading-200_160 xl:leading-200_160 2xl:leading-200_160
-                                                    text-8xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
                                     <div className="ttcommon_font_bold leading-200_160
-                                                    text-8xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
-                                                md:w-10/12 lg:w-131_5">
-                                    <div className="ttcommon_font_thin leading-36_48 font-semibold mt-8 text-c_00080D
-                                                    text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                                                sm:w-6/12 md:w-5/12 lg:w-131_5">
+                                    <div className="ttcommon_font_thin w-full leading-36_48 font-semibold mt-8 text-c_00080D
+                                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
+                                                    ">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
                                 
                             </div>
                         </div>
+                    </div>
+                    <div className="my-5 relative overflow-hidden
+                                    block sm:hidden">
+                        {renderMSeriesSwiper()}
+                        <div className="absolute top-0 -left-5 bg-white rounded-full aspect-w-1 aspect-h-1" style={{width: 520}}></div>
                     </div>
                     <div className="flex items-center justify-center mt-auto">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 right-15 w-100">
-                    <div className="flex flex-col ml-auto">
+                <div className="absolute h-full
+                                top-28 sm:top-0 md:top-0
+                                sm:right-5 md:right-10 lg:right-15
+                                sm:w-75 md:w-90 lg:w-100
+                                hidden sm:block">
+                    <div className="flex flex-col ml-auto h-full">
                         <div className="my-auto">
                             {renderMSeriesSwiper()}
                         </div>
@@ -177,7 +195,7 @@ export default function MSeries() {
             </div>
 
             {/* pure part */}
-            <div className="bg-c_C6CBDD w-full" style={{height: 880}}>
+            <div className="bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
                 <div className="mt-12_5 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32
@@ -187,10 +205,13 @@ export default function MSeries() {
                                         onScroll={(event) => scrollHandler(event.target as any)}>
                             {m_series_li.map((item, index) => {
                                 return <div className="mb-7_5" key={`pure_part_${index}`}>
-                                            <div className="ttcommon_font_bold text-6xl leading-64_76
+                                            <div className="ttcommon_font_bold leading-64_76
+                                                            sm:text-4xl md:text-6xl
                                                             ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">{item.headline}</div>
                                             <div className="relative">
-                                                <div className="mt-2 bg-white py-12 px-10 relative z-10
+                                                <div className="mt-2 bg-white py-12 relative z-10
+                                                                sm:px-5 md:px-10
+                                                                sm:py-10 md:py-12
                                                                 ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">
                                                     <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                     <div className="mt-2 text-sm leading-14_26 text-c_00080D">{item.detail}</div>
@@ -209,7 +230,7 @@ export default function MSeries() {
                             <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
                             <div className="ttcommon_font_thin mt-7 leading-36_48
-                                            text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                                            text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                             <div className="progress-bar-container bg-white w-full h-1 mt-12_5">
                                 <div className="progress-bar bg-c_00080D h-full" style={{width: `${scroll_perc}%`}}></div>
                             </div>

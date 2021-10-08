@@ -48,7 +48,7 @@ const renderSubMenu = (category_li: NavLinkArray) => {
 
 
 const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
-  const [logined, setLogined] = useState(false);
+  const logined = useAppSelector((state) => state.user.logined)
   const [enableMobileMenu, setEnableMobileMenu] = useState(false)
   const [enableSearchBar, setEnableSearchBar] = useState(false)
   const [current_url, setCurrentUrl] = useState('/')
@@ -99,9 +99,6 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   ]
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
-    if (getCookie('jwt', '') != null) {
-        setLogined(true)
-    }
   }, [])
 
   const searchProductHandler = () => {
@@ -114,10 +111,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
 
   const toMyAccountHandler =() => {
     console.log("ddddddd")
-    if (getCookie('user', '') === undefined) {
-      console.log(getCookie('user', ''))
-        router.push("/account/register")
-        return
+    if (!logined) {
+      router.push("/account/register")
+      return
     }else {
       router.push('/account/myaccount')
     }

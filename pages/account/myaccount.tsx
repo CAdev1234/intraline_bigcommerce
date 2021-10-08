@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
 import Link from "@components/ui/Link"
+import { useAppSelector } from "@utils/redux/hooks"
 
 export default function MyAccount() {
     let product_info = {
@@ -37,7 +38,7 @@ export default function MyAccount() {
             description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.' 
         }
     ]
-    
+    const userInfo = useAppSelector((state) => state.user.userInfo)
     const router = useRouter()
     const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
     const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
@@ -52,8 +53,7 @@ export default function MyAccount() {
     const[rating, setRating] = useState(0)
 
     useEffect(() => {
-        
-        let user_info = JSON.parse(getCookie('user', '') as string)
+        let user_info = JSON.parse(userInfo as string)
         setUser(user_info)
 
         if (getCookie('sa', '')) {

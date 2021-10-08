@@ -31,8 +31,6 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import router from 'next/router'
 import { TestimonialCp } from '@components/mycp'
-import { isStringObject } from 'util/types'
-
 
 export async function getStaticProps({
   preview,
@@ -301,13 +299,6 @@ const RenderFAQCollapse = () => {
 export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const play_icon = () => {
-    return <div>
-              <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
-                <TriangleRight className="text-white"/>
-              </div>     
-          </div>
-  }
   
   let profile_li = [
     {
@@ -342,7 +333,7 @@ export default function Home({
     },
   ]
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
-  const [logined, setLogined] = useState(false)
+  const logined = useAppSelector((state) => state.user.logined)
   
   let all_product_li = useAppSelector((state) => state.product.products)
   let scrollHandler = (ele:HTMLDivElement) => {
@@ -353,9 +344,9 @@ export default function Home({
   }
 
   useEffect(() => {
-    if (getCookie('jwt', '') != null) {
-        setLogined(true)
-    }
+    // if (getCookie('jwt', '') != null) {
+    //     setLogined(true)
+    // }
   }, [])
 
   const addToCartByDom = new AddToCartByDom(all_product_li)

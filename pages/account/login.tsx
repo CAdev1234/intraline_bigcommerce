@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { validate } from 'email-validator'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { validateEmail } from 'utils/simpleMethod'
 
 export default function Login() {
     const router = useRouter()
@@ -17,11 +18,7 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [loginResult, setLoginResult] = useState(true)
 
-    const validateEmail = (str: string) => {      
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        console.log(emailPattern.test(str))
-        return emailPattern.test(str); 
-    }
+    
 
     const loginSubmitHandler = () => {
         if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email && password === JSON.parse(getCookie('user', '') as string).password) {

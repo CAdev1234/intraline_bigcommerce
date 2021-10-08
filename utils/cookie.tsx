@@ -18,6 +18,7 @@ export const getCookie = (key: string, req: string) => {
 const getCookieFromBrowser = (key: string) => {
   // console.log(Cookies.get(key))
   return Cookies.get(key);
+  return 
 };
 
 // const getCookieFromServer = (key: string, req: string) => {

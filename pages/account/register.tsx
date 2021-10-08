@@ -6,6 +6,7 @@ import { ChevronRight } from '@components/icons';
 import { useEffect, useState } from 'react';
 import { setCookie } from '@utils/cookie';
 import { useRouter } from 'next/router';
+import { validateEmail } from 'utils/simpleMethod'
 
 export default function Register() {
     const [email, setEmail] = useState('')
@@ -27,11 +28,7 @@ export default function Register() {
             setRegisterResultFail(true)
         }
     }
-    const validateEmail = (str: string) => {      
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        console.log(emailPattern.test(str))
-        return emailPattern.test(str); 
-    } 
+    
     useEffect(() => {
         let vali_span_li = document.querySelectorAll('body span.vali-span')
         setNumValiSpan(vali_span_li.length)

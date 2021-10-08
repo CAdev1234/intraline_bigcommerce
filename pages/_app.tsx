@@ -10,6 +10,7 @@ import { ManagedUIContext } from '@components/ui/context'
 import {store} from '../utils/redux/store'
 import { Provider as ReduxProvider } from 'react-redux'
 import { HubspotProvider } from '@aaronhayes/react-use-hubspot-form';
+import { CookiesProvider } from 'react-cookie';
 
 const Noop: FC = ({ children }) => <>{children}</>
 
@@ -24,14 +25,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head />
       <ManagedUIContext>
-        <HubspotProvider>
-          <ReduxProvider store={store}>
-            <Layout pageProps={pageProps}>
-              <Component {...pageProps} />
-            </Layout>
-          </ReduxProvider>
-        </HubspotProvider>
-        
+        <CookiesProvider>
+          <HubspotProvider>
+            <ReduxProvider store={store}>
+              <Layout pageProps={pageProps}>
+                <Component {...pageProps} />
+              </Layout>
+            </ReduxProvider>
+          </HubspotProvider>
+        </CookiesProvider>
       </ManagedUIContext>
     </>
   )
