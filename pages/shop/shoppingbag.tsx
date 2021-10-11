@@ -8,10 +8,12 @@ import { AddToCartByDom } from "@utils/addToCartByDom"
 import React from "react"
 import { deleteProduct } from "@utils/redux/slices/cartSlice"
 
-type Product = {
+type ProductObject = {
+    id: string,
     title: string,
     price: number,
     amount: number,
+    quantity: number,
     img: string,
     detail: string,
     link: string
@@ -19,9 +21,9 @@ type Product = {
 
 export default function ShoppingBag() {
     const dispatch = useAppDispatch()
-    const cart_product_li = useAppSelector(state => state.cart.products) as Array<Product>
+    const cart_product_li = useAppSelector(state => state.cart.products) as Array<ProductObject>
     const total_price = useAppSelector(state => state.cart.totalPrice)
-    const total_amount = useAppSelector(state => state.cart.totalAmount)
+    const total_quantity = useAppSelector(state => state.cart.totalQuantity)
     const addToCartByDom = new AddToCartByDom(cart_product_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
         if (cart_product_li[index].amount > 1) {
@@ -45,7 +47,7 @@ export default function ShoppingBag() {
                     <span className="ttcommon_font_bold ml-1">Shopping Bag</span>
                 </div>
             </div>
-            <div className="ttcommon_font_thin mt-10 text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag </span>(3)</div>
+            <div className="ttcommon_font_thin mt-10 text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag </span>({total_quantity})</div>
             <div className="flex mt-7_5 items-start pb-15">
                 <div className=" w-8/12">
                     <div className="h-0.5 w-full bg-c_00080D"></div>
@@ -62,7 +64,7 @@ export default function ShoppingBag() {
                                         <div className="ttcommon_font_bold mx-auto tracking-widest text-sm leading-14_17">${item.price}</div>
                                         <div className="border border-c_00080D h-11 w-24 flex items-center mx-auto">
                                             <button className="mx-auto" onClick={(event) => {decreaseNumHandler(event, index)}}>-</button>
-                                            <div className="mx-auto">{item.amount}</div>
+                                            <div className="mx-auto">{item.quantity}</div>
                                             <button className="mx-auto" onClick={(event) => {increaseNumHandler(event, index)}}>+</button>
                                         </div>
                                         <div className="ml-auto">

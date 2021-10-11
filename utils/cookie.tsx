@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 
+
 export const setCookie = (key: string, value: string) => {
   Cookies.set(key, value, {expires: 1, path: '/'});
 };

@@ -42,6 +42,8 @@ export default function Masque() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
+    let masque = {id: 'product_0000-000000-0017', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.png', detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture.", link: '/shop/skincare/masque'}
+    
     const [logined, setLogined] = useState(false)
     const [numMasque, setNumMasque] = useState(1)
     const [fullName, setFullName] = useState('')
@@ -56,7 +58,9 @@ export default function Masque() {
         }
     }, [])
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Biocellulose Masque', amount: numMasque, price: 100, img: '/assets/img/products/masque.png'}))
+        let product_detail = masque
+        product_detail.quantity = numMasque
+        dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
         if (numMasque > 1) {
@@ -90,7 +94,7 @@ export default function Masque() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">Biocellulose</div>
                                 <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Masque</span></div>
                                 <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 100ML</span>

@@ -7,6 +7,10 @@ import { useEffect, useState } from 'react';
 import { setCookie } from '@utils/cookie';
 import { useRouter } from 'next/router';
 import { validateEmail } from 'utils/simpleMethod'
+import { useAppDispatch } from '@utils/redux/hooks';
+import { registerAuth } from '@utils/auth';
+
+
 
 export default function Register() {
     const [email, setEmail] = useState('')
@@ -19,11 +23,11 @@ export default function Register() {
     const [registerResultFail, setRegisterResultFail] = useState(false)
     const [numValiSpan, setNumValiSpan] = useState(0)
     const router = useRouter()
+    const dispatch = useAppDispatch()
 
     const registerHandler = () => {
         if (email !== "" && f_name !== "" && l_name !== "" && mobile !== '' && password !== "" && c_password !== "" && password === c_password) {
-            setCookie('user', JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile, password: password}))
-            router.push('/account/login')
+            registerAuth(email, f_name, l_name, mobile, password, c_password)
         }else {
             setRegisterResultFail(true)
         }
@@ -75,7 +79,7 @@ export default function Register() {
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
-                        {password === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {password === '' || password.length < 8 && <span className="vali-span text-c_F4511E text-sm">Required. At least 8 characters.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>

@@ -11,25 +11,45 @@ import { validate } from 'email-validator'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { validateEmail } from 'utils/simpleMethod'
+import { useAppDispatch, useAppSelector } from '@utils/redux/hooks';
+import { loginUser } from '@utils/redux/slices/userSlice';
+import { loginAuth } from '@utils/auth';
 
 export default function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginResult, setLoginResult] = useState(true)
+    // const user = useAppSelector((state) => state.user.userInfo)
+    
+    const dispatch = useAppDispatch()
 
+    // useEffect(() => {
+    //     if (user !== {}) {
+    //         router.push('/')
+    //     }
+    // }, [])
     
 
-    const loginSubmitHandler = () => {
-        if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email && password === JSON.parse(getCookie('user', '') as string).password) {
-            setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
-            router.push('/')
-        }else {
-            setLoginResult(false)
-            // toast.error("Email and Password error.", {
-            //     position: toast.POSITION.TOP_RIGHT
-            // });
-        }
+    const loginSubmitHandler = async () => {
+        let res = await loginAuth(email, password)
+        if (typeof(res) === 'string') setLoginResult(false)
+        else dispatch(loginUser())
+        // if (user) {
+        //     if (email !== '' && password !== '' && email === JSON.parse(getCookie('user', '') as string).email && password === JSON.parse(getCookie('user', '') as string).password) {
+        //         setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
+        //         dispatch(loginUser())
+        //         router.push('/')
+        //     }else {
+        //         setLoginResult(false)
+        //         // toast.error("Email and Password error.", {
+        //         //     position: toast.POSITION.TOP_RIGHT
+        //         // });
+        //     }
+        // }else {
+        //     setLoginResult(false)
+        // }
+        
     }
 
 

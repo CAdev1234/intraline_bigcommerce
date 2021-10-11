@@ -80,7 +80,7 @@ const RenderCategorySwiper:FC = () => {
                       <div className="flex-1 h-0">
                           <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                       </div>
-                      <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
+                      <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5 h-12 flex justify-center items-center
                                        text-sm md:text-2xl
                                        leading-14_17 md:leading-none">{item.name}</div>
                   </div>

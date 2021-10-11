@@ -57,9 +57,9 @@ export default function M2Plus() {
         },
     ]
     let mseries_li = [
-        {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/products/m2plus.png", link: "/shop/dermalfiller/m2plus", detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love."},
-        {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/products/m3plus.png", link: "/shop/dermalfiller/m3plus", detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact."},
-        {title: "M4 Plus", price: 100, amount: 1, img: "/assets/img/products/m4plus.png", link: "/shop/dermalfiller/m4plus", detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave."},
+        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/m2plus'},
+        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'},
+        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/m4plus'},
     ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
@@ -67,7 +67,9 @@ export default function M2Plus() {
     
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'M2 Plus', amount: numM2Plus, price: 100, img: '/assets/img/products/m2plus.png'}))
+        let product_detail = mseries_li[0]
+        product_detail.quantity = numM2Plus
+        dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
         if (numM2Plus > 1) {
@@ -137,7 +139,7 @@ export default function M2Plus() {
                             <img className="mx-auto " src={item.img} alt="" />
                         </div>
                         <div className="mt-5 ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 px-3 text-sm leading-14_26 text-center">{item.detail}</div>
+                        <div className="mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
@@ -175,12 +177,14 @@ export default function M2Plus() {
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
     }
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
             <div className="h-15 w-full bg-transparent"></div>
-            <div className="h-210 relative bg-c_CCE7EF w-full flex flex-col">
+            <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="flex items-center flex-wrap cursor-pointer
+                                    pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
+                                    md:w-100 lg:w-full">
                         <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1 ttcommon_font">Shop</span>
@@ -190,14 +194,18 @@ export default function M2Plus() {
                         <span className="ttcommon_font_bold ml-1">M2 Plus</span>
                     </div>
                 </div>
-                <div className="h-full z-10 mb-15 flex flex-col">
-                    <div className="flex my-auto w-full">
-                        <div className="w-6/12 flex flex-col pl-15">
+                <div className="h-full z-10 flex flex-col">
+                    <div className="flex w-full">
+                        <div className="w-6/12 flex flex-col
+                                        pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">M2</span> Plus</div>
-                                <div className="ttcommon_font mt-5 text-4xl leading-36_48">Enhancing more of what you love.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
+                                <div className="ttcommon_font_thin leading-200_160 font-semibold mt-7
+                                                text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" ><span className="ttcommon_font_bold">M2</span> Plus</div>
+                                <div className="ttcommon_font mt-5 leading-36_48
+                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Enhancing more of what you love.</div>
+                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26
+                                                md:mr-5 lg:mr-36">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
@@ -212,34 +220,37 @@ export default function M2Plus() {
                                 </div>}
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-                <div className="absolute bottom-14 w-full flex flex-col z-10">
-                    <div className="flex items-center justify-center">
-                        <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
-                    </div>
-                </div>
-                
-            </div>
-            <div className="absolute top-0 right-0 w-full">
-                <div className="w-6/12 flex flex-col items-end ml-auto">
-                    <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                        <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
-                        <div className="w-full h-full flex absolute items-center justify-center">
-                            <div className="relative">
-                                <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
+
+                <div className="absolute top-0 right-0 w-full h-full">
+                    <div className="w-6/12 flex flex-col items-end ml-auto h-full">
+                        <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
+                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
+                            <div className="w-full h-full flex absolute items-center justify-center">
+                                <div className="relative">
+                                    <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
+                                    {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
+                <div className="flex items-center justify-center">
+                    <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                    <ChevronDown className="w-4 ml-4" />
+                </div>
+            </div>
+            
 
             {/* Indications */}
             <div className="bg-white px-40">
-                <div className="flex flex-col max-w-2xl mx-auto py-28">
+                <div className="flex flex-col mx-auto py-28
+                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
+                                px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
@@ -250,7 +261,7 @@ export default function M2Plus() {
 
             {/* cart part */}
             <div className="bg-c_C6CBDD w-full relative">
-                <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
+                <div className="absolute h-full flex flex-col" style={{left: -211}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32 relative z-10">

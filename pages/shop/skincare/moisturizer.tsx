@@ -43,6 +43,8 @@ export default function Moisturizer() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
+    let moisturizer = {id: 'product_0000-000000-0016', title: 'MOISTURIZER', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/moisturizer.png', detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'}
+    
     const [logined, setLogined] = useState(false)
     const [numMoisturizer, setNumMoisturizer] = useState(1)
     const [fullName, setFullName] = useState('')
@@ -57,7 +59,9 @@ export default function Moisturizer() {
         }
     }, [])
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Restorative Moisturizer', amount: numMoisturizer, price: 100, img: '/assets/img/products/moisturizer.png'}))
+        let product_detail = moisturizer
+        moisturizer.quantity = numMoisturizer
+        dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
         if (numMoisturizer > 1) {
@@ -71,10 +75,9 @@ export default function Moisturizer() {
     }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+            <div className="relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20 mt-15">
+                <div className="mt-12_5 left-0 flex items-center uppercase leading-14_17 tracking-widest">
+                    <div className="flex items-center ttcommon_font">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
@@ -84,14 +87,16 @@ export default function Moisturizer() {
                         <span className="ttcommon_font_bold ml-1">Moisturizer</span>
                     </div>
                 </div>
-                <div className="mt-auto mb-15 flex flex-col">
+                <div className="mt-44 mb-15 flex flex-col">
                     <div className="flex w-full h-full z-10">
-                        <div className="flex flex-col max-w-xl">
-                            <div className="my-auto">
+                        <div className="flex-1 flex flex-col max-w-xl">
+                            <div className="">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">Restorative</div>
-                                <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Moisturizer</span></div>
-                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
+                                <div className="ttcommon_font_thin font-semibold mt-2 leading-none
+                                                text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-120px" ><span className="ttcommon_font_bold">Moisturizer</span></div>
+                                <div className="ttcommon_font_thin mt-5 leading-36_48
+                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 100ML</span>
@@ -113,7 +118,7 @@ export default function Moisturizer() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-16">
                         <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
@@ -145,7 +150,7 @@ export default function Moisturizer() {
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
+                        <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
                             <Input type="text" placeholder="Full Name"/>
                         </div>
@@ -185,8 +190,6 @@ export default function Moisturizer() {
                     </div>
                 </div>
             </div>
-            
-
         </div>
     )
 }

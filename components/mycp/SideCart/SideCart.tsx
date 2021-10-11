@@ -9,11 +9,16 @@ import { useRouter } from 'next/router'
 
 interface SideCartProps {
 }
-type Product = {
+
+type ProductObject = {
+    id: string,
     title: string,
     price: number,
     amount: number,
-    img: string
+    quantity: number,
+    img: string,
+    detail: string,
+    link: string
 }
 
 const SideCart: FC<SideCartProps> = () => {
@@ -23,9 +28,9 @@ const SideCart: FC<SideCartProps> = () => {
     useEffect(() => {
         setCurrentUrl(window.location.href)
     })
-    const cart_product_li = useAppSelector(state => state.cart.products) as Array<Product>
+    const cart_product_li = useAppSelector(state => state.cart.products) as Array<ProductObject>
     const total_price = useAppSelector(state => state.cart.totalPrice)
-    const total_amount = useAppSelector(state => state.cart.totalAmount)
+    const total_amount = useAppSelector(state => state.cart.totalQuantity)
     
     const editBagHandler = () => {
         dispatch(closeSideCart())
@@ -48,7 +53,7 @@ const SideCart: FC<SideCartProps> = () => {
                                                 <div className="flex-1 ml-5">
                                                     <div>Intraline's</div>
                                                     <div className="ttcommon_font_bold">{item.title}</div>
-                                                    <div>{item.amount} X <span className="ttcommon_font_bold tracking-widest">${item.price}</span></div>
+                                                    <div>{item.quantity} X <span className="ttcommon_font_bold tracking-widest">${item.price}</span></div>
                                                 </div>
                                             </div>
                                 })}

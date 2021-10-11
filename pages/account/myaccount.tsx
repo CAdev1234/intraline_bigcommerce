@@ -6,55 +6,51 @@ import { useEffect, useState } from "react"
 import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
 import Link from "@components/ui/Link"
-import { useAppSelector } from "@utils/redux/hooks"
+import { useAppDispatch, useAppSelector } from "@utils/redux/hooks"
+import { logoutUser } from "@utils/redux/slices/userSlice"
+import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"
+
+type ProductObject = {
+    id: string,
+    title: string,
+    price: number,
+    amount: number,
+    quantity: number,
+    img: string,
+    detail: string,
+    link: string
+}
 
 export default function MyAccount() {
-    let product_info = {
-        title: 'Dermal Filler M2 PLUS',
-        quantity: 2,
-        price: '$100.00',
-        reference: '1234567890',
-        img: '/assets/img/m2plus.png'
-    }
-    let order_info = {
-        order_date: '30 April 2021',
-        order_num: '0987654321',
-        order_status: 'Shipped',
-        order_track: '1234567890',
-        product_li: [product_info, product_info]
-    }
-    let order_li = [order_info, order_info, order_info]
-    let review_li = [
-        {
-            title: 'Dermal Filler M3 PLUS - Amazing Product',
-            created_at: '03 Aug 2021',
-            rate: 4,
-            description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.' 
-        },
-        {
-            title: 'Dermal Filler M3 PLUS - Amazing Product',
-            created_at: '03 Aug 2021',
-            rate: 4,
-            description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.' 
-        }
-    ]
-    const userInfo = useAppSelector((state) => state.user.userInfo)
+    
+    let order_li = useAppSelector(state => state.cart.orderList)
+    let review_li = useAppSelector(state => state.review.review_li)
+    let all_products = useAppSelector(state => state.product.products)
+    // const userInfo = useAppSelector((state) => state.user.userInfo)
     const router = useRouter()
+    const dispatch = useAppDispatch()
+    const logined = useAppSelector((state) => state.user.logined)
     const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
     const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
     const [bill_address, setBillAddress] = useState({f_name: '', l_name: '', address: '', city: '', apt: '', country: '', postcode: ''})
     const [payment, setPayment] = useState({name: '', number: '', date: '', cvc: ''})
+    const [newReview, setNewReview] = useState({id: '', product: '', title: '', created_at: '', rating: 0, detail: ''})
+    const [selectedReview, setSelectedReview] = useState(review_li[0])
 
-    const [new_review_product, setNewReviewProduct] = useState('')
-
-    const[enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
-    const[enableEditAccountModal, setEnableAccountModal] = useState(false)
-    const[enableAddReviewModal, setEnableAddReviewModal] = useState(false)
-    const[rating, setRating] = useState(0)
+    const [enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
+    const [enableEditAccountModal, setEnableAccountModal] = useState(false)
+    const [enableAddReviewModal, setEnableAddReviewModal] = useState(false)
+    const [enableEditReviewModal, setEnableEditReviewModal] = useState(false)
+    const [enableDelReviewModal, setEnableDelReviewModal] = useState(false)
+    const [rating, setRating] = useState(0)
 
     useEffect(() => {
-        let user_info = JSON.parse(userInfo as string)
-        setUser(user_info)
+        if (!logined) {
+            router.push('/account/login')
+            return
+        }
+        
+        setUser(JSON.parse(localStorage.getItem('user') as string))
 
         if (getCookie('sa', '')) {
             let shipping_address = JSON.parse(getCookie('sa', '') as string)
@@ -77,18 +73,23 @@ export default function MyAccount() {
     }
     const logoutHandler = () => {
         removeCookie('jwt')
+        dispatch(logoutUser())
         // removeCookie('user')
         // removeCookie('sa')
         // removeCookie('ba')
         // removeCookie('pm')
+        
         router.push('/account/login')
     }
     const delAccountHandler = () => {
         removeCookie('jwt')
-        removeCookie('user')
-        removeCookie('sa')
-        removeCookie('ba')
-        removeCookie('pm')
+        localStorage.setItem('sa', '')
+        localStorage.setItem('ba', '')
+        localStorage.setItem('pm', '')
+        // removeCookie('sa')
+        // removeCookie('ba')
+        // removeCookie('pm')
+        dispatch(logoutUser())
         router.push('/account/login')
     }
     const editShippingAddressHandler = () => {
@@ -140,10 +141,62 @@ export default function MyAccount() {
     }
 
     const handleRatingHandler = (rate: number) => {
-        setRating(rate)
+        setNewReview({...newReview, rating: rate})
     }
 
-    let item_li = ['Dermal filler1', 'Dermal filler2', 'Dermal filler3']
+    const updateReviewProduct = (str: string) => {
+        setNewReview({...newReview, product: str})
+    } 
+
+    const updateReviewTitle = (str: string) => {
+        setNewReview({...newReview, title: str})
+    }
+
+    const submitNewReviewHandler = () => {
+        setNewReview({...newReview, id: '', created_at: '', rating: rating})
+        dispatch(createReview(newReview))
+        setNewReview({id: '', product: '', title: '', created_at: '', rating: 0, detail: ''})
+        showAddReviewModalHandler(enableAddReviewModal)
+    }
+
+    const showEditReviewModalHandler = (index: number) => {
+        setEnableEditReviewModal(true);
+        setSelectedReview(review_li[index]);
+        (document.querySelector('body') as HTMLBodyElement).style.overflowY = 'hidden'
+    }
+    const closeEditReviewModalHandler = () => {
+        setEnableEditReviewModal(false);
+        (document.querySelector('body') as HTMLBodyElement).style.overflowY = 'auto'
+    }
+    const updateSelectedReviewProduct = (str: string) => {
+        setSelectedReview({...selectedReview, product: str})
+    }
+    const updateSelectedReviewTitle = (str: string) => {
+        setSelectedReview({...selectedReview, title: str})
+    }
+    const updateReviewRatingHandler = (rate: number) => {
+        setSelectedReview({...selectedReview, rating: rate})
+    }
+    const submitEditReviewHandler = () => {
+        console.log(selectedReview)
+        dispatch(updateReview(selectedReview))
+        closeEditReviewModalHandler()
+    }
+
+    const showDelReviewModalHandler = (index: number) => {
+        setEnableDelReviewModal(true);
+        setSelectedReview(review_li[index]);
+        (document.querySelector('body') as HTMLBodyElement).style.overflowY = 'hidden'
+    }
+    const closeDelReviewModalHandler = () => {
+        setEnableDelReviewModal(false);
+        (document.querySelector('body') as HTMLBodyElement).style.overflowY = 'auto'
+    }
+    const submitDelReviewHandler = () => {
+        closeDelReviewModalHandler()
+        dispatch(deleteReview(selectedReview))
+    }
+
     return (
         <div className="ttcommon_font_thin text-c_00080D
                         mt-16 md:mt-0">
@@ -258,14 +311,17 @@ export default function MyAccount() {
                     <div className="text-sm leading-14_26 text-center uppercase w-1/5">status</div>
                     <div className="text-sm leading-14_26 text-center uppercase w-1/5">tracking</div>
                 </div>
+                {order_li.length === 0 &&
+                    <div className="text-5xl text-c_00080D ttcommon_font text-center my-10">There is no order.</div>
+                }
                 <div className="">
                     {order_li.map((item, index) => {
                         return <div key={`order_item_${index}`}>
                                     <div className="bg-c_F7F7F7 h-20 items-center flex mb-1 px-15">
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_date}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_num}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_status}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_track}</div>
+                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_id}</div>
+                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_state}</div>
+                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_tracking}</div>
                                         <div className="flex-1 flex flex-col">
                                             <Button className="h-11 w-56 ml-auto text-sm"
                                                 onClick={() => {
@@ -284,17 +340,17 @@ export default function MyAccount() {
                                                 <div className="ttcommon_font_bold text-sm leading-14_26 text-center w-1/5">Reference</div>
                                             </div>
                                             <div className="mt-5">
-                                                {item.product_li.map((item1, index1) => {
+                                                {item.order_subItem.map((item1, index1) => {
                                                     return <div className="flex items-center mb-3" key={`product_${index1}_${item1.title}`}>
                                                                 <div className="flex items-center text-sm leading-14_26 text-center w-1/5">
-                                                                    <div className="w-25 h-36 px-7 bg-c_CCE7EF flex flex-col">
+                                                                    <div className="w-25 h-36 px-2 bg-c_CCE7EF flex flex-col">
                                                                         <img src={item1.img} className="w-full my-auto" alt="" />
                                                                     </div>
                                                                     <div className="ml-8">{item1.title}</div>
                                                                 </div>
                                                                 <div className="text-sm leading-14_26 text-center w-1/5">{item1.quantity}</div>
-                                                                <div className="text-sm leading-14_26 text-center w-1/5">{item1.price}</div>
-                                                                <div className="text-sm leading-14_26 text-center w-1/5">{item1.reference}</div>
+                                                                <div className="text-sm leading-14_26 text-center w-1/5">${item1.price}</div>
+                                                                <div className="text-sm leading-14_26 text-center w-1/5">{item.reference}</div>
                                                             </div>
                                                 })}
                                             </div>
@@ -308,21 +364,24 @@ export default function MyAccount() {
             {/* product reviews */}
             <div className="py-25 bg-c_F5DBDD">
                 <div className="mx-172">
-                    <div className="ttcommon_font_bold text-lg leading-24_29 tracking-widest uppercase text-center">Product Reviews</div>
+                    <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">Product Reviews</div>
                     <div className="mt-7_5">
+                        {review_li.length === 0 && 
+                            <div className="text-center text-5xl ttcommon_font mb-25">There is no review.</div>
+                        }
                         {review_li.map((item, index) => {
                             return <div className="bg-white p-7_5 mb-2.5" key={`review_${index}`}>
-                                        <div className="flex items-center text-sm leading-14_17">
-                                            <span className="ttcommon_font_bold">{item.title}</span>
+                                        <div className="flex items-center text-base leading-14_17">
+                                            <span className="ttcommon_font_bold">{item.product} - {item.title}</span>
                                             <span className="ml-5">{item.created_at}</span>
                                             <div className="ml-auto">
-                                                <RatingView ratingValue={item.rate} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
+                                                <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
                                             </div>
                                         </div>
-                                        <div className="mt-5 text-sm leading-14_17">{item.description}</div>
-                                        <div className="ttcommon_font mt-7_5 text-sm leading-14_17 tracking-widest uppercase underline">
-                                            <span>Edit</span>
-                                            <span className="ml-5">Delete review</span>
+                                        <div className="mt-5 text-base leading-14_17">{item.detail}</div>
+                                        <div className="ttcommon_font mt-7_5 text-sm leading-14_17 tracking-widest uppercase underline flex items-center">
+                                            <button onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
+                                            <button className="ml-5" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
                                         </div>
                                     </div>
                         })}
@@ -379,16 +438,17 @@ export default function MyAccount() {
                                     <SelectInput 
                                         enable_underline={true}
                                         default_option="Select Product"
-                                        option_li={item_li} 
+                                        option_li={all_products} 
                                         className="bg-c_F7F7F7"
                                         option_class="bg-c_F5DBDD hover:bg-opacity-80"
-                                        returnVal={setNewReviewProduct}/>
+                                        returnVal={updateReviewProduct}/>
                                 </div>
                                 <div className="mt-5">
-                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Review title"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Review title" onChange={updateReviewTitle}/>
                                 </div>
                                 <div className="mt-5">
-                                    <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write your review"/>
+                                    <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write your review"
+                                            onChange={(event) => setNewReview({...newReview, detail: event.target.value})}/>
                                 </div>
                                 <div className="mt-5 flex items-center">
                                     <span>Rating:</span>
@@ -398,7 +458,7 @@ export default function MyAccount() {
                                 </div>
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-sm h-11 w-64"
-                                        onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Submit</Button>
+                                        onClick={() => {submitNewReviewHandler()}}>Submit</Button>
                                     <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
                                         onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Cancel</button>
                                 </div>
@@ -406,6 +466,90 @@ export default function MyAccount() {
                                     <Cross/>
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            {/* edit review modal */}
+            {enableEditReviewModal && 
+                <div className="fixed top-0 left-0 w-full h-screen z-50 bg-c_00080D bg-opacity-40">
+                    <div className="relative flex flex-col">
+                        {/* <div className="absolute top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40"></div> */}
+                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col">
+                            <div className="relative my-auto mx-auto bg-white w-162_5 py-15 px-28">
+                                <div className="ttcommon_font_bold text-4xl leading-36_26">Edit Review.</div>
+                                {/* <div className="mt-5 text-sm leading-14_26">Add a new review from a previous purchase.</div> */}
+                                <div className="mt-10">
+                                    <SelectInput 
+                                        enable_underline={true}
+                                        default_option={selectedReview.product}
+                                        option_li={all_products} 
+                                        className="bg-c_F7F7F7"
+                                        option_class="bg-c_F5DBDD hover:bg-opacity-80"
+                                        returnVal={updateSelectedReviewProduct}/>
+                                </div>
+                                <div className="mt-5">
+                                    <Input className="bg-c_F7F7F7" type="text" 
+                                            placeholder="Review title" 
+                                            defaultValue={selectedReview.title} 
+                                            onChange={updateSelectedReviewTitle}/>
+                                </div>
+                                <div className="mt-5">
+                                    <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" 
+                                            placeholder="Write your review"
+                                            defaultValue={selectedReview.detail}
+                                            onChange={(event) => setSelectedReview({...selectedReview, detail: event.target.value})}/>
+                                </div>
+                                <div className="mt-5 flex items-center">
+                                    <span>Rating:</span>
+                                    <div className="ml-5 mt-2">
+                                        <Rating onClick={updateReviewRatingHandler} 
+                                                ratingValue={selectedReview.rating} 
+                                                size={28} 
+                                                stars={5} 
+                                                fillColor="#87C1B9" 
+                                                emptyColor="rgba(135, 193, 185, 0.3)"/>
+                                    </div>
+                                </div>
+                                <div className="mt-7_5 flex items-center">
+                                    <Button className="text-sm h-11 w-64"
+                                        onClick={() => {submitEditReviewHandler()}}>Submit</Button>
+                                    <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
+                                        onClick={() => {closeEditReviewModalHandler()}}>Cancel</button>
+                                </div>
+                                <button className="absolute top-6 right-6" onClick={() => {closeEditReviewModalHandler()}}>
+                                    <Cross/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            {/* delete review modal */}
+            {enableDelReviewModal &&
+                <div className="fixed top-0 left-0 w-full h-screen flex flex-col z-40 bg-black bg-opacity-50">
+                    <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
+                        <div className="flex justify-between border-b border-gray-100 px-5 py-4">
+                        <div>
+                            <i className="fas fa-exclamation-circle text-blue-500"></i>
+                            <span className="font-bold text-gray-700 text-lg">Delete</span>
+                            </div>
+                        <div>
+                            <button><i className="fa fa-times-circle text-red-500 hover:text-red-600 transition duration-150"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div className="px-10 py-5 text-gray-600">Do you want to delete review correctly?</div>
+                    
+                        <div className="px-5 py-4 flex justify-end">
+                            <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                                onClick={() => {submitDelReviewHandler()}}>Yes
+                            </button>
+                            <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                                onClick={() => {closeDelReviewModalHandler()}}>Close
+                            </button>
                         </div>
                     </div>
                 </div>

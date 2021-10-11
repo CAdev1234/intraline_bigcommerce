@@ -1,21 +1,24 @@
 import { post, get } from "../utils/request";
 
 export const createUser = async (
-  name: string,
   email: string,
+  f_name: string,
+  l_name: string,
+  mobile: string,
   password: string,
   password_confirmation: string
 ) => {
   try {
-    const response = await post("/users", {
-      user: {
-        name,
-        email,
-        password,
-        password_confirmation
-      }
-    });
-    return response;
+    // const response = await post("/users", {
+    //   user: {
+    //     name,
+    //     email,
+    //     password,
+    //     password_confirmation
+    //   }
+    // });
+    // return response;
+    localStorage.setItem("user", JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile, password: password}))
   } catch (error) {
     // return error.response && error.response.status === 422
     //   ? "Email is already taken."

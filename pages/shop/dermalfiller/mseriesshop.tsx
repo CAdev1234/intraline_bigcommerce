@@ -10,9 +10,9 @@ import router from "next/router";
 
 export default function MseriesShop() {
     let items = [
-        {title: "M2 Plus", price: 100, amount: 1, img: "/assets/img/products/m2plus.png", link: "/shop/dermalfiller/m2plus", detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love."},
-        {title: "M3 Plus", price: 100, amount: 1, img: "/assets/img/products/m3plus.png", link: "/shop/dermalfiller/m3plus", detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact."},
-        {title: "M4 Plus", price: 100, amount: 1, img: "/assets/img/products/m4plus.png", link: "/shop/dermalfiller/m4plus", detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave."},
+        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/m2plus'},
+        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'},
+        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/m4plus'},
     ]
     const [logined, setLogined] = useState(false)
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function MseriesShop() {
                             <img className="w-full mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 px-3 text-sm leading-14_26 text-center">{item.detail}</div>
+                        <div className="mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
@@ -73,12 +73,13 @@ export default function MseriesShop() {
         })
     }
     return (
-        <div className="ttcommon_font h-225 flex flex-col">
+        <div className="ttcommon_font flex flex-col
+                        mt-16 md:mt-0">
             <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
-                <div className="px-15 mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest
+                                mx-5 sm:px-15">
+                    <div className="flex items-center cursor-pointer">
                         <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1 ttcommon_font">Shop</span>
@@ -86,7 +87,8 @@ export default function MseriesShop() {
                         <span className="ttcommon_font_bold ml-1">Monophasic dermal fillers</span>
                     </div>
                 </div>
-                <div className="mx-172 mt-20">
+                <div className="mt-20
+                                mx-5 sm:mx-15 md:mx-15 lg:mx-172">
                     <div className="flex text-c_00080D mb-2">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">The M Series.</div>
                         <div className="flex items-center ml-auto">
@@ -96,10 +98,10 @@ export default function MseriesShop() {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-10 grid grid-cols-3 gap-5">
+                    <div className="mt-10 grid gap-5
+                                    grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
                         {RenderMseries()}
                     </div>
-                    
                 </div>
             </div>
         </div>

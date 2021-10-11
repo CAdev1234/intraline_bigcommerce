@@ -10,6 +10,9 @@ import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import { Button, Input, TestimonialCp, FAQCp } from '@components/mycp'
 import Link from '@components/ui/Link'
+import { validateEmail } from 'utils/simpleMethod'
+import { useRouter } from 'next/router'
+import { ToastContainer, toast} from 'react-toastify'
 
 
 
@@ -93,9 +96,45 @@ export default function DemeralFiller() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
+    const router = useRouter()
+    const [catalogEmail, setCatalogEmail] = useState('')
+    const downloadCatalogHandler = () => {
+        if (validateEmail(catalogEmail)) {
+            let mimetype = 'application/pdf';
+            let filename = 'IntralineCatalog.pdf';
+
+            // Create Dummy A Element
+            let a = window.document.createElement('a');
+
+            // createObjectURL for local data as a Blob type
+            a.href = '/assets/catalog/intraline_catalog.pdf';
+            a.download = filename;
+
+            // Download file and remove dummy element
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }else {
+            toast.error("Email error.", {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        }
+    }
     return(
         <div className="ttcommon_font text-c_00080D
                         mt-16 md:mt-0">
+            <ToastContainer
+                position="bottom-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                className="toast-container"
+            />
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
                             h-160 sm:h-160 md:h-150 lg:h-175 xl:h-210 2xl:h-210
@@ -121,8 +160,7 @@ export default function DemeralFiller() {
                     <div className="flex-1
                                     leading-36_48 ttcommon_font_thin
                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
-                                    mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0
-                                    " style={{maxWidth: 427 + 'px'}}>
+                                    mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0" style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
                     </div>
                 </div>
@@ -224,13 +262,13 @@ export default function DemeralFiller() {
                         <div className="ttcommon_font_bold leading-36_26
                                         text-2xl sm:text-4xl">Download Our Catalog.</div>
                         <p className="mt-5
-                                    text-xs sm:text-sm 
+                                    text-xs sm:text-base 
                                     leading-14_26 sm:leading-14_26">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-7_5 sm:mt-10">
-                            <Input type="text" placeholder="Your Email Address"/>
+                            <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-7_5 sm:mt-10">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

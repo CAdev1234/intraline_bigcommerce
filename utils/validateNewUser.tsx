@@ -1,10 +1,12 @@
 export const validateNewUser = (
-    name: string,
     email: string,
+    f_name: string,
+    l_name: string,
+    mobile: string,
     password: string,
     password_confirmation: string
   ) => {
-    if (!name) {
+    if (!f_name || !l_name) {
       return "Name field is required.";
     }
   
@@ -19,8 +21,8 @@ export const validateNewUser = (
     if (!email || !password) {
       return "Email and password fields are required.";
     }
-    
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
       return "Email does not have right format.";
     }
   

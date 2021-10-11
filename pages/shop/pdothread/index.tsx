@@ -80,19 +80,15 @@ export default function PDOThread() {
         },
         {
             title: 'What are PDO Threads?', 
-            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+            detail: "PDO Thread lifting is a general term which applies to the use of PDO (polydioxanone) sutures to effect an aesthetic benefit that lifts and tightens sagging skin tissues through mechanical lifting and by inducing collagen production. The two main treatment types are skin rejuvenation which relies on collagen production to increase skin health and elasticity for a tighter tone, and lifting treatments which use barbed threads to physically lift/tighten the skin immediately while the long term benefits take time to kick in."
         },
         {
             title: 'What is a PDO Treatment?', 
-            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
-        },
-        {
-            title: 'Types of PDO Threads.', 
-            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+            detail: "PDO Threads are placed in or just under the skin to stimulate the production of your own collagen, elastin, and hyaluronic acid. They also stimulate the development of new blood vessels and improve lymphatic drainage, giving way to better skin quality with a smoother, brighter, appearance. The results start immediately and will continue to improve for 6-8 months, ultimately lasting up to 18 months. The insertion of the threads will also provide a small amount of lifting and tightening to the skin."
         },
         {
             title: "PDO FAQ's.", 
-            detail: "Intraline's Polydioxanone (PDO) Threads are essentially the cosmetic version of the reabsorbable sutures used regularly in heart surgery. With an excellent safety profile and virtually non-allergenic, PDO sutures have nearly 40 years of medical history supporting its use. PDO is manufactured through the polymerization of p-dioxanone to create a reabsorbable sterile filament which produces fibrosis in the surrounding tissue giving rise to the creation of type I and II collagen. Fully reabsorbable through enzymatic hydrolysis the threads are broken down within 6 months to a year leaving behind visibly healthier skin."
+            detail: "Visit our PDO Frequently asked questions page to learn about treatments, care & more."
         },
     ]
     const [enablePDOQues, setEnablePDOQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
@@ -183,7 +179,7 @@ export default function PDOThread() {
                         return enablePDOQues[index] && 
                         <div key={`pdo_ques_detail_${index}`}>
                             <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
-                            <p className="ttcommon_font_thin text-sm mt-5">{item.detail}</p>
+                            <p className="ttcommon_font_thin text-base mt-5">{item.detail}</p>
                         </div>
                     })}
                     

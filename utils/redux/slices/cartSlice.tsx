@@ -1,38 +1,66 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getCookie, setCookie } from '@utils/cookie'
+import date from 'date-and-time'
+import { generateID } from 'utils/simpleMethod'
 
 
-type Product = {
+type ProductObject = {
+    id: string,
     title: string,
     price: number,
     amount: number,
-    img: string
+    quantity: number,
+    img: string,
+    detail: string,
+    link: string
 }
-const calcTotalPrice = (products: Array<Product>) => {
+
+
+type OrderItemObject = {
+    order_id: string,
+    order_state: string,
+    order_tracking: string,
+    order_date: string,
+    order_subItem: Array<ProductObject>,
+    reference: string  
+}
+
+const calcTotalPrice = (products: Array<ProductObject>) => {
     let total_price = 0
     for (let index = 0; index < products.length; index++) {
-        total_price = total_price + products[index].price * products[index].amount;
+        total_price = total_price + products[index].price * products[index].quantity;
     }
     return total_price
 }
-const calcTotalAmount = (products: Array<Product>) => {
-    let total_amount = 0
+const calcTotalQuantity = (products: Array<ProductObject>) => {
+    let total_quantity = 0
     for (let index = 0; index < products.length; index++) {
-        total_amount = total_amount + products[index].amount
+        total_quantity = total_quantity + products[index].quantity
     }
-    return total_amount
+    return total_quantity
 }
+
+
 const initialState = {
     enableSideCart: false,
-    products: getCookie('cart_products', '') === undefined ? new Array<Product>() : JSON.parse(getCookie('cart_products', '') as string),
-    totalPrice: calcTotalPrice(getCookie('cart_products', '') === undefined ? new Array<Product>() : JSON.parse(getCookie('cart_products', '') as string)),
-    totalAmount: calcTotalAmount(getCookie('cart_products', '') === undefined ? new Array<Product>() : JSON.parse(getCookie('cart_products', '') as string))
+    products: [] as Array<ProductObject>,
+    totalPrice: 0,
+    totalQuantity: 0,
+    orderList: [] as Array<OrderItemObject>
 }
 
 const cartSlice = createSlice({
-    name: 'cartSlice'
-    , initialState
-    , reducers: {
+    name: 'cartSlice', 
+    initialState,
+    reducers: {
+        initialCart: (state, {payload}) => {
+            state.products = payload
+            state.totalQuantity = calcTotalQuantity(payload)
+            state.totalPrice = calcTotalPrice(payload)
+        },
+        initialOrder: (state, {payload}) => {
+            state.orderList = payload
+        },
         openSideCart: state => {
             (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
             state.enableSideCart = true;
@@ -42,36 +70,57 @@ const cartSlice = createSlice({
             state.enableSideCart = false
         },
         addProductToCart: (state, {payload}) => {
-            let result = (state.products as Array<Product>).filter(item => item.title.toLowerCase() === payload.title.toLowerCase())
+            let result = (state.products as Array<ProductObject>).filter(item => item.id === payload.id)
             if (result.length === 0) {
                 state.products.push(payload);
             }else {
                 result[0].amount = result[0].amount + payload.amount;
             }
-            setCookie('cart_products', JSON.stringify(state.products));
-            state.totalAmount = calcTotalAmount(state.products);
+            // setCookie('cart_products', JSON.stringify(state.products));
+            localStorage.setItem('cart_products', JSON.stringify(state.products))
+            state.totalQuantity = calcTotalQuantity(state.products);
             state.totalPrice = calcTotalPrice(state.products);
             
             (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
             state.enableSideCart = true;
         },
         updateProductInCart: (state, {payload}) => {
-            let result = (state.products as Array<Product>).filter(item => item.title.toLowerCase() === payload.title.toLowerCase())
-            result[0].amount = payload.amount
-            setCookie('cart_products', JSON.stringify(state.products))
-            state.totalAmount = calcTotalAmount(state.products)
+            let result = (state.products as Array<ProductObject>).filter(item => item.id === payload.id)
+            result[0].quantity = payload.quantity
+            // setCookie('cart_products', JSON.stringify(state.products))
+            localStorage.setItem('cart_products', JSON.stringify(state.products))
+            state.totalQuantity = calcTotalQuantity(state.products)
             state.totalPrice = calcTotalPrice(state.products)
             // state.enableSideCart = true
         },
         deleteProduct: (state, {payload}) => {
-            state.products = (state.products as Array<Product>).filter(item => item.title.toLowerCase() !== payload.title.toLowerCase())
-            setCookie('cart_products', JSON.stringify(state.products))
-            state.totalAmount = calcTotalAmount(state.products)
+            state.products = (state.products as Array<ProductObject>).filter(item => item.id !== payload.id)
+            // setCookie('cart_products', JSON.stringify(state.products))
+            localStorage.setItem('cart_products', JSON.stringify(state.products))
+            state.totalQuantity = calcTotalQuantity(state.products)
             state.totalPrice = calcTotalPrice(state.products)
-        }
+        },
+        createOrder: (state) => {
+            let cart_products = state.products
+            state.orderList.push({
+                order_id: generateID(),
+                order_state: 'Shipped',
+                order_tracking: '1234567890',
+                order_date: date.format(new Date(), 'DD MMM YYYY'),
+                order_subItem: cart_products,
+                reference: '1234567890'  
+            })
+            localStorage.setItem('order_items', JSON.stringify(state.orderList))
+            localStorage.setItem('cart_products', "")
+            state.totalPrice = 0
+            state.totalQuantity = 0
+            state.products = []
+        },
+    
     }
+    
 })
 
-export const {openSideCart, closeSideCart, addProductToCart, updateProductInCart, deleteProduct} = cartSlice.actions
+export const {initialCart, initialOrder, openSideCart, closeSideCart, addProductToCart, updateProductInCart, deleteProduct, createOrder} = cartSlice.actions
 // export const enableSideCart = (state:RootState) => state.cart.enableSideCart
 export default cartSlice.reducer

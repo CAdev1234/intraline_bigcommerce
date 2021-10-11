@@ -1,20 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from '../store'
 import {getCookie} from 'utils/cookie'
 
+const convertStrToJson = (str: string) => {
+    if (str === null || str === undefined) {
+        return null
+    }else {
+        return JSON.parse(str)
+    }
+}
+
+
 const initialState = {
-    userInfo: getCookie('user', ''),
-    logined: getCookie('user', '') !== null && getCookie('jwt', '') !== null ? true : false,
+    logined: getCookie('jwt', '') !== null && getCookie('jwt', '') !== undefined ? true : false,
 }
 
 const checkoutSlice = createSlice({
     name: 'checkoutSlice'
     , initialState
     , reducers: {
-        updateUserInfo: (state, {payload}) => {
-
+        loginUser: (state) => {
+            state.logined = true
+        },
+        logoutUser: (state) => {
+            state.logined = false
         }
     }
 })
-// export const { } = checkoutSlice.actions
+export const { logoutUser, loginUser } = checkoutSlice.actions
 export default checkoutSlice.reducer

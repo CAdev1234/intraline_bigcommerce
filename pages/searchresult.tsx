@@ -5,10 +5,13 @@ import { search } from "@utils/redux/slices/productSlice";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-type Product = {
+
+type ProductObject = {
+    id: string,
     title: string,
     price: number,
     amount: number,
+    quantity: number,
     img: string,
     detail: string,
     link: string
@@ -18,7 +21,7 @@ export default function SearchResult() {
     const [keyword, setKeyword] = useState('')
     const router = useRouter()
     const dispatch = useAppDispatch()
-    const searchResult = useAppSelector((state) => state.product.searchResult) as Array<Product>
+    const searchResult = useAppSelector((state) => state.product.searchResult) as Array<ProductObject>
     useEffect(() => {
         if (router.query !== {}) {
             let search_keyword = router.query.keyword as string;

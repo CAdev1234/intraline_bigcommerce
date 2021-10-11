@@ -20,6 +20,9 @@ import Button from '@components/mycp/Button'
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'
 import { ChevronUp } from '@components/icons'
+import { useAppDispatch } from '@utils/redux/hooks'
+import { initialCart, initialOrder } from '@utils/redux/slices/cartSlice'
+import { initialReviews } from '@utils/redux/slices/reviewSlice'
 
 const Loading = () => (
   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
@@ -108,9 +111,19 @@ const Layout: FC<Props> = ({
   const [current_url, setCurrentUrl] = useState('')
 
   const [enableScrollUpBtn, setEnableScrollUpBtn] = useState(false)
+  const dispatch = useAppDispatch()
   
   
   useEffect(() => {
+    if (localStorage.getItem('cart_products')) {
+      dispatch(initialCart(JSON.parse(localStorage.getItem('cart_products') as string)))
+    }
+    if (localStorage.getItem('order_items')) {
+      dispatch(initialOrder(JSON.parse(localStorage.getItem('order_items') as string)))
+    }
+    if (localStorage.getItem('review_items')) {
+      dispatch(initialReviews(JSON.parse(localStorage.getItem('review_items') as string)))
+    }
     setCurrentUrl(window.location.pathname)
     let scrollHandler = () => {
       let scroll_top = window.scrollY
@@ -122,7 +135,7 @@ const Layout: FC<Props> = ({
     }
     window.addEventListener('scroll', () => scrollHandler())
     return window.removeEventListener('scroll', scrollHandler)
-  })
+  }, [])
 
   const scrollToUpHandler = () => {
     window.scrollTo(

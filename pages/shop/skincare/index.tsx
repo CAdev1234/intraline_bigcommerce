@@ -107,32 +107,10 @@ export default function SkinCare() {
         {title: "Biocellulose Masque", price: 30, amount: 1, img: "/assets/img/skincare2.png", link: "/shop/skincare/masque", detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture."},
     ]
     let skincare_li_another_bg = [
-        {title: "Restorative Moisturizer", price: 30, amount: 1, img: "/assets/img/products/moisturizer.png", link: "/shop/skincare/moisturizer", detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration."},
-        {title: "Biocellulose Masque", price: 30, amount: 1, img: "/assets/img/products/masque.png", link: "/shop/skincare/masque", detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture."},
+        {id: 'product_0000-000000-0016', title: 'MOISTURIZER', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/moisturizer.png', detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'},
+        {id: 'product_0000-000000-0017', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.png', detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture.", link: '/shop/skincare/masque'},
     ]
-    const [logined, setLogined] = useState(false)
-    useEffect(() => {
-        if (getCookie('jwt', '') != null) {
-            setLogined(true)
-        }
-    }, [])
-    const addToCartByDom = new AddToCartByDom(skincare_li_another_bg)
-    const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
-        addToCartByDom.addToBagHandler(event, index)
-    }
-    const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
-        addToCartByDom.decreaseNumHandler(event, true, -1)
-    
-    }
-    const increaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
-        addToCartByDom.increaseNumHandler(event, true, -1)
-    }
-
-    const loginToPurchaseHandler = () => {
-        router.push('/account/login')
-    }
-
-    let ingredient_li = [
+    let question_li = [
         {
             title: 'Sea Buckthorn.', 
             detail: 'Sea Buckthorn is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
@@ -154,16 +132,49 @@ export default function SkinCare() {
             detail: 'Skincare FAQ’s is known to aid in alleviating sunburns, healing wounds, including burns & cuts, treating acne, dermatitis, dry skin, eczema, and changes in skin colour;,and for protecting mucus membranes. Sea Buckthorn contains vitamins A, B1, B2, B6, and C, as well as Hyaluronic Acid and several other active ingredients.'
         },
     ]
-    const [enableIngredient, setEnableIngredient] = useState([true, ...new Array(ingredient_li.length - 1).fill(false)])
-    let updateIngredientParagra = (index:number) => {
+    const [logined, setLogined] = useState(false)
+    const [enableQues, setEnableQues] = useState(new Array(question_li.length - 1).fill(false));
+
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    }, [])
+    const addToCartByDom = new AddToCartByDom(skincare_li_another_bg)
+    const addToBagHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+        addToCartByDom.addToBagHandler(event, index)
+    }
+    const decreaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.decreaseNumHandler(event, true, -1)
+    
+    }
+    const increaseNumHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
+        addToCartByDom.increaseNumHandler(event, true, -1)
+    }
+
+    const loginToPurchaseHandler = () => {
+        router.push('/account/login')
+    }
+
+    
+    const [enableIngredient, setEnableIngredient] = useState([true, ...new Array(question_li.length - 1).fill(false)])
+    const updateIngredientParagraHandler = (index:number) => {
         let new_array = new Array(enableIngredient.length).fill(false)
         new_array[index] = true
         setEnableIngredient(new_array)
     }
+    const updateIngredientParagraMobileHandler = (index: number) => {
+        let new_array = [...enableQues]
+        new_array[index] = !new_array[index]
+        setEnableQues(new_array)
+    }
     return(
-        <div className="ttcommon_font text-c_00080D flex flex-col">
+        <div className="ttcommon_font text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
             <div className="w-full h-15 bg-transparent"></div>
-            <div className="h-210 bg-c_C6CBDD w-full px-15 pb-32 flex flex-col">
+            <div className="bg-c_C6CBDD w-full pb-32 flex flex-col
+                            h-160 sm:h-160 md:h-160 lg:h-175 xl:h-210 2xl:h-210
+                            px-5 sm:px-15">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer">
                         <span><Link href="/">Home</Link></span>
@@ -173,25 +184,48 @@ export default function SkinCare() {
                         <span className="ttcommon_font_bold ml-1">Skin Care</span>
                     </div>
                 </div>
-                <div className="mt-28 flex items-end w-full">
+                <div className="flex items-end w-full
+                                mt-16 sm:mt-10 md:mt-15 lg:mt-28">
                     <div className="w-1/2">
-                        <div className="ttcommon_font_thin font-semibold text-200px leading-200_160">Skin</div>
-                        <div className="ttcommon_font_bold text-200px leading-200_160" >Care</div>
+                        <div className="ttcommon_font_thin font-semibold
+                                        leading-none xl:leading-200_160
+                                        text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">Skin</div>
+                        <div className="ttcommon_font_bold
+                                        leading-none xl:leading-200_160
+                                        text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >Care</div>
                     </div>
-                    <div className="max-w-128 w-1/2 text-4xl ttcommon_font_thin">
+                    <div className="max-w-128 w-1/2 ttcommon_font_thin
+                                    hidden md:block
+                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
                         Immerse your skin in intense moisture while smoothing, tightening & rejuvenating.
                     </div>
                 </div>
+                <div className="max-w-128 ttcommon_font_thin
+                                block md:hidden
+                                mt-5 md:mt-0
+                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
+                    Immerse your skin in intense moisture while smoothing, tightening & rejuvenating.
+                </div>
             </div>
 
-            <div className="bg-white w-full relative h-122">
-                <div className="w-full px-15 absolute z-10 -top-56 grid grid-cols-2 gap-x-5">
+            <div className="bg-transparent w-full
+                            pb-10 md:pb-20 lg:pb-25">
+                <div className="w-full grid gap-x-5 -mt-56
+                                grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
+                                px-5 sm:px-15">
                     {skincare_li.map((item, index) => {
-                        return <div className="" key={`skincare_${index}`}>
-                                    <div className="leading-36_48 text-4xl ttcommon_font_bold text-c_00080D">{item.title}.</div>
-                                    <div className="relative mt-10 pt-5 bg-c_F5DBDD w-full border-none h-100">
-                                        <div className="flex h-full px-15 justify-center">
-                                            <img src={item.img} alt="" />
+                        return <div className="mb-10 md:mb-0" key={`skincare_${index}`}>
+                                    <div className="leading-36_48 ttcommon_font_bold text-c_00080D
+                                                    text-2xl xl:text-4xl 2xl:text-4xl">{item.title}.</div>
+                                    <div className="relative bg-c_F5DBDD w-full border-none aspect-w-8 aspect-h-5
+                                                    mt-5 md:mt-10">
+                                        <div className="flex h-full justify-center">
+                                            <div className="px-15 w-full h-full relative">
+                                                <img className="w-full h-full" src={item.img} alt="" />
+                                                <div className="absolute top-0 right-0">
+                                                    {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">${item.price}</Button>}
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                             <div className="my-auto mx-auto w-10/12">
@@ -215,11 +249,10 @@ export default function SkinCare() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="absolute top-0 right-0">
-                                            {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">${item.price}</Button>}
-                                        </div>
+                                        
                                     </div>
-                                    <div className="ttcommon_font_thin mt-8 text-2xl text-c_00080D">{item.detail}</div>
+                                    <div className="ttcommon_font_thin mt-8 text-c_00080D
+                                                    text-xl md:text-2xl">{item.detail}</div>
                                 </div>
                     })}
                     
@@ -227,23 +260,27 @@ export default function SkinCare() {
             </div>
 
             {/* cart part */}
-            <div className="bg-c_CCE7EF w-full relative">
-                <div className="absolute h-full flex flex-col" style={{left: -20 + '%'}}>
+            <div className="bg-c_CCE7EF w-full relative
+                            hidden md:block">
+                <div className="absolute h-full flex flex-col" style={{left: -283}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_99CEE0 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Skincare</div>
                 </div>
-                <div className="ml-172 mr-15 my-32 relative z-10">
+                <div className="mr-15 my-32 relative z-10
+                                ml-15 xl:ml-172">
                     <div className="w-full flex items-center">
-                        <div className="w-5/12 pr-32">
+                        <div className="lg:w-7/12 xl:w-5/12
+                                        md:pr-10 lg:pr-20">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">Ingredients.</div>
+                                    <div className="ttcommon_font_bold leading-64_76
+                                                    text-2xl md:text-4xl lg:text-5xl xl:text-6xl">Ingredients.</div>
                                     <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
-                                        {ingredient_li.map((item, index) => {
+                                        {question_li.map((item, index) => {
                                             return <div className={`flex items-start w-full ${index != 0 ? 'mt-7' : ''}`} key={`ingredient_${index}`}>
-                                                        <button className={`text-4xl leading-36_48 ${enableIngredient[index] && 'ttcommon_font_bold'}`} onClick={() => {updateIngredientParagra(index)}}>{item.title}</button>
+                                                        <button className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-36_48 ${enableIngredient[index] && 'ttcommon_font_bold'}`} onClick={() => {updateIngredientParagraHandler(index)}}>{item.title}</button>
                                                     </div>
                                         })}
                                     </div>
@@ -252,11 +289,11 @@ export default function SkinCare() {
                             </div>
                             
                         </div>
-                        <div className="w-1/2">
-                            {ingredient_li.map((item, index) => {
+                        <div className="flex-1">
+                            {question_li.map((item, index) => {
                                 return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
                                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
-                                            <div className="ttcommon_font_thin mt-5 text-sm leading-14_26 whitespace-pre-wrap">{item.detail}</div>
+                                            <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
                                         </div>
                             })}
                             
@@ -267,6 +304,61 @@ export default function SkinCare() {
                 </div>
             </div>
 
+            {/* cart part mobile */}
+            <div className="bg-c_CCE7EF w-full pb-15
+                            block md:hidden">
+                <div className="h-full flex flex-col">
+                    <div className="my-auto ttcommon_font_bold text-c_99CEE0 text-7xl leading-normal text-center">Skincare</div>
+                </div>
+                <div className="px-5">
+                    <div className="w-full flex items-center">
+                        <div className="w-full">
+                            <div className="bg-white py-7_5 px-5 divide-y divide-c_00080D">
+                                <div className="pb-5">
+                                    <div className="ttcommon_font_bold text-4xl leading-tight">Ingredients.</div>
+                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                </div>
+                                <div className="pt-7">
+                                    <div className="flex flex-col">
+                                        {question_li.map((item, index) => {
+                                            return <div key={`ingredient_${index}`}>
+                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}>
+                                                            <button className={`text-2xl leading-36_48 ${enableQues[index] && 'ttcommon_font_bold'}`} 
+                                                                onClick={() => {updateIngredientParagraMobileHandler(index)}}>{item.title}</button>
+                                                            <div className={`ml-auto h-full ${enableQues[index] ? 'hidden' : 'block'}`}>
+                                                                <ChevronDown />
+                                                            </div>
+                                                            <div className={`ml-auto h-full ${enableQues[index] ? 'block' : 'hidden'}`}>
+                                                                <ChevronUp />
+                                                            </div>
+                                                        </div>
+                                                        <div className={`ttcommon_font_thin ${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
+                                                               
+                                                    </div>
+                                        })}
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        {/* <div className="flex-1 max-w-128">
+                            {question_li.map((item, index) => {
+                                return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
+                                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
+                                            <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap">{item.detail}</div>
+                                        </div>
+                            })}
+                            
+                            
+                        </div> */}
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
             {/* testimonial part */}
             <TestimonialCp
                 head_line={"Testimonials."} 
@@ -276,13 +368,21 @@ export default function SkinCare() {
 
             {/* FAQ part */}
             <div className="bg-c_C3E0DC">
-                <div className="mx-60 py-24">
+                <div className="py-15 sm:py-24
+                                mx-5 sm:mx-5 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
+                    
                     <div className="flex text-c_00080D mb-2">
-                        <div className="leading-36_26 font-bold text-4xl">Frequently Asked Questions.</div>
+                        <div className="ttcommon_font_bold text-2xl
+                                        block sm:hidden
+                                        leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">FAQs.</div>
+                        <div className="font-bold text-4xl
+                                        hidden sm:block
+                                         leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
                         <div className="flex items-center ml-auto">
                             <Link href="/faq">
                                 <div className="flex items-center">
-                                    <div className="ttcommon_font_bold text-lg">Read More</div>
+                                    <div className="ttcommon_font_bold ml-auto
+                                                    text-xs sm:text-lg">Read More</div>
                                     <div className="ml-2">
                                         <ChevronRight className="h-4 w-4" />
                                     </div>

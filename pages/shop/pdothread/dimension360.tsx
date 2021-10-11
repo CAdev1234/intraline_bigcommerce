@@ -103,6 +103,11 @@ export default function Dimension360() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
+    var items = [
+        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.png', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/dimension720'},
+        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.png', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/dimension360'},
+        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.png', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/nosethread'},
+    ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     const [numDimension360, setNumDimension360] = useState(1)
@@ -114,7 +119,9 @@ export default function Dimension360() {
     }, [])
 
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'Dimension 360 PDO', amount: numDimension360, price: 100, img: '/assets/img/products/lifting_dimension360.png'}))
+        let product_detail = items[1]
+        product_detail.quantity = numDimension360
+        dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
         if (numDimension360 > 1) {
@@ -138,23 +145,25 @@ export default function Dimension360() {
     
 
     const renderPDOThreads = () => {
-        var items = [0, 1, 2]
+        
         return items.map((item, index) => {
-            return <div className="flex flex-col pt-9 pb-12_5 bg-white relative hover:bg-opacity-50" 
-                        key={'m' + String(index + 1) + '-product'} style={{height: 472}}>
-                        <div className="flex-1 h-0">
-                            <img className="mix_blend_multi mx-auto h-full" src="/assets/img/lifting-1-1.png" alt="" />
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
+                        key={`m_${index}_product`}>
+                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
+                        <div className="flex aspect-w-1 aspect-h-1">
+                            <img className="w-full mx-auto" src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">Dimension 360</div>
-                        <div className="mt-2 text-sm leading-14_26 text-center">Lorem ipsum doloris sit estimatum estiumen.</div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
+                        <div className="mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
-                                    <Button className="h-11 w-full text-sm">learn more</Button>
+                                    <Link href={item.link}>
+                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
-                        {logined && <Button className="ttcommon_font_bold absolute top-0 right-0 text-lg h-11 w-30" variant="primary">$100.00</Button>}
                     </div>
         })
     }

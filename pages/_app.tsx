@@ -8,11 +8,14 @@ import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
 
 import {store} from '../utils/redux/store'
+
 import { Provider as ReduxProvider } from 'react-redux'
 import { HubspotProvider } from '@aaronhayes/react-use-hubspot-form';
 import { CookiesProvider } from 'react-cookie';
 
 const Noop: FC = ({ children }) => <>{children}</>
+
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop

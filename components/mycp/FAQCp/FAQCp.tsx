@@ -14,7 +14,6 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
     const [myArray, setMyArray] = useState<Boolean[]>([]);
     
     const [enable_faq, setFaq] = useState(new Array(faq_li.length).fill(false));
-    // setMyArray(new Array(items.length).fill(false))
   
     function renderChevronUpDown(index: any) {
       if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;

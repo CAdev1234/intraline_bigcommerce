@@ -162,7 +162,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
       />
 
       <Container className="bg-black 
-                              px-5 sm:px-5">
+                              px-5 lg:px-15">
         <div className=" ttcommon_font
                          pt-5 sm:pt-20
                          pb-10 sm:pb-17_5">
@@ -289,7 +289,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
         
       </Container>
 
-      <Container className="bg-c_CCE7EF">
+      <Container className="bg-c_CCE7EF
+                            px-5 lg:px-15">
         <div className="items-center py-5
                         block md:flex lg:flex xl:flex">
           <div className="flex items-center

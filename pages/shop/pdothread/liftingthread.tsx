@@ -23,30 +23,9 @@ const RenderLiftingThreadSwiper = () => {
         }
     }, [])
     let thread_cate_li = [
-        {
-            title: 'Dimension 720',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/COPY%20-%20RESIZED%20-%20PDO%20Product%20Shots%20-%20Website%20%20%282%29.png",
-            price: 100,
-            amount: 1,
-            detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.",
-            link: '/shop/pdothread/dimension720'
-        },
-        {
-            title: 'Dimension 360',
-            img: "https://cdn2.hubspot.net/hub/2718899/hubfs/14-1.png",
-            price: 100,
-            amount: 1,
-            detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.",
-            link: '/shop/pdothread/dimension360'
-        },
-        {
-            title: 'Nose Threads',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/PDO%20Product%20Shots%20-%20Website%20%20%283%29.png",
-            price: 100,
-            amount: 1,
-            detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.",
-            link: '/shop/pdothread/nosethread'
-        }
+        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.png', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/dimension720'},
+        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.png', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/dimension360'},
+        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.png', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/nosethread'},
     ]
     const addToCartByDom = new AddToCartByDom(thread_cate_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -173,7 +152,7 @@ export default function LiftingThread() {
                 <div className="ttcommon_font_bold text-4xl leading-36_26">Lifting PDO Threads.</div>
                 <div className="mt-6 flex items-center">
                     <div className="ttcommon_font_thin w-1/2 text-4xl leading-36_48 pr-28">Lifting threads have barbs, also known as Cogs along the length of the thread with the aim of affixing the skin in a position to give the appearance of a minor facelift. </div>
-                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-sm leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point lifting and non-surgical rhinoplasty.</div>
+                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-base leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point lifting and non-surgical rhinoplasty.</div>
                 </div>
             </div>
 

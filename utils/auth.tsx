@@ -4,43 +4,37 @@ import { authenticate } from "../services/authApi";
 import { createUser } from "../services/userApi";
 import { validateCredentials, validateNewUser } from "./validateNewUser";
 
-export const signIn = async (email: string, password: string) => {
+
+export const loginAuth = async (email: string, password: string) => {
   const error = validateCredentials(email, password);
   if (error) {
     return error;
   }
 
   const res = await authenticate(email, password);
-  if (!res.jwt) {
-    return res;
+  console.log("res=", res)
+  if (typeof(res) === 'object') {
+    setCookie("jwt", res.jwt);
+    redirect("/");
+    return res
+  }else {
+    return res
   }
+};
 
-  setCookie("jwt", res.jwt);
-  redirect("/user");
+export const registerAuth = async (email:string, f_name: string, l_name: string, mobile: string, password:string, password_confirmation:string) => {
+  const error = validateNewUser(email, f_name, l_name, mobile, password, password_confirmation);
+  if (error) { return error;}
+  const res = await createUser(email, f_name, l_name, mobile, password, password_confirmation);
+  setCookie("success", `${f_name} ${l_name}, your account was created.`);
+  redirect('/account/login')
   return null;
 };
 
-export const signUp = async (name:string, email:string, password:string, password_confirmation:string) => {
-  const error = validateNewUser(name, email, password, password_confirmation);
-  if (error) {
-    return error;
-  }
-
-  const res = await createUser(name, email, password, password_confirmation);
-
-//   if (!res.data) {
-//     return res;
-//   }
-
-  setCookie("success", `${name}, your account was created.`);
-  redirect("/auth/login");
-  return null;
-};
-
-export const signOut = (ctx = {}) => {
+export const logoutAuth = (ctx = {}) => {
   if (process.browser) {
     removeCookie("jwt");
-    redirect("/auth/login", ctx);
+    redirect("/account/login", ctx);
   }
 };
 
@@ -52,7 +46,7 @@ export const isAuthenticated = (ctx: any) => !!getJwt(ctx);
 
 export const redirectIfAuthenticated = (ctx: any) => {
   if (isAuthenticated(ctx)) {
-    redirect("/user", ctx);
+    redirect("/", ctx);
     return true;
   }
   return false;
@@ -60,7 +54,7 @@ export const redirectIfAuthenticated = (ctx: any) => {
 
 export const redirectIfNotAuthenticated = (ctx: any) => {
   if (!isAuthenticated(ctx)) {
-    redirect("/auth/login", ctx);
+    redirect("/account/login", ctx);
     return true;
   }
   return false;

@@ -55,7 +55,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const [searchKey, setSearchKey] = useState('')
   const dispatch = useAppDispatch()
   const enableSideCart = useAppSelector((state) => state.cart.enableSideCart)
-  const totalAmount = useAppSelector((state) => state.cart.totalAmount)
+  const totalAmount = useAppSelector((state) => state.cart.totalQuantity)
   const searchResult = useAppSelector((state) => state.product.searchResult)
   const route = useRouter()
 
@@ -110,7 +110,6 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   }
 
   const toMyAccountHandler =() => {
-    console.log("ddddddd")
     if (!logined) {
       router.push("/account/register")
       return

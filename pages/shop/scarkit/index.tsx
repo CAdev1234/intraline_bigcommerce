@@ -19,7 +19,8 @@ import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import TriangleRight from '@components/icons/TriangleRight'
 import Link from '@components/ui/Link'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
-
+import { validateEmail } from '@utils/simpleMethod'
+import { ToastContainer, toast} from 'react-toastify'
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -78,8 +79,10 @@ export default function ScarKit() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
+    let scarkit = {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.png', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'}
     const [logined, setLogined] = useState(false)
     const [numScarkit, setNumScarkit] = useState(1)
+    const [catalogEmail, setCatalogEmail] = useState('')
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -110,7 +113,9 @@ export default function ScarKit() {
     ]
     const [enableSpecific, setEnableSpecific] = useState([true, ...new Array(specific_li.length - 1).fill(false)])
     const addToBagHandler = () => {
-        dispatch(addProductToCart({title: 'ScarKit', amount: numScarkit, price: 100, img: '/assets/img/products/scarkit.png'}))
+        let product_detail = scarkit
+        product_detail.quantity = numScarkit
+        dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
         if (numScarkit > 1) {
@@ -127,15 +132,42 @@ export default function ScarKit() {
         new_array[index] = true
         setEnableSpecific(new_array)
     }
-    const play_icon = () => {
-        return <div>
-                  <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
-                    <TriangleRight className="text-white"/>
-                  </div>     
-              </div>
+    const downloadCatalogHandler = () => {
+        if (validateEmail(catalogEmail)) {
+            let mimetype = 'application/pdf';
+            let filename = 'IntralineCatalog.pdf';
+
+            // Create Dummy A Element
+            let a = window.document.createElement('a');
+
+            // createObjectURL for local data as a Blob type
+            a.href = '/assets/catalog/intraline_catalog.pdf';
+            a.download = filename;
+
+            // Download file and remove dummy element
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }else {
+            toast.error("Email error.", {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        }
     }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+            <ToastContainer
+                position="bottom-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                className="toast-container"
+            />
             <div className="h-15 w-full bg-transparent"></div>
             <div className="h-210 relative bg-c_C3E0DC w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
@@ -153,9 +185,9 @@ export default function ScarKit() {
                         <div className="w-6/12 flex flex-col ml-172">
                             <div className="">
                                 <div className="ttcommon_font_thin text-200px leading-200_160">Scar</div>
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold" ><span className="ttcommon_font_bold">Kit</span></div>
+                                <div className="text-200px leading-200_160 font-semibold" ><span className="ttcommon_font_bold">Kit</span></div>
                                 <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Weight: 500GR</span>
@@ -187,7 +219,7 @@ export default function ScarKit() {
             </div>
 
 
-            {/* cart part */}
+            {/* question part */}
             <div className="bg-white w-full relative">
                 <div className="absolute h-full flex flex-col" style={{left: -17 + '%'}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_F7F7F7 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Scar Kit</div>
@@ -219,7 +251,7 @@ export default function ScarKit() {
                                 return enableSpecific[index] && 
                                     <div>
                                         <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{item.title}</div>
-                                        <div className="ttcommon_font_thin mt-5 text-sm leading-14_26 whitespace-pre-wrap">{item.detail}</div>
+                                        <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap">{item.detail}</div>
                                     </div>
                             })}
                         </div>
@@ -254,10 +286,10 @@ export default function ScarKit() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
                         <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-10">
-                            <Input type="text" placeholder="Your Email Address"/>
+                            <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-10">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

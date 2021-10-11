@@ -13,7 +13,7 @@ import { getCookie } from 'utils/cookie'
 
 
 export default function MSeries() {
-    const m_series_li = [
+    const spec_li = [
         {
             headline: 'Pure.',
             title: 'Purely hyaluronic acid',
@@ -63,6 +63,7 @@ export default function MSeries() {
         },
     ]
     const [scroll_perc, setScrollPerc] = useState(0)
+    const [scroll_perc_mobile, setScrollPercMobile] = useState(0)
     const [logined, setLogined] = useState(false)
     
     let scrollHandler = (ele:HTMLDivElement) => {
@@ -70,6 +71,13 @@ export default function MSeries() {
         let scroll_top = ele.scrollTop
         let client_height = ele.clientHeight
         setScrollPerc(scroll_top / (scroll_height - client_height) * 100)
+    }
+    
+    let scrollMobileHandler = (ele: HTMLDivElement) => {
+        let scroll_width = ele.scrollWidth
+        let client_width = ele.clientWidth
+        let scroll_left = ele.scrollLeft
+        setScrollPercMobile(scroll_left / (scroll_width - client_width) * 100)
     }
 
     useEffect(() => {
@@ -80,24 +88,32 @@ export default function MSeries() {
 
     const renderMSeriesSwiper = () => {
         let mseries_li = [
-            {title: "M2 Plus", price: 100, img: '/assets/img/m2plus.png', link: '/shop/dermalfiller/m2plus'},
-            {title: "M3 Plus", price: 100, img: '/assets/img/m3plus.png', link: '/shop/dermalfiller/m3plus'},
-            {title: "M4 Plus", price: 100, img: '/assets/img/m4plus.png', link: '/shop/dermalfiller/m4plus'},
+            {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/m2plus'},
+            {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'},
+            {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
                         <div className="my-auto">
                             <Link href={item.link}>
                                 <div className="flex flex-col">
-                                    <img className="mx-auto
-                                                    h-80 md:h-146" src={item.img} alt=""/>
+                                    <div className="mx-auto relative
+                                                    h-80 md:h-146">
+                                        <img className="h-full" src={item.img} alt=""/>
+                                        {logined && 
+                                            <div className="absolute
+                                                            top-0 
+                                                            -right-10">
+                                                <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
+                                            </div>
+                                        }
+                                    </div>
+                                    
                                     <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
                                 </div>
                             </Link>
                         </div>
-                        {logined && <div className="absolute top-8 right-15">
-                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
-                        </div>}
+                        
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
                             <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
                                 <Plus />
@@ -195,7 +211,7 @@ export default function MSeries() {
             </div>
 
             {/* pure part */}
-            <div className="bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
+            <div className="hidden sm:block bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
                 <div className="mt-12_5 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32
@@ -203,7 +219,7 @@ export default function MSeries() {
                                         no-scrollbar" 
                                         style={{height: 830, scrollbarWidth: 'none'}}
                                         onScroll={(event) => scrollHandler(event.target as any)}>
-                            {m_series_li.map((item, index) => {
+                            {spec_li.map((item, index) => {
                                 return <div className="mb-7_5" key={`pure_part_${index}`}>
                                             <div className="ttcommon_font_bold leading-64_76
                                                             sm:text-4xl md:text-6xl
@@ -239,13 +255,56 @@ export default function MSeries() {
                 </div>
             </div>
 
+            {/* pure part for mobile */}
+            <div className="block sm:hidden bg-c_C6CBDD w-full py-20">
+                <div className="w-full flex items-center pl-5">
+                    <div className="w-full overflow-x-auto test_ele
+                                    no-scrollbar flex items-stretch" 
+                                    style={{scrollbarWidth: 'none'}}
+                                    onScroll={(event) => scrollMobileHandler(event.target as any)}>
+                        {spec_li.map((item, index) => {
+                            return <div className="mr-5" key={`pure_part_${index}`} style={{width:278, minWidth:278}}>
+                                        <div className="flex items-center">
+                                            <div className="ttcommon_font_bold leading-64_76 text-4xl">{item.headline}</div>
+                                            <div className="ml-auto ttcommon_font_bold text-6xl text-c_8D97BC leading-14_17">0{index + 1}</div>
+                                        </div>
+                                        
+                                        <div className="relative w-full">
+                                            <div className="bg-white p-7_5 relative z-10">
+                                                <div className="ttcommon_font_bold uppercase text-sm leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
+                                                <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>
+                                            </div>
+                                            
+                                        </div>        
+                                    </div>
+                        })}
+                        
+                    </div>
+                    
+                </div>
+                <div className="px-5 mt-7_5">
+                    <div className="progress-bar-container bg-white w-full h-1">
+                        <div className="progress-bar bg-c_00080D h-full" style={{width: `${scroll_perc_mobile}%`}}></div>
+                </div>
+                </div>
+
+                <div className="flex flex-col w-full h-full mt-20 px-5">
+                    <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
+                    <div className="ttcommon_font_bold text-2xl leading-36_48">Function, versatility & impact.</div>
+                    <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                </div>
+            </div>
+
+
             {/* Mesmerizing, Modern, and Memorable */}
             <div className="bg-white">
                 <div className="flex flex-col mx-auto py-28
                                 w-11/12 sm:w-146">
-                    <div className="ttcommon_font_bold text-4xl text-center mx-auto
-                                    sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
+                    <div className="ttcommon_font_bold text-center mx-auto
+                                    text-2xl sm:text-4xl
+                                    leading-36_26">Mesmerizing, Modern, and Memorable.</div>
+                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                                text-xl sm:text-4xl">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/mseriesshop">
                             <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>

@@ -1,7 +1,12 @@
 import { Navbar } from '@components/common'
 import { ChevronRight } from '@components/icons';
 import { Button, Input, SelectInput } from '@components/mycp'
+import SideCart from '@components/mycp/SideCart';
 import Link from '@components/ui/Link';
+import { loginAuth } from '@utils/auth';
+import { useAppDispatch, useAppSelector } from '@utils/redux/hooks';
+import { createOrder } from '@utils/redux/slices/cartSlice';
+import { loginUser, logoutUser } from '@utils/redux/slices/userSlice';
 import { useRouter, withRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getCookie, removeCookie, setCookie } from 'utils/cookie'
@@ -9,9 +14,13 @@ import { getCookie, removeCookie, setCookie } from 'utils/cookie'
 
 function Checkout() {
     const router = useRouter()
+    const dispatch = useAppDispatch()
     const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
+    
     const [logined, setLogined] = useState(false)
+    const [loginResult, setLoginResult] = useState(true)
     const [enableRegister, setEnableRegister] = useState(false)
+    const [enableLoginForm, setEnableLoginForm] = useState(false)
 
     const [checkedShippingAddress, setCheckedShippingAddress] = useState(false)
     const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
@@ -30,21 +39,21 @@ function Checkout() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-        let user_info = JSON.parse(getCookie('user', '') as string)
+        let user_info = JSON.parse(localStorage.getItem('user') as string)
         setUser(user_info)
 
-        if (getCookie('sa', '')) {
-            let shipping_address = JSON.parse(getCookie('sa', '') as string)
+        if (localStorage.getItem('sa')) {
+            let shipping_address = JSON.parse(localStorage.getItem('sa') as string)
             setShipAddress(shipping_address)
         }
 
-        if (getCookie('ba', '')) {
-            let bill_address = JSON.parse(getCookie('ba', '') as string)
+        if (localStorage.getItem('ba')) {
+            let bill_address = JSON.parse(localStorage.getItem('ba') as string)
             setBillAddress(bill_address)
         }
 
-        if (getCookie('pm', '')) {
-            let payment_info = JSON.parse(getCookie('pm', '') as string)
+        if (localStorage.getItem('pm')) {
+            let payment_info = JSON.parse(localStorage.getItem('pm') as string)
             setPayment(payment_info)
         }
 
@@ -63,14 +72,10 @@ function Checkout() {
             }
         }
     }, [])
-    let loginSubmitHandler = () => {
-        if (user.email !== '' && user.password !== '') {
-            setCookie('jwt', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
-            setCookie('user', user.email)
-            setLogined(true)
-        } else {
-
-        }
+    let loginSubmitHandler = async () => {
+        let res = await loginAuth(user.email, user.password)
+        if (typeof(res) === 'string') setLoginResult(false)
+        else dispatch(loginUser())
     }
     const getEmailFromInputHandler = (email: string) => {
         setUser({...user, email: email})
@@ -102,7 +107,6 @@ function Checkout() {
     }
 
     const getBAFNameFromInputHandler = (f_name: string) => {
-        console.log(f_name)
         setBillAddress({...bill_address, f_name: f_name})
     }
     const getBALNameFromInputHandler = (l_name: string) => {
@@ -139,20 +143,26 @@ function Checkout() {
 
     const saveShippingAddressHander = () => {
         setCheckedShippingAddress(true)
+        localStorage.setItem('sa', JSON.stringify(ship_address))
         setCookie('sa', JSON.stringify(ship_address))
     }
     const saveBillAddressHander = () => {
         setCheckedBillAddress(true)
-        console.log(bill_address)
+        localStorage.setItem('ba', JSON.stringify(bill_address))
         setCookie('ba', JSON.stringify(bill_address))
     }
     const savePaymentHandler = () => {
         setCheckedPayment(true)
+        localStorage.setItem('pm', JSON.stringify(payment))
         setCookie('pm', JSON.stringify(payment))
     }
     const updateAccountHandler = () => {
         setLogined(false)
+        dispatch(logoutUser())
         removeCookie('jwt')
+        router.replace('/account/login')
+        
+        
     }
     const updateShippindAddressHandler = () => {
         setCheckedShippingAddress(false)
@@ -160,8 +170,13 @@ function Checkout() {
     const updateBillingAddressHandler = () => {
         setCheckedBillAddress(false)
     }
-    const updatePayment = () => {
+    const updatePaymentHandler = () => {
         setCheckedPayment(false)
+    }
+
+    const placeOrderHandler = () => {
+        dispatch(createOrder())
+        router.push('/shop/checkout/confirm')
     }
     return (
         <div className="ttcommon_font text-c_00080D bg-c_CCE7EF h-screen">
@@ -198,13 +213,16 @@ function Checkout() {
                 }
 
                 {/* auth part */}
-                {!logined && !enableRegister &&
+                {/* {!logined && !enableRegister &&
                     <div>
                         <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
                             <div className="my-52 mx-auto 
                                         w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                                 <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
                                 <div className="mt-10">
+                                    {!loginResult && 
+                                        <div className="mb-5 w-full py-3 px-7_5 rounded-lg bg-c_F4511E bg-opacity-30 text-c_F4511E">Wrong email and password. If you don't have account, please sign up.</div>
+                                    }
                                     <Input type="text" placeholder="Email Address" onChange={getEmailFromInputHandler} />
                                 </div>
                                 <div className="mt-5 flex items-center">
@@ -224,15 +242,16 @@ function Checkout() {
                             </div>
                         </div>
                     </div>
-                }
+                } */}
 
-                {!logined && enableRegister &&
+                {/* {!logined && enableRegister &&
                     <div className="my-25 mx-auto
                     w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                         <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
                         <Input className="mt-10" type="text" placeholder="Email Address" />
                         <Input className="mt-5" type="text" placeholder="First Name" />
                         <Input className="mt-5" type="text" placeholder="Last Name" />
+                        <Input className="mt-5" type="number" placeholder="Phone Number" />
                         <Input className="mt-5" type="password" placeholder="Password" />
                         <Input className="mt-5" type="password" placeholder="Confirm Password" />
 
@@ -241,7 +260,7 @@ function Checkout() {
                             <button className="leading-36_26 text-base underline" onClick={() => { setEnableRegister(false) }}>Already have an account?</button>
                         </div>
                     </div>
-                }
+                } */}
 
                 {logined &&
                     <div className="mt-12_5 bg-white p-7 flex items-center">
@@ -471,18 +490,19 @@ function Checkout() {
                                     <div className="">{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
                                 </div>
                             </div>
-                            <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updatePayment() }}>Change</button>
+                            <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updatePaymentHandler() }}>Change</button>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <Link href="/shop/checkout/confirm">
-                                <Button className="h-11 w-64 text-sm">Place Order</Button>
-                            </Link>
+                            <Button className="h-11 w-64 text-sm" onClick={() => {placeOrderHandler()}}>Place Order</Button>
                             <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
                         </div>
                     </div>
                 }
 
             </div>
+            {/* <div className="fixed top-15 right-0">
+                <SideCart />
+            </div> */}
         </div>
 
     );

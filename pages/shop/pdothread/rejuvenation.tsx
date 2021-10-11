@@ -23,54 +23,12 @@ const RenderRejuvenationSwiper = () => {
     }, [])
 
     let thread_cate_li = [
-        {
-            title: 'MONOS',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/RESIZED%20COPY%20of%20NEEDLE%20%286%29.png",
-            price: 100,
-            amount: 1,
-            detail: "Explore Intraline Mono PDO Threads",
-            link: '/shop/pdothread/dimension720'
-        },
-        {
-            title: 'DOUBLES',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/COPY%20-%20RESIZED%20-%20PDO%20Product%20Shots%20-%20Website%20%20%286%29.png",
-            price: 100,
-            amount: 1,
-            detail: "A Double PDO Thread is two smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Double PDO Threads.",
-            link: '/shop/pdothread/dimension360'
-        },
-        {
-            title: 'SPIRALS',
-            img: "https://cdn2.hubspot.net/hub/2718899/hubfs/8.png",
-            price: 100,
-            amount: 1,
-            detail: "A Spiral PDO Thread is one smooth filament that is wrapped around the needle. Learn more about Intraline Spiral PDO Threads.",
-            link: '/shop/pdothread/nosethread'
-        },
-        {
-            title: 'DOUBLE SPIRALS',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/COPY%20-%20RESIZED%20-%20PDO%20Product%20Shots%20-%20Website%20%20%284%29.png",
-            price: 100,
-            amount: 1,
-            detail: "A Double Spiral is two smooth PDO filaments twisted around each other and around the needle. Learn more about Intraline Double Spiral PDO Threads.",
-            link: '/shop/pdothread/nosethread'
-        },
-        {
-            title: 'TRIPLES',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/COPY%20-%20RESIZED%20-%20PDO%20Product%20Shots%20-%20Website%20%20%287%29.png",
-            price: 100,
-            amount: 1,
-            detail: "A Triple PDO Thread is three smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Triple PDO Threads.",
-            link: '/shop/pdothread/nosethread'
-        },
-        {
-            title: 'MICRO CANNULAS',
-            img: "https://f.hubspotusercontent40.net/hub/2718899/hubfs/COPY%20-%20RESIZED%20-%20PDO%20Product%20Shots%20-%20Website%20%20%2810%29.png",
-            price: 100,
-            amount: 1,
-            detail: "A Micro Cannula is a smooth Rejuvenation PDO Thread that comes in a cannula instead of a sharp tip needle. Learn more about Intraline's Micro Cannula PDO Threads.",
-            link: '/shop/pdothread/nosethread'
-        },
+        {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.png', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation'},
+        {id: 'product_0000-000000-0011', title: 'DOUBLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_doubles.png', detail: "A Double PDO Thread is two smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Double PDO Threads.", link: '/shop/pdothread/rejuvenation'},
+        {id: 'product_0000-000000-0012', title: 'TRIPLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_triples.png', detail: "A Triple PDO Thread is three smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Triple PDO Threads.", link: '/shop/pdothread/rejuvenation'},
+        {id: 'product_0000-000000-0013', title: 'DOUBLE SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_double_spirals.png', detail: "A Double Spiral is two smooth PDO filaments twisted around each other and around the needle. Learn more about Intraline Double Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation'},
+        {id: 'product_0000-000000-0014', title: 'SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_spirals.png', detail: "A Spiral PDO Thread is one smooth filament that is wrapped around the needle. Learn more about Intraline Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation'},
+        {id: 'product_0000-000000-0015', title: 'MICRO CANNULAS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_micro_cannulas.png', detail: "A Micro Cannula is a smooth Rejuvenation PDO Thread that comes in a cannula instead of a sharp tip needle. Learn more about Intraline's Micro Cannula PDO Threads.", link: '/shop/pdothread/rejuvenation'},
     ]
     const addToCartByDom = new AddToCartByDom(thread_cate_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -197,7 +155,7 @@ export default function Rejuvenation() {
                 <div className="ttcommon_font_bold text-4xl leading-36_26">Rejuvenation PDO Threads.</div>
                 <div className="mt-6 flex items-center">
                     <div className="ttcommon_font_thin w-1/2 text-4xl leading-36_48 pr-28">Rejuvenation threads have barbs, also known as Cogs along the length of the thread with the aim of affixing the skin in a position to give the appearance of a minor facelift. </div>
-                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-sm leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point Rejuvenation and non-surgical rhinoplasty.</div>
+                    <div className="w-1/2 p-10 bg-white ttcommon_font_thin text-base leading-14_26">Typically, depth of placement for a Cog PDO Thread is the subcutaneous tissue and the effect is twofold with an immediate lift due to the barbs being activated and hooking into the underside of the skin and long-lasting effect due to the gradual metabolism of the thread which leads to skin rejuvenation. The amount of lift provided from a Cog PDO Thread treatment is typically only a few centimeters and results are not permanent. There are many types and sizes of Cog PDO Threads but Intraline focuses on the most effectively used types for classic multiple point Rejuvenation and non-surgical rhinoplasty.</div>
                 </div>
             </div>
 
