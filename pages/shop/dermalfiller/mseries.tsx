@@ -162,11 +162,12 @@ export default function MSeries() {
                                         ml-0 lg:ml-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
-                <div className="mb-15 z-10 h-full flex flex-col
-                                px-5 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
+                <div className="z-10 h-full flex flex-col
+                                mb-0 sm:mb-15">
                     <div className="w-full
                                     mt-12 md:mt-30
-                                    block sm:flex">
+                                    block sm:flex
+                                    px-5 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
                         <div className="flex flex-col">
                             <div className="">
                                 <div>
@@ -187,12 +188,13 @@ export default function MSeries() {
                             </div>
                         </div>
                     </div>
-                    <div className="my-5 relative overflow-hidden
+                    <div className="mt-10 pb-15 relative overflow-hidden
                                     block sm:hidden">
                         {renderMSeriesSwiper()}
-                        <div className="absolute top-0 -left-5 bg-white rounded-full aspect-w-1 aspect-h-1" style={{width: 520}}></div>
+                        <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
                     </div>
-                    <div className="flex items-center justify-center mt-auto">
+                    <div className="items-center justify-center mt-auto
+                                    hidden sm:flex">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
@@ -302,7 +304,7 @@ export default function MSeries() {
                                 w-11/12 sm:w-146">
                     <div className="ttcommon_font_bold text-center mx-auto
                                     text-2xl sm:text-4xl
-                                    leading-36_26">Mesmerizing, Modern, and Memorable.</div>
+                                    leading-none sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                 text-xl sm:text-4xl">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
