@@ -223,14 +223,14 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               </div>
               <div className="bg-white h-16 fixed top-15 left-0 w-full flex-col
                                 flex md:hidden">
-                <div className="w-11/12 h-11 mx-auto my-auto relative">
+                <div className="w-full h-11 px-5 my-auto relative">
                   <input 
                       type="text" 
                       className="bg-c_F7F7F7 w-full h-full text-c_00080D pl-2.5" 
                       placeholder="Search for product or category."
                       onKeyPress={(event) => {event.key === 'Enter' && searchProductHandler()}}
                       onChange={(event) => {setSearchKey(event.target.value)}}/>
-                  <button className="absolute top-0 right-3 h-full text-c_00080D"
+                  <button className="absolute top-0 right-7 h-full text-c_00080D"
                           onClick={() => {searchProductHandler()}}>
                     <SearchSvg color={'#00080D'} />
                   </button>
