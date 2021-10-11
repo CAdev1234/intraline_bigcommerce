@@ -370,22 +370,6 @@ export default function ScarKit() {
             
             
             {/* Download Catalog */}
-            {/* <div className="bg-c_C6CBDD">
-                <div className="py-28">
-                    <div className="flex flex-col mx-auto
-                                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                        <div className="ttcommon_font_bold leading-36_26 text-4xl">Download Our Catalog.</div>
-                        <p className="mt-5">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
-                        <div className="mt-10">
-                            <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
-                        </div>
-                        <div className="mt-10">
-                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
             <div className="bg-c_C6CBDD">
                 <div className="py-28">
                     <div className="flex flex-col mx-auto

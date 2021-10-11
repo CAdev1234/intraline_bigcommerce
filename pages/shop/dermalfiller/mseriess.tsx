@@ -189,7 +189,8 @@ export default function MSeries() {
                         </div>
                     </div>
                     <div className="mt-10 pb-15 relative overflow-hidden
-                                    block sm:hidden">
+                                    block sm:hidden
+                                    px-5 sm:px-0">
                         {renderMSeriesSwiper()}
                         <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
                     </div>
@@ -271,8 +272,8 @@ export default function MSeries() {
                                             <div className="ml-auto ttcommon_font_bold text-6xl text-c_8D97BC leading-14_17">0{index + 1}</div>
                                         </div>
                                         
-                                        <div className="relative w-full">
-                                            <div className="bg-white p-7_5 relative z-10">
+                                        <div className="relative w-full h-full">
+                                            <div className="bg-white p-7_5 relative z-10 h-full">
                                                 <div className="ttcommon_font_bold uppercase text-sm leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                 <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>
                                             </div>

@@ -228,7 +228,7 @@ export default function DemeralFiller() {
             {/* FAQ part */}
             <div className="bg-white">
                 <div className="py-15 sm:py-24
-                                mx-5 sm:mx-5 md:mx-20 lg:mx-60 xl:mx-60 2xl:mx-60">
+                                mx-5 md:mx-15 lg:mx-172">
                     
                     <div className="flex text-c_00080D mb-2">
                         <div className="ttcommon_font_bold text-2xl

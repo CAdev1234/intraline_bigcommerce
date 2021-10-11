@@ -74,7 +74,7 @@ const cartSlice = createSlice({
             if (result.length === 0) {
                 state.products.push(payload);
             }else {
-                result[0].amount = result[0].amount + payload.amount;
+                result[0].quantity = result[0].quantity + payload.quantity;
             }
             // setCookie('cart_products', JSON.stringify(state.products));
             localStorage.setItem('cart_products', JSON.stringify(state.products))

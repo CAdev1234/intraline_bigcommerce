@@ -22,11 +22,40 @@ import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/
 import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
-import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import {products} from 'utils/productData'
 
+type ParamsType = {
+    name: string
+}
 
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+      paths: [
+        { params: { product: 'm2plus', id: 'product_0000-000000-0010' } },
+        { params: { product: 'm3plus', id: 'product_0000-000000-0011' } },
+        { params: { product: 'm4plus', id: 'product_0000-000000-0012' } },
+      ],
+      fallback: false,
+    };
+}
 
-export default function M2Plus() {
+export const getStaticProps: GetStaticProps = async (params) => {
+    // const all_products = useAppSelector(state =>  state.product.products)
+    // console.log("params=", (params.params as ParamsType).name)
+    // const thread_product = all_products.filter(item => item.title === (params.params as ParamsType).name)[0]
+    const all_products = products;
+    // const mseries_product = all_products.filter(item => item.title.toLowerCase() === (params.params as ParamsType).name)[0]
+    const mseries_product = {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'}
+    
+    return {
+        props: {
+            mseries_product,
+        },
+    }
+}
+
+export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsType<typeof getStaticProps>) {
     let testimonial_li = [
         {
             title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
@@ -169,34 +198,6 @@ export default function M2Plus() {
         })
     }
 
-    const RenderMseriesSwiper = () => {
-        var render_ele = mseries_li.map((item, index) => {
-            return <div className="keen-slider__slide relative" key={`category_${index}`}>
-                        <div className="flex flex-col bg-white
-                                        h-74 md:h-118
-                                        pt-2.5 md:pt-5
-                                        px-2.5 md:px-5
-                                        pb-5 md:pb-12">
-                            <div className="flex-1 h-0">
-                                <img className="h-full object-contain mx-auto" src={item.img} alt="" />
-                            </div>
-                            <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
-                                             h-12 flex items-center justify-center
-                                             text-sm md:text-2xl
-                                             leading-14_17 md:leading-none">{item.title}</div>
-                        </div>
-                        <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col opacity-0 hover:opacity-100">
-                            <div className="my-auto flex flex-col">
-                                <Link href={item.link}>
-                                    <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-        })
-        return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,1.5,2.5,3.5,3.5]} navCss={"mt-10"}/>
-    }
-
     const ShowEnableSideReview = (bool_var: boolean) => {
         (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
         setEnableSideReview(bool_var)
@@ -210,8 +211,7 @@ export default function M2Plus() {
                         mt-16 md:mt-0">
             <div className="h-15 w-full bg-transparent"></div>
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
-                <div className="mt-12_5 items-center uppercase text-sm leading-14_17 tracking-widest
-                                hidden md:flex">
+                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center flex-wrap cursor-pointer
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-100 lg:w-full">
@@ -221,45 +221,14 @@ export default function M2Plus() {
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">M2 Plus</span>
+                        <span className="ttcommon_font_bold ml-1">{mseries_product.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">
-                    {/* responsive part */}
-                    <div className="w-full h-full relative
-                                    block md:hidden">
-                        <div className="flex flex-col items-end h-full">
-                            <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
-                                <div className="w-full h-full flex absolute items-center justify-center">
-                                    <div className="relative">
-                                        <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
-                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="absolute top-12 left-5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                            <div className="flex items-center flex-wrap cursor-pointer
-                                            w-100">
-                                <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4" /></span>
-                                <span className="ml-1 ttcommon_font">Shop</span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ttcommon_font_bold ml-1">M2 Plus</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="flex w-full">
-                        <div className="flex flex-col
-                                        w-full md:w-6/12
-                                        pr-5 md:pr-0
+                        <div className="w-6/12 flex flex-col
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
-                            <div className="mt-0 md:mt-28">
+                            <div className="mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
                                 <div className="ttcommon_font_thin leading-200_160 font-semibold mt-7
                                                 text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" ><span className="ttcommon_font_bold">M2</span> Plus</div>
@@ -271,26 +240,20 @@ export default function M2Plus() {
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
                                 </div>}
-                                {logined && <div className="mt-5 items-center h-12 text-white
-                                                            block md:flex">
-                                    <div className="bg-c_00080D flex items-center justify-center h-full
-                                                    w-full md:w-24">
+                                {logined && <div className="mt-5 flex items-center h-11 text-white">
+                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
                                         <div className="mx-auto">{numM2Plus}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="h-full text-sm
-                                                    w-full md:w-52
-                                                    ml-0 md:ml-3
-                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="absolute top-0 right-0 w-full h-full
-                                hidden md:block">
+                <div className="absolute top-0 right-0 w-full h-full">
                     <div className="w-6/12 flex flex-col items-end ml-auto h-full">
                         <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
                             <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
@@ -306,8 +269,7 @@ export default function M2Plus() {
                 
             </div>
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
-                <div className="flex items-center justify-center
-                                hidden md:block">
+                <div className="flex items-center justify-center">
                     <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>
@@ -315,15 +277,12 @@ export default function M2Plus() {
             
 
             {/* Indications */}
-            <div className="bg-white">
+            <div className="bg-white px-40">
                 <div className="flex flex-col mx-auto py-28
-                                w-full md:w-162_5
+                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
                                 px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">
-                    <div className="ttcommon_font_bold text-center
-                                    text-2xl md:text-4xl
-                                    leading-none md:leading-36_26">Indications</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-2xl md:text-4xl">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
+                    <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
+                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">M2 Plus with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-64 text-sm">download indication chart</Button>
                     </div>
@@ -331,15 +290,13 @@ export default function M2Plus() {
             </div>
 
             {/* cart part */}
-            <div className="bg-c_C6CBDD w-full relative
-                            hidden lg:block">
+            <div className="bg-c_C6CBDD w-full relative">
                 <div className="absolute h-full flex flex-col" style={{left: -211}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32 relative z-10">
                     <div className="w-full flex items-center">
-                        <div className="w-1/2
-                                        pr-10 xl:pr-32">
+                        <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">M2 Plus.</div>
@@ -409,78 +366,6 @@ export default function M2Plus() {
                 </div>
             </div>
 
-            {/* cart part responsive */}
-            <div className="bg-c_C6CBDD w-full relative px-5 pb-15
-                            block lg:hidden">
-                <div className="flex flex-col">
-                    <div className="my-auto ttcommon_font_bold text-c_8D97BC text-7xl leading-24_29">Specs.</div>
-                </div>
-                <div className="">
-                    <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
-                        <div className="pb-5">
-                            <div className="ttcommon_font_bold text-6xl leading-64_76">M2 Plus.</div>
-                            <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
-                                <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                <div className="text-sm ">(22)</div>
-                            </div>
-                        </div>
-                        <div className="pt-7">
-                            <div className="flex flex-col">
-                                <div className="flex items-start w-full">
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Type</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">Monophasic dermal filler.</div>
-                                    </div>
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">TOTAL HA CONCENTRATION</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">24 MG/ML</div>
-                                    </div>
-                                </div>
-                                <div className="mt-7 flex items-start w-full">
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Average gel particle size</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">Small</div>
-                                    </div>
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Cross linking</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">BODE(1UG/ML)</div>
-                                    </div>
-                                </div>
-                                <div className="mt-7 flex items-start w-full">
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Level of injection</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">Upper dermis.</div>
-                                    </div>
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">PACKAGING</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">1 Syringe & 2 Sterile Needles.</div>
-                                    </div>
-                                </div>
-                                <div className="mt-7 flex items-start w-full">
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Volume</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">11ML</div>
-                                    </div>
-                                    <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">Lidocaine</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">3MG/ML</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1 text-sm">Buy m2 plus now</Button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div className="w-full text-2xl text-center mt-10">
-                    <div className="ttcommon_font_thin leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
-                    <div className="ttcommon_font_bold mt-7_5 leading-36_26">Rheology.</div>
-                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
-                </div>
-            </div>
             
             
             {/* Reviews part */}
@@ -493,53 +378,39 @@ export default function M2Plus() {
             
             {/* FAQ part */}
             <div className="bg-c_C3E0DC">
-                <div className="py-15 sm:py-24
-                                mx-5 md:mx-15 lg:mx-172 xl:mx-172 2xl:mx-172">
-                    <div className="flex text-c_00080D mb-2">
-                        <div className="ttcommon_font_bold text-2xl
-                                        block sm:hidden
-                                        leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">FAQs.</div>
-                        <div className="ttcommon_font_bold text-4xl
-                                        hidden sm:block
-                                         leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
-                        <div className="flex items-center ml-auto">
-                            <Link href="/faq">
-                                <div className="flex items-center">
-                                    <div className="ttcommon_font_bold ml-auto
-                                                    text-xs sm:text-lg">Read More</div>
-                                    <div className="ml-2">
-                                        <ChevronRight className="h-4 w-4" />
-                                    </div>
+                <div className="mx-172 py-24">
+                <div className="flex text-c_00080D mb-2">
+                    <div className="ttcommon_font_bold leading-36_26 text-4xl">Frequently Asked Questions.</div>
+                    <div className="flex items-center ml-auto">
+                        <Link href="/faq">
+                            <div className="flex items-center">
+                                <div className="ttcommon_font_bold text-lg">Read More</div>
+                                <div className="ml-2">
+                                    <ChevronRight className="h-4 w-4" />
                                 </div>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     </div>
-                    {RenderFAQCollapse()}
+                </div>
+
+                {RenderFAQCollapse()}
                 </div>
             </div>
 
             {/* MSeries */}
             <div className="bg-c_F5DBDD">
-                <div className="py-24
-                                mx-5 md:mx-15 lg:mx-172">
-                    <div className="flex text-c_00080D mb-2 items-center">
-                        <div className="ttcommon_font_bold
-                                        text-2xl md:text-4xl
-                                        leading-none md:leading-36_26">The M Series.</div>
+                <div className="mx-172 py-24">
+                    <div className="flex text-c_00080D mb-2">
+                        <div className="ttcommon_font_bold leading-36_26 text-4xl">The M Series.</div>
                         <div className="flex items-center ml-auto">
-                            <div className="ttcommon_font_bold
-                                            text-base md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                            <div className="ttcommon_font_bold text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>
                         </div>
                     </div>
-                    <div className="mt-10 gap-5 grid-cols-3
-                                    hidden md:grid">
+                    <div className="mt-10 grid grid-cols-3 gap-5">
                         {RenderMseries()}
-                    </div>
-                    <div className="block md:hidden">
-                        {RenderMseriesSwiper()}
                     </div>
                 </div>
             </div>
@@ -549,4 +420,4 @@ export default function M2Plus() {
     )
 }
 
-M2Plus.Layout = Layout
+MSeriesProduct.Layout = Layout
