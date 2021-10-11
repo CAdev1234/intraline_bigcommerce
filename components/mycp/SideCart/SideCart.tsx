@@ -36,6 +36,16 @@ const SideCart: FC<SideCartProps> = () => {
         dispatch(closeSideCart())
         router.push('/shop/shoppingbag')
     }
+
+    const gotoShoppingBagHandler = () => {
+        dispatch(closeSideCart())
+        router.push('/shop/shoppingbag')
+    }
+
+    const gotoCheckoutHandler = () => {
+        dispatch(closeSideCart())
+        router.push('/shop/checkout')
+    }
     return (
         <div>
             <div className="fixed top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40 z-20"></div>
@@ -70,12 +80,9 @@ const SideCart: FC<SideCartProps> = () => {
                         <div className="mt-7">
                             {!currentUrl.includes('/shop/checkout') && 
                                 <div>
-                                    <Link href="/shop/shoppingbag">
-                                        <Button className="h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>View Bag</Button>
-                                    </Link>
-                                    <Link href="/shop/checkout">
-                                        <Button className="mt-2 h-11 w-full text-sm" onClick={() => {dispatch(closeSideCart())}}>Checkout</Button>
-                                    </Link>
+                                    <Button className="h-11 w-full text-sm" onClick={() => {gotoShoppingBagHandler()}}>View Bag</Button>
+                                    <Button className="mt-2 h-11 w-full text-sm" onClick={() => {gotoCheckoutHandler()}}>Checkout</Button>
+                                    
                                 </div>
                             }
                             

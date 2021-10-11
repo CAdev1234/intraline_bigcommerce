@@ -283,9 +283,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
             <div className="w-36 bg-c_00080D bg-opacity-95 pt-12_5 pl-5">
               {page_li.map((item, index) => {
                 return <div key={`page_${index}_mobile`} className="mb-8 flex">
-                        <Link href={item.link}>
-                          <span className="pb-1 uppercase text-white text-xs leading-tight border-c_52B5D3 border-b-2 flex">{item.name}</span>
-                        </Link>      
+                        <button className="pb-1 uppercase text-white text-xs leading-tight border-c_52B5D3 border-b-2 flex"
+                              onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</button>
                       </div>
               })}
             </div>

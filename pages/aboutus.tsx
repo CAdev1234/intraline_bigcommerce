@@ -48,15 +48,9 @@ export default function AboutUs() {
             detail: 'Intraline believes in upholding the highest standards for our high quality products and our genuine customer care with a focus on building long-lasting and trusting relationships.'
         }
     ]
-    const play_icon = () => {
-        return <div>
-                  <div className="w-25 h-25 rounded-full border border-white text-white flex justify-center items-center">
-                    <TriangleRight className="text-white"/>
-                  </div>     
-              </div>
-    }
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
             <div className="relative w-full flex flex-col mt-15">
                 <ResponsivePlayer url="https://www.youtube.com/watch?v=rW_3OCbQEHg"/>
             </div>
@@ -64,15 +58,19 @@ export default function AboutUs() {
             {/* Confidence is Ageless. */}
             <div className="bg-white mx-auto
                             w-full md:w-162_5 lg:w-162_5 xl:w-162_5 2xl:w-162_5">
-                <div className="flex flex-col max-w-2xl mx-auto py-28">
-                    <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Confidence is Ageless.</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">We believe that people matter, therefore we listen and commit ourselves to excellence in all that we do. Your story is our story, and we are proud to grow together.</p>
+                <div className="flex flex-col max-w-2xl mx-auto py-28
+                                px-5 md:px-0">
+                    <div className="ttcommon_font_bold leading-36_26 text-center
+                                    text-2xl md:text-4xl">Confidence is Ageless.</div>
+                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                                text-2xl md:text-4xl">We believe that people matter, therefore we listen and commit ourselves to excellence in all that we do. Your story is our story, and we are proud to grow together.</p>
                     
                 </div>
             </div>
 
             {/* education part */}
-            <div className="px-15 py-25 bg-c_CCE7EF">
+            <div className="py-25 bg-c_CCE7EF
+                            px-5 md:px-15">
                 <div className="grid gap-x-5 gap-y-12
                                 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2">
                     {our_sec.map((item, index) => {
@@ -90,7 +88,8 @@ export default function AboutUs() {
             {/* Question part */}
             <div className="bg-white">
                 <div className="mx-auto py-28
-                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
+                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
+                                px-5 md:px-0">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>

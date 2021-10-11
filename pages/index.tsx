@@ -377,7 +377,7 @@ export default function Home({
       return <div className="keen-slider__slide flex flex-col pt-5 bg-white relative
                              
                              pb-5 sm:pb-12" key={`m_${index}_product`}>
-                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 animate-pulse">${item.price}</div>}
+                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                 <div className="flex-1 w-full h-0">
                     <img className="mx-auto h-full w-11/12" src={item.img} alt="" />
                 </div>
@@ -409,7 +409,7 @@ export default function Home({
                 </div>
             </div>
     }) 
-    return <KeenSliderA render_ele = {render_ele} slidesPerView={[1.5,2,3,4,5]} navCss="mx-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
+    return <KeenSliderA render_ele = {render_ele} slidesPerView={[1.5,2,3,4,5]} navCss="mr-5 md:mx-15 lg:mx-172 xl:mx-172 mt-10"/>
   }
 
   return (
