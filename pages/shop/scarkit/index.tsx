@@ -80,15 +80,6 @@ export default function ScarKit() {
         },
     ]
     let scarkit = {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.png', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'}
-    const [logined, setLogined] = useState(false)
-    const [numScarkit, setNumScarkit] = useState(1)
-    const [catalogEmail, setCatalogEmail] = useState('')
-    const dispatch = useAppDispatch()
-    useEffect(() => {
-        if (getCookie('jwt', '') != null) {
-            setLogined(true)
-        }
-    }, [])
     let specific_li = [
         {
             title: 'Product Specifics.', 
@@ -111,6 +102,17 @@ export default function ScarKit() {
             detail: "A specially designed single-use GTI Cannula® for precise control through higher density and fibrotic tissue, for the subcision of minor facial surface defects.The GTI Cannula is a revolutionary new device designed by Dr. Olivier Amar in partnership with Sterimedix, which makes the treatments of small facial and body scars or surface defects safer and easier to perform. The GTI is a smooth cannula with a precision manufactured groove in the tip. The grooved tip was designed to reduce the risk of damage to nerves or important vessels which might otherwise be at risk from a sharp cutting device. The Cannula’s tip gives greater control to the practitioner as it passes through the fibrous tissue aiding the treatment of small scars or defects. The precise design of the grooved tip is to release the surface indentation and allow the lifting of the scar with Intraline Two Dermal Filler. After the subcision, the GTI Cannula can then be used to inject Intraline Two Dermal Filler into the space under the elevated skin."
         },
     ]
+    const [logined, setLogined] = useState(false)
+    const [numScarkit, setNumScarkit] = useState(1)
+    const [catalogEmail, setCatalogEmail] = useState('')
+    const [enableQues, setEnableQues] = useState(new Array(specific_li.length - 1).fill(false));
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        if (getCookie('jwt', '') != null) {
+            setLogined(true)
+        }
+    }, [])
+    
     const [enableSpecific, setEnableSpecific] = useState([true, ...new Array(specific_li.length - 1).fill(false)])
     const addToBagHandler = () => {
         let product_detail = scarkit
@@ -154,8 +156,14 @@ export default function ScarKit() {
             });
         }
     }
+    const updateSpecParagraMobileHandler = (index: number) => {
+        let new_array = [...enableQues]
+        new_array[index] = !new_array[index]
+        setEnableQues(new_array)
+    }
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
+        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
                 autoClose={3000}
@@ -169,9 +177,9 @@ export default function ScarKit() {
                 className="toast-container"
             />
             <div className="h-15 w-full bg-transparent"></div>
-            <div className="h-210 relative bg-c_C3E0DC w-full flex flex-col">
+            <div className="relative bg-c_C3E0DC w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
+                    <div className="flex items-center cursor-pointer ttcommon_font
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
@@ -180,47 +188,86 @@ export default function ScarKit() {
                         <span className="ttcommon_font_bold ml-1">The Scar Kit</span>
                     </div>
                 </div>
-                <div className="mt-20 flex flex-col mb-15 h-full">
-                    <div className="flex w-full h-full z-10">
-                        <div className="w-6/12 flex flex-col ml-172">
+                <div className="my-auto w-9/12 mx-auto
+                                mt-15 md:mt-0
+                                block md:hidden">
+                    <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
+                        <div className="absolute w-full left-0 top-0">
+                            {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                        </div>
+                        <div className="flex">
+                            <img className="w-9/12 mx-auto my-auto" src="/assets/img/scarkit.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col h-full
+                                mt-14 md:mt-20">
+                    <div className="flex w-full h-full z-10
+                                    pl-5 md:pl-15 xl:pl-172
+                                    pr-5 md:pr-15">
+                        <div className="flex-1 flex flex-col">
                             <div className="">
-                                <div className="ttcommon_font_thin text-200px leading-200_160">Scar</div>
-                                <div className="text-200px leading-200_160 font-semibold" ><span className="ttcommon_font_bold">Kit</span></div>
-                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                <div className="hidden md:block">
+                                    <div className="ttcommon_font_thin leading-200_160
+                                                    text-6xl sm:text-7xl md:text-9xl lg:text-9xl xl:text-200px 2xl:text-200px">Scar</div>
+                                    <div className="leading-200_160 font-semibold
+                                                    md:text-9xl lg:text-9xl xl:text-200px 2xl:text-200px" ><span className="ttcommon_font_bold">Kit</span></div>
+                                    
+                                </div>
+                                <div className="block md:hidden text-64px leading-none">
+                                    <span className="ttcommon_font_thin">Scar</span>
+                                    <span className="ttcommon_font_bold"> Kit</span>
+                                </div>
+                                <div className="ttcommon_font_thin mt-5 leading-36_48
+                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Lorem ipsum doloris secantum.</div>
+                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Weight: 500GR</span>
                                 </div>}
-                                {logined && <div className="mt-5 flex items-center h-12 text-white">
-                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                {logined && <div className="mt-5 items-center h-12 text-white
+                                                            block md:flex">
+                                    <div className="bg-c_00080D flex items-center justify-center h-full
+                                                    w-full md:w-24">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
                                         <div className="mx-auto">{numScarkit}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                    <Button className="h-full text-sm
+                                                    w-full md:w-52
+                                                    ml-0 md:ml-3
+                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
-                        <div className="relative flex flex-1 flex-col items-end mr-15">
-                            <div className="absolute h-full flex flex-col">
-                                <div className="bg-white rounded-full my-auto relative" style={{width: 526, height: 526}}>
-                                    <img className="mix_blend_multi ml-auto h-full" src="/assets/img/scarkit.png" alt="" />
-                                    {logined && <Button className="ttcommon_font_bold absolute right-16 top-0 h-9 w-30" variant="primary">$100.00</Button>}
+                        <div className="w-full my-auto
+                                        max-w-xl
+                                        ml-10 lg:ml-20 xl:ml-36
+                                        hidden md:block">
+                            <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
+                                <div className="absolute w-full left-0 top-0">
+                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                                </div>
+                                <div className="flex">
+                                    <img className="w-9/12 mx-auto my-auto" src="/assets/img/scarkit.png" alt="" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center">
-                        <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
-                    </div>
+                </div>
+
+            </div>
+            <div className="bg-c_C3E0DC pb-15 pt-9">
+                <div className="flex items-center justify-center">
+                    <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                    <ChevronDown className="w-4 ml-4" />
                 </div>
             </div>
 
 
             {/* question part */}
-            <div className="bg-white w-full relative">
+            <div className="bg-white w-full relative
+                            hidden md:block">
                 <div className="absolute h-full flex flex-col" style={{left: -17 + '%'}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_F7F7F7 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Scar Kit</div>
                 </div>
@@ -260,9 +307,53 @@ export default function ScarKit() {
                 </div>
             </div>
 
+            {/* question part mobile */}
+            <div className="bg-white w-full pb-15
+                            block md:hidden">
+                <div className="h-full flex flex-col">
+                    <div className="my-auto ttcommon_font_bold text-c_F7F7F7 text-7xl leading-normal text-center">Scar Kit</div>
+                </div>
+                <div className="px-5">
+                    <div className="w-full flex items-center">
+                        <div className="w-full">
+                            <div className="bg-c_F7F7F7 py-7_5 px-5 divide-y divide-c_00080D">
+                                <div className="pb-5">
+                                    <div className="ttcommon_font_bold text-4xl leading-tight">Ingredients.</div>
+                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                </div>
+                                <div className="pt-7">
+                                    <div className="flex flex-col">
+                                        {specific_li.map((item, index) => {
+                                            return <div key={`ingredient_${index}`}>
+                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}>
+                                                            <button className={`text-2xl leading-36_48 ${enableQues[index] && 'ttcommon_font_bold'}`} 
+                                                                onClick={() => {updateSpecParagraMobileHandler(index)}}>{item.title}</button>
+                                                            <div className={`ml-auto h-full ${enableQues[index] ? 'hidden' : 'block'}`}>
+                                                                <ChevronDown />
+                                                            </div>
+                                                            <div className={`ml-auto h-full ${enableQues[index] ? 'block' : 'hidden'}`}>
+                                                                <ChevronUp />
+                                                            </div>
+                                                        </div>
+                                                        <div className={`ttcommon_font_thin ${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
+                                                               
+                                                    </div>
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
             <div className=" bg-c_F5DBDD">
-                <div className="mx-172 my-30 flex flex-col">
-                    <div className="ttcommon_font_bold text-4xl leading-36_48">How the GTI Cannula works.</div>
+                <div className="my-30 flex flex-col
+                                mx-5 md:mx-172">
+                    <div className="ttcommon_font_bold leading-36_48
+                                    text-2xl md:text-4xl">How the GTI Cannula works.</div>
                     <div className="mt-5 w-full">
                         <ResponsivePlayer url="https://www.youtube.com/watch?v=nnexOCQOa0w"/>
                     </div>
@@ -279,7 +370,7 @@ export default function ScarKit() {
             
             
             {/* Download Catalog */}
-            <div className="bg-c_C6CBDD">
+            {/* <div className="bg-c_C6CBDD">
                 <div className="py-28">
                     <div className="flex flex-col mx-auto
                                     w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
@@ -289,6 +380,26 @@ export default function ScarKit() {
                             <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-10">
+                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
+                        </div>
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="bg-c_C6CBDD">
+                <div className="py-28">
+                    <div className="flex flex-col mx-auto
+                                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
+                                    px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">
+                        <div className="ttcommon_font_bold leading-36_26
+                                        text-2xl sm:text-4xl">Download Our Catalog.</div>
+                        <p className="mt-5
+                                    text-xs sm:text-base 
+                                    leading-14_26 sm:leading-14_26">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
+                        <div className="mt-7_5 sm:mt-10">
+                            <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
+                        </div>
+                        <div className="mt-7_5 sm:mt-10">
                             <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
