@@ -1,6 +1,9 @@
 import { Layout } from "@components/common";
+import { ChevronRight } from "@components/icons";
+import KeenSliderA from "@components/mycp/KeenSlider/KeenSliderA";
 import TreatmentSlider from "@components/mycp/KeenSlider/TreatmentSlider";
 import TestimonialCp from "@components/mycp/TestimonialCp/TestimonialCp";
+import Link from "@components/ui/Link";
 
 
 
@@ -114,21 +117,81 @@ export default function Treatments() {
             img: '/assets/img/treatment_body_6.jpg',
         },
     ]
-    
-    return <div className="ttcommon_font flex flex-col">
+    let facial_render_ele = facial_treatment_li.map((item, index) => {
+        return <div className="keen-slider__slide relative" key={`category_${index}`}>
+                    <div className="flex flex-col">
+                        <div className="flex-1 h-0">
+                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                        </div>
+                        <div className="ttcommon_font_bold mt-7_5 text-left text-base">0{index + 1}</div>
+                        <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
+                        <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
+                    </div>
+                </div>
+    })
+    let body_render_ele = body_treatment_li.map((item, index) => {
+        return <div className="keen-slider__slide relative" key={`category_${index}`}>
+                    <div className="flex flex-col">
+                        <div className="flex-1 h-0">
+                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                        </div>
+                        <div className="ttcommon_font_bold mt-7_5 text-left text-base">0{index + 1}</div>
+                        <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
+                        <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
+                    </div>
+                </div>
+    })
+    return <div className="ttcommon_font flex flex-col
+                            mt-16 md:mt-0">
+                <div className="h-15 w-full bg-transparent"></div>
+                <div className="hidden md:block">
+                    <TreatmentSlider 
+                        headline={"Facial Treatments."}
+                        sub_headline={"The choice is yours. Find the perfect treatment for you."}
+                        treatment_item_li={facial_treatment_li}
+                        leftside_bg={"bg-c_F5DBDD"}
+                        rightside_bg={"bg-white"}
+                        enable_path={true}/>
+                </div>
+                <div className="hidden md:block">
+                    <TreatmentSlider 
+                        headline={"Body Treatments."}
+                        sub_headline={"The choice is yours. Find the perfect treatment for you."}
+                        treatment_item_li={body_treatment_li}
+                        leftside_bg={"bg-c_white"}
+                        rightside_bg={"bg-c_CCE7EF"}
+                        enable_path={false}/>
+                </div>
+                
+                {/* responsive part */}
+                <div className="block md:hidden px-5 bg-c_F5DBDD pb-15">
+                    <div className="flex items-center mt-7_5">
+                        <span><Link href="/">Home</Link></span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">Treatments</span>
+                    </div>
+                    <div className="mt-10 ttcommon_font_bold text-2xl">Facial Treatments</div>
+                    <div className="mt-2.5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
+                    <div className="mt-7_5">
+                        <KeenSliderA 
+                            slidesPerView={[1,1,1,1,1]} 
+                            render_ele={facial_render_ele} 
+                            navCss={"mt-0"}/>
+                    </div>
+                </div>
 
-                <TreatmentSlider 
-                    headline={"Facial Treatments."}
-                    sub_headline={"The choice is yours. Find the perfect treatment for you."}
-                    treatment_item_li={facial_treatment_li}
-                    leftside_bg={"bg-c_F5DBDD"}
-                    rightside_bg={"bg-white"}/>
-                <TreatmentSlider 
-                    headline={"Body Treatments."}
-                    sub_headline={"The choice is yours. Find the perfect treatment for you."}
-                    treatment_item_li={body_treatment_li}
-                    leftside_bg={"bg-c_white"}
-                    rightside_bg={"bg-c_CCE7EF"}/>
+
+                <div className="block md:hidden px-5 bg-white pb-15">
+                    <div className="mt-10 ttcommon_font_bold text-2xl">Body Treatments.</div>
+                    <div className="mt-2.5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
+                    <div className="mt-7_5">
+                        <KeenSliderA 
+                            slidesPerView={[1,1,1,1,1]} 
+                            render_ele={body_render_ele} 
+                            navCss={"mt-0"}/>
+                    </div>
+                </div>
+
                 {/* Reviews part */}
                 <TestimonialCp 
                     head_line={"Testimonials."} 

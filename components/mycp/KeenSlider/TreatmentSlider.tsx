@@ -48,13 +48,14 @@ type TreatmentArray = Array<{
 }>
 interface TreatmentSliderProps {
     treatment_item_li: TreatmentArray,
-    leftside_bg: string,
-    rightside_bg: string,
-    headline: string,
-    sub_headline: string
+    leftside_bg?: string,
+    rightside_bg?: string,
+    headline?: string,
+    sub_headline?: string,
+    enable_path?: boolean
 }
 
-const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_bg, rightside_bg, headline, sub_headline}) => {
+const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_bg, rightside_bg, headline, sub_headline, enable_path}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     
     
@@ -66,45 +67,80 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
                 </div>
     })
     const render_ele_img = treatment_item_li.map((item, index) => {
-        return <div key={`face_img_${index}`} className="keen-slider__slide h-full">
-                    <img className="w-full h-full" src={item.img} alt="" />
+        return <div key={`face_img_${index}`} className="keen-slider__slide h-full flex flex-col">
+                    <div className="aspect-w-1 aspect-h-1 my-auto">
+                        <img className="w-full h-full mx-auto" src={item.img} alt="" />
+                    </div>
+                    
                 </div>
     })
     const [facial_img_ref, slider1] = useKeenSlider<HTMLDivElement>({
-        slidesPerView: 2,
         spacing: 20,
         loop: true,
         centered: true,
         controls: false,
+        breakpoints: {
+            '(max-width: 600px)': {
+              slidesPerView: 2
+            },
+            '(min-width: 600px) and (max-width: 960px)': {
+              slidesPerView: 2
+            },
+            '(min-width: 960px) and (max-width: 1264px)': {
+              slidesPerView: 2
+            },
+            '(min-width: 1264px) and (max-width: 1904px)': {
+              slidesPerView: 2
+            },
+            '(min-width: 1904px)': {
+              slidesPerView: 2
+            },
+        },
         slideChanged(s) {
             setCurrentSlide(s.details().relativeSlide)
         },
     })
     const [facial_detail_ref, slider2] = useKeenSlider<HTMLDivElement>({
-        slidesPerView: 1,
         spacing: 20,
         loop: true,
         controls: false,
+        breakpoints: {
+            '(max-width: 600px)': {
+                slidesPerView: 1
+            },
+            '(min-width: 600px) and (max-width: 960px)': {
+                slidesPerView: 1
+            },
+            '(min-width: 960px) and (max-width: 1264px)': {
+                slidesPerView: 1
+            },
+            '(min-width: 1264px) and (max-width: 1904px)': {
+                slidesPerView: 1
+            },
+            '(min-width: 1904px)': {
+                slidesPerView: 1
+            },
+        },
         slideChanged(s) {
-            console.log("facial detail slide changed")
             setCurrentSlide(s.details().relativeSlide)
         }
     })
     
-    return <div className="flex h-225 w-full">
-                <div className={`w-1/3 flex flex-col px-15 ${leftside_bg}`}>
-                    <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                        <div className="flex items-center
-                                        px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+    return <div className="flex w-full">
+                <div className={`w-1/3 flex flex-col ${leftside_bg} pt-12_5
+                                pb-10 lg:pb-40 xl:pb-72
+                                px-5 lg:px-15`}>
+                    <div className={`flex items-center uppercase text-sm leading-14_17 tracking-widest ${enable_path ? 'block' : 'hidden'}`}>
+                        <div className="flex items-center">
                             <span><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4"/></span>
                             <span className="ttcommon_font_bold ml-1">Treatment</span>
                         </div>
                     </div>
-                    <div className="my-auto">
+                    <div className="mt-5 lg:mt-15 xl:mt-24">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">{headline}</div>
                         <div className="ttcommon_font_thin text-sm leading-14_26 mt-2">{sub_headline}</div>
-                        <div className="mt-24">
+                        <div className="mt-5 lg:mt-15 xl:mt-24">
                             <div className="relative">
                                 <div ref={facial_detail_ref} className="keen-slider flex items-center">
                                     {render_ele_detail}

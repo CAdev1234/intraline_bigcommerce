@@ -182,7 +182,9 @@ function Checkout() {
         <div className="ttcommon_font text-c_00080D bg-c_CCE7EF h-screen">
             <Navbar c_name="bg-black fixed"></Navbar>
             <div className="bg-transparent h-15 w-full"></div>
-            <div className="px-15 max-w-4xl overflow-y-auto relative mb-9" style={{ height: 'calc(100vh - 96px)' }}>
+            <div className="max-w-4xl overflow-y-auto relative mb-9
+                            mt-16 md:mt-0
+                            px-5 md:px-15" style={{ height: 'calc(100vh - 96px)' }}>
                 {!checkedPayment &&
                     <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                         <div className="flex items-center">
