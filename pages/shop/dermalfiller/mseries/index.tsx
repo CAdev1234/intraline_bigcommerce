@@ -171,16 +171,18 @@ export default function MSeries() {
                         <div className="flex flex-col">
                             <div className="">
                                 <div>
-                                    <div className="ttcommon_font_thin font-semibold leading-200_160
-                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
-                                    <div className="ttcommon_font_bold leading-200_160
-                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px" >M Series</div>
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
+                                                    leading-none md:leading-200_160">The</div>
+                                    <div className="ttcommon_font_bold
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px
+                                                    leading-none md:leading-200_160" >M Series</div>
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
                                                 sm:w-6/12 md:w-5/12 lg:w-131_5">
                                     <div className="ttcommon_font_thin w-full leading-36_48 font-semibold mt-8 text-c_00080D
-                                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
+                                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
                                                     ">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
                                 

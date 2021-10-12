@@ -268,16 +268,16 @@ export default function ScarKit() {
             {/* question part */}
             <div className="bg-white w-full relative
                             hidden md:block">
-                <div className="absolute h-full flex flex-col" style={{left: -17 + '%'}}>
+                <div className="absolute h-full flex flex-col" style={{left: -244}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_F7F7F7 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Scar Kit</div>
                 </div>
                 <div className="ml-172 mr-15 my-32 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-c_CCE7EF pt-8 pb-10 px-7 divide-y divide-c_00080D">
-                                <div className="pb-5">
+                                <div className="pb-7_5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">Specifics</div>
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="ttcommon_font_thin text-sm leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">

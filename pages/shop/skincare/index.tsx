@@ -271,10 +271,10 @@ export default function SkinCare() {
                         <div className="lg:w-7/12 xl:w-5/12
                                         md:pr-10 lg:pr-20">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
-                                <div className="pb-5">
+                                <div className="pb-7_5">
                                     <div className="ttcommon_font_bold leading-64_76
                                                     text-2xl md:text-4xl lg:text-5xl xl:text-6xl">Ingredients.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-sm leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -342,16 +342,6 @@ export default function SkinCare() {
                             </div>
                             
                         </div>
-                        {/* <div className="flex-1 max-w-128">
-                            {question_li.map((item, index) => {
-                                return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
-                                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
-                                            <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap">{item.detail}</div>
-                                        </div>
-                            })}
-                            
-                            
-                        </div> */}
                     </div>
                     
                 </div>
