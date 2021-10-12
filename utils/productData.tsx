@@ -23,3 +23,35 @@ export const products = [
     
     {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.png', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'},
 ]
+
+
+export const reviews = [
+    {
+        title: "Dermal Filler M3 PLUS - Amazing Product",
+        rate: 4,
+        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
+        created_at: '03 Aug 2021'
+    },
+    {
+        title: "Dermal Filler M3 PLUS - Amazing Product",
+        rate: 2,
+        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
+        created_at: '03 Aug 2021'
+    },
+    {
+        title: "Dermal Filler M3 PLUS - Amazing Product",
+        rate: 5,
+        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
+        created_at: '03 Aug 2021'
+    },
+    {
+        title: "Dermal Filler M3 PLUS - Amazing Product",
+        rate: 3,
+        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
+        created_at: '03 Aug 2021'
+    },
+]

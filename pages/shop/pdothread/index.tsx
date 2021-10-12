@@ -105,6 +105,7 @@ export default function PDOThread() {
                                     onClick={() => {router.push(item.link)}}>
                                 <Plus />
                             </button>
+                            <div className="text-center">Know More</div>
                         </div>
                     </div>
         })

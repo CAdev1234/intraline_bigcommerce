@@ -7,7 +7,7 @@ import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
 import Link from "@components/ui/Link"
 import { useAppDispatch, useAppSelector } from "@utils/redux/hooks"
-import { logoutUser } from "@utils/redux/slices/userSlice"
+import { logoutUser, updateUser } from "@utils/redux/slices/userSlice"
 import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"
 
 type ProductObject = {
@@ -36,6 +36,7 @@ export default function MyAccount() {
     const [payment, setPayment] = useState({name: '', number: '', date: '', cvc: ''})
     const [newReview, setNewReview] = useState({id: '', product: '', title: '', created_at: '', rating: 0, detail: ''})
     const [selectedReview, setSelectedReview] = useState(review_li[0])
+    const [selectedAccont, setSelectedAccount] = useState({f_name: '', l_name: '', email: '', mobile: ''})
 
     const [enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
     const [enableEditAccountModal, setEnableAccountModal] = useState(false)
@@ -51,6 +52,7 @@ export default function MyAccount() {
         }
         
         setUser(JSON.parse(localStorage.getItem('user') as string))
+        setSelectedAccount(JSON.parse(localStorage.getItem('user') as string))
 
         if (getCookie('sa', '')) {
             let shipping_address = JSON.parse(getCookie('sa', '') as string)
@@ -68,17 +70,30 @@ export default function MyAccount() {
         }
     }, [])
 
-    const editAccountHandler = () => {
-
+    // account handler
+    const submitUpdatedUserHandler = () => {
+        dispatch(updateUser(selectedAccont))
+        console.log(selectedAccont)
+        setUser(JSON.parse(localStorage.getItem('user') as string))
+        setEnableAccountModal(false)
     }
+    const changeUserFNameHandler = (str: string) => {
+        setSelectedAccount({...selectedAccont, f_name: str})
+    }
+    const changeUserLNameHandler = (str: string) => {
+        setSelectedAccount({...selectedAccont, l_name: str})
+    }
+    const changeUserEmailHandler = (str: string) => {
+        setSelectedAccount({...selectedAccont, email: str})
+    }
+    const changeUserMobileHandler = (str: string) => {
+        setSelectedAccount({...selectedAccont, mobile: str})
+    }
+
+
     const logoutHandler = () => {
         removeCookie('jwt')
         dispatch(logoutUser())
-        // removeCookie('user')
-        // removeCookie('sa')
-        // removeCookie('ba')
-        // removeCookie('pm')
-        
         router.push('/account/login')
     }
     const delAccountHandler = () => {
@@ -86,9 +101,6 @@ export default function MyAccount() {
         localStorage.setItem('sa', '')
         localStorage.setItem('ba', '')
         localStorage.setItem('pm', '')
-        // removeCookie('sa')
-        // removeCookie('ba')
-        // removeCookie('pm')
         dispatch(logoutUser())
         router.push('/account/login')
     }
@@ -363,7 +375,7 @@ export default function MyAccount() {
             
             {/* product reviews */}
             <div className="py-25 bg-c_F5DBDD">
-                <div className="mx-172">
+                <div className="px-5 md:px-15 xl:px-172">
                     <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">Product Reviews</div>
                     <div className="mt-7_5">
                         {review_li.length === 0 && 
@@ -402,17 +414,24 @@ export default function MyAccount() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_26">Edit Information.</div>
                                 <div className="mt-5 text-sm leading-14_26">Make changes to your account info.</div>
                                 <div className="mt-10">
-                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Full Name"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="First Name" defaultValue={selectedAccont.f_name}
+                                    onChange={changeUserFNameHandler}/>
                                 </div>
                                 <div className="mt-5">
-                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Last Name" defaultValue={selectedAccont.l_name}
+                                    onChange={changeUserLNameHandler}/>
                                 </div>
                                 <div className="mt-5">
-                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Phone"/>
+                                    <Input className="bg-c_F7F7F7" type="text" placeholder="Email" defaultValue={selectedAccont.email}
+                                    onChange={changeUserEmailHandler}/>
+                                </div>
+                                <div className="mt-5">
+                                    <Input className="bg-c_F7F7F7" type="number" placeholder="Phone" defaultValue={selectedAccont.mobile}
+                                    onChange={changeUserMobileHandler}/>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-sm h-11 w-64"
-                                        onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Submit</Button>
+                                        onClick={() => {submitUpdatedUserHandler()}}>Submit</Button>
                                     <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
                                         onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Cancel</button>
                                 </div>

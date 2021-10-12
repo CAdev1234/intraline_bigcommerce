@@ -93,29 +93,31 @@ export default function Essentials() {
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
                         <div className="my-auto">
-                            <Link href={item.link}>
-                                <div className="flex flex-col">
-                                    <div className="mx-auto relative
-                                                    h-80 md:h-146">
-                                        <img className="h-full" src={item.img} alt=""/>
-                                        {logined && 
-                                            <div className="absolute
-                                                            top-0 
-                                                            -right-10">
-                                                <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
-                                            </div>
-                                        }
-                                    </div>
-                                    
-                                    <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
+                            <div className="flex flex-col">
+                                <div className="mx-auto relative
+                                                h-80 md:h-146">
+                                    <img className="h-full" src={item.img} alt=""/>
+                                    {logined && 
+                                        <div className="absolute
+                                                        top-0 
+                                                        -right-10">
+                                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
+                                        </div>
+                                    }
                                 </div>
-                            </Link>
+                                
+                                <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
+                            </div>
                         </div>
                         
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
-                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
-                                <Plus />
-                            </button>
+                            <Link href={item.link}>
+                                <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
+                                    <Plus />
+                                </button>
+                                <div className="">Know More</div>
+                            </Link>
+                            
                         </div>
                     </div>
         })

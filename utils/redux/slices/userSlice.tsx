@@ -23,8 +23,16 @@ const checkoutSlice = createSlice({
         },
         logoutUser: (state) => {
             state.logined = false
+        },
+        updateUser: (state, {payload}) => {
+            // payload.password = JSON.parse(localStorage.getItem('user') as string).password
+            // localStorage.setItem('user', payload)
         }
     }
 })
-export const { logoutUser, loginUser } = checkoutSlice.actions
+export const { 
+    logoutUser, 
+    loginUser,
+    updateUser 
+} = checkoutSlice.actions
 export default checkoutSlice.reducer

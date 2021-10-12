@@ -95,8 +95,7 @@ export default function MSeries() {
         let render_ele = mseries_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
                         <div className="my-auto">
-                            <Link href={item.link}>
-                                <div className="flex flex-col">
+                            <div className="flex flex-col">
                                     <div className="mx-auto relative
                                                     h-80 md:h-146">
                                         <img className="h-full" src={item.img} alt=""/>
@@ -111,13 +110,16 @@ export default function MSeries() {
                                     
                                     <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
                                 </div>
-                            </Link>
                         </div>
                         
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
-                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
-                                <Plus />
-                            </button>
+                            <Link href={item.link}>
+                                <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
+                                    <Plus />
+                                </button>
+                                <div className="">Know More</div>
+                            </Link>
+                            
                         </div>
                     </div>
         })

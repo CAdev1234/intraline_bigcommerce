@@ -7,9 +7,11 @@ type ReviewObject = {
     id: string,
     product: string,
     title: string,
-    created_at: string,
     rating: number,
     detail: string,
+    client: string,
+    created_at: string,
+    updated_at: string
 }
 
 const initialState = {
