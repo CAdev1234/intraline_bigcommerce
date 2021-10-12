@@ -177,11 +177,11 @@ export default function SkinCare() {
                             px-5 sm:px-15">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Skin Care</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Skin Care</span>
                     </div>
                 </div>
                 <div className="flex items-end w-full
@@ -322,9 +322,10 @@ export default function SkinCare() {
                                     <div className="flex flex-col">
                                         {question_li.map((item, index) => {
                                             return <div key={`ingredient_${index}`}>
-                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}>
+                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}
+                                                            onClick={() => {updateIngredientParagraMobileHandler(index)}}>
                                                             <button className={`text-2xl leading-36_48 ${enableQues[index] && 'ttcommon_font_bold'}`} 
-                                                                onClick={() => {updateIngredientParagraMobileHandler(index)}}>{item.title}</button>
+                                                                >{item.title}</button>
                                                             <div className={`ml-auto h-full ${enableQues[index] ? 'hidden' : 'block'}`}>
                                                                 <ChevronDown />
                                                             </div>

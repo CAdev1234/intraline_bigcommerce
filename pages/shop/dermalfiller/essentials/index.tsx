@@ -150,12 +150,12 @@ export default function Essentials() {
                     <div className="flex items-center flex-wrap cursor-pointer
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-90 lg:w-full">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold
                                         ml-0 lg:ml-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
@@ -270,7 +270,7 @@ export default function Essentials() {
                                             <div className="ml-auto ttcommon_font_bold text-6xl text-c_8D97BC leading-14_17">0{index + 1}</div>
                                         </div>
                                         
-                                        <div className="relative w-full h-full">
+                                        <div className="relative w-full">
                                             <div className="bg-white p-7_5 relative z-10 h-full">
                                                 <div className="ttcommon_font_bold uppercase text-sm leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                 <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>

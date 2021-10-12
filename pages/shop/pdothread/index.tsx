@@ -130,11 +130,11 @@ export default function PDOThread() {
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1"><Link href="/shop/pdothread">PDO Threads</Link></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold"><Link href="/shop/pdothread">PDO Threads</Link></span>
                     </div>
                 </div>
                 <div className="z-10 flex flex-col h-full mb-15
@@ -173,11 +173,11 @@ export default function PDOThread() {
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1"><Link href="/shop/pdothread">PDO Threads</Link></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold"><Link href="/shop/pdothread">PDO Threads</Link></span>
                     </div>
                 </div>
                 <div className="z-10 flex flex-col h-full mb-25 mt-16">
@@ -273,7 +273,7 @@ export default function PDOThread() {
             <div className="bg-c_CCE7EF w-full pb-15
                             block md:hidden">
                 <div className="h-full flex flex-col">
-                    <div className="my-auto ttcommon_font_bold text-c_99CEE0 text-7xl leading-normal text-center">PDO Threads</div>
+                    <div className="my-auto ttcommon_font_bold text-c_99CEE0 text-7xl leading-normal text-center whitespace-nowrap overflow-x-hidden">PDO Threads</div>
                 </div>
                 <div className="px-5">
                     <div className="w-full flex items-center">
@@ -287,9 +287,10 @@ export default function PDOThread() {
                                     <div className="flex flex-col">
                                         {pdo_question_li.map((item, index) => {
                                             return <div key={`ingredient_${index}`}>
-                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}>
+                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}
+                                                            onClick={() => {updatePDOQuesMobileHandler(index)}}>
                                                             <button className={`text-2xl leading-36_48 ${enableQuesMobile[index] && 'ttcommon_font_bold'}`} 
-                                                                onClick={() => {updatePDOQuesMobileHandler(index)}}>{item.title}</button>
+                                                                >{item.title}</button>
                                                             <div className={`ml-auto h-full ${enableQuesMobile[index] ? 'hidden' : 'block'}`}>
                                                                 <ChevronDown />
                                                             </div>
@@ -329,6 +330,7 @@ export default function PDOThread() {
             <div className=" bg-c_C6CBDD">
                 <div className="mx-auto
                                 py-15 md:py-25
+                                px-5 md:px-0
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold

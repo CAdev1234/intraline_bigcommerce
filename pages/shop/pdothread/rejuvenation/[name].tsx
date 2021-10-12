@@ -89,9 +89,12 @@ const RenderFAQCollapse = () => {
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
       paths: [
-        { params: { name: 'dimension360', id: 'product_0000-000000-0010' } },
-        { params: { name: 'dimension720', id: 'product_0000-000000-0011' } },
-        { params: { name: 'nosethread', id: 'product_0000-000000-0012' } },
+        { params: { name: 'monos', id: 'product_0000-000000-0010' } },
+        { params: { name: 'doubles', id: 'product_0000-000000-0011' } },
+        { params: { name: 'triples', id: 'product_0000-000000-0012' } },
+        { params: { name: 'doublespirals', id: 'product_0000-000000-0013' } },
+        { params: { name: 'spirals', id: 'product_0000-000000-0014' } },
+        { params: { name: 'microcannulas', id: 'product_0000-000000-0015' } },
       ],
       fallback: false,
     };
@@ -141,9 +144,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
         },
     ]
     var items = [
-        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.png', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/dimension720'},
-        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.png', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/dimension360'},
-        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.png', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/nosethread'},
+        {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.png', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation/monos'},
+        {id: 'product_0000-000000-0011', title: 'DOUBLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_doubles.png', detail: "A Double PDO Thread is two smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Double PDO Threads.", link: '/shop/pdothread/rejuvenation/doubles'},
+        {id: 'product_0000-000000-0012', title: 'TRIPLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_triples.png', detail: "A Triple PDO Thread is three smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Triple PDO Threads.", link: '/shop/pdothread/rejuvenation/triples'},
+        {id: 'product_0000-000000-0013', title: 'DOUBLE SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_double_spirals.png', detail: "A Double Spiral is two smooth PDO filaments twisted around each other and around the needle. Learn more about Intraline Double Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation/doublespirals'},
+        {id: 'product_0000-000000-0014', title: 'SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_spirals.png', detail: "A Spiral PDO Thread is one smooth filament that is wrapped around the needle. Learn more about Intraline Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation/spirals'},
+        {id: 'product_0000-000000-0015', title: 'MICRO CANNULAS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_micro_cannulas.png', detail: "A Micro Cannula is a smooth Rejuvenation PDO Thread that comes in a cannula instead of a sharp tip needle. Learn more about Intraline's Micro Cannula PDO Threads.", link: '/shop/pdothread/rejuvenation/microcannulas'},
     ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
@@ -213,7 +219,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     }
 
     const addToBagHandler = () => {
-        let product_detail = items[1]
+        let product_detail = items.filter(item => item.link === router.asPath)[0]
         product_detail.quantity = numDimension720
         dispatch(addProductToCart(product_detail))    
     }
@@ -237,15 +243,15 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="flex items-center flex-wrap cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15
                                     w-100 md:w-full">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1"><Link href="/shop/pdothread">Pdo threads</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-0 md:ml-1"><Link href="/shop/pdothread/liftingthread">Lifting threads</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{product_info.title} PDO</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/shop/pdothread">Pdo threads</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/shop/pdothread/liftingthread">Lifting threads</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">{product_info.title} PDO</span>
                     </div>
                 </div>
 
@@ -261,47 +267,76 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     </div>
                 </div>
 
-                <div className="mb-15 flex flex-col h-full
+                <div className="flex flex-col h-full
                                 mt-3 md:mt-28">
                     <div className="flex my-auto w-full h-full z-10">
                         <div className="flex flex-col
                                         px-5 md:pl-15 xl:pl-172
                                         w-full md:w-6/12">
                             <div className="">
-                                <div className={`${router.asPath.includes('/liftingthread/dimension720') ? 'block' : 'hidden'}`}>
-                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
-                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
+                                <div className={`${router.asPath.includes('/rejuvenation/monos') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                        <span className="ttcommon_font_bold">MONOS</span>
+                                    </div>
                                 </div>
-                                <div className={`${router.asPath.includes('/liftingthread/dimension360') ? 'block' : 'hidden'}`}>
-                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
-                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">360</span></div>
+                                <div className={`${router.asPath === '/shop/pdothread/rejuvenation/doubles' ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                        <span className="ttcommon_font_bold">Doubles</span>
+                                    </div>
                                 </div>
-                                <div className={`${router.asPath.includes('/liftingthread/nosethread') ? 'block' : 'hidden'}`}>
-                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
-                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">Nose</span></div>
+                                <div className={`${router.asPath.includes('/rejuvenation/triples') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                        <span className="ttcommon_font_bold">Triples</span>
+                                    </div>
+                                </div><div className={`${router.asPath.includes('/rejuvenation/doublespirals') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                        <span className="ttcommon_font_bold">Double Spirals</span>
+                                    </div>
+                                </div>
+                                <div className={`${router.asPath.includes('/rejuvenation/microcannulas') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                        <span className="ttcommon_font_bold">Micro Cannulas</span>
+                                    </div>
                                 </div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
                                 <div className="ttcommon_font_thin mt-2 text-sm leading-14_26
-                                                mr-0 md:mr-36">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                                mr-0 md:mr-10 lg:mr-10 xl:mr-36">{product_info.title} has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the {product_info.title} PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
                                 </div>}
-                                {logined && <div className="mt-5 flex items-center h-11 text-white">
-                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                {logined && <div className="mt-5 items-center h-12 text-white
+                                                            block md:flex">
+                                    <div className="bg-c_00080D flex items-center justify-center h-full
+                                                    w-full md:w-24">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
                                         <div className="mx-auto">{numDimension720}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                    <Button className="h-full text-sm
+                                                    w-full md:w-52
+                                                    ml-0 md:ml-3
+                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
                     </div>
-                    <div className="mt-20 items-center justify-center
-                                    hidden md:flex">
-                        <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
+                    <div className="mt-15 items-center justify-center pb-15">
+                        <div className="items-center mt-20
+                                        hidden md:flex">
+                            <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                            <ChevronDown className="w-4 ml-4" />
+                        </div>
                     </div>
                 </div>
                 <div className="absolute top-0 right-15 h-full flex-col pb-24
@@ -335,7 +370,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
 
             {/* cart part */}
             <div className="bg-c_C6CBDD w-full relative
-                            hidden md:block">
+                            hidden lg:block">
                 <div className="absolute h-full flex flex-col" style={{left: -213}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
@@ -344,7 +379,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">720 PDO</div>
+                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}</div>
                                     <div className="flex items-center" onClick={() => {showEnableSideReviewHandler(true)}}>
                                         <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-sm ">(22)</div>
@@ -385,17 +420,17 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1 text-sm">BUY 720 PDO NOW</Button>
+                                        <Button className="h-full flex-1 text-sm">BUY {product_info.title} NOW</Button>
                                     </div>
                                 </div>
                                 
                             </div>
                             
                         </div>
-                        <div className="w-1/2">
+                        <div className="flex-1">
                             <div className="ttcommon_font_thin text-4xl leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
-                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Dimension 720 Offerings.</div>
-                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{product_info.title} Offerings.</div>
+                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                         </div>
                     </div>
                     
@@ -404,7 +439,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
 
             {/* cart part responsive */}
             <div className="bg-c_C6CBDD w-full relative px-5 pb-15
-                            block md:hidden">
+                            block lg:hidden">
                 <div className="flex flex-col">
                     <div className="my-auto ttcommon_font_bold text-c_8D97BC text-7xl leading-24_29">Specs.</div>
                 </div>
@@ -462,19 +497,17 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                 <div className="w-full text-2xl text-center mt-10">
                     <div className="ttcommon_font_thin leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">{product_info.title} Offerings.</div>
-                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                 </div>
             </div>
 
             {/* analyse part */}
             <div className="py-24 flex flex-col w-full
                             px-5 md:px-0">
-                <div className="mx-auto w-full"
+                <div className="mx-auto w-full bg-no-repeat bg-center
+                                bg-contain md:bg-cover"
                     style={{
                         backgroundImage: 'url(../../../assets/img/analyse-thread.png)',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        backgroundSize: 'contain',
                         maxWidth: 649}}>
                     <div className="w-full">
                         <div className="flex">

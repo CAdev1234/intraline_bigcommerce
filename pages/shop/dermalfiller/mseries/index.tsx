@@ -88,9 +88,9 @@ export default function MSeries() {
 
     const renderMSeriesSwiper = () => {
         let mseries_li = [
-            {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/m2plus'},
-            {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'},
-            {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/m4plus'},
+            {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/mseries/m2plus'},
+            {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/mseries/m3plus'},
+            {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
@@ -152,14 +152,14 @@ export default function MSeries() {
                     <div className="flex items-center flex-wrap cursor-pointer
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-90 lg:w-full">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold
-                                        ml-0 lg:ml-1">MONOPHASIC DERMAL FILLERS</span>
+                                        ml-0 lg:mr-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
                 <div className="z-10 h-full flex flex-col

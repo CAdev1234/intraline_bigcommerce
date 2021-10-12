@@ -166,9 +166,9 @@ export default function Treatments() {
                 {/* responsive part */}
                 <div className="block md:hidden px-5 bg-c_F5DBDD pb-15">
                     <div className="flex items-center mt-7_5">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Treatments</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Treatments</span>
                     </div>
                     <div className="mt-10 ttcommon_font_bold text-2xl">Facial Treatments</div>
                     <div className="mt-2.5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>

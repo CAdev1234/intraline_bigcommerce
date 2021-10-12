@@ -44,9 +44,9 @@ export default function ShoppingBag() {
             <div className="bg-transparent h-15 w-full"></div>
             <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                 <div className="flex items-center cursor-pointer">
-                    <span><Link href="/">Home</Link></span>
-                    <span className="ml-1"><ChevronRight className="w-4"/></span>
-                    <span className="ttcommon_font_bold ml-1">Shopping Bag</span>
+                    <span className="mr-1"><Link href="/">Home</Link></span>
+                    <span className="mr-1"><ChevronRight className="w-4"/></span>
+                    <span className="ttcommon_font_bold">Shopping Bag</span>
                 </div>
             </div>
             <div className="ttcommon_font_thin mt-10 text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag </span>({total_quantity})</div>

@@ -83,9 +83,9 @@ export default function ContactUs() {
                 <div className="w-154_5 pl-15 pt-28">
                     <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
-                            <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                            <span className="ml-1"><ChevronRight className="w-4"/></span>
-                            <span className="ttcommon_font_bold ml-1"><Link href="/contact">Contact</Link></span>
+                            <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                            <span className="mr-1"><ChevronRight className="w-4"/></span>
+                            <span className="ttcommon_font_bold"><Link href="/contact">Contact</Link></span>
                         </div>
                     </div>
                     

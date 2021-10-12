@@ -80,11 +80,11 @@ export default function MseriesShop() {
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest
                                 mx-5 sm:px-15">
                     <div className="flex items-center cursor-pointer">
-                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1 ttcommon_font">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Monophasic dermal fillers</span>
+                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1 ttcommon_font">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Monophasic dermal fillers</span>
                     </div>
                 </div>
                 <div className="mt-20

@@ -21,7 +21,7 @@ import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
 import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
-import router from 'next/router'
+import router, { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products } from 'utils/productData'
@@ -88,17 +88,17 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
         },
     ]
     let mseries_li = [
-        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/m2plus'},
-        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/m3plus'},
-        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/m4plus'},
+        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/mseries/m2plus'},
+        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/mseries/m3plus'},
+        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
     ]
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     const [numM2Plus, setNumM2Plus] = useState(1)
-    const [currentUrl, setCurrentUrl] = useState('')
+    const router = useRouter()
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        let product_detail = mseries_li[0]
+        let product_detail = mseries_li.filter(item => item.link === router.asPath)[0]
         product_detail.quantity = numM2Plus
         dispatch(addProductToCart(product_detail))
     }
@@ -116,7 +116,6 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
-        setCurrentUrl(window.location.href)
     }, [])
 
     const addToCartByDom = new AddToCartByDom(mseries_li)
@@ -271,14 +270,16 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
 
                         <div className="absolute top-12 left-5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                             <div className="flex items-center flex-wrap cursor-pointer
-                                            w-100">
-                                <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4" /></span>
-                                <span className="ml-1 ttcommon_font">Shop</span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ttcommon_font_bold ml-1">{mseries_product.title}</span>
+                                            w-10/12">
+                                <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                                <span className="mr-1"><ChevronRight className="w-4" /></span>
+                                <span className="mr-1 ttcommon_font">Shop</span>
+                                <span className="mr-1"><ChevronRight className="w-4" /></span>
+                                <span className="mr-1 ttcommon_font">DermalFillers</span>
+                                <span className="mr-1"><ChevronRight className="w-4"/></span>
+                                <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                                <span className="mr-1"><ChevronRight className="w-4"/></span>
+                                <span className="ttcommon_font_bold mr-1">{mseries_product.title}</span>
                             </div>
                         </div>
                     </div>
@@ -289,12 +290,12 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                         pr-5 md:pr-0
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-0 md:mt-28">
-                                <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold mt-7
+                                <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
+                                <div className="ttcommon_font_thin leading-200_160 font-semibold
                                                 text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
-                                    <div className={`${currentUrl.includes('/mseries/m2plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M2</span> Plus</div>
-                                    <div className={`${currentUrl.includes('/mseries/m3plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M3</span> Plus</div>
-                                    <div className={`${currentUrl.includes('/mseries/m4plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M4</span> Plus</div>
+                                    <div className={`${router.asPath.includes('/mseries/m2plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M2</span> Plus</div>
+                                    <div className={`${router.asPath.includes('/mseries/m3plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M3</span> Plus</div>
+                                    <div className={`${router.asPath.includes('/mseries/m4plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M4</span> Plus</div>
                                 </div>
                                 <div className="ttcommon_font mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Enhancing more of what you love.</div>

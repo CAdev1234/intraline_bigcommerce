@@ -52,9 +52,9 @@ export default function FAQ() {
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest
                                 px-5 sm:px-15">
                     <div className="flex items-center">
-                        <span className="ttcommon_font">Home</span>
-                        <span className="ml-1 ttcommon_font"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">FAQ</span>
+                        <span className="ttcommon_font mr-1">Home</span>
+                        <span className="mr-1 ttcommon_font"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">FAQ</span>
                     </div>
                 </div>
                 <div className="mt-12_5 mb-25

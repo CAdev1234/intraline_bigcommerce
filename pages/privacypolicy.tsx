@@ -7,10 +7,8 @@ export default function PrivacyPolicy() {
               <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span><Link href="/">Home</Link></span>
-                        <span>
-                            <ChevronRight className="w-4" />
-                        </span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
                         <span className="ttcommon_font_bold">privacy policy</span>
                     </div>
                 </div>

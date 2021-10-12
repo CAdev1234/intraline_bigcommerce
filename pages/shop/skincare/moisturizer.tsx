@@ -80,13 +80,13 @@ export default function Moisturizer() {
                             px-5 md:px-15">
                 <div className="mt-12_5 left-0 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center ttcommon_font">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1"><Link href="/shop/skincare">Skin Care</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">Moisturizer</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1"><Link href="/shop/skincare">Skin Care</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Moisturizer</span>
                     </div>
                 </div>
                 <div className="w-full mt-9

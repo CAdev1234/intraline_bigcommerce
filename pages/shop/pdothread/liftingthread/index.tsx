@@ -128,14 +128,13 @@ export default function LiftingThread() {
                     <div className="flex items-center flex-wrap cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15
                                     md:w-100 lg:w-full">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1"><Link href="/shop/pdothread">PDO Threads</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold
-                                        ml-0 md:ml-1">Lifting Threads</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1"><Link href="/shop/pdothread">PDO Threads</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">Lifting Threads</span>
                     </div>
                 </div>
                 <div className="flex w-full z-10
@@ -147,10 +146,12 @@ export default function LiftingThread() {
                         <div className="flex flex-col
                                         w-full md:w-7/12">
                             <div className="">
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px">Lifting</div>
-                                <div className="ttcommon_font_bold leading-200_160
-                                                text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px" >Threads</div>
+                                <div className="ttcommon_font_thin  font-semibold
+                                                text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px
+                                                leading-64_76 xl:leading-200_160">Lifting</div>
+                                <div className="ttcommon_font_bold
+                                                text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px
+                                                leading-64_76 xl:leading-200_160" >Threads</div>
                             </div>
                         </div>
                         <div className="flex-1 flex flex-col
@@ -172,7 +173,9 @@ export default function LiftingThread() {
                     return <div key={`thread_${index}`} className="w-full mb-10">
                                 <div className="ttcommon_font_bold">{item.title}</div>
                                 <div className="mt-5">
-                                    <img className="w-full" src={item.img} alt="" />
+                                    <Link href={item.link}>
+                                        <img className="w-full" src={item.img} alt="" />
+                                    </Link>
                                 </div>
                                 <div className="mt-5">{item.detail}</div>
                             </div>

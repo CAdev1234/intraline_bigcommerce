@@ -181,11 +181,11 @@ export default function ScarKit() {
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer ttcommon_font
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                        <span><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">The Scar Kit</span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">The Scar Kit</span>
                     </div>
                 </div>
                 <div className="my-auto w-9/12 mx-auto
@@ -271,9 +271,11 @@ export default function ScarKit() {
                 <div className="absolute h-full flex flex-col" style={{left: -244}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_F7F7F7 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Scar Kit</div>
                 </div>
-                <div className="ml-172 mr-15 my-32 relative z-10">
+                <div className="mr-15 my-32 relative z-10
+                                ml-15 xl:ml-172">
                     <div className="w-full flex items-center">
-                        <div className="w-1/2 pr-32">
+                        <div className="lg:w-7/12 xl:w-5/12
+                                        md:pr-10 lg:pr-20">
                             <div className="mt-2 bg-c_CCE7EF pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-7_5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">Specifics</div>
@@ -293,7 +295,7 @@ export default function ScarKit() {
                             </div>
                             
                         </div>
-                        <div className="flex-1 mr-32">
+                        <div className="flex-1">
                             {specific_li.map((item, index) => {
                                 return enableSpecific[index] && 
                                     <div>
@@ -325,9 +327,10 @@ export default function ScarKit() {
                                     <div className="flex flex-col">
                                         {specific_li.map((item, index) => {
                                             return <div key={`ingredient_${index}`}>
-                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}>
+                                                        <div className={`flex items-center w-full ${index != 0 ? 'mt-7' : ''}`}
+                                                            onClick={() => {updateSpecParagraMobileHandler(index)}}>
                                                             <button className={`text-2xl leading-36_48 ${enableQues[index] && 'ttcommon_font_bold'}`} 
-                                                                onClick={() => {updateSpecParagraMobileHandler(index)}}>{item.title}</button>
+                                                                >{item.title}</button>
                                                             <div className={`ml-auto h-full ${enableQues[index] ? 'hidden' : 'block'}`}>
                                                                 <ChevronDown />
                                                             </div>

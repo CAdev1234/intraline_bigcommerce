@@ -372,11 +372,15 @@ export default function Home({
   }
 
   const RenderProductSwiper:FC = () => {
-
-    let render_ele = all_product_li.map((item, index) => {
+    let featured_products = []
+    for (let index = 0; index < all_product_li.length; index++) {
+      featured_products.push(all_product_li[index])
+      if (index > 7) break;
+    }
+    let render_ele = featured_products.map((item, index) => {
       return <div className="keen-slider__slide flex flex-col pt-5 bg-white relative
-                             
-                             pb-5 sm:pb-12" key={`m_${index}_product`}>
+                             pb-5 sm:pb-12" 
+                  key={`m_${index}_product`}>
                 {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                 <div className="flex-1 w-full h-0">
                     <img className="mx-auto h-full w-11/12" src={item.img} alt="" />

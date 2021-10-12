@@ -128,7 +128,7 @@ export default function AllProducts() {
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest
                                         text-sm sm:text-2xl
                                         leading-14_17 sm:leading-none">{item.title}</div>
-                        <div className="mt-2 px-3
+                        <div className="textellipsis_2 mt-2 px-3
                                         sm:text-sm text-xs
                                         sm:leading-14_26 leading-normal">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
@@ -174,11 +174,11 @@ export default function AllProducts() {
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="flex items-center cursor-pointer mt-12_5
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                    <span className="ml-1"><ChevronRight className="w-4" /></span>
-                    <span className="ml-1 ttcommon_font uppercase">Shop</span>
-                    <span className="ml-1"><ChevronRight className="w-4"/></span>
-                    <span className="ttcommon_font_bold ml-1 uppercase">All Products</span>
+                    <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                    <span className="mr-1"><ChevronRight className="w-4" /></span>
+                    <span className="mr-1 ttcommon_font uppercase">Shop</span>
+                    <span className="mr-1"><ChevronRight className="w-4"/></span>
+                    <span className="ttcommon_font_bold uppercase">All Products</span>
                 </div>
                 <div className="mt-12_5
                                 ml-10 lg:ml-28 xl:ml-172 2xl:ml-172">

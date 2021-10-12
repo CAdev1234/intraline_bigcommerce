@@ -98,7 +98,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     const router = useRouter()
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        let product_detail = essential_li[0]
+        let product_detail = essential_li.filter(item => item.link === router.asPath)[0]
         product_detail.quantity = numM2Plus
         dispatch(addProductToCart(product_detail))
     }
@@ -242,14 +242,14 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                 hidden md:flex">
                     <div className="flex items-center flex-wrap cursor-pointer
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
-                                    md:w-100 lg:w-full">
-                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1 ttcommon_font">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{product_data.title}</span>
+                                    w-10/12">
+                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1 ttcommon_font">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">{product_data.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">
@@ -270,14 +270,14 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
 
                         <div className="absolute top-12 left-5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
                             <div className="flex items-center flex-wrap cursor-pointer
-                                            w-100">
-                                <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4" /></span>
-                                <span className="ml-1 ttcommon_font">Shop</span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                                <span className="ml-1"><ChevronRight className="w-4"/></span>
-                                <span className="ttcommon_font_bold ml-1">{product_data.title}</span>
+                                            w-10/12">
+                                <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                                <span className="mr-1"><ChevronRight className="w-4" /></span>
+                                <span className="mr-1 ttcommon_font">Shop</span>
+                                <span className="mr-1"><ChevronRight className="w-4"/></span>
+                                <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                                <span className="mr-1"><ChevronRight className="w-4"/></span>
+                                <span className="ttcommon_font_bold mr-1">{product_data.title}</span>
                             </div>
                         </div>
                     </div>
@@ -288,8 +288,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                         pr-5 md:pr-0
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-0 md:mt-28">
-                                <div className="ttcommon_font_bold text-4xl leading-36_48">The minimalist.</div>
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold mt-7
+                                <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
+                                <div className="ttcommon_font_thin leading-200_160 font-semibold
                                                 text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
