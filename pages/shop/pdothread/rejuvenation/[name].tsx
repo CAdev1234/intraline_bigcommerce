@@ -21,50 +21,19 @@ import SideReview from '@components/mycp/SideReview'
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
 import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
-import { GetStaticProps, GetStaticPaths, GetServerSideProps, InferGetStaticPropsType } from 'next'
-
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
+import {products} from 'utils/productData'
+import { useRouter } from 'next/router'
+import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 
 type ParamsType = {
     name: string
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    return {
-      paths: [
-        { params: { name: 'monos', id: 'product_0000-000000-0010' } },
-        { params: { name: 'doubles', id: 'product_0000-000000-0011' } },
-        { params: { name: 'triples', id: 'product_0000-000000-0012' } },
-        { params: { name: 'double_spirals', id: 'product_0000-000000-0013' } },
-        { params: { name: 'spirals', id: 'product_0000-000000-0014' } },
-        { params: { name: 'micro_cannulas', id: 'product_0000-000000-0015' } },
-      ],
-      fallback: false,
-    };
+function removeSpaceFromStr(str: string) {
+    return str.replace(' ', '')
 }
-
-export const getStaticProps: GetStaticProps = async (params) => {
-    // const all_products = useAppSelector(state =>  state.product.products)
-    // console.log("params=", (params.params as ParamsType).name)
-    // const thread_product = all_products.filter(item => item.title === (params.params as ParamsType).name)[0]
-    const thread_product = {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.png', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation'}
-    return {
-        props: {
-            thread_product,
-        },
-    }
-}
-
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -117,9 +86,30 @@ const RenderFAQCollapse = () => {
 }
 
 
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+      paths: [
+        { params: { name: 'dimension360', id: 'product_0000-000000-0010' } },
+        { params: { name: 'dimension720', id: 'product_0000-000000-0011' } },
+        { params: { name: 'nosethread', id: 'product_0000-000000-0012' } },
+      ],
+      fallback: false,
+    };
+}
+
+export const getStaticProps: GetStaticProps = async (params) => {
+    const all_products = products;
+    console.log(all_products)
+    const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
+    return {
+        props: {
+            product_info,
+        },
+    }
+}
 
 
-export default function RejuvenationProduct({ thread_product }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function LiftingThreadProduct({ product_info }: InferGetStaticPropsType<typeof getStaticProps>) {
     let testimonial_li = [
         {
             title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
@@ -158,6 +148,7 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
     const [enableSideReview, setEnableSideReview] = useState(false)
     const [logined, setLogined] = useState(false)
     const [numDimension720, setNumDimension720] = useState(1)
+    const router = useRouter()
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -195,6 +186,31 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
                     </div>
         })
     }
+    const renderPDOThreadsSwiper = () => {
+        var render_ele = items.map((item, index) => {
+            return <div className="keen-slider__slide flex flex-col bg-white relative pb-5" key={`m_${index}_product`}>
+                        <div className="flex-1 w-full h-0">
+                            <img className="h-full w-full" src={item.img} alt="" />
+                        </div>
+                        <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
+                                    text-sm sm:text-2xl
+                                    leading-14_17 sm:leading-none">{item.title}</div>
+                        <div className="mt-2 text-center px-4
+                                    text-xs sm:text-sm
+                                    leading-normal sm:leading-14_26">{item.detail}</div>
+                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
+                            <div className="my-auto mx-auto w-10/12">
+                                <div className="flex flex-col">
+                                    <Link href={item.link}>
+                                        <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        })
+        return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,1.5,2.5,3.5,3.5]} navCss={"mt-10"}/>
+    }
 
     const addToBagHandler = () => {
         let product_detail = items[1]
@@ -213,31 +229,60 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
         setNumDimension720(numDimension720 + 1)
     }
     return(
-        <div className="ttcommon_font text-c_00080D flex flex-col">
+        <div className="ttcommon_font text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
-            <div className="h-210 relative bg-c_F5DBDD w-full flex flex-col">
+            <div className="relative bg-c_F5DBDD w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+                    <div className="flex items-center flex-wrap cursor-pointer
+                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15
+                                    w-100 md:w-full">
                         <span><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4" /></span>
                         <span className="ml-1">Shop</span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1"><Link href="/shop/pdothread">Pdo threads</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1"><Link href="/shop/pdothread/liftingthread">Rejuvenation</Link></span>
+                        <span className="ml-0 md:ml-1"><Link href="/shop/pdothread/liftingthread">Lifting threads</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{thread_product.title}</span>
+                        <span className="ttcommon_font_bold ml-1">{product_info.title} PDO</span>
                     </div>
                 </div>
-                <div className="mt-28 mb-15 flex flex-col h-full">
+
+                <div className="flex-col w-9/12 mt-10 mx-auto
+                                flex md:hidden">
+                    <div className="relative h-full w-full flex flex-col">
+                        <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
+                            {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
+                        </div>
+                        <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
+                            <img className="mix_blend_multi mx-auto my-auto h-full" src="/assets/img/thread_detail.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mb-15 flex flex-col h-full
+                                mt-3 md:mt-28">
                     <div className="flex my-auto w-full h-full z-10">
-                        <div className="w-6/12 flex flex-col ml-172">
+                        <div className="flex flex-col
+                                        px-5 md:pl-15 xl:pl-172
+                                        w-full md:w-6/12">
                             <div className="">
-                                <div className="ttcommon_font_bold text-4xl leading-36_48">Rejuvenation</div>
-                                <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold uppercase">Monos</span></div>
+                                <div className={`${router.asPath.includes('/liftingthread/dimension720') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
+                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">720</span></div>
+                                </div>
+                                <div className={`${router.asPath.includes('/liftingthread/dimension360') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
+                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">360</span></div>
+                                </div>
+                                <div className={`${router.asPath.includes('/liftingthread/nosethread') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The Dimension</div>
+                                    <div className="ttcommon_font_thin text-200px leading-200_160 font-semibold mt-7" ><span className="ttcommon_font_bold">Nose</span></div>
+                                </div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-sm leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                <div className="ttcommon_font_thin mt-2 text-sm leading-14_26
+                                                mr-0 md:mr-36">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
@@ -253,30 +298,35 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
                             </div>
                         </div>
                     </div>
-                    <div className="mt-auto flex items-center justify-center">
+                    <div className="mt-20 items-center justify-center
+                                    hidden md:flex">
                         <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 right-15 w-131_5 h-full flex flex-col pb-24">
+                <div className="absolute top-0 right-15 h-full flex-col pb-24
+                                md:w-80 lg:w-131_5
+                                hidden md:flex">
                     <div className="relative h-full w-full flex flex-col">
-                        <div className="relative h-131_5 bg-white rounded-full my-auto">
+                        <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
                             {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
                         </div>
                         <div className="h-full absolute top-0 left-0 w-full flex flex-col">
-                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/thread_detail.png" alt="" />
+                            <img className="mix_blend_multi mx-auto" src="/assets/img/thread_detail.png" alt=""/>
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
 
             {/* Indications */}
-            <div className="bg-white px-40">
+            <div className="bg-white
+                            px-5 md:px-40">
                 <div className="flex flex-col max-w-2xl mx-auto py-28">
-                    <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Indications</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                    <div className="ttcommon_font_bold text-center
+                                    text-2xl md:text-4xl
+                                    leading-none md:leading-36_26">Indications</div>
+                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                                text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-72 text-sm">download indication chart</Button>
                     </div>
@@ -284,8 +334,9 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
             </div>
 
             {/* cart part */}
-            <div className="bg-c_C6CBDD w-full relative">
-                <div className="absolute h-full flex flex-col" style={{left: -15 + '%'}}>
+            <div className="bg-c_C6CBDD w-full relative
+                            hidden md:block">
+                <div className="absolute h-full flex flex-col" style={{left: -213}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_8D97BC text-200px leading-200_160" style={{transformOrigin: 'center'}}>Specs.</div>
                 </div>
                 <div className="ml-172 mr-15 my-32 relative z-10">
@@ -351,37 +402,104 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
                 </div>
             </div>
 
-            {/* analyse part */}
-            <div className="py-24 flex flex-col">
-                <div className="mx-auto" style={{
-                    backgroundImage: 'url(../../../assets/img/analyse-thread.png)',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    width: 649}}>
-                    <div>
-                        <div className="flex items-center">
-                            <div className="flex">
-                                <div>
-                                    <div className="ttcommon_font_thin text-4xl text-center leading-36_48">Cannula length</div>
-                                    <div className="flex items-center">
-                                        <div className="w-px h-5 bg-c_00080D"></div>
-                                        <div className=" h-px bg-c_00080D" style={{width: 387}}></div>
-                                        <div className="w-px h-5 bg-c_00080D"></div>
+            {/* cart part responsive */}
+            <div className="bg-c_C6CBDD w-full relative px-5 pb-15
+                            block md:hidden">
+                <div className="flex flex-col">
+                    <div className="my-auto ttcommon_font_bold text-c_8D97BC text-7xl leading-24_29">Specs.</div>
+                </div>
+                <div className="">
+                    <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
+                        <div className="pb-5">
+                            <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
+                            <div className="flex items-center" onClick={() => {showEnableSideReviewHandler(true)}}>
+                                <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
+                                <div className="text-sm ">(22)</div>
+                            </div>
+                        </div>
+                        <div className="pt-7">
+                            <div className="flex flex-col">
+                                <div className="flex items-start w-full">
+                                    <div className="w-1/2">
+                                        <div className="uppercase text-sm leading-14_17">GRIP COLOUR</div>
+                                        <div className="flex items-center mt-2">
+                                            <div className="h-6 w-6 rounded-full bg-c_F297F6"></div>
+                                            <div className="h-6 w-6 rounded-full bg-c_D5CBA1 ml-2"></div>
+                                        </div>
                                     </div>
-                                    <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-9">MOLDED BARBS ON THE INSIDE</div>
-                                    <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-20">SMOOTH BREAK IN THREAD</div>
-                                    <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-5">BARBS IN OPPOSITE DIRECTIONS</div>
+                                    <div className="w-1/2"></div>
                                 </div>
-                                <div className="" style={{marginLeft: 10}}>
-                                    <div className="ttcommon_font_thin text-4xl text-center leading-36_48">Grip</div>
-                                    <div className="flex items-center">
-                                        <div className="w-px h-5 bg-c_00080D"></div>
-                                        <div className="h-px bg-c_00080D" style={{width: 196}}></div>
-                                        <div className="w-px h-5 bg-c_00080D"></div>
+                                <div className="mt-7 flex items-start w-full">
+                                    <div className="w-1/2">
+                                        <div className="uppercase text-sm leading-14_17">NEEDLE GAUGE</div>
+                                        <div className="ttcommon_font_thin text-sm leading-14_26">18G  |  19G</div>
                                     </div>
+                                    <div className="w-1/2">
+                                        <div className="uppercase text-sm leading-14_17">NEEDLE LENGTH</div>
+                                        <div className="ttcommon_font_thin text-sm leading-14_26">100 MM</div>
+                                    </div>
+                                </div>
+                                <div className="mt-7 flex items-start w-full">
+                                    <div className="w-1/2">
+                                        <div className="uppercase text-sm leading-14_17">THREAD LENGHT</div>
+                                        <div className="ttcommon_font_thin text-sm leading-14_26">150 MM</div>
+                                    </div>
+                                    <div className="w-1/2">
+                                        <div className="uppercase text-sm leading-14_17">THREAD USP</div>
+                                        <div className="ttcommon_font_thin text-sm leading-14_26">3  |  2</div>
+                                    </div>
+                                </div>
+                                <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
+                            </div>
+                            <div className="mt-10 flex items-center h-11 text-white">
+                                <Button className="h-full flex-1 text-sm">Buy {product_info.title} now</Button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div className="w-full text-2xl text-center mt-10">
+                    <div className="ttcommon_font_thin leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
+                    <div className="ttcommon_font_bold mt-7_5 leading-36_26">{product_info.title} Offerings.</div>
+                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                </div>
+            </div>
+
+            {/* analyse part */}
+            <div className="py-24 flex flex-col w-full
+                            px-5 md:px-0">
+                <div className="mx-auto w-full"
+                    style={{
+                        backgroundImage: 'url(../../../assets/img/analyse-thread.png)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'contain',
+                        maxWidth: 649}}>
+                    <div className="w-full">
+                        <div className="flex">
+                            <div className="w-7/12">
+                                <div className="ttcommon_font_thin text-center leading-36_48
+                                                text-lg md:text-4xl">Cannula length</div>
+                                <div className="flex items-center w-full">
+                                    <div className="w-px h-5 bg-c_00080D"></div>
+                                    <div className="h-px bg-c_00080D w-full"></div>
+                                    <div className="w-px h-5 bg-c_00080D"></div>
+                                </div>
+                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-9">MOLDED BARBS ON THE INSIDE</div>
+                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-20">SMOOTH BREAK IN THREAD</div>
+                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-5">BARBS IN OPPOSITE DIRECTIONS</div>
+                            </div>
+                            <div className="bg-transparent w-2.5 h-1"></div>
+                            <div className="w-4/12">
+                                <div className="ttcommon_font_thin text-center leading-36_48
+                                                text-lg md:text-4xl">Grip</div>
+                                <div className="flex items-center">
+                                    <div className="w-px h-5 bg-c_00080D"></div>
+                                    <div className="h-px bg-c_00080D w-full"></div>
+                                    <div className="w-px h-5 bg-c_00080D"></div>
                                 </div>
                             </div>
-                            <div></div>
                         </div>
                     </div>
                 </div>
@@ -398,27 +516,33 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
             
             {/* FAQ part */}
             <div className="bg-white">
-                <div className="mx-172 py-24">
-                <div className="flex text-c_00080D mb-2">
-                    <div className="ttcommon_font_bold leading-36_26 text-4xl">Frequently Asked Questions.</div>
-                    <div className="flex items-center ml-auto">
-                        <Link href="/faq">
-                            <div className="flex items-center">
-                                <div className="ttcommon_font_bold text-lg">Read More</div>
-                                <div className="ml-2">
-                                    <ChevronRight className="h-4 w-4" />
+                <div className="py-15 sm:py-24
+                                mx-5 md:mx-15 lg:mx-172">
+                    <div className="flex text-c_00080D mb-2">
+                        <div className="ttcommon_font_bold text-2xl
+                                        block sm:hidden
+                                        leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">FAQs.</div>
+                        <div className="font-bold text-4xl
+                                        hidden sm:block
+                                         leading-none sm:leading-36_26 lg:leading-36_26 xl:leading-36_26 2xl:leading-36_26">Frequently Asked Questions.</div>
+                        <div className="flex items-center ml-auto">
+                            <Link href="/faq">
+                                <div className="flex items-center">
+                                    <div className="ttcommon_font_bold ml-auto
+                                                    text-xs sm:text-lg">Read More</div>
+                                    <div className="ml-2">
+                                        <ChevronRight className="h-4 w-4" />
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
+                        </div>
                     </div>
-                </div>
-
-                {RenderFAQCollapse()}
+                    {RenderFAQCollapse()}
                 </div>
             </div>
 
             {/* thread list */}
-            <div className="bg-c_F5DBDD">
+            {/* <div className="bg-c_F5DBDD">
                 <div className="mx-172 py-24">
                     <div className="flex text-c_00080D mb-2">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Lifting PDO Threads.</div>
@@ -433,6 +557,33 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
                         {renderPDOThreads()}
                     </div>
                 </div>
+            </div> */}
+
+
+            <div className="bg-c_F5DBDD">
+                <div className="py-24
+                                mx-5 md:mx-15 lg:mx-172">
+                    <div className="flex text-c_00080D items-center
+                                    mb-5 md:mb-2">
+                        <div className="ttcommon_font_bold
+                                        text-2xl md:text-4xl
+                                        leading-none md:leading-36_26">Lifting PDO Threads.</div>
+                        <div className="flex items-center ml-auto">
+                            <div className="ttcommon_font_bold
+                                            text-base md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                            <div className="ml-2">
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-10 gap-5 grid-cols-3
+                                    hidden md:grid">
+                        {renderPDOThreads()}
+                    </div>
+                    <div className="block md:hidden">
+                        {renderPDOThreadsSwiper()}
+                    </div>
+                </div>
             </div>
             
             {enableSideReview && <SideReview closeSideReview={CloseSideReview} />}
@@ -440,4 +591,4 @@ export default function RejuvenationProduct({ thread_product }: InferGetStaticPr
     )
 }
 
-RejuvenationProduct.Layout = Layout
+LiftingThreadProduct.Layout = Layout

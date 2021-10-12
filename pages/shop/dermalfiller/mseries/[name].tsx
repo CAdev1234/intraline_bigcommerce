@@ -501,7 +501,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                 </div>
                             </div>
                             <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1 text-sm">Buy <span className="lowercase">{mseries_product.title}</span> now</Button>
+                                <Button className="h-full flex-1 text-sm">Buy {mseries_product.title} now</Button>
                             </div>
                         </div>
                         
