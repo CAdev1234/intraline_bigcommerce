@@ -150,8 +150,8 @@ export default function DemeralFiller() {
                 </div>
                 <div className="w-full items-end
                                 mt-16 sm:mt-10 md:mt-15 lg:mt-28
-                                block sm:flex md:flex lg:flex xl:flex 2xl:flex">
-                    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
+                                block sm:flex">
+                    <div className="w-full sm:w-1/2">
                         <div className="ttcommon_font_thin font-semibold leading-200_160
                                         text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">Dermal</div>
                         <div className="ttcommon_font_bold leading-200_160
