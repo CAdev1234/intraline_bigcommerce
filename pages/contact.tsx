@@ -9,6 +9,7 @@ import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Checkbox from "@components/mycp/Checkbox"
+import { validateEmail } from "@utils/simpleMethod"
 
 export default function ContactUs() {
     const [contact_info, setContactInfo] = useState({full_name: '', email: '', mobile: '', help_type: '', msg: ''})
@@ -65,7 +66,8 @@ export default function ContactUs() {
         }
     }, [contact_info])
     return (
-        <div className="ttcommon_font_thin text-c_00080D">
+        <div className="ttcommon_font_thin text-c_00080D
+                        mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
                 autoClose={3000}
@@ -79,8 +81,13 @@ export default function ContactUs() {
                 className="toast-container"
             />
             {/* <div id="my-hubspot-form"></div> */}
-            <div className="flex items-start mb-25">
-                <div className="w-154_5 pl-15 pt-28">
+            <div className="items-start
+                            block md:flex
+                            mb-0 md:mb-25">
+                <div className="pt-28
+                                pl-5 md:pl-15
+                                pr-5 md:pr-0
+                                md:w-131_5 lg:w-131_5 xl:w-154_5">
                     <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
                             <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
@@ -89,7 +96,8 @@ export default function ContactUs() {
                         </div>
                     </div>
                     
-                    <div className="mt-10 max-w-106_5">
+                    <div className="mt-10
+                                    max-w-none md:max-w-106_5">
                         <div className="ttcommon_font_bold text-4xl leading-36_26">Contact Intraline.</div>
                         <div className="mt-5">We are here to help-reach out with any questions.</div>
                         <div className="mt-10">
@@ -100,7 +108,7 @@ export default function ContactUs() {
                         </div>
                         <div className="mt-5">
                             <Input className="bg-c_F7F7F7" type="text" placeholder="Email" onChange={setEmailHandler}/>
-                            {contact_info.email === '' || !(contact_info.email.includes('@')) || !(contact_info.email.includes(".com")) &&
+                            {!validateEmail(contact_info.email) &&
                                 <span className="text-sm text-c_F4511E font-bold">Required.</span>
                             }
                         </div>
@@ -160,8 +168,13 @@ export default function ContactUs() {
                     </div>
                 
                 </div>
-                <div className="flex-1 bg-c_C3E0DC flex flex-col pb-25">
-                    <div className="mt-40 mx-auto bg-white w-106_5 pt-8 pb-10 px-7 divide-y divide-c_00080D">
+                <div className="flex-1 bg-c_C3E0DC flex flex-col
+                                mt-15 md:mt-0
+                                px-5 md:px-0
+                                pb-15 md:pb-25">
+                    <div className="mx-auto bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D
+                                    md:w-106_5 lg:w-106_5
+                                    mt-15 md:mt-40">
                         <div className="pb-7">
                             <div className="ttcommon_font_bold text-4xl leading-36_26">Reach Out.</div>
                         </div>
@@ -171,25 +184,29 @@ export default function ContactUs() {
                                     <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Address:</div>
                                 </div>
                                 <div className="flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-4xl leading-36_48">520 - 1632 Dickson Ave. Kelowna, B.C. Canada</div>
+                                    <div className="ttcommon_font_thin leading-36_48
+                                                    text-2xl md:text-4xl">520 - 1632 Dickson Ave. Kelowna, B.C. Canada</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
                                     <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Canada phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-4xl leading-36_48">+ 1 778 738 0351</div>
+                                    <div className="ttcommon_font_thin leading-36_48
+                                                    text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
                                     <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">UK Phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-4xl leading-36_48">+ 1 778 738 0351</div>
+                                    <div className="ttcommon_font_thin leading-36_48
+                                                    text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
                                     <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Email:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-4xl leading-36_48">info@intraline.com</div>
+                                    <div className="ttcommon_font_thin leading-36_48
+                                                    text-2xl md:text-4xl">info@intraline.com</div>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +223,8 @@ export default function ContactUs() {
                 </div> */}
 
                 <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
-                    <div className="relative w-146 pl-5 pr-2 py-7_5 bg-white my-auto mx-auto flex flex-col" style={{height: '80vh'}}>
+                    <div className="relative pl-5 pr-2 py-7_5 bg-white my-auto mx-auto flex flex-col
+                                    w-full md:w-146" style={{height: '80vh'}}>
                         <div className="tt_common_font_bold text-4xl text-center">Hubspot Form</div>
                         <div className="flex-1 h-0 mt-3">
                             <div className="h-full overflow-y-auto pr-2">
