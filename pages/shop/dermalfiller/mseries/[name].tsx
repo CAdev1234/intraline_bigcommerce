@@ -253,7 +253,10 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                 <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative">
-                                        <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.png`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.png`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.png`} alt="" />
+                                        
                                         {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
                                     </div>
                                 </div>
@@ -323,8 +326,10 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                             <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
                             <div className="w-full h-full flex absolute items-center justify-center">
                                 <div className="relative">
-                                    <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
-                                    {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
+                                    <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.png`} alt="" />
+                                    <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.png`} alt="" />
+                                    <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.png`} alt="" />
+                                    {logined && <Button className="absolute top-5 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
                                 </div>
                             </div>
                         </div>
@@ -557,7 +562,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                         leading-none md:leading-36_26">The M Series.</div>
                         <div className="flex items-center ml-auto">
                             <div className="ttcommon_font_bold
-                                            text-base md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                                            text-base md:text-lg"><Link href="/shop/dermalfiller/mseriesshop">Learn More</Link></div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>

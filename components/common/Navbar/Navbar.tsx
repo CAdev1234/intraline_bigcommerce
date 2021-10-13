@@ -60,7 +60,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const route = useRouter()
 
   let page_li = [
-    { name: 'Shop', link: '' },
+    { name: 'Shop', link: '/' },
     { name: 'About Us', link: '/aboutus' },
     { name: 'Treatments', link: '/treatments' },
     { name: 'Contact', link: '/contact' },
@@ -97,6 +97,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     { name: 'Partners', link: '/industry', subItem_li: []},
     { name: 'Rheology Report', link: '/'}
   ]
+
+  const router = useRouter()
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
   }, [])
@@ -120,6 +122,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   }
 
   const toMyAccountHandler =() => {
+    showMobileMenuHandler(false)
     if (!logined) {
       router.push("/account/register")
       return
@@ -165,11 +168,13 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
             <div className="absolute top-0 left-0 h-full flex
                              justify-center md:justify-start
                              w-full md:w-auto">
-              <Link href="/">
-                <div className={`${s.logo}`} aria-label="Logo">
-                  <Logo />
-                </div>
-              </Link>
+              <div className={`${s.logo}`} aria-label="Logo" 
+                  onClick={() => {
+                    showMobileMenuHandler(false)
+                    router.push('/')
+                  }}>
+                <Logo />
+              </div>
             </div>
             <div className="absolute top-0 left-0 h-full flex w-full">
               <div className="h-full items-center mx-auto ttcommon_font font-normal
@@ -294,7 +299,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
             <div className="w-36 bg-c_00080D bg-opacity-95 pt-12_5 pl-5">
               {page_li.map((item, index) => {
                 return <div key={`page_${index}_mobile`} className="mb-8 flex">
-                        <button className="pb-1 uppercase text-white text-xs leading-tight border-c_52B5D3 border-b-2 flex"
+                        <button className={`pb-1 uppercase text-white text-xs leading-tight flex ${router.asPath.includes(item.link) ? 'border-c_52B5D3 border-b-2' : 'border-none'}`}
                               onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</button>
                       </div>
               })}
