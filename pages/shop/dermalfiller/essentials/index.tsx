@@ -309,7 +309,7 @@ export default function Essentials() {
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                 text-xl sm:text-4xl">Intraline Essentials dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
-                        <Link href="/shop/dermalfiller/mseriesshop">
+                        <Link href="/shop/dermalfiller/essentialsshop">
                             <Button className="mx-auto h-11 w-64 text-sm">Shop now the essentials</Button>
                         </Link>
                     </div>

@@ -23,7 +23,7 @@ import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/
 import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
-import {products} from 'utils/productData'
+import {MSERIES_TESTIMONIAL_LIST, products} from 'utils/productData'
 import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 
@@ -113,36 +113,9 @@ export const getStaticProps: GetStaticProps = async (params) => {
 
 
 export default function LiftingThreadProduct({ product_info }: InferGetStaticPropsType<typeof getStaticProps>) {
-    let testimonial_li = [
-        {
-            title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
-            detail: 'Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.'
-        },
-        {
-            title: 'Claire NewmanIntraline KOL & Brand AmbassadorSOFT TOUCHES AESTHETICS',
-            detail: 'I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.'
-        },
-        {
-            title: "Marissa Freeman (patient)",
-            detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men"
-        },
-        {
-            title: 'Cole Harrison (patient)',
-            detail: 'Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!'
-        },
-        {
-            title: 'Mica Amos Aesthetics by Mica',
-            detail: 'Beautiful product giving just perfect results.'
-        },
-        {
-            title: 'Dr. TuğbaYalçın Director Lumière Aesthetics',
-            detail: 'Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.'
-        },
-        {
-            title: 'Dr. Mark Homes KOL INTRALINE MEDICAL AESTHETICS',
-            detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
-        },
-    ]
+    let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
+        if (item.detail.toLowerCase().includes(product_info.title)) return item
+    })
     var items = [
         {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.png', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation/monos'},
         {id: 'product_0000-000000-0011', title: 'DOUBLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_doubles.png', detail: "A Double PDO Thread is two smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Double PDO Threads.", link: '/shop/pdothread/rejuvenation/doubles'},
@@ -151,10 +124,11 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
         {id: 'product_0000-000000-0014', title: 'SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_spirals.png', detail: "A Spiral PDO Thread is one smooth filament that is wrapped around the needle. Learn more about Intraline Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation/spirals'},
         {id: 'product_0000-000000-0015', title: 'MICRO CANNULAS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_micro_cannulas.png', detail: "A Micro Cannula is a smooth Rejuvenation PDO Thread that comes in a cannula instead of a sharp tip needle. Learn more about Intraline's Micro Cannula PDO Threads.", link: '/shop/pdothread/rejuvenation/microcannulas'},
     ]
-    const [enableSideReview, setEnableSideReview] = useState(false)
+
     const [logined, setLogined] = useState(false)
     const [numDimension720, setNumDimension720] = useState(1)
     const router = useRouter()
+    const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -162,13 +136,8 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
         }
     }, [])
     // const showSideCart
-    const showEnableSideReviewHandler = (bool_var: boolean) => {
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = "hidden"
-        setEnableSideReview(bool_var)
-    }
-    const CloseSideReview = (bool_bar:boolean) => {
-        setEnableSideReview(bool_bar);
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = "auto"
+    const showEnableSideReviewHandler = () => {
+        dispatch(openSideReview())
     }
     const renderPDOThreads = () => {
         return items.map((item, index) => {
@@ -195,8 +164,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     const renderPDOThreadsSwiper = () => {
         var render_ele = items.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col bg-white relative pb-5" key={`m_${index}_product`}>
-                        <div className="flex-1 w-full h-0">
-                            <img className="h-full w-full" src={item.img} alt="" />
+                        <div className="w-full">
+                            <div>
+                                <div className="aspect-w-1 aspect-h-1 w-full">
+                                    <img className="w-full" src={item.img} alt="" />
+                                </div>
+                            </div>
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
                                     text-sm sm:text-2xl
@@ -249,7 +222,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="mr-1"><Link href="/shop/pdothread">Pdo threads</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="mr-1"><Link href="/shop/pdothread/liftingthread">Lifting threads</Link></span>
+                        <span className="mr-1"><Link href="/shop/pdothread/rejuvenation">Rejuvenation Threads</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold">{product_info.title} PDO</span>
                     </div>
@@ -259,7 +232,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 flex md:hidden">
                     <div className="relative h-full w-full flex flex-col">
                         <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
-                            {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
+                            <div>
+                                {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
+                            </div>
                         </div>
                         <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
                             <img className="mix_blend_multi mx-auto my-auto h-full" src="/assets/img/thread_detail.png" alt="" />
@@ -271,7 +246,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 mt-3 md:mt-28">
                     <div className="flex my-auto w-full h-full z-10">
                         <div className="flex flex-col
-                                        px-5 md:pl-15 xl:pl-172
+                                        px-5 md:pl-15 xl:pl-15
                                         w-full md:w-6/12">
                             <div className="">
                                 <div className={`${router.asPath.includes('/rejuvenation/monos') ? 'block' : 'hidden'}`}>
@@ -356,7 +331,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             }
                         </div>
                         <div className="h-full absolute top-0 left-0 w-full flex flex-col">
-                            <img className="mix_blend_multi mx-auto" src="/assets/img/thread_detail.png" alt=""/>
+                            <img className="mix_blend_multi mx-auto my-auto" src="/assets/img/thread_detail.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -390,9 +365,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}</div>
-                                    <div className="flex items-center" onClick={() => {showEnableSideReviewHandler(true)}}>
-                                        <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                        <div className="text-sm ">(22)</div>
+                                    <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
+                                        <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
+                                        <div className="text-sm ">({testimonial_li.length})</div>
                                     </div>
                                 </div>
                                 <div className="pt-7">
@@ -457,9 +432,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                         <div className="pb-5">
                             <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
-                            <div className="flex items-center" onClick={() => {showEnableSideReviewHandler(true)}}>
-                                <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                <div className="text-sm ">(22)</div>
+                            <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
+                                <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
+                                <div className="text-sm ">({testimonial_li.length})</div>
                             </div>
                         </div>
                         <div className="pt-7">
@@ -614,7 +589,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                 </div>
             </div>
             
-            {enableSideReview && <SideReview closeSideReview={CloseSideReview} />}
+            {enableSideReview && <SideReview reviewList={testimonial_li} />}
         </div>
     )
 }

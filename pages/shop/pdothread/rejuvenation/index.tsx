@@ -151,10 +151,10 @@ export default function Rejuvenation() {
                             <div className="">
                                 <div className="ttcommon_font_thin font-semibold
                                                 text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px
-                                                leading-14_17 md:leading-200_160">Rejuvenation</div>
+                                                leading-14_17 md:leading-14_17 xl:leading-200_160">Rejuvenation</div>
                                 <div className="ttcommon_font_bold
                                                 text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px
-                                                leading-14_17 md:leading-200_160" >Threads</div>
+                                                leading-14_17 md:leading-14_17 xl:leading-200_160" >Threads</div>
                             </div>
                         </div>
                         <div className="flex-1 flex flex-col

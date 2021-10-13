@@ -27,10 +27,12 @@ const reviewSlice = createSlice({
             state.review_li = payload
         },
         openSideReview: state => {
-            state.enableSideReview = true
+            state.enableSideReview = true;
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
         },
         closeSideReview: state => {
-            state.enableSideReview = false
+            state.enableSideReview = false;
+            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
         },
         createReview: (state, {payload}) => {
             state.review_li.push({...payload, id: generateID(), created_at: date.format(new Date(), 'DD MMM YYYY')})

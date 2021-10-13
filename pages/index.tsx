@@ -380,7 +380,7 @@ export default function Home({
       return <div className="keen-slider__slide flex flex-col bg-white relative
                              pb-5 sm:pb-12" 
                   key={`m_${index}_product`}>
-                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
+                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 z-10 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                 <div className="">
                   <div className="aspect-w-1 aspect-h-1 w-full">
                     <img className="w-full" src={item.img} alt="" />
