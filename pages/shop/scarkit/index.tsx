@@ -208,10 +208,12 @@ export default function ScarKit() {
                         <div className="flex-1 flex flex-col">
                             <div className="">
                                 <div className="hidden md:block">
-                                    <div className="ttcommon_font_thin leading-200_160
-                                                    text-6xl sm:text-7xl md:text-9xl lg:text-9xl xl:text-200px 2xl:text-200px">Scar</div>
-                                    <div className="leading-200_160 font-semibold
-                                                    md:text-9xl lg:text-9xl xl:text-200px 2xl:text-200px" ><span className="ttcommon_font_bold">Kit</span></div>
+                                    <div className="ttcommon_font_thin
+                                                    text-6xl sm:text-7xl md:text-9xl lg:text-9xl xl:text-200px
+                                                    leading-14_17 xl:leading-200_160">Scar</div>
+                                    <div className=" font-semibold
+                                                    md:text-9xl lg:text-9xl xl:text-200px
+                                                    leading-14_17 xl:leading-200_160" ><span className="ttcommon_font_bold">Kit</span></div>
                                     
                                 </div>
                                 <div className="block md:hidden text-64px leading-none">
