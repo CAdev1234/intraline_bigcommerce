@@ -117,7 +117,7 @@ export default function MSeries() {
                                 <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
                                     <Plus />
                                 </button>
-                                <div className="">Know More</div>
+                                <div className="text-center">Know More</div>
                             </Link>
                             
                         </div>

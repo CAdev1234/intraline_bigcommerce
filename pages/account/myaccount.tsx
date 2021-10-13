@@ -213,7 +213,8 @@ export default function MyAccount() {
         <div className="ttcommon_font_thin text-c_00080D
                         mt-16 md:mt-0">
             <div className="h-15 w-full"></div>
-            <div className="pt-12_5 px-15 pb-25 bg-c_CCE7EF">
+            <div className="pt-12_5 pb-25 bg-c_CCE7EF
+                            px-5 md:px-15">
                 <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer">
                         <span className="ttcommon_font"><Link href="/">Home</Link></span>
@@ -223,8 +224,9 @@ export default function MyAccount() {
                 </div>
                 <div className="ttcommon_font_bold mt-10 text-4xl leading-36_26">Hello {`${user.f_name} ${user.l_name}`}.</div>
                 <div className="mt-5 text-sm leading-14_26">Edit your account information, check your orders or write a product review.</div>
-                <div className="mt-10 flex items-start w-full">
-                    <div className="w-1/3">
+                <div className="mt-10 grid items-start w-full
+                                grid-cols-1 md:grid-cols-3">
+                    <div className="">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">My Account</div>
                         <div className="mt-5 text-sm leading-14_26">
                             <span className="ttcommon_font_bold">Name:</span>
@@ -251,7 +253,7 @@ export default function MyAccount() {
                                 onClick={() => {delAccountHandler()}}>Delete account</button>
                         </div>
                     </div>
-                    <div className="w-1/3">
+                    <div className="mt-7_5 md:mt-0">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Addresses</div>
                         <div className="mt-5 text-sm leading-14_26">
                             <span className="ttcommon_font_bold">Shipping Address:</span>
@@ -288,7 +290,7 @@ export default function MyAccount() {
                             </div>
                         }
                     </div>
-                    <div className="w-1/3">
+                    <div className="mt-7_5 md:mt-0">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Payment method</div>
                         {[0].map((item, index) => {
                             return <div key={`payment_${index}`}>
@@ -314,6 +316,7 @@ export default function MyAccount() {
                     </div>
                 </div>
             </div>
+
             {/* my orders */}
             <div className="py-25 bg-white">
                 <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">My orders</div>
@@ -335,7 +338,8 @@ export default function MyAccount() {
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_state}</div>
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_tracking}</div>
                                         <div className="flex-1 flex flex-col">
-                                            <Button className="h-11 w-56 ml-auto text-sm"
+                                            <Button className="h-11 ml-auto text-sm
+                                                                md:w-28 lg:w-56"
                                                 onClick={() => {
                                                     let new_array = [...enableShowMore]
                                                     new_array[index] = !enableShowMore[index]
@@ -387,7 +391,7 @@ export default function MyAccount() {
                                             <span className="ttcommon_font_bold">{item.product} - {item.title}</span>
                                             <span className="ml-5">{item.created_at}</span>
                                             <div className="ml-auto">
-                                                <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
+                                                <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                             </div>
                                         </div>
                                         <div className="mt-5 text-base leading-14_17">{item.detail}</div>
