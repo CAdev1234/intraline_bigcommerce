@@ -45,16 +45,19 @@ function Checkout() {
         if (localStorage.getItem('sa')) {
             let shipping_address = JSON.parse(localStorage.getItem('sa') as string)
             setShipAddress(shipping_address)
+            setCheckedShippingAddress(true)
         }
 
         if (localStorage.getItem('ba')) {
             let bill_address = JSON.parse(localStorage.getItem('ba') as string)
             setBillAddress(bill_address)
+            setCheckedBillAddress(true)
         }
 
         if (localStorage.getItem('pm')) {
             let payment_info = JSON.parse(localStorage.getItem('pm') as string)
             setPayment(payment_info)
+            setCheckedPayment(true)
         }
 
         if (router.query !== {}) {

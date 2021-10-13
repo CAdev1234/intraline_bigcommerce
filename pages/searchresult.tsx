@@ -30,11 +30,14 @@ export default function SearchResult() {
         }
     }, [])
     return (
-        <div className="ttcommon_font text-c_00080D bg-white flex flex-col">
+        <div className="ttcommon_font text-c_00080D bg-white flex flex-col
+                        mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
-            <div className="ttcommon_font_bold text-6xl mx-172 mt-10 mb-10">SEARCH: {keyword}</div>
+            <div className="ttcommon_font_bold text-6xl mt-10 mb-10 text-center
+                            mx-5 md:mx-15 lg:mx-172">SEARCH: {keyword}</div>
             <div className="bg-c_F7F7F7 flex-1">
-                <div className="mx-172 py-15">
+                <div className="py-15
+                                px-5 md:px-15 lg:px-172">
                     {searchResult.length === 0 && 
                         <div className="ttcommon_font text-2xl">There is no item.</div>
                     }
