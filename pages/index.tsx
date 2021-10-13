@@ -62,7 +62,7 @@ export async function getStaticProps({
   }
 }
 
-const RenderCategorySwiper:FC = () => {
+const RenderCategorySwiper = () => {
   var render_ele = [
       { name: 'M Series', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/70-1.jpg?width=300&name=70-1.jpg", link: "/shop/dermalfiller/mseries" },
       { name: 'Essentials', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/63.jpg?width=300&name=63.jpg", link: "/shop/dermalfiller/essentials" },
@@ -72,17 +72,16 @@ const RenderCategorySwiper:FC = () => {
       { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
   ].map((item, index) => {
       return <div className="keen-slider__slide relative" key={`category_${index}`}>
-                  <div className="flex flex-col bg-white
-                                  h-74 md:h-118
-                                  pt-2.5 md:pt-5
-                                  px-2.5 md:px-5
-                                  pb-5 md:pb-12">
-                      <div className="flex-1 h-0">
-                          <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                  <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
+                    <div className="w-full h-full flex flex-col px-3 pt-3">
+                      <div className="">
+                          <img className="w-full" src={item.img} alt="" />
                       </div>
                       <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5 h-12 flex justify-center items-center
                                        text-sm md:text-2xl
                                        leading-14_17 md:leading-none">{item.name}</div>
+                    </div>
+                      
                   </div>
                   <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                       <div className="my-auto flex flex-col">
@@ -486,7 +485,6 @@ export default function Home({
                       ml-5 md:ml-15 lg:ml-172">
         <RenderCategorySwiper />
       </div>
-
 
       {/* about us part */}
       <div className="mt-20 bg-white text-center py-24 relative

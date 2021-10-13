@@ -30,8 +30,9 @@ export default function SearchResult() {
         }
     }, [])
     return (
-        <div className="ttcommon_font text-c_00080D bg-white flex flex-col" style={{minHeight: 'calc(100vh - 452px)'}}>
-            <div className="ttcommon_font_bold text-6xl mx-172 mt-25 mb-10">SEARCH: {keyword}</div>
+        <div className="ttcommon_font text-c_00080D bg-white flex flex-col">
+            <div className="bg-transparent w-full h-15"></div>
+            <div className="ttcommon_font_bold text-6xl mx-172 mt-10 mb-10">SEARCH: {keyword}</div>
             <div className="bg-c_F7F7F7 flex-1">
                 <div className="mx-172 py-15">
                     {searchResult.length === 0 && 
