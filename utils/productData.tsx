@@ -25,33 +25,190 @@ export const products = [
 ]
 
 
-export const reviews = [
+export const MSERIES_FAQ_LIST = [
     {
-        title: "Dermal Filler M3 PLUS - Amazing Product",
-        rate: 4,
-        detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
-        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
-        created_at: '03 Aug 2021'
+        title: "What is the is the M2 Plus, M3 Plus and M4 Plus Dermal Fillers?",
+        detail: "M2 Plus, M3 Plus and M4 Plus Dermal Fillers are made from non-animal derived hyaluronic acid, which is the safest ingredient for Dermal Fillers. M2 Plus, M3 Plus and M4 Plus consist of 100% highly cross-linked HA, which aids in its long-lasting duration and have lidocaine for increased patient comfort. All three fillers are monophasic which means you can expect a smooth filler that is easy to inject with long-lasting and natural looking results."
     },
     {
-        title: "Dermal Filler M3 PLUS - Amazing Product",
-        rate: 2,
-        detail: "'I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
-        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
-        created_at: '03 Aug 2021'
+        title: "Are M2 Plus, M3 Plus and M4 Plus CE Marked?",
+        detail: "Yes, all three fillers, M2 Plus, M3 Plus and M4 Plus are Conformité Européenne (CE) marked."
     },
     {
-        title: "Dermal Filler M3 PLUS - Amazing Product",
+        title: "Where are M3 Plus and M4 Plus Manufactured?",
+        detail: "M3 Plus and M4 Plus are manufactured in South Korea using the strictest manufacturing standards to ensure quality and consistency of our product."
+    },
+    {
+        title: "Are the M Plus Series Dermal Fillers monophasic or biphasic?",
+        detail: "The M Plus Series are monophasic dermal fillers with lidocaine. "
+    },
+    {
+        title: "What is the difference between a monophasic dermal filler and a biphasic dermal filler?",
+        detail: "HA fillers can be classified according to their particulate forms: either monophasic or biphasic gels. Monophasic gels consist of a single ‘phase’ of HA. They can be either monodensified, HA is mixed and cross-linked in a single step e.g. M Series of Juvederm, or polydensified, HA goes through two stages of cross-linking e.g. Belotero. Biphasic gels such as Intraline One, Two, and For Men or Restylane consist of two ‘phases’ of HA, cross-linked HA of a specific size which is then suspended in non-  cross-linked HA acting as a carrier.20,21. There is much debate over the clinical effectiveness of monophasic or biphasic hyaluronic acid                      fillers and it is likely that no single method is superior to another, rather that the different physical properties of dermal fillers are more suitable for different clinical indications."
+    },
+    {
+        title: "What areas are the M2 Plus Dermal Filler indicated for?",
+        detail: "Used to treat fine to medium wrinkles, such as perioral and periorbital lines, glabella lines, neckfolds, and subtle lip definition."
+    },
+    {
+        title: "What areas if the M3 Plus Dermal Filler indicated for?",
+        detail: "Used to treat medium to deep wrinkles, lips, nasolabial folds and marionette lines. M3 Plus consists of medium size HA molecules and is injected in the dermis layer of the skin."
+    },
+    {
+        title: "What areas if the M4 Plus Dermal Filler indicated for?",
+        detail: "Used to treat deep wrinkles, chin, jawline, cheeks, and facial contouring.  M4 Plus can also be used for nonsurgical rhinoplasty. M4 Plus consists of large size HA molecules and is injected into the subcutaneous layer of the skin."
+    },
+    {
+        title: "What are potential side effects with Intraline M Plus Series of Dermal Fillers?",
+        detail: "With any cosmetic procedure there is a range of potential side effects. The most common side effects include temporary reactions at the treatment site such as tenderness, swelling, firmness, lumps/bumps, bruising, pain, redness, discoloration, and itching. The reactions normally appear shortly after treatment and may last up to 7 days for injections into the skin and up to 14 for injection into the lips. In rare cases severe discomfort is experienced and can give rise to other conditions, such as oedema or prolonged swelling. In this instance we recommend immediate treatment of the patient. Although most side effects will resolve with time, some side effects may persist longer than 30 days. You may choose to treat your patient with medications, such as antibiotics, steroids, or hyaluronidase (an enzyme that breaks down HA and essentially removes the product). The risks associated with dermal fillers are low, but it is important to be aware and communicate these risks to your patient prior to treatment."
+    },
+    {
+        title: "What is the syringe size for M2 Plus?",
+        detail: "1.0m/1.1ml"
+    },
+    {
+        title: "What is the syringe size for M3 Plus?",
+        detail: "1.0m/1.1ml"
+    },
+    {
+        title: "What is the syringe size for M4 Plus",
+        detail: "1.0m/1.1ml"
+    },
+    {
+        title: "What is the needle size for M2 Plus?",
+        detail: "30G"
+    },
+    {
+        title: "What is the needle size for M3 Plus?",
+        detail: "27G"
+    },
+    {
+        title: "What is the needle size for M4 Plus?",
+        detail: "27G"
+    },
+    {
+        title: "What is the expected duration of the M2 Plus Dermal Filler? ",
+        detail: "8-12 months"
+    },
+    {
+        title: "What is the expected duration of the M3 Plus Dermal Filler? ",
+        detail: "12-18 months"
+    },
+    {
+        title: "What is the expected duration of the M4 Plus Dermal Filler? ",
+        detail: "12 – 18 months "
+    },
+    {
+        title: "What is the shelf-life of the M2 Plus Dermal Filler?",
+        detail: "24 months"
+    },
+    {
+        title: "What is the shelf-life of the M3 Plus Dermal Filler?",
+        detail: "24 months"
+    },
+    {
+        title: "What is the shelf-life of the M4 Plus Dermal Filler?",
+        detail: "24 months"
+    },
+    {
+        title: "Does M2 Plus, M3 Plus and M4 Plus Dermal Fillers have lidocaine? ",
+        detail: "Yes all are sold with Lidocaine"
+    },
+    {
+        title: "Are the M2 Plus, M3 Plus and M4 Plus Dermal Fillers monophasic or biphasic?",
+        detail: "M2 Plus, M3 Plus and M4 Plus are monophasic Dermal Fillers"
+    },
+    {
+        title: "What is the storage temperature of M2 Plus?",
+        detail: "2-25°C"
+    },
+    {
+        title: "What is the storage temperature of M3 Plus?",
+        detail: "2-25°C"
+    },
+    {
+        title: "What is the storage temperature of M4 Plus?",
+        detail: "2-25°C"
+    },
+]
+
+
+export const MSERIES_TESTIMONIAL_LIST = [
+    {
+        title: "",
         rate: 5,
-        detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men",
-        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
-        created_at: '03 Aug 2021'
+        detail: "Just want to say I’ve had the best feedback since I started using Intraline from patients xx.",
+        client: "SAMMI-PEONY DOVEY",
+        created_at: ''
     },
     {
-        title: "Dermal Filler M3 PLUS - Amazing Product",
-        rate: 3,
-        detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
-        client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
-        created_at: '03 Aug 2021'
+        title: "",
+        rate: 5,
+        detail: "We are seeing amazing results from Intraline as we would expect as their PDO Threads are a market leader.",
+        client: "SUSSEX AESTHETICS",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "I prefer it to Juvederm. And I wouldn’t say it if it wasn’t true! It’s as smooth as Juvederm but thicker and sturdier, meaning you can really achieve the shape you want! Both regular clients said they preferred it! Thanks so so so much! X",
+        client: "SIAN ROBERTSON AESTHETICS BY SIAN",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "Clients are reporting that they are getting an overall more attractive appearance, which is also looking so natural. They mention that it’s very difficult for friends and family to pinpoint what they’ve had done other than they look more refreshed.",
+        client: "DR. AMRIT THIARA TIARA AESTHETICS INTRALINE KOL",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "Loving the filler! Recommended it to loads.",
+        client: "MARITINA RICHARDSON ROSALYN’S AESTHETICS",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "The Intraline M Series range of dermal fillers are the perfect addition to my clinic. They are easy to inject and manipulate once injected. The M Series integrates beautifully with the skin allowing natural and long-lasting results. The M Series contains lidocaine, therefore minimal discomfort to patients during treatment.",
+        client: "CLAIRE NEWMAN SOFT TOUCHES AESTHETICS INTRALINE BRAND AMBASSADOR",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "The response from clients across all clinics regarding Intraline’s new range of fillers has been amazing! So happy to introduce this new generation filler!",
+        client: "DR. AMRIT THIARA TIARA AESTHETICS INTRALINE KOL",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "Excellent product, perfect density and flow, results were outstanding.",
+        client: "DR. THOMAS F. KENNEY AVANT-GARDE PROFESSIONAL AESTHETICS",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "Intraline M Series is a dream to use",
+        client: "AESTHETICS BY ALICIA, NMC REGISTERED STAFF NURSE",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "I've tried m2 and absolutely loved it. My client has stated that it is the best filler so far that she has had, she has had her lips done for years with Juverderm.",
+        client: "COLLETTE MCGOVERN AESTHETICS, NURSE",
+        created_at: ''
+    },
+    {
+        title: "",
+        rate: 5,
+        detail: "I've tried m2 and absolutely loved it. My client has stated that it is the best filler so far that she has had, she has had her lips done for years with a leading brand.",
+        client: "COLLETTE MCGOVERN AESTHETICS, NURSE",
+        created_at: ''
     },
 ]

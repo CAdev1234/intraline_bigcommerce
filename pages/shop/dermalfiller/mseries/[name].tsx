@@ -24,7 +24,7 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import router, { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import { products } from 'utils/productData'
+import { products, MSERIES_FAQ_LIST } from 'utils/productData'
 
 type ParamsType = {
     name: string
@@ -48,15 +48,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
     console.log(all_products)
-    const mseries_product = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
+    const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {
-            mseries_product,
+            product_info,
         },
     }
 }
 
-export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function MSeriesProduct({ product_info }: InferGetStaticPropsType<typeof getStaticProps>) {
     let testimonial_li = [
         {
             title: 'DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC Intraline KOL',
@@ -135,28 +135,20 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
     }
 
     const RenderFAQCollapse = () => {
-        var items = [
-          {
-            'title': 'How does it work?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'How long do the results last?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What is the expected recovery time for my patients?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What are some important safety tips to follow when using this product?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What are the most common side effects?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          }
-        ]
+        let items = [] as Array<{title: string, detail: string}>
+        if (product_info.title === 'M2 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m2 plus')) return item
+            })    
+        }else if(product_info.title === 'M3 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m3 plus')) return item
+            })
+        }else if(product_info.title === 'M4 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m4 plus')) return item
+            })
+        }
         return <FAQCp faq_li={items}/>
     }
     
@@ -249,7 +241,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
                         <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{mseries_product.title}</span>
+                        <span className="ttcommon_font_bold ml-1">{product_info.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">
@@ -262,7 +254,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative">
                                         <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
-                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${mseries_product.price}.00</Button>}
+                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +271,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
                                 <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
-                                <span className="ttcommon_font_bold mr-1">{mseries_product.title}</span>
+                                <span className="ttcommon_font_bold mr-1">{product_info.title}</span>
                             </div>
                         </div>
                     </div>
@@ -359,7 +351,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                     leading-none md:leading-36_26">Indications</div>
                     <p className="mt-6 ttcommon_font_thin text-center
                                 text-2xl md:text-4xl
-                                leading-36_48 md:leading-36_48">{mseries_product.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
+                                leading-36_48 md:leading-36_48">{product_info.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-64 text-sm">download indication chart</Button>
                     </div>
@@ -378,7 +370,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                         pr-10 xl:pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{mseries_product.title}.</div>
+                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
                                     <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
                                         <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-sm ">(22)</div>
@@ -428,7 +420,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                         </div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1 text-sm">Buy {mseries_product.title} now</Button>
+                                        <Button className="h-full flex-1 text-sm">Buy {product_info.title} now</Button>
                                     </div>
                                 </div>
                                 
@@ -454,7 +446,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                 <div className="">
                     <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                         <div className="pb-5">
-                            <div className="ttcommon_font_bold text-6xl leading-64_76">{mseries_product.title}.</div>
+                            <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
                             <div className="flex items-center" onClick={() => {ShowEnableSideReview(true)}}>
                                 <RatingView ratingValue={3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                 <div className="text-sm ">(22)</div>
@@ -504,7 +496,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                 </div>
                             </div>
                             <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1 text-sm">Buy {mseries_product.title} now</Button>
+                                <Button className="h-full flex-1 text-sm">Buy {product_info.title} now</Button>
                             </div>
                         </div>
                         

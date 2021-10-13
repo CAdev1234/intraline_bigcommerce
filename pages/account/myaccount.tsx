@@ -318,9 +318,11 @@ export default function MyAccount() {
             </div>
 
             {/* my orders */}
-            <div className="py-25 bg-white">
+            <div className="py-25 bg-white
+                            hidden md:block">
                 <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">My orders</div>
-                <div className="mt-7_5 bg-c_C6CBDD h-12 px-15 flex items-center">
+                <div className="mt-7_5 bg-c_C6CBDD h-12 flex items-center
+                                px-5 md:px-15">
                     <div className="text-sm leading-14_26 text-center uppercase w-1/5">Order date</div>
                     <div className="text-sm leading-14_26 text-center uppercase w-1/5">order number</div>
                     <div className="text-sm leading-14_26 text-center uppercase w-1/5">status</div>
@@ -332,7 +334,8 @@ export default function MyAccount() {
                 <div className="">
                     {order_li.map((item, index) => {
                         return <div key={`order_item_${index}`}>
-                                    <div className="bg-c_F7F7F7 h-20 items-center flex mb-1 px-15">
+                                    <div className="bg-c_F7F7F7 h-20 items-center flex mb-1
+                                                        px-5 md:px-15">
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_date}</div>
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_id}</div>
                                         <div className="text-sm leading-14_26 text-center w-1/5">{item.order_state}</div>
@@ -377,8 +380,83 @@ export default function MyAccount() {
                 </div>
             </div>
             
+            {/* my orders responsive */}
+            <div className="py-15 bg-white
+                            block md:hidden">
+                <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">My orders</div>
+                <div className="mt-7_5">
+                    {order_li.map((item, index) => {
+                        return <div key={`order_item_${index}`}>
+                                    <div className="mb-2 bg-c_F7F7F7 flex flex-col px-5 pt-4 pb-7_5">
+                                        <div className="flex items-center my-2">
+                                            <div className="text-sm leading-none uppercase">Order date</div>
+                                            <div className="text-sm leading-none ml-auto">{item.order_date}</div>
+                                        </div>
+                                        <div className="flex items-center my-2">
+                                            <div className="text-sm leading-none uppercase ">order number</div>
+                                            <div className="text-sm leading-none ml-auto">{item.order_id}</div>
+                                        </div>
+                                        <div className="flex items-center my-2">
+                                            <div className="text-sm leading-none uppercase ">status</div>
+                                            <div className="text-sm leading-none ml-auto">{item.order_state}</div>
+                                        </div>
+                                        <div className="flex items-center my-2">
+                                            <div className="text-sm leading-none uppercase ">tracking</div>
+                                            <div className="text-sm leading-none ml-auto">{item.order_tracking}</div>
+                                        </div>
+                                        <div className="mt-7_5 flex flex-col">
+                                            <Button className="h-11 text-sm w-full"
+                                                    onClick={() => {
+                                                        let new_array = [...enableShowMore]
+                                                        new_array[index] = !enableShowMore[index]
+                                                        setEnableShowMore(new_array)
+                                                    }}>{enableShowMore[index] ? 'Show Less' : 'Show More'}</Button>
+                                        </div>
+                                    </div>
+                                    { enableShowMore[index] && 
+                                        <div className="px-5">
+                                            <div className="mt-5">
+                                                {item.order_subItem.map((item1, index1) => {
+                                                    return  <div key={`sub_item_${index1}`} className="mb-5">
+                                                                <div className="w-full flex flex-col">
+                                                                    <img src={item1.img} className="w-full my-auto" alt="" />
+                                                                </div>
+                                                                <div className="flex flex-col w-full">
+                                                                    <div className="flex items-center mt-4">
+                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Item</div>
+                                                                        <div className="text-sm leading-none ml-auto">{item1.title}</div>
+                                                                    </div>
+                                                                    <div className="flex items-center mt-4">
+                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Quantity</div>
+                                                                        <div className="text-sm leading-none ml-auto">{item1.quantity}</div>
+                                                                    </div>
+                                                                    <div className="flex items-center mt-4">
+                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Price</div>
+                                                                        <div className="text-sm leading-none ml-auto">${item1.price}</div>
+                                                                    </div>
+                                                                    <div className="flex items-center mt-4">
+                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Reference</div>
+                                                                        <div className="text-sm leading-none ml-auto">{item.reference}</div>
+                                                                    </div>
+                                                                </div>   
+                                                            </div>
+                                                    
+                                                })}
+                                            </div>
+                                        </div>
+                                    }                       
+                                </div>
+                    })}
+                </div>
+                {/* {order_li.length === 0 &&
+                    <div className="text-5xl text-c_00080D ttcommon_font text-center my-10">There is no order.</div>
+                } */}
+            </div>
+
+
             {/* product reviews */}
-            <div className="py-25 bg-c_F5DBDD">
+            <div className="bg-c_F5DBDD
+                            py-15 md:py-25">
                 <div className="px-5 md:px-15 xl:px-172">
                     <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">Product Reviews</div>
                     <div className="mt-7_5">
@@ -386,24 +464,32 @@ export default function MyAccount() {
                             <div className="text-center text-5xl ttcommon_font mb-25">There is no review.</div>
                         }
                         {review_li.map((item, index) => {
-                            return <div className="bg-white p-7_5 mb-2.5" key={`review_${index}`}>
+                            return <div className="bg-white p-7_5 mb-2.5
+                                        px-5 md:px-7_5
+                                        py-10 md:py-7_5" key={`review_${index}`}>
                                         <div className="flex items-center text-base leading-14_17">
                                             <span className="ttcommon_font_bold">{item.product} - {item.title}</span>
-                                            <span className="ml-5">{item.created_at}</span>
-                                            <div className="ml-auto">
+                                            <span className="ml-5
+                                                            hidden md:block">{item.created_at}</span>
+                                            <div className="ml-auto
+                                                            hidden md:block">
                                                 <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                             </div>
                                         </div>
-                                        <div className="mt-5 text-base leading-14_17">{item.detail}</div>
+                                        <div className="block md:hidden mt-3">
+                                            <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
+                                        </div>
+                                        <div className="mt-2.5 text-base leading-14_17 break-words">{item.detail}</div>
                                         <div className="ttcommon_font mt-7_5 text-sm leading-14_17 tracking-widest uppercase underline flex items-center">
-                                            <button onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
-                                            <button className="ml-5" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
+                                            <button className="uppercase" onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
+                                            <button className="ml-5 uppercase" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
                                         </div>
                                     </div>
                         })}
                     </div>
                     <div className="mt-5">
-                        <Button className="h-11 w-72 text-sm" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Add new review</Button>
+                        <Button className="h-11 text-sm
+                                            w-full md:w-72" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Add new review</Button>
                     </div>
                 </div>
             </div>
@@ -413,11 +499,18 @@ export default function MyAccount() {
                 <div className="fixed top-0 left-0 w-full h-screen z-50">
                     <div className="relative flex flex-col">
                         <div className="absolute top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40"></div>
-                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col">
-                            <div className="relative my-auto mx-auto bg-white w-162_5 py-15 px-28">
-                                <div className="ttcommon_font_bold text-4xl leading-36_26">Edit Information.</div>
-                                <div className="mt-5 text-sm leading-14_26">Make changes to your account info.</div>
-                                <div className="mt-10">
+                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col
+                                        px-5 md:px-0">
+                            <div className="relative my-auto mx-auto bg-white
+                                            w-full md:w-162_5
+                                            px-5 md:px-28
+                                            py-7_5 md:py-15">
+                                <div className="ttcommon_font_bold
+                                                text-2xl md:text-4xl
+                                                leading-tight md:leading-36_26">Edit Information.</div>
+                                <div className="text-sm leading-14_26
+                                                mt-2.5 md:mt-5">Make changes to your account info.</div>
+                                <div className="mt-7_5 md:mt-10">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="First Name" defaultValue={selectedAccont.f_name}
                                     onChange={changeUserFNameHandler}/>
                                 </div>
@@ -453,11 +546,20 @@ export default function MyAccount() {
                 <div className="fixed top-0 left-0 w-full h-screen z-50">
                     <div className="relative flex flex-col">
                         <div className="absolute top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40"></div>
-                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col">
-                            <div className="relative my-auto mx-auto bg-white w-162_5 py-15 px-28">
-                                <div className="ttcommon_font_bold text-4xl leading-36_26">Add Review.</div>
-                                <div className="mt-5 text-sm leading-14_26">Add a new review from a previous purchase.</div>
-                                <div className="mt-10">
+                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col
+                                        px-5 md:px-0">
+                            <div className="relative my-auto mx-auto bg-white
+                                            w-full md:w-162_5
+                                            py-7_5 md:py-15
+                                            px-5 md:px-28">
+                                <div className="ttcommon_font_bold
+                                                text-2xl md:text-4xl
+                                                leading-tight md:leading-36_26">Add Review.</div>
+                                <div className="text-sm
+                                                leading-tight md:leading-14_26
+                                                mt-2.5 md:mt-5">Add a new review from a previous purchase.</div>
+                                <div className="
+                                                mt-7_5 md:mt-10">
                                     <SelectInput 
                                         enable_underline={true}
                                         default_option="Select Product"
@@ -466,14 +568,14 @@ export default function MyAccount() {
                                         option_class="bg-c_F5DBDD hover:bg-opacity-80"
                                         returnVal={updateReviewProduct}/>
                                 </div>
-                                <div className="mt-5">
+                                <div className="mt-2.5 md:mt-5">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="Review title" onChange={updateReviewTitle}/>
                                 </div>
-                                <div className="mt-5">
+                                <div className="mt-2.5 md:mt-5">
                                     <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write your review"
                                             onChange={(event) => setNewReview({...newReview, detail: event.target.value})}/>
                                 </div>
-                                <div className="mt-5 flex items-center">
+                                <div className="mt-2.5 md:mt-5 flex items-center">
                                     <span>Rating:</span>
                                     <div className="ml-5 mt-2">
                                         <Rating onClick={handleRatingHandler} ratingValue={rating} size={28} stars={5} fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)"/>
@@ -496,14 +598,19 @@ export default function MyAccount() {
 
             {/* edit review modal */}
             {enableEditReviewModal && 
-                <div className="fixed top-0 left-0 w-full h-screen z-50 bg-c_00080D bg-opacity-40">
+                <div className="fixed top-0 left-0 w-full h-screen z-50">
                     <div className="relative flex flex-col">
-                        {/* <div className="absolute top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40"></div> */}
-                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col">
-                            <div className="relative my-auto mx-auto bg-white w-162_5 py-15 px-28">
-                                <div className="ttcommon_font_bold text-4xl leading-36_26">Edit Review.</div>
-                                {/* <div className="mt-5 text-sm leading-14_26">Add a new review from a previous purchase.</div> */}
-                                <div className="mt-10">
+                        <div className="absolute top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40"></div>
+                        <div className="absolute top-0 left-0 w-full h-screen flex flex-col
+                                        px-5 md:px-0">
+                            <div className="relative my-auto mx-auto bg-white
+                                            w-full md:w-162_5
+                                            px-5 md:px-28
+                                            py-7_5 md:py-15">
+                                <div className="ttcommon_font_bold
+                                                text-2xl md:text-4xl
+                                                leading-tight md:leading-36_26">Edit Review.</div>
+                                <div className="mt-7_5 md:mt-10">
                                     <SelectInput 
                                         enable_underline={true}
                                         default_option={selectedReview.product}
