@@ -179,7 +179,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <img className="w-full mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
+                        <div className="textellipsis_2 mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
@@ -276,35 +276,40 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <div className="">
                                 <div className={`${router.asPath.includes('/rejuvenation/monos') ? 'block' : 'hidden'}`}>
                                     <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                         <span className="ttcommon_font_bold">MONOS</span>
                                     </div>
                                 </div>
                                 <div className={`${router.asPath === '/shop/pdothread/rejuvenation/doubles' ? 'block' : 'hidden'}`}>
                                     <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160">
                                         <span className="ttcommon_font_bold">Doubles</span>
                                     </div>
                                 </div>
                                 <div className={`${router.asPath.includes('/rejuvenation/triples') ? 'block' : 'hidden'}`}>
                                     <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                         <span className="ttcommon_font_bold">Triples</span>
                                     </div>
                                 </div><div className={`${router.asPath.includes('/rejuvenation/doublespirals') ? 'block' : 'hidden'}`}>
                                     <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160">
                                         <span className="ttcommon_font_bold">Double Spirals</span>
                                     </div>
                                 </div>
                                 <div className={`${router.asPath.includes('/rejuvenation/microcannulas') ? 'block' : 'hidden'}`}>
                                     <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
-                                    <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">
+                                    <div className="ttcommon_font_thin font-semibold
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160">
                                         <span className="ttcommon_font_bold">Micro Cannulas</span>
                                     </div>
                                 </div>
@@ -332,7 +337,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         </div>
                     </div>
                     <div className="mt-15 items-center justify-center pb-15">
-                        <div className="items-center mt-20
+                        <div className="items-center mt-20 justify-center
                                         hidden md:flex">
                             <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
                             <ChevronDown className="w-4 ml-4" />
@@ -344,7 +349,11 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 hidden md:flex">
                     <div className="relative h-full w-full flex flex-col">
                         <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
-                            {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
+                            {logined && 
+                                <div className="">
+                                    <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                                </div>
+                            }
                         </div>
                         <div className="h-full absolute top-0 left-0 w-full flex flex-col">
                             <img className="mix_blend_multi mx-auto" src="/assets/img/thread_detail.png" alt=""/>
@@ -360,8 +369,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Indications</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                    <p className="mt-6 ttcommon_font_thin text-center
+                                text-2xl md:text-4xl
+                                leading-36_48 md:leading-36_48">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-72 text-sm">download indication chart</Button>
                     </div>
@@ -512,8 +522,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="w-full">
                         <div className="flex">
                             <div className="w-7/12">
-                                <div className="ttcommon_font_thin text-center leading-36_48
-                                                text-lg md:text-4xl">Cannula length</div>
+                                <div className="ttcommon_font_thin text-center
+                                                text-lg md:text-4xl
+                                                leading-36_48 md:leading-36_48">Cannula length</div>
                                 <div className="flex items-center w-full">
                                     <div className="w-px h-5 bg-c_00080D"></div>
                                     <div className="h-px bg-c_00080D w-full"></div>
@@ -525,8 +536,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             </div>
                             <div className="bg-transparent w-2.5 h-1"></div>
                             <div className="w-4/12">
-                                <div className="ttcommon_font_thin text-center leading-36_48
-                                                text-lg md:text-4xl">Grip</div>
+                                <div className="ttcommon_font_thin text-center
+                                                text-lg md:text-4xl
+                                                leading-36_48 md:leading-36_48">Grip</div>
                                 <div className="flex items-center">
                                     <div className="w-px h-5 bg-c_00080D"></div>
                                     <div className="h-px bg-c_00080D w-full"></div>
@@ -575,23 +587,6 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
             </div>
 
             {/* thread list */}
-            {/* <div className="bg-c_F5DBDD">
-                <div className="mx-172 py-24">
-                    <div className="flex text-c_00080D mb-2">
-                        <div className="ttcommon_font_bold leading-36_26 text-4xl">Lifting PDO Threads.</div>
-                        <div className="flex items-center ml-auto">
-                            <div className="ttcommon_font_bold text-lg">Learn More</div>
-                            <div className="ml-2">
-                                <ChevronRight className="h-4 w-4" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="mt-10 grid grid-cols-3 gap-5">
-                        {renderPDOThreads()}
-                    </div>
-                </div>
-            </div> */}
-
 
             <div className="bg-c_F5DBDD">
                 <div className="py-24

@@ -29,28 +29,28 @@ export const reviews = [
     {
         title: "Dermal Filler M3 PLUS - Amazing Product",
         rate: 4,
-        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
         client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
         created_at: '03 Aug 2021'
     },
     {
         title: "Dermal Filler M3 PLUS - Amazing Product",
         rate: 2,
-        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        detail: "'I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
         client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
         created_at: '03 Aug 2021'
     },
     {
         title: "Dermal Filler M3 PLUS - Amazing Product",
         rate: 5,
-        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men",
         client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
         created_at: '03 Aug 2021'
     },
     {
         title: "Dermal Filler M3 PLUS - Amazing Product",
         rate: 3,
-        detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+        detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
         client: "DR TUKBA YALCIN  |  DIRECTOR LUMIERE AESTHETICS",
         created_at: '03 Aug 2021'
     },

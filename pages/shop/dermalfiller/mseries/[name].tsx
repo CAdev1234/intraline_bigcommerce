@@ -291,8 +291,9 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-0 md:mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold
-                                                text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                <div className="ttcommon_font_thin font-semibold
+                                                text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                     <div className={`${router.asPath.includes('/mseries/m2plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M2</span> Plus</div>
                                     <div className={`${router.asPath.includes('/mseries/m3plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M3</span> Plus</div>
                                     <div className={`${router.asPath.includes('/mseries/m4plus') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>M4</span> Plus</div>
@@ -356,8 +357,9 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Indications</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-2xl md:text-4xl">{mseries_product.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
+                    <p className="mt-6 ttcommon_font_thin text-center
+                                text-2xl md:text-4xl
+                                leading-36_48 md:leading-36_48">{mseries_product.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-64 text-sm">download indication chart</Button>
                     </div>
@@ -426,7 +428,7 @@ export default function MSeriesProduct({ mseries_product }: InferGetStaticPropsT
                                         </div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1 text-sm">Buy <span className="lowercase">{mseries_product.title}</span> now</Button>
+                                        <Button className="h-full flex-1 text-sm">Buy {mseries_product.title} now</Button>
                                     </div>
                                 </div>
                                 

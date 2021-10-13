@@ -175,16 +175,17 @@ export default function MSeries() {
                                 <div>
                                     <div className="ttcommon_font_thin font-semibold
                                                     text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
-                                                    leading-none md:leading-200_160">The</div>
+                                                    leading-none md:leading-200_160 lg:leading-200_160 xl:leading-200_160">The</div>
                                     <div className="ttcommon_font_bold
-                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px
-                                                    leading-none md:leading-200_160" >M Series</div>
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
+                                                    leading-none md:leading-tight lg:leading-none xl:leading-200_160" >M Series</div>
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
                                                 sm:w-6/12 md:w-5/12 lg:w-131_5">
-                                    <div className="ttcommon_font_thin w-full leading-36_48 font-semibold mt-8 text-c_00080D
+                                    <div className="ttcommon_font_thin w-full font-semibold mt-8 text-c_00080D
                                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
+                                                    leading-36_48 sm:leading-36_48 md:leading-36_48 lg:leading-36_48 xl:leading-36_48
                                                     ">The M Series from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
                                 
@@ -250,9 +251,10 @@ export default function MSeries() {
                                     mr-5 md:mr-10 lg:mr-20 xl:mr-172 2xl:mr-172" style={{maxWidth: 538}}>
                         <div className="my-auto">
                             <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
-                            <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
-                            <div className="ttcommon_font_thin mt-7 leading-36_48
-                                            text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                            <div className="ttcommon_font_bold text-4xl leading-36_48 mt-2.5 uppercase">Function, versatility & impact.</div>
+                            <div className="ttcommon_font_thin mt-7_5
+                                            text-2xl md:text-3xl lg:text-4xl
+                                            leading-36_48 md:leading-36_48 lg:leading-36_48">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                             <div className="progress-bar-container bg-white w-full h-1 mt-12_5">
                                 <div className="progress-bar bg-c_00080D h-full" style={{width: `${scroll_perc}%`}}></div>
                             </div>
@@ -265,17 +267,17 @@ export default function MSeries() {
             <div className="block sm:hidden bg-c_C6CBDD w-full py-20">
                 <div className="w-full flex items-center pl-5">
                     <div className="w-full overflow-x-auto test_ele
-                                    no-scrollbar flex items-stretch" 
+                                    no-scrollbar flex" 
                                     style={{scrollbarWidth: 'none'}}
                                     onScroll={(event) => scrollMobileHandler(event.target as any)}>
                         {spec_li.map((item, index) => {
-                            return <div className="mr-5" key={`pure_part_${index}`} style={{width:278, minWidth:278}}>
+                            return <div className="mr-5 flex-1 flex flex-col" key={`pure_part_${index}`} style={{width:278, minWidth:278}}>
                                         <div className="flex items-center">
                                             <div className="ttcommon_font_bold leading-64_76 text-4xl">{item.headline}</div>
                                             <div className="ml-auto ttcommon_font_bold text-6xl text-c_8D97BC leading-14_17">0{index + 1}</div>
                                         </div>
                                         
-                                        <div className="relative w-full h-full">
+                                        <div className="w-full h-full">
                                             <div className="bg-white p-7_5 relative z-10 h-full">
                                                 <div className="ttcommon_font_bold uppercase text-sm leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                 <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>
@@ -295,8 +297,8 @@ export default function MSeries() {
                 </div>
 
                 <div className="flex flex-col w-full h-full mt-20 px-5">
-                    <div className="text-sm tracking-widest">THE M SERIES were created for maximum</div>
-                    <div className="ttcommon_font_bold text-2xl leading-36_48">Function, versatility & impact.</div>
+                    <div className="text-sm tracking-widest uppercase">THE M SERIES were created for maximum</div>
+                    <div className="ttcommon_font_bold text-2xl leading-36_48 mt-2.5">Function, versatility & impact.</div>
                     <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                 </div>
             </div>
@@ -308,9 +310,10 @@ export default function MSeries() {
                                 w-11/12 sm:w-146">
                     <div className="ttcommon_font_bold text-center mx-auto
                                     text-2xl sm:text-4xl
-                                    leading-none sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-xl sm:text-4xl">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
+                                    leading-24_29 sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
+                    <p className="mt-6 ttcommon_font_thin text-center
+                                text-2xl sm:text-4xl
+                                leading-9 sm:leading-36_48">Intraline M Series dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/mseriesshop">
                             <Button className="mx-auto h-11 w-64 text-sm">Shop now the m series</Button>

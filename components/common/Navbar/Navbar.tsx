@@ -101,12 +101,22 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
     setCurrentUrl(window.location.pathname)
   }, [])
 
+  const showSearchBarHandler = (bool_var: boolean) => {
+    console.log(bool_var)
+    setEnableSearchBar(bool_var)
+    if (bool_var) {
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
+    }else {
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
+    }
+  }
+
   const searchProductHandler = () => {
+    showSearchBarHandler(false)
     router.push({
       pathname: '/searchresult',
       query: {keyword: searchKey}
     })
-    setEnableSearchBar(false)
   }
 
   const toMyAccountHandler =() => {
@@ -198,7 +208,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
             <div className="items-center ml-auto relative z-40 flex">
               <div className="relative
                               hidden md:flex">
-                <button onClick={() => {setEnableSearchBar(!enableSearchBar)}}><SearchSvg className={`${s.svg}`} color="white" /></button>
+                <button onClick={() => {showSearchBarHandler(!enableSearchBar)}}><SearchSvg className={`${s.svg}`} color="white" /></button>
                 {enableSearchBar && 
                   <div className="fixed top-15 left-0 w-full bg-black bg-opacity-50" style={{height: 'calc(100vh - 60px)'}}>
                     <div className="fixed top-15 left-0 w-full bg-c_00080D h-21_5 border-t border-white flex flex-col">
@@ -208,11 +218,12 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                           className="bg-transparent w-154_5 text-white" 
                           placeholder="Search for product or category. Hit enter to submit or escape to close."
                           onKeyPress={(event) => {event.key === 'Enter' && searchProductHandler()}}
-                          onChange={(event) => {setSearchKey(event.target.value)}}/>
+                          onChange={(event) => {setSearchKey(event.target.value)}}
+                          autoFocus={enableSearchBar}/>
                         <button 
                           className="underline uppercase text-sm text-white tracking-widest ml-auto"
                           onClick={() => {searchProductHandler()}}>Enter</button>
-                        <button className="ml-9 text-white" onClick={() => {setEnableSearchBar(false)}}>
+                        <button className="ml-9 text-white" onClick={() => {showSearchBarHandler(false)}}>
                           <Cross />
                         </button>
                       </div>

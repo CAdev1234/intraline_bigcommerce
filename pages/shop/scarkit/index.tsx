@@ -219,8 +219,8 @@ export default function ScarKit() {
                                     <span className="ttcommon_font_bold"> Kit</span>
                                 </div>
                                 <div className="ttcommon_font_thin mt-5 leading-36_48
-                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Lorem ipsum doloris secantum.</div>
-                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.</div>
+                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Weight: 500GR</span>
