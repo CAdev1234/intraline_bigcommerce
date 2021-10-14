@@ -328,7 +328,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                 text-2xl md:text-4xl">{product_data.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72">download indication chart</Button>
                     </div>
                 </div>
             </div>
