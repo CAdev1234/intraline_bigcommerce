@@ -187,7 +187,7 @@ function Checkout() {
             <div className="bg-transparent h-15 w-full"></div>
             <div className="max-w-4xl overflow-y-auto relative mb-9
                             mt-16 md:mt-0
-                            px-5 md:px-15" style={{ height: 'calc(100vh - 96px)' }}>
+                            px-5 md:px-15" style={{ minHeight: 'calc(100vh - 96px)' }}>
                 {!checkedPayment &&
                     <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center">
@@ -201,14 +201,14 @@ function Checkout() {
                 }
                 {checkedPayment &&
                     <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
-                        <div className="flex items-center cursor-pointer">
+                        <div className="flex items-center cursor-pointer flex-wrap">
                             <span><Link href="/">Home</Link></span>
-                            <span className="ml-1"><ChevronRight className="w-4" /></span>
-                            <span className="ml-1"><Link href="/shop/shoppingbag">Shopping Bag</Link></span>
-                            <span className="ml-1"><ChevronRight className="w-4" /></span>
-                            <span className="ml-1"><Link href="/shop/checkout">Checkout</Link></span>
-                            <span className="ml-1"><ChevronRight className="w-4" /></span>
-                            <span className="ttcommon_font_bold ml-1">Review</span>
+                            <span className="mr-1"><ChevronRight className="w-4" /></span>
+                            <span className="mr-1"><Link href="/shop/shoppingbag">Shopping Bag</Link></span>
+                            <span className="mr-1"><ChevronRight className="w-4" /></span>
+                            <span className="mr-1"><Link href="/shop/checkout">Checkout</Link></span>
+                            <span className="mr-1"><ChevronRight className="w-4" /></span>
+                            <span className="ttcommon_font_bold">Review</span>
                         </div>
                     </div>
                 }
