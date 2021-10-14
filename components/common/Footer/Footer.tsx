@@ -126,11 +126,11 @@ const Footer: FC<Props> = ({ className, pages }) => {
             </div>
           </div>
         </div>
-        <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6 text-sm">
+        <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6">
           <div>
             <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
           </div>
-          <div className="flex items-center text-primary text-sm">
+          <div className="flex items-center text-primary">
             <span className="text-primary">Created by</span>
             <a
               rel="noopener noreferrer"
@@ -182,9 +182,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
                       </a>
                     </Link>
                   </div>
-                  <p className="leading-14_26 text-white
-                                 text-xs sm:text-sm">We believe confidence is created  in many forms and looks different for everyone. We believe in individuality. Intraline is a family owned, innovative aesthetics company comitted to your overall health and well-being: both inside and out. We belive that confidence is ageless.</p>
-                  <div className="text-white text-sm mt-5">2021 Intraline. All rights reserved.</div>
+                  <p className="leading-14_26 text-white">We believe confidence is created  in many forms and looks different for everyone. We believe in individuality. Intraline is a family owned, innovative aesthetics company comitted to your overall health and well-being: both inside and out. We belive that confidence is ageless.</p>
+                  <div className="text-white mt-5">2021 Intraline. All rights reserved.</div>
                 </div>
 
               </div>
@@ -194,12 +193,12 @@ const Footer: FC<Props> = ({ className, pages }) => {
               {/* intraline link part */}
               <div className="flex flex-col mx-auto">
                 <Link href="/">
-                  <div className="uppercase text-white text-sm tracking-widest flex items-center h-15">Infraline</div>
+                  <div className="uppercase text-white tracking-widest flex items-center h-15">Infraline</div>
                 </Link>
                 {infraline_link_li.map((item, index) => {
                   return <div key={`infraline_link_${index}`} className="mb-1">
                             <Link href={item.link}>
-                              <a className="text-white text-sm leading-14_26" >{item.title}</a>
+                              <a className="text-white leading-14_26" >{item.title}</a>
                             </Link>
                         </div>
                 })}
@@ -207,22 +206,22 @@ const Footer: FC<Props> = ({ className, pages }) => {
               {/* account link part */}
               <div className="flex flex-col mx-auto">
                 <Link href="/">
-                  <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center">Account</a>
+                  <a className="uppercase text-white tracking-widest h-15 flex items-center">Account</a>
                 </Link>
                 {account_link_li.map((item, index) => {
                   return <div className="mb-1" key={`account_link_${index}`}>
                             {item.title === "Register/Login" && logined &&
                               <Link href="/account/myaccount">
-                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                                <a className=" text-white leading-14_26" >{item.title}</a>
                               </Link>
                             }
                             {item.title === "Register/Login" && !logined &&
                               <Link href={item.link}>
-                                <a className=" text-white text-sm leading-14_26" >{item.title}</a>
+                                <a className=" text-white leading-14_26" >{item.title}</a>
                               </Link>
                             }
                             {item.title !== "Register/Login" && 
-                              <button className="text-white text-sm leading-14_26" onClick={() => {toMyAccountHandler()}}>{item.title}</button>
+                              <button className="text-white leading-14_26" onClick={() => {toMyAccountHandler()}}>{item.title}</button>
                             }
                         </div>
                 })}
@@ -235,7 +234,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                 <div className="flex flex-col w-full ml-auto
                                 mt-12 sm:mt-0">
                   <Link href="/">
-                    <a className="uppercase text-white text-sm tracking-widest h-15 flex items-center
+                    <a className="uppercase text-white tracking-widest h-15 flex items-center
                                   text-center sm:text-left">Subscribe to our newsletter</a>
                   </Link>
                   <div className="flex h-11

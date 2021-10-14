@@ -47,7 +47,7 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
                                 text-2xl sm:text-4xl">{head_line}</div>
                 <div className="relative
                                 mt-5 sm:mt-12_5
-                                px-5 sm:px-10 md:px-15 lg:px-15 xl:px-172">
+                                px-5 sm:px-10 md:px-15 lg:px-172 xl:px-172">
                     <div className={`${testimonial_li.length === 0 ? 'hidden' : 'block'}`}>
                         <KeenSliderB 
                             render_ele={render_ele} 

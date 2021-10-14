@@ -46,7 +46,7 @@ export default function SearchResult() {
                                     <Link href={item.link}>
                                         <div className="bg-white p-5 mb-5 hover:bg-black hover:text-white cursor-pointer">
                                             <div className="ttcommon_font_bold text-4xl leading-36_26">{item.title}</div>
-                                            <div className="mt-5 ttcommon_font_thin text-sm leading-14_26">{item.detail}</div>
+                                            <div className="mt-5 ttcommon_font_thin leading-14_26">{item.detail}</div>
                                         </div>
                                     </Link>
                                     

@@ -12,7 +12,7 @@ import SelectInput from '@components/mycp/SelectInput'
 import Checkbox from '@components/mycp/Checkbox'
 import { useRouter } from 'next/router'
 
-
+import {useSpring, animated, useTransition} from '@react-spring/web'
 
 
 
@@ -74,9 +74,21 @@ export default function PDOThread() {
     const [enableQuesMobile, setEnableQuesMobile] = useState(new Array(pdo_question_li.length - 1).fill(false));
     const [enableQues, setEnableQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
     const router = useRouter()
+    const [enableQuesAni, setEnableQuesAni] = useState(false)
+    const transitions = useTransition(enableQues, {
+        keys: enableQues,
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+        config: { duration: 500 }
+    })
+    const fade_in_out_spring = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        delay: 500
+    })
 
     const updatePDOQuesHandler = (index:number) => {
-        console.log("ddddddddddd")
         let new_array = new Array(enablePDOQues.length).fill(false)
         new_array[index] = true
         setEnableQues(new_array)
@@ -128,7 +140,7 @@ export default function PDOThread() {
                     <div className="w-1/2 h-full"></div>
                     <div className="w-1/2 h-full bg-c_F5DBDD"></div>
                 </div>
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="mr-1"><Link href="/">Home</Link></span>
@@ -155,7 +167,7 @@ export default function PDOThread() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-auto">
-                        <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <span className="uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
@@ -171,7 +183,7 @@ export default function PDOThread() {
 
             <div className="relative bg-white w-full flex-col
                             block sm:hidden">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5">
                         <span className="mr-1"><Link href="/">Home</Link></span>
@@ -215,7 +227,7 @@ export default function PDOThread() {
                                 px-5 md:px-15
                                 text-2xl md:text-4xl">Intraline’s PDO threads are CE marked with an excellent safety profile and virtually non-allergenic. PDO suture use has nearly 40 years of medical history supporting its use.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64 text-sm">Browse catalog</Button>
+                        <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
             </div>
@@ -238,7 +250,7 @@ export default function PDOThread() {
                                 <div className="pb-7_5">
                                     <div className="ttcommon_font_bold leading-64_76
                                                     text-2xl md:text-4xl lg:text-5xl xl:text-6xl">PDO Threads.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-base leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -256,10 +268,15 @@ export default function PDOThread() {
                         </div>
                         <div className="flex-1">
                             {pdo_question_li.map((item, index) => {
-                                return enableQues[index] && 
-                                    <div key={`ingredient_detail_${index}`}>
-                                        <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">{item.title}</div>
-                                        <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
+                                return <div key={`ingredient_detail_${index}`} className={`${enableQues[index] ? 'block' : 'hidden'}`}>
+                                        <animated.div style={fade_in_out_spring}>
+                                            <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
+                                            <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
+                                        </animated.div>
+                                            
+                                        
+                                        {/* <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">{item.title}</div>
+                                        <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div> */}
                                     </div>
                             })}
                             
@@ -282,7 +299,7 @@ export default function PDOThread() {
                             <div className="bg-white py-7_5 px-5 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-4xl leading-tight">PDO Threads.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-base leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -337,7 +354,7 @@ export default function PDOThread() {
                         <div className="ttcommon_font_bold
                                         leading-none md:leading-36_26
                                         text-2xl md:text-4xl">Any more questions?</div>
-                        <p className="ttcommon_font_thin text-sm leading-14_26
+                        <p className="ttcommon_font_thin leading-14_26
                                         mt-2.5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
                             <Input type="text" placeholder="Full Name"/>
@@ -361,19 +378,19 @@ export default function PDOThread() {
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                            <div className="ttcommon_font_thin leading-14_17">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="pdo_thread_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="pdo_thread_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="ttcommon_font_thin text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="ttcommon_font_thin leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

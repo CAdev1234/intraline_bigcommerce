@@ -88,7 +88,7 @@ export default function ContactUs() {
                                 pl-5 md:pl-15
                                 pr-5 md:pr-0
                                 md:w-131_5 lg:w-131_5 xl:w-154_5">
-                    <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
                             <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
                             <span className="mr-1"><ChevronRight className="w-4"/></span>
@@ -103,55 +103,55 @@ export default function ContactUs() {
                         <div className="mt-10">
                             <Input className="bg-c_F7F7F7" type="text" placeholder="Full name" onChange={setFullNameHandler}/>
                             {contact_info.full_name === '' &&
-                                <span className="text-sm text-c_F4511E font-bold">Required.</span>
+                                <span className="text-c_F4511E font-bold">Required.</span>
                             }
                         </div>
                         <div className="mt-5">
                             <Input className="bg-c_F7F7F7" type="text" placeholder="Email" onChange={setEmailHandler}/>
                             {!validateEmail(contact_info.email) &&
-                                <span className="text-sm text-c_F4511E font-bold">Required.</span>
+                                <span className="text-c_F4511E font-bold">Required.</span>
                             }
                         </div>
                         <div className="mt-5">
                             <Input className="bg-c_F7F7F7" type="number" placeholder="Phone Number" onChange={setMobileHandler}/>
                             {contact_info.mobile === '' &&
-                                <span className="text-sm text-c_F4511E font-bold">Required.</span>
+                                <span className="text-base text-c_F4511E font-bold">Required.</span>
                             }
                         </div>
                         <div className="mt-5">
-                            <div className="text-sm leading-14_26">How can we best help you?</div>
+                            <div className="text-base leading-14_26">How can we best help you?</div>
                         </div>
                         <div className="mt-2.5">
                             <div className="flex items-center">
                                 <input type="radio" id="help_type_1" value="distributor inquiry" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_1" className="text-sm leading-14_26 ml-3">Distributor Inquiry</label>
+                                <label htmlFor="help_type_1" className="text-base leading-14_26 ml-3">Distributor Inquiry</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_2" value="purchasing intraline" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_2" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
+                                <label htmlFor="help_type_2" className="text-base leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_3" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_3" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_3" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_4" value="purchasing intraline" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_4" className="text-sm leading-14_26 ml-3">Purchasing Intraline</label>
+                                <label htmlFor="help_type_4" className="text-base leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_5" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_5" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_5" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_6" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)}/>
-                                <label htmlFor="help_type_6" className="text-sm leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_6" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                         </div>
                         <div className="mt-4">
                             <textarea className="border-none bg-c_F7F7F7 w-full pl-5 py-2 h-24" placeholder="Write Your Message" onChange={(event) => {setMsgHandler(event.target.value)}}/>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                            <div className="ttcommon_font_thin leading-extra-loose">
                                 <Link href="/privacypolicy">
                                     <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
                                 </Link> 
@@ -159,11 +159,11 @@ export default function ContactUs() {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="contact_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="contact_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="text-c_00080D mt-5 text-10px leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="text-c_00080D mt-5 leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
-                            <Button className="h-11 w-full text-sm" disabled={!enableSubmit} onClick={() => {submitHandler()}}>SUBMIT</Button>
+                            <Button className="h-11 w-full" disabled={!enableSubmit} onClick={() => {submitHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
                 
@@ -181,28 +181,28 @@ export default function ContactUs() {
                         <div className="pt-10">
                             <div className="flex flex-col">
                                 <div className="flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Address:</div>
+                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Address:</div>
                                 </div>
                                 <div className="flex items-start w-full">
                                     <div className="ttcommon_font_thin leading-36_48
                                                     text-2xl md:text-4xl">520 - 1632 Dickson Ave. Kelowna, B.C. Canada</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Canada phone:</div>
+                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Canada phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
                                     <div className="ttcommon_font_thin leading-36_48
                                                     text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">UK Phone:</div>
+                                    <div className="ttcommon_font_thin leading-14_17 uppercase">UK Phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
                                     <div className="ttcommon_font_thin leading-36_48
                                                     text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 uppercase">Email:</div>
+                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Email:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
                                     <div className="ttcommon_font_thin leading-36_48

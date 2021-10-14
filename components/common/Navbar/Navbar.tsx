@@ -18,6 +18,8 @@ import { search } from '@utils/redux/slices/productSlice'
 import router, { useRouter } from 'next/router'
 
 
+
+
 interface Link {
   href: string
   label: string
@@ -32,11 +34,11 @@ const renderSubMenu = (category_li: NavLinkArray) => {
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
             <div>
-              <div className="uppercase text-sm text-center tracking-widest leading-14_17 cursor-pointer hover:underline">
+              <div className="uppercase text-center tracking-widest leading-14_17 cursor-pointer hover:underline">
                 <Link href={item.link}>{item.name}</Link>
               </div>
               {(item.subItem_li || []).map((item1, index1) => {
-                return <div className="text-center text-sm leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>
+                return <div className="text-center leading-14_17 mt-5 cursor-pointer hover:underline" key={`shop_menu-${index}-${index1}`}>
                           <Link href={item1.link}>{item1.name}</Link>
                         </div>
               })}
@@ -226,7 +228,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                           onChange={(event) => {setSearchKey(event.target.value)}}
                           autoFocus={enableSearchBar}/>
                         <button 
-                          className="underline uppercase text-sm text-white tracking-widest ml-auto"
+                          className="underline uppercase text-white tracking-widest ml-auto"
                           onClick={() => {searchProductHandler()}}>Enter</button>
                         <button className="ml-9 text-white" onClick={() => {showSearchBarHandler(false)}}>
                           <Cross />

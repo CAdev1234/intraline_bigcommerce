@@ -73,13 +73,13 @@ const RenderCategorySwiper:FC = () => {
                         </div>
                         <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
                                          h-12 flex items-center justify-center
-                                         text-sm md:text-2xl
+                                         md:text-2xl
                                          leading-14_17 md:leading-none">{item.name}</div>
                     </div>
-                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-150 ease-linear opacity-0 hover:opacity-100">
+                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
                         <div className="my-auto flex flex-col">
                             <Link href={item.link}>
-                                <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                                <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
                             </Link>
                         </div>
                     </div>
@@ -126,17 +126,17 @@ export default function AllProducts() {
                             <img className="w-full" src={item.img} alt="" style={{aspectRatio: '1'}} />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest
-                                        text-sm sm:text-2xl
+                                        sm:text-2xl
                                         leading-14_17 sm:leading-none">{item.title}</div>
                         <div className="textellipsis_2 mt-2 px-3
-                                        sm:text-sm text-xs
+                                        sm:text-base text-xs
                                         sm:leading-14_26 leading-normal">{item.detail}</div>
-                        <div className="absolute top-0 w-full h-full flex flex-col bg-c_00080D bg-opacity-50 transition duration-150 ease-linear opacity-0 hover:opacity-100">
+                        <div className="absolute top-0 w-full h-full flex flex-col bg-c_00080D bg-opacity-50 transition duration-500 ease-linear opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
                                         <Button className="h-11 w-full
-                                                            text-xs sm:text-sm">learn more</Button>
+                                                            text-xs sm:text-base">learn more</Button>
                                     </Link>
                                     {logined && <div className="mt-2 items-center h-11 text-white
                                                                 block sm:flex">
@@ -144,19 +144,19 @@ export default function AllProducts() {
                                                         w-full sm:w-24">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => decreaseNumHandler(event)}>-</button>
                                             <div className="mx-auto
-                                                            text-xs sm:text-sm">1</div>
+                                                            text-xs sm:text-base">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => increaseNumHandler(event)}>+</button>
                                         </div>
                                         <Button className="h-full flex-1
                                                            ml-0 sm:ml-3
                                                            mt-2 sm:mt-0
                                                            w-full sm:w-auto
-                                                           text-xs sm:text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
+                                                           text-xs sm:text-base" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>}
                                     {!logined && 
                                         <div className="mt-2 flex items-center h-11 text-white">
                                             <Button className="h-full w-full
-                                                                text-xs sm:text-sm" 
+                                                                text-xs sm:text-base" 
                                                     onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
                                         </div>
                                     }
@@ -188,7 +188,7 @@ export default function AllProducts() {
                     </div>
                 </div>
                 <div className="mt-10 mx-auto flex items-center justify-center">
-                    <div className="uppercase text-sm tracking-widest text-c_00080D">Scroll to browser all</div>
+                    <div className="uppercase tracking-widest text-c_00080D">Scroll to browser all</div>
                     <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
                 </div>
             </div>
@@ -199,9 +199,9 @@ export default function AllProducts() {
             <div className="bg-c_C6CBDD py-25 flex flex-col">
                 <div className="uppercase text-xs ml-5 mb-8
                                 block sm:hidden">Showing All Products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
-                <div className="flex items-center text-sm tracking-widest uppercase
+                <div className="flex items-center tracking-widest uppercase
                                 mx-0 lg:mx-28 xl:mx-172 2xl:mx-172">
-                    <div className="uppercase text-xs
+                    <div className="uppercase
                                     hidden sm:block">Showing All Products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
                     <div className="flex items-center cursor-pointer
                                     ml-0 sm:ml-auto">
@@ -209,7 +209,7 @@ export default function AllProducts() {
                             enable_underline={false}
                             default_option="Filters" 
                             option_li={['Filter 1', 'Filter 2', 'Filter 3']} 
-                            className={"bg-transparent relative z-10 w-30 text-xs sm:text-sm"} 
+                            className={"bg-transparent relative z-10 w-30 text-xs sm:text-base"} 
                             option_class={"bg-white justify-center hover:bg-gray-100"} 
                             returnVal={setFilter}/>
                     </div>
@@ -220,7 +220,7 @@ export default function AllProducts() {
                                 enable_underline={false}
                                 default_option="SORT BY PRICE(LOWEST)" 
                                 option_li={['PRICE (LOWEST)', 'PRICE (HIGHEST)', 'TOP RATED', 'NEWEST']} 
-                                className={"bg-transparent relative z-10 w-60 text-xs sm:text-sm"} 
+                                className={"bg-transparent relative z-10 w-60 text-xs sm:text-base"} 
                                 option_class={"bg-white justify-center hover:bg-gray-100"} 
                                 returnVal={setSort}/>
                         </div>
@@ -234,14 +234,14 @@ export default function AllProducts() {
                     {renderProducts()}
                 </div>
                 {/* <div className="mt-20 flex items-center mx-auto">
-                    <div className="p-2 text-sm tracking-widest mx-4">1</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">2</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">3</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">...</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">7</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">8</div>
-                    <div className="p-2 text-sm tracking-widest mx-4">9</div>
-                    <div className="ttcommon_font_bold p-2 text-sm tracking-widest mx-4 uppercase">next</div>
+                    <div className="p-2 tracking-widest mx-4">1</div>
+                    <div className="p-2 tracking-widest mx-4">2</div>
+                    <div className="p-2 tracking-widest mx-4">3</div>
+                    <div className="p-2 tracking-widest mx-4">...</div>
+                    <div className="p-2 tracking-widest mx-4">7</div>
+                    <div className="p-2 tracking-widest mx-4">8</div>
+                    <div className="p-2 tracking-widest mx-4">9</div>
+                    <div className="ttcommon_font_bold p-2 tracking-widest mx-4 uppercase">next</div>
                 </div> */}
             </div>
         </div>

@@ -111,7 +111,7 @@ export default function Moisturizer() {
                                                 text-6xl md:text-7xl lg:text-8xl xl:text-120px" ><span className="ttcommon_font_bold">Moisturizer</span></div>
                                 <div className="ttcommon_font_thin mt-5 leading-36_48
                                                 text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
-                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26
+                                <div className="ttcommon_font_thin mt-2 leading-14_26
                                                 mr-5 lg:mr-36">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
@@ -125,7 +125,7 @@ export default function Moisturizer() {
                                         <div className="mx-auto">{numMoisturizer}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="h-full text-sm
+                                    <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
                                                     mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
@@ -148,7 +148,7 @@ export default function Moisturizer() {
                     <div className="mt-16 pb-15">
                         <div className="items-center justify-center
                                         hidden md:flex">
-                            <span className="ttcommon_font uppercase text-sm tracking-widest
+                            <span className="ttcommon_font uppercase tracking-widest
                                             ">Scroll for more details</span>
                             <ChevronDown className="w-4 ml-4" />
                         </div>
@@ -167,7 +167,7 @@ export default function Moisturizer() {
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                     text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64 text-sm">Browse catalog</Button>
+                        <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
             </div>
@@ -212,19 +212,19 @@ export default function Moisturizer() {
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-xs">
+                            <div className="ttcommon_font_thin">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="moisturizer_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="moisturizer_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

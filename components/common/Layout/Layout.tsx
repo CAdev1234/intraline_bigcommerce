@@ -159,7 +159,7 @@ const Layout: FC<Props> = ({
           hide={acceptedCookies}
           action={
             <div className="ml-auto flex items-center">
-              <button className="text-c_00080D uppercase underline text-sm tracking-widest" onClick={() => {onAcceptCookies()}}>Dismiss</button>
+              <button className="text-c_00080D uppercase underline text-base tracking-widest" onClick={() => {onAcceptCookies()}}>Dismiss</button>
               <Button 
                 className="ml-7_5 h-11 w-64"
                 onClick={() => onAcceptCookies()}>Accept</Button>

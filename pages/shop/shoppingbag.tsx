@@ -42,7 +42,7 @@ export default function ShoppingBag() {
                         mt-16 md:mt-0
                         px-5 md:px-15">
             <div className="bg-transparent h-15 w-full"></div>
-            <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+            <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                 <div className="flex items-center cursor-pointer">
                     <span className="mr-1"><Link href="/">Home</Link></span>
                     <span className="mr-1"><ChevronRight className="w-4"/></span>
@@ -59,11 +59,11 @@ export default function ShoppingBag() {
                                         <div className="w-24 flex flex-col">
                                             <img className="w-full my-auto" src={item.img} alt="" style={{aspectRatio: '1'}}/>
                                         </div>
-                                        <div className="ml-5 text-sm leading-14_26 w-1/3">
+                                        <div className="ml-5 leading-14_26 w-1/3">
                                             <div className="">Intraline's</div>
                                             <div className="ttcommon_font_bold">{item.title}</div>
                                         </div>
-                                        <div className="ttcommon_font_bold mx-auto tracking-widest text-sm leading-14_17">${item.price}</div>
+                                        <div className="ttcommon_font_bold mx-auto tracking-widest leading-14_17">${item.price}</div>
                                         <div className="border border-c_00080D h-11 w-24 flex items-center mx-auto">
                                             <button className="mx-auto" onClick={(event) => {decreaseNumHandler(event, index)}}>-</button>
                                             <div className="mx-auto">{item.quantity}</div>
@@ -81,35 +81,35 @@ export default function ShoppingBag() {
                                     lg:block xl:hidden">
                         <div className="pb-7">
                             <div className="ttcommon_font_bold uppercase tracking-widest text-2xl leading-24_29">Order Summary</div>
-                            <div className="flex items-center tracking-widest text-sm leading-14_17 mt-8">
+                            <div className="flex items-center tracking-widest leading-14_17 mt-8">
                                 <div className="uppercase">Subtotal:</div>
                                 <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                             </div>
-                            <div className="flex items-center tracking-widest text-sm leading-14_17 mt-5">
+                            <div className="flex items-center tracking-widest leading-14_17 mt-5">
                                 <div className="uppercase">Shipping Estimate:</div>
                                 <div className="ttcommon_font_bold ml-auto">$30.00</div>
                             </div>
-                            <div className="ttcommon_font_thin mt-2 text-sm leading-14_26">Free if you add $200.00 to your bag.</div>
+                            <div className="ttcommon_font_thin mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
                         </div>
                         <div className="pt-7">
-                            <div className="flex items-center text-sm leading-14_17 tracking-widest">
+                            <div className="flex items-center leading-14_17 tracking-widest">
                                 <div className="uppercase">Total:</div>
                                 <div className=" ttcommon_font_bold ml-auto">${total_price}</div>
                             </div>
-                            <div className="ttcommon_font_thin mt-2 text-sm leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
+                            <div className="ttcommon_font_thin mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
                             <Link href="/shop/checkout">
-                                <Button className="mt-15 h-11 w-full text-sm">Checkout</Button>
+                                <Button className="mt-15 h-11 w-full">Checkout</Button>
                             </Link>
                         </div>
                     </div>
 
                     <div className="bg-c_F7F7F7 w-full p-7 flex items-center 
                                     mt-7_5 xl:mt-44">
-                        <div className="text-sm leading-14_26">
+                        <div className="text-base leading-14_26">
                             <div className="ttcommon_font_bold">Free Shipping</div>
                             <div>Free standard shipping when you spend $500+. <Link href="/"><span className="underline">Details.</span></Link></div>
                         </div>
-                        <div className="text-sm leading-14_26 ml-auto">
+                        <div className="text-base leading-14_26 ml-auto">
                             <div className="ttcommon_font_bold">Secure Payment</div>
                             <div>We accept most credit cards, Paypal, American Express. <Link href="/"><span className="underline">Details.</span></Link></div>
                         </div>
@@ -121,24 +121,24 @@ export default function ShoppingBag() {
                                 hidden xl:block">
                     <div className="pb-7">
                         <div className="ttcommon_font_bold uppercase tracking-widest text-2xl leading-24_29">Order Summary</div>
-                        <div className="flex items-center tracking-widest text-sm leading-14_17 mt-8">
+                        <div className="flex items-center tracking-widest leading-14_17 mt-8">
                             <div className="uppercase">Subtotal:</div>
                             <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
-                        <div className="flex items-center tracking-widest text-sm leading-14_17 mt-5">
+                        <div className="flex items-center tracking-widest leading-14_17 mt-5">
                             <div className="uppercase">Shipping Estimate:</div>
                             <div className="ttcommon_font_bold ml-auto">$30.00</div>
                         </div>
-                        <div className="ttcommon_font_thin mt-2 text-sm leading-14_26">Free if you add $200.00 to your bag.</div>
+                        <div className="ttcommon_font_thin mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
                     </div>
                     <div className="pt-7">
-                        <div className="flex items-center text-sm leading-14_17 tracking-widest">
+                        <div className="flex items-center leading-14_17 tracking-widest">
                             <div className="uppercase">Total:</div>
                             <div className=" ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
-                        <div className="ttcommon_font_thin mt-2 text-sm leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
+                        <div className="ttcommon_font_thin mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
                         <Link href="/shop/checkout">
-                            <Button className="mt-15 h-11 w-full text-sm">Checkout</Button>
+                            <Button className="mt-15 h-11 w-full">Checkout</Button>
                         </Link>
                     </div>
                 </div>

@@ -215,7 +215,7 @@ export default function MyAccount() {
             <div className="h-15 w-full"></div>
             <div className="pt-12_5 pb-25 bg-c_CCE7EF
                             px-5 md:px-15">
-                <div className="flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer">
                         <span className="ttcommon_font"><Link href="/">Home</Link></span>
                         <span className="ml-1"><ChevronRight className="w-4"/></span>
@@ -223,56 +223,56 @@ export default function MyAccount() {
                     </div>
                 </div>
                 <div className="ttcommon_font_bold mt-10 text-4xl leading-36_26">Hello {`${user.f_name} ${user.l_name}`}.</div>
-                <div className="mt-5 text-sm leading-14_26">Edit your account information, check your orders or write a product review.</div>
+                <div className="mt-5 leading-14_26">Edit your account information, check your orders or write a product review.</div>
                 <div className="mt-10 grid items-start w-full
                                 grid-cols-1 md:grid-cols-3">
                     <div className="">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">My Account</div>
-                        <div className="mt-5 text-sm leading-14_26">
+                        <div className="mt-5 leading-14_26">
                             <span className="ttcommon_font_bold">Name:</span>
                             <span className="ml-2.5">{`${user.f_name} ${user.l_name}`}</span>
                         </div>
-                        <div className="mt-2.5 text-sm leading-14_26">
+                        <div className="mt-2.5 leading-14_26">
                             <span className="ttcommon_font_bold">Email:</span>
                             <span className="ml-2.5">{user.email}</span>
                         </div>
-                        <div className="mt-2.5 text-sm leading-14_26">
+                        <div className="mt-2.5 leading-14_26">
                             <span className="ttcommon_font_bold">Phone:</span>
                             <span className="ml-2.5">{user.mobile}</span>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Edit information</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {logoutHandler()}}>Log out</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {delAccountHandler()}}>Delete account</button>
                         </div>
                     </div>
                     <div className="mt-7_5 md:mt-0">
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Addresses</div>
-                        <div className="mt-5 text-sm leading-14_26">
+                        <div className="mt-5 leading-14_26">
                             <span className="ttcommon_font_bold">Shipping Address:</span>
                             <span className="ml-2.5"></span>
                         </div>
-                        <div className="mt-2.5 text-sm leading-14_26">
+                        <div className="mt-2.5 leading-14_26">
                             <div className="">{`${ship_address.f_name} ${ship_address.l_name}`}</div>
                             <div>{ship_address.address}</div>
                             <div>{ship_address.city}, {ship_address.country} {ship_address.postcode}</div>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editShippingAddressHandler()}}>Edit information</button>
                         </div>
-                        <div className="mt-7_5 text-sm leading-14_26">
+                        <div className="mt-7_5 leading-14_26">
                             <div className="ttcommon_font_bold">Billing Address:</div>
                             {bill_address.address === "" && <div className="mt-2.5">Not Provided</div>}
                             {bill_address.address !== "" && 
-                                <div className="mt-2.5 text-sm leading-14_26">
+                                <div className="mt-2.5 leading-14_26">
                                     <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
                                     <div>{bill_address.address}</div>
                                     <div>{bill_address.city}, {bill_address.country} {bill_address.postcode}</div>
@@ -280,12 +280,12 @@ export default function MyAccount() {
                             }
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editBillAddressHandler()}}>Edit information</button>
                         </div>
                         {bill_address.address === "" && 
                             <div>
-                                <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                                <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
                                     onClick={() => {addBillAddressHandler()}}>Add Address</button>
                             </div>
                         }
@@ -294,11 +294,11 @@ export default function MyAccount() {
                         <div className="ttcommon_font_bold uppercase text-2xl leading-24_29">Payment method</div>
                         {[0].map((item, index) => {
                             return <div key={`payment_${index}`}>
-                                        <div className="mt-5 text-sm leading-14_26">
+                                        <div className="mt-5 leading-14_26">
                                             <span className="ttcommon_font_bold">Payment Method {index + 1}:</span>
                                             <span className="ml-2.5"></span>
                                         </div>
-                                        <div className="mt-2.5 text-sm leading-14_26">
+                                        <div className="mt-2.5 leading-14_26">
                                             <div className="">{payment.name}</div>
                                             <div>{payment.number}</div>
                                             <div>{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
@@ -306,11 +306,11 @@ export default function MyAccount() {
                                     </div>
                         })}
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editPaymentHandler()}}>Edit Payment Method</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase text-sm leading-14_17 tracking-widest underline"
+                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {addPaymentHandler()}}>Add Payment Method</button>
                         </div>
                     </div>
@@ -323,10 +323,10 @@ export default function MyAccount() {
                 <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">My orders</div>
                 <div className="mt-7_5 bg-c_C6CBDD h-12 flex items-center
                                 px-5 md:px-15">
-                    <div className="text-sm leading-14_26 text-center uppercase w-1/5">Order date</div>
-                    <div className="text-sm leading-14_26 text-center uppercase w-1/5">order number</div>
-                    <div className="text-sm leading-14_26 text-center uppercase w-1/5">status</div>
-                    <div className="text-sm leading-14_26 text-center uppercase w-1/5">tracking</div>
+                    <div className="text-base leading-14_26 text-center uppercase w-1/5">Order date</div>
+                    <div className="text-base leading-14_26 text-center uppercase w-1/5">order number</div>
+                    <div className="text-base leading-14_26 text-center uppercase w-1/5">status</div>
+                    <div className="text-base leading-14_26 text-center uppercase w-1/5">tracking</div>
                 </div>
                 {order_li.length === 0 &&
                     <div className="text-5xl text-c_00080D ttcommon_font text-center my-10">There is no order.</div>
@@ -336,12 +336,12 @@ export default function MyAccount() {
                         return <div key={`order_item_${index}`}>
                                     <div className="bg-c_F7F7F7 h-20 items-center flex mb-1
                                                         px-5 md:px-15">
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_date}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_id}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_state}</div>
-                                        <div className="text-sm leading-14_26 text-center w-1/5">{item.order_tracking}</div>
+                                        <div className="text-base leading-14_26 text-center w-1/5">{item.order_date}</div>
+                                        <div className="text-base leading-14_26 text-center w-1/5">{item.order_id}</div>
+                                        <div className="text-base leading-14_26 text-center w-1/5">{item.order_state}</div>
+                                        <div className="text-base leading-14_26 text-center w-1/5">{item.order_tracking}</div>
                                         <div className="flex-1 flex flex-col">
-                                            <Button className="h-11 ml-auto text-sm
+                                            <Button className="h-11 ml-auto
                                                                 md:w-28 lg:w-56"
                                                 onClick={() => {
                                                     let new_array = [...enableShowMore]
@@ -353,23 +353,23 @@ export default function MyAccount() {
                                     { enableShowMore[index] && 
                                         <div className="px-15">
                                             <div className="flex items-center border-b-2 border-c_00080D border-opacity-20 h-14">
-                                                <div className="ttcommon_font_bold text-sm leading-14_26 text-center w-1/5">Item</div>
-                                                <div className="ttcommon_font_bold text-sm leading-14_26 text-center w-1/5">Quantity</div>
-                                                <div className="ttcommon_font_bold text-sm leading-14_26 text-center w-1/5">Price</div>
-                                                <div className="ttcommon_font_bold text-sm leading-14_26 text-center w-1/5">Reference</div>
+                                                <div className="ttcommon_font_bold leading-14_26 text-center w-1/5">Item</div>
+                                                <div className="ttcommon_font_bold leading-14_26 text-center w-1/5">Quantity</div>
+                                                <div className="ttcommon_font_bold leading-14_26 text-center w-1/5">Price</div>
+                                                <div className="ttcommon_font_bold leading-14_26 text-center w-1/5">Reference</div>
                                             </div>
                                             <div className="mt-5">
                                                 {item.order_subItem.map((item1, index1) => {
                                                     return <div className="flex items-center mb-3" key={`product_${index1}_${item1.title}`}>
-                                                                <div className="flex items-center text-sm leading-14_26 text-center w-1/5">
+                                                                <div className="flex items-center leading-14_26 text-center w-1/5">
                                                                     <div className="w-25 h-36 px-2 bg-c_CCE7EF flex flex-col">
                                                                         <img src={item1.img} className="w-full my-auto" alt="" />
                                                                     </div>
                                                                     <div className="ml-8">{item1.title}</div>
                                                                 </div>
-                                                                <div className="text-sm leading-14_26 text-center w-1/5">{item1.quantity}</div>
-                                                                <div className="text-sm leading-14_26 text-center w-1/5">${item1.price}</div>
-                                                                <div className="text-sm leading-14_26 text-center w-1/5">{item.reference}</div>
+                                                                <div className="text-base leading-14_26 text-center w-1/5">{item1.quantity}</div>
+                                                                <div className="text-base leading-14_26 text-center w-1/5">${item1.price}</div>
+                                                                <div className="text-base leading-14_26 text-center w-1/5">{item.reference}</div>
                                                             </div>
                                                 })}
                                             </div>
@@ -389,23 +389,23 @@ export default function MyAccount() {
                         return <div key={`order_item_${index}`}>
                                     <div className="mb-2 bg-c_F7F7F7 flex flex-col px-5 pt-4 pb-7_5">
                                         <div className="flex items-center my-2">
-                                            <div className="text-sm leading-none uppercase">Order date</div>
-                                            <div className="text-sm leading-none ml-auto">{item.order_date}</div>
+                                            <div className="text-base leading-none uppercase">Order date</div>
+                                            <div className="text-base leading-none ml-auto">{item.order_date}</div>
                                         </div>
                                         <div className="flex items-center my-2">
-                                            <div className="text-sm leading-none uppercase ">order number</div>
-                                            <div className="text-sm leading-none ml-auto">{item.order_id}</div>
+                                            <div className="text-base leading-none uppercase ">order number</div>
+                                            <div className="text-base leading-none ml-auto">{item.order_id}</div>
                                         </div>
                                         <div className="flex items-center my-2">
-                                            <div className="text-sm leading-none uppercase ">status</div>
-                                            <div className="text-sm leading-none ml-auto">{item.order_state}</div>
+                                            <div className="text-base leading-none uppercase ">status</div>
+                                            <div className="text-base leading-none ml-auto">{item.order_state}</div>
                                         </div>
                                         <div className="flex items-center my-2">
-                                            <div className="text-sm leading-none uppercase ">tracking</div>
-                                            <div className="text-sm leading-none ml-auto">{item.order_tracking}</div>
+                                            <div className="text-base leading-none uppercase ">tracking</div>
+                                            <div className="text-base leading-none ml-auto">{item.order_tracking}</div>
                                         </div>
                                         <div className="mt-7_5 flex flex-col">
-                                            <Button className="h-11 text-sm w-full"
+                                            <Button className="h-11 w-full"
                                                     onClick={() => {
                                                         let new_array = [...enableShowMore]
                                                         new_array[index] = !enableShowMore[index]
@@ -423,20 +423,20 @@ export default function MyAccount() {
                                                                 </div>
                                                                 <div className="flex flex-col w-full">
                                                                     <div className="flex items-center mt-4">
-                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Item</div>
-                                                                        <div className="text-sm leading-none ml-auto">{item1.title}</div>
+                                                                        <div className="ttcommon_font_bold leading-14_26">Item</div>
+                                                                        <div className="text-base leading-none ml-auto">{item1.title}</div>
                                                                     </div>
                                                                     <div className="flex items-center mt-4">
-                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Quantity</div>
-                                                                        <div className="text-sm leading-none ml-auto">{item1.quantity}</div>
+                                                                        <div className="ttcommon_font_bold leading-14_26">Quantity</div>
+                                                                        <div className="text-base leading-none ml-auto">{item1.quantity}</div>
                                                                     </div>
                                                                     <div className="flex items-center mt-4">
-                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Price</div>
-                                                                        <div className="text-sm leading-none ml-auto">${item1.price}</div>
+                                                                        <div className="ttcommon_font_bold leading-14_26">Price</div>
+                                                                        <div className="text-base leading-none ml-auto">${item1.price}</div>
                                                                     </div>
                                                                     <div className="flex items-center mt-4">
-                                                                        <div className="ttcommon_font_bold text-sm leading-14_26">Reference</div>
-                                                                        <div className="text-sm leading-none ml-auto">{item.reference}</div>
+                                                                        <div className="ttcommon_font_bold leading-14_26">Reference</div>
+                                                                        <div className="text-base leading-none ml-auto">{item.reference}</div>
                                                                     </div>
                                                                 </div>   
                                                             </div>
@@ -467,7 +467,7 @@ export default function MyAccount() {
                             return <div className="bg-white p-7_5 mb-2.5
                                         px-5 md:px-7_5
                                         py-10 md:py-7_5" key={`review_${index}`}>
-                                        <div className="flex items-center text-base leading-14_17">
+                                        <div className="flex items-center leading-14_17">
                                             <span className="ttcommon_font_bold">{item.product} - {item.title}</span>
                                             <span className="ml-5
                                                             hidden md:block">{item.created_at}</span>
@@ -479,8 +479,8 @@ export default function MyAccount() {
                                         <div className="block md:hidden mt-3">
                                             <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                         </div>
-                                        <div className="mt-2.5 text-base leading-14_17 break-words">{item.detail}</div>
-                                        <div className="ttcommon_font mt-7_5 text-sm leading-14_17 tracking-widest uppercase underline flex items-center">
+                                        <div className="mt-2.5 leading-14_17 break-words">{item.detail}</div>
+                                        <div className="ttcommon_font mt-7_5 leading-14_17 tracking-widest uppercase underline flex items-center">
                                             <button className="uppercase" onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
                                             <button className="ml-5 uppercase" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
                                         </div>
@@ -488,7 +488,7 @@ export default function MyAccount() {
                         })}
                     </div>
                     <div className="mt-5">
-                        <Button className="h-11 text-sm
+                        <Button className="h-11
                                             w-full md:w-72" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Add new review</Button>
                     </div>
                 </div>
@@ -508,7 +508,7 @@ export default function MyAccount() {
                                 <div className="ttcommon_font_bold
                                                 text-2xl md:text-4xl
                                                 leading-tight md:leading-36_26">Edit Information.</div>
-                                <div className="text-sm leading-14_26
+                                <div className="text-base leading-14_26
                                                 mt-2.5 md:mt-5">Make changes to your account info.</div>
                                 <div className="mt-7_5 md:mt-10">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="First Name" defaultValue={selectedAccont.f_name}
@@ -527,9 +527,9 @@ export default function MyAccount() {
                                     onChange={changeUserMobileHandler}/>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
-                                    <Button className="text-sm h-11 w-64"
+                                    <Button className="text-base h-11 w-64"
                                         onClick={() => {submitUpdatedUserHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
+                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>
@@ -555,7 +555,7 @@ export default function MyAccount() {
                                 <div className="ttcommon_font_bold
                                                 text-2xl md:text-4xl
                                                 leading-tight md:leading-36_26">Add Review.</div>
-                                <div className="text-sm
+                                <div className="text-base
                                                 leading-tight md:leading-14_26
                                                 mt-2.5 md:mt-5">Add a new review from a previous purchase.</div>
                                 <div className="
@@ -582,9 +582,9 @@ export default function MyAccount() {
                                     </div>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
-                                    <Button className="text-sm h-11 w-64"
+                                    <Button className="text-base h-11 w-64"
                                         onClick={() => {submitNewReviewHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
+                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>
@@ -643,9 +643,9 @@ export default function MyAccount() {
                                     </div>
                                 </div>
                                 <div className="mt-7_5 flex items-center">
-                                    <Button className="text-sm h-11 w-64"
+                                    <Button className="text-base h-11 w-64"
                                         onClick={() => {submitEditReviewHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline text-sm tracking-widest ml-7_5"
+                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {closeEditReviewModalHandler()}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {closeEditReviewModalHandler()}}>
@@ -674,10 +674,10 @@ export default function MyAccount() {
                         <div className="px-10 py-5 text-gray-600">Do you want to delete review correctly?</div>
                     
                         <div className="px-5 py-4 flex justify-end">
-                            <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                            <button className="text-base py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
                                 onClick={() => {submitDelReviewHandler()}}>Yes
                             </button>
-                            <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                            <button className="text-base py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
                                 onClick={() => {closeDelReviewModalHandler()}}>Close
                             </button>
                         </div>

@@ -17,7 +17,7 @@
 
 /*position new box*/
 .root input + label::before {
-    @apply border border-solid absolute left-0 top-0 bg-white;
+    @apply border border-solid absolute left-0 top-1/2 transform -translate-y-1/2 bg-white;
     content: "";
     height: 14px;
     width: 14px;
@@ -25,7 +25,7 @@
 
 /*svg background styles*/
 .root input + label::after {
-    @apply absolute top-0.5 left-0.5 bg-no-repeat opacity-0;
+    @apply absolute left-0.5 top-1/2 transform -translate-y-1/2 bg-no-repeat opacity-0;
     content: "";
     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check.svg");
     height: 10px;

@@ -75,7 +75,7 @@ export default function Masque() {
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col">
             <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="absolute top-28 left-0 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="mr-1"><Link href="/">Home</Link></span>
@@ -94,7 +94,7 @@ export default function Masque() {
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">Biocellulose</div>
                                 <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Masque</span></div>
                                 <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 text-base leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
+                                <div className="ttcommon_font_thin mt-2 mr-36 leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 100ML</span>
@@ -105,19 +105,32 @@ export default function Masque() {
                                         <div className="mx-auto">{numMasque}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full text-sm" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                    <Button className="ml-3 w-52 h-full" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
-                        <div className="relative flex flex-col items-center ml-auto my-auto rounded-full bg-c_CCE7EF" style={{height: 576, width: 576}}>
-                            {logined && <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
-                            <div className="my-auto relative flex flex-col h-3/4">
-                                <img className="h-full" src="/assets/img/skincare2.png" alt="" />
+                        <div className="w-146">
+                            <div className="relative w-full flex flex-col bg-c_CCE7EF aspect-w-1 aspect-h-1 rounded-full">
+                                <div>
+                                    {logined && <Button className="ttcommon_font_bold absolute right-5 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                                </div>
+                                <div className="w-7/12 m-auto flex flex-col">
+                                    <img className="w-full my-auto" src="/assets/img/skincare2.png" alt="" />
+                                </div>
                             </div>
                         </div>
+                        {/* <div className="relative flex flex-col items-center ml-auto w-146 aspect-w-1 aspect-h-1">
+                            <div className="w-full h-full relative bg-c_CCE7EF my-auto rounded-full">
+                                {logined && <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                                <div className="my-auto relative flex flex-col h-3/4">
+                                    <img className="h-full" src="/assets/img/skincare2.png" alt="" />
+                                </div>
+                            </div>
+                            
+                        </div> */}
                     </div>
-                    <div className="flex items-center justify-center">
-                        <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                    <div className="flex items-center justify-center mt-5">
+                        <span className="ttcommon_font uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
@@ -129,7 +142,7 @@ export default function Masque() {
                     <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Lorem Ipsum.</div>
                     <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-64 text-sm">Browse catalog</Button>
+                        <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
             </div>
@@ -148,7 +161,7 @@ export default function Masque() {
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
+                        <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
                             <Input type="text" placeholder="Full Name"/>
                         </div>
@@ -171,19 +184,19 @@ export default function Masque() {
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-xs">
+                            <div className="ttcommon_font_thin">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="masque_checkbox" type="checkbox" className="ttcommon_font_thin text-10px" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="masque_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

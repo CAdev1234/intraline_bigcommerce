@@ -7,7 +7,7 @@ export default function IndustryCourse() {
     return <div className="ttcommon_font_thin">
                 {/* course part */}
                 <div className="relative px-15 mt-28 pb-25 bg-white">
-                    <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="absolute top-28 left-0 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="ttcommon_font flex items-center
                                         px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                             <span className="">Home</span>
@@ -28,7 +28,7 @@ export default function IndustryCourse() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                         <div className="my-auto mx-auto w-64">
                                             <div className="flex flex-col">
-                                                <Button className=" h-11 text-sm">Learn more</Button>
+                                                <Button className=" h-11">Learn more</Button>
                                             </div>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@ export default function IndustryCourse() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                         <div className="my-auto mx-auto w-64">
                                             <div className="flex flex-col">
-                                                <Button className=" h-11 text-sm">Learn more</Button>
+                                                <Button className=" h-11">Learn more</Button>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@ export default function IndustryCourse() {
                 <div className="bg-c_C6CBDD py-25">
                     <div className="w-106_5 mx-auto">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">Enroll Now.</div>
-                        <div className="mt-5 text-sm leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
+                        <div className="mt-5 leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
                         <div className="">
                             <div className="mt-10">
                                 <Input className="bg-c_F7F7F7" type="text" placeholder="First name"/>
@@ -71,16 +71,16 @@ export default function IndustryCourse() {
                                 </select>
                             </div>
                             <div className="mt-5">
-                                <div className="text-sm leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
+                                <div className="text-base leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
                             </div>
                             <div className="mt-2.5">
                                 <div className="flex items-center">
                                     <input type="radio" />
-                                    <label htmlFor="" className="text-sm leading-14_26 ml-3">Yes</label>
+                                    <label htmlFor="" className="text-base leading-14_26 ml-3">Yes</label>
                                 </div>
                                 <div className="mt-1 flex items-center">
                                     <input type="radio" />
-                                    <label htmlFor="" className="text-sm leading-14_26 ml-3">No</label>
+                                    <label htmlFor="" className="text-base leading-14_26 ml-3">No</label>
                                 </div>
                             </div>
                             <div className="mt-4">
@@ -102,7 +102,7 @@ export default function IndustryCourse() {
                             </div>
                             <div className="text-xs text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                             <div className="mt-10">
-                                <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                                <Button className="h-11 w-full">SUBMIT</Button>
                             </div>
                         </div>
                     </div>

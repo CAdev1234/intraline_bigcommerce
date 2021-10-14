@@ -79,7 +79,7 @@ export default function AboutUs() {
                                     <div className="mt-7_5">
                                         <img className="w-full" src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
                                     </div>
-                                    <div className="mt-7_5 ttcommon_font_thin text-base leading-14_26">{item.detail}</div>
+                                    <div className="mt-7_5 ttcommon_font_thin leading-14_26">{item.detail}</div>
                                 </div>
                     })}
                 </div>
@@ -92,7 +92,7 @@ export default function AboutUs() {
                                 px-5 md:px-0">
                     <div className="flex flex-col max-w-lg mx-auto">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5 text-sm">We are here to help --- reach out with any questions.</p>
+                        <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
                             <Input className="bg-c_F7F7F7" type="text" placeholder="Full name"/>
                         </div>
@@ -116,9 +116,9 @@ export default function AboutUs() {
                             <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                            <div className="ttcommon_font_thin leading-14_17">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-1">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
@@ -126,13 +126,13 @@ export default function AboutUs() {
                         <div className="mt-5 flex items-center">
                             <div className="flex">
                                 {/* <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" defaultChecked/> */}
-                                <Checkbox id="aboutus_checkbox" className="ttcommon_font_thin text-10px" type="checkbox" label="I agree to receive other communications from Intraline."/>
+                                <Checkbox id="aboutus_checkbox" className="ttcommon_font_thin" type="checkbox" label="I agree to receive other communications from Intraline."/>
                             </div>
-                            {/* <label className="ttcommon_font_thin ml-2 text-10px leading-extra-loose" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label> */}
+                            {/* <label className="ttcommon_font_thin ml-2 leading-14_17" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label> */}
                         </div>
-                        <div className="text-10px leading-extra-loose text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                            <Button className="h-11 w-full">SUBMIT</Button>
                         </div>
                     </div>
                 </div>

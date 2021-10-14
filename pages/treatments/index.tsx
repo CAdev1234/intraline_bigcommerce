@@ -123,7 +123,7 @@ export default function Treatments() {
                         <div className="flex-1 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold mt-7_5 text-left text-base">0{index + 1}</div>
+                        <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
                         <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
                     </div>
@@ -135,7 +135,7 @@ export default function Treatments() {
                         <div className="flex-1 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
-                        <div className="ttcommon_font_bold mt-7_5 text-left text-base">0{index + 1}</div>
+                        <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
                         <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
                     </div>

@@ -5,7 +5,7 @@
   @apply relative h-full;
 }
 .link {
-  @apply relative h-full flex items-center text-white transition ease-in-out duration-75 cursor-pointer text-sm leading-14_17 tracking-widest uppercase md:px-3 lg:px-5 xl:px-10 2xl:px-10;  
+  @apply relative h-full flex items-center text-white transition ease-in-out duration-75 cursor-pointer leading-14_17 tracking-widest uppercase md:px-3 lg:px-5 xl:px-10 2xl:px-10;  
 }
 
 .link:hover {

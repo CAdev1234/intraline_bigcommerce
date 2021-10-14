@@ -178,7 +178,7 @@ export default function ScarKit() {
             />
             <div className="h-15 w-full bg-transparent"></div>
             <div className="relative bg-c_C3E0DC w-full flex flex-col">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer ttcommon_font
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="mr-1"><Link href="/">Home</Link></span>
@@ -222,7 +222,7 @@ export default function ScarKit() {
                                 </div>
                                 <div className="ttcommon_font_thin mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.</div>
-                                <div className="ttcommon_font_thin mt-2 text-base leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
+                                <div className="ttcommon_font_thin mt-2 leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Weight: 500GR</span>
@@ -235,7 +235,7 @@ export default function ScarKit() {
                                         <div className="mx-auto">{numScarkit}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="h-full text-sm
+                                    <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
                                                     mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
@@ -261,7 +261,7 @@ export default function ScarKit() {
             </div>
             <div className="bg-c_C3E0DC pb-15 pt-9">
                 <div className="flex items-center justify-center">
-                    <span className="ttcommon_font uppercase text-sm tracking-widest">Scroll for more details</span>
+                    <span className="ttcommon_font uppercase tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>
             </div>
@@ -281,7 +281,7 @@ export default function ScarKit() {
                             <div className="mt-2 bg-c_CCE7EF pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-7_5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">Specifics</div>
-                                    <div className="ttcommon_font_thin text-sm leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="ttcommon_font_thin leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -302,7 +302,7 @@ export default function ScarKit() {
                                 return enableSpecific[index] && 
                                     <div>
                                         <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{item.title}</div>
-                                        <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap">{item.detail}</div>
+                                        <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap">{item.detail}</div>
                                     </div>
                             })}
                         </div>
@@ -323,7 +323,7 @@ export default function ScarKit() {
                             <div className="bg-c_F7F7F7 py-7_5 px-5 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-4xl leading-tight">Ingredients.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-base leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -389,7 +389,7 @@ export default function ScarKit() {
                             <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-7_5 sm:mt-10">
-                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
+                            <Button className="h-11 w-full" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

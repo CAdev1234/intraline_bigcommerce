@@ -44,7 +44,7 @@ export default function Register() {
             <div className="bg-transparent h-15 w-full"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font
                             px-5 md:px-0">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span><Link href="/">Home</Link></span>
@@ -58,39 +58,39 @@ export default function Register() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
                     <div className="w-full">
-                        {registerResultFail && <span className="vali-span text-c_F4511E text-sm">Oops, Sorry, register was failed.</span>}
+                        {registerResultFail && <span className="vali-span text-c_F4511E">Oops, Sorry, register was failed.</span>}
                         <Input className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Email Address" onChange={setEmail}/>
-                        {email === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {email === '' && <span className="vali-span text-c_F4511E">Required.</span>}
                         {email !== '' && !validateEmail(email) &&
-                            <span className="vali-span text-c_F4511E text-sm">Email is incorrect.</span>
+                            <span className="vali-span text-c_F4511E">Email is incorrect.</span>
                         }
                     </div>
                     <div className="w-full mt-5 flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="First Name" onChange={setFName}/>
-                        {f_name === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {f_name === '' && <span className="vali-span text-c_F4511E">Required.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="text" placeholder="Last Name" onChange={setLName}/>
-                        {l_name === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {l_name === '' && <span className="vali-span text-c_F4511E">Required.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="number" placeholder="Phone Number" onChange={setMobile}/>
-                        {mobile === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
+                        {mobile === '' && <span className="vali-span text-c_F4511E">Required.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
-                        {password === '' || password.length < 8 && <span className="vali-span text-c_F4511E text-sm">Required. At least 8 characters.</span>}
+                        {password === '' || password.length < 8 && <span className="vali-span text-c_F4511E">Required. At least 8 characters.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>
-                        {c_password === '' && <span className="vali-span text-c_F4511E text-sm">Required.</span>}
-                        {c_password !== '' && c_password !== password && <span className="vali-span text-c_F4511E text-sm">Not matched.</span>}
+                        {c_password === '' && <span className="vali-span text-c_F4511E">Required.</span>}
+                        {c_password !== '' && c_password !== password && <span className="vali-span text-c_F4511E">Not matched.</span>}
                     </div>
                             
-                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {registerHandler()}} disabled={disabledSubmitBtn}>Register</Button>
+                    <Button className="mt-8 w-full h-11" onClick={() => {registerHandler()}} disabled={disabledSubmitBtn}>Register</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/login">
-                            <span className="leading-36_26 text-base underline">Already have an account?</span>
+                            <span className="leading-36_26 underline">Already have an account?</span>
                         </Link>
                     </div>
                 </div>

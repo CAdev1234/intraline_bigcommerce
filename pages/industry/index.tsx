@@ -5,7 +5,7 @@ import Link from "@components/ui/Link"
 
 export default function IndustryIndex() {
     return <div className="ttcommon_font_thin relative">
-                <div className="absolute top-28 left-0 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="absolute top-28 left-0 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="ttcommon_font">Home</span>
@@ -19,25 +19,25 @@ export default function IndustryIndex() {
                     <div className="mt-10 flex items-center">
                         <div className="w-1/2 bg-c_F5DBDD" style={{height: 411}}></div>
                         <div className="w-1/2" style={{paddingInline: 132}}>
-                            <div className="text-sm leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
+                            <div className="text-base leading-14_17 tracking-widest uppercase">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                             <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
-                            <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                            <Button className="mt-7_5 w-60 h-11 text-sm">Start Reading</Button>
+                            <div className="mt-5 leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
+                            <Button className="mt-7_5 w-60 h-11">Start Reading</Button>
                         </div>
                     </div>
                     <div className="mt-15 grid grid-cols-3 gap-x-5">
                         {[0, 1, 2].map((item, index) => {
                             return <div key={`article_${index}`}>
                                         <div className="bg-c_F5DBDD w-full" style={{height: 270}}></div>
-                                        <div className="mt-12 uppercase text-sm leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
+                                        <div className="mt-12 uppercase leading-14_17 tracking-widest">Posted 30 January 2021 by Dr. Tukba Yalcin</div>
                                         <div className="ttcommon_font_bold mt-5 text-2xl leading-36_48 uppercase">THE IMPACT OF AESTHETIC TREATMENTS ON CONFIDENCE & WELLBEING</div>
-                                        <div className="mt-5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
-                                        <Button className="mt-7_5 w-full h-11 text-sm">Start Reading</Button>
+                                        <div className="mt-5 leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</div>
+                                        <Button className="mt-7_5 w-full h-11">Start Reading</Button>
                                     </div>
                         })}
                     </div>
                     <div className="mt-15 flex items-center justify-center">
-                        <div className="text-sm uppercase tracking-widest">Browse All Articles</div>
+                        <div className="text-base uppercase tracking-widest">Browse All Articles</div>
                         <ChevronRight className="ml-3 w-3 h-3"/>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ export default function IndustryIndex() {
                         <div className="mx-auto text-center flex flex-col">
                             <div className="ttcommon_font_bold text-4xl leading-36_26">Intraline’s Courses.</div>
                             <div className="mt-6 text-4xl leading-36_48" style={{maxWidth: 650}}>Boost your skills, increase patient satisfaction, and accelerate your growth. I AM Academy was designed with you in mind.</div>
-                            <Button className="mt-7_5 mx-auto w-60 h-11 text-sm">Enroll Now</Button>
+                            <Button className="mt-7_5 mx-auto w-60 h-11">Enroll Now</Button>
                         </div>
                         <div className="mt-25 grid grid-cols-2 gap-x-5 relative z-10">
                             <div className="flex flex-col">
@@ -57,12 +57,12 @@ export default function IndustryIndex() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                         <div className="my-auto mx-auto w-10/12">
                                             <div className="flex flex-col text-white w-64 mx-auto">
-                                                <Button className="h-11 w-full text-sm">learn more</Button>
+                                                <Button className="h-11 w-full">learn more</Button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                                <div className="mt-7_5 leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
                             </div>
                             <div className="flex flex-col">
                                 <div className="ttcommon_font_bold uppercase text-2xl leading-36_48">PDO Thread COURSE.</div>
@@ -70,12 +70,12 @@ export default function IndustryIndex() {
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                                         <div className="my-auto mx-auto w-10/12">
                                             <div className="flex flex-col text-white w-64 mx-auto">
-                                                <Button className="h-11 w-full text-sm">learn more</Button>
+                                                <Button className="h-11 w-full">learn more</Button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-7_5 text-sm leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                                <div className="mt-7_5 leading-14_26">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
                             </div>
                         </div>
                     </div>
@@ -88,19 +88,19 @@ export default function IndustryIndex() {
                 <div className="bg-c_C3E0DC px-15 py-25 flex flex-col">
                     <div className="mx-auto">
                         <div className="ttcommon_font_bold text-4xl leading-36_48 text-center">Intraline's Partners.</div>
-                        <div className="mt-2.5 text-sm text-center">Learn more about our Medical Director, Key Opinion Leaders & Brands Ambassadors.</div>
+                        <div className="mt-2.5 text-center">Learn more about our Medical Director, Key Opinion Leaders & Brands Ambassadors.</div>
                         <div className="mt-7_5 flex items-center justify-center">
-                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
-                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
-                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
-                            <div className="uppercase text-sm leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
+                            <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
                         </div>
                         <div className="flex mt-15">
                             <img src="/assets/img/doctor-1.png" alt="" />
                             <div className="ml-16 flex-1 flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>
                                 <div className="mt-2.5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
-                                <Button className="mt-auto h-11 w-60 text-sm">Learn More</Button>
+                                <Button className="mt-auto h-11 w-60">Learn More</Button>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ export default function IndustryIndex() {
                     <div className="flex items-center">
                         <div className="w-106_5">
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Rheology Report</div>
-                            <div className="mt-5 text-sm leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
+                            <div className="mt-5 leading-14_26">See how our MSERIES compares rheologically to the equivalent leading brands. In the report, you will see the data on Viscosity, Phase Angle, Visco-elasticity, and more. Fill out the form and receive a copy.</div>
                             <div className="">
                                 <div className="mt-10">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="First name"/>
@@ -125,23 +125,23 @@ export default function IndustryIndex() {
                                     </select>
                                 </div>
                                 <div className="mt-5">
-                                    <div className="text-sm leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
+                                    <div className="text-base leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
                                 </div>
                                 <div className="mt-2.5">
                                     <div className="flex items-center">
                                         <input type="radio" />
-                                        <label htmlFor="" className="text-sm leading-14_26 ml-3">Yes</label>
+                                        <label htmlFor="" className="text-base leading-14_26 ml-3">Yes</label>
                                     </div>
                                     <div className="mt-1 flex items-center">
                                         <input type="radio" />
-                                        <label htmlFor="" className="text-sm leading-14_26 ml-3">No</label>
+                                        <label htmlFor="" className="text-base leading-14_26 ml-3">No</label>
                                     </div>
                                 </div>
                                 <div className="mt-4">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="What is your Dermal Filler of choice?"/>
                                 </div>
                                 <div className="mt-5">
-                                    <div className="ttcommon_font_thin text-10px leading-extra-loose">
+                                    <div className="ttcommon_font_thin leading-extra-loose">
                                         <Link href="/privacypolicy">
                                             <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
                                         </Link> 
@@ -152,11 +152,11 @@ export default function IndustryIndex() {
                                     <div className="flex">
                                         <input type="checkbox" name="" id="" />
                                     </div>
-                                    <div className="ml-2 text-10px leading-extra-loose">I agree to receive other communications from Intraline.</div>
+                                    <div className="ml-2 leading-extra-loose">I agree to receive other communications from Intraline.</div>
                                 </div>
-                                <div className="text-c_00080D mt-5 text-10px leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                                <div className="text-c_00080D mt-5 leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                                 <div className="mt-10">
-                                    <Button className="h-11 w-full text-sm">SUBMIT</Button>
+                                    <Button className="h-11 w-full">SUBMIT</Button>
                                 </div>
                             </div>
                         </div>

@@ -70,7 +70,7 @@ export default function Login() {
             <div className="h-15 w-full bg-transparent"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font
                             px-5 md:px-0">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span><Link href="/">Home</Link></span>
@@ -89,9 +89,9 @@ export default function Login() {
                             <div className="mb-5 w-full py-3 px-7_5 rounded-lg bg-c_F4511E bg-opacity-30 text-c_F4511E">Wrong email and password. If you don't have account, please sign up.</div>
                         }
                         <Input placeholder="Email Address" onChange={setEmail}/>
-                        {email === '' && <span className=" text-c_F4511E text-sm">Required</span>}
+                        {email === '' && <span className=" text-c_F4511E">Required</span>}
                         {email !== '' && !validateEmail(email) &&
-                            <span className="vali-span text-c_F4511E text-sm">Email is incorrect.</span>
+                            <span className="vali-span text-c_F4511E">Email is incorrect.</span>
                         }
                     </div>
                     <div className="mt-5 flex items-center">
@@ -104,11 +104,11 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
-                    {password === '' && <span className=" text-c_F4511E text-sm">Required</span>}
-                    <Button className="mt-8 w-full h-11 text-sm" onClick={() => {loginSubmitHandler()}}>Login</Button>
+                    {password === '' && <span className=" text-c_F4511E">Required</span>}
+                    <Button className="mt-8 w-full h-11" onClick={() => {loginSubmitHandler()}}>Login</Button>
                     <div className="text-center mt-5">
                         <Link href="/account/register">
-                            <span className="leading-36_26 text-base underline">Don't have an account?</span>
+                            <span className="leading-36_26 underline">Don't have an account?</span>
                         </Link>
                     </div>
                 </div>

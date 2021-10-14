@@ -37,23 +37,23 @@ const SideReview:FC<SideReviewProps> = ({reviewList}) => {
                     <div className="pl-7_5 pr-5
                                     mt-16 md:mt-0">
                         <div className="ttcommon_font_bold text-4xl leading-36_26">Read {reviewList.length} Reviews.</div>
-                        <div className="mt-5 text-sm leading-14_26">Read client’s reviews.</div>
+                        <div className="mt-5 text-base leading-14_26">Read client’s reviews.</div>
                     </div>
                     <div className="pl-7_5 pr-5 mr-5
                                     flex-1 h-0 overflow-y-auto">
                         <div className="h-full">
                             {reviewList.map((item, index) => {
                                 return <div key={`review_${index}`}>
-                                            <div className="mt-5 flex items-center text-sm leading-14_26">
-                                                <div className="mt-2.5 ttcommon_font_bold text-sm leading-14_26">{item.client}</div>
+                                            <div className="mt-5 flex items-center text-base leading-14_26">
+                                                <div className="mt-2.5 ttcommon_font_bold text-base leading-14_26">{item.client}</div>
                                                 {/* <div className="ttcommon_font_bold">{item.title}</div> */}
                                                 {/* <div className="ml-auto">{item.created_at}</div> */}
                                             </div>
                                             <div className="mt-2.5">
                                                 <RatingView ratingValue={item.rating || 0} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                             </div>
-                                            <div className="mt-2.5 text-sm leading-14_26">{item.detail}</div>
-                                            {/* <div className="mt-2.5 text-sm leading-14_26">{item.client}</div> */}
+                                            <div className="mt-2.5 text-base leading-14_26">{item.detail}</div>
+                                            {/* <div className="mt-2.5 text-base leading-14_26">{item.client}</div> */}
                                             {index !== review_li.length - 1 && 
                                                 <div className="h-px w-full bg-c_00080D my-5"></div>
                                             }
@@ -62,7 +62,7 @@ const SideReview:FC<SideReviewProps> = ({reviewList}) => {
                         </div>
                     </div>
                     <div className="bg-c_F7F7F7 px-7_5">
-                        <Button className="w-full h-11 my-7_5 text-sm" onClick={() => {closeSideReviewHandler()}}>Leave Review</Button>
+                        <Button className="w-full h-11 my-7_5 text-base" onClick={() => {closeSideReviewHandler()}}>Leave Review</Button>
                     </div>
                     <div className="absolute top-4 right-4">
                         <button className="text-c_00080D

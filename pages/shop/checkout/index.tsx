@@ -189,7 +189,7 @@ function Checkout() {
                             mt-16 md:mt-0
                             px-5 md:px-15" style={{ height: 'calc(100vh - 96px)' }}>
                 {!checkedPayment &&
-                    <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center">
                             <span>Home</span>
                             <span className="ml-1"><ChevronRight className="w-4" /></span>
@@ -200,7 +200,7 @@ function Checkout() {
                     </div>
                 }
                 {checkedPayment &&
-                    <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
                             <span><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4" /></span>
@@ -240,9 +240,9 @@ function Checkout() {
                                         </Link>
                                     </div>
                                 </div>
-                                <Button className="mt-8 w-full h-11 text-sm" onClick={() => { loginSubmitHandler() }}>Login</Button>
+                                <Button className="mt-8 w-full h-11" onClick={() => { loginSubmitHandler() }}>Login</Button>
                                 <div className="text-center mt-5">
-                                    <button className="leading-36_26 text-base underline" onClick={() => { setEnableRegister(true) }}>Don't have an account?</button>
+                                    <button className="leading-36_26 underline" onClick={() => { setEnableRegister(true) }}>Don't have an account?</button>
                                 </div>
                             </div>
                         </div>
@@ -260,25 +260,25 @@ function Checkout() {
                         <Input className="mt-5" type="password" placeholder="Password" />
                         <Input className="mt-5" type="password" placeholder="Confirm Password" />
 
-                        <Button className="mt-8 w-full h-11 text-sm">Register</Button>
+                        <Button className="mt-8 w-full h-11">Register</Button>
                         <div className="text-center mt-5">
-                            <button className="leading-36_26 text-base underline" onClick={() => { setEnableRegister(false) }}>Already have an account?</button>
+                            <button className="leading-36_26 underline" onClick={() => { setEnableRegister(false) }}>Already have an account?</button>
                         </div>
                     </div>
                 } */}
 
                 {logined &&
                     <div className="mt-12_5 bg-white p-7 flex items-center">
-                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">1</div>
+                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">1</div>
                         <div className="ml-11">
                             <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Login</div>
-                            <div className="ttcommon_font_thin text-sm leading-14_26 flex items-center">
+                            <div className="ttcommon_font_thin leading-14_26 flex items-center">
                                 <div className="">{`${user.f_name} ${user.l_name}`}</div>
                                 <div className="ml-7">{user.mobile}</div>
                                 <div className="ml-7">{user.email}</div>
                             </div>
                         </div>
-                        <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updateAccountHandler() }}>Change</button>
+                        <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateAccountHandler() }}>Change</button>
                     </div>
                 }
 
@@ -286,37 +286,37 @@ function Checkout() {
                 {!checkedShippingAddress && logined &&
                     <div>
                         <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">2</div>
+                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">2</div>
                             <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Shipping address</div>
                         </div>
                         <div className="mt-5">
                             <div className="flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">First Name</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
                                     <Input type="text" onChange={getSAFNameFromInputHandler} value={ship_address.f_name}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Last Name</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
                                     <Input type="text" onChange={getSALNameFromInputHandler} value={ship_address.l_name}/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Address</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
                                     <Input type="text" onChange={getSAAddressFromInputHandler} value={ship_address.address}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Apt, Suite</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
                                     <Input type="text" onChange={getSAAptFromInputHandler} value={ship_address.apt}/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">City</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
                                     <Input type="text" onChange={getSACityFromInputHandler} value={ship_address.city}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Country</label>
                                     <SelectInput
                                         enable_underline={false}
                                         default_option={ship_address.country === '' ? "Please select country" : ship_address.country}
@@ -328,20 +328,20 @@ function Checkout() {
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Postal Code</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
                                     <Input type="text" onChange={getSAPostcodeFromInputHandler} value={ship_address.postcode}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26 invisible" htmlFor="">Postal Code</label>
+                                    <label className="ttcommon_font_bold leading-14_26 invisible" htmlFor="">Postal Code</label>
                                     <div className="flex items-center">
                                         <input className="h-3" type="radio" id="billing_address_cb" />
-                                        <label className="ml-2 text-sm leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
+                                        <label className="ml-2 leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
-                                <Button className="h-11 w-64 text-sm" onClick={() => { saveShippingAddressHander() }}>Save & Continue</Button>
-                                <button className="uppercase ml-7 text-sm tracking-widest underline" onClick={() => { }}>Cancel</button>
+                                <Button className="h-11 w-64" onClick={() => { saveShippingAddressHander() }}>Save & Continue</Button>
+                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => { }}>Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -350,16 +350,16 @@ function Checkout() {
                 <div>
                     {checkedShippingAddress &&
                         <div className="bg-white p-7 flex items-center mt-5">
-                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">2</div>
+                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">2</div>
                             <div className="ml-11">
                                 <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Shipping address</div>
-                                <div className="ttcommon_font_thin text-sm leading-14_26">
+                                <div className="ttcommon_font_thin leading-14_26">
                                     <div className="">{`${ship_address.f_name} ${ship_address.l_name}`}</div>
                                     <div className="">{ship_address.address}</div>
                                     <div className="">{`${ship_address.city} ${ship_address.country} ${ship_address.postcode}`}</div>
                                 </div>
                             </div>
-                            <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updateShippindAddressHandler() }}>Change</button>
+                            <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateShippindAddressHandler() }}>Change</button>
                         </div>
                     }
                 </div>
@@ -368,37 +368,37 @@ function Checkout() {
                 {checkedShippingAddress && logined && !checkedBillAddress &&
                     <div>
                         <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">3</div>
+                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">3</div>
                             <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Billing address</div>
                         </div>
                         <div className="mt-5">
                             <div className="flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">First Name</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
                                     <Input type="text" onChange={getBAFNameFromInputHandler} value={bill_address.f_name}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Last Name</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
                                     <Input type="text" onChange={getBALNameFromInputHandler} value={bill_address.l_name}/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Address</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
                                     <Input type="text" onChange={getBAAddressFromInputHandler} value={bill_address.address}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Apt, Suite</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
                                     <Input type="text" onChange={getBAAptFromInputHandler} value={bill_address.apt}/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">City</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
                                     <Input type="text" onChange={getBACityFromInputHandler} value={bill_address.city}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Country</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Country</label>
                                     <SelectInput
                                         enable_underline={false}
                                         default_option={bill_address.country === '' ? "Please select country" : bill_address.country}
@@ -410,36 +410,36 @@ function Checkout() {
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Postal Code</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
                                     <Input type="text" onChange={getBAPostcodeFromInputHandler} value={bill_address.postcode}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26 invisible" htmlFor="">Postal Code</label>
+                                    <label className="ttcommon_font_bold leading-14_26 invisible" htmlFor="">Postal Code</label>
                                     <div className="flex items-center">
                                         <input className="h-3" type="radio" id="billing_address_cb" />
-                                        <label className="ml-2 text-sm leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
+                                        <label className="ml-2 leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
-                                <Button className="h-11 w-64 text-sm" onClick={() => { saveBillAddressHander() }}>Save & Continue</Button>
-                                <button className="uppercase ml-7 text-sm tracking-widest underline" onClick={() => { updateBillingAddressHandler() }}>Cancel</button>
+                                <Button className="h-11 w-64" onClick={() => { saveBillAddressHander() }}>Save & Continue</Button>
+                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => { updateBillingAddressHandler() }}>Cancel</button>
                             </div>
                         </div>
                     </div>
                 }
                 {checkedBillAddress &&
                     <div className="bg-white p-7 flex items-center mt-5">
-                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">3</div>
+                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">3</div>
                         <div className="ml-11">
                             <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Billing Address</div>
-                            <div className="ttcommon_font_thin text-sm leading-14_26">
+                            <div className="ttcommon_font_thin leading-14_26">
                                 <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
                                 <div className="">{bill_address.address}</div>
                                 <div className="">{`${bill_address.city} ${bill_address.country} ${bill_address.postcode}`}</div>
                             </div>
                         </div>
-                        <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updateBillingAddressHandler() }}>Change</button>
+                        <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateBillingAddressHandler() }}>Change</button>
                     </div>
                 }
 
@@ -447,38 +447,38 @@ function Checkout() {
                 {!checkedPayment && logined && checkedShippingAddress && checkedBillAddress &&
                     <div>
                         <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black text-sm leading-14_17 tracking-widest">4</div>
+                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">4</div>
                             <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Payment Method</div>
                         </div>
                         <div className="mt-5">
                             <div className="flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Name on Card</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Name on Card</label>
                                     <Input type="text" placeholder="Name on Card" onChange={getCardNameFromInputHandler} value={payment.name}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Card Number</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Card Number</label>
                                     <Input type="text" placeholder="1234 5678 1234 5678 0000" onChange={getCardNumberFromInputHandler} value={payment.number}/>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center">
                                 <div className="w-1/2 mr-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">Expiration Date</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">Expiration Date</label>
                                     <Input type="text" placeholder="(mm/yyyy)" onChange={getCardDateFromInputHandler} value={payment.date}/>
                                 </div>
                                 <div className="w-1/2 ml-2">
-                                    <label className="ttcommon_font_bold text-sm leading-14_26" htmlFor="">CVC</label>
+                                    <label className="ttcommon_font_bold leading-14_26" htmlFor="">CVC</label>
                                     <div className="relative">
                                         <Input type="text" placeholder="xxx" onChange={getCardCVCFromInputHandler} value={payment.cvc}/>
                                         <div className="absolute top-0 -right-6 h-full flex flex-col">
-                                            <button className="my-auto text-white text-10px w-4 h-4 rounded-full bg-c_00080D flex items-center justify-center">?</button>
+                                            <button className="my-auto text-white w-4 h-4 rounded-full bg-c_00080D flex items-center justify-center">?</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
-                                <Button className="h-11 w-64 text-sm" onClick={() => savePaymentHandler()}>Save & Continue</Button>
-                                <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
+                                <Button className="h-11 w-64" onClick={() => savePaymentHandler()}>Save & Continue</Button>
+                                <button className="uppercase ml-7 tracking-widest underline">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -486,20 +486,20 @@ function Checkout() {
                 {checkedPayment && logined && checkedShippingAddress && checkedBillAddress &&
                     <div>
                         <div className="bg-white p-7 flex items-center mt-5">
-                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white text-sm leading-14_17 tracking-widest">4</div>
+                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">4</div>
                             <div className="ml-11">
                                 <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Payment Method</div>
-                                <div className="ttcommon_font_thin text-sm leading-14_26">
+                                <div className="ttcommon_font_thin leading-14_26">
                                     <div className="">{`${payment.name}`}</div>
                                     <div className="">{`${payment.number}`}</div>
                                     <div className="">{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
                                 </div>
                             </div>
-                            <button className="ml-auto text-sm leading-14_17 uppercase underline" onClick={() => { updatePaymentHandler() }}>Change</button>
+                            <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updatePaymentHandler() }}>Change</button>
                         </div>
                         <div className="mt-7 flex items-center">
-                            <Button className="h-11 w-64 text-sm" onClick={() => {placeOrderHandler()}}>Place Order</Button>
-                            <button className="uppercase ml-7 text-sm tracking-widest underline">Cancel</button>
+                            <Button className="h-11 w-64" onClick={() => {placeOrderHandler()}}>Place Order</Button>
+                            <button className="uppercase ml-7 tracking-widest underline">Cancel</button>
                         </div>
                     </div>
                 }

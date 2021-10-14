@@ -139,7 +139,7 @@ export default function DemeralFiller() {
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
                             h-160 sm:h-160 md:h-150 lg:h-175 xl:h-210 2xl:h-210
                              px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center">
                         <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
@@ -186,7 +186,7 @@ export default function DemeralFiller() {
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
                                         <Link href="/shop/dermalfiller/essentials">
-                                            <Button className="w-full h-11 text-sm">Learn more</Button>
+                                            <Button className="w-full h-11">Learn more</Button>
                                         </Link>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@ export default function DemeralFiller() {
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
                                         <Link href="/shop/dermalfiller/mseries">
-                                            <Button className="w-full h-11 text-sm">Learn more</Button>
+                                            <Button className="w-full h-11">Learn more</Button>
                                         </Link>
                                     </div>
                                 </div>
@@ -268,7 +268,7 @@ export default function DemeralFiller() {
                             <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-7_5 sm:mt-10">
-                            <Button className="h-11 w-full text-sm" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
+                            <Button className="h-11 w-full" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

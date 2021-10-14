@@ -73,21 +73,21 @@ const SideCart: FC<SideCartProps> = () => {
                     </div>
                     <div className="h-px w-full bg-gray-500 mt-auto"></div>
                     <div className="px-7 tracking-widest">
-                        <div className="mt-7 flex items-center text-sm leading-14_17">
+                        <div className="mt-7 flex items-center text-base leading-14_17">
                             <div className="ttcommon_font uppercase">Subtotal:</div>
                             <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
                         <div className="mt-7">
                             {!currentUrl.includes('/shop/checkout') && 
                                 <div>
-                                    <Button className="h-11 w-full text-sm" onClick={() => {gotoShoppingBagHandler()}}>View Bag</Button>
-                                    <Button className="mt-2 h-11 w-full text-sm" onClick={() => {gotoCheckoutHandler()}}>Checkout</Button>
+                                    <Button className="h-11 w-full text-base" onClick={() => {gotoShoppingBagHandler()}}>View Bag</Button>
+                                    <Button className="mt-2 h-11 w-full text-base" onClick={() => {gotoCheckoutHandler()}}>Checkout</Button>
                                     
                                 </div>
                             }
                             
                             {currentUrl.includes('/shop/checkout') && 
-                                <Button className="mt-2 h-11 w-full text-sm" onClick={() => {editBagHandler()}}>Edit Bag</Button>
+                                <Button className="mt-2 h-11 w-full text-base" onClick={() => {editBagHandler()}}>Edit Bag</Button>
                             }
                         </div>
                     </div>

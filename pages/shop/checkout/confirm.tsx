@@ -9,7 +9,7 @@ export default function CheckoutConfirm() {
             <div className="bg-transparent h-15 w-full"></div>
             <div className="flex items-center w-full h-full">
                 <div className="w-1/2 px-15 pb-40 bg-c_CCE7EF">
-                    <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                    <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
                             <span className="ttcommon_font"><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4" /></span>
@@ -25,7 +25,7 @@ export default function CheckoutConfirm() {
                         <div className="ttcommon_font_bold text-200px leading-200_160">You.</div>
                     </div>
                     <div className="mt-10 text-3xl leading-36_48">Your order has been confirmed.</div>
-                    <div className="mt-5 text-sm leading-14_26">Your order will be processed and shipped soon. You will receive an email with all the details. We are glad you are part of Intraline. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                    <div className="mt-5 leading-14_26">Your order will be processed and shipped soon. You will receive an email with all the details. We are glad you are part of Intraline. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
                 </div>
                 <div className="w-1/2 flex flex-col h-full bg-white">
                     <div className="my-auto mx-auto text-center">
@@ -39,7 +39,7 @@ export default function CheckoutConfirm() {
                         </div>
                         <div className="mt-10">
                             <Link href="/account/myaccount">
-                                <Button className="h-11 w-72 text-sm mx-auto">View your orders</Button>
+                                <Button className="h-11 w-72 mx-auto">View your orders</Button>
                             </Link>
                         </div>
                     </div>

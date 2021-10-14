@@ -148,7 +148,7 @@ export default function Essentials() {
                             bg-c_CCE7EF sm:bg-white
                             bg-opacity-100 sm:bg-opacity-0">
                 
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center flex-wrap cursor-pointer
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-90 lg:w-full">
@@ -196,7 +196,7 @@ export default function Essentials() {
                     </div>
                     <div className="items-center justify-center mt-auto
                                     hidden sm:flex">
-                        <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                        <span className="uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
@@ -233,7 +233,7 @@ export default function Essentials() {
                                                                 sm:py-10 md:py-12
                                                                 ml-5 md:ml-10 lg:ml-20 xl:ml-172 2xl:ml-172">
                                                     <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
-                                                    <div className="mt-2 text-sm leading-14_26 text-c_00080D">{item.detail}</div>
+                                                    <div className="mt-2 leading-14_26 text-c_00080D">{item.detail}</div>
                                                 </div>
                                                 <div className="ttcommon_font_bold text-200px text-c_8D97BC leading-14_17 absolute" style={{bottom: -60}}>0{index + 1}</div>
                                             </div>        
@@ -246,7 +246,7 @@ export default function Essentials() {
                     <div className="absolute right-0 top-0 flex flex-col w-5/12 h-full
                                     mr-5 md:mr-10 lg:mr-20 xl:mr-172 2xl:mr-172" style={{maxWidth: 538}}>
                         <div className="my-auto">
-                            <div className="text-sm tracking-widest">THE Essentials were created for maximum</div>
+                            <div className="text-base tracking-widest">THE Essentials were created for maximum</div>
                             <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
                             <div className="ttcommon_font_thin mt-7 leading-36_48
                                             text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
@@ -274,7 +274,7 @@ export default function Essentials() {
                                         
                                         <div className="relative w-full">
                                             <div className="bg-white p-7_5 relative z-10 h-full">
-                                                <div className="ttcommon_font_bold uppercase text-sm leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
+                                                <div className="ttcommon_font_bold uppercase leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                 <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>
                                             </div>
                                             
@@ -292,7 +292,7 @@ export default function Essentials() {
                 </div>
 
                 <div className="flex flex-col w-full h-full mt-20 px-5">
-                    <div className="text-sm tracking-widest">THE Essentials were created for maximum</div>
+                    <div className="text-base tracking-widest">THE Essentials were created for maximum</div>
                     <div className="ttcommon_font_bold text-2xl leading-36_48">Function, versatility & impact.</div>
                     <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                 </div>
@@ -310,7 +310,7 @@ export default function Essentials() {
                                 text-xl sm:text-4xl">Intraline Essentials dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/essentialsshop">
-                            <Button className="mx-auto h-11 w-64 text-sm">Shop now the essentials</Button>
+                            <Button className="mx-auto h-11 w-64">Shop now the essentials</Button>
                         </Link>
                     </div>
                 </div>

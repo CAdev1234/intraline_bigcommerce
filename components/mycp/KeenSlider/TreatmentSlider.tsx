@@ -63,7 +63,7 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
         return <div key={`face_${index}`} className="keen-slider__slide">
                     <div className="ttcommon_font_bold text-2xl leading-24_29">0{index + 1}</div>
                     <div className="ttcommon_font_bold text-2xl leading-24_29">{item.title}</div>
-                    <div className="ttcommon_font_thin mt-5 text-sm leading-14_26 max-w-xs">{item.detail}</div>
+                    <div className="ttcommon_font_thin mt-5 text-base leading-14_26 max-w-xs">{item.detail}</div>
                 </div>
     })
     const render_ele_img = treatment_item_li.map((item, index) => {
@@ -130,7 +130,7 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
                 <div className={`w-1/3 flex flex-col ${leftside_bg} pt-12_5
                                 pb-10 lg:pb-40 xl:pb-72
                                 px-5 lg:px-15`}>
-                    <div className={`flex items-center uppercase text-sm leading-14_17 tracking-widest ${enable_path ? 'block' : 'hidden'}`}>
+                    <div className={`flex items-center uppercase text-base leading-14_17 tracking-widest ${enable_path ? 'block' : 'hidden'}`}>
                         <div className="flex items-center">
                             <span><Link href="/">Home</Link></span>
                             <span className="ml-1"><ChevronRight className="w-4"/></span>
@@ -139,7 +139,7 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
                     </div>
                     <div className="mt-5 lg:mt-15 xl:mt-24">
                         <div className="ttcommon_font_bold text-4xl leading-36_48">{headline}</div>
-                        <div className="ttcommon_font_thin text-sm leading-14_26 mt-2">{sub_headline}</div>
+                        <div className="ttcommon_font_thin text-base leading-14_26 mt-2">{sub_headline}</div>
                         <div className="mt-5 lg:mt-15 xl:mt-24">
                             <div className="relative">
                                 <div ref={facial_detail_ref} className="keen-slider flex items-center">

@@ -142,12 +142,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <img className="w-full mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="textellipsis_2 mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
+                        <div className="textellipsis_2 mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
-                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                        <Button className="h-11 w-full">learn more</Button>
                                     </Link>
                                 </div>
                             </div>
@@ -166,16 +166,16 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             </div>
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
-                                    text-sm sm:text-2xl
+                                    sm:text-2xl
                                     leading-14_17 sm:leading-none">{item.title}</div>
                         <div className="mt-2 text-center px-4
-                                    text-xs sm:text-sm
+                                    text-xs sm:text-base
                                     leading-normal sm:leading-14_26">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
-                                        <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                                        <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
                                     </Link>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_F5DBDD w-full flex flex-col">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center flex-wrap cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15
                                     w-100 md:w-full">
@@ -265,7 +265,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     </div>
                                 </div>
                                 <div className="ttcommon_font mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
-                                <div className="ttcommon_font_thin mt-2 text-sm leading-14_26
+                                <div className="ttcommon_font_thin mt-2 leading-14_26
                                                 mr-0 md:mr-36">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
@@ -279,7 +279,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <div className="mx-auto">{numDimension720}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="h-full text-sm
+                                    <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
                                                     mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
@@ -290,7 +290,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="mt-15 items-center justify-center pb-15">
                         <div className="items-center mt-20
                                         hidden md:flex">
-                            <span className="uppercase text-sm tracking-widest">Scroll for more details</span>
+                            <span className="uppercase tracking-widest">Scroll for more details</span>
                             <ChevronDown className="w-4 ml-4" />
                         </div>
                     </div>
@@ -323,7 +323,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                 text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-72 text-sm">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72">download indication chart</Button>
                     </div>
                 </div>
             </div>
@@ -342,14 +342,14 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">720 PDO</div>
                                     <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
                                         <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 2} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                        <div className="text-sm ">({testimonial_li.length})</div>
+                                        <div className="text-base ">({testimonial_li.length})</div>
                                     </div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
                                         <div className="flex items-start w-full">
                                             <div className="w-1/2">
-                                                <div className="uppercase text-sm leading-14_17">GRIP COLOUR</div>
+                                                <div className="uppercase leading-14_17">GRIP COLOUR</div>
                                                 <div className="flex items-center mt-2">
                                                     <div className="h-6 w-6 rounded-full bg-c_F297F6"></div>
                                                     <div className="h-6 w-6 rounded-full bg-c_D5CBA1 ml-2"></div>
@@ -359,28 +359,28 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         </div>
                                         <div className="mt-7 flex items-start w-full">
                                             <div className="w-1/2">
-                                                <div className="uppercase text-sm leading-14_17">NEEDLE GAUGE</div>
-                                                <div className="ttcommon_font_thin text-sm leading-14_26">18G  |  19G</div>
+                                                <div className="uppercase leading-14_17">NEEDLE GAUGE</div>
+                                                <div className="ttcommon_font_thin leading-14_26">18G  |  19G</div>
                                             </div>
                                             <div className="w-1/2">
-                                                <div className="uppercase text-sm leading-14_17">NEEDLE LENGTH</div>
-                                                <div className="ttcommon_font_thin text-sm leading-14_26">100 MM</div>
+                                                <div className="uppercase leading-14_17">NEEDLE LENGTH</div>
+                                                <div className="ttcommon_font_thin leading-14_26">100 MM</div>
                                             </div>
                                         </div>
                                         <div className="mt-7 flex items-start w-full">
                                             <div className="w-1/2">
-                                                <div className="uppercase text-sm leading-14_17">THREAD LENGHT</div>
-                                                <div className="ttcommon_font_thin text-sm leading-14_26">150 MM</div>
+                                                <div className="uppercase leading-14_17">THREAD LENGHT</div>
+                                                <div className="ttcommon_font_thin leading-14_26">150 MM</div>
                                             </div>
                                             <div className="w-1/2">
-                                                <div className="uppercase text-sm leading-14_17">THREAD USP</div>
-                                                <div className="ttcommon_font_thin text-sm leading-14_26">3  |  2</div>
+                                                <div className="uppercase leading-14_17">THREAD USP</div>
+                                                <div className="ttcommon_font_thin leading-14_26">3  |  2</div>
                                             </div>
                                         </div>
-                                        <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
+                                        <div className="text-base leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1 text-sm">BUY 720 PDO NOW</Button>
+                                        <Button className="h-full flex-1">BUY 720 PDO NOW</Button>
                                     </div>
                                 </div>
                                 
@@ -409,14 +409,14 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
                             <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
                                 <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 2} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                <div className="text-sm ">({testimonial_li.length})</div>
+                                <div className="text-base ">({testimonial_li.length})</div>
                             </div>
                         </div>
                         <div className="pt-7">
                             <div className="flex flex-col">
                                 <div className="flex items-start w-full">
                                     <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">GRIP COLOUR</div>
+                                        <div className="uppercase leading-14_17">GRIP COLOUR</div>
                                         <div className="flex items-center mt-2">
                                             <div className="h-6 w-6 rounded-full bg-c_F297F6"></div>
                                             <div className="h-6 w-6 rounded-full bg-c_D5CBA1 ml-2"></div>
@@ -426,28 +426,28 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 </div>
                                 <div className="mt-7 flex items-start w-full">
                                     <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">NEEDLE GAUGE</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">18G  |  19G</div>
+                                        <div className="uppercase leading-14_17">NEEDLE GAUGE</div>
+                                        <div className="ttcommon_font_thin leading-14_26">18G  |  19G</div>
                                     </div>
                                     <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">NEEDLE LENGTH</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">100 MM</div>
+                                        <div className="uppercase leading-14_17">NEEDLE LENGTH</div>
+                                        <div className="ttcommon_font_thin leading-14_26">100 MM</div>
                                     </div>
                                 </div>
                                 <div className="mt-7 flex items-start w-full">
                                     <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">THREAD LENGHT</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">150 MM</div>
+                                        <div className="uppercase leading-14_17">THREAD LENGHT</div>
+                                        <div className="ttcommon_font_thin leading-14_26">150 MM</div>
                                     </div>
                                     <div className="w-1/2">
-                                        <div className="uppercase text-sm leading-14_17">THREAD USP</div>
-                                        <div className="ttcommon_font_thin text-sm leading-14_26">3  |  2</div>
+                                        <div className="uppercase leading-14_17">THREAD USP</div>
+                                        <div className="ttcommon_font_thin leading-14_26">3  |  2</div>
                                     </div>
                                 </div>
-                                <div className="text-sm leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
+                                <div className="text-base leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                             </div>
                             <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1 text-sm">Buy {product_info.title} now</Button>
+                                <Button className="h-full flex-1">Buy {product_info.title} now</Button>
                             </div>
                         </div>
                         
@@ -479,9 +479,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     <div className="h-px bg-c_00080D w-full"></div>
                                     <div className="w-px h-5 bg-c_00080D"></div>
                                 </div>
-                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-9">MOLDED BARBS ON THE INSIDE</div>
-                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-20">SMOOTH BREAK IN THREAD</div>
-                                <div className="ttcommon_font_thin text-center text-sm leading-14_26 mt-5">BARBS IN OPPOSITE DIRECTIONS</div>
+                                <div className="ttcommon_font_thin text-center leading-14_26 mt-9">MOLDED BARBS ON THE INSIDE</div>
+                                <div className="ttcommon_font_thin text-center leading-14_26 mt-20">SMOOTH BREAK IN THREAD</div>
+                                <div className="ttcommon_font_thin text-center leading-14_26 mt-5">BARBS IN OPPOSITE DIRECTIONS</div>
                             </div>
                             <div className="bg-transparent w-2.5 h-1"></div>
                             <div className="w-4/12">
@@ -563,7 +563,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         leading-none md:leading-36_26">Lifting PDO Threads.</div>
                         <div className="flex items-center ml-auto">
                             <div className="ttcommon_font_bold
-                                            text-base md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                                            md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>

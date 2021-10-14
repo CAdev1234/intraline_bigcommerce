@@ -15,7 +15,7 @@ export default function ForgotPassword() {
         <div>
             <div className="h-15 w-full bg-transparent"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span><Link href="/">Home</Link></span>
@@ -31,7 +31,7 @@ export default function ForgotPassword() {
                     <div className="mt-10">
                         <Input placeholder="Email Address"/>
                     </div>
-                    <Button className="mt-8 w-full h-11 text-sm">Send Verification Code</Button>
+                    <Button className="mt-8 w-full h-11">Send Verification Code</Button>
                 </div>
             </div>
         </div>

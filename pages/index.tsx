@@ -78,7 +78,7 @@ const RenderCategorySwiper = () => {
                           <img className="w-full" src={item.img} alt="" />
                       </div>
                       <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5 h-12 flex justify-center items-center
-                                       text-sm md:text-2xl
+                                       md:text-2xl
                                        leading-14_17 md:leading-none">{item.name}</div>
                     </div>
                       
@@ -86,7 +86,7 @@ const RenderCategorySwiper = () => {
                   <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
                       <div className="my-auto flex flex-col">
                           <Link href={item.link}>
-                              <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
+                              <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
                           </Link>
                       </div>
                   </div>
@@ -194,11 +194,11 @@ const RenderProfileSwiper = () => {
   let render_ele = profile_li.map((item, index) => {
     return <div key={'profile_detail_' + index} className="keen-slider__slide">
             <div className="">
-              <div className="text-sm text-center uppercase leading-14_17 tracking-widest max-w-md mx-auto">{item.title}</div>
+              <div className="text-base text-center uppercase leading-14_17 tracking-widest max-w-md mx-auto">{item.title}</div>
               <div className="flex justify-center mt-7_5">
                 <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
               </div>
-              <p className="text-sm text-center leading-14_26 mt-4 mx-auto max-w-md">{item.detail}</p>
+              <p className="text-base text-center leading-14_26 mt-4 mx-auto max-w-md">{item.detail}</p>
             </div>
           </div>
   })
@@ -407,26 +407,26 @@ export default function Home({
                   </div>
                 </div>
                 <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
-                                text-sm sm:text-2xl
+                                sm:text-2xl
                                 leading-14_17 sm:leading-none">{item.title}</div>
-                <div className="mt-2 text-center px-4
-                                text-xs sm:text-sm
+                <div className="textellipsis_2 mt-2 text-center px-4
+                                text-xs sm:text-base
                                 leading-normal sm:leading-14_26">{item.detail}</div>
                 <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                     <div className="my-auto mx-auto w-10/12">
                         <div className="flex flex-col">
-                            <Button className=" h-11 text-sm" onClick={() => {gotoProductHandler(item.link)}}>learn more</Button>
+                            <Button className=" h-11" onClick={() => {gotoProductHandler(item.link)}}>learn more</Button>
                             {logined && <div className="mt-2 flex items-center h-11 text-white">
                                 <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                 </div>
-                                <Button className="ml-3 h-full w-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
+                                <Button className="ml-3 h-full w-full" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
                             </div>}
                             {!logined && 
                               <div className="mt-2 flex items-center h-11 text-white">
-                                <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                <Button className="h-full w-full" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
                               </div>
                             }
                         </div>
@@ -520,7 +520,7 @@ export default function Home({
                         text-2xl md:text-4xl
                         leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <Link href="/aboutus">
-            <Button className="w-52 h-11 mx-auto mt-7_5 text-sm">About us</Button>
+            <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
           </Link>
         </div>
         <div className="absolute top-0 left-0

@@ -49,23 +49,26 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, checkboxRef) => {
 
     return (
         <div className={rootClassName}>
-            <Component
-                id={id}
-                aria-pressed={active}
-                data-variant={variant}
-                ref={mergeRefs([ref, checkboxRef])}
-                // className={rootClassName}
-                type={type}
-                disabled={disabled}
-                style={{
-                    width,
-                    ...style,
-                }}
-                {...rest}
-            >
-                {children}
-            </Component>
-            <label htmlFor={id}>{label}</label>
+            <div className="flex items-center">
+                <Component
+                    id={id}
+                    aria-pressed={active}
+                    data-variant={variant}
+                    ref={mergeRefs([ref, checkboxRef])}
+                    // className={rootClassName}
+                    type={type}
+                    disabled={disabled}
+                    style={{
+                        width,
+                        ...style,
+                    }}
+                    {...rest}
+                >
+                    {children}
+                </Component>
+                <label htmlFor={id}>{label}</label>
+            </div>
+            
         </div>
 
         

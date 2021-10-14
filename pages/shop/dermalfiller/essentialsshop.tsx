@@ -47,12 +47,12 @@ export default function EssentialsShop() {
                             <img className="w-full mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="mt-2 px-3 text-base leading-14_26 text-center">{item.detail}</div>
-                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <div className="textellipsis_2 mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
+                        <div className="absolute top-0 w-full h-full flex flex-col bg-c_F5DBDD bg-opacity-50 transition duration-500 ease-linear opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
-                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                        <Button className="h-11 w-full">learn more</Button>
                                     </Link>
                                     {logined && <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
@@ -60,11 +60,11 @@ export default function EssentialsShop() {
                                             <div className="mx-auto">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                         </div>
-                                        <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
+                                        <Button className="ml-3 flex-1 h-full" onClick={(event) => addToBagHandler(event, index)}>Add to bag</Button>
                                     </div>}
                                     {!logined && 
                                         <div className="mt-2 flex items-center h-11 text-white">
-                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                            <Button className="h-full w-full" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
                                         </div>
                                     }
                                 </div>
@@ -78,7 +78,7 @@ export default function EssentialsShop() {
                         mt-16 md:mt-0">
             <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest
                                 mx-5 sm:px-15">
                     <div className="flex items-center cursor-pointer">
                         <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>

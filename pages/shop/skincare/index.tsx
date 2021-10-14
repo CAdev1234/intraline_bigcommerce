@@ -175,7 +175,7 @@ export default function SkinCare() {
             <div className="bg-c_C6CBDD w-full pb-32 flex flex-col
                             h-160 sm:h-160 md:h-160 lg:h-175 xl:h-210 2xl:h-210
                             px-5 sm:px-15">
-                <div className="mt-12_5 flex items-center uppercase text-sm leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                     <div className="flex items-center cursor-pointer">
                         <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
@@ -220,8 +220,8 @@ export default function SkinCare() {
                                     <div className="relative bg-c_F5DBDD w-full border-none aspect-w-8 aspect-h-5
                                                     mt-5 md:mt-10">
                                         <div className="flex h-full justify-center">
-                                            <div className="px-15 w-full h-full relative">
-                                                <img className="w-full h-full" src={item.img} alt="" />
+                                            <div className="px-15 w-full h-full relative flex justify-center items-center">
+                                                <img className="h-full" src={item.img} alt="" />
                                                 <div className="absolute top-0 right-0">
                                                     {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">${item.price}</Button>}
                                                 </div>
@@ -231,7 +231,7 @@ export default function SkinCare() {
                                             <div className="my-auto mx-auto w-10/12">
                                                 <div className="flex flex-col text-white w-64 mx-auto">
                                                     <Link href={item.link}>
-                                                        <Button className="h-11 w-full text-sm">learn more</Button>
+                                                        <Button className="h-11 w-full">learn more</Button>
                                                     </Link>
                                                     {logined && <div className="mt-2 flex items-center h-12 text-white">
                                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
@@ -239,11 +239,11 @@ export default function SkinCare() {
                                                             <div className="mx-auto">1</div>
                                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>
                                                         </div>
-                                                        <Button className="ml-3 flex-1 h-full text-sm" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
+                                                        <Button className="ml-3 flex-1 h-full" onClick={(event) => {addToBagHandler(event, index)}}>Add to bag</Button>
                                                     </div>}
                                                     {!logined && 
                                                         <div className="mt-2 flex items-center h-11 text-white">
-                                                            <Button className="h-full w-full text-sm" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
+                                                            <Button className="h-full w-full" onClick={(event) => {loginToPurchaseHandler()}}>Login in to purchase</Button>
                                                         </div>
                                                     }
                                                 </div>
@@ -274,7 +274,7 @@ export default function SkinCare() {
                                 <div className="pb-7_5">
                                     <div className="ttcommon_font_bold leading-64_76
                                                     text-2xl md:text-4xl lg:text-5xl xl:text-6xl">Ingredients.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-base leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
@@ -293,7 +293,7 @@ export default function SkinCare() {
                             {question_li.map((item, index) => {
                                 return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
                                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
-                                            <div className="ttcommon_font_thin mt-5 text-base leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
+                                            <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
                                         </div>
                             })}
                             
@@ -316,7 +316,7 @@ export default function SkinCare() {
                             <div className="bg-white py-7_5 px-5 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-4xl leading-tight">Ingredients.</div>
-                                    <div className="text-sm leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="text-base leading-14_17 tracking-widest mt-2">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
