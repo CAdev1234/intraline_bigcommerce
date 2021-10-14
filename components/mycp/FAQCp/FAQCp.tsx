@@ -28,7 +28,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
   
     return <div>
             {faq_li.map((item, index) => {
-                return <div className="divide-y divide-c_00080D" key={'faq_' + index}>
+                return <div className="" key={'faq_' + index}>
                           <div className="flex items-center w-full cursor-pointer
                                           mt-7_5 sm:mt-10
                                           pb-2.5 sm:pb-5" onClick={() => clickChevron(index)}>
@@ -39,12 +39,13 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                                 {renderChevronUpDown(index)}
                             </div>
                           </div>
+                          <div className="bg-c_00080D h-px w-full"></div>
                           <div>
-                            {enable_faq[index] && 
-                              <div className="ttcommon_font_thin text-c_00080D whitespace-pre-wrap
-                                              text-xs sm:text-sm
-                                              pt-5
-                                              leading-relaxed sm:leading-14_26">{item.detail}</div>
+                            {
+                              <div className={`ttcommon_font_thin text-c_00080D whitespace-pre-wrap transition-all duration-500 ease-linear
+                                                text-xs sm:text-sm ${enable_faq[index] ? 'block' : 'hidden'}
+                                                pt-5 
+                                                leading-relaxed sm:leading-14_26`}>{item.detail}</div>
                             }
                           </div>
                         </div>

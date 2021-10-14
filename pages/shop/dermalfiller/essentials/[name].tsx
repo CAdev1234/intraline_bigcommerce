@@ -175,7 +175,6 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
         var render_ele = essential_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col bg-white relative pb-5" key={`m_${index}_product`}>
                         <div className="flex-1 w-full h-0">
-                            {/* <img className="h-full w-full" src={item.img} alt="" /> */}
                             <div>
                                 <div className="aspect-w-1 aspect-h-1 w-full">
                                     <img className="w-full" src={item.img} alt="" />

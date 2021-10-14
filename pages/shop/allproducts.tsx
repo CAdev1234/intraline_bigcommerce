@@ -76,7 +76,7 @@ const RenderCategorySwiper:FC = () => {
                                          text-sm md:text-2xl
                                          leading-14_17 md:leading-none">{item.name}</div>
                     </div>
-                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-150 ease-linear opacity-0 hover:opacity-100">
                         <div className="my-auto flex flex-col">
                             <Link href={item.link}>
                                 <Button className="my-auto mx-auto h-11 w-10/12 text-sm">Learn more</Button>
@@ -131,7 +131,7 @@ export default function AllProducts() {
                         <div className="textellipsis_2 mt-2 px-3
                                         sm:text-sm text-xs
                                         sm:leading-14_26 leading-normal">{item.detail}</div>
-                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <div className="absolute top-0 w-full h-full flex flex-col bg-c_00080D bg-opacity-50 transition duration-150 ease-linear opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>

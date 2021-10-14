@@ -31,7 +31,7 @@ const SideReview:FC<SideReviewProps> = ({reviewList}) => {
         <div>
             <div className="fixed top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40 z-20"></div>
             <div className="fixed top-15 right-0 w-full ttcommon_font_thin text-c_00080D z-20">
-                <div className="relative flex flex-col bg-white pt-12_5
+                <div className="relative flex flex-col bg-white pt-12_5 ml-auto
                                 w-full md:w-125" 
                     style={{height: 'calc(100vh - 60px)', boxShadow: '0px -10px 40px rgba(0, 0, 0, 0.05)'}}>
                     <div className="pl-7_5 pr-5
