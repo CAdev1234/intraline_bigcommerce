@@ -182,10 +182,10 @@ function Checkout() {
         router.push('/shop/checkout/confirm')
     }
     return (
-        <div className="ttcommon_font text-c_00080D bg-c_CCE7EF h-screen">
+        <div className="ttcommon_font text-c_00080D bg-c_CCE7EF">
             <Navbar c_name="bg-black fixed"></Navbar>
             <div className="bg-transparent h-15 w-full"></div>
-            <div className="max-w-4xl overflow-y-auto relative mb-9
+            <div className="max-w-4xl overflow-y-auto relative pb-9
                             mt-16 md:mt-0
                             px-5 md:px-15" style={{ minHeight: 'calc(100vh - 96px)' }}>
                 {!checkedPayment &&
@@ -268,54 +268,84 @@ function Checkout() {
                 } */}
 
                 {logined &&
-                    <div className="mt-12_5 bg-white p-7 flex items-center">
-                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">1</div>
-                        <div className="ml-11">
-                            <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Login</div>
-                            <div className="ttcommon_font_thin leading-14_26 flex items-center">
-                                <div className="">{`${user.f_name} ${user.l_name}`}</div>
-                                <div className="ml-7">{user.mobile}</div>
-                                <div className="ml-7">{user.email}</div>
+                    <div className="mt-12_5 bg-white flex items-center py-7_5
+                                    px-2.5 sm:px-7_5">
+                        <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest min-w-7
+                                        w-7 sm:w-9
+                                        h-7 sm:h-9">1</div>
+                        <div className="ml-5 sm:ml-11">
+                            <div className="flex items-center">
+                                <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
+                                            text-lg sm:text-2xl">Login</div>
+                            </div>
+                            <div className="ttcommon_font_thin leading-14_26 items-center
+                                            block sm:flex">
+                                <div className="mr-7
+                                                mt-3 sm:mt-0">{`${user.f_name} ${user.l_name}`}</div>
+                                <div className="mr-7">{user.mobile}</div>
+                                <div className="mr-7">{user.email}</div>
                             </div>
                         </div>
-                        <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateAccountHandler() }}>Change</button>
+                        <div className="flex flex-col flex-1
+                                        self-start sm:self-center">
+                            <button className="ml-auto leading-14_17 uppercase underline
+                                            mb-auto sm:my-auto" onClick={() => { updateAccountHandler() }}>Change</button>
+                        </div>
+                        
                     </div>
                 }
 
                 {/* shipping address */}
                 {!checkedShippingAddress && logined &&
                     <div>
-                        <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">2</div>
-                            <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Shipping address</div>
+                        <div className="mt-5 bg-white flex items-center py-7_5
+                                        px-2.5 sm:px-7_5">
+                            <div className="flex justify-center items-center border border-c_00080D rounded-full text-black leading-14_17 tracking-widest min-w-7
+                                            w-7 sm:w-9
+                                            h-7 sm:h-7">2</div>
+                            <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
+                                            text-lg sm:text-2xl
+                                            ml-5 sm:ml-11">Shipping address</div>
                         </div>
                         <div className="mt-5">
-                            <div className="flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
                                     <Input type="text" onChange={getSAFNameFromInputHandler} value={ship_address.f_name}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="w-full sm:w-1/2
+                                                mt-3 sm:mt-0
+                                                ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
                                     <Input type="text" onChange={getSALNameFromInputHandler} value={ship_address.l_name}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
                                     <Input type="text" onChange={getSAAddressFromInputHandler} value={ship_address.address}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="w-full sm:w-1/2
+                                                mt-3 sm:mt-0
+                                                ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
                                     <Input type="text" onChange={getSAAptFromInputHandler} value={ship_address.apt}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
                                     <Input type="text" onChange={getSACityFromInputHandler} value={ship_address.city}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="w-full sm:w-1/2
+                                                ml-0 sm:ml-2
+                                                mt-3 sm:mt-0">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Country</label>
                                     <SelectInput
                                         enable_underline={false}
@@ -326,12 +356,15 @@ function Checkout() {
                                         returnVal={getSACountryFromInputHandler} />
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
                                     <Input type="text" onChange={getSAPostcodeFromInputHandler} value={ship_address.postcode}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="w-full sm:w-1/2
+                                                ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26 invisible" htmlFor="">Postal Code</label>
                                     <div className="flex items-center">
                                         <input className="h-3" type="radio" id="billing_address_cb" />
@@ -349,17 +382,26 @@ function Checkout() {
 
                 <div>
                     {checkedShippingAddress &&
-                        <div className="bg-white p-7 flex items-center mt-5">
-                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">2</div>
-                            <div className="ml-11">
-                                <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Shipping address</div>
+                        <div className="bg-white flex items-center mt-5 py-7_5
+                                        px-2.5 sm:px-7_5">
+                            <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest min-w-7
+                                            w-7 sm:w-9
+                                            h-7 sm:h-9">2</div>
+                            <div className="ml-5 sm:ml-11">
+                                <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
+                                                text-lg sm:text-2xl">Shipping address</div>
                                 <div className="ttcommon_font_thin leading-14_26">
                                     <div className="">{`${ship_address.f_name} ${ship_address.l_name}`}</div>
                                     <div className="">{ship_address.address}</div>
                                     <div className="">{`${ship_address.city} ${ship_address.country} ${ship_address.postcode}`}</div>
                                 </div>
                             </div>
-                            <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateShippindAddressHandler() }}>Change</button>
+                            <div className="flex flex-col flex-1
+                                        self-start sm:self-center">
+                                <button className="ml-auto leading-14_17 uppercase underline
+                                                mb-auto sm:my-auto" onClick={() => { updateShippindAddressHandler() }}>Change</button>
+                            </div>
+                            
                         </div>
                     }
                 </div>
@@ -367,37 +409,53 @@ function Checkout() {
                 {/* billing address */}
                 {checkedShippingAddress && logined && !checkedBillAddress &&
                     <div>
-                        <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">3</div>
-                            <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Billing address</div>
+                        <div className="mt-5 bg-white flex items-center py-7_5
+                                        px-2.5 sm:px-7_5">
+                            <div className="flex justify-center items-center border border-c_00080D rounded-full text-black leading-14_17 tracking-widest min-w-7
+                                            w-7 sm:w-9
+                                            h-7 sm:h-9">3</div>
+                            <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest
+                                            ml-5 sm:ml-11">Billing address</div>
                         </div>
                         <div className="mt-5">
-                            <div className="flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
                                     <Input type="text" onChange={getBAFNameFromInputHandler} value={bill_address.f_name}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                w-full sm:w-1/2
+                                                mt-3 sm:mt-0">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
                                     <Input type="text" onChange={getBALNameFromInputHandler} value={bill_address.l_name}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
                                     <Input type="text" onChange={getBAAddressFromInputHandler} value={bill_address.address}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                mt-3 sm:mt-0
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
                                     <Input type="text" onChange={getBAAptFromInputHandler} value={bill_address.apt}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
                                     <Input type="text" onChange={getBACityFromInputHandler} value={bill_address.city}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                w-full sm:w-1/2
+                                                mt-3 sm:mt-0">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Country</label>
                                     <SelectInput
                                         enable_underline={false}
@@ -408,12 +466,16 @@ function Checkout() {
                                         returnVal={getBACountryFromInputHandler}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
                                     <Input type="text" onChange={getBAPostcodeFromInputHandler} value={bill_address.postcode}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                mt-3 sm:mt-0
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26 invisible" htmlFor="">Postal Code</label>
                                     <div className="flex items-center">
                                         <input className="h-3" type="radio" id="billing_address_cb" />
@@ -429,44 +491,65 @@ function Checkout() {
                     </div>
                 }
                 {checkedBillAddress &&
-                    <div className="bg-white p-7 flex items-center mt-5">
-                        <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">3</div>
-                        <div className="ml-11">
-                            <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Billing Address</div>
+                    <div className="bg-white flex items-center mt-5 py-7_5
+                                    px-2.5 sm:px-7_5">
+                        <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest min-w-7
+                                        w-7 sm:w-9
+                                        h-7 sm:h-9
+                                        ">3</div>
+                        <div className="ml-5 sm:ml-11">
+                            <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
+                                            text-lg sm:text-2xl">Billing Address</div>
                             <div className="ttcommon_font_thin leading-14_26">
                                 <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
                                 <div className="">{bill_address.address}</div>
                                 <div className="">{`${bill_address.city} ${bill_address.country} ${bill_address.postcode}`}</div>
                             </div>
                         </div>
-                        <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updateBillingAddressHandler() }}>Change</button>
+                        <div className="flex flex-col flex-1
+                                        self-start sm:self-center">
+                            <button className="ml-auto leading-14_17 uppercase underline
+                                                mb-auto sm:my-auto" onClick={() => { updateBillingAddressHandler() }}>Change</button>
+                        </div>
                     </div>
                 }
 
                 {/* payment method */}
                 {!checkedPayment && logined && checkedShippingAddress && checkedBillAddress &&
                     <div>
-                        <div className="mt-5 bg-white p-7 flex items-center">
-                            <div className="flex justify-center items-center border border-c_00080D w-9 h-9 rounded-full text-black leading-14_17 tracking-widest">4</div>
-                            <div className="ml-11 ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Payment Method</div>
+                        <div className="mt-5 bg-white flex items-center py-7_5
+                                        px-2.5 sm:px-7_5">
+                            <div className="flex justify-center items-center border border-c_00080D rounded-full text-black leading-14_17 tracking-widest min-w-7
+                                            w-7 sm:w-9
+                                            h-7 sm:h-9">4</div>
+                            <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest
+                                            ml-5 sm:ml-11">Payment Method</div>
                         </div>
                         <div className="mt-5">
-                            <div className="flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Name on Card</label>
                                     <Input type="text" placeholder="Name on Card" onChange={getCardNameFromInputHandler} value={payment.name}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                mt-3 sm:mt-0
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Card Number</label>
                                     <Input type="text" placeholder="1234 5678 1234 5678 0000" onChange={getCardNumberFromInputHandler} value={payment.number}/>
                                 </div>
                             </div>
-                            <div className="mt-3 flex items-center">
-                                <div className="w-1/2 mr-2">
+                            <div className="mt-3 items-center
+                                            block sm:flex">
+                                <div className="mr-2
+                                                w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Expiration Date</label>
                                     <Input type="text" placeholder="(mm/yyyy)" onChange={getCardDateFromInputHandler} value={payment.date}/>
                                 </div>
-                                <div className="w-1/2 ml-2">
+                                <div className="ml-0 sm:ml-2
+                                                mt-3 sm:mt-0
+                                                w-11/12 sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">CVC</label>
                                     <div className="relative">
                                         <Input type="text" placeholder="xxx" onChange={getCardCVCFromInputHandler} value={payment.cvc}/>
@@ -485,17 +568,26 @@ function Checkout() {
                 }
                 {checkedPayment && logined && checkedShippingAddress && checkedBillAddress &&
                     <div>
-                        <div className="bg-white p-7 flex items-center mt-5">
-                            <div className="flex justify-center items-center bg-c_00080D w-9 h-9 rounded-full text-white leading-14_17 tracking-widest">4</div>
-                            <div className="ml-11">
-                                <div className="ttcommon_font_bold uppercase text-2xl leading-24_29 tracking-widest">Payment Method</div>
+                        <div className="bg-white flex items-center mt-5 py-7_5
+                                        px-2.5 sm:px-7_5">
+                            <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest min-w-7
+                                            w-7 sm:w-9
+                                            h-7 sm:h-9">4</div>
+                            <div className="ml-5 sm:ml-11">
+                                <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
+                                                text-lg sm:text-2xl">Payment Method</div>
                                 <div className="ttcommon_font_thin leading-14_26">
                                     <div className="">{`${payment.name}`}</div>
                                     <div className="">{`${payment.number}`}</div>
                                     <div className="">{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
                                 </div>
                             </div>
-                            <button className="ml-auto leading-14_17 uppercase underline" onClick={() => { updatePaymentHandler() }}>Change</button>
+                            <div className="flex flex-col flex-1
+                                        self-start sm:self-center">
+                                <button className="ml-auto leading-14_17 uppercase underline
+                                                    mb-auto sm:my-auto" onClick={() => { updatePaymentHandler() }}>Change</button>
+                            </div>
+                            
                         </div>
                         <div className="mt-7 flex items-center">
                             <Button className="h-11 w-64" onClick={() => {placeOrderHandler()}}>Place Order</Button>
