@@ -1,6 +1,6 @@
 import commerce from '@lib/api/commerce'
 import dynamic from 'next/dynamic'
-import { Layout } from '@components/common'
+import Layout from'@components/common/Layout'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { ChevronRight, ChevronUp } from '@components/icons'
 

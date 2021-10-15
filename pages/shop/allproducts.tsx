@@ -5,7 +5,8 @@ import ChevronRight from '@components/icons/ChevronRight'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 const Button = dynamic(import('@components/mycp/Button'))
-import SelectInput from '@components/mycp/SelectInput'
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+// import SelectInput from '@components/mycp/SelectInput'
 import {getCookie} from 'utils/cookie'
 import Link from '@components/ui/Link'
 import {AddToCartByDom} from 'utils/addToCartByDom'

@@ -61,9 +61,8 @@ export default function Masque() {
         }
     }, [])
     const addToBagHandler = () => {
-        let product_detail = masque
         masque.quantity = numMasque
-        dispatch(addProductToCart(product_detail))
+        dispatch(addProductToCart(masque))
     }
     const decreaseNumHandler = () => {
         if (numMasque > 1) {

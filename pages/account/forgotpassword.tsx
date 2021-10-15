@@ -2,13 +2,8 @@ import { Layout, Navbar } from '@components/common'
 import Link from '@components/ui/Link';
 import dynamic from 'next/dynamic'
 const Button = dynamic(import('@components/mycp/Button'))
-import Input from '@components/mycp/Input'
+const Input = dynamic(import('@components/mycp/Input'))
 import { ChevronRight } from '@components/icons';
-import login from 'pages/api/login';
-import { useRouter } from 'next/router';
-import { getCookie, setCookie } from '@utils/cookie';
-import { useCallback, useEffect, useState } from 'react';
-import { validate } from 'email-validator'
 
 export default function ForgotPassword() {
     

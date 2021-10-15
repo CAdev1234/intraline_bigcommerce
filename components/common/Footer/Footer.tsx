@@ -5,11 +5,8 @@ import Image from 'next/image'
 import router, { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Github, Vercel } from '@components/icons'
 import { Logo, Container } from '@components/ui'
-import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
-import { getCookie } from '@utils/cookie'
 import { Button, SelectInput } from '@components/mycp'
 import { useAppSelector } from '@utils/redux/hooks'
 import { validateEmail } from 'utils/simpleMethod'
@@ -19,7 +16,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import visaImage from 'public/assets/img/visa.webp'
 import masterCardImage from 'public/assets/img/master_card.webp'
-
 
 interface Props {
   className?: string
@@ -37,7 +33,8 @@ const links = [
 const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
   const [subescribeEmail, setSubscribeEmail] = useState('')
-  const [enableSubscribeModal, setEnableSubscribeModal] = useState(false)
+  const [enableSubscribeSuccessModal, setEnableSubscribeSuccessModal] = useState(false)
+  const [enableSubscribeFailModal, setEnableSubscribeFailModal] = useState(false)
   // const [logined, setLogined] = useState(false)
   const logined = useAppSelector((state) => state.user.logined)
   const rootClassName = cn(s.root, className)
@@ -62,15 +59,29 @@ const Footer: FC<Props> = ({ className, pages }) => {
     
   }, [])
 
-  const subscribeHandle = (bool_var: boolean) => {
+  const subscribeHandle = async (bool_var: boolean) => {
     if (!validateEmail(subescribeEmail)) {
       toast.error("Invalid Email.", {
           position: toast.POSITION.TOP_RIGHT
       });
       return
     }
+    if (!bool_var) {
+      setEnableSubscribeFailModal(false);
+      setEnableSubscribeSuccessModal(false);
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
+      return
+    }
     if (subescribeEmail) {
-      setEnableSubscribeModal(bool_var);
+      let res = await fetch('/api/hubspot/subscribe', {
+        method: 'POST',
+        body: JSON.stringify({email: subescribeEmail})
+      })
+      if(res.status === 200) {
+        setEnableSubscribeSuccessModal(true)
+      }else {
+        setEnableSubscribeFailModal(true)
+      }
     }else {
       return
     }
@@ -354,7 +365,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
       </Container>
 
       {/* subscribe success modal */}
-      {enableSubscribeModal &&
+      {enableSubscribeSuccessModal &&
         <div className="fixed top-0 left-0 w-full h-screen flex flex-col z-40 bg-black bg-opacity-50">
           <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
             <div className="flex justify-between border-b border-gray-100 px-5 py-4">
@@ -369,6 +380,31 @@ const Footer: FC<Props> = ({ className, pages }) => {
           
             <div className="px-10 py-5 text-gray-600">
               Your email is subscribed successfully and thanks.
+            </div>
+          
+            <div className="px-5 py-4 flex justify-end">
+              <button className="text-sm py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                onClick={() => {subscribeHandle(false)}}>Close</button>
+            </div>
+          </div>
+        </div>
+      }
+
+      {enableSubscribeFailModal &&
+        <div className="fixed top-0 left-0 w-full h-screen flex flex-col z-40 bg-black bg-opacity-50">
+          <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
+            <div className="flex justify-between border-b border-gray-100 px-5 py-4">
+              <div>
+                  <i className="fas fa-exclamation-circle text-blue-500"></i>
+                  <span className="font-bold text-gray-700 text-lg">Info</span>
+                </div>
+              <div>
+                  <button><i className="fa fa-times-circle text-red-500 hover:text-red-600 transition duration-150"></i></button>
+                </div>
+            </div>
+          
+            <div className="px-10 py-5 text-gray-600">
+              Your email is already subscribed.
             </div>
           
             <div className="px-5 py-4 flex justify-end">

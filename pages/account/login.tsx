@@ -2,17 +2,14 @@ import { Layout, Navbar } from '@components/common'
 import Link from '@components/ui/Link';
 import dynamic from 'next/dynamic'
 const Button = dynamic(import('@components/mycp/Button'))
-import Input from '@components/mycp/Input'
+const Input = dynamic(import('@components/mycp/Input'))
 import { ChevronRight } from '@components/icons';
-import login from 'pages/api/login';
 import { useRouter } from 'next/router';
-import { getCookie, setCookie } from '@utils/cookie';
-import { useCallback, useEffect, useState } from 'react';
-import { validate } from 'email-validator'
+import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { validateEmail } from 'utils/simpleMethod'
-import { useAppDispatch, useAppSelector } from '@utils/redux/hooks';
+import { useAppDispatch } from '@utils/redux/hooks';
 import { loginUser } from '@utils/redux/slices/userSlice';
 import { loginAuth } from '@utils/auth';
 

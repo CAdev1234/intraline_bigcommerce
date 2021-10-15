@@ -69,9 +69,8 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
     const router = useRouter()
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        let product_detail = mseries_li.filter(item => item.link === router.asPath)[0]
-        product_detail.quantity = numM2Plus
-        dispatch(addProductToCart(product_detail))
+        product_info.quantity = numM2Plus
+        dispatch(addProductToCart(product_info))
     }
     const decreaseNumHandler = () => {
         if (numM2Plus > 1) {
@@ -91,6 +90,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
 
     const addToCartByDom = new AddToCartByDom(mseries_li)
     const addToBagMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+        console.log(index)
         addToCartByDom.addToBagHandler(event, index)
     }
     const decreaseNumMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>) => {

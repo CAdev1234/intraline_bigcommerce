@@ -182,9 +182,8 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     }
 
     const addToBagHandler = () => {
-        let product_detail = items.filter(item => item.link === router.asPath)[0]
-        product_detail.quantity = numDimension720
-        dispatch(addProductToCart(product_detail))    
+        product_info.quantity = numDimension720
+        dispatch(addProductToCart(product_info))    
     }
 
     const decreaseNumHandler = () => {

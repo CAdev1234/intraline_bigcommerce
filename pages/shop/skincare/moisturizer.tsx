@@ -61,9 +61,8 @@ export default function Moisturizer() {
         }
     }, [])
     const addToBagHandler = () => {
-        let product_detail = moisturizer
         moisturizer.quantity = numMoisturizer
-        dispatch(addProductToCart(product_detail))
+        dispatch(addProductToCart(moisturizer))
     }
     const decreaseNumHandler = () => {
         if (numMoisturizer > 1) {

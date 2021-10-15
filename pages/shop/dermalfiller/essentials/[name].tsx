@@ -68,9 +68,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     const router = useRouter()
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        let product_detail = essential_li.filter(item => item.link === router.asPath)[0]
-        product_detail.quantity = numM2Plus
-        dispatch(addProductToCart(product_detail))
+        product_data.quantity = numM2Plus
+        dispatch(addProductToCart(product_data))
     }
     const decreaseNumHandler = () => {
         if (numM2Plus > 1) {
