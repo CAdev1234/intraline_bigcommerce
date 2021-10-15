@@ -39,7 +39,7 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
                         <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
                     </div>
                 }
-                <div className="text-xl leading-14_17 text-center mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
+                <div className="leading-14_17 text-center mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
             </div>
     })
     return <div className={`py-24 ${bg_color}`}>

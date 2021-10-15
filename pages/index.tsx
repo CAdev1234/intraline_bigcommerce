@@ -321,31 +321,26 @@ export default function Home({
     {
       title: "DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC",
       detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
-      img: "https://liniaskinclinic.com/wp-content/uploads/2018/11/ThermiLaunch_LR-8281-214x300.jpg",
       rate: 5
     },
     {
       title: "Claire Newman Intraline KOL & Brand Ambassador SOFT TOUCHES AESTHETICS",
       detail: "I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG",
       rate: 5
     },
     {
       title: "Marissa Freeman (patient)",
       detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG",
       rate: 5
     },
     {
       title: "Cole Harrison (patient)",
       detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg",
       rate: 5
     },
     {
       title: "Dr. Tuğba Yalçın Director Lumière Aesthetics",
       detail: "Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg",
       rate: 5
     },
   ]
