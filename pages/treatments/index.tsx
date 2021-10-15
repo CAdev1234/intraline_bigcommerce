@@ -118,10 +118,12 @@ export default function Treatments() {
         },
     ]
     let facial_render_ele = facial_treatment_li.map((item, index) => {
-        return <div className="keen-slider__slide relative" key={`category_${index}`}>
+        return <div className="keen-slider__slide" key={`category_${index}`}>
                     <div className="flex flex-col">
-                        <div className="flex-1 h-0">
-                            <Image className="h-full object-contain mx-auto" src={item.img} alt="" layout="fill" />
+                        <div className="w-full aspect-w-1 aspect-h-1">
+                            <div className="h-full w-full">
+                                <Image className="" src={item.img} alt="" layout="fill"/>
+                            </div>
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
@@ -132,8 +134,10 @@ export default function Treatments() {
     let body_render_ele = body_treatment_li.map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col">
-                        <div className="flex-1 h-0">
-                            <Image className="h-full object-contain mx-auto" src={item.img} layout="fill" />
+                        <div className="w-full aspect-w-1 aspect-h-1">
+                            <div className="h-full w-full">
+                                <Image className="" src={item.img} alt="" layout="fill"/>
+                            </div>
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
