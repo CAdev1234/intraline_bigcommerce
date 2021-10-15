@@ -15,7 +15,6 @@ import { RatingView } from 'react-simple-star-rating'
 import Button from '@components/mycp/Button'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 
-import ReactPlayer from 'react-player';
 import Link from '@components/ui/Link'
 
 import {getCookie} from 'utils/cookie'
@@ -486,9 +485,9 @@ export default function Home({
         brands={brands}
       /> */}
 
-      <div className="w-full mt-15">
+      {/* <div className="w-full mt-15">
         <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
-      </div>
+      </div> */}
       <div className="relative z-10 flex ttcommon_font_bold
                       text-c_00080D md:text-white
                       mt-16 md:-mt-32
