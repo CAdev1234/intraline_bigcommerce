@@ -6,19 +6,9 @@ import { Cross } from '@components/icons'
 import {useAppDispatch, useAppSelector} from '../../../utils/redux/hooks'
 import {openSideCart, closeSideCart} from '../../../utils/redux/slices/cartSlice'
 import { useRouter } from 'next/router'
+import { ProductObject } from 'utils/types'
 
 interface SideCartProps {
-}
-
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
 }
 
 const SideCart: FC<SideCartProps> = () => {

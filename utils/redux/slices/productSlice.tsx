@@ -1,15 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
+import { ProductObject } from 'utils/types'
 
 
 const products = [

@@ -6,6 +6,7 @@ import {Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
 import { ChevronDown, ChevronRight } from '@components/icons'
 import { getCookie } from '@utils/cookie'
+
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import Checkbox from '@components/mycp/Checkbox'
@@ -42,7 +43,7 @@ export default function Masque() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    let masque = {id: 'product_0000-000000-0017', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.png', detail: "Intraline’s Biocellulose Masque features a natural biocellulose sheet, Hyaluronic Acid, Niacinamide, and Snow Lotus extract; these together provide significant facial rejuvenation benefits and immerses your skin in intense moisture.", link: '/shop/skincare/masque'}
+    let masque = {id: 'product_0000-000000-0016', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.png', detail: "Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'}
     
     const [logined, setLogined] = useState(false)
     const [numMasque, setNumMasque] = useState(1)
@@ -59,7 +60,7 @@ export default function Masque() {
     }, [])
     const addToBagHandler = () => {
         let product_detail = masque
-        product_detail.quantity = numMasque
+        masque.quantity = numMasque
         dispatch(addProductToCart(product_detail))
     }
     const decreaseNumHandler = () => {
@@ -73,74 +74,100 @@ export default function Masque() {
         setNumMasque(numMasque + 1)
     }
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col">
-            <div className="h-225 relative bg-c_F5DBDD w-full flex flex-col pl-15 pr-20">
-                <div className="absolute top-28 left-0 flex items-center uppercase leading-14_17 tracking-widest">
-                    <div className="flex items-center
-                                    px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
+        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+                        mt-16 md:mt-0">
+            <div className="relative bg-c_F5DBDD w-full flex flex-col mt-15
+                            px-5 md:px-15">
+                <div className="mt-12_5 left-0 flex items-center uppercase leading-14_17 tracking-widest">
+                    <div className="flex items-center ttcommon_font">
                         <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
                         <span className="mr-1">Shop</span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="mr-1"><Link href="/shop/skincare">Skin Care</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold"><Link href="/shop/skincare/masque">Masque</Link></span>
+                        <span className="ttcommon_font_bold">Moisturizer</span>
                     </div>
                 </div>
-                <div className="mt-auto mb-15 flex flex-col">
+                <div className="w-full mt-9
+                                block md:hidden">
+                    <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
+                        <div className="absolute w-full left-0 top-0">
+                            {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
+                                                            right-0 md:right-15" variant="primary">$100.00</Button>}
+                        </div>
+                        <div className="flex">
+                            <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col w-full
+                                mt-7 md:mt-44">
                     <div className="flex w-full h-full z-10">
-                        <div className="flex flex-col max-w-xl">
-                            <div className="my-auto">
+                        <div className="flex-1
+                                        max-w-none md:max-w-xl">
+                            <div className="">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48">Biocellulose</div>
-                                <div className="ttcommon_font_thin text-120px font-semibold mt-2 leading-none" ><span className="ttcommon_font_bold">Masque</span></div>
-                                <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
-                                <div className="ttcommon_font_thin mt-2 mr-36 leading-14_26">Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
+                                <div className="ttcommon_font_thin font-semibold mt-2 leading-none
+                                                text-6xl md:text-7xl lg:text-8xl xl:text-120px" ><span className="ttcommon_font_bold">Masque</span></div>
+                                <div className="ttcommon_font_thin mt-5 leading-36_48
+                                                text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Immerse your skin in intense moisture while smoothing, tightening & rejuvenating</div>
+                                <div className="ttcommon_font_thin mt-2 leading-14_26
+                                                mr-5 lg:mr-36">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 100ML</span>
                                 </div>}
-                                {logined && <div className="mt-5 flex items-center h-12 text-white">
-                                    <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                {logined && <div className="mt-5 items-center h-12 text-white
+                                                            block md:flex">
+                                    <div className="bg-c_00080D flex items-center justify-center h-full
+                                                    w-full md:w-24">
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {decreaseNumHandler()}}>-</button>
                                         <div className="mx-auto">{numMasque}</div>
                                         <button className="mx-auto bg-transparent border-none p-1" onClick={() => {increaseNumHandler()}}>+</button>
                                     </div>
-                                    <Button className="ml-3 w-52 h-full" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                    <Button className="h-full
+                                                    w-full md:w-52
+                                                    ml-0 md:ml-3
+                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
-                        <div className="w-146">
-                            <div className="relative w-full flex flex-col bg-c_CCE7EF aspect-w-1 aspect-h-1 rounded-full">
-                                <div>
-                                    {logined && <Button className="ttcommon_font_bold absolute right-5 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                        <div className="w-full my-auto
+                                        ml-10 lg:ml-20 xl:ml-36
+                                        hidden md:block">
+                            <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
+                                <div className="absolute w-full left-0 top-0">
+                                    {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
+                                                                    right-0 md:right-15" variant="primary">$100.00</Button>}
                                 </div>
-                                <div className="w-7/12 m-auto flex flex-col">
-                                    <img className="w-full my-auto" src="/assets/img/skincare2.png" alt="" />
+                                <div className="flex">
+                                    <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="relative flex flex-col items-center ml-auto w-146 aspect-w-1 aspect-h-1">
-                            <div className="w-full h-full relative bg-c_CCE7EF my-auto rounded-full">
-                                {logined && <Button className="ttcommon_font_bold absolute right-14 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
-                                <div className="my-auto relative flex flex-col h-3/4">
-                                    <img className="h-full" src="/assets/img/skincare2.png" alt="" />
-                                </div>
-                            </div>
-                            
-                        </div> */}
                     </div>
-                    <div className="flex items-center justify-center mt-5">
-                        <span className="ttcommon_font uppercase tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
+                    <div className="mt-16 pb-15">
+                        <div className="items-center justify-center
+                                        hidden md:flex">
+                            <span className="ttcommon_font uppercase tracking-widest
+                                            ">Scroll for more details</span>
+                            <ChevronDown className="w-4 ml-4" />
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Lorem Ipsum. */}
-            <div className="bg-white px-40">
-                <div className="flex flex-col max-w-2xl mx-auto py-28">
-                    <div className="ttcommon_font_bold leading-36_26 text-4xl text-center">Lorem Ipsum.</div>
-                    <p className="leading-36_48 mt-6 text-4xl ttcommon_font_thin text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+            <div className="bg-white
+                            px-5 md:px-15 lg:px-40">
+                <div className="flex flex-col max-w-2xl mx-auto
+                                py-25 md:py-28">
+                    <div className="ttcommon_font_bold text-center
+                                    leading-none md:leading-36_26
+                                    text-2xl md:text-4xl">Lorem Ipsum.</div>
+                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                                    text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
@@ -157,9 +184,12 @@ export default function Masque() {
 
             {/* Question part */}
             <div className="bg-c_C3E0DC">
-                <div className="mx-auto py-28
+                <div className="py-28 mx-auto
                                 w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                    <div className="flex flex-col max-w-lg mx-auto">
+                    <div className="flex flex-col
+                                    w-full md:max-w-lg
+                                    mx-0 md:mx-auto
+                                    px-5 md:px-0">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
@@ -192,7 +222,7 @@ export default function Masque() {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="masque_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="moisturizer_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
@@ -201,8 +231,6 @@ export default function Masque() {
                     </div>
                 </div>
             </div>
-            
-
         </div>
     )
 }

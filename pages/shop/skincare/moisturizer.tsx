@@ -93,7 +93,8 @@ export default function Moisturizer() {
                                 block md:hidden">
                     <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                         <div className="absolute w-full left-0 top-0">
-                            {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                            {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
+                                                            right-0 md:right-15" variant="primary">$100.00</Button>}
                         </div>
                         <div className="flex">
                             <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />
@@ -137,7 +138,8 @@ export default function Moisturizer() {
                                         hidden md:block">
                             <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                                 <div className="absolute w-full left-0 top-0">
-                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                                    {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
+                                                                    right-0 md:right-15" variant="primary">$100.00</Button>}
                                 </div>
                                 <div className="flex">
                                     <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />

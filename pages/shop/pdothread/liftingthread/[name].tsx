@@ -227,7 +227,11 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <div className="relative h-full w-full flex flex-col">
                         <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
                             <div>
-                                {logined && <Button className="absolute top-3 right-14 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>}
+                                {logined && 
+                                    <Button className="absolute top-3 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10
+                                                        right-3 md:right-14" 
+                                            variant="primary">$100.00</Button>
+                                }
                             </div>
                         </div>
                         <div className="h-full absolute -top-10 left-0 w-full flex flex-col">

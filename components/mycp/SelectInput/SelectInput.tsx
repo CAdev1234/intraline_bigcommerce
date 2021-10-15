@@ -1,26 +1,7 @@
 import TriangleDown from "@components/icons/TriangleDown";
 import TriangleUp from "@components/icons/TriangleUp";
 import { FC, useState } from "react";
-
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
-
-type ReviewObject = {
-    id: string,
-    product: string,
-    title: string,
-    created_at: string,
-    rating: number,
-    detail: string,
-}
+import { ProductObject, ReviewObject } from 'utils/types'
 
 interface SelectInputProps {
     default_option?: string | ProductObject | ReviewObject,

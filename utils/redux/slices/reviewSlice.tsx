@@ -2,17 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import { generateID } from '@utils/simpleMethod'
 import type { RootState } from '../store'
 import date from 'date-and-time'
+import { ReviewObject } from 'utils/types'
 
-type ReviewObject = {
-    id: string,
-    product: string,
-    title: string,
-    rating: number,
-    detail: string,
-    client: string,
-    created_at: string,
-    updated_at: string
-}
 
 const initialState = {
     enableSideReview: false,

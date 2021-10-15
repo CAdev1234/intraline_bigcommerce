@@ -1,16 +1,13 @@
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
-import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
-// import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { ChevronDown, ChevronRight, ChevronUp } from '@components/icons'
+import { ChevronRight, ChevronUp } from '@components/icons'
 
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-
+import Image from 'next/image'
 
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 
@@ -31,6 +28,8 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import router from 'next/router'
 import { TestimonialCp } from '@components/mycp'
+import tripleRedImg from '../public/assets/img/triple_red.png'
+import tripleBlueImg from '../public/assets/img/triple_blue.png'
 
 export async function getStaticProps({
   preview,
@@ -404,6 +403,9 @@ export default function Home({
                 <div className="">
                   <div className="aspect-w-1 aspect-h-1 w-full">
                     <img className="w-full" src={item.img} alt="" />
+                    {/* <div className="w-full">
+                      <Image src={item.img} alt={`category_img_${index}`}/>
+                    </div> */}
                   </div>
                 </div>
                 <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
@@ -525,11 +527,13 @@ export default function Home({
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
-          <img src="/assets/img/triple_red.png" alt="" />
+          <Image src={tripleRedImg} alt="" />
+          {/* <img src="/assets/img/triple_red.png" alt="" /> */}
         </div>
         <div className="absolute bottom-0 right-0
                         w-52 md:w-auto">
-          <img src="/assets/img/triple_blue.png" alt="" />
+          {/* <img src="/assets/img/triple_blue.png" alt="" /> */}
+          <Image src={tripleBlueImg} alt="triple blue image"></Image>
         </div>
       </div>
 

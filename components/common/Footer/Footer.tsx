@@ -17,11 +17,9 @@ import { validateEmail } from 'utils/simpleMethod'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-export const config = {
-  unstable_runtimeJS: false
-}
+import visaImage from '../../../public/assets/img/visa.png'
+import masterCardImage from '../../../public/assets/img/master_card.png'
 
-// import VisaImage
 
 interface Props {
   className?: string
@@ -340,12 +338,16 @@ const Footer: FC<Props> = ({ className, pages }) => {
               <label htmlFor="" 
                     className="text_overflow_one_line
                               text-xs sm:text-sm">Payment Methods:</label>
-              <div className="ml-2.5 sm:ml-5 
+              <div className="flex items-center
+                              ml-2.5 sm:ml-5 
                               w-12 sm:w-auto">
-                <img src="/assets/img/visa.png" alt="visa image" />
+                <Image src={visaImage} alt="visa image" />
               </div>
-              <img className="ml-2.5 sm:ml-5
-                              w-12 sm:w-auto" src="/assets/img/master_card.png" alt="" />
+              <div className="flex items-center
+                              ml-2.5 sm:ml-5
+                              w-12 sm:w-auto">
+                <Image src={masterCardImage} alt="master card image"/>
+              </div>
             </div>
           </div>
         </div>
