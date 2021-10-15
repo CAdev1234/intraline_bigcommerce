@@ -14,7 +14,7 @@ import Link from '@components/ui/Link'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import { validateEmail } from '@utils/simpleMethod'
 import { ToastContainer, toast} from 'react-toastify'
-import scarkitImg from 'public/assets/img/scarkit.png'
+import scarkitImg from 'public/assets/img/scarkit.webp'
 import Image from 'next/image'
 
 const RenderFAQCollapse = () => {
@@ -74,7 +74,7 @@ export default function ScarKit() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    let scarkit = {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.png', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'}
+    let scarkit = {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.webp', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'}
     let specific_li = [
         {
             title: 'Product Specifics.', 

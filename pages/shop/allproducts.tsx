@@ -31,7 +31,7 @@ export async function getStaticProps() {
             price: 100,
             amount: 1,
             link: "/shop/dermalfiller/m2plus",
-            img: "/assets/img/product1.png"
+            img: "/assets/img/product1.webp"
         });
     }
     return {

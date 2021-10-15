@@ -86,9 +86,9 @@ export default function Essentials() {
 
     const renderMSeriesSwiper = () => {
         let essential_series_li = [
-            {title: "INTRALINE ONE", price: 100, img: '/assets/img/mseries_1.png', link: '/shop/dermalfiller/essentials/intralineone'},
-            {title: "INTRALINE TWO", price: 100, img: '/assets/img/mseries_2.png', link: '/shop/dermalfiller/essentials/intralinetwo'},
-            {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.png', link: '/shop/dermalfiller/essentials/intralinethree'},
+            {title: "INTRALINE ONE", price: 100, img: '/assets/img/mseries_1.webp', link: '/shop/dermalfiller/essentials/intralineone'},
+            {title: "INTRALINE TWO", price: 100, img: '/assets/img/mseries_2.webp', link: '/shop/dermalfiller/essentials/intralinetwo'},
+            {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.webp', link: '/shop/dermalfiller/essentials/intralinethree'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>

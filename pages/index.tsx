@@ -27,8 +27,8 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import router from 'next/router'
 import { TestimonialCp } from '@components/mycp'
-import tripleRedImg from '../public/assets/img/triple_red.png'
-import tripleBlueImg from '../public/assets/img/triple_blue.png'
+import tripleRedImg from 'public/assets/img/triple_red.webp'
+import tripleBlueImg from 'public/assets/img/triple_blue.png'
 
 export async function getStaticProps({
   preview,
@@ -485,9 +485,9 @@ export default function Home({
         brands={brands}
       /> */}
 
-      {/* <div className="w-full mt-15">
+      <div className="w-full mt-15">
         <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
-      </div> */}
+      </div>
       <div className="relative z-10 flex ttcommon_font_bold
                       text-c_00080D md:text-white
                       mt-16 md:-mt-32
@@ -526,11 +526,11 @@ export default function Home({
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
           <Image src={tripleRedImg} alt="" />
-          {/* <img src="/assets/img/triple_red.png" alt="" /> */}
+          {/* <img src="/assets/img/triple_red.webp" alt="" /> */}
         </div>
         <div className="absolute bottom-0 right-0
                         w-52 md:w-auto">
-          {/* <img src="/assets/img/triple_blue.png" alt="" /> */}
+          {/* <img src="/assets/img/triple_blue.webp" alt="" /> */}
           <Image src={tripleBlueImg} alt="triple blue image"></Image>
         </div>
       </div>

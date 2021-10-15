@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'
 import Image from 'next/image'
 import MSeriesImg from '../../../public/assets/img/m_series.jpg'
-import bluePurpleSmokeImg from '../../../public/assets/img/BluePurpleSmoke.png'
+import bluePurpleSmokeImg from '../../../public/assets/img/BluePurpleSmoke.webp'
 import essentialSeriesImg from '../../../public/assets/img/essential_series.jpg'
 
 
@@ -162,7 +162,7 @@ export default function DemeralFiller() {
                 </div>
                 <div className="absolute top-0 right-0 h-full
                                 hidden sm:block">
-                    {/* <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.png" alt="" /> */}
+                    {/* <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.webp" alt="" /> */}
                     <Image src={bluePurpleSmokeImg} alt="blue purple smoke image" className="mix-blend-multiply" />
                 </div>
             </div>

@@ -22,7 +22,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 
 import Image from 'next/image'
-import smokeM2Img from '../../../../public/assets/img/SmokeM2.png'
+import smokeM2Img from '../../../../public/assets/img/SmokeM2.webp'
 
 type ParamsType = {
     name: string
@@ -58,9 +58,9 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
         if (item.detail.toLowerCase().includes(product_data.title)) return item
     })
     let essential_li = [
-        {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.png', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
-        {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.png', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
-        {id: 'product_0000-000000-0006', title: 'Intraline Three', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.png', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
+        {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
+        {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
+        {id: 'product_0000-000000-0006', title: 'Intraline Three', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
     ]
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
@@ -227,11 +227,11 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     block md:hidden">
                         <div className="flex flex-col items-end h-full">
                             <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" /> */}
+                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.webp" alt="" /> */}
                                 <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} />
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative">
-                                        <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
+                                        <img className="m-auto" src="/assets/img/m2plus.webp" alt="" />
                                         {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_data.price}.00</Button>}
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                             <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
                             <div className="w-full h-full flex absolute items-center justify-center">
                                 <div className="relative">
-                                    <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
+                                    <img className="m-auto" src="/assets/img/m2plus.webp" alt="" />
                                     {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
                                 </div>
                             </div>

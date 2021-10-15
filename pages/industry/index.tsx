@@ -3,8 +3,8 @@ import { ChevronRight } from "@components/icons"
 import { Button, Input} from '@components/mycp'
 import Link from "@components/ui/Link"
 import Image from 'next/image'
-import doctor1Img from '../../public/assets/img/doctor-1.png'
-import reportImg from '../../public/assets/img/report.png'
+import doctor1Img from '../../public/assets/img/doctor-1.webp'
+import reportImg from '../../public/assets/img/report.webp'
 
 export default function IndustryIndex() {
     return <div className="ttcommon_font_thin relative">
@@ -99,7 +99,7 @@ export default function IndustryIndex() {
                             <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
                         </div>
                         <div className="flex mt-15">
-                            <img src="/assets/img/doctor-1.png" alt="" />
+                            <img src="/assets/img/doctor-1.webp" alt="" />
                             <Image src={doctor1Img} alt="doctor-1-image" />
                             <div className="ml-16 flex-1 flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>

@@ -102,8 +102,8 @@ export default function PDOThread() {
 
     const renderPDOThreadSwiper = () => {
         let pdothread_li = [
-            {title: 'Lifting Threads', img: '/assets/img/lifting_thread_1.png', link: '/shop/pdothread/liftingthread'},
-            {title: 'Rejuvenation Threads', img: '/assets/img/lifting_thread_1.png', link: '/shop/pdothread/rejuvenation'}
+            {title: 'Lifting Threads', img: '/assets/img/lifting_thread_1.webp', link: '/shop/pdothread/liftingthread'},
+            {title: 'Rejuvenation Threads', img: '/assets/img/lifting_thread_1.webp', link: '/shop/pdothread/rejuvenation'}
         ]
         let render_ele = pdothread_li.map((item, index) => {
             return <div className="keen-slider__slide relative group" key={`pdo_thread_${index}`}>

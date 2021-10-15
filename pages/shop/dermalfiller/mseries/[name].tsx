@@ -21,7 +21,7 @@ import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 import Image from 'next/image'
-import smokeM2Img from 'public/assets/img/SmokeM2.png'
+import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 
 type ParamsType = {
     name: string
@@ -58,9 +58,9 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
     let mseries_li = [
-        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.png', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/mseries/m2plus'},
-        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.png', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/mseries/m3plus'},
-        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.png', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
+        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.webp', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/mseries/m2plus'},
+        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.webp', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/mseries/m3plus'},
+        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.webp', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
     ]
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
@@ -220,13 +220,13 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                     block md:hidden">
                         <div className="flex flex-col items-end h-full">
                             <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" /> */}
+                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.webp" alt="" /> */}
                                 <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative mt-10">
-                                        <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.png`} alt="" />
-                                        <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.png`} alt="" />
-                                        <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.png`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.webp`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.webp`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.webp`} alt="" />
                                         
                                         {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
                                     </div>
@@ -294,13 +294,13 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                 hidden md:block">
                     <div className="w-6/12 flex flex-col items-end ml-auto h-full">
                         <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                            {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" /> */}
+                            {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.webp" alt="" /> */}
                             <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
                             <div className="w-full h-full flex absolute items-center justify-center">
                                 <div className="relative">
-                                    <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.png`} alt="" />
-                                    <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.png`} alt="" />
-                                    <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.png`} alt="" />
+                                    <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.webp`} alt="" />
+                                    <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.webp`} alt="" />
+                                    <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.webp`} alt="" />
                                     {logined && <Button className="absolute top-5 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
                                 </div>
                             </div>

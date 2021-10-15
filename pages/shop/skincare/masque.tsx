@@ -44,7 +44,7 @@ export default function Masque() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    let masque = {id: 'product_0000-000000-0016', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.png', detail: "Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'}
+    let masque = {id: 'product_0000-000000-0016', title: 'MASQUE', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/masque.webp', detail: "Our Biocellulose Masque is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'}
     
     const [logined, setLogined] = useState(false)
     const [numMasque, setNumMasque] = useState(1)
@@ -97,7 +97,7 @@ export default function Masque() {
                             {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
                                                             right-0 md:right-15" variant="primary">$100.00</Button>}
                             <div className="relative w-full h-full">
-                                <Image className="w-full transform scale-75" src="/assets/img/skincare2.png" alt="" layout="fill" />
+                                <Image className="w-full transform scale-75" src="/assets/img/skincare2.webp" alt="" layout="fill" />
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@ export default function Masque() {
                                     {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
                                                                     right-0 md:right-15" variant="primary">$100.00</Button>}
                                     <div className="relative w-full h-full">
-                                        <Image className="w-full transform scale-75" src="/assets/img/skincare2.png" alt="" layout="fill" />
+                                        <Image className="w-full transform scale-75" src="/assets/img/skincare2.webp" alt="" layout="fill" />
                                     </div>
                                 </div>
                             </div>

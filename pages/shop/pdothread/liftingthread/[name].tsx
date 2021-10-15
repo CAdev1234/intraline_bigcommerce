@@ -20,7 +20,7 @@ import {MSERIES_TESTIMONIAL_LIST, products} from 'utils/productData'
 import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import Image from 'next/image'
-import threadSampleImg from 'public/assets/img/thread_detail.png'
+import threadSampleImg from 'public/assets/img/thread_detail.webp'
 
 type ParamsType = {
     name: string
@@ -109,9 +109,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
     var items = [
-        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.png', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/liftingthread/dimension720'},
-        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.png', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/liftingthread/dimension360'},
-        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.png', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/liftingthread/nosethread'},
+        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.webp', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/liftingthread/dimension720'},
+        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.webp', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/liftingthread/dimension360'},
+        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.webp', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/liftingthread/nosethread'},
     ]
     
     const [logined, setLogined] = useState(false)
@@ -468,7 +468,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                 <div className="mx-auto w-full bg-no-repeat bg-center
                                 bg-contain md:bg-cover"
                     style={{
-                        backgroundImage: 'url(../../../assets/img/analyse-thread.png)',
+                        backgroundImage: 'url(../../../assets/img/analyse-thread.webp)',
                         maxWidth: 649}}>
                     <div className="w-full">
                         <div className="flex">
