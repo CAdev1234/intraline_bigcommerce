@@ -1,26 +1,21 @@
 import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
 
-import QuoteSvg from '@components/icons/QuoteSvg'
-
-import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
 import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import {Button, Input, TestimonialCp} from '@components/mycp'
 import { getCookie } from '@utils/cookie'
-import ReactPlayer from 'react-player'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
-import TriangleRight from '@components/icons/TriangleRight'
 import Link from '@components/ui/Link'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import { validateEmail } from '@utils/simpleMethod'
 import { ToastContainer, toast} from 'react-toastify'
+import scarkitImg from 'public/assets/img/scarkit.png'
+import Image from 'next/image'
 
 const RenderFAQCollapse = () => {
     var items = [
@@ -196,7 +191,7 @@ export default function ScarKit() {
                             {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
                         </div>
                         <div className="flex">
-                            <img className="w-9/12 mx-auto my-auto" src="/assets/img/scarkit.png" alt="" />
+                            <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>
                         </div>
                     </div>
                 </div>
@@ -251,7 +246,7 @@ export default function ScarKit() {
                                     {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
                                 </div>
                                 <div className="flex">
-                                    <img className="w-9/12 mx-auto my-auto" src="/assets/img/scarkit.png" alt="" />
+                                    <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>
                                 </div>
                             </div>
                         </div>

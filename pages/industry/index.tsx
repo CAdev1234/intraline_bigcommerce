@@ -2,6 +2,9 @@ import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
 import { Button, Input} from '@components/mycp'
 import Link from "@components/ui/Link"
+import Image from 'next/image'
+import doctor1Img from '../../public/assets/img/doctor-1.png'
+import reportImg from '../../public/assets/img/report.png'
 
 export default function IndustryIndex() {
     return <div className="ttcommon_font_thin relative">
@@ -97,6 +100,7 @@ export default function IndustryIndex() {
                         </div>
                         <div className="flex mt-15">
                             <img src="/assets/img/doctor-1.png" alt="" />
+                            <Image src={doctor1Img} alt="doctor-1-image" />
                             <div className="ml-16 flex-1 flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>
                                 <div className="mt-2.5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
@@ -161,7 +165,7 @@ export default function IndustryIndex() {
                             </div>
                         </div>
                         <div className="flex-1" style={{marginLeft: 132}}>
-                            <img className="w-full" src="/assets/img/report.png" alt="" />
+                            <Image className="w-full" src={reportImg} />
                         </div>
                     </div>
                 </div>

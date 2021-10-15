@@ -121,10 +121,7 @@ export default function Treatments() {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col">
                         <div className="flex-1 h-0">
-                            {/* <div className="h-full object-contain mx-auto">
-                                <Image src={item.img} alt="" />
-                            </div> */}
-                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                            <Image className="h-full object-contain mx-auto" src={item.img} alt="" layout="fill" />
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
@@ -136,7 +133,7 @@ export default function Treatments() {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col">
                         <div className="flex-1 h-0">
-                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                            <Image className="h-full object-contain mx-auto" src={item.img} layout="fill" />
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>

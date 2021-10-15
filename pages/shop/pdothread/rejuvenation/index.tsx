@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import {Button, Input, TestimonialCp} from '@components/mycp'
 import Link from '@components/ui/Link'
@@ -12,6 +9,7 @@ import SelectInput from '@components/mycp/SelectInput'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
 import Checkbox from '@components/mycp/Checkbox'
+import Image from 'next/image'
 
 
 
@@ -85,7 +83,7 @@ export default function Rejuvenation() {
                             <div className="bg-c_CCE7EF w-full mt-10">
                                 <div className="relative">
                                     <div className="w-full aspect-w-8 aspect-h-5">
-                                        <img className="w-full" src={item.img} alt="" />
+                                        <Image src={item.img} alt="" layout="fill"/>
                                     </div>
                                     
                                     <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
@@ -175,9 +173,9 @@ export default function Rejuvenation() {
                 {thread_li.map((item, index) => {
                     return <div key={`thread_${index}`} className="w-full mb-10">
                                 <div className="ttcommon_font_bold">{item.title}</div>
-                                <div className="mt-5">
+                                <div className="mt-5 relative aspect-w-1 aspect-h-1">
                                     <Link href={item.link}>
-                                        <img className="w-full" src={item.img} alt="" />
+                                        <Image src={item.img} alt="" layout="fill" />
                                     </Link>
                                 </div>
                                 <div className="mt-5">{item.detail}</div>

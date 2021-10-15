@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
 import ChevronRight from '@components/icons/ChevronRight'
 import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
@@ -15,6 +11,7 @@ import Link from '@components/ui/Link'
 import { getCookie } from '@utils/cookie'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
+import Image from 'next/image'
 
 
 
@@ -220,8 +217,13 @@ export default function SkinCare() {
                                     <div className="relative bg-c_F5DBDD w-full border-none aspect-w-8 aspect-h-5
                                                     mt-5 md:mt-10">
                                         <div className="flex h-full justify-center">
-                                            <div className="px-15 w-full h-full relative flex justify-center items-center">
-                                                <img className="h-full" src={item.img} alt="" />
+                                            <div className="w-full h-full relative flex justify-center items-center">
+                                                {/* <div className="w-full h-full absolute top-0 left-0">
+                                                    <div className="w-9/12 aspect-h-1 aspect-w-1 mx-auto">
+                                                        <div className="w-full bg-c_F297F6"></div>
+                                                    </div>
+                                                </div> */}
+                                                <Image className="transform scale-x-50 scale-y-75" src={item.img} alt="" layout="fill" />
                                                 <div className="absolute top-0 right-0">
                                                     {logined && <Button variant="primary" className="h-9 w-30 ttcommon_font_bold text-lg leading-36_48">${item.price}</Button>}
                                                 </div>

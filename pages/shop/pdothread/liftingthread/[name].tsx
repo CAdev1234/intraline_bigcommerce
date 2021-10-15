@@ -1,15 +1,8 @@
 import React, {useEffect, useState} from 'react'
-
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
-
 import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
-import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
@@ -19,13 +12,15 @@ import SideReview from '@components/mycp/SideReview'
 
 
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
-import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
-import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+import {addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview} from 'utils/redux/slices/reviewSlice'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import {MSERIES_TESTIMONIAL_LIST, products} from 'utils/productData'
 import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
+import Image from 'next/image'
+import threadSampleImg from 'public/assets/img/thread_detail.png'
 
 type ParamsType = {
     name: string
@@ -139,7 +134,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         key={`m_${index}_product`}>
                         {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                         <div className="flex aspect-w-1 aspect-h-1">
-                            <img className="w-full mx-auto" src={item.img} alt="" />
+                            <Image src={item.img} alt="" layout="fill" />
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                         <div className="textellipsis_2 mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
@@ -160,8 +155,8 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
             return <div className="keen-slider__slide flex flex-col bg-white relative pb-5" key={`m_${index}_product`}>
                         <div className="w-full">
                             <div>
-                                <div className="aspect-w-1 aspect-h-1 w-full">
-                                    <img className="w-full" src={item.img} alt="" />
+                                <div className="aspect-w-1 aspect-h-1 w-full relative">
+                                    <Image src={item.img} alt="" layout="fill" />
                                 </div>
                             </div>
                         </div>
@@ -235,7 +230,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             </div>
                         </div>
                         <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
-                            <img className="mix_blend_multi mx-auto my-auto h-full" src="/assets/img/thread_detail.png" alt="" />
+                            <Image className="mix-blend-multiply m-auto h-full" src={threadSampleImg} alt="" layout="fill" />
                         </div>
                     </div>
                 </div>
@@ -292,7 +287,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         </div>
                     </div>
                     <div className="mt-15 items-center justify-center pb-15">
-                        <div className="items-center mt-20
+                        <div className="items-center mt-20 justify-center
                                         hidden md:flex">
                             <span className="uppercase tracking-widest">Scroll for more details</span>
                             <ChevronDown className="w-4 ml-4" />
@@ -309,9 +304,11 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
                                 </div>
                             }
-                        </div>
-                        <div className="h-full absolute top-0 left-0 w-full flex flex-col">
-                            <img className="mix_blend_multi mx-auto" src="/assets/img/thread_detail.png" alt=""/>
+                            <div className="w-full h-full transform scale-y-125">
+                                <div className="w-full h-full relative">
+                                    <Image className="mix-blend-multiply m-auto h-full" src={threadSampleImg} alt="" layout="fill" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

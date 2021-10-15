@@ -58,6 +58,7 @@ const RenderCategorySwiper:FC = () => {
                                     pb-5 md:pb-12">
                         <div className="flex-1 h-0">
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
+                            {/* <Image className="h-full object-contain mx-auto" src={item.img} alt=""/> */}
                         </div>
                         <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
                                          h-12 flex items-center justify-center
@@ -109,8 +110,7 @@ export default function AllProducts() {
             return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
                         <div className="flex">
                             <div className="aspect-h-1 aspect-w-1 w-full relative">
-                                {/* <Image src={item.img} alt="" /> */}
-                                <img src={item.img} alt=""/>
+                                <Image src={item.img as any} alt="" layout="fill"/>
                                 {logined && 
                                     <div>
                                         <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>

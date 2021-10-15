@@ -1,15 +1,10 @@
 import React, {useEffect, useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
 
 import { RatingView } from 'react-simple-star-rating'
 import ChevronDown from '@components/icons/ChevronDown'
-import { ChevronUp } from '@components/icons'
 import ChevronRight from '@components/icons/ChevronRight'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 import Button from '@components/mycp/Button'
@@ -18,13 +13,16 @@ import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'
 
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
-import {openSideCart, closeSideCart, addProductToCart} from 'utils/redux/slices/cartSlice'
-import {openSideReview, closeSideReview} from 'utils/redux/slices/reviewSlice'
+import {addProductToCart} from 'utils/redux/slices/cartSlice'
+import {openSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
-import router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
+
+import Image from 'next/image'
+import smokeM2Img from '../../../../public/assets/img/SmokeM2.png'
 
 type ParamsType = {
     name: string
@@ -229,7 +227,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     block md:hidden">
                         <div className="flex flex-col items-end h-full">
                             <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
+                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" /> */}
+                                <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} />
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative">
                                         <img className="m-auto" src="/assets/img/m2plus.png" alt="" />
@@ -296,7 +295,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                 hidden md:block">
                     <div className="w-6/12 flex flex-col items-end ml-auto h-full">
                         <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                            <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.png" alt="" />
+                            <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
                             <div className="w-full h-full flex absolute items-center justify-center">
                                 <div className="relative">
                                     <img className="m-auto" src="/assets/img/m2plus.png" alt="" />

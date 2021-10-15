@@ -10,6 +10,7 @@ import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import Checkbox from '@components/mycp/Checkbox'
+import Image from 'next/image'
 
 
 export default function Moisturizer() {
@@ -95,9 +96,9 @@ export default function Moisturizer() {
                         <div className="absolute w-full left-0 top-0">
                             {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
                                                             right-0 md:right-15" variant="primary">$100.00</Button>}
-                        </div>
-                        <div className="flex">
-                            <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />
+                            <div className="relative w-full h-full">
+                                <Image className="w-full transform scale-75" src="/assets/img/skincare3.png" alt="" layout="fill" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,10 +141,11 @@ export default function Moisturizer() {
                                 <div className="absolute w-full left-0 top-0">
                                     {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
                                                                     right-0 md:right-15" variant="primary">$100.00</Button>}
+                                    <div className="relative w-full h-full">
+                                        <Image className="w-full transform scale-75" src="/assets/img/skincare3.png" alt="" layout="fill" />
+                                    </div>
                                 </div>
-                                <div className="flex">
-                                    <img className="w-9/12 mx-auto my-auto" src="/assets/img/skincare3.png" alt="" />
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -486,7 +486,6 @@ export default function Home({
         brands={brands}
       /> */}
 
-      {/* <img className="w-full" src="/assets/img/home-part1-bg.png"></img> */}
       <div className="w-full mt-15">
         <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
       </div>
