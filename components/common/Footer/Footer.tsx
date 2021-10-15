@@ -17,8 +17,8 @@ import { validateEmail } from 'utils/simpleMethod'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-import visaImage from '../../../public/assets/img/visa.webp'
-import masterCardImage from '../../../public/assets/img/master_card.webp'
+import visaImage from 'public/assets/img/visa.webp'
+import masterCardImage from 'public/assets/img/master_card.webp'
 
 
 interface Props {

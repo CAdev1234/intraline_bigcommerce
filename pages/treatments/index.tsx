@@ -42,79 +42,79 @@ export default function Treatments() {
         {
             title: 'Neck.',
             detail: 'PDO Threads and Dermal Fillers can be used to tighten, lift and reshape the Décolletage area (otherwise known as the neck, shoulders, and upper chest, that is exposed by the neckline of clothing). Intraline Two and M2 Plus can be used to treat Neck Folds.',
-            img: '/assets/img/treatment_face_1.jpg',
+            img: '/assets/img/treatment_face_1.webp',
         },
         {
             title: 'Chin.',
             detail: 'Intraline Two, M3 Plus and M4 Plus Dermal Filler can all be used to help restore volume and correct facial proportions. Ideally in a profile view of the face the bridge of the nose should be in line with.',
-            img: '/assets/img/treatment_face_2.jpg',
+            img: '/assets/img/treatment_face_2.webp',
         },
         {
             title: 'Lips.',
             detail: 'Your practitioner can utilize a variety of techniques with Intraline One, M3 Plus or M4 Plus Dermal Filler in order to achieve your desired outcome.',
-            img: '/assets/img/treatment_face_3.jpg',
+            img: '/assets/img/treatment_face_3.webp',
         },
         {
             title: 'Tear Trough.',
             detail: 'A tear trough treatment with Intraline One Dermal Filler is a safe, minimally invasive and instant correction to fix dark under eye circles.',
-            img: '/assets/img/treatment_face_4.jpg',
+            img: '/assets/img/treatment_face_4.webp',
         },
         {
             title: 'Jawline.',
             detail: 'One of the most common complaints as people age is the appearance of jowls, ie. lost definition in the jawline. Intraline Two & M4 Plus Dermal Filler both have the ability to define, sculpt, and shape the jawline.',
-            img: '/assets/img/treatment_face_5.jpg',
+            img: '/assets/img/treatment_face_5.webp',
         },
         {
             title: 'Cheek.',
             detail: 'Intraline M4 Plus and Intraline Two can both be used to restore lost volume in the cheek. One of the earliest signs of ageing is the sagging in the mid-face. As we age two things occur with our cheeks. The first is the malar fat pad begins to fall which creates a deepening of the Nasolabial.',
-            img: '/assets/img/treatment_face_6.jpg',
+            img: '/assets/img/treatment_face_6.webp',
         },
         {
             title: 'Nasolabial Folds.',
             detail: 'Intraline One, Intraline Two and M3 Plus can all be used to treatment the wrinkles and fine lines around your mouth known as nasolabial folds, "smile lines" or "laugh lines". Some patients wish to lessen or smooth out the skin around the side of the mouth running up to the nose.',
-            img: '/assets/img/treatment_face_7.jpg',
+            img: '/assets/img/treatment_face_7.webp',
         },
         {
             title: 'Nose.',
             detail: 'M4 Plus Dermal Filler can be injected on and around the nose to help restore volume and diminish the look of lines that form on either side of the nose or on the nose.',
-            img: '/assets/img/treatment_face_8.jpg',
+            img: '/assets/img/treatment_face_8.webp',
         },
         {
             title: 'Forhead.',
             detail: 'Intraline One, Two or M2 Plus Dermal Filler can be injected into the forehead to help restore volume and diminish the look of lines. For wrinkles due to volume loss, Intraline Dermal Fillers are an excellent solution.',
-            img: '/assets/img/treatment_face_9.jpg',
+            img: '/assets/img/treatment_face_9.webp',
         },
     ]
     const body_treatment_li = [
         {
             title: 'ARMS & ELBOWS.',
             detail: 'A PDO Thread Treatment is a great solution to tighten the skin on basically any part of your body. PDO Threads stimulate the production of your own collagen, elastin and hyaluronic acid.',
-            img: '/assets/img/treatment_body_1.jpg',
+            img: '/assets/img/treatment_body_1.webp',
         },
         {
             title: 'Breast.',
             detail: 'Many people don’t know that undergoing a Breast Lift using PDO Threads is a great solution to tighten, lift and reshape the breast. However, due to the complicated anatomy of the breast an advanced practitioner should always be selected.',
-            img: '/assets/img/treatment_body_2.jpg',
+            img: '/assets/img/treatment_body_2.webp',
         },
         {
             title: 'Buttock.',
             detail: 'PDO Threads can be used to tighten, lift and reshape the Buttocks. PDO thread butt lifts are an effective way to lift loose skin without costly surgery or downtime.',
-            img: '/assets/img/treatment_body_3.jpg',
+            img: '/assets/img/treatment_body_3.webp',
         },
         {
             title: 'Chest.',
             detail: 'PDO Threads can be used to tighten, lift and reshape the Décolletage area (otherwise known as the neck, shoulders, and upper chest, that is exposed by the neckline of clothing). PDO Threads stimulate the production of your own collagen, elastin and hyaluronic acid.',
-            img: '/assets/img/treatment_body_4.jpg',
+            img: '/assets/img/treatment_body_4.webp',
         },
         {
             title: 'Thigh & Knee.',
             detail: 'As we age, fat naturally atrophies and the skin begins to loosen, making the skin on the thighs start to sag. As skin and fat change, cellulite becomes more apparent. Plus, we lose an average of 5% of muscle mass every 10 years after the age of 35, which also affects the shape of your thighs.',
-            img: '/assets/img/treatment_body_5.jpg',
+            img: '/assets/img/treatment_body_5.webp',
         },
         {
             title: 'Stomach.',
             detail: 'Many people don’t know that a PDO Thread treatment can tighten and lift the stomach. The treatment can be used to immediately restore a sagging stomach to its original form.',
-            img: '/assets/img/treatment_body_6.jpg',
+            img: '/assets/img/treatment_body_6.webp',
         },
     ]
     let facial_render_ele = facial_treatment_li.map((item, index) => {

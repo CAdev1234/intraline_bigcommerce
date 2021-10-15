@@ -8,9 +8,9 @@ import { validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'
 import Image from 'next/image'
-import MSeriesImg from '../../../public/assets/img/m_series.jpg'
-import bluePurpleSmokeImg from '../../../public/assets/img/BluePurpleSmoke.webp'
-import essentialSeriesImg from '../../../public/assets/img/essential_series.jpg'
+import MSeriesImg from 'public/assets/img/m_series.webp'
+import bluePurpleSmokeImg from 'public/assets/img/BluePurpleSmoke.webp'
+import essentialSeriesImg from 'public/assets/img/essential_series.webp'
 
 
 const RenderFAQCollapse = () => {

@@ -7,10 +7,10 @@ import Link from '@components/ui/Link'
 import Checkbox from '@components/mycp/Checkbox'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import Image from 'next/image'
-import AboutUsSec1Img from '../public/assets/img/aboutus_sec_1.webp'
-import AboutUsSec2Img from '../public/assets/img/aboutus_sec_2.webp'
-import AboutUsSec3Img from '../public/assets/img/aboutus_sec_3.webp'
-import AboutUsSec4Img from '../public/assets/img/aboutus_sec_4.webp'
+import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
+import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'
+import AboutUsSec3Img from 'public/assets/img/aboutus_sec_3.webp'
+import AboutUsSec4Img from 'public/assets/img/aboutus_sec_4.webp'
 
 
 

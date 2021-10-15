@@ -22,7 +22,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 
 import Image from 'next/image'
-import smokeM2Img from '../../../../public/assets/img/SmokeM2.webp'
+import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 
 type ParamsType = {
     name: string
