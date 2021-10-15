@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'

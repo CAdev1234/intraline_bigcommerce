@@ -1,10 +1,10 @@
-import Link from '@components/ui/Link'
+import dynamic from 'next/dynamic'
 import { FC, useState, useEffect } from 'react'
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import { Cross } from '@components/icons'
 
 import {useAppDispatch, useAppSelector} from '../../../utils/redux/hooks'
-import {openSideCart, closeSideCart} from '../../../utils/redux/slices/cartSlice'
+import {closeSideCart} from '../../../utils/redux/slices/cartSlice'
 import { useRouter } from 'next/router'
 import { ProductObject } from 'utils/types'
 

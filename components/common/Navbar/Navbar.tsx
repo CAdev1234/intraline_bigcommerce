@@ -117,7 +117,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
 
   const searchProductHandler = () => {
     showSearchBarHandler(false)
-    router.push({
+    dispatch(search(searchKey))
+    router.replace({
       pathname: '/searchresult',
       query: {keyword: searchKey}
     })

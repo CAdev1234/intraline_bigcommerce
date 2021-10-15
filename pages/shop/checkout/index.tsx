@@ -1,4 +1,5 @@
 import { Navbar } from '@components/common'
+import dynamic from 'next/dynamic'
 import { ChevronRight } from '@components/icons';
 import { Button, Input, SelectInput } from '@components/mycp'
 import SideCart from '@components/mycp/SideCart';

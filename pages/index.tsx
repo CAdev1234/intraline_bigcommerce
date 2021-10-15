@@ -1,30 +1,23 @@
 import commerce from '@lib/api/commerce'
+import dynamic from 'next/dynamic'
 import { Layout } from '@components/common'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { ChevronRight, ChevronUp } from '@components/icons'
 
 import { FC, useEffect, useState } from 'react'
-
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import Image from 'next/image'
 
-import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
+const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
+const Button = dynamic(import('@components/mycp/Button'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
+const Link = dynamic(() => import('@components/ui/Link'))
+const ResponsivePlayer = dynamic(() => import('@components/mycp/ResponsivePlayer'))
 
 import { RatingView } from 'react-simple-star-rating'
-import Button from '@components/mycp/Button'
-import FAQCp from '@components/mycp/FAQCp/FAQCp'
-
-import Link from '@components/ui/Link'
-
-import {getCookie} from 'utils/cookie'
-
-import {useAppDispatch, useAppSelector} from '../utils/redux/hooks'
-import {openSideCart, closeSideCart, addProductToCart} from '../utils/redux/slices/cartSlice'
-import {openSideReview, closeSideReview} from '../utils/redux/slices/reviewSlice'
-import TriangleRight from '@components/icons/TriangleRight'
+import {useAppSelector} from '../utils/redux/hooks'
 import { AddToCartByDom } from '@utils/addToCartByDom'
-import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import router from 'next/router'
 import { TestimonialCp } from '@components/mycp'
 import tripleRedImg from 'public/assets/img/triple_red.webp'

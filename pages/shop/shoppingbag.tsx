@@ -1,7 +1,8 @@
 import { Layout } from "@components/common"
+import dynamic from 'next/dynamic'
 import { ChevronRight, Cross } from "@components/icons"
 import Link from "@components/ui/Link"
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 
 import { useAppSelector, useAppDispatch} from 'utils/redux/hooks'
 import { AddToCartByDom } from "@utils/addToCartByDom"

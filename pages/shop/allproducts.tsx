@@ -1,9 +1,10 @@
 import { Layout } from '@components/common'
+import dynamic from 'next/dynamic'
 import { FC, useState, useEffect } from 'react'
 import ChevronRight from '@components/icons/ChevronRight'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import SelectInput from '@components/mycp/SelectInput'
 import {getCookie} from 'utils/cookie'
 import Link from '@components/ui/Link'

@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
+import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import {Button, Input, TestimonialCp} from '@components/mycp'
 import { ChevronDown, ChevronRight, ChevronUp, Plus } from '@components/icons'

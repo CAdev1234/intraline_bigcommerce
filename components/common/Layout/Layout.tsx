@@ -11,7 +11,7 @@ import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
 import { Sidebar, Modal, LoadingDots } from '@components/ui'
 
 
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'

@@ -1,6 +1,5 @@
-
-import { RatingView } from 'react-simple-star-rating'
-import Button from '@components/mycp/Button'
+import dynamic from 'next/dynamic'
+const Button = dynamic(import('@components/mycp/Button'))
 import { Cross } from '@components/icons'
 import { FC } from 'react'
 import { MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
@@ -8,6 +7,7 @@ import { useAppDispatch } from '@utils/redux/hooks'
 import { closeSideReview } from 'utils/redux/slices/reviewSlice'
 import { ReviewObject } from 'utils/types'
 
+import { RatingView } from 'react-simple-star-rating'
 
 interface SideReviewProps {
     reviewList: Array<ReviewObject>

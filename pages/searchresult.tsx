@@ -1,4 +1,5 @@
 import { Layout } from "@components/common";
+import dynamic from 'next/dynamic'
 import Link from "@components/ui/Link";
 import { useAppDispatch, useAppSelector } from "@utils/redux/hooks";
 import { search } from "@utils/redux/slices/productSlice";

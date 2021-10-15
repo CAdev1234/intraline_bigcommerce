@@ -1,4 +1,5 @@
 import { Layout } from "@components/common"
+import dynamic from 'next/dynamic'
 import { ChevronRight, Cross } from "@components/icons"
 import Link from "@components/ui/Link"
 import {Button, SelectInput, Input} from '@components/mycp'

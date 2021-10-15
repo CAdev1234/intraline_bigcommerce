@@ -1,6 +1,7 @@
 import { Layout, Navbar } from '@components/common'
 import Link from '@components/ui/Link';
-import Button from '@components/mycp/Button'
+import dynamic from 'next/dynamic'
+const Button = dynamic(import('@components/mycp/Button'))
 import Input from '@components/mycp/Input'
 import { ChevronRight } from '@components/icons';
 import { useEffect, useState } from 'react';

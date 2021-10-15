@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react'
-
+import dynamic from 'next/dynamic'
 import { Layout } from '@components/common'
 import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import { ChevronDown, ChevronRight, Plus } from '@components/icons'
 import Link from '@components/ui/Link'
 

@@ -1,6 +1,7 @@
 import { Layout } from "@components/common"
+import dynamic from 'next/dynamic'
 import { ChevronRight } from "@components/icons"
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 
 export default function IndustryBlog() {
     const tag_li = ['all articles', 'intraline', 'dermal filler', 'aesthetics education', 'medical aesthetics', 'anti-ageing', 'moisturizer', 'treatments', 'moisturizer', 'news & media', 'biocellulose', 'skincare', 'faq']

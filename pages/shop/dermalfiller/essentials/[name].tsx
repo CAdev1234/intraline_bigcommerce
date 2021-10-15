@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import dynamic from 'next/dynamic'
 import { Layout } from '@components/common'
 
 import { RatingView } from 'react-simple-star-rating'
@@ -7,7 +7,7 @@ import ChevronDown from '@components/icons/ChevronDown'
 import ChevronRight from '@components/icons/ChevronRight'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import { getCookie } from '@utils/cookie'
 import Link from '@components/ui/Link'
 import SideReview from '@components/mycp/SideReview'

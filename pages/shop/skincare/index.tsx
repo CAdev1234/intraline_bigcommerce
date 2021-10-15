@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
 import ChevronRight from '@components/icons/ChevronRight'
@@ -6,7 +7,7 @@ import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import FAQCp from '@components/mycp/FAQCp/FAQCp'
 import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import Link from '@components/ui/Link'
 import { getCookie } from '@utils/cookie'
 import { AddToCartByDom } from '@utils/addToCartByDom'

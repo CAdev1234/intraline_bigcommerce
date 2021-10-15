@@ -1,6 +1,7 @@
 import { Layout } from "@components/common";
+import dynamic from 'next/dynamic'
 import { ChevronRight } from "@components/icons";
-import Button from '@components/mycp/Button'
+const Button = dynamic(import('@components/mycp/Button'))
 import Link from "@components/ui/Link";
 import { useEffect, useState } from "react";
 

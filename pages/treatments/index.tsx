@@ -1,4 +1,5 @@
 import { Layout } from "@components/common";
+import dynamic from 'next/dynamic'
 import { ChevronRight } from "@components/icons";
 import KeenSliderA from "@components/mycp/KeenSlider/KeenSliderA";
 import TreatmentSlider from "@components/mycp/KeenSlider/TreatmentSlider";

@@ -1,4 +1,5 @@
 import { Layout } from "@components/common"
+import dynamic from 'next/dynamic'
 import { ChevronRight } from "@components/icons"
 import FAQCp from "@components/mycp/FAQCp/FAQCp"
 
