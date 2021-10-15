@@ -28,7 +28,7 @@ export default function SearchResult() {
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="ttcommon_font_bold text-6xl mt-10 mb-10 text-center
-                            mx-5 md:mx-15 lg:mx-172">SEARCH: {keyword}</div>
+                            mx-5 md:mx-15 lg:mx-172">SEARCH: {router.query.keyword}</div>
             <div className="bg-c_F7F7F7 flex-1">
                 <div className="py-15
                                 px-5 md:px-15 lg:px-172">
