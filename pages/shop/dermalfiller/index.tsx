@@ -1,20 +1,16 @@
 import React, {useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
 import ChevronRight from '@components/icons/ChevronRight'
-import { ChevronUp } from '@components/icons'
-import ChevronDown from '@components/icons/ChevronDown'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
 import { Button, Input, TestimonialCp, FAQCp } from '@components/mycp'
 import Link from '@components/ui/Link'
 import { validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'
-
-
+import Image from 'next/image'
+import MSeriesImg from '../../../public/assets/img/m_series.jpg'
+import bluePurpleSmokeImg from '../../../public/assets/img/BluePurpleSmoke.png'
+import essentialSeriesImg from '../../../public/assets/img/essential_series.jpg'
 
 
 const RenderFAQCollapse = () => {
@@ -166,7 +162,8 @@ export default function DemeralFiller() {
                 </div>
                 <div className="absolute top-0 right-0 h-full
                                 hidden sm:block">
-                    <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.png" alt="" />
+                    {/* <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.png" alt="" /> */}
+                    <Image src={bluePurpleSmokeImg} alt="blue purple smoke image" className="mix-blend-multiply" />
                 </div>
             </div>
 
@@ -181,7 +178,7 @@ export default function DemeralFiller() {
                                         text-3xl xl:text-4xl 2xl:text-4xl
                                         leading-none sm:leading-36_48">The Essential Series.</div>
                         <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
-                            <img className="max-h-96" src="/assets/img/essential_series.jpg" alt="" />
+                            <Image className="max-h-96" src={essentialSeriesImg} alt="" />
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
@@ -200,7 +197,7 @@ export default function DemeralFiller() {
                         <div className="leading-36_48 ttcommon_font_bold text-c_00080D
                                         text-3xl xl:text-4xl 2xl:text-4xl">The M Series.</div>
                         <div className="relative mt-10 w-full border-none flex flex-col">
-                            <img className="max-h-96" src="/assets/img/m_series.jpg" alt="" />
+                            <Image src={MSeriesImg} alt="mseries image"/>
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">

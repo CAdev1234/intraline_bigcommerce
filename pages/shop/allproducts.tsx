@@ -1,28 +1,16 @@
 import { Layout } from '@components/common'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-
-
-
-import { FC, useRef, useState, useEffect } from 'react'
-
-
-
-import { RatingView } from 'react-simple-star-rating'
+import { FC, useState, useEffect } from 'react'
 import ChevronRight from '@components/icons/ChevronRight'
-import { ChevronUp } from '@components/icons'
 import ChevronDown from '@components/icons/ChevronDown'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import Button from '@components/mycp/Button'
-import TriangleDown from '@components/icons/TriangleDown'
 import SelectInput from '@components/mycp/SelectInput'
-
 import {getCookie} from 'utils/cookie'
 import Link from '@components/ui/Link'
-
 import {AddToCartByDom} from 'utils/addToCartByDom'
-
 import {useAppSelector} from 'utils/redux/hooks'
 import router from 'next/router'
+import Image from 'next/image'
 
 type ProductType = {
     title: string,
@@ -119,11 +107,16 @@ export default function AllProducts() {
     const renderProducts = () => {
         return all_product_li.map((item, index) => {
             return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
-                        {logined && 
-                            <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>
-                        }
                         <div className="flex">
-                            <img className="w-full" src={item.img} alt="" style={{aspectRatio: '1'}} />
+                            <div className="aspect-h-1 aspect-w-1 w-full relative">
+                                {/* <Image src={item.img} alt="" /> */}
+                                <img src={item.img} alt=""/>
+                                {logined && 
+                                    <div>
+                                        <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>
+                                    </div>
+                                }
+                            </div>
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest
                                         sm:text-2xl

@@ -7,17 +7,8 @@ import { useAppSelector, useAppDispatch} from 'utils/redux/hooks'
 import { AddToCartByDom } from "@utils/addToCartByDom"
 import React from "react"
 import { deleteProduct } from "@utils/redux/slices/cartSlice"
+import { ProductObject } from 'utils/types'
 
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
 
 export default function ShoppingBag() {
     const dispatch = useAppDispatch()
@@ -26,7 +17,7 @@ export default function ShoppingBag() {
     const total_quantity = useAppSelector(state => state.cart.totalQuantity)
     const addToCartByDom = new AddToCartByDom(cart_product_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
-        if (cart_product_li[index].amount > 1) {
+        if (cart_product_li[index].quantity as number > 1) {
             addToCartByDom.decreaseNumHandler(event, false, index)
         }
     }

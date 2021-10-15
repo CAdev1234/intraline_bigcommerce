@@ -1,17 +1,8 @@
 import { useAppDispatch } from "./redux/hooks"
 import { addProductToCart, updateProductInCart } from 'utils/redux/slices/cartSlice'
 import React from "react"
+import { ProductObject } from 'utils/types'
 
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
 
 export class AddToCartByDom {
     items: Array<ProductObject>;

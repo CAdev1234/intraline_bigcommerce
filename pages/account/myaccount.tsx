@@ -10,16 +10,9 @@ import { useAppDispatch, useAppSelector } from "@utils/redux/hooks"
 import { logoutUser, updateUser } from "@utils/redux/slices/userSlice"
 import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"
 
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
+import { ProductObject } from 'utils/types'
+
+
 
 export default function MyAccount() {
     
@@ -473,11 +466,11 @@ export default function MyAccount() {
                                                             hidden md:block">{item.created_at}</span>
                                             <div className="ml-auto
                                                             hidden md:block">
-                                                <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
+                                                <RatingView ratingValue={item.rating as number} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                             </div>
                                         </div>
                                         <div className="block md:hidden mt-3">
-                                            <RatingView ratingValue={item.rating} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
+                                            <RatingView ratingValue={item.rating as number} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                         </div>
                                         <div className="mt-2.5 leading-14_17 break-words">{item.detail}</div>
                                         <div className="ttcommon_font mt-7_5 leading-14_17 tracking-widest uppercase underline flex items-center">
@@ -635,7 +628,7 @@ export default function MyAccount() {
                                     <span>Rating:</span>
                                     <div className="ml-5 mt-2">
                                         <Rating onClick={updateReviewRatingHandler} 
-                                                ratingValue={selectedReview.rating} 
+                                                ratingValue={selectedReview.rating as number} 
                                                 size={28} 
                                                 stars={5} 
                                                 fillColor="#87C1B9" 

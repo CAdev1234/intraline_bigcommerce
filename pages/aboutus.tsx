@@ -1,25 +1,16 @@
 import React, {useState} from 'react'
 
 import { Layout } from '@components/common'
-import { Navbar } from '@components/common'
-
-import QuoteSvg from '@components/icons/QuoteSvg'
-
-import { RatingView } from 'react-simple-star-rating'
-import ChevronDown from '@components/icons/ChevronDown'
-import { ChevronUp } from '@components/icons'
-import ChevronRight from '@components/icons/ChevronRight'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
 
 import { Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
-import ReactPlayer from 'react-player'
-import TriangleRight from '@components/icons/TriangleRight'
 import Checkbox from '@components/mycp/Checkbox'
 import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
-
-// import 'pretty-checkbox/src/pretty-checkbox.scss';
+import Image from 'next/image'
+import AboutUsSec1Img from '../public/assets/img/aboutus_sec_1.png'
+import AboutUsSec2Img from '../public/assets/img/aboutus_sec_2.png'
+import AboutUsSec3Img from '../public/assets/img/aboutus_sec_3.png'
+import AboutUsSec4Img from '../public/assets/img/aboutus_sec_4.png'
 
 
 
@@ -33,19 +24,23 @@ export default function AboutUs() {
     const our_sec = [
         {
             title: 'Education.',
-            detail: 'Intraline places a high value on providing proper education on our products and the necessary tools to use them safely and effectively. Intraline supports medical professionals.'
+            detail: 'Intraline places a high value on providing proper education on our products and the necessary tools to use them safely and effectively. Intraline supports medical professionals.',
+            img: AboutUsSec1Img
         },
         {
             title: 'Confidence.',
-            detail: 'Intraline believes in inspiring confidence through the use of safe and effective medical aesthetic products.'
+            detail: 'Intraline believes in inspiring confidence through the use of safe and effective medical aesthetic products.',
+            img: AboutUsSec2Img
         },
         {
             title: 'Individuality.',
-            detail: 'Intraline respects that each individual has their own story and desired outcomefrom a treatment. We value listening to the patients and encouraging diversity.'
+            detail: 'Intraline respects that each individual has their own story and desired outcomefrom a treatment. We value listening to the patients and encouraging diversity.',
+            img: AboutUsSec3Img
         },
         {
             title: 'Excellence.',
-            detail: 'Intraline believes in upholding the highest standards for our high quality products and our genuine customer care with a focus on building long-lasting and trusting relationships.'
+            detail: 'Intraline believes in upholding the highest standards for our high quality products and our genuine customer care with a focus on building long-lasting and trusting relationships.',
+            img: AboutUsSec4Img
         }
     ]
     return(
@@ -77,7 +72,7 @@ export default function AboutUs() {
                         return <div key={`our_sec_${index}`}>
                                     <div className="ttcommon_font_bold leading-36_48 text-4xl">{item.title}</div>
                                     <div className="mt-7_5">
-                                        <img className="w-full" src={`/assets/img/aboutus_sec_${index + 1}.png`} alt="" />
+                                        <Image className="w-full" src={item.img} alt={`aboutus_sec_${index}`} />
                                     </div>
                                     <div className="mt-7_5 ttcommon_font_thin leading-14_26">{item.detail}</div>
                                 </div>

@@ -1,20 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getCookie, setCookie } from '@utils/cookie'
 import date from 'date-and-time'
 import { generateID } from 'utils/simpleMethod'
-
-
-type ProductObject = {
-    id: string,
-    title: string,
-    price: number,
-    amount: number,
-    quantity: number,
-    img: string,
-    detail: string,
-    link: string
-}
-
+import { ProductObject } from 'utils/types'
 
 type OrderItemObject = {
     order_id: string,
@@ -28,14 +15,14 @@ type OrderItemObject = {
 const calcTotalPrice = (products: Array<ProductObject>) => {
     let total_price = 0
     for (let index = 0; index < products.length; index++) {
-        total_price = total_price + products[index].price * products[index].quantity;
+        total_price = total_price + (products[index].price as number) * (products[index].quantity as number);
     }
     return total_price
 }
 const calcTotalQuantity = (products: Array<ProductObject>) => {
     let total_quantity = 0
     for (let index = 0; index < products.length; index++) {
-        total_quantity = total_quantity + products[index].quantity
+        total_quantity = total_quantity + (products[index].quantity as number)
     }
     return total_quantity
 }

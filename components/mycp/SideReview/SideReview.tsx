@@ -6,17 +6,8 @@ import { FC } from 'react'
 import { MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { closeSideReview } from 'utils/redux/slices/reviewSlice'
+import { ReviewObject } from 'utils/types'
 
-type ReviewObject = {
-    id?: string,
-    product?: string,
-    title?: string,
-    rating?: number,
-    detail?: string,
-    client?: string,
-    created_at?: string,
-    updated_at?: string
-}
 
 interface SideReviewProps {
     reviewList: Array<ReviewObject>
