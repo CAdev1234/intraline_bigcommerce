@@ -4,7 +4,7 @@ import KeenSliderA from "@components/mycp/KeenSlider/KeenSliderA";
 import TreatmentSlider from "@components/mycp/KeenSlider/TreatmentSlider";
 import TestimonialCp from "@components/mycp/TestimonialCp/TestimonialCp";
 import Link from "@components/ui/Link";
-
+import Image from 'next/image'
 
 
 export default function Treatments() {
@@ -121,6 +121,9 @@ export default function Treatments() {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col">
                         <div className="flex-1 h-0">
+                            {/* <div className="h-full object-contain mx-auto">
+                                <Image src={item.img} alt="" />
+                            </div> */}
                             <img className="h-full object-contain mx-auto" src={item.img} alt="" />
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
