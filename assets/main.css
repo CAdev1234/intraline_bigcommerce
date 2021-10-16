@@ -133,12 +133,3 @@ button:focus, input:focus, select:focus {outline: none;}
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-
-
-
-.nonactive_sidecart {
-  transform: translateX(400px);
-}
-.active_sidecart {
-  transform: translateX(0px);
-}

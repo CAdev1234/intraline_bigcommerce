@@ -307,7 +307,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
-                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                                    mt-2_5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
@@ -483,7 +483,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                 <div className="w-full text-2xl text-center mt-10">
                     <div className="ttcommon_font_thin leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">{product_info.title} Offerings.</div>
-                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                    <div className="ttcommon_font_thin mt-2_5 leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                 </div>
             </div>
 

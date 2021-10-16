@@ -18,7 +18,7 @@ export default function IndustryIndex() {
                 </div>
                 <div className="bg-white pt-40 pb-25 px-15">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
-                    <div className="mt-2.5">Read the latest industry news.</div>
+                    <div className="mt-2_5">Read the latest industry news.</div>
                     <div className="mt-10 flex items-center">
                         <div className="w-1/2 bg-c_F5DBDD" style={{height: 411}}></div>
                         <div className="w-1/2" style={{paddingInline: 132}}>
@@ -91,7 +91,7 @@ export default function IndustryIndex() {
                 <div className="bg-c_C3E0DC px-15 py-25 flex flex-col">
                     <div className="mx-auto">
                         <div className="ttcommon_font_bold text-4xl leading-36_48 text-center">Intraline's Partners.</div>
-                        <div className="mt-2.5 text-center">Learn more about our Medical Director, Key Opinion Leaders & Brands Ambassadors.</div>
+                        <div className="mt-2_5 text-center">Learn more about our Medical Director, Key Opinion Leaders & Brands Ambassadors.</div>
                         <div className="mt-7_5 flex items-center justify-center">
                             <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
                             <div className="uppercase leading-14_17 mx-4">DR. HUW JONES</div>
@@ -103,7 +103,7 @@ export default function IndustryIndex() {
                             <Image src={doctor1Img} alt="doctor-1-image" />
                             <div className="ml-16 flex-1 flex flex-col">
                                 <div className="ttcommon_font_bold text-2xl leading-36_48">DR. HUW JONES, MEDICAL DIRECTOR</div>
-                                <div className="mt-2.5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
+                                <div className="mt-2_5">Dr. Huw Jones qualified from Sheffield University Medical School in 1986. Having completed his post graduate General Practice Training he worked as a full time General Practitioner in an innovative partnership in North London for 10 years. In 1989 he first started using dermal fillers in the form of bovine collagen, then superseded by the Q Med fillers. Gradually, with considerable training and clinical treatments, Dr Jones has developed an extensive range of non-surgical treatments. In 2002 he was the lead physician in the development of the Boots plc Botox services and in 2007 helped to launch the Merz Belotero range of Dermal Fillers in the UK. He has been highly regarded as a trainer for Dermal Fillers, Toxins and PDO Threads at both introductory and advanced level. His extensive knowledge of aesthetic and anti-ageing treatments combined with his holistic medical approach has allowed him to help his patients manage their concerns with expectations addressed appropriately. "It is just as important for the practitioner to realise the limits of their skills and the treatments they provide.”</div>
                                 <Button className="mt-auto h-11 w-60">Learn More</Button>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default function IndustryIndex() {
                                 <div className="mt-5">
                                     <div className="text-base leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
                                 </div>
-                                <div className="mt-2.5">
+                                <div className="mt-2_5">
                                     <div className="flex items-center">
                                         <input type="radio" />
                                         <label htmlFor="" className="text-base leading-14_26 ml-3">Yes</label>

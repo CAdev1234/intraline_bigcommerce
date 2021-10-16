@@ -252,7 +252,7 @@ export default function MSeries() {
                                     mr-5 md:mr-10 lg:mr-20 xl:mr-172 2xl:mr-172" style={{maxWidth: 538}}>
                         <div className="my-auto">
                             <div className="text-base tracking-widest">THE M SERIES were created for maximum</div>
-                            <div className="ttcommon_font_bold text-4xl leading-36_48 mt-2.5 uppercase">Function, versatility & impact.</div>
+                            <div className="ttcommon_font_bold text-4xl leading-36_48 mt-2_5 uppercase">Function, versatility & impact.</div>
                             <div className="ttcommon_font_thin mt-7_5
                                             text-2xl md:text-3xl lg:text-4xl
                                             leading-36_48 md:leading-36_48 lg:leading-36_48">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
@@ -299,7 +299,7 @@ export default function MSeries() {
 
                 <div className="flex flex-col w-full h-full mt-20 px-5">
                     <div className="text-base tracking-widest uppercase">THE M SERIES were created for maximum</div>
-                    <div className="ttcommon_font_bold text-2xl leading-36_48 mt-2.5">Function, versatility & impact.</div>
+                    <div className="ttcommon_font_bold text-2xl leading-36_48 mt-2_5">Function, versatility & impact.</div>
                     <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                 </div>
             </div>

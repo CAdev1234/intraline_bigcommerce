@@ -73,7 +73,7 @@ export default function IndustryCourse() {
                             <div className="mt-5">
                                 <div className="text-base leading-14_26">Have you used Intraline M Series Dermal Filler products?</div>
                             </div>
-                            <div className="mt-2.5">
+                            <div className="mt-2_5">
                                 <div className="flex items-center">
                                     <input type="radio" />
                                     <label htmlFor="" className="text-base leading-14_26 ml-3">Yes</label>

@@ -38,15 +38,15 @@ const SideReview:FC<SideReviewProps> = ({reviewList, className}) => {
                         {reviewList.map((item, index) => {
                             return <div key={`review_${index}`}>
                                         <div className="mt-5 flex items-center  leading-14_26">
-                                            <div className="mt-2.5 ttcommon_font_bold  leading-14_26">{item.client}</div>
+                                            <div className="mt-2_5 ttcommon_font_bold  leading-14_26">{item.client}</div>
                                             {/* <div className="ttcommon_font_bold">{item.title}</div> */}
                                             {/* <div className="ml-auto">{item.created_at}</div> */}
                                         </div>
-                                        <div className="mt-2.5">
+                                        <div className="mt-2_5">
                                             <RatingView ratingValue={item.rating || 0} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                         </div>
-                                        <div className="mt-2.5 leading-14_26">{item.detail}</div>
-                                        {/* <div className="mt-2.5  leading-14_26">{item.client}</div> */}
+                                        <div className="mt-2_5 leading-14_26">{item.detail}</div>
+                                        {/* <div className="mt-2_5  leading-14_26">{item.client}</div> */}
                                         {index !== review_li.length - 1 && 
                                             <div className="h-px w-full bg-c_00080D my-5"></div>
                                         }

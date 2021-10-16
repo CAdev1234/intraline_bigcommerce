@@ -130,7 +130,7 @@ export default function Masque() {
                                     <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
-                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                                    mt-2_5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>

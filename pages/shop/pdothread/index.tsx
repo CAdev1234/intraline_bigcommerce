@@ -353,7 +353,7 @@ export default function PDOThread() {
                                         leading-none md:leading-36_26
                                         text-2xl md:text-4xl">Any more questions?</div>
                         <p className="ttcommon_font_thin leading-14_26
-                                        mt-2.5 md:mt-5">We are here to help --- reach out with any questions.</p>
+                                        mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
                             <Input type="text" placeholder="Full Name"/>
                         </div>

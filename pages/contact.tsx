@@ -122,7 +122,7 @@ export default function ContactUs() {
                         <div className="mt-5">
                             <div className="leading-14_26">How can we best help you?</div>
                         </div>
-                        <div className="mt-2.5">
+                        <div className="mt-2_5">
                             <div className="flex items-center">
                                 <input type="radio" id="help_type_1" value="distributor inquiry" name="help_type" onChange={(event) => radioHandle(event)}/>
                                 <label htmlFor="help_type_1" className="text-base leading-14_26 ml-3">Distributor Inquiry</label>
@@ -160,7 +160,7 @@ export default function ContactUs() {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="contact_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="contact_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="text-c_00080D mt-5 leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">

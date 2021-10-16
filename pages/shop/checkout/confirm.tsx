@@ -50,7 +50,7 @@ export default function CheckoutConfirm() {
                         <div className="mt-5 leading-36_48
                                         text-2xl md:text-4xl">Your order Number: 1234567890</div>
                         <div className="max-w-sm mx-auto
-                                        mt-5 md:mt-2.5
+                                        mt-5 md:mt-2_5
                                         text-sm md:text-base">
                             If you have any questions about your order, you can emai us at <span className="ttcommon_font_bold">info@intraline.com</span> or call us at <span className="ttcommon_font_bold">+1 (778) 738-0351</span>.
                         </div>

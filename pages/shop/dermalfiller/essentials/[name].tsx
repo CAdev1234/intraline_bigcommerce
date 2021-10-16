@@ -226,7 +226,6 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     block md:hidden">
                         <div className="flex flex-col items-end h-full">
                             <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.webp" alt="" /> */}
                                 <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} />
                                 <div className="w-full h-full flex absolute items-center justify-center">
                                     <div className="relative">
@@ -284,7 +283,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     <Button className="h-full
                                                     w-full md:w-52
                                                     ml-0 md:ml-3
-                                                    mt-2.5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
+                                                    mt-2_5 md:mt-0" onClick={() => {addToBagHandler()}}>Add to bag</Button>
                                 </div>}
                             </div>
                         </div>
@@ -480,7 +479,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                 <div className="w-full text-2xl text-center mt-10">
                     <div className="ttcommon_font_thin leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">Rheology.</div>
-                    <div className="ttcommon_font_thin mt-2.5 leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
+                    <div className="ttcommon_font_thin mt-2_5 leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
                 </div>
             </div>
             

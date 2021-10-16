@@ -18,7 +18,7 @@ export default function IndustryBlog() {
                 </div>
                 <div className="bg-white pt-40 pb-25 px-15">
                     <div className="ttcommon_font_bold text-4xl leading-36_48">Intraline's Blog.</div>
-                    <div className="mt-2.5">Read the latest industry news.</div>
+                    <div className="mt-2_5">Read the latest industry news.</div>
                     <div className="mt-7_5 flex w-9/12 flex-wrap gap-y-2">
                         {tag_li.map((item, index) => {
                             return <div className="bg-c_F7F7F7 rounded-2xl px-6 py-2 mr-2.5 uppercase leading-14_17" key={`tag_${index}`}>{item}</div>

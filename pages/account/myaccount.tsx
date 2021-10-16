@@ -225,11 +225,11 @@ export default function MyAccount() {
                             <span className="ttcommon_font_bold">Name:</span>
                             <span className="ml-2.5">{`${user.f_name} ${user.l_name}`}</span>
                         </div>
-                        <div className="mt-2.5 leading-14_26">
+                        <div className="mt-2_5 leading-14_26">
                             <span className="ttcommon_font_bold">Email:</span>
                             <span className="ml-2.5">{user.email}</span>
                         </div>
-                        <div className="mt-2.5 leading-14_26">
+                        <div className="mt-2_5 leading-14_26">
                             <span className="ttcommon_font_bold">Phone:</span>
                             <span className="ml-2.5">{user.mobile}</span>
                         </div>
@@ -252,7 +252,7 @@ export default function MyAccount() {
                             <span className="ttcommon_font_bold">Shipping Address:</span>
                             <span className="ml-2.5"></span>
                         </div>
-                        <div className="mt-2.5 leading-14_26">
+                        <div className="mt-2_5 leading-14_26">
                             <div className="">{`${ship_address.f_name} ${ship_address.l_name}`}</div>
                             <div>{ship_address.address}</div>
                             <div>{ship_address.city}, {ship_address.country} {ship_address.postcode}</div>
@@ -263,9 +263,9 @@ export default function MyAccount() {
                         </div>
                         <div className="mt-7_5 leading-14_26">
                             <div className="ttcommon_font_bold">Billing Address:</div>
-                            {bill_address.address === "" && <div className="mt-2.5">Not Provided</div>}
+                            {bill_address.address === "" && <div className="mt-2_5">Not Provided</div>}
                             {bill_address.address !== "" && 
-                                <div className="mt-2.5 leading-14_26">
+                                <div className="mt-2_5 leading-14_26">
                                     <div className="">{`${bill_address.f_name} ${bill_address.l_name}`}</div>
                                     <div>{bill_address.address}</div>
                                     <div>{bill_address.city}, {bill_address.country} {bill_address.postcode}</div>
@@ -291,7 +291,7 @@ export default function MyAccount() {
                                             <span className="ttcommon_font_bold">Payment Method {index + 1}:</span>
                                             <span className="ml-2.5"></span>
                                         </div>
-                                        <div className="mt-2.5 leading-14_26">
+                                        <div className="mt-2_5 leading-14_26">
                                             <div className="">{payment.name}</div>
                                             <div>{payment.number}</div>
                                             <div>{`Expires ${payment.date} CVC: ${payment.cvc}`}</div>
@@ -472,7 +472,7 @@ export default function MyAccount() {
                                         <div className="block md:hidden mt-3">
                                             <RatingView ratingValue={item.rating as number} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                         </div>
-                                        <div className="mt-2.5 leading-14_17 break-words">{item.detail}</div>
+                                        <div className="mt-2_5 leading-14_17 break-words">{item.detail}</div>
                                         <div className="ttcommon_font mt-7_5 leading-14_17 tracking-widest uppercase underline flex items-center">
                                             <button className="uppercase" onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
                                             <button className="ml-5 uppercase" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
@@ -502,7 +502,7 @@ export default function MyAccount() {
                                                 text-2xl md:text-4xl
                                                 leading-tight md:leading-36_26">Edit Information.</div>
                                 <div className="text-base leading-14_26
-                                                mt-2.5 md:mt-5">Make changes to your account info.</div>
+                                                mt-2_5 md:mt-5">Make changes to your account info.</div>
                                 <div className="mt-7_5 md:mt-10">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="First Name" defaultValue={selectedAccont.f_name}
                                     onChange={changeUserFNameHandler}/>
@@ -550,7 +550,7 @@ export default function MyAccount() {
                                                 leading-tight md:leading-36_26">Add Review.</div>
                                 <div className="text-base
                                                 leading-tight md:leading-14_26
-                                                mt-2.5 md:mt-5">Add a new review from a previous purchase.</div>
+                                                mt-2_5 md:mt-5">Add a new review from a previous purchase.</div>
                                 <div className="
                                                 mt-7_5 md:mt-10">
                                     <SelectInput 
@@ -561,14 +561,14 @@ export default function MyAccount() {
                                         option_class="bg-c_F5DBDD hover:bg-opacity-80"
                                         returnVal={updateReviewProduct}/>
                                 </div>
-                                <div className="mt-2.5 md:mt-5">
+                                <div className="mt-2_5 md:mt-5">
                                     <Input className="bg-c_F7F7F7" type="text" placeholder="Review title" onChange={updateReviewTitle}/>
                                 </div>
-                                <div className="mt-2.5 md:mt-5">
+                                <div className="mt-2_5 md:mt-5">
                                     <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write your review"
                                             onChange={(event) => setNewReview({...newReview, detail: event.target.value})}/>
                                 </div>
-                                <div className="mt-2.5 md:mt-5 flex items-center">
+                                <div className="mt-2_5 md:mt-5 flex items-center">
                                     <span>Rating:</span>
                                     <div className="ml-5 mt-2">
                                         <Rating onClick={handleRatingHandler} ratingValue={rating} size={28} stars={5} fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)"/>

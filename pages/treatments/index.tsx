@@ -128,7 +128,7 @@ export default function Treatments() {
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
-                        <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
+                        <div className="ttcommon_font_thin mt-2_5 mb-7_5">{item.detail}</div>
                     </div>
                 </div>
     })
@@ -142,7 +142,7 @@ export default function Treatments() {
                         </div>
                         <div className="ttcommon_font_bold mt-7_5 text-left">0{index + 1}</div>
                         <div className="ttcommon_font_bold uppercase text-left">{item.title}</div>
-                        <div className="ttcommon_font_thin mt-2.5 mb-7_5">{item.detail}</div>
+                        <div className="ttcommon_font_thin mt-2_5 mb-7_5">{item.detail}</div>
                     </div>
                 </div>
     })
@@ -176,7 +176,7 @@ export default function Treatments() {
                         <span className="ttcommon_font_bold">Treatments</span>
                     </div>
                     <div className="mt-10 ttcommon_font_bold text-2xl">Facial Treatments</div>
-                    <div className="mt-2.5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
+                    <div className="mt-2_5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
                     <div className="mt-7_5">
                         <KeenSliderA 
                             slidesPerView={[1,1,1,1,1]} 
@@ -188,7 +188,7 @@ export default function Treatments() {
 
                 <div className="block md:hidden px-5 bg-white pb-15">
                     <div className="mt-10 ttcommon_font_bold text-2xl">Body Treatments.</div>
-                    <div className="mt-2.5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
+                    <div className="mt-2_5 ttcommon_font_thin">The choice is yours. Find the perfect treatment for you.</div>
                     <div className="mt-7_5">
                         <KeenSliderA 
                             slidesPerView={[1,1,1,1,1]} 

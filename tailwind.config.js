@@ -97,6 +97,7 @@ module.exports = {
         '200_160': '0.8', // fontsize:200px;lineheight:160px
       },
       margin: {
+        '2_5': '10px',
         '7_5': '30px',
         '12_5': '50px',
         '15': '60px',
