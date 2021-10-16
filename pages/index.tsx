@@ -474,7 +474,20 @@ export default function Home({
       /> */}
 
       <div className="w-full mt-15">
-        <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/>
+        {/* <ResponsivePlayer url="https://www.youtube.com/watch?v=giRyQtkecqA"/> */}
+        {/* <video width="320" height="240" controls>
+          <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+        </video> */}
+        <div className="w-full aspect-w-16 aspect-h-9">
+        <video width="100%" height="100%" controls autoPlay={true} muted={true}>
+          <source src="/assets/video/landing-video.mp4" type="video/mp4" />
+        </video>
+        {/* <iframe width="100%" height="500px" src="https://www.youtube.com/watch?v=giRyQtkecqA"></iframe> */}
+        </div>
+        {/* <video src="https://www.youtube.com/watch?v=giRyQtkecqA" width="100%" height="500" controls></video> */}
+        {/* <source src="https://www.youtube.com/watch?v=giRyQtkecqA" type="video/mp4"/> */}
       </div>
       <div className="relative z-10 flex ttcommon_font_bold
                       text-c_00080D md:text-white
@@ -496,6 +509,7 @@ export default function Home({
         <RenderCategorySwiper />
       </div>
 
+      
       {/* about us part */}
       <div className="mt-20 bg-white text-center py-24 relative
                       h-103 md:h-117
@@ -522,6 +536,8 @@ export default function Home({
           <Image src={tripleBlueImg} alt="triple blue image"></Image>
         </div>
       </div>
+      
+      
 
       {/* Feature products part */}
       <div className="bg-c_C6CBDD
