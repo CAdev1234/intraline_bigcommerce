@@ -14,7 +14,7 @@ const fetchApi = (endpoint: string, method: string, body?: string) => {
             "x-requested-with": "XMLHttpRequest",
         },
         'method': method,
-        // 'body': body
+        'body': body
     })
 }
 
@@ -26,35 +26,20 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     if (req.method === 'POST') {
         let body = JSON.parse(req.body)
         console.log(body)
-        // let getSubscribeTypes = await fetchApi(`/email/public/v1/subscriptions?hapikey=${hapikey}`, 'GET').then(res => {res.json()})
-        let getSubscribeTypes = await fetchApi(`/email/public/v1/subscriptions?hapikey=${hapikey}`, 'GET').then(res => {res.json()})
+        console.log(`/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`)
+        let getSubscribeTypes = await fetchApi(`/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`, 'GET').then(res => {res.json()})
         console.log(getSubscribeTypes)
 
         let getSubscribeStatus = await fetchApi(`/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`, 'GET').then(res => res.json())
         console.log(getSubscribeStatus)
         
-        if (getSubscribeStatus.subscribed === undefined) {
-            res.status(401).json({status: 'failed', msg: 'Please check your email'})
-        }
-        else if (getSubscribeStatus.subscribed) {
-            res.status(400).json({status: 'failed', msg: 'You are already subscribed.'})
+        // if (getSubscribeStatus.subscribed === undefined) {
+        //     res.status(401).json({status: 'failed', msg: 'Please check your email'})
+        // }
+        if (getSubscribeStatus.subscribed) {
+            res.status(200).json({status: 'success', msg: 'You are subscribed successfully.'})
         }else {
-            let update_subscribe = await fetchApi(`/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`, 'POST', JSON.stringify(
-                {
-                    "subscriptionStatuses": [
-                        {
-                            "id": 7,
-                            "subscribed": true,
-                            "optState": "OPT_IN",
-                            "legalBasis": "PERFORMANCE_OF_CONTRACT",
-                            "legalBasisExplanation": "We need to send them these emails as part of our agreement with them."
-                        }
-                    ],
-                    "portalSubscriptionLegalBasis": "LEGITIMATE_INTEREST_CLIENT",
-                    "portalSubscriptionLegalBasisExplanation": "They told us at a conference that they're interested in receiving communications."
-                }
-            )).then(response => response.json())
-            res.status(200).json({status: 'success', msg: 'Success'})
+            res.status(400).json({status: 'failed', msg: 'Subscribe failed'})
         }
     }
     
