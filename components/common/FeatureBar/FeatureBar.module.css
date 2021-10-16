@@ -1,5 +1,5 @@
 .root {
-  @apply px-15 py-5 bg-c_52B5D3 text-base flex-row items-center fixed bottom-0 w-full z-30 transition-all duration-300 ease-out;
+  @apply px-5 md:px-15 py-5 bg-c_52B5D3 text-base flex-row items-center fixed bottom-0 w-full z-30 transition-all duration-300 ease-out;
 
   @screen md {
     @apply flex text-left;

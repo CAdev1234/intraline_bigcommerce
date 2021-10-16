@@ -27,7 +27,7 @@ const FeatureBar: React.FC<FeatureBarProps> = ({
   )
   return (
     <div className={rootClassName}>
-      <span className="w-146">{title}</span>
+      <span className="w-full max-w-146">{title}</span>
       <span className="block mb-6 md:inline md:mb-0 md:ml-2">
         {description}
       </span>

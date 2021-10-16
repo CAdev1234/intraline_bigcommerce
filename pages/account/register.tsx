@@ -80,7 +80,7 @@ export default function Register() {
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Password" onChange={setPassword}/>
-                        {password === '' || password.length < 8 && <span className="vali-span text-c_F4511E">Required. At least 8 characters.</span>}
+                        {password.length < 8 && <span className="vali-span text-c_F4511E">Required. At least 8 characters.</span>}
                     </div>
                     <div className="mt-5 w-full flex flex-col">
                         <Input className="h-11 border-none bg-white w-full pl-5 py-2" type="password" placeholder="Confirm Password" onChange={setCPassword}/>

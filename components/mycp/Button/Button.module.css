@@ -44,7 +44,7 @@
 
 
 .scrollup {
-    @apply rounded-full bg-c_00080D text-white;
+    @apply rounded-full bg-c_00080D text-white w-12 md:w-20 h-12 md:h-20 bottom-5 md:bottom-10 right-5 md:right-10 fixed z-20;
 }
 .scrollup:hover {
     @apply bg-white border-c_00080D text-c_00080D;

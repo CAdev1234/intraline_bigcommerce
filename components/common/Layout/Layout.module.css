@@ -2,3 +2,7 @@
   @apply h-full bg-primary mx-auto transition-colors duration-150;
   max-width: 2460px;
 }
+.main_container {
+  max-width: 1440px;
+  width: 100%;
+}

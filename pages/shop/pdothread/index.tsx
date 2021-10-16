@@ -12,6 +12,8 @@ import { useRouter } from 'next/router'
 
 import {useSpring, animated, useTransition} from '@react-spring/web'
 
+import Image from 'next/image'
+
 
 
 
@@ -106,7 +108,8 @@ export default function PDOThread() {
         let render_ele = pdothread_li.map((item, index) => {
             return <div className="keen-slider__slide relative group" key={`pdo_thread_${index}`}>
                         <div className="my-auto">
-                            <img src={item.img} alt="" />
+                            <img className="invisible" src={item.img} alt="" />
+                            <Image src={item.img} layout="fill" alt="" />
                             <div className="uppercase text-2xl text-center font-semibold">{item.title}</div>
                         </div>
     

@@ -146,7 +146,7 @@ const Layout: FC<Props> = ({
       <div className={cn(s.root)}>
         {/* <Navbar links={navBarlinks} /> */}
         <Navbar c_name="bg-c_00080D"/>
-        <main className="fit">{children}</main>
+        <main className="fit mx-auto" style={{maxWidth: 1440}}>{children}</main>
         <Footer pages={pageProps.pages} />
         <ModalUI />
         <SidebarUI />
@@ -157,14 +157,15 @@ const Layout: FC<Props> = ({
             <div className="ml-auto flex items-center">
               <button className="text-c_00080D uppercase underline text-base tracking-widest" onClick={() => {onAcceptCookies()}}>Dismiss</button>
               <Button 
-                className="ml-7_5 h-11 w-64"
+                className="h-11 w-64
+                           ml-auto md:ml-7_5"
                 onClick={() => onAcceptCookies()}>Accept</Button>
             </div>
           }
         />
       </div>
       {enableScrollUpBtn && 
-        <Button className="fixed bottom-10 right-10 h-20 w-20 z-20" variant="scrollup" onClick={() => {scrollToUpHandler()}}>
+        <Button className="" variant="scrollup" onClick={() => {scrollToUpHandler()}}>
           <ChevronUp />
         </Button>
       }

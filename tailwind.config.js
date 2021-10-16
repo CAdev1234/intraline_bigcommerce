@@ -21,6 +21,7 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
+        '146': '584px',
         '8xl': '1920px',
       },
       colors: {
@@ -145,7 +146,8 @@ module.exports = {
       maxWidth: {
         '106_5': '426px',
         '128': '512px',
-        '134_5': '538px'
+        '134_5': '538px',
+        '1440': '1440px'
       },
       minWidth: {
         '7': '28px',
