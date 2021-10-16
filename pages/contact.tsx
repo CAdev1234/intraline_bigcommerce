@@ -116,11 +116,11 @@ export default function ContactUs() {
                         <div className="mt-5">
                             <Input className="bg-c_F7F7F7" type="number" placeholder="Phone Number" onChange={setMobileHandler}/>
                             {contact_info.mobile === '' &&
-                                <span className="text-base text-c_F4511E font-bold">Required.</span>
+                                <span className="text-c_F4511E font-bold">Required.</span>
                             }
                         </div>
                         <div className="mt-5">
-                            <div className="text-base leading-14_26">How can we best help you?</div>
+                            <div className="leading-14_26">How can we best help you?</div>
                         </div>
                         <div className="mt-2.5">
                             <div className="flex items-center">

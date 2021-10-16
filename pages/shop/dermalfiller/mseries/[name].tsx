@@ -15,7 +15,7 @@ import SideReview from '@components/mycp/SideReview'
 
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {addProductToCart} from 'utils/redux/slices/cartSlice'
-import {openSideReview} from 'utils/redux/slices/reviewSlice'
+import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
@@ -193,7 +193,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
     }
 
     const ShowSideReviewHandler = () => {
-        dispatch(openSideReview())
+        dispatch(activeSideReview())
     }
     
     return(
@@ -551,7 +551,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                 </div>
             </div>
 
-            {enableSideReview && <SideReview reviewList={testimonial_li} />}
+            <SideReview reviewList={testimonial_li} />
         </div>
     )
 }

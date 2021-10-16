@@ -14,7 +14,7 @@ import SideReview from '@components/mycp/SideReview'
 
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {addProductToCart} from 'utils/redux/slices/cartSlice'
-import {openSideReview} from 'utils/redux/slices/reviewSlice'
+import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import {MSERIES_TESTIMONIAL_LIST, products} from 'utils/productData'
@@ -127,7 +127,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     }, [])
     // const showSideCart
     const showEnableSideReviewHandler = () => {
-        dispatch(openSideReview())
+        dispatch(activeSideReview())
     }
     const renderPDOThreads = () => {
         return items.map((item, index) => {
@@ -580,7 +580,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                 </div>
             </div>
             
-            {enableSideReview && <SideReview reviewList={testimonial_li} />}
+            <SideReview reviewList={testimonial_li} />
         </div>
     )
 }

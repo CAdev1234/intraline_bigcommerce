@@ -12,7 +12,7 @@ import HamburgerMenu from '@components/icons/HamburgerMenu'
 import { Cross } from '@components/icons'
 
 import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
-import { openSideCart } from '@utils/redux/slices/cartSlice'
+import { activeSideCart } from '@utils/redux/slices/cartSlice'
 import { getCookie } from '@utils/cookie'
 import { search } from '@utils/redux/slices/productSlice'
 import router, { useRouter } from 'next/router'
@@ -262,7 +262,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                 
               </div>
               {logined && 
-                <div className="ml-7_5 relative" onClick={() => {dispatch(openSideCart())}}>
+                <div className="ml-7_5 relative" onClick={() => {dispatch(activeSideCart())}}>
                   <CartSvg className={s.svg} />
                   {totalAmount > 0 && 
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-c_CCE7EF">
@@ -295,7 +295,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
           <Searchbar id="mobile-search" />
         </div> */}
       </Container>
-      {enableSideCart && <SideCart />}
+      <SideCart />
+      {/* {enableSideCart && <SideCart />} */}
       {enableMobileMenu && 
         <div className="fixed top-15 left-0 w-full h-screen z-40">
           <div className="w-full h-screen absolute top-0 left-0 flex">

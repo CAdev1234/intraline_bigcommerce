@@ -17,13 +17,13 @@ const reviewSlice = createSlice({
         initialReviews: (state, {payload}) => {
             state.review_li = payload
         },
-        openSideReview: state => {
-            state.enableSideReview = true;
-            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
-        },
-        closeSideReview: state => {
-            state.enableSideReview = false;
-            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
+        activeSideReview: state => {
+            state.enableSideReview = !state.enableSideReview
+            if(state.enableSideReview) {
+                (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+            }else {
+                (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+            }
         },
         createReview: (state, {payload}) => {
             state.review_li.push({...payload, id: generateID(), created_at: date.format(new Date(), 'DD MMM YYYY')})
@@ -46,8 +46,7 @@ const reviewSlice = createSlice({
 
 export const {
     initialReviews, 
-    openSideReview, 
-    closeSideReview, 
+    activeSideReview, 
     createReview,
     updateReview,
     deleteReview

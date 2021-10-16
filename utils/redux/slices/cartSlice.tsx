@@ -48,13 +48,13 @@ const cartSlice = createSlice({
         initialOrder: (state, {payload}) => {
             state.orderList = payload
         },
-        openSideCart: state => {
-            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
-            state.enableSideCart = true;
-        },
-        closeSideCart: state => {
-            (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
-            state.enableSideCart = false
+        activeSideCart: (state) => {
+            state.enableSideCart = !state.enableSideCart
+            if(state.enableSideCart) {
+                (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+            }else {
+                (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+            }
         },
         addProductToCart: (state, {payload}) => {
             let result = (state.products as Array<ProductObject>).filter(item => item.id === payload.id)
@@ -108,6 +108,6 @@ const cartSlice = createSlice({
     
 })
 
-export const {initialCart, initialOrder, openSideCart, closeSideCart, addProductToCart, updateProductInCart, deleteProduct, createOrder} = cartSlice.actions
+export const {initialCart, initialOrder, activeSideCart, addProductToCart, updateProductInCart, deleteProduct, createOrder} = cartSlice.actions
 // export const enableSideCart = (state:RootState) => state.cart.enableSideCart
 export default cartSlice.reducer

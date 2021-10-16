@@ -93,9 +93,7 @@ export default function MyAccount() {
     }
     const delAccountHandler = () => {
         removeCookie('jwt')
-        localStorage.setItem('sa', '')
-        localStorage.setItem('ba', '')
-        localStorage.setItem('pm', '')
+        localStorage.clear()
         dispatch(logoutUser())
         router.push('/account/login')
     }

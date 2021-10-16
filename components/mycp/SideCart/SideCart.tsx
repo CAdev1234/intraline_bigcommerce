@@ -1,20 +1,25 @@
 import dynamic from 'next/dynamic'
 import { FC, useState, useEffect } from 'react'
+import cn from 'classnames'
+import s from './SideCart.module.css'
 const Button = dynamic(import('@components/mycp/Button'))
 import { Cross } from '@components/icons'
 
 import {useAppDispatch, useAppSelector} from '../../../utils/redux/hooks'
-import {closeSideCart} from '../../../utils/redux/slices/cartSlice'
+import {activeSideCart} from '../../../utils/redux/slices/cartSlice'
 import { useRouter } from 'next/router'
 import { ProductObject } from 'utils/types'
 
 interface SideCartProps {
+    className?: string
 }
 
-const SideCart: FC<SideCartProps> = () => {
+const SideCart: FC<SideCartProps> = ({className}) => {
+    const rootClassName = cn(s.root, className)
     const [currentUrl, setCurrentUrl] = useState('')
     const router = useRouter()
     const dispatch = useAppDispatch()
+    const enableSideCart = useAppSelector(state => state.cart.enableSideCart)
     useEffect(() => {
         setCurrentUrl(window.location.href)
     })
@@ -23,24 +28,24 @@ const SideCart: FC<SideCartProps> = () => {
     const total_amount = useAppSelector(state => state.cart.totalQuantity)
     
     const editBagHandler = () => {
-        dispatch(closeSideCart())
+        dispatch(activeSideCart())
         router.push('/shop/shoppingbag')
     }
 
     const gotoShoppingBagHandler = () => {
-        dispatch(closeSideCart())
+        dispatch(activeSideCart())
         router.push('/shop/shoppingbag')
     }
 
     const gotoCheckoutHandler = () => {
-        dispatch(closeSideCart())
+        dispatch(activeSideCart())
         router.push('/shop/checkout')
     }
     return (
-        <div>
-            <div className="fixed top-0 left-0 w-full h-screen bg-c_00080D bg-opacity-40 z-20"></div>
-            <div className="ttcommon_font_thin flex flex-col bg-white fixed right-0 max-h-screen z-40
-                            w-full md:w-96" style={{height: 'calc(100% - 60px)', boxShadow: '0px -10px 40px rgba(0, 0, 0, 0.05)'}}>
+        <div className={`${rootClassName}`}>
+            <div className={`${s.side_cart_bg} ${enableSideCart ? 'block' : 'hidden'}`}></div>
+            <div className={`ttcommon_font_thin ${s.side_cart_body}`}
+                style={{transform: `${enableSideCart ? 'translateX(0px)' : 'translateX(1000px)'}`}}>
                 <div className="relative h-full flex flex-col py-12">
                     <div className="px-7 flex flex-col flex-1 h-0">
                         <div className="text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag</span> ({total_amount})</div>
@@ -81,7 +86,7 @@ const SideCart: FC<SideCartProps> = () => {
                             }
                         </div>
                     </div>
-                    <button className="absolute top-6 right-4" onClick={() => {dispatch(closeSideCart())}}>
+                    <button className="absolute top-6 right-4" onClick={() => {dispatch(activeSideCart())}}>
                         <Cross />
                     </button>
                 </div>

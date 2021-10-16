@@ -252,7 +252,7 @@ export default function LiftingThread() {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="lifting_thread_checkbox" type="checkbox" className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="lifting_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="ttcommon_font_thin leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">

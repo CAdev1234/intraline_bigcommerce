@@ -14,7 +14,7 @@ import SideReview from '@components/mycp/SideReview'
 
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {addProductToCart} from 'utils/redux/slices/cartSlice'
-import {openSideReview} from 'utils/redux/slices/reviewSlice'
+import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
@@ -199,7 +199,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     }
 
     const ShowEnableSideReviewHandler = () => {
-        dispatch(openSideReview())
+        dispatch(activeSideReview())
     }
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col
@@ -213,7 +213,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     w-10/12">
                         <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
-                        <span className="mr-1 ttcommon_font">Shop</span>
+                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller/essentialsshop">Shop</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
@@ -242,7 +242,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                             w-10/12">
                                 <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4" /></span>
-                                <span className="mr-1 ttcommon_font">Shop</span>
+                                <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller/essentialsshop">Shop</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
                                 <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
@@ -258,7 +258,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-0 md:mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
-                                <div className="ttcommon_font_thin leading-200_160 font-semibold
+                                <div className="ttcommon_font_thin font-semibold
+                                                leading-tight xl:leading-200_160
                                                 text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
@@ -546,7 +547,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                 </div>
             </div>
 
-            {enableSideReview && <SideReview reviewList={testimonial_li} />}
+            <SideReview reviewList={testimonial_li} />
         </div>
     )
 }

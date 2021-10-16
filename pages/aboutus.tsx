@@ -123,10 +123,8 @@ export default function AboutUs() {
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                {/* <input type="checkbox" name="" id="aboutus_checkbox" className="w-3_5 h-3_5" defaultChecked/> */}
-                                <Checkbox id="aboutus_checkbox" className="ttcommon_font_thin" type="checkbox" label="I agree to receive other communications from Intraline."/>
+                                <Checkbox id="aboutus_checkbox" defaultChecked={true} className="ttcommon_font_thin" type="checkbox" label="I agree to receive other communications from Intraline."/>
                             </div>
-                            {/* <label className="ttcommon_font_thin ml-2 leading-14_17" htmlFor="aboutus_checkbox">I agree to receive other communications from Intraline.</label> */}
                         </div>
                         <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
