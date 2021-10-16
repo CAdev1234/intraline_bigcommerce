@@ -1,5 +1,5 @@
 import { FC } from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 import cn from 'classnames'
 import s from './ResponsivePlayer.module.css'
 
