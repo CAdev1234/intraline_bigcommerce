@@ -6,7 +6,6 @@ import { Layout } from '@components/common'
 import { Button, Input, SelectInput} from '@components/mycp'
 import Link from '@components/ui/Link'
 import Checkbox from '@components/mycp/Checkbox'
-import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import Image from 'next/image'
 import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
 import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'
@@ -48,7 +47,11 @@ export default function AboutUs() {
         <div className="ttcommon_font_thin text-c_00080D flex flex-col
                         mt-16 md:mt-0">
             <div className="relative w-full flex flex-col mt-15">
-                <ResponsivePlayer url="https://www.youtube.com/watch?v=rW_3OCbQEHg"/>
+                <div className="w-full aspect-w-16 aspect-h-9">
+                    <video width="100%" height="100%" controls autoPlay={true} muted={true} loop={true}>
+                        <source src="/assets/video/about-video.mp4" type="video/mp4" />
+                    </video>
+                </div>
             </div>
 
             {/* Confidence is Ageless. */}

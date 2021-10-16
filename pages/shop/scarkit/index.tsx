@@ -12,7 +12,6 @@ import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import Link from '@components/ui/Link'
-import ResponsivePlayer from '@components/mycp/ResponsivePlayer'
 import { validateEmail } from '@utils/simpleMethod'
 import { ToastContainer, toast} from 'react-toastify'
 import scarkitImg from 'public/assets/img/scarkit.webp'
@@ -356,7 +355,11 @@ export default function ScarKit() {
                     <div className="ttcommon_font_bold leading-36_48
                                     text-2xl md:text-4xl">How the GTI Cannula works.</div>
                     <div className="mt-5 w-full">
-                        <ResponsivePlayer url="https://www.youtube.com/watch?v=nnexOCQOa0w"/>
+                        <div className="w-full aspect-w-16 aspect-h-9">
+                            <video width="100%" height="100%" controls autoPlay={true} muted={true} loop={true}>
+                                <source src="/assets/video/scarkit-video.mp4" type="video/mp4" />
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,6 @@ const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 const Button = dynamic(import('@components/mycp/Button'))
 const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 const Link = dynamic(() => import('@components/ui/Link'))
-const ResponsivePlayer = dynamic(() => import('@components/mycp/ResponsivePlayer'))
 
 import { RatingView } from 'react-simple-star-rating'
 import {useAppSelector} from '../utils/redux/hooks'
@@ -481,7 +480,7 @@ export default function Home({
           Your browser does not support the video tag.
         </video> */}
         <div className="w-full aspect-w-16 aspect-h-9">
-        <video width="100%" height="100%" controls autoPlay={true} muted={true}>
+        <video width="100%" height="100%" controls autoPlay={true} muted={true} loop={true}>
           <source src="/assets/video/landing-video.mp4" type="video/mp4" />
         </video>
         {/* <iframe width="100%" height="500px" src="https://www.youtube.com/watch?v=giRyQtkecqA"></iframe> */}
