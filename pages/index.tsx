@@ -65,10 +65,10 @@ const RenderCategorySwiper = () => {
       return <div className="keen-slider__slide relative" key={`category_${index}`}>
                   <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">
-                      <div className="">
-                          <img className="w-full" src={item.img} alt="" />
+                      <div className="relative flex-1">
+                          <Image src={item.img} alt="" layout="fill" />
                       </div>
-                      <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5 h-12 flex justify-center items-center
+                      <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 h-12 flex justify-center items-center
                                        md:text-2xl
                                        leading-14_17 md:leading-none">{item.name}</div>
                     </div>

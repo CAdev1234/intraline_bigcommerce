@@ -53,27 +53,24 @@ const RenderCategorySwiper:FC = () => {
         { name: 'Scar Kit', img: "https://cdn2.hubspot.net/hub/2718899/hubfs/10-2.jpg?width=3000&name=10-2.jpg", link: "/shop/scarkit" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
-                    <div className="flex flex-col bg-white
-                                    h-74 md:h-118
-                                    pt-2.5 md:pt-5
-                                    px-2.5 md:px-5
-                                    pb-5 md:pb-12">
-                        <div className="flex-1 h-0">
-                            <img className="h-full object-contain mx-auto" src={item.img} alt="" />
-                            {/* <Image className="h-full object-contain mx-auto" src={item.img} alt=""/> */}
-                        </div>
-                        <div className="ttcommon_font_bold uppercase text-center text-color_1 tracking-widest mt-5
-                                         h-12 flex items-center justify-center
-                                         md:text-2xl
-                                         leading-14_17 md:leading-none">{item.name}</div>
+                    <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
+                    <div className="w-full h-full flex flex-col px-3 pt-3">
+                      <div className="relative flex-1">
+                          <Image src={item.img} alt="" layout="fill" />
+                      </div>
+                      <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 h-12 flex justify-center items-center
+                                       md:text-2xl
+                                       leading-14_17 md:leading-none">{item.name}</div>
                     </div>
-                    <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
-                        <div className="my-auto flex flex-col">
-                            <Link href={item.link}>
-                                <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
-                            </Link>
-                        </div>
-                    </div>
+                      
+                  </div>
+                  <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
+                      <div className="my-auto flex flex-col">
+                          <Link href={item.link}>
+                              <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
+                          </Link>
+                      </div>
+                  </div>
                 </div>
     })
     return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,2.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
