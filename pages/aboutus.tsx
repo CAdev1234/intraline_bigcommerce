@@ -63,7 +63,6 @@ export default function AboutUs() {
                                     text-2xl md:text-4xl">Confidence is Ageless.</div>
                     <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
                                 text-2xl md:text-4xl">We believe that people matter, therefore we listen and commit ourselves to excellence in all that we do. Your story is our story, and we are proud to grow together.</p>
-                    
                 </div>
             </div>
 

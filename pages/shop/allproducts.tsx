@@ -135,11 +135,10 @@ export default function AllProducts() {
                                         <div className="bg-c_00080D flex items-center justify-center h-full
                                                         w-full sm:w-24">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => decreaseNumHandler(event)}>-</button>
-                                            <div className="mx-auto
-                                                            text-xs sm:text-base">1</div>
+                                            <div className="mx-auto">1</div>
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => increaseNumHandler(event)}>+</button>
                                         </div>
-                                        <Button className="h-full flex-1
+                                        <Button className="h-full flex-1 text-white
                                                            ml-0 sm:ml-3
                                                            mt-2 sm:mt-0
                                                            w-full sm:w-auto
