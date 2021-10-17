@@ -9,40 +9,24 @@ const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
 import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
-// const useHubspotForm = dynamic(() => {import('@aaronhayes/react-use-hubspot-form').then(module => module.useHubspotForm())})
-// const Hubspot = dynamic((useHubspotForm) => import('@aaronhayes/react-use-hubspot-form'))
-let getUseHubspotForm = async() => {
-    let neededModule
-    await import('@aaronhayes/react-use-hubspot-form').then(module => {
-        neededModule = module.useHubspotForm
-    })
-    .catch(e => console.log(e))
-    return neededModule
-}
 
 
 import { toast, ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import { validateEmail } from "@utils/simpleMethod"
+// const validateEmail = dynamic(() => import('@utils/simpleMethod').then((module) => module.validateEmail))
 
 export default function ContactUs() {
     const [contact_info, setContactInfo] = useState({full_name: '', email: '', mobile: '', help_type: '', msg: ''})
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
 
-    const { loaded, error, formCreated } = useHubspotForm({
-        portalId: '2718899',
-        formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
-        target: '#my-hubspot-form'
-    });
-
-    // import('@aaronhayes/react-use-hubspot-form').then(module => {
-    //     return module.useHubspotForm({
-    //         portalId: '2718899',
-    //         formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
-    //         target: '#my-hubspot-form'
-    //     })
-    // })
+    // const { loaded, error, formCreated } = useHubspotForm({
+    //     portalId: '2718899',
+    //     formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
+    //     target: '#my-hubspot-form'
+    // });
     
 
     const setFullNameHandler = (str: string) => {
@@ -86,9 +70,10 @@ export default function ContactUs() {
         if (contact_info.full_name && contact_info.email && contact_info.mobile) {
             setEnableSubmit(true)
         }
-
-        
     }, [contact_info])
+    useEffect(() => {
+
+    }, [])
     return (
         <div className="ttcommon_font_thin text-c_00080D
                         mt-16 md:mt-0">
