@@ -110,16 +110,16 @@ export default function PDOThread() {
             {title: 'Rejuvenation Threads', img: '/assets/img/lifting_thread_1.webp', link: '/shop/pdothread/rejuvenation'}
         ]
         let render_ele = pdothread_li.map((item, index) => {
-            return <div className="keen-slider__slide relative group" key={`pdo_thread_${index}`}>
-                        <div className="my-auto">
-                            <img className="" src={item.img} alt="" />
-                            {/* <div className="w-full aspect-w-1 aspect-h-4 flex flex-col ">
-                                <Image src={item.img} alt="" layout="fill" />
-                            </div> */}
-                            
-                            <div className="uppercase text-2xl text-center font-semibold">{item.title}</div>
+            return <div className="keen-slider__slide flex flex-col relative group" 
+                        key={`m_${index}_product`}>
+                        <div className="">
+                            <div className="w-full">
+                                <div className="w-full image-container">
+                                    <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
+                                </div>
+                            </div>
                         </div>
-    
+                        <div className="ttcommon_font font-semibold uppercase text-2xl leading-24_29 text-center">{item.title}</div>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
                             <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white"
                                     onClick={() => {router.push(item.link)}}>
@@ -128,6 +128,7 @@ export default function PDOThread() {
                             <div className="text-center">Know More</div>
                         </div>
                     </div>
+                    
         })
         return <KeenSliderB 
                     render_ele={render_ele} 

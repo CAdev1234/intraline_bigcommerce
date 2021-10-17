@@ -78,25 +78,6 @@ button:focus, input:focus, select:focus {outline: none;}
 .arrow {
   fill: white;
 }
-/* .arrow {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  fill: #fff;
-  cursor: pointer;
-}
-
-.arrow--left {
-  left: 5px;
-}
-
-.arrow--right {
-  left: auto;
-  right: 5px;
-} */
 
 .arrow--disabled {
   fill: rgba(0, 8, 13, 0.5);
@@ -132,4 +113,19 @@ button:focus, input:focus, select:focus {outline: none;}
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* next image responsive by width set and height auto */
+.image-container {
+  width: 100%;
+}
+.image-container div {
+  position: unset !important;
+}
+
+.image-container .image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
 }

@@ -13,11 +13,10 @@ const Link = dynamic(() => import('@components/ui/Link'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
 
 
 import Image from 'next/image'
-import { RatingView } from 'react-simple-star-rating'
+import Script from 'next/script'
 import {useAppSelector} from '../utils/redux/hooks'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
@@ -87,178 +86,6 @@ const RenderCategorySwiper = () => {
   return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,2.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
-
-
-
-interface ArrowProps{
-  disabled: boolean,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
-}
-const ArrowNavLeft:FC<ArrowProps> = ({disabled, onClick}) => {
-  const disabeld = disabled ? " arrow--disabled" : ""
-  return (
-      <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-50' : '')}>
-        <svg
-            className={"arrow arrow--left w-2 h-2"}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-        >
-            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-        </svg>
-      </button>
-  )
-}
-
-const ArrowNavRight:FC<ArrowProps> = ({disabled, onClick}) => {
-  const disabeld = disabled ? " arrow--disabled" : ""
-  return (
-      <button onClick={onClick} className={"rounded-full bg-c_00080D w-8 h-8 flex justify-center items-center" + (disabled ? ' bg-opacity-75' : '')} >
-      <svg
-          className={"arrow arrow--right w-2 h-2"}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-      >
-          <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      </svg>
-      </button>
-  )
-}
-const RenderProfileSwiper = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [profile_img_ref, slider1] = useKeenSlider<HTMLDivElement>({
-    slidesPerView: 3,
-    spacing: 20,
-    loop: true,
-    controls: false,
-    slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
-      // slider2.moveToSlide(currentSlide)
-    }
-  })
-  let profile_li = [
-    {
-      title: "DR SIMON ZOKAIE BSC MBCHB MRCP COSMETIC DERMATOLOGIST MEDICAL DIRECTOR - LINIA SKIN CLINIC",
-      detail: "Intraline one is a great hyaluronic acid filler for tear troughs. It’s versatile enough to be used in the tear trough and has a fantastic longevity. Results are instantaneous and natural.",
-      img: "https://liniaskinclinic.com/wp-content/uploads/2018/11/ThermiLaunch_LR-8281-214x300.jpg"
-    },
-    {
-      title: "Claire Newman Intraline KOL & Brand Ambassador SOFT TOUCHES AESTHETICS",
-      detail: "I use Intraline one as product of choice for tear troughs in my clinic.  Not all dermal fillers are the same and I find Intraline one a lovely soft product which makes it easy to inject. It gives a lovely natural and refreshed look. Clients are pleased with the results and the longevity of the product.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/3.JPG"
-    },
-    {
-      title: "Marissa Freeman (patient)",
-      detail: "I've always loved Intraline®️ because they are a luxury quality brand and environmentally friendly. Their products are never animal derived which is hugely important to me. I am all about natural and ethical; and I care about the quality of product I put into my body. Only the best will do and this goes for food, cosmetics and men.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/9.JPG"
-    },
-    {
-      title: "Cole Harrison (patient)",
-      detail: "Love the product. Have had my lips done 4 times now using Intraline and once using another product, however prefer Intraline as it’s smoother, no lumps and lasts around 6 months in comparison to other brands only lasting 3 months or so. Love Intraline!",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/1.jpg"
-    },
-    {
-      title: "Dr. Tuğba Yalçın Director Lumière Aesthetics",
-      detail: "Since 2015 I use Intraline HA fillers in my medical clinic and I am very satisfied with these products. Intraline HA fillers gives very natural results and also long-lasting effects. Intraline is also a very good company with their services for medical doctors. They offer several trainings and I love their professional and accessible contact from abroad.",
-      img: "https://monteluke.com.au/wp-content/gallery/linkedin-profile-pictures/34268-MLS-Serene-Zhuang-007flin.jpg"
-    },
-  ]
-  let render_img_ele = profile_li.map((item, index) => {
-    return <div key={'profile_img_' + index} className="keen-slider__slide">
-            <div>
-              <div className="flex">
-                <img className={((currentSlide + 1) % profile_li.length === index ? 'opacity-100 w-25 h-25' : 'opacity-50 w-22_5 h-22_5') + ' mx-auto rounded-full'} src={item.img} alt="" />
-              </div>
-            </div>
-          </div>
-  })
-  const [profile_detail_ref, slider2] = useKeenSlider<HTMLDivElement>({
-    slidesPerView: 1,
-    spacing: 20,
-    loop: true,
-    controls: false,
-    slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
-      // slider1.moveToSlide(s.details().relativeSlide)
-      
-    }
-  })
-
-  let render_ele = profile_li.map((item, index) => {
-    return <div key={'profile_detail_' + index} className="keen-slider__slide">
-            <div className="">
-              <div className="text-base text-center uppercase leading-14_17 tracking-widest max-w-md mx-auto">{item.title}</div>
-              <div className="flex justify-center mt-7_5">
-                <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
-              </div>
-              <p className="text-base text-center leading-14_26 mt-4 mx-auto max-w-md">{item.detail}</p>
-            </div>
-          </div>
-  })
-  
-  return <div className="relative 
-                        mx-5 md:mx-15 lg:mx-172 xl:mx-172">
-            {/* <div className="mx-auto mt-10 w-full" style={{maxWidth: 384}}>
-              <div className="relative">
-                <div ref={profile_img_ref} className="keen-slider flex items-center">
-                  {render_img_ele}
-                </div>
-              </div>
-            </div> */}
-            <div className="mx-auto mt-10 " style={{ maxWidth: 1094 + 'px' }}>
-              <div className="relative mt-7">
-                <div ref={profile_detail_ref} className="keen-slider">
-                  {render_ele}
-                </div>
-              </div>
-            </div>
-            {slider2 && (
-                  <div className={`flex items-center`}>
-                    <div className="absolute top-1/3 left-0 mt-auto sm:mt-0 hidden sm:block">
-                      <ArrowNavLeft
-                        onClick={(e:any) => {e.stopPropagation(); slider2.prev()}}
-                        disabled={currentSlide === 0}
-                      />
-                    </div>
-                    <div className="absolute top-1/3 right-0 mt-auto sm:mt-0 hidden sm:block">
-                      <ArrowNavRight
-                        onClick={(e:any) => {e.stopPropagation(); slider2.next()}}
-                        disabled={currentSlide === slider1.details().size - 1}
-                      />
-                    </div>
-                  </div>
-            )}
-            {slider2 && (
-                  <div>
-                    <div className="absolute bottom-0 left-0 block sm:hidden">
-                      <ArrowNavLeft
-                        onClick={(e:any) => {e.stopPropagation(); slider2.prev()}}
-                        disabled={currentSlide === 0}
-                      />
-                    </div>
-                    <div className="dots mx-auto mt-11">
-                      {[...Array(slider2.details().size).keys()].map((idx) => {
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                              slider1.moveToSlideRelative(idx);
-                              slider2.moveToSlideRelative(idx);
-                            }}
-                            className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
-                          ></button>
-                        )
-                      })}
-                    </div>
-                    <div className="absolute bottom-0 right-0 block sm:hidden">
-                      <ArrowNavRight
-                        onClick={(e:any) => {e.stopPropagation(); slider2.next()}}
-                        disabled={currentSlide === slider1.details().size - 1}
-                      />
-                    </div>
-                  </div>
-                )}
-          </div> 
-}
 
 const RenderFAQCollapse = () => {
   var items = [
@@ -377,7 +204,7 @@ export default function Home({
     router.push(product_path)
   }
 
-  const RenderProductSwiper:FC = () => {
+  const RenderProductSwiper = () => {
     let featured_products = []
     for (let index = 0; index < all_product_li.length; index++) {
       featured_products.push(all_product_li[index])
@@ -390,10 +217,9 @@ export default function Home({
                 {logined && <div className="ttcommon_font_bold absolute top-0 right-0 z-10 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                 <div className="">
                   <div className="aspect-w-1 aspect-h-1 w-full">
-                    <img className="w-full" src={item.img} alt="" />
-                    {/* <div className="w-full">
-                      <Image src={item.img} alt={`category_img_${index}`}/>
-                    </div> */}
+                    <div className="w-full">
+                      <Image src={item.img} alt={`category_img_${index}`} layout="fill" />
+                    </div>
                   </div>
                 </div>
                 <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
@@ -430,50 +256,6 @@ export default function Home({
   return (
     <div className="bg-c_CCE7EF ttcommon_font
                     pt-16 md:pt-0">
-      {/* <Grid variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imgProps={{
-              width: i === 0 ? 1080 : 540,
-              height: i === 0 ? 1080 : 540,
-            }}
-          />
-        ))}
-      </Grid>
-      <Marquee variant="secondary">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard key={product.id} product={product} variant="slim" />
-        ))}
-      </Marquee>
-      <Hero
-        headline=" Dessert dragée halvah croissant."
-        description="Cupcake ipsum dolor sit amet lemon drops pastry cotton candy. Sweet carrot cake macaroon bonbon croissant fruitcake jujubes macaroon oat cake. Soufflé bonbon caramels jelly beans. Tiramisu sweet roll cheesecake pie carrot cake. "
-      />
-      <Grid layout="B" variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imgProps={{
-              width: i === 0 ? 1080 : 540,
-              height: i === 0 ? 1080 : 540,
-            }}
-          />
-        ))}
-      </Grid>
-      <Marquee>
-        {products.slice(3).map((product: any, i: number) => (
-          <ProductCard key={product.id} product={product} variant="slim" />
-        ))}
-      </Marquee> */}
-      {/* <HomeAllProductsGrid
-        newestProducts={products}
-        categories={categories}
-        brands={brands}
-      /> */}
-
       <div className="w-full mt-15">
         <div className="w-full aspect-w-16 aspect-h-9">
           <video width="100%" height="100%" controls autoPlay={true} muted={true} loop={true}>
@@ -599,6 +381,8 @@ export default function Home({
           <ChevronUp />
         </Button>
       }
+
+      <Script src="https://js.hsforms.net/forms/v2.js"/>
     </div>
   )
 }

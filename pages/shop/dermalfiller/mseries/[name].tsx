@@ -130,7 +130,9 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                         key={`mseires_${index}`}>
                         {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">${item.price}</Button>}
                         <div className="flex">
-                            <img className="mx-auto " src={item.img} alt="" />
+                            <div className="w-full image-container">
+                                <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
+                            </div>
                         </div>
                         <div className="mt-5 ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                         <div className="mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
@@ -168,7 +170,9 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                         <div className="w-full">
                             <div>
                                 <div className="aspect-w-1 aspect-h-1 w-full">
-                                    <img className="w-full" src={item.img} alt="" />
+                                    <div className="w-full image-container">
+                                        <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -221,17 +225,33 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                     block md:hidden">
                         <div className="flex flex-col items-end h-full">
                             <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                {/* <img className="mix_blend_multi ml-auto h-full" src="/assets/img/SmokeM2.webp" alt="" /> */}
                                 <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
-                                <div className="w-full h-full flex absolute items-center justify-center">
-                                    <div className="relative mt-10">
-                                        <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.webp`} alt="" />
-                                        <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.webp`} alt="" />
-                                        <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.webp`} alt="" />
-                                        
+                                <div className="w-1/2 h-full flex absolute left-1/2 transform -translate-x-1/2">
+                                    <div className={`relative mt-10 w-full image-container
+                                                    ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} style={{minWidth:134}}>
+                                        <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
                                         {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
                                     </div>
+                                    <div className={`relative mt-10 w-full image-container
+                                                    ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} style={{minWidth:134}}>
+                                        <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
+                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                    </div>
+                                    <div className={`relative mt-10 w-full image-container
+                                                    ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} style={{minWidth:134}}>
+                                        <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
+                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                    </div>
+                                    <div className="relative mt-10">
+                                        
+                                        {/* <img className={`m-auto ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} src={`/assets/img/m2plus.webp`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} src={`/assets/img/m3plus.webp`} alt="" />
+                                        <img className={`m-auto ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} src={`/assets/img/m4plus.webp`} alt="" /> */}
+                                        
+                                        
+                                    </div>
                                 </div>
+                                
                             </div>
                         </div>
 

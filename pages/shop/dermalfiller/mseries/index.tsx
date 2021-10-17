@@ -1,4 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
+import { useRouter } from 'next/router'
+
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
@@ -9,6 +11,7 @@ const Plus = dynamic(import('@components/icons/Plus'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const Link = dynamic(import('@components/ui/Link'))
+
 
 import { getCookie } from 'utils/cookie'
 import Image from 'next/image'
@@ -69,6 +72,7 @@ export default function MSeries() {
     const [scroll_perc, setScrollPerc] = useState(0)
     const [scroll_perc_mobile, setScrollPercMobile] = useState(0)
     const [logined, setLogined] = useState(false)
+    const router = useRouter()
     
     let scrollHandler = (ele:HTMLDivElement) => {
         let scroll_height = ele.scrollHeight
@@ -97,37 +101,22 @@ export default function MSeries() {
             {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m4plus.webp', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
-            return <div className="keen-slider__slide flex flex-col relative group aspect-w-4 aspect-h-9 w-full" key={`mseries_${index}`}>
-                        <div className="my-auto">
-                            <div className="flex flex-col h-full">
-                                    <div className="mx-auto relative bg-gray-600 w-9/12 
-                                                    ">
-                                        {/* <img className="h-full" src={item.img} alt=""/> */}
-                                        <div className="relative w-full h-full">
-                                            <Image src={item.img} alt="" layout="fill" />
-                                        </div>
-                                        
-                                        {logined && 
-                                            <div className="absolute
-                                                            top-0 
-                                                            -right-10">
-                                                <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
-                                            </div>
-                                        }
-                                    </div>
-                                    
-                                    <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
+            return <div className="keen-slider__slide flex flex-col relative group" 
+                        key={`m_${index}_product`}>
+                        <div className="flex flex-col">
+                            <div className="w-full mx-auto" style={{maxWidth: 250}}>
+                                <div className="w-full image-container">
+                                    <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
                                 </div>
+                            </div>
                         </div>
-                        
+                        <div className="ttcommon_font font-semibold uppercase text-2xl leading-24_29 text-center">{item.title}</div>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
-                            <Link href={item.link}>
-                                <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
-                                    <Plus />
-                                </button>
-                                <div className="text-center">Know More</div>
-                            </Link>
-                            
+                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white"
+                                    onClick={() => {router.push(item.link)}}>
+                                <Plus />
+                            </button>
+                            <div className="text-center">Know More</div>
                         </div>
                     </div>
         })
@@ -311,9 +300,6 @@ export default function MSeries() {
                 </div>
             </div>
 
-            <div className="w-4/12 aspect-w-3 aspect-h-4 h-21_5 bg-yellow-200">
-                {/* <div className=" bg-gray-400 h-full w-full"></div> */}
-            </div>
 
             {/* Mesmerizing, Modern, and Memorable */}
             <div className="bg-white">
