@@ -71,9 +71,6 @@ export default function ContactUs() {
             setEnableSubmit(true)
         }
     }, [contact_info])
-    useEffect(() => {
-
-    }, [])
     return (
         <div className="ttcommon_font_thin text-c_00080D
                         mt-16 md:mt-0">
