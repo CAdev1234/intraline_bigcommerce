@@ -1,15 +1,28 @@
 import { Layout } from "@components/common"
-import dynamic from 'next/dynamic'
-import { ChevronRight, Cross } from "@components/icons"
-import Link from "@components/ui/Link"
-import {Button, SelectInput, Input} from '@components/mycp'
 import React, { useEffect, useState } from "react"
+import dynamic from 'next/dynamic'
+import Link from "@components/ui/Link"
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Cross = dynamic(import('@components/icons/Cross'))
+const Button =  dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
 import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
+// const useHubspotForm = dynamic(() => {import('@aaronhayes/react-use-hubspot-form').then(module => module.useHubspotForm())})
+// const Hubspot = dynamic((useHubspotForm) => import('@aaronhayes/react-use-hubspot-form'))
+let getUseHubspotForm = async() => {
+    let neededModule
+    await import('@aaronhayes/react-use-hubspot-form').then(module => {
+        neededModule = module.useHubspotForm
+    })
+    .catch(e => console.log(e))
+    return neededModule
+}
+
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Checkbox from "@components/mycp/Checkbox"
 import { validateEmail } from "@utils/simpleMethod"
 
 export default function ContactUs() {
@@ -22,6 +35,15 @@ export default function ContactUs() {
         formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
         target: '#my-hubspot-form'
     });
+
+    // import('@aaronhayes/react-use-hubspot-form').then(module => {
+    //     return module.useHubspotForm({
+    //         portalId: '2718899',
+    //         formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
+    //         target: '#my-hubspot-form'
+    //     })
+    // })
+    
 
     const setFullNameHandler = (str: string) => {
         setContactInfo({...contact_info, full_name: str})
@@ -60,11 +82,12 @@ export default function ContactUs() {
         (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
     }
 
-    useEffect(() => {
-        
+    useEffect( () => {
         if (contact_info.full_name && contact_info.email && contact_info.mobile) {
             setEnableSubmit(true)
         }
+
+        
     }, [contact_info])
     return (
         <div className="ttcommon_font_thin text-c_00080D
