@@ -9,6 +9,7 @@ import { ChevronDown, ChevronRight, Plus } from '@components/icons'
 import Link from '@components/ui/Link'
 
 import { getCookie } from 'utils/cookie'
+import Image from 'next/image'
 
 
 
@@ -94,12 +95,16 @@ export default function MSeries() {
             {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/m4plus.webp', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
         ]
         let render_ele = mseries_li.map((item, index) => {
-            return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
+            return <div className="keen-slider__slide flex flex-col relative group aspect-w-4 aspect-h-9 w-full" key={`mseries_${index}`}>
                         <div className="my-auto">
-                            <div className="flex flex-col">
-                                    <div className="mx-auto relative
-                                                    h-80 md:h-146">
-                                        <img className="h-full" src={item.img} alt=""/>
+                            <div className="flex flex-col h-full">
+                                    <div className="mx-auto relative bg-gray-600 w-9/12 
+                                                    ">
+                                        {/* <img className="h-full" src={item.img} alt=""/> */}
+                                        <div className="relative w-full h-full">
+                                            <Image src={item.img} alt="" layout="fill" />
+                                        </div>
+                                        
                                         {logined && 
                                             <div className="absolute
                                                             top-0 
@@ -304,6 +309,9 @@ export default function MSeries() {
                 </div>
             </div>
 
+            <div className="w-4/12 aspect-w-3 aspect-h-4 h-21_5 bg-yellow-200">
+                {/* <div className=" bg-gray-400 h-full w-full"></div> */}
+            </div>
 
             {/* Mesmerizing, Modern, and Memorable */}
             <div className="bg-white">

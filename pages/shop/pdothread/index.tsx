@@ -108,8 +108,11 @@ export default function PDOThread() {
         let render_ele = pdothread_li.map((item, index) => {
             return <div className="keen-slider__slide relative group" key={`pdo_thread_${index}`}>
                         <div className="my-auto">
-                            <img className="invisible" src={item.img} alt="" />
-                            <Image src={item.img} layout="fill" alt="" />
+                            <img className="" src={item.img} alt="" />
+                            {/* <div className="w-full aspect-w-1 aspect-h-4 flex flex-col ">
+                                <Image src={item.img} alt="" layout="fill" />
+                            </div> */}
+                            
                             <div className="uppercase text-2xl text-center font-semibold">{item.title}</div>
                         </div>
     
@@ -232,6 +235,9 @@ export default function PDOThread() {
                     </div>
                 </div>
             </div>
+
+
+            
             
 
 
