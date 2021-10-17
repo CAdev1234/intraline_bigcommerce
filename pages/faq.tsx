@@ -1,7 +1,8 @@
-import { Layout } from "@components/common"
 import dynamic from 'next/dynamic'
-import { ChevronRight } from "@components/icons"
-import FAQCp from "@components/mycp/FAQCp/FAQCp"
+import { Layout } from "@components/common"
+
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 
 export default function FAQ() {
     const RenderFAQCollapse = () => {

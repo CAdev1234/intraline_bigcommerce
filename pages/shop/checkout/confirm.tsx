@@ -1,8 +1,9 @@
 import { Layout } from "@components/common"
 import dynamic from 'next/dynamic'
-import { Check, ChevronRight } from "@components/icons"
+const Check = dynamic(import('@components/icons/Check'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Button = dynamic(import('@components/mycp/Button'))
-import Link from "@components/ui/Link"
+const Link = dynamic(import('@components/ui/Link'))
 
 export default function CheckoutConfirm() {
     return (

@@ -1,9 +1,10 @@
 import { Layout, Navbar } from '@components/common'
-import Link from '@components/ui/Link';
 import dynamic from 'next/dynamic'
+const Link = dynamic(import('@components/ui/Link'));
+
 const Button = dynamic(import('@components/mycp/Button'))
 const Input = dynamic(import('@components/mycp/Input'))
-import { ChevronRight } from '@components/icons';
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 
 export default function ForgotPassword() {
     

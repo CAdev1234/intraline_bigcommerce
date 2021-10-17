@@ -2,16 +2,20 @@ import React, {useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import {Button, Input, TestimonialCp} from '@components/mycp'
-import { ChevronDown, ChevronRight, ChevronUp, Plus } from '@components/icons'
-import Link from '@components/ui/Link'
-import SelectInput from '@components/mycp/SelectInput'
-import Checkbox from '@components/mycp/Checkbox'
+const KeenSliderB = dynamic(import('@components/mycp/KeenSlider/KeenSliderB'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Button = dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
+const Plus = dynamic(import('@components/icons/Plus'))
+const Link = dynamic(import('@components/ui/Link'))
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+const Checkbox = dynamic(import('@components/mycp/Checkbox'))
+
 import { useRouter } from 'next/router'
-
 import {useSpring, animated, useTransition} from '@react-spring/web'
-
 import Image from 'next/image'
 
 

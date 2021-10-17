@@ -1,19 +1,20 @@
-import { Layout } from "@components/common"
 import React, { useEffect, useState } from "react"
 import dynamic from 'next/dynamic'
-import Link from "@components/ui/Link"
+import { Layout } from "@components/common"
+
+const Link = dynamic(import('@components/ui/Link'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Cross = dynamic(import('@components/icons/Cross'))
 const Button =  dynamic(import('@components/mycp/Button'))
 const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
-import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
+import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
 
 
 import { toast, ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
+
 import { validateEmail } from "@utils/simpleMethod"
 // const validateEmail = dynamic(() => import('@utils/simpleMethod').then((module) => module.validateEmail))
 
@@ -22,11 +23,11 @@ export default function ContactUs() {
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
 
-    // const { loaded, error, formCreated } = useHubspotForm({
-    //     portalId: '2718899',
-    //     formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
-    //     target: '#my-hubspot-form'
-    // });
+    const { loaded, error, formCreated } = useHubspotForm({
+        portalId: '2718899',
+        formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
+        target: '#my-hubspot-form'
+    });
     
 
     const setFullNameHandler = (str: string) => {
@@ -228,9 +229,10 @@ export default function ContactUs() {
                     
                 </div> */}
 
-                <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
-                    <div className="relative pl-5 pr-2 py-7_5 bg-white my-auto mx-auto flex flex-col
-                                    w-full md:w-146" style={{height: '80vh'}}>
+                <div className={`fixed top-15 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
+                    <div className="relative pl-5 pr-2 py-7_5 bg-white mx-auto my-auto flex flex-col
+                                    w-full md:w-146
+                                    pt-16 md:pt-0" style={{height: '80vh'}}>
                         <div className="tt_common_font_bold text-4xl text-center">Hubspot Form</div>
                         <div className="flex-1 h-0 mt-3">
                             <div className="h-full overflow-y-auto pr-2">

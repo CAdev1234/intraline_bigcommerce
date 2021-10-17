@@ -1,9 +1,10 @@
 
 import { FC, useState } from "react";
+import dynamic from "next/dynamic";
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import { ChevronRight } from "@components/icons";
-import Link from "@components/ui/Link";
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Link = dynamic(import('@components/ui/Link'));
 
 interface ArrowProps{
     disabled: boolean,

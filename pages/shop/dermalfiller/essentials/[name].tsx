@@ -3,21 +3,21 @@ import dynamic from 'next/dynamic'
 import { Layout } from '@components/common'
 
 import { RatingView } from 'react-simple-star-rating'
-import ChevronDown from '@components/icons/ChevronDown'
-import ChevronRight from '@components/icons/ChevronRight'
-import FAQCp from '@components/mycp/FAQCp/FAQCp'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+const ChevronDown = dynamic(import('@components/icons/ChevronDown')) 
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
-import { getCookie } from '@utils/cookie'
-import Link from '@components/ui/Link'
-import SideReview from '@components/mycp/SideReview'
+const Link = dynamic(import('@components/ui/Link'))
+const SideReview = dynamic(import('@components/mycp/SideReview'))
+const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 
+import { getCookie } from '@utils/cookie'
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {addProductToCart} from 'utils/redux/slices/cartSlice'
 import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
-import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 

@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 const Layout = dynamic(() => import('@components/common/Layout'))
-import { ChevronRight, Cross } from "@components/icons"
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Cross = dynamic(import('@components/icons/Cross'))
 const Button = dynamic(() => import("@components/mycp/Button"))
 const Input = dynamic(() => import("@components/mycp/Input"))
 const SelectInput = dynamic(() => import("@components/mycp/SelectInput"))
@@ -8,7 +9,7 @@ import { RatingView, Rating } from 'react-simple-star-rating'
 import { useEffect, useState } from "react"
 import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
-import Link from "@components/ui/Link"
+const Link = dynamic(import('@components/ui/Link'))
 import { useAppDispatch, useAppSelector } from "@utils/redux/hooks"
 import { logoutUser, updateUser } from "@utils/redux/slices/userSlice"
 import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"

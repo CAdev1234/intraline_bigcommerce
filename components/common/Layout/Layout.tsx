@@ -15,7 +15,7 @@ const Button = dynamic(import('@components/mycp/Button'))
 
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'
-import { ChevronUp } from '@components/icons'
+const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
 import { useAppDispatch } from '@utils/redux/hooks'
 import { initialCart, initialOrder } from '@utils/redux/slices/cartSlice'
 import { initialReviews } from '@utils/redux/slices/reviewSlice'

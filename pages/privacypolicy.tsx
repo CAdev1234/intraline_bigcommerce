@@ -1,7 +1,7 @@
 import { Layout } from "@components/common";
 import dynamic from 'next/dynamic'
-import { ChevronRight } from "@components/icons";
-import Link from "@components/ui/Link";
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Link = dynamic(import('@components/ui/Link'));
 
 export default function PrivacyPolicy() {
     return <div className="ttcommon_font text-c_00080D0

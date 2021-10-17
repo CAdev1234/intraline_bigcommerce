@@ -1,9 +1,10 @@
 import { Navbar } from '@components/common'
 import dynamic from 'next/dynamic'
-import { ChevronRight } from '@components/icons';
-import { Button, Input, SelectInput } from '@components/mycp'
-import SideCart from '@components/mycp/SideCart';
-import Link from '@components/ui/Link';
+const Button =  dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+const Link = dynamic(import('@components/ui/Link'));
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 import { loginAuth } from '@utils/auth';
 import { useAppDispatch, useAppSelector } from '@utils/redux/hooks';
 import { createOrder } from '@utils/redux/slices/cartSlice';

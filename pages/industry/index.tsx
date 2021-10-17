@@ -1,7 +1,8 @@
+import dynamic from "next/dynamic"
 import { Layout } from "@components/common"
 import { ChevronRight } from "@components/icons"
 import { Button, Input} from '@components/mycp'
-import Link from "@components/ui/Link"
+const Link = dynamic(import('@components/ui/Link'))
 import Image from 'next/image'
 import doctor1Img from 'public/assets/img/doctor-1.webp'
 import reportImg from 'public/assets/img/report.webp'

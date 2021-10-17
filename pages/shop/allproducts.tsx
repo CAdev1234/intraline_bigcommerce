@@ -1,14 +1,15 @@
 import { Layout } from '@components/common'
 import dynamic from 'next/dynamic'
 import { FC, useState, useEffect } from 'react'
-import ChevronRight from '@components/icons/ChevronRight'
-import ChevronDown from '@components/icons/ChevronDown'
-import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 const Button = dynamic(import('@components/mycp/Button'))
 const SelectInput = dynamic(import('@components/mycp/SelectInput'))
-// import SelectInput from '@components/mycp/SelectInput'
+const Link = dynamic(import('@components/ui/Link'))
+
 import {getCookie} from 'utils/cookie'
-import Link from '@components/ui/Link'
+
 import {AddToCartByDom} from 'utils/addToCartByDom'
 import {useAppSelector} from 'utils/redux/hooks'
 import router from 'next/router'

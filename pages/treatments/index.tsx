@@ -1,10 +1,12 @@
 import { Layout } from "@components/common";
 import dynamic from 'next/dynamic'
-import { ChevronRight } from "@components/icons";
-import KeenSliderA from "@components/mycp/KeenSlider/KeenSliderA";
-import TreatmentSlider from "@components/mycp/KeenSlider/TreatmentSlider";
-import TestimonialCp from "@components/mycp/TestimonialCp/TestimonialCp";
-import Link from "@components/ui/Link";
+
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
+const TreatmentSlider = dynamic(import("@components/mycp/KeenSlider/TreatmentSlider"))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Link = dynamic(import('@components/ui/Link'));
+
 import Image from 'next/image'
 
 

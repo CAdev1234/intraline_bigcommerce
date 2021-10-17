@@ -1,12 +1,14 @@
+import React from "react"
 import { Layout } from "@components/common"
 import dynamic from 'next/dynamic'
-import { ChevronRight, Cross } from "@components/icons"
-import Link from "@components/ui/Link"
+
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Cross = dynamic(import('@components/icons/Cross'))
+const Link = dynamic(import('@components/ui/Link'))
 const Button = dynamic(import('@components/mycp/Button'))
 
 import { useAppSelector, useAppDispatch} from 'utils/redux/hooks'
 import { AddToCartByDom } from "@utils/addToCartByDom"
-import React from "react"
 import { deleteProduct } from "@utils/redux/slices/cartSlice"
 import { ProductObject } from 'utils/types'
 

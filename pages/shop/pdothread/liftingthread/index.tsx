@@ -2,14 +2,17 @@ import React, {useEffect, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import {Button, Input, TestimonialCp} from '@components/mycp'
-import Link from '@components/ui/Link'
-import { ChevronRight } from '@components/icons'
-import SelectInput from '@components/mycp/SelectInput'
+const KeenSliderB = dynamic(import('@components/mycp/KeenSlider/KeenSliderB'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Button = dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const Link = dynamic(import('@components/ui/Link'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
-import Checkbox from '@components/mycp/Checkbox'
+const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import Image from 'next/image'
 

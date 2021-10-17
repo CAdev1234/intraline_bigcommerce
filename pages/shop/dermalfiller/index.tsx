@@ -2,9 +2,12 @@ import React, {useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import ChevronRight from '@components/icons/ChevronRight'
-import { Button, Input, TestimonialCp, FAQCp } from '@components/mycp'
-import Link from '@components/ui/Link'
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Input = dynamic(import('@components/mycp/Input'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Button = dynamic(import('@components/mycp/Button'))
+const Link = dynamic(import('@components/ui/Link'))
 import { validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'

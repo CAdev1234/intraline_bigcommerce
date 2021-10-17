@@ -1,24 +1,26 @@
+import { FC, useEffect, useState } from 'react'
 import commerce from '@lib/api/commerce'
 import dynamic from 'next/dynamic'
 import Layout from'@components/common/Layout'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { ChevronRight, ChevronUp } from '@components/icons'
 
-import { FC, useEffect, useState } from 'react'
-import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
-import Image from 'next/image'
-
+const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 const Button = dynamic(import('@components/mycp/Button'))
 const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 const Link = dynamic(() => import('@components/ui/Link'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+
+
+import Image from 'next/image'
 import { RatingView } from 'react-simple-star-rating'
 import {useAppSelector} from '../utils/redux/hooks'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
-import { TestimonialCp } from '@components/mycp'
 import tripleRedImg from 'public/assets/img/triple_red.webp'
 import tripleBlueImg from 'public/assets/img/triple_blue.png'
 

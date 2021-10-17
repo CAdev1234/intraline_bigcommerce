@@ -1,8 +1,8 @@
 import { Layout } from "@components/common";
 import dynamic from 'next/dynamic'
-import { ChevronRight } from "@components/icons";
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Button = dynamic(import('@components/mycp/Button'))
-import Link from "@components/ui/Link";
+const Link = dynamic(import('@components/ui/Link'));
 import { useEffect, useState } from "react";
 
 import { getCookie } from "@utils/cookie";

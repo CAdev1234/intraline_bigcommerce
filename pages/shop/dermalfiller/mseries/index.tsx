@@ -2,11 +2,13 @@ import React, {useEffect, useRef, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import KeenSliderB from '@components/mycp/KeenSlider/KeenSliderB'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+const KeenSliderB = dynamic(import('@components/mycp/KeenSlider/KeenSliderB'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
-import { ChevronDown, ChevronRight, Plus } from '@components/icons'
-import Link from '@components/ui/Link'
+const Plus = dynamic(import('@components/icons/Plus'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const Link = dynamic(import('@components/ui/Link'))
 
 import { getCookie } from 'utils/cookie'
 import Image from 'next/image'

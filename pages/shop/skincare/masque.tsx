@@ -2,15 +2,20 @@ import React, {useEffect, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
-import {Button, Input, SelectInput} from '@components/mycp'
-import Link from '@components/ui/Link'
-import { ChevronDown, ChevronRight } from '@components/icons'
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Button =  dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+const Link = dynamic(import('@components/ui/Link'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const Checkbox = dynamic(import('@components/mycp/Checkbox'))
+
 import { getCookie } from '@utils/cookie'
 
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
-import Checkbox from '@components/mycp/Checkbox'
+
 import Image from 'next/image'
 
 

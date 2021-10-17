@@ -3,9 +3,12 @@ import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
 
-import { Button, Input, SelectInput} from '@components/mycp'
-import Link from '@components/ui/Link'
-import Checkbox from '@components/mycp/Checkbox'
+const Button = dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const SelectInput = dynamic(import('@components/mycp/SelectInput'))
+const Link = dynamic(import('@components/ui/Link'))
+const Checkbox = dynamic(import('@components/mycp/Checkbox'))
+
 import Image from 'next/image'
 import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
 import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'

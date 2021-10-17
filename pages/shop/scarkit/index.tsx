@@ -3,45 +3,25 @@ import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
 
-import ChevronDown from '@components/icons/ChevronDown'
-import { ChevronUp } from '@components/icons'
-import ChevronRight from '@components/icons/ChevronRight'
-import FAQCp from '@components/mycp/FAQCp/FAQCp'
-import {Button, Input, TestimonialCp} from '@components/mycp'
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
+const Button = dynamic(import('@components/mycp/Button'))
+const Input = dynamic(import('@components/mycp/Input'))
+const Link = dynamic(import('@components/ui/Link'))
+
 import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
-import Link from '@components/ui/Link'
 import { validateEmail } from '@utils/simpleMethod'
+
 import { ToastContainer, toast} from 'react-toastify'
+
 import scarkitImg from 'public/assets/img/scarkit.webp'
 import Image from 'next/image'
 
-const RenderFAQCollapse = () => {
-    var items = [
-      {
-        'title': 'How does it work?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'How long do the results last?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What is the expected recovery time for my patients?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are some important safety tips to follow when using this product?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      },
-      {
-        'title': 'What are the most common side effects?',
-        'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-      }
-    ]
-    return <FAQCp faq_li={items}/>
-}
 
 export default function ScarKit() {
     let testimonial_li = [

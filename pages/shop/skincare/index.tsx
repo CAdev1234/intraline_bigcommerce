@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
-import ChevronRight from '@components/icons/ChevronRight'
-import { ChevronUp } from '@components/icons'
-import ChevronDown from '@components/icons/ChevronDown'
-import FAQCp from '@components/mycp/FAQCp/FAQCp'
-import TestimonialCp from '@components/mycp/TestimonialCp/TestimonialCp'
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
+const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
+const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
-import Link from '@components/ui/Link'
+const Link = dynamic(import('@components/ui/Link'))
+
 import { getCookie } from '@utils/cookie'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
