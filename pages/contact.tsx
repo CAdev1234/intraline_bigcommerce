@@ -8,22 +8,28 @@ const Button = dynamic(import('@components/mycp/Button'))
 const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
+
 // import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
-const HubspotForm = dynamic(() => import('@components/mycp/HubspotForm'))
+// const HubspotForm = dynamic(() => import('@components/mycp/HubspotForm'))
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { validateEmail } from "@utils/simpleMethod"
+import HubspotForm from "@components/mycp/HubspotForm"
 // const validateEmail = dynamic(() => import('@utils/simpleMethod').then((module) => module.validateEmail))
 // const { useHubspotForm } = require('@aaronhayes/react-use-hubspot-form');
+
+interface FormFieldObject {
+    [index: number]: {}
+}
 
 
 export default function ContactUs() {
     const [contact_info, setContactInfo] = useState({ full_name: '', email: '', mobile: '', help_type: '', msg: '' })
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
-
+    const [hubspotFormFields, setHubspotFormFields] = useState(null)
     // const { loaded, error, formCreated } = useHubspotForm({
     //     portalId: '2718899',
     //     formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
@@ -51,17 +57,31 @@ export default function ContactUs() {
         setContactInfo({ ...contact_info, help_type: event.target.value })
     };
 
-    const submitHandler = () => {
+    const submitHandler = async() => {
         if (contact_info.full_name && contact_info.email && contact_info.mobile) {
+            let res_data = await fetch('/api/hubspot/getformbyid', {
+                method: 'POST',
+            }).then(res => res.json())
+            console.log(res_data.data)
+            setHubspotFormFields(res_data.data)
             setEnableContactHubspotForm(true);
             (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
             // toast.success("Submit Success.", {
             //     position: toast.POSITION.BOTTOM_RIGHT
-            // });
+            // });  
+            // setTimeout(() => {
+            //     setEnableContactHubspotForm(true);
+            //     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
+            //     // toast.success("Submit Success.", {
+            //     //     position: toast.POSITION.BOTTOM_RIGHT
+            //     // });    
+            // }, 100);
         } else {
             return
         }
     }
+
+    
 
     const closeHubspotModal = () => {
         setEnableContactHubspotForm(false);
@@ -223,13 +243,22 @@ export default function ContactUs() {
                 </div>
             </div>
             
-            {enableContactHubspotForm && <div>
+            {/* {enableContactHubspotForm && <div>
                 <HubspotForm 
                     formId="91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3" 
                     portalId="2718899" 
                     target="#my-hubspot-form"
                     closeHubspotForm={closeHubspotModal}/>
-            </div>}
+            </div>} */}
+            {enableContactHubspotForm && 
+                <HubspotForm 
+                    formId="91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3" 
+                    portalId="2718899" 
+                    target="#my-hubspot-form"
+                    closeHubspotForm={closeHubspotModal}
+                    fields={hubspotFormFields}
+                />
+            }
             
 
             {/* <div className={`fixed top-15 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>

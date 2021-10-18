@@ -83,7 +83,7 @@ const RenderCategorySwiper = () => {
                   </div>
               </div>
   })
-  return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,2.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
+  return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,2,3.5,3.5,3.5]} navCss={"mr-10 lg:mr-28 xl:mr-172 2xl:mr-172 mt-10"}/>
 }
 
 

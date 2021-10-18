@@ -1,14 +1,15 @@
 import { FC, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import cn from 'classnames'
-import Link from 'next/link'
+const Link = dynamic(import('next/link'))
 const Image = dynamic(import('next/image'))
 import router, { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Logo, Container } from '@components/ui'
+const Logo = dynamic(import('@components/ui/Logo'))
+const Container = dynamic(import('@components/ui/Container'))
 import s from './Footer.module.css'
-import { Button, SelectInput } from '@components/mycp'
+import { Button } from '@components/mycp'
 import { useAppSelector } from '@utils/redux/hooks'
 import { validateEmail } from 'utils/simpleMethod'
 

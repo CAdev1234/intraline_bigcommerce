@@ -242,17 +242,17 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                             <div className={`relative my-auto w-full image-container mx-auto
                                             ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                         </div>
 
@@ -305,17 +305,17 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('m2plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('m3plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('m4plus') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                         </div>
                     </div>

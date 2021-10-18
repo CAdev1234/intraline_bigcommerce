@@ -241,18 +241,18 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                         <div className='w-1/2 mx-auto relative z-10'>
                             <div className={`relative my-auto w-full image-container mx-auto
                                             ${router.asPath.includes('intralineone') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_1.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('intralinetwo') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_2.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('intralinethree') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_3.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                         </div>
 
@@ -304,18 +304,18 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                         hidden md:flex">
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_1.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_2.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
                                             ${router.asPath.includes('/essentials/intralinethree') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
-                                <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
-                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                                <Image className={`image`} src={'/assets/img/intraline_3.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                         </div>
                     </div>
