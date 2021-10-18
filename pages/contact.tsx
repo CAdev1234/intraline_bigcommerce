@@ -9,7 +9,7 @@ const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
 // import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
-// const HubspotForm = dynamic(() => import('@components/mycp/HubspotForm'))
+const HubspotForm = dynamic(() => import('@components/mycp/HubspotForm'))
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
