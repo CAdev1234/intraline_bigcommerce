@@ -146,7 +146,7 @@ const Layout: FC<Props> = ({
       <div className={cn(s.root)}>
         {/* <Navbar links={navBarlinks} /> */}
         <Navbar c_name="bg-c_00080D"/>
-        <main className="fit mx-auto" style={{maxWidth: 1440}}>{children}</main>
+        <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />
         <ModalUI />
         <SidebarUI />

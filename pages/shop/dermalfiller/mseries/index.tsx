@@ -138,7 +138,7 @@ export default function MSeries() {
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>
                 <div className="relative flex-1 h-full
                                 hidden sm:block">
-                    <div className="absolute rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128, right: -596}}></div>
+                    <div className="absolute rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128}}></div>
                 </div>
             </div>
             <div className="w-full h-15 bg-transparent"></div>
