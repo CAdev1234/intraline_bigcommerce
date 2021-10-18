@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import dynamic from 'next/dynamic'
-import {fetchApi} from'utils/request'
+import {fetchApiWithoutBody} from'utils/request'
 
 // const fetchApi = (hostname:string, endpoint: string, method: string, body?: string) => {
 //     let url = hostname + endpoint
@@ -27,13 +27,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         let body = JSON.parse(req.body)
         console.log(body)
         console.log(`/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`)
-        let getSubscribeTypes = await fetchApi(
+        let getSubscribeTypes = await fetchApiWithoutBody(
             process.env.NEXT_PUBLIC_HUBSPOT_HOSTNAME as string, 
             `/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`, 
             'GET')
             .then(res => {res.json()})
         
-        let getSubscribeStatus = await fetchApi(
+        let getSubscribeStatus = await fetchApiWithoutBody(
             process.env.NEXT_PUBLIC_HUBSPOT_HOSTNAME as string, 
             `/email/public/v1/subscriptions/${body.email}?hapikey=${hapikey}`, 
             'GET')
