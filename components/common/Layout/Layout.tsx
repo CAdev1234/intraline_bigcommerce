@@ -157,7 +157,8 @@ const Layout: FC<Props> = ({
             <div className="ml-auto flex items-center">
               <button className="text-c_00080D uppercase underline text-base tracking-widest" onClick={() => {onAcceptCookies()}}>Dismiss</button>
               <Button 
-                className="h-11 w-64
+                className="h-11
+                           w-40 md:w-64
                            ml-auto md:ml-7_5"
                 onClick={() => onAcceptCookies()}>Accept</Button>
             </div>

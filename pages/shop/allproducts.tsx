@@ -46,12 +46,12 @@ export async function getStaticProps() {
 
 const RenderCategorySwiper:FC = () => {
     var render_ele = [
-        { name: 'M Series', img: "/assets/img/products/mseries.webp", link: "/shop/dermalfiller/mseries" },
-        { name: 'Essentials', img: "/assets/img/products/essentials.webp", link: "/shop/dermalfiller/essentials" },
-        { name: 'Rejuvenation Threads', img: "/assets/img/products/rejuvenation.webp", link: "/shop/pdothread/rejuvenation" },
-        { name: 'Lifting Threads', img: "/assets/img/products/lifting.webp", link: "/shop/pdothread/liftingthread" },
-        { name: 'Skincare', img: "/assets/img/products/skincare.webp", link: "/shop/skincare" },
-        { name: 'Scar Kit', img: "/assets/img/products/scarkit.webp", link: "/shop/scarkit" },
+        { name: 'M Series', img: "/assets/img/category/mseries.webp", link: "/shop/dermalfiller/mseries" },
+        { name: 'Essentials', img: "/assets/img/category/essentials.webp", link: "/shop/dermalfiller/essentials" },
+        { name: 'Rejuvenation Threads', img: "/assets/img/category/rejuvenation.webp", link: "/shop/pdothread/rejuvenation" },
+        { name: 'Lifting Threads', img: "/assets/img/category/lifting.webp", link: "/shop/pdothread/liftingthread" },
+        { name: 'Skincare', img: "/assets/img/category/skincare.webp", link: "/shop/skincare" },
+        { name: 'Scar Kit', img: "/assets/img/category/scarkit.webp", link: "/shop/scarkit" },
     ].map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
