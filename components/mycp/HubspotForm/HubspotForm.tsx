@@ -22,19 +22,24 @@ const HubspotForm:FC<HubspotFormProps> = ({fields, closeHubspotForm}) => {
         }
         let req_body = {
             fields: fields,
-            // "legalConsentOptions": {
-            //     "consent": { // Include this object when GDPR options are enabled
-            //         "consentToProcess": true,
-            //         "text": "I agree to allow Example Company to store and process my personal data.",
-            //         "communications": [
-            //             {
-            //                 "value": true,
-            //                 "subscriptionTypeId": 999,
-            //                 "text": "I agree to receive marketing communications from Example Company."
-            //             }
-            //         ]
-            //     }
-            // }
+            "context": {
+                "hutk": ":hutk", // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
+                "pageUri": "www.example.com/page",
+                "pageName": "Example page"
+            },
+            "legalConsentOptions": {
+                "consent": { // Include this object when GDPR options are enabled
+                    "consentToProcess": true,
+                    "text": "I agree to allow Example Company to store and process my personal data.",
+                    "communications": [
+                        {
+                            "value": true,
+                            "subscriptionTypeId": 999,
+                            "text": "I agree to receive marketing communications from Example Company."
+                        }
+                    ]
+                }
+            }
         }
         let response = await fetch('/api/hubspot/submitFormData', {
             method: 'POST',

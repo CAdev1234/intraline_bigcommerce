@@ -379,8 +379,6 @@ export default function Home({
           <ChevronUp />
         </Button>
       }
-
-      <Script src="https://js.hsforms.net/forms/v2.js"/>
     </div>
   )
 }
