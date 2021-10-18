@@ -72,7 +72,7 @@ export default function ContactUs() {
         if (contact_info.full_name && contact_info.email && contact_info.mobile) {
             setEnableSubmit(true)
         }
-    }, [contact_info])
+    }, [contact_info, enableContactHubspotForm])
     return (
         <div className="ttcommon_font_thin text-c_00080D
                         mt-16 md:mt-0">
@@ -223,13 +223,13 @@ export default function ContactUs() {
                 </div>
             </div>
             
-            {/* {enableContactHubspotForm && <div>
+            {enableContactHubspotForm && <div>
                 <HubspotForm 
                     formId="91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3" 
                     portalId="2718899" 
                     target="#my-hubspot-form"
                     closeHubspotForm={closeHubspotModal}/>
-            </div>} */}
+            </div>}
             
 
             {/* <div className={`fixed top-15 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
