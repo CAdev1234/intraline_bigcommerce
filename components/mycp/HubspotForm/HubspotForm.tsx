@@ -7,18 +7,10 @@ const Cross = dynamic(import('@components/icons/Cross'))
 
 
 interface HubspotFormProps {
-    formId: string,
-    portalId: string,
-    target: string,
     fields: any,
     closeHubspotForm?: (e: React.MouseEvent) => any 
 }
-const HubspotForm:FC<HubspotFormProps> = ({formId, portalId, target, fields, closeHubspotForm}) => {
-    // const { loaded, error, formCreated } = useHubspotForm({
-    //     portalId: portalId,
-    //     formId: formId,
-    //     target: target
-    // });
+const HubspotForm:FC<HubspotFormProps> = ({fields, closeHubspotForm}) => {
     const submitHubspotHandler = async() => {
         let fields = []
         let input_li = document.querySelectorAll('#hubspot-form input')
@@ -64,16 +56,6 @@ const HubspotForm:FC<HubspotFormProps> = ({formId, portalId, target, fields, clo
             )
         }
         return <div className="h-full overflow-y-auto pr-2">
-                    {/* <input className="h-11 bg-c_F7F7F7 border-none w-full pl-5 py-2 appearance-none transition duration-150 ease-in-out focus:outline-none focus:shadow-custom" 
-                                        type="text" 
-                                        placeholder={fields[0].label}/> */}
-                    {/* {fields.map((item: any, index: any) => {
-                        <div key={`hubspot_form_${index}`}>
-                            <input className="h-11 bg-c_F7F7F7 border-none w-full pl-5 py-2 appearance-none transition duration-150 ease-in-out focus:outline-none focus:shadow-custom" 
-                                type="text" 
-                                placeholder={item.label}/>
-                        </div>}
-                    )} */}
                     {form_array}
                     <div className="w-1/3 mx-auto mt-5">
                         <Button className="w-full h-9 text-lg leading-36_48 ttcommon_font"

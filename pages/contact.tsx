@@ -13,11 +13,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { validateEmail } from "@utils/simpleMethod"
-import HubspotForm from "@components/mycp/HubspotForm"
+const HubspotForm = dynamic(import("@components/mycp/HubspotForm"))
 
-interface FormFieldObject {
-    [index: number]: {}
-}
 
 
 export default function ContactUs() {
@@ -25,11 +22,6 @@ export default function ContactUs() {
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
     const [hubspotFormFields, setHubspotFormFields] = useState(null)
-    // const { loaded, error, formCreated } = useHubspotForm({
-    //     portalId: '2718899',
-    //     formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
-    //     target: '#my-hubspot-form'
-    // });
 
 
     const setFullNameHandler = (str: string) => {
@@ -61,16 +53,6 @@ export default function ContactUs() {
             setHubspotFormFields(res_data.data)
             setEnableContactHubspotForm(true);
             (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
-            // toast.success("Submit Success.", {
-            //     position: toast.POSITION.BOTTOM_RIGHT
-            // });  
-            // setTimeout(() => {
-            //     setEnableContactHubspotForm(true);
-            //     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
-            //     // toast.success("Submit Success.", {
-            //     //     position: toast.POSITION.BOTTOM_RIGHT
-            //     // });    
-            // }, 100);
         } else {
             return
         }
@@ -103,7 +85,6 @@ export default function ContactUs() {
                 pauseOnHover
                 className="toast-container"
             />
-            {/* <div id="my-hubspot-form"></div> */}
             <div className="items-start
                             block md:flex
                             mb-0 md:mb-25">
@@ -238,41 +219,13 @@ export default function ContactUs() {
                 </div>
             </div>
             
-            {/* {enableContactHubspotForm && <div>
-                <HubspotForm 
-                    formId="91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3" 
-                    portalId="2718899" 
-                    target="#my-hubspot-form"
-                    closeHubspotForm={closeHubspotModal}/>
-            </div>} */}
             {enableContactHubspotForm && 
-                <HubspotForm 
-                    formId="91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3" 
-                    portalId="2718899" 
-                    target="#my-hubspot-form"
+                <HubspotForm
                     closeHubspotForm={closeHubspotModal}
                     fields={hubspotFormFields}
                 />
             }
-            
-
-            {/* <div className={`fixed top-15 left-0 w-full h-screen bg-black bg-opacity-50 flex flex-col ${enableContactHubspotForm ? 'block' : 'hidden'}`}>
-                <div className="relative pl-5 pr-2 py-7_5 bg-white mx-auto my-auto flex flex-col
-                                    w-full md:w-146
-                                    pt-16 md:pt-0" style={{ height: '80vh' }}>
-                    <div className="tt_common_font_bold text-4xl text-center">Hubspot Form</div>
-                    <div className="flex-1 h-0 mt-3">
-                        <div className="h-full overflow-y-auto pr-2">
-                            <div id="my-hubspot-form"></div>
-                        </div>
-                    </div>
-                    <div className="absolute top-2 right-2 cursor-pointer" onClick={() => { closeHubspotModal() }}>
-                        <Cross />
-                    </div>
-                </div>
-
-
-            </div> */}
+        
         </div>
     )
 }
