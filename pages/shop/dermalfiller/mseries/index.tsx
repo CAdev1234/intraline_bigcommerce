@@ -11,10 +11,10 @@ const Plus = dynamic(import('@components/icons/Plus'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const Link = dynamic(import('@components/ui/Link'))
+const Image = dynamic(import('next/image'))
 
 
 import { getCookie } from 'utils/cookie'
-const Image = dynamic(import('next/image'))
 
 
 

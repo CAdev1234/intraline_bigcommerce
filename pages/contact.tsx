@@ -9,7 +9,7 @@ const Button =  dynamic(import('@components/mycp/Button'))
 const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
-import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
+// import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
 
 
 import { toast, ToastContainer } from 'react-toastify';
@@ -23,11 +23,11 @@ export default function ContactUs() {
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
 
-    const { loaded, error, formCreated } = useHubspotForm({
-        portalId: '2718899',
-        formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
-        target: '#my-hubspot-form'
-    });
+    // const { loaded, error, formCreated } = useHubspotForm({
+    //     portalId: '2718899',
+    //     formId: '91cfa806-067a-4a3b-ba8a-d5cbe9ccf0f3',
+    //     target: '#my-hubspot-form'
+    // });
     
 
     const setFullNameHandler = (str: string) => {
