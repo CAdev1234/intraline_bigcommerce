@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import router, { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'

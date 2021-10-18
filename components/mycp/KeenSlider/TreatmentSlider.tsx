@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
-const Link = dynamic(import('@components/ui/Link'));
+const Link = dynamic(import('@components/ui/Link'))
+const Image = dynamic(import('next/image'))
 
 interface ArrowProps{
     disabled: boolean,
@@ -70,7 +71,9 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
     const render_ele_img = treatment_item_li.map((item, index) => {
         return <div key={`face_img_${index}`} className="keen-slider__slide h-full flex flex-col">
                     <div className="aspect-w-1 aspect-h-1 my-auto">
-                        <img className="w-full h-full mx-auto" src={item.img} alt="" />
+                        <div className="image-container">
+                            <Image className="image" src={item.img} alt="" layout="fill" />
+                        </div>
                     </div>
                     
                 </div>

@@ -15,7 +15,7 @@ const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/Testimonial
 import 'keen-slider/keen-slider.min.css'
 
 
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import Script from 'next/script'
 import {useAppSelector} from '../utils/redux/hooks'
 import { AddToCartByDom } from '@utils/addToCartByDom'
@@ -302,11 +302,9 @@ export default function Home({
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
           <Image src={tripleRedImg} alt="" />
-          {/* <img src="/assets/img/triple_red.webp" alt="" /> */}
         </div>
         <div className="absolute bottom-0 right-0
                         w-52 md:w-auto">
-          {/* <img src="/assets/img/triple_blue.webp" alt="" /> */}
           <Image src={tripleBlueImg} alt="triple blue image"></Image>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Link = dynamic(import('@components/ui/Link'))
 import { getCookie } from '@utils/cookie'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 

@@ -13,7 +13,7 @@ const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 

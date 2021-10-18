@@ -9,7 +9,7 @@ const SelectInput = dynamic(import('@components/mycp/SelectInput'))
 const Link = dynamic(import('@components/ui/Link'))
 const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
 import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'
 import AboutUsSec3Img from 'public/assets/img/aboutus_sec_3.webp'

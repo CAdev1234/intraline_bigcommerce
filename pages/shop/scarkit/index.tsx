@@ -20,7 +20,7 @@ import { validateEmail } from '@utils/simpleMethod'
 import { ToastContainer, toast} from 'react-toastify'
 
 import scarkitImg from 'public/assets/img/scarkit.webp'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 export default function ScarKit() {

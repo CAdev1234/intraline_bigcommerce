@@ -6,6 +6,7 @@ const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Cross = dynamic(import('@components/icons/Cross'))
 const Link = dynamic(import('@components/ui/Link'))
 const Button = dynamic(import('@components/mycp/Button'))
+const Image = dynamic(import('next/image'))
 
 import { useAppSelector, useAppDispatch} from 'utils/redux/hooks'
 import { AddToCartByDom } from "@utils/addToCartByDom"
@@ -51,7 +52,9 @@ export default function ShoppingBag() {
                         {cart_product_li.map((item, index) => {
                             return <div className="flex items-center mb-5" key={`bag_item_${index}`}>
                                         <div className="w-24 flex flex-col">
-                                            <img className="w-full my-auto" src={item.img} alt="" style={{aspectRatio: '1'}}/>
+                                            <div className="image-container">
+                                                <Image className="image" src={item.img as string} alt="" layout="fill" />
+                                            </div>
                                         </div>
                                         <div className="ml-5 leading-14_26 w-1/3">
                                             <div className="">Intraline's</div>

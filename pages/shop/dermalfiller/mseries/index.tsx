@@ -14,7 +14,7 @@ const Link = dynamic(import('@components/ui/Link'))
 
 
 import { getCookie } from 'utils/cookie'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 

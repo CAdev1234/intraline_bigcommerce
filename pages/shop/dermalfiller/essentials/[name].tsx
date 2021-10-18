@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import dynamic from 'next/dynamic'
+
 import { Layout } from '@components/common'
 
-import { RatingView } from 'react-simple-star-rating'
-const ChevronDown = dynamic(import('@components/icons/ChevronDown')) 
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
@@ -12,6 +12,7 @@ const Link = dynamic(import('@components/ui/Link'))
 const SideReview = dynamic(import('@components/mycp/SideReview'))
 const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 
+import { RatingView } from 'react-simple-star-rating'
 import { getCookie } from '@utils/cookie'
 import {useAppDispatch, useAppSelector} from 'utils/redux/hooks'
 import {addProductToCart} from 'utils/redux/slices/cartSlice'
@@ -19,9 +20,8 @@ import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import { products, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
-
-import Image from 'next/image'
+import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
+const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 
 type ParamsType = {
@@ -45,17 +45,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
-    const product_data = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
+    console.log(all_products)
+    const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {
-            product_data,
+            product_info,
         },
     }
 }
 
-export default function EssentialProduct({ product_data }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function EssentialsProduct({ product_info }: InferGetStaticPropsType<typeof getStaticProps>) {
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
-        if (item.detail.toLowerCase().includes(product_data.title)) return item
+        if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
     let essential_li = [
         {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
@@ -68,8 +69,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     const router = useRouter()
     const dispatch = useAppDispatch()
     const addToBagHandler = () => {
-        product_data.quantity = numM2Plus
-        dispatch(addProductToCart(product_data))
+        product_info.quantity = numM2Plus
+        dispatch(addProductToCart(product_info))
     }
     const decreaseNumHandler = () => {
         if (numM2Plus > 1) {
@@ -89,6 +90,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
 
     const addToCartByDom = new AddToCartByDom(essential_li)
     const addToBagMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>, index: number) => {
+        console.log(index)
         addToCartByDom.addToBagHandler(event, index)
     }
     const decreaseNumMseriesHandler = (event:React.MouseEvent<HTMLButtonElement>) => {
@@ -104,28 +106,20 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     }
 
     const RenderFAQCollapse = () => {
-        var items = [
-          {
-            'title': 'How does it work?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'How long do the results last?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What is the expected recovery time for my patients?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What are some important safety tips to follow when using this product?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          },
-          {
-            'title': 'What are the most common side effects?',
-            'detail': 'The hyaluronic acid gel in Belotero Hydro are known for its water retention properties. It binds to moisture and increases in size, thereby replacing volume lost through fat loss.'
-          }
-        ]
+        let items = [] as Array<{title: string, detail: string}>
+        if (product_info.title === 'M2 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m2 plus')) return item
+            })    
+        }else if(product_info.title === 'M3 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m3 plus')) return item
+            })
+        }else if(product_info.title === 'M4 Plus') {
+            items = MSERIES_FAQ_LIST.filter(item => {
+                if (item.title.toLowerCase().includes('m4 plus')) return item
+            })
+        }
         return <FAQCp faq_li={items}/>
     }
     
@@ -136,10 +130,12 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                         key={`mseires_${index}`}>
                         {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">${item.price}</Button>}
                         <div className="flex">
-                            <img className="mx-auto " src={item.img} alt="" />
+                            <div className="w-full image-container">
+                                <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
+                            </div>
                         </div>
                         <div className="mt-5 ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
-                        <div className="textellipsis_2 mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
+                        <div className="mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
@@ -147,7 +143,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                         <Button className="h-11 w-full">learn more</Button>
                                     </Link>
                                     
-                                    {logined && <div className="mt-2 flex items-center h-11 text-white">
+                                    {logined && <div className="ttcommon_font mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumMseriesHandler(event)}}>-</button>
                                             <div className="mx-auto">1</div>
@@ -171,17 +167,19 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     const RenderMseriesSwiper = () => {
         var render_ele = essential_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col bg-white relative pb-5" key={`m_${index}_product`}>
-                        <div className="flex-1 w-full h-0">
+                        <div className="w-full">
                             <div>
                                 <div className="aspect-w-1 aspect-h-1 w-full">
-                                    <img className="w-full" src={item.img} alt="" />
+                                    <div className="w-full image-container">
+                                        <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
                                     sm:text-2xl
                                     leading-14_17 sm:leading-none">{item.title}</div>
-                        <div className="textellipsis_2 mt-2 text-center px-4
+                        <div className="mt-2 text-center px-4
                                     text-xs sm:text-base
                                     leading-normal sm:leading-14_26">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
@@ -198,9 +196,10 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
         return <KeenSliderA render_ele={render_ele} slidesPerView={[1.5,1.5,2.5,3.5,3.5]} navCss={"mt-10"}/>
     }
 
-    const ShowEnableSideReviewHandler = () => {
+    const ShowSideReviewHandler = () => {
         dispatch(activeSideReview())
     }
+    
     return(
         <div className="ttcommon_font_thin text-c_00080D flex flex-col
                         mt-16 md:mt-0">
@@ -208,49 +207,63 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="mt-12_5 items-center uppercase leading-14_17 tracking-widest
                                 hidden md:flex">
-                    <div className="flex items-center flex-wrap cursor-pointer
+                    <div className="flex items-center flex-wrap cursor-pointer relative z-10
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
-                                    w-10/12">
-                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
-                        <span className="mr-1"><ChevronRight className="w-4" /></span>
-                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller/essentialsshop">Shop</Link></span>
-                        <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                        <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold">{product_data.title}</span>
+                                    md:w-100 lg:w-full">
+                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
+                        <span className="ml-1"><ChevronRight className="w-4" /></span>
+                        <span className="ml-1 ttcommon_font">Shop</span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                        <span className="ml-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold ml-1">{product_info.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">
                     {/* responsive part */}
                     <div className="w-full h-full relative
                                     block md:hidden">
-                        <div className="flex flex-col items-end h-full">
-                            <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
-                                <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} />
-                                <div className="w-full h-full flex absolute items-center justify-center">
-                                    <div className="relative">
-                                        <img className="m-auto" src="/assets/img/m2plus.webp" alt="" />
-                                        {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_data.price}.00</Button>}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="absolute top-12 left-5 flex items-center uppercase leading-14_17 tracking-widest">
+                        <div className="px-5 mt-7 flex items-center uppercase leading-14_17 tracking-widest relative z-10">
                             <div className="flex items-center flex-wrap cursor-pointer
                                             w-10/12">
                                 <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4" /></span>
-                                <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller/essentialsshop">Shop</Link></span>
+                                <span className="mr-1 ttcommon_font">Shop</span>
+                                <span className="mr-1"><ChevronRight className="w-4" /></span>
+                                <span className="mr-1 ttcommon_font">DermalFillers</span>
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
                                 <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4"/></span>
-                                <span className="ttcommon_font_bold mr-1">{product_data.title}</span>
+                                <span className="ttcommon_font_bold mr-1">{product_info.title}</span>
+                            </div>
+                        </div>
+
+                        <div className='w-1/2 mx-auto relative z-10'>
+                            <div className={`relative my-auto w-full image-container mx-auto
+                                            ${router.asPath.includes('intralineone') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                            <div className={`relative mt-10 w-full image-container mx-auto
+                                            ${router.asPath.includes('intralinetwo') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                            <div className={`relative mt-10 w-full image-container mx-auto
+                                            ${router.asPath.includes('intralinethree') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                        </div>
+
+                        <div className='absolute top-0 w-full'>
+                            <div className='image-container bg-c_CCE7EF'>
+                                <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex w-full">
+                    <div className="flex w-full relative z-10">
                         <div className="flex flex-col
                                         w-full md:w-6/12
                                         pr-5 md:pr-0
@@ -258,8 +271,8 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                             <div className="mt-0 md:mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
                                 <div className="ttcommon_font_thin font-semibold
-                                                leading-tight xl:leading-200_160
-                                                text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >
+                                                text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinethree') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Three</div>
@@ -287,20 +300,35 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                 </div>}
                             </div>
                         </div>
+                        <div className="flex-1 h-full
+                                        hidden md:flex">
+                            <div className={`relative mt-10 w-full image-container mx-auto
+                                            ${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m2plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                            <div className={`relative mt-10 w-full image-container mx-auto
+                                            ${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m3plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                            <div className={`relative mt-10 w-full image-container mx-auto
+                                            ${router.asPath.includes('/essentials/intralinethree') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                <Image className={`image`} src={'/assets/img/m4plus.webp'} alt={``} layout="fill" />
+                                {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}.00</Button>}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="absolute top-0 right-0 w-full h-full
                                 hidden md:block">
-                    <div className="w-6/12 flex flex-col items-end ml-auto h-full">
-                        <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col">
-                            <Image className="mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" />
-                            <div className="w-full h-full flex absolute items-center justify-center">
-                                <div className="relative">
-                                    <img className="m-auto" src="/assets/img/m2plus.webp" alt="" />
-                                    {logined && <Button className="absolute top-2 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">$100.00</Button>}
-                                </div>
+                    <div className=" flex flex-col items-end ml-auto h-full" style={{width:738}}>
+                        <div className="mb-auto h-full bg-c_CCE7EF relative flex flex-col w-full">
+                            <div className='image-container'>
+                                <Image className="image mix-blend-multiply ml-auto h-full" src={smokeM2Img} alt="smoke image" layout="fill"  />
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -323,8 +351,9 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Indications</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-2xl md:text-4xl">{product_data.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
+                    <p className="mt-6 ttcommon_font_thin text-center
+                                text-2xl md:text-4xl
+                                leading-36_48 md:leading-36_48">{product_info.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-72">download indication chart</Button>
                     </div>
@@ -343,9 +372,9 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                         pr-10 xl:pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{product_data.title}.</div>
-                                    <div className="flex items-center" onClick={() => {ShowEnableSideReviewHandler()}}>
-                                        <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
+                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
+                                    <div className="flex items-center" onClick={() => {ShowSideReviewHandler()}}>
+                                        <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-base ">({testimonial_li.length})</div>
                                     </div>
                                 </div>
@@ -393,7 +422,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                         </div>
                                     </div>
                                     <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">Buy {product_data.title} now</Button>
+                                        <Button className="h-full flex-1">Buy {product_info.title} now</Button>
                                     </div>
                                 </div>
                                 
@@ -419,9 +448,9 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                 <div className="">
                     <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                         <div className="pb-5">
-                            <div className="ttcommon_font_bold text-6xl leading-64_76">{product_data.title}.</div>
-                            <div className="flex items-center" onClick={() => {ShowEnableSideReviewHandler()}}>
-                                <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 3} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
+                            <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
+                            <div className="flex items-center" onClick={() => {ShowSideReviewHandler()}}>
+                                <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                 <div className="text-base ">({testimonial_li.length})</div>
                             </div>
                         </div>
@@ -469,7 +498,7 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                 </div>
                             </div>
                             <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1">Buy {product_data.title} now</Button>
+                                <Button className="h-full flex-1">Buy {product_info.title} now</Button>
                             </div>
                         </div>
                         
@@ -527,10 +556,10 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
                                     mb-5 md:mb-2">
                         <div className="ttcommon_font_bold
                                         text-2xl md:text-4xl
-                                        leading-none md:leading-36_26">The Essentials.</div>
+                                        leading-none md:leading-36_26">The M Series.</div>
                         <div className="flex items-center ml-auto">
                             <div className="ttcommon_font_bold
-                                            md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                                            md:text-lg"><Link href="/shop/dermalfiller/mseriesshop">Learn More</Link></div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>
@@ -551,4 +580,4 @@ export default function EssentialProduct({ product_data }: InferGetStaticPropsTy
     )
 }
 
-EssentialProduct.Layout = Layout
+EssentialsProduct.Layout = Layout

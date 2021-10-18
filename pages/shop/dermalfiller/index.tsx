@@ -11,7 +11,7 @@ const Link = dynamic(import('@components/ui/Link'))
 import { validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import MSeriesImg from 'public/assets/img/m_series.webp'
 import bluePurpleSmokeImg from 'public/assets/img/BluePurpleSmoke.webp'
 import essentialSeriesImg from 'public/assets/img/essential_series.webp'
@@ -165,8 +165,7 @@ export default function DemeralFiller() {
                     </div>
                 </div>
                 <div className="absolute top-0 right-0 h-full
-                                hidden sm:block">
-                    {/* <img className="mix_blend_multi h-full" src="/assets/img/BluePurpleSmoke.webp" alt="" /> */}
+                                hidden md:block">
                     <Image src={bluePurpleSmokeImg} alt="blue purple smoke image" className="mix-blend-multiply" />
                 </div>
             </div>

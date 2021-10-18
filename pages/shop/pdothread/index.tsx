@@ -16,7 +16,7 @@ const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import { useRouter } from 'next/router'
 import {useSpring, animated, useTransition} from '@react-spring/web'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 

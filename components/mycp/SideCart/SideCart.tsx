@@ -3,7 +3,8 @@ import { FC, useState, useEffect } from 'react'
 import cn from 'classnames'
 import s from './SideCart.module.css'
 const Button = dynamic(import('@components/mycp/Button'))
-import { Cross } from '@components/icons'
+const Cross = dynamic(import('@components/icons/Cross'))
+const Image = dynamic(import('next/image'))
 
 import {useAppDispatch, useAppSelector} from '../../../utils/redux/hooks'
 import {activeSideCart} from '../../../utils/redux/slices/cartSlice'
@@ -54,7 +55,9 @@ const SideCart: FC<SideCartProps> = ({className}) => {
                                 {cart_product_li.map((item, index) => {
                                     return <div className="flex items-center mb-3" key={`cart_item_${index}`}>
                                                 <div className="w-24 flex flex-col">
-                                                    <img className="w-full my-auto" src={item.img} alt="" style={{aspectRatio: '1'}} />
+                                                    <div className='image-container'>
+                                                        <Image className='image' src={item.img as string} alt='' layout="fill" />
+                                                    </div>
                                                 </div>
                                                 <div className="flex-1 ml-5">
                                                     <div>Intraline's</div>

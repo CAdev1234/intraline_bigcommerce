@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Button = dynamic(import('@components/mycp/Button'))
 const Link = dynamic(import('@components/ui/Link'));
+const Image = dynamic(import('next/image'))
 import { useEffect, useState } from "react";
 
 import { getCookie } from "@utils/cookie";
@@ -45,7 +46,9 @@ export default function EssentialsShop() {
                         key={`m_${index}_product`}>
                         {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                         <div className="flex">
-                            <img className="w-full mx-auto" src={item.img} alt="" />
+                            <div className="image-container">
+                                <Image className="image" src={item.img} alt="" layout="fill" />
+                            </div>
                         </div>
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                         <div className="textellipsis_2 mt-2 px-3 leading-14_26 text-center">{item.detail}</div>

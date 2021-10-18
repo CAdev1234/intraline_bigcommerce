@@ -18,7 +18,7 @@ import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 export default function Moisturizer() {

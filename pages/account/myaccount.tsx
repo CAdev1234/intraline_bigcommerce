@@ -1,15 +1,18 @@
 import dynamic from "next/dynamic"
+
 const Layout = dynamic(() => import('@components/common/Layout'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Cross = dynamic(import('@components/icons/Cross'))
 const Button = dynamic(() => import("@components/mycp/Button"))
 const Input = dynamic(() => import("@components/mycp/Input"))
 const SelectInput = dynamic(() => import("@components/mycp/SelectInput"))
+const Link = dynamic(import('@components/ui/Link'))
+const Image = dynamic(import('next/image'))
+
 import { RatingView, Rating } from 'react-simple-star-rating'
 import { useEffect, useState } from "react"
 import { getCookie, removeCookie } from "@utils/cookie"
 import { useRouter } from "next/router"
-const Link = dynamic(import('@components/ui/Link'))
 import { useAppDispatch, useAppSelector } from "@utils/redux/hooks"
 import { logoutUser, updateUser } from "@utils/redux/slices/userSlice"
 import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"
@@ -356,8 +359,10 @@ export default function MyAccount() {
                                                 {item.order_subItem.map((item1, index1) => {
                                                     return <div className="flex items-center mb-3" key={`product_${index1}_${item1.title}`}>
                                                                 <div className="flex items-center leading-14_26 text-center w-1/5">
-                                                                    <div className="w-25 h-36 px-2 bg-c_CCE7EF flex flex-col">
-                                                                        <img src={item1.img} className="w-full my-auto" alt="" />
+                                                                    <div className="w-25 px-2 flex flex-col">
+                                                                        <div className="image-container">
+                                                                            <Image className="image" src={item1.img as string} alt="" layout="fill" />
+                                                                        </div>
                                                                     </div>
                                                                     <div className="ml-8">{item1.title}</div>
                                                                 </div>
@@ -413,7 +418,9 @@ export default function MyAccount() {
                                                 {item.order_subItem.map((item1, index1) => {
                                                     return  <div key={`sub_item_${index1}`} className="mb-5">
                                                                 <div className="w-full flex flex-col">
-                                                                    <img src={item1.img} className="w-full my-auto" alt="" />
+                                                                    <div className="image-container">
+                                                                        <Image src={item1.img as string} className="image" alt="" layout="fill" />
+                                                                    </div>
                                                                 </div>
                                                                 <div className="flex flex-col w-full">
                                                                     <div className="flex items-center mt-4">

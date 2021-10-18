@@ -1,15 +1,20 @@
 import React, {useEffect, useRef, useState} from 'react'
+import { useRouter } from 'next/router'
+
 import dynamic from 'next/dynamic'
+
 import { Layout } from '@components/common'
 const KeenSliderB = dynamic(import('@components/mycp/KeenSlider/KeenSliderB'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
-const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
-const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Plus = dynamic(import('@components/icons/Plus'))
+const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
+const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const Link = dynamic(import('@components/ui/Link'))
 
+
 import { getCookie } from 'utils/cookie'
+const Image = dynamic(import('next/image'))
 
 
 
@@ -65,6 +70,7 @@ export default function Essentials() {
     const [scroll_perc, setScrollPerc] = useState(0)
     const [scroll_perc_mobile, setScrollPercMobile] = useState(0)
     const [logined, setLogined] = useState(false)
+    const router = useRouter()
     
     let scrollHandler = (ele:HTMLDivElement) => {
         let scroll_height = ele.scrollHeight
@@ -93,33 +99,22 @@ export default function Essentials() {
             {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.webp', link: '/shop/dermalfiller/essentials/intralinethree'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
-            return <div className="keen-slider__slide flex flex-col relative group" key={`mseries_${index}`}>
-                        <div className="my-auto">
-                            <div className="flex flex-col">
-                                <div className="mx-auto relative
-                                                h-80 md:h-146">
-                                    <img className="h-full" src={item.img} alt=""/>
-                                    {logined && 
-                                        <div className="absolute
-                                                        top-0 
-                                                        -right-10">
-                                            <Button className="h-9 w-30 ttcommon_font_bold text-lg" variant="primary">${item.price}</Button>
-                                        </div>
-                                    }
+            return <div className="keen-slider__slide flex flex-col relative group" 
+                        key={`m_${index}_product`}>
+                        <div className="flex flex-col">
+                            <div className="w-full mx-auto" style={{maxWidth: 250}}>
+                                <div className="w-full image-container">
+                                    <Image src={item.img} alt={`category_img_${index}`} className={'image'} layout="fill" />
                                 </div>
-                                
-                                <div className="uppercase text-2xl text-center tracking-widest font-semibold">{item.title}</div>
                             </div>
                         </div>
-                        
+                        <div className="ttcommon_font font-semibold uppercase text-2xl leading-24_29 text-center">{item.title}</div>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
-                            <Link href={item.link}>
-                                <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white">
-                                    <Plus />
-                                </button>
-                                <div className="text-center">Know More</div>
-                            </Link>
-                            
+                            <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white"
+                                    onClick={() => {router.push(item.link)}}>
+                                <Plus />
+                            </button>
+                            <div className="text-center">Know More</div>
                         </div>
                     </div>
         })
@@ -141,7 +136,7 @@ export default function Essentials() {
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>
                 <div className="relative flex-1 h-full
                                 hidden sm:block">
-                    <div className="absolute rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128, right: -596}}></div>
+                    <div className="absolute rounded-full bg-c_CCE7EF" style={{width: 1192, height: 1192, top: -128}}></div>
                 </div>
             </div>
             <div className="w-full h-15 bg-transparent"></div>
@@ -161,7 +156,7 @@ export default function Essentials() {
                         <span className="mr-1"><Link href="/shop/dermalfiller">Dermal fillers</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold
-                                        ml-0 lg:ml-1">MONOPHASIC DERMAL FILLERS</span>
+                                        ml-0 lg:mr-1">MONOPHASIC DERMAL FILLERS</span>
                     </div>
                 </div>
                 <div className="z-10 h-full flex flex-col
@@ -174,17 +169,19 @@ export default function Essentials() {
                             <div className="">
                                 <div>
                                     <div className="ttcommon_font_thin font-semibold
-                                                    leading-200_160 md:leading-200_160 lg:leading-200_160 xl:leading-200_160 2xl:leading-200_160
-                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px">The</div>
-                                    <div className="ttcommon_font_bold leading-200_160
-                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px 2xl:text-200px" >Essentials</div>
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
+                                                    leading-none md:leading-200_160 lg:leading-200_160 xl:leading-200_160">The</div>
+                                    <div className="ttcommon_font_bold
+                                                    text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
+                                                    leading-none md:leading-tight lg:leading-none xl:leading-200_160" >Essentials</div>
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
                                                 sm:w-6/12 md:w-5/12 lg:w-131_5">
-                                    <div className="ttcommon_font_thin w-full leading-36_48 font-semibold mt-8 text-c_00080D
-                                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
-                                                    ">The Essentials from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
+                                    <div className="ttcommon_font_thin w-full font-semibold mt-8 text-c_00080D
+                                                    text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
+                                                    leading-36_48 sm:leading-36_48 md:leading-36_48 lg:leading-36_48 xl:leading-36_48
+                                                    ">Essentials from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
                                 </div>
                                 
                             </div>
@@ -248,10 +245,11 @@ export default function Essentials() {
                     <div className="absolute right-0 top-0 flex flex-col w-5/12 h-full
                                     mr-5 md:mr-10 lg:mr-20 xl:mr-172 2xl:mr-172" style={{maxWidth: 538}}>
                         <div className="my-auto">
-                            <div className="text-base tracking-widest">THE Essentials were created for maximum</div>
-                            <div className="ttcommon_font_bold text-4xl leading-36_48">Function, versatility & impact.</div>
-                            <div className="ttcommon_font_thin mt-7 leading-36_48
-                                            text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                            <div className="text-base tracking-widest">THE M SERIES were created for maximum</div>
+                            <div className="ttcommon_font_bold text-4xl leading-36_48 mt-2_5 uppercase">Function, versatility & impact.</div>
+                            <div className="ttcommon_font_thin mt-7_5
+                                            text-2xl md:text-3xl lg:text-4xl
+                                            leading-36_48 md:leading-36_48 lg:leading-36_48">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                             <div className="progress-bar-container bg-white w-full h-1 mt-12_5">
                                 <div className="progress-bar bg-c_00080D h-full" style={{width: `${scroll_perc}%`}}></div>
                             </div>
@@ -264,17 +262,17 @@ export default function Essentials() {
             <div className="block sm:hidden bg-c_C6CBDD w-full py-20">
                 <div className="w-full flex items-center pl-5">
                     <div className="w-full overflow-x-auto test_ele
-                                    no-scrollbar flex items-stretch" 
+                                    no-scrollbar flex" 
                                     style={{scrollbarWidth: 'none'}}
                                     onScroll={(event) => scrollMobileHandler(event.target as any)}>
                         {spec_li.map((item, index) => {
-                            return <div className="mr-5" key={`pure_part_${index}`} style={{width:278, minWidth:278}}>
+                            return <div className="mr-5 flex-1 flex flex-col" key={`pure_part_${index}`} style={{width:278, minWidth:278}}>
                                         <div className="flex items-center">
                                             <div className="ttcommon_font_bold leading-64_76 text-4xl">{item.headline}</div>
                                             <div className="ml-auto ttcommon_font_bold text-6xl text-c_8D97BC leading-14_17">0{index + 1}</div>
                                         </div>
                                         
-                                        <div className="relative w-full">
+                                        <div className="w-full h-full">
                                             <div className="bg-white p-7_5 relative z-10 h-full">
                                                 <div className="ttcommon_font_bold uppercase leading-24_29 text-c_00080D tracking-widest">{item.title}</div>
                                                 <div className="mt-2 text-xs leading-14_26 text-c_00080D">{item.detail}</div>
@@ -294,8 +292,8 @@ export default function Essentials() {
                 </div>
 
                 <div className="flex flex-col w-full h-full mt-20 px-5">
-                    <div className="text-base tracking-widest">THE Essentials were created for maximum</div>
-                    <div className="ttcommon_font_bold text-2xl leading-36_48">Function, versatility & impact.</div>
+                    <div className="text-base tracking-widest uppercase">THE M SERIES were created for maximum</div>
+                    <div className="ttcommon_font_bold text-2xl leading-36_48 mt-2_5">Function, versatility & impact.</div>
                     <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                 </div>
             </div>
@@ -307,12 +305,13 @@ export default function Essentials() {
                                 w-11/12 sm:w-146">
                     <div className="ttcommon_font_bold text-center mx-auto
                                     text-2xl sm:text-4xl
-                                    leading-none sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
-                                text-xl sm:text-4xl">Intraline Essentials dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
+                                    leading-24_29 sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
+                    <p className="mt-6 ttcommon_font_thin text-center
+                                text-2xl sm:text-4xl
+                                leading-9 sm:leading-36_48">Intraline Essentials dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/essentialsshop">
-                            <Button className="mx-auto h-11 w-64">Shop now the essentials</Button>
+                            <Button className="mx-auto h-11 w-90">Shop now the essential series</Button>
                         </Link>
                     </div>
                 </div>

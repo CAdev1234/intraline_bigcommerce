@@ -22,7 +22,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import {MSERIES_TESTIMONIAL_LIST, products} from 'utils/productData'
 import { useRouter } from 'next/router'
 
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import threadSampleImg from 'public/assets/img/thread_detail.webp'
 
 type ParamsType = {

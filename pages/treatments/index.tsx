@@ -7,7 +7,7 @@ const TreatmentSlider = dynamic(import("@components/mycp/KeenSlider/TreatmentSli
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Link = dynamic(import('@components/ui/Link'));
 
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 
 export default function Treatments() {

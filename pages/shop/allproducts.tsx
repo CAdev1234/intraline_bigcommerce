@@ -13,7 +13,7 @@ import {getCookie} from 'utils/cookie'
 import {AddToCartByDom} from 'utils/addToCartByDom'
 import {useAppSelector} from 'utils/redux/hooks'
 import router from 'next/router'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 
 type ProductType = {
     title: string,

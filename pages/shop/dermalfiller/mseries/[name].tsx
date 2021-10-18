@@ -21,7 +21,7 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
-import Image from 'next/image'
+const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 
 type ParamsType = {
