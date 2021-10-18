@@ -73,10 +73,12 @@ const RenderCategorySwiper = () => {
                   <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">
                       <div className="relative flex-1">
-                          <Image src={item.img} alt="" layout="fill" />
+                        <div className='image-container'>
+                          <Image className='image' src={item.img} alt="" layout="fill" />
+                        </div>
+                          
                       </div>
-                      <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 h-12 flex justify-center items-center
-                                       md:text-2xl
+                      <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 flex justify-center items-center text-xl
                                        leading-14_17 md:leading-none">{item.name}</div>
                     </div>
                       
@@ -229,8 +231,7 @@ export default function Home({
                     </div>
                   </div>
                 </div>
-                <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
-                                sm:text-2xl
+                <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest text-2xl
                                 leading-14_17 sm:leading-none">{item.title}</div>
                 <div className="textellipsis_2 mt-2 text-center px-4
                                 text-xs sm:text-base
