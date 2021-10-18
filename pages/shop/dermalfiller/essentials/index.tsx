@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useRouter } from 'next/router'
 
 import dynamic from 'next/dynamic'
@@ -11,10 +11,9 @@ const Plus = dynamic(import('@components/icons/Plus'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const Link = dynamic(import('@components/ui/Link'))
-
+const Image = dynamic(import('next/image'))
 
 import { getCookie } from 'utils/cookie'
-const Image = dynamic(import('next/image'))
 
 
 
