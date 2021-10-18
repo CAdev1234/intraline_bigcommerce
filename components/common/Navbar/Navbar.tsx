@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import s from './Navbar.module.css'
-import NavbarRoot from './NavbarRoot'
 
+const NavbarRoot = dynamic(import('./NavbarRoot'))
 const Link = dynamic(import('next/link'))
 const Logo = dynamic(import('@components/ui/Logo'))
 const Container = dynamic(import('@components/ui/Container'))
@@ -88,18 +88,6 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
       subItem_li: []
     },
     { name: 'Scar Kit', link: '/shop/scarkit'}
-  ]
-  let industry_category_li = [
-    { name: 'Industry', link: '/industry', subItem_li: []},
-    { name: 'Blog', link: '/industry/blog', subItem_li: []},
-    { name: 'Courses', link: '/industry', 
-      subItem_li: [
-        { name: 'Dermal Filler', link: '/industry'},
-        { name: 'PDO Thread', link: '/industry'}
-      ]
-    },
-    { name: 'Partners', link: '/industry', subItem_li: []},
-    { name: 'Rheology Report', link: '/'}
   ]
 
   const router = useRouter()
@@ -194,12 +182,12 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                     </div>
                   </div>
                 </div>
-                <Link href="/aboutus">
-                  <a className={s.link}>ABOUT US</a>
-                </Link>
-                <Link href="/treatments">
-                  <a className={s.link}>TREATMENTS</a>
-                </Link>
+                {/* <Link href="/aboutus"> */}
+                  <a className={s.link} href='/aboutus'>ABOUT US</a>
+                {/* </Link> */}
+                {/* <Link href="/treatments"> */}
+                  <a className={s.link} href='/treatments'>TREATMENTS</a>
+                {/* </Link> */}
                 {/* <div className={s.nav_item}>
                   <div className={s.link}>INDUSTRY</div>
                   <div className={s.submenu}>
@@ -209,9 +197,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
                     </div>
                   </div>
                 </div> */}
-                <Link href="/contact">
-                  <a className={s.link}>CONTACT</a>
-                </Link>
+                {/* <Link href="/contact"> */}
+                  <a className={s.link} href='/contact'>CONTACT</a>
+                {/* </Link> */}
               </div>
             </div>
             
