@@ -1,15 +1,17 @@
 import React, { FC, useEffect, useState } from 'react'
-import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import s from './Navbar.module.css'
 import NavbarRoot from './NavbarRoot'
-import { Logo, Container } from '@components/ui'
-import { Searchbar, UserNav } from '@components/common'
-import SearchSvg from '@components/icons/SearchSvg'
-import ProfileSvg from '@components/icons/ProfileSvg'
-import CartSvg from '@components/icons/CartSvg'
-import SideCart from '@components/mycp/SideCart'
-import HamburgerMenu from '@components/icons/HamburgerMenu'
-import { Cross } from '@components/icons'
+
+const Link = dynamic(import('next/link'))
+const Logo = dynamic(import('@components/ui/Logo'))
+const Container = dynamic(import('@components/ui/Container'))
+const SearchSvg = dynamic(import('@components/icons/SearchSvg'))
+const ProfileSvg = dynamic(import('@components/icons/ProfileSvg'))
+const CartSvg = dynamic(import('@components/icons/CartSvg'))
+const SideCart = dynamic(import('@components/mycp/SideCart'))
+const HamburgerMenu = dynamic(import('@components/icons/HamburgerMenu'))
+const Cross = dynamic(import('@components/icons/Cross'))
 
 import { useAppDispatch, useAppSelector } from '../../../utils/redux/hooks'
 import { activeSideCart } from '@utils/redux/slices/cartSlice'
