@@ -76,9 +76,9 @@ const RenderCategorySwiper = () => {
                   </div>
                   <div className="absolute top-0 left-0 bg-c_CCE7EF bg-opacity-70 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
                       <div className="my-auto flex flex-col">
-                          <Link href={item.link}>
+                          <a href={item.link}>
                               <Button className="my-auto mx-auto h-11 w-10/12">Learn more</Button>
-                          </Link>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -270,7 +270,7 @@ export default function Home({
         <div className="text-2xl md:text-4xl 
                         leading-7 md:leading-36_26">Our Categories.</div>
         <div className="flex items-center ml-auto">
-          <div className=""><Link href="/shop/allproducts">Explore All</Link></div>
+          <div className=""><a href="/shop/allproducts">Explore All</a></div>
           <div className="ml-2">
             <ChevronRight className="h-4 w-4" />
           </div>
@@ -295,9 +295,9 @@ export default function Home({
           <p className="ttcommon_font_thin my-auto text-c_00080D mx-auto max-w-lg
                         text-2xl md:text-4xl
                         leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
-          <Link href="/aboutus">
+          <a href="/aboutus">
             <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
-          </Link>
+          </a>
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
@@ -320,14 +320,14 @@ export default function Home({
                           text-2xl md:text-4xl
                           leading-tight md:leading-36_26">Featured Products.</div>
           <div className="flex items-center ml-auto">
-            <Link href="/shop/allproducts">
+            <a href="/shop/allproducts">
               <div className="flex items-center">
                 <div className="ttcommon_font_bold leading-snug text-lg">See All</div>
                 <div className="ml-2">
                   <ChevronRight className="h-4 w-4" />
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="mt-5 md:mt-10
@@ -358,7 +358,7 @@ export default function Home({
             <div className="ttcommon_font_bold leading-36_26 text-4xl hidden sm:block">Frequently Asked Questions.</div>
             <div className="ttcommon_font_bold text-2xl leading-tight block sm:hidden">FAQs.</div>
             <div className="flex items-center ml-auto">
-              <Link href="/faq">
+              <a href="/faq">
                 <div className="flex items-center">
                   <span className="ttcommon_font_bold 
                                   text-xs sm:text-lg
@@ -367,7 +367,7 @@ export default function Home({
                     <ChevronRight className="h-4 w-4" />
                   </span>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
           {RenderFAQCollapse()}
