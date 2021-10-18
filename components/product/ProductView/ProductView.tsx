@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import dynamic from 'next/dynamic'
 const Image = dynamic(import('next/image'))
 import { NextSeo } from 'next-seo'
 import s from './ProductView.module.css'

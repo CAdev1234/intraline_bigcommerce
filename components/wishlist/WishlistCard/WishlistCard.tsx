@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import dynamic from 'next/dynamic'
 import cn from 'classnames'
 import Link from 'next/link'
 const Image = dynamic(import('next/image'))
