@@ -9,16 +9,11 @@ const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
 
-// import {useHubspotForm} from '@aaronhayes/react-use-hubspot-form';
-// const HubspotForm = dynamic(() => import('@components/mycp/HubspotForm'))
-
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { validateEmail } from "@utils/simpleMethod"
 import HubspotForm from "@components/mycp/HubspotForm"
-// const validateEmail = dynamic(() => import('@utils/simpleMethod').then((module) => module.validateEmail))
-// const { useHubspotForm } = require('@aaronhayes/react-use-hubspot-form');
 
 interface FormFieldObject {
     [index: number]: {}

@@ -4,9 +4,6 @@ import { fetchApiWithBody } from "@utils/request";
 const Button = dynamic(import('@components/mycp/Button'))
 const Cross = dynamic(import('@components/icons/Cross'))
 
-interface FormFieldObject<T> {
-    
-}
 
 
 interface HubspotFormProps {
