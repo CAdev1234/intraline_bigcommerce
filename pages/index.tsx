@@ -309,11 +309,15 @@ export default function Home({
         </div>
         <div className="absolute top-0 left-0
                         w-52 md:w-auto">
-          <Image src={tripleRedImg} alt="" />
+          <div className='image-container'>
+            <Image className='image' src={tripleRedImg} alt="" layout="fill" />
+          </div>
         </div>
         <div className="absolute bottom-0 right-0
                         w-52 md:w-auto">
-          <Image src={tripleBlueImg} alt="triple blue image"></Image>
+          <div className='image-container'>
+            <Image className='image' src={tripleBlueImg} alt="triple blue image" layout="fill"></Image>
+          </div>
         </div>
       </div>
       
