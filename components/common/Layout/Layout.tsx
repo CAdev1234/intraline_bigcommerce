@@ -145,20 +145,23 @@ const Layout: FC<Props> = ({
       <Head>
         <link
             rel="preload"
-            href="/assets/fonts/TTCommons/TTCommons-Bold.otf"
+            href="/assets/fonts/TTCommons/TTCommons-Bold.woff2"
             as="font"
+            type='font/woff2'
             crossOrigin=""
           />
           <link
             rel="preload"
-            href="/assets/fonts/TTCommons/TTCommons-Regular.otf"
+            href="/assets/fonts/TTCommons/TTCommons-Regular.woff2"
             as="font"
+            type='font/woff2'
             crossOrigin=""
           />
           <link
             rel="preload"
-            href="/assets/fonts/TTCommons/TTCommons-Thin.otf"
+            href="/assets/fonts/TTCommons/TTCommons-Thin.woff2"
             as="font"
+            type='font/woff2'
             crossOrigin=""
           />
           <link rel="shortcut icon" href="/assets/img/favicon.webp" />
