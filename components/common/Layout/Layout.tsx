@@ -3,46 +3,47 @@ import React, { FC, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { CommerceProvider } from '@framework'
-import { useUI } from '@components/ui/context'
+// import { useUI } from '@components/ui/context'
 import type { Page } from '@commerce/types/page'
-import { Navbar, Footer } from '@components/common'
 import type { Category } from '@commerce/types/site'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
-import { Sidebar, Modal, LoadingDots } from '@components/ui'
+// import { Sidebar, Modal, LoadingDots } from '@components/ui'
 
-
+const Navbar = dynamic(import('@components/common/Navbar'))
+const Footer = dynamic(import('@components/common/Footer'))
 const Button = dynamic(import('@components/mycp/Button'))
 const Head = dynamic(import('next/head'))
-import LoginView from '@components/auth/LoginView'
-import s from './Layout.module.css'
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
+// import LoginView from '@components/auth/LoginView'
+
+import s from './Layout.module.css'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { initialCart, initialOrder } from '@utils/redux/slices/cartSlice'
 import { initialReviews } from '@utils/redux/slices/reviewSlice'
 
-const Loading = () => (
-  <div className="w-80 h-80 flex items-center text-center justify-center p-3">
-    <LoadingDots />
-  </div>
-)
+// const Loading = () => (
+//   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
+//     <LoadingDots />
+//   </div>
+// )
 
-const dynamicProps = {
-  loading: Loading,
-}
+// const dynamicProps = {
+//   loading: Loading,
+// }
 
-const SignUpView = dynamic(
-  () => import('@components/auth/SignUpView'),
-  dynamicProps
-)
+// const SignUpView = dynamic(
+//   () => import('@components/auth/SignUpView'),
+//   dynamicProps
+// )
 
-const ForgotPassword = dynamic(
-  () => import('@components/auth/ForgotPassword'),
-  dynamicProps
-)
+// const ForgotPassword = dynamic(
+//   () => import('@components/auth/ForgotPassword'),
+//   dynamicProps
+// )
 
 const FeatureBar = dynamic(
   () => import('@components/common/FeatureBar'),
-  dynamicProps
+  // dynamicProps
 )
 
 interface Props {
@@ -52,46 +53,46 @@ interface Props {
   }
 }
 
-const ModalView: FC<{ modalView: string; closeModal(): any }> = ({
-  modalView,
-  closeModal,
-}) => {
-  return (
-    <Modal onClose={closeModal}>
-      {modalView === 'LOGIN_VIEW' && <LoginView />}
-      {modalView === 'SIGNUP_VIEW' && <SignUpView />}
-      {modalView === 'FORGOT_VIEW' && <ForgotPassword />}
-    </Modal>
-  )
-}
+// const ModalView: FC<{ modalView: string; closeModal(): any }> = ({
+//   modalView,
+//   closeModal,
+// }) => {
+//   return (
+//     <Modal onClose={closeModal}>
+//       {modalView === 'LOGIN_VIEW' && <LoginView />}
+//       {modalView === 'SIGNUP_VIEW' && <SignUpView />}
+//       {modalView === 'FORGOT_VIEW' && <ForgotPassword />}
+//     </Modal>
+//   )
+// }
 
-const ModalUI: FC = () => {
-  const { displayModal, closeModal, modalView } = useUI()
-  return displayModal ? (
-    <ModalView modalView={modalView} closeModal={closeModal} />
-  ) : null
-}
+// const ModalUI: FC = () => {
+//   const { displayModal, closeModal, modalView } = useUI()
+//   return displayModal ? (
+//     <ModalView modalView={modalView} closeModal={closeModal} />
+//   ) : null
+// }
 
-const SidebarView: FC<{ sidebarView: string; closeSidebar(): any }> = ({
-  sidebarView,
-  closeSidebar,
-}) => {
-  return (
-    <Sidebar onClose={closeSidebar}>
-      {/* {sidebarView === 'CART_VIEW' && <CartSidebarView />} */}
-      {/* {sidebarView === 'CHECKOUT_VIEW' && <CheckoutSidebarView />}
-      {sidebarView === 'PAYMENT_VIEW' && <PaymentMethodView />}
-      {sidebarView === 'SHIPPING_VIEW' && <ShippingView />} */}
-    </Sidebar>
-  )
-}
+// const SidebarView: FC<{ sidebarView: string; closeSidebar(): any }> = ({
+//   sidebarView,
+//   closeSidebar,
+// }) => {
+//   return (
+//     <Sidebar onClose={closeSidebar}>
+//       {/* {sidebarView === 'CART_VIEW' && <CartSidebarView />} */}
+//       {/* {sidebarView === 'CHECKOUT_VIEW' && <CheckoutSidebarView />}
+//       {sidebarView === 'PAYMENT_VIEW' && <PaymentMethodView />}
+//       {sidebarView === 'SHIPPING_VIEW' && <ShippingView />} */}
+//     </Sidebar>
+//   )
+// }
 
-const SidebarUI: FC = () => {
-  const { displaySidebar, closeSidebar, sidebarView } = useUI()
-  return displaySidebar ? (
-    <SidebarView sidebarView={sidebarView} closeSidebar={closeSidebar} />
-  ) : null
-}
+// const SidebarUI: FC = () => {
+//   const { displaySidebar, closeSidebar, sidebarView } = useUI()
+//   return displaySidebar ? (
+//     <SidebarView sidebarView={sidebarView} closeSidebar={closeSidebar} />
+//   ) : null
+// }
 
 const Layout: FC<Props> = ({
   children,
@@ -144,7 +145,7 @@ const Layout: FC<Props> = ({
   return (
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
-      <Head>
+      {/* <Head>
         <link
             rel="preload"
             href="/assets/fonts/TTCommons/TTCommons-Bold.otf"
@@ -163,12 +164,12 @@ const Layout: FC<Props> = ({
             as="font"
             crossOrigin=""
           />
-      </Head>
+      </Head> */}
         <Navbar c_name="bg-c_00080D"/>
         <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />
-        <ModalUI />
-        <SidebarUI />
+        {/* <ModalUI /> */}
+        {/* <SidebarUI /> */}
         <FeatureBar
           title="Our site uses cookies for a more optimal experience. By continuing to browse the site you are agreeing to our use of cookies. You can view our cookie information here."
           hide={acceptedCookies}
