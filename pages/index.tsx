@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import commerce from '@lib/api/commerce'
 import dynamic from 'next/dynamic'
-import Layout from'@components/common/Layout'
+const Layout = dynamic(import('@components/common/Layout'))
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
@@ -9,14 +9,12 @@ const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 const Button = dynamic(import('@components/mycp/Button'))
 const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
-const Link = dynamic(() => import('@components/ui/Link'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 
 import 'keen-slider/keen-slider.min.css'
 
 
 const Image = dynamic(import('next/image'))
-import Script from 'next/script'
 import {useAppSelector} from '../utils/redux/hooks'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
@@ -309,13 +307,13 @@ export default function Home({
           </a>
         </div>
         <div className="absolute top-0 left-0
-                        w-52 md:w-auto">
+                        w-52 lg:w-80 xl:w-100">
           <div className='image-container'>
             <Image className='image' src={tripleRedImg} alt="" layout="fill" />
           </div>
         </div>
         <div className="absolute bottom-0 right-0
-                        w-52 md:w-auto">
+                        w-52 lg:w-80 xl:w-100">
           <div className='image-container'>
             <Image className='image' src={tripleBlueImg} alt="triple blue image" layout="fill"></Image>
           </div>
