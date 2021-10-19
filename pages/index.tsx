@@ -72,14 +72,12 @@ const RenderCategorySwiper = () => {
       return <div className="keen-slider__slide relative" key={`category_${index}`}>
                   <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">
-                      <div className="relative flex-1">
-                        <div className='image-container'>
-                          {item.img !== undefined && <Image className='image' src={item.img} alt="" layout="fill" />}
-                          <div className={`w-full aspect-w-1 aspect-h-1 bg-c_F4511E ${item.img !== undefined ? 'hidden' : 'block'}`}>
-                            <div className='w-full h-full'></div>
-                          </div>
-                        </div>
-                          
+                      <div className='image-container'>
+                        <Image className='image' src={item.img} alt="" layout="fill" />
+                        {/* {item.img !== undefined && <Image className='image' src={item.img} alt="" layout="fill" />} */}
+                        {/* <div className={`w-full aspect-w-1 aspect-h-1 bg-c_F4511E ${item.img !== undefined ? 'hidden' : 'block'}`}>
+                          <div className='w-full h-full'></div>
+                        </div> */}
                       </div>
                       <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 flex justify-center items-center text-xl
                                        leading-14_17 md:leading-none">{item.name}</div>

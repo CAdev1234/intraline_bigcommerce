@@ -3,33 +3,30 @@ import React, { FC, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { CommerceProvider } from '@framework'
-// import { useUI } from '@components/ui/context'
 import type { Page } from '@commerce/types/page'
+
 import type { Category } from '@commerce/types/site'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
-// import { Sidebar, Modal, LoadingDots } from '@components/ui'
+import { LoadingDots } from '@components/ui'
 
 const Navbar = dynamic(import('@components/common/Navbar'))
 const Footer = dynamic(import('@components/common/Footer'))
 const Button = dynamic(import('@components/mycp/Button'))
-const Head = dynamic(import('next/head'))
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
-// import LoginView from '@components/auth/LoginView'
-
 import s from './Layout.module.css'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { initialCart, initialOrder } from '@utils/redux/slices/cartSlice'
 import { initialReviews } from '@utils/redux/slices/reviewSlice'
 
-// const Loading = () => (
-//   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
-//     <LoadingDots />
-//   </div>
-// )
+const Loading = () => (
+  <div className="w-80 h-80 flex items-center text-center justify-center p-3">
+    <LoadingDots />
+  </div>
+)
 
-// const dynamicProps = {
-//   loading: Loading,
-// }
+const dynamicProps = {
+  loading: Loading,
+}
 
 // const SignUpView = dynamic(
 //   () => import('@components/auth/SignUpView'),
@@ -43,7 +40,7 @@ import { initialReviews } from '@utils/redux/slices/reviewSlice'
 
 const FeatureBar = dynamic(
   () => import('@components/common/FeatureBar'),
-  // dynamicProps
+  dynamicProps
 )
 
 interface Props {
