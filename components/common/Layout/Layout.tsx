@@ -148,21 +148,21 @@ const Layout: FC<Props> = ({
             href="/assets/fonts/TTCommons/TTCommons-Bold.woff2"
             as="font"
             type='font/woff2'
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/assets/fonts/TTCommons/TTCommons-Regular.woff2"
             as="font"
             type='font/woff2'
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/assets/fonts/TTCommons/TTCommons-Thin.woff2"
             as="font"
             type='font/woff2'
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link rel="shortcut icon" href="/assets/img/favicon.webp" />
       </Head>

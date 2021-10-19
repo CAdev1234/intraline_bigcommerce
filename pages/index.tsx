@@ -6,11 +6,11 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
-const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
+// const KeenSliderA = dynamic(import('@components/mycp/KeenSlider/KeenSliderA'))
 const Button = dynamic(import('@components/mycp/Button'))
 const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
-
+import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 import 'keen-slider/keen-slider.min.css'
 
 
