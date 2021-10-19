@@ -8,7 +8,7 @@ import type { Page } from '@commerce/types/page'
 import type { Category } from '@commerce/types/site'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
 import { LoadingDots } from '@components/ui'
-
+const Head = dynamic(import('next/head'))
 const Navbar = dynamic(import('@components/common/Navbar'))
 const Footer = dynamic(import('@components/common/Footer'))
 const Button = dynamic(import('@components/mycp/Button'))
@@ -142,7 +142,7 @@ const Layout: FC<Props> = ({
   return (
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
-      {/* <Head>
+      <Head>
         <link
             rel="preload"
             href="/assets/fonts/TTCommons/TTCommons-Bold.otf"
@@ -161,7 +161,7 @@ const Layout: FC<Props> = ({
             as="font"
             crossOrigin=""
           />
-      </Head> */}
+      </Head>
         <Navbar c_name="bg-c_00080D"/>
         <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />

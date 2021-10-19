@@ -296,14 +296,16 @@ export default function Home({
                       h-103 md:h-117
                       px-5 md:px-0">
         <div className="flex flex-col h-full">
-          <div className="ttcommon_font_bold my-auto
+          <div className="ttcommon_font_bold
                           text-2xl md:text-4xl
                           leading-tight md:leading-36_26">Intraline is Confidence.</div>
           <p className="ttcommon_font_thin my-auto text-c_00080D mx-auto max-w-lg
                         text-2xl md:text-4xl
                         leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <a href="/aboutus">
-            <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
+            <div className='flex justify-center'>
+              <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
+            </div>
           </a>
         </div>
         <div className="absolute top-0 left-0
