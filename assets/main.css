@@ -10,17 +10,17 @@
 @font-face {
     font-family: ttcommon_font;
     src: url('../public/assets/fonts/TTCommons/TTCommons-Regular.woff2');
-    font-display: swap;
+    font-display: fallback;
 }
 @font-face {
     font-family: ttcommon_font_thin;
     src: url("../public/assets/fonts/TTCommons/TTCommons-Thin.woff2");
-    font-display: swap;
+    font-display: fallback;
 }
 @font-face {
     font-family: ttcommon_font_bold;
     src: url("../public/assets/fonts/TTCommons/TTCommons-Bold.woff2");
-    font-display: swap;
+    font-display: fallback;
 }
 
 /* custom css */
