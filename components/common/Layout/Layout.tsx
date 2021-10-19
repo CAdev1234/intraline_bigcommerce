@@ -143,7 +143,7 @@ const Layout: FC<Props> = ({
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
       <Head>
-        <link
+        {/* <link
             rel="preload"
             href="/assets/fonts/TTCommons/TTCommons-Bold.woff2"
             as="font"
@@ -163,7 +163,7 @@ const Layout: FC<Props> = ({
             as="font"
             type='font/woff2'
             crossOrigin="anonymous"
-          />
+          /> */}
           <link rel="shortcut icon" href="/assets/img/favicon.webp" />
       </Head>
         <Navbar c_name="bg-c_00080D"/>
