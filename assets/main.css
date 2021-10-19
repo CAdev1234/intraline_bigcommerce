@@ -9,17 +9,17 @@
 
 @font-face {
     font-family: ttcommon_font;
-    src: url('../public/assets/fonts/TTCommons/TTCommons-Regular.otf');
+    src: url('../public/assets/fonts/TTCommons/TTCommons-Regular.woff');
     font-display: swap;
 }
 @font-face {
     font-family: ttcommon_font_thin;
-    src: url("../public/assets/fonts/TTCommons/TTCommons-Thin.otf");
+    src: url("../public/assets/fonts/TTCommons/TTCommons-Thin.woff");
     font-display: swap;
 }
 @font-face {
     font-family: ttcommon_font_bold;
-    src: url("../public/assets/fonts/TTCommons/TTCommons-Bold.otf");
+    src: url("../public/assets/fonts/TTCommons/TTCommons-Bold.woff");
     font-display: swap;
 }
 
