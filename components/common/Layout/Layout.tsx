@@ -12,7 +12,7 @@ import { Sidebar, Modal, LoadingDots } from '@components/ui'
 
 
 const Button = dynamic(import('@components/mycp/Button'))
-
+const Head = dynamic(import('next/head'))
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
@@ -144,7 +144,26 @@ const Layout: FC<Props> = ({
   return (
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
-        {/* <Navbar links={navBarlinks} /> */}
+      <Head>
+        <link
+            rel="preload"
+            href="/assets/fonts/TTCommons/TTCommons-Bold.otf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/assets/fonts/TTCommons/TTCommons-Regular.otf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/assets/fonts/TTCommons/TTCommons-Thin.otf"
+            as="font"
+            crossOrigin=""
+          />
+      </Head>
         <Navbar c_name="bg-c_00080D"/>
         <main className="fit">{children}</main>
         <Footer pages={pageProps.pages} />

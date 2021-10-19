@@ -75,7 +75,7 @@ const RenderCategorySwiper = () => {
                       <div className="relative flex-1">
                         <div className='image-container'>
                           {item.img !== undefined && <Image className='image' src={item.img} alt="" layout="fill" />}
-                          <div className={`w-full aspect-w-1 aspect-h-1 bg-white ${item.img !== undefined ? 'hidden' : 'block'}`}>
+                          <div className={`w-full aspect-w-1 aspect-h-1 bg-c_F4511E ${item.img !== undefined ? 'hidden' : 'block'}`}>
                             <div className='w-full h-full'></div>
                           </div>
                         </div>

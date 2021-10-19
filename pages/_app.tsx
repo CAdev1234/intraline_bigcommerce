@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head></Head>
+      <Head />
       <ManagedUIContext>
         <CookiesProvider>
           <ReduxProvider store={store}>
