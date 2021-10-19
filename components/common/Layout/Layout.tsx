@@ -161,6 +161,7 @@ const Layout: FC<Props> = ({
             as="font"
             crossOrigin=""
           />
+          <link rel="shortcut icon" href="/assets/img/favicon.webp" />
       </Head>
         <Navbar c_name="bg-c_00080D"/>
         <main className="fit">{children}</main>
