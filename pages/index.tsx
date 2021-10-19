@@ -79,7 +79,7 @@ const RenderCategorySwiper = () => {
                           <div className='w-full h-full'></div>
                         </div> */}
                       </div>
-                      <div className="ttcommon_font_bold uppercase text-center tracking-widest my-5 flex justify-center items-center text-xl
+                      <div className="flex-1 ttcommon_font_bold uppercase text-center tracking-widest flex justify-center items-center text-xl
                                        leading-14_17 md:leading-none">{item.name}</div>
                     </div>
                       
