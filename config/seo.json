@@ -1,20 +1,20 @@
 {
   "title": "Intraline",
-  "titleTemplate": "%s - Store - Hazard",
-  "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+  "titleTemplate": "%s Dermal Fillers, PDO Threads, & Medical Aesthetics",
+  "description": "Intraline offers Hyaluronic Acid Dermal Fillers, PDO Threads, Skin Care, and medical aesthetics. Explore products and treatment options.",
   "openGraph": {
-    "title": "ACME Storefront | Powered by Next.js Commerce",
-    "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+    "title": "Intraline Dermal Fillers, PDO Threads, & Medical Aesthetics",
+    "description": "Intraline offers Hyaluronic Acid Dermal Fillers, PDO Threads, Skin Care, and medical aesthetics. Explore products and treatment options.",
     "type": "website",
     "locale": "en_IE",
     "url": "https://nextjs.org/commerce",
-    "site_name": "Next.js Commerce",
+    "site_name": "Intraline Dermal Fillers, PDO Threads, & Medical Aesthetics",
     "images": [
       {
         "url": "/card.png",
         "width": 800,
         "height": 600,
-        "alt": "Next.js Commerce"
+        "alt": "Intraline Dermal Fillers, PDO Threads, & Medical Aesthetics"
       }
     ]
   },
