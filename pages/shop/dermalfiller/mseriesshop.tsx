@@ -77,14 +77,14 @@ export default function MseriesShop() {
         })
     }
     return (
-        <div className="ttcommon_font flex flex-col
+        <div className="flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
                 <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest
                                 mx-5 sm:px-15">
                     <div className="flex items-center cursor-pointer">
-                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
                         <span className="mr-1 ttcommon_font">Shop</span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>

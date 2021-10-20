@@ -23,7 +23,7 @@ export default function SearchResult() {
         router.push(path)
     }
     return (
-        <div className="ttcommon_font text-c_00080D bg-white flex flex-col
+        <div className="text-c_00080D bg-white flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="ttcommon_font_bold text-6xl mt-10 mb-10 text-center
@@ -32,13 +32,13 @@ export default function SearchResult() {
                 <div className="py-15
                                 px-5 md:px-15 lg:px-172">
                     {searchResult.length === 0 && 
-                        <div className="ttcommon_font text-2xl">There is no item.</div>
+                        <div className="text-2xl">There is no item.</div>
                     }
                     {searchResult.map((item, index) => {
                         return <div key={`search_result_${index}`}>
                                     <div className="bg-white p-5 mb-5 hover:bg-black hover:text-white cursor-pointer" onClick={() => {gotoProductHandler(item.link as string)}}>
                                         <div className="ttcommon_font_bold text-4xl leading-36_26">{item.title}</div>
-                                        <div className="mt-5 ttcommon_font_thin leading-14_26">{item.detail}</div>
+                                        <div className="mt-5 leading-14_26">{item.detail}</div>
                                     </div>
                                 </div>
                     })}

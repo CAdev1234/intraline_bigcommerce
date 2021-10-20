@@ -9,7 +9,7 @@ const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 export default function ForgotPassword() {
     
     return (
-        <div>
+        <div className='ttcommon_font'>
             <div className="h-15 w-full bg-transparent"></div>
             <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
                 <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">

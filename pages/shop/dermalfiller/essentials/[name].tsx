@@ -61,7 +61,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
     let essential_li = [
         {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
         {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
-        {id: 'product_0000-000000-0006', title: 'Intraline Three', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
+        {id: 'product_0000-000000-0006', title: 'Intraline For Men', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
     ]
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
@@ -136,14 +136,14 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                         </div>
                         <div className="mt-5 ttcommon_font_bold uppercase text-center text-color_1 tracking-widest text-2xl">{item.title}</div>
                         <div className="mt-2 px-3 leading-14_26 text-center">{item.detail}</div>
-                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 transition duration-500 ease-linear hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
                                         <Button className="h-11 w-full">learn more</Button>
                                     </Link>
                                     
-                                    {logined && <div className="ttcommon_font mt-2 flex items-center h-11 text-white">
+                                    {logined && <div className="mt-2 flex items-center h-11 text-white">
                                         <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
                                             <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumMseriesHandler(event)}}>-</button>
                                             <div className="mx-auto">1</div>
@@ -182,7 +182,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                         <div className="mt-2 text-center px-4
                                     text-xs sm:text-base
                                     leading-normal sm:leading-14_26">{item.detail}</div>
-                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
+                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-c_C6CBDD bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                             <div className="my-auto mx-auto w-10/12">
                                 <div className="flex flex-col">
                                     <Link href={item.link}>
@@ -201,7 +201,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
     }
     
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="h-15 w-full bg-transparent"></div>
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
@@ -226,7 +226,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                         <div className="px-5 mt-7 flex items-center uppercase leading-14_17 tracking-widest relative z-10">
                             <div className="flex items-center flex-wrap cursor-pointer
                                             w-10/12">
-                                <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                                <span className="mr-1"><Link href="/">Home</Link></span>
                                 <span className="mr-1"><ChevronRight className="w-4" /></span>
                                 <span className="mr-1 ttcommon_font">Shop</span>
                                 <span className="mr-1"><ChevronRight className="w-4" /></span>
@@ -270,16 +270,16 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                         pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15">
                             <div className="mt-0 md:mt-28">
                                 <div className="ttcommon_font_bold text-4xl leading-36_48 mt-7_5">The minimalist.</div>
-                                <div className="ttcommon_font_thin font-semibold
+                                <div className="ttcommon_font
                                                 text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
                                                 leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinethree') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Three</div>
                                 </div>
-                                <div className="ttcommon_font mt-5 leading-36_48
+                                <div className="mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Enhancing more of what you love.</div>
-                                <div className="ttcommon_font_thin mt-2 leading-14_26
+                                <div className="mt-2 leading-14_26
                                                 md:mr-5 lg:mr-36">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
@@ -337,7 +337,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="items-center justify-center
                                 hidden md:flex">
-                    <span className="ttcommon_font uppercase tracking-widest">Scroll for more details</span>
+                    <span className="uppercase tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>
             </div>
@@ -351,7 +351,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Indications</div>
-                    <p className="mt-6 ttcommon_font_thin text-center
+                    <p className="mt-6 text-center
                                 text-2xl md:text-4xl
                                 leading-36_48 md:leading-36_48">{product_info.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
@@ -383,56 +383,56 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                         <div className="flex items-start w-full">
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Type</div>
-                                                <div className="ttcommon_font_thin leading-14_26">Monophasic dermal filler.</div>
+                                                <div className="leading-14_26">Monophasic dermal filler.</div>
                                             </div>
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">TOTAL HA CONCENTRATION</div>
-                                                <div className="ttcommon_font_thin leading-14_26">24 MG/ML</div>
+                                                <div className="leading-14_26">24 MG/ML</div>
                                             </div>
                                         </div>
                                         <div className="mt-7 flex items-start w-full">
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Average gel particle size</div>
-                                                <div className="ttcommon_font_thin leading-14_26">Small</div>
+                                                <div className="leading-14_26">Small</div>
                                             </div>
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Cross linking</div>
-                                                <div className="ttcommon_font_thin leading-14_26">BODE(1UG/ML)</div>
+                                                <div className="leading-14_26">BODE(1UG/ML)</div>
                                             </div>
                                         </div>
                                         <div className="mt-7 flex items-start w-full">
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Level of injection</div>
-                                                <div className="ttcommon_font_thin leading-14_26">Upper dermis.</div>
+                                                <div className="leading-14_26">Upper dermis.</div>
                                             </div>
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">PACKAGING</div>
-                                                <div className="ttcommon_font_thin leading-14_26">1 Syringe & 2 Sterile Needles.</div>
+                                                <div className="leading-14_26">1 Syringe & 2 Sterile Needles.</div>
                                             </div>
                                         </div>
                                         <div className="mt-7 flex items-start w-full">
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Volume</div>
-                                                <div className="ttcommon_font_thin leading-14_26">11ML</div>
+                                                <div className="leading-14_26">11ML</div>
                                             </div>
                                             <div className="w-1/2">
                                                 <div className="uppercase leading-14_17">Lidocaine</div>
-                                                <div className="ttcommon_font_thin leading-14_26">3MG/ML</div>
+                                                <div className="leading-14_26">3MG/ML</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-10 flex items-center h-11 text-white">
+                                    {logined && <div className="mt-10 flex items-center h-11 text-white">
                                         <Button className="h-full flex-1">Buy {product_info.title} now</Button>
-                                    </div>
+                                    </div>}
                                 </div>
                                 
                             </div>
                             
                         </div>
                         <div className="w-1/2">
-                            <div className="ttcommon_font_thin text-4xl leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
+                            <div className="text-4xl leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Rheology.</div>
-                            <div className="ttcommon_font_thin mt-5 text-4xl leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
+                            <div className="mt-5 text-4xl leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
                         </div>
                     </div>
                     
@@ -459,56 +459,56 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 <div className="flex items-start w-full">
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Type</div>
-                                        <div className="ttcommon_font_thin leading-14_26">Monophasic dermal filler.</div>
+                                        <div className="leading-14_26">Monophasic dermal filler.</div>
                                     </div>
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">TOTAL HA CONCENTRATION</div>
-                                        <div className="ttcommon_font_thin leading-14_26">24 MG/ML</div>
+                                        <div className="leading-14_26">24 MG/ML</div>
                                     </div>
                                 </div>
                                 <div className="mt-7 flex items-start w-full">
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Average gel particle size</div>
-                                        <div className="ttcommon_font_thin leading-14_26">Small</div>
+                                        <div className="leading-14_26">Small</div>
                                     </div>
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Cross linking</div>
-                                        <div className="ttcommon_font_thin leading-14_26">BODE(1UG/ML)</div>
+                                        <div className="leading-14_26">BODE(1UG/ML)</div>
                                     </div>
                                 </div>
                                 <div className="mt-7 flex items-start w-full">
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Level of injection</div>
-                                        <div className="ttcommon_font_thin leading-14_26">Upper dermis.</div>
+                                        <div className="leading-14_26">Upper dermis.</div>
                                     </div>
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">PACKAGING</div>
-                                        <div className="ttcommon_font_thin leading-14_26">1 Syringe & 2 Sterile Needles.</div>
+                                        <div className="leading-14_26">1 Syringe & 2 Sterile Needles.</div>
                                     </div>
                                 </div>
                                 <div className="mt-7 flex items-start w-full">
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Volume</div>
-                                        <div className="ttcommon_font_thin leading-14_26">11ML</div>
+                                        <div className="leading-14_26">11ML</div>
                                     </div>
                                     <div className="w-1/2">
                                         <div className="uppercase leading-14_17">Lidocaine</div>
-                                        <div className="ttcommon_font_thin leading-14_26">3MG/ML</div>
+                                        <div className="leading-14_26">3MG/ML</div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-10 flex items-center h-11 text-white">
+                            {logined && <div className="mt-10 flex items-center h-11 text-white">
                                 <Button className="h-full flex-1">Buy {product_info.title} now</Button>
-                            </div>
+                            </div>}
                         </div>
                         
                     </div>
                     
                 </div>
                 <div className="w-full text-2xl text-center mt-10">
-                    <div className="ttcommon_font_thin leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
+                    <div className="leading-36_48">Monophasic dermal filler with lidocaine.For fine to medium wrinkles.Each unit comes with two different needles .</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">Rheology.</div>
-                    <div className="ttcommon_font_thin mt-2_5 leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
+                    <div className="mt-2_5 leading-36_48">Low viscosity.<br />Low complex modulus.<br />Low phase angle.</div>
                 </div>
             </div>
             

@@ -93,9 +93,9 @@ export default function Essentials() {
 
     const renderMSeriesSwiper = () => {
         let essential_series_li = [
-            {title: "INTRALINE ONE", price: 100, img: '/assets/img/mseries_1.webp', link: '/shop/dermalfiller/essentials/intralineone'},
-            {title: "INTRALINE TWO", price: 100, img: '/assets/img/mseries_2.webp', link: '/shop/dermalfiller/essentials/intralinetwo'},
-            {title: "INTRALINE THREE", price: 100, img: '/assets/img/mseries_2.webp', link: '/shop/dermalfiller/essentials/intralinethree'},
+            {title: "INTRALINE ONE", price: 100, img: '/assets/img/intraline_1.webp', link: '/shop/dermalfiller/essentials/intralineone'},
+            {title: "INTRALINE TWO", price: 100, img: '/assets/img/intraline_2.webp', link: '/shop/dermalfiller/essentials/intralinetwo'},
+            {title: "INTRALINE FOR MEN", price: 100, img: '/assets/img/intraline_3.webp', link: '/shop/dermalfiller/essentials/intralinethree'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" 
@@ -107,7 +107,7 @@ export default function Essentials() {
                                 </div>
                             </div>
                         </div>
-                        <div className="ttcommon_font font-semibold uppercase text-2xl leading-24_29 text-center">{item.title}</div>
+                        <div className="uppercase text-2xl leading-24_29 text-center">{item.title}</div>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
                             <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white"
                                     onClick={() => {router.push(item.link)}}>
@@ -127,7 +127,7 @@ export default function Essentials() {
     }
 
     return(
-        <div className="ttcommon_font text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="absolute top-0 left-0 w-full flex overflow-hidden
                             h-auto sm:h-175 md:h-225 lg:h-225 xl:h-225 2xl:h-225">
@@ -167,7 +167,7 @@ export default function Essentials() {
                         <div className="flex flex-col">
                             <div className="">
                                 <div>
-                                    <div className="ttcommon_font_thin font-semibold
+                                    <div className="ttcommon_font
                                                     text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                     leading-none md:leading-200_160 lg:leading-200_160 xl:leading-200_160">The</div>
                                     <div className="ttcommon_font_bold
@@ -177,7 +177,7 @@ export default function Essentials() {
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
                                                 sm:w-6/12 md:w-5/12 lg:w-131_5">
-                                    <div className="ttcommon_font_thin w-full font-semibold mt-8 text-c_00080D
+                                    <div className="w-full mt-8 text-c_00080D
                                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
                                                     leading-36_48 sm:leading-36_48 md:leading-36_48 lg:leading-36_48 xl:leading-36_48
                                                     ">Essentials from Intraline is the next generation of monophasic dermal fillers with lidocaine. </div>
@@ -246,7 +246,7 @@ export default function Essentials() {
                         <div className="my-auto">
                             <div className="text-base tracking-widest">THE M SERIES were created for maximum</div>
                             <div className="ttcommon_font_bold text-4xl leading-36_48 mt-2_5 uppercase">Function, versatility & impact.</div>
-                            <div className="ttcommon_font_thin mt-7_5
+                            <div className="mt-7_5
                                             text-2xl md:text-3xl lg:text-4xl
                                             leading-36_48 md:leading-36_48 lg:leading-36_48">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                             <div className="progress-bar-container bg-white w-full h-1 mt-12_5">
@@ -293,7 +293,7 @@ export default function Essentials() {
                 <div className="flex flex-col w-full h-full mt-20 px-5">
                     <div className="text-base tracking-widest uppercase">THE M SERIES were created for maximum</div>
                     <div className="ttcommon_font_bold text-2xl leading-36_48 mt-2_5">Function, versatility & impact.</div>
-                    <div className="ttcommon_font_thin mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
+                    <div className="mt-5 leading-36_48 text-2xl">Our fillers are made using patent-pending technology to harness the power of a highly pure, highly cross-linked hyaluronic acid; a completely natural substance that harmonizes with the skin, creating long-lasting and natural looking results.</div>
                 </div>
             </div>
 
@@ -305,12 +305,12 @@ export default function Essentials() {
                     <div className="ttcommon_font_bold text-center mx-auto
                                     text-2xl sm:text-4xl
                                     leading-24_29 sm:leading-36_26">Mesmerizing, Modern, and Memorable.</div>
-                    <p className="mt-6 ttcommon_font_thin text-center
+                    <p className="mt-6 text-center
                                 text-2xl sm:text-4xl
                                 leading-9 sm:leading-36_48">Intraline Essentials dermal fillers have high visco-elasticity levels to give long-lasting volume.</p>
                     <div className="mt-8">
                         <Link href="/shop/dermalfiller/essentialsshop">
-                            <Button className="mx-auto h-11 w-90">Shop now the essential series</Button>
+                            <Button className="mx-auto h-11 w-90">Shop essential series now</Button>
                         </Link>
                     </div>
                 </div>

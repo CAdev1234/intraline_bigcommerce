@@ -168,7 +168,7 @@ export default function SkinCare() {
         setEnableQues(new_array)
     }
     return(
-        <div className="ttcommon_font text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="w-full h-15 bg-transparent"></div>
             <div className="bg-c_C6CBDD w-full pb-32 flex flex-col
@@ -186,20 +186,20 @@ export default function SkinCare() {
                 <div className="flex items-end w-full
                                 mt-16 sm:mt-10 md:mt-15 lg:mt-28">
                     <div className="w-1/2">
-                        <div className="ttcommon_font_thin font-semibold
+                        <div className="ttcommon_font
                                         leading-none xl:leading-200_160
                                         text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">Skin</div>
                         <div className="ttcommon_font_bold
                                         leading-none xl:leading-200_160
                                         text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >Care</div>
                     </div>
-                    <div className="max-w-128 w-1/2 ttcommon_font_thin
+                    <div className="max-w-128 w-1/2 ttcommon_font
                                     hidden md:block
                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
                         Immerse your skin in intense moisture while smoothing, tightening & rejuvenating.
                     </div>
                 </div>
-                <div className="max-w-128 ttcommon_font_thin
+                <div className="max-w-128 ttcommon_font
                                 block md:hidden
                                 mt-5 md:mt-0
                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">
@@ -231,7 +231,7 @@ export default function SkinCare() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                                        <div className="absolute top-0 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 hover:opacity-100">
                                             <div className="my-auto mx-auto w-10/12">
                                                 <div className="flex flex-col text-white w-64 mx-auto">
                                                     <Link href={item.link}>
@@ -255,7 +255,7 @@ export default function SkinCare() {
                                         </div>
                                         
                                     </div>
-                                    <div className="ttcommon_font_thin mt-8 text-c_00080D
+                                    <div className="mt-8 text-c_00080D
                                                     text-xl md:text-2xl">{item.detail}</div>
                                 </div>
                     })}
@@ -297,7 +297,7 @@ export default function SkinCare() {
                             {question_li.map((item, index) => {
                                 return enableIngredient[index] && <div key={`ingredient_detail_${index}`}>
                                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">What is {item.title}?</div>
-                                            <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
+                                            <div className="mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
                                         </div>
                             })}
                             
@@ -337,7 +337,7 @@ export default function SkinCare() {
                                                                 <ChevronUp />
                                                             </div>
                                                         </div>
-                                                        <div className={`ttcommon_font_thin ${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
+                                                        <div className={`${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
                                                                
                                                     </div>
                                         })}

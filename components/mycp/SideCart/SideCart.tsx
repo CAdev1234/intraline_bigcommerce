@@ -45,7 +45,7 @@ const SideCart: FC<SideCartProps> = ({className}) => {
     return (
         <div className={`${rootClassName}`}>
             <div className={`${s.side_cart_bg} ${enableSideCart ? 'block' : 'hidden'}`}></div>
-            <div className={`ttcommon_font_thin ${s.side_cart_body}`}
+            <div className={`${s.side_cart_body}`}
                 style={{transform: `${enableSideCart ? 'translateX(0px)' : 'translateX(1000px)'}`}}>
                 <div className="relative h-full flex flex-col py-12">
                     <div className="px-7 flex flex-col flex-1 h-0">
@@ -72,7 +72,7 @@ const SideCart: FC<SideCartProps> = ({className}) => {
                     <div className="h-px w-full bg-gray-500 mt-auto"></div>
                     <div className="px-7 tracking-widest">
                         <div className="mt-7 flex items-center text-base leading-14_17">
-                            <div className="ttcommon_font uppercase">Subtotal:</div>
+                            <div className="uppercase">Subtotal:</div>
                             <div className="ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
                         <div className="mt-7">

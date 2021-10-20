@@ -121,7 +121,7 @@ export default function DemeralFiller() {
         }
     }
     return(
-        <div className="ttcommon_font text-c_00080D
+        <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
@@ -152,13 +152,13 @@ export default function DemeralFiller() {
                                 mt-16 sm:mt-10 md:mt-15 lg:mt-28
                                 block sm:flex">
                     <div className="w-full sm:w-1/2">
-                        <div className="ttcommon_font_thin font-semibold leading-200_160
+                        <div className="leading-200_160
                                         text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px">Dermal</div>
                         <div className="ttcommon_font_bold leading-200_160
                                         text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px" >Fillers</div>
                     </div>
                     <div className="flex-1
-                                    leading-36_48 ttcommon_font_thin
+                                    leading-36_48 ttcommon_font
                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl
                                     mt-5 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0" style={{maxWidth: 427 + 'px'}}>
                         Carefully developed after years of research, Intraline's line up of six dermal fillers are CE marked and designed to treat all areas.
@@ -182,7 +182,7 @@ export default function DemeralFiller() {
                                         leading-none sm:leading-36_48">The Essential Series.</div>
                         <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
                             <Image className="max-h-96" src={essentialSeriesImg} alt="" />
-                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
                                         <Link href="/shop/dermalfiller/essentials">
@@ -192,7 +192,7 @@ export default function DemeralFiller() {
                                 </div>
                             </div>
                         </div>
-                        <div className="ttcommon_font_thin mt-7_5 text-c_00080D
+                        <div className="mt-7_5 text-c_00080D
                                         text-2xl xl:text-4xl 2xl:text-4xl
                                         leading-8 sm:leading-36_48">Biphasic dermal fillers manufactured with over 30 years of Swedish research.</div>
                     </div>
@@ -201,7 +201,7 @@ export default function DemeralFiller() {
                                         text-3xl xl:text-4xl 2xl:text-4xl">The M Series.</div>
                         <div className="relative mt-10 w-full border-none flex flex-col">
                             <Image src={MSeriesImg} alt="mseries image"/>
-                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 hover:opacity-100">
+                            <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
                                     <div className="flex flex-col">
                                         <Link href="/shop/dermalfiller/mseries">
@@ -211,7 +211,7 @@ export default function DemeralFiller() {
                                 </div>
                             </div>
                         </div>
-                        <div className="leading-36_48 ttcommon_font_thin mt-7_5 text-c_00080D
+                        <div className="leading-36_48 mt-7_5 text-c_00080D
                                         text-2xl xl:text-4xl 2xl:text-4xl">The next generation of monophasic dermal fillers with lidocaine.</div>
                     </div>
                 </div>

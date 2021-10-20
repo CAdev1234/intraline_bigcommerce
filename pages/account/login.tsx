@@ -53,7 +53,7 @@ export default function Login() {
 
 
     return (
-        <div className="mt-16 md:mt-0">
+        <div className="ttcommon_font mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
                 autoClose={1500}

@@ -47,7 +47,7 @@ export default function AboutUs() {
         }
     ]
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="relative w-full flex flex-col mt-15">
                 <div className="w-full aspect-w-16 aspect-h-9">
@@ -64,7 +64,7 @@ export default function AboutUs() {
                                 px-5 md:px-0">
                     <div className="ttcommon_font_bold leading-36_26 text-center
                                     text-2xl md:text-4xl">Confidence is Ageless.</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                    <p className="leading-36_48 mt-6 text-center
                                 text-2xl md:text-4xl">We believe that people matter, therefore we listen and commit ourselves to excellence in all that we do. Your story is our story, and we are proud to grow together.</p>
                 </div>
             </div>
@@ -80,7 +80,7 @@ export default function AboutUs() {
                                     <div className="mt-7_5">
                                         <Image className="w-full" src={item.img} alt={`aboutus_sec_${index}`} />
                                     </div>
-                                    <div className="mt-7_5 ttcommon_font_thin leading-14_26">{item.detail}</div>
+                                    <div className="mt-7_5 leading-14_26">{item.detail}</div>
                                 </div>
                     })}
                 </div>
@@ -117,16 +117,16 @@ export default function AboutUs() {
                             <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin leading-14_17">
+                            <div className="leading-14_17">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font_bold underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5 flex items-center">
                             <div className="flex">
-                                <Checkbox id="aboutus_checkbox" defaultChecked={true} className="ttcommon_font_thin" type="checkbox" label="I agree to receive other communications from Intraline."/>
+                                <Checkbox id="aboutus_checkbox" defaultChecked={true} className="ttcommon_font" type="checkbox" label="I agree to receive other communications from Intraline."/>
                             </div>
                         </div>
                         <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>

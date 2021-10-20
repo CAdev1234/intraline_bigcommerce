@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
             aria-pressed={active}
             data-variant={variant}
             ref={mergeRefs([ref, buttonRef])}
-            className={`ttcommon_font ${rootClassName}`}
+            className={`${rootClassName}`}
             disabled={disabled}
             style={{
                 width,

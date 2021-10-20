@@ -7,7 +7,7 @@ const Link = dynamic(import('@components/ui/Link'))
 
 export default function CheckoutConfirm() {
     return (
-        <div className="ttcommon_font_thin text-c_00080D">
+        <div className="text-c_00080D ttcommon_font">
             <div className="bg-transparent h-15 w-full"></div>
             <div className="items-center w-full h-full
                             block md:flex">
@@ -18,11 +18,11 @@ export default function CheckoutConfirm() {
                                 pb-15 md:pb-40">
                     <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer flex-wrap">
-                            <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                            <span className="mr-1"><Link href="/">Home</Link></span>
                             <span className="mr-1"><ChevronRight className="w-4" /></span>
-                            <span className="ttcommon_font mr-1"><Link href="/shop/shoppingbag">Shopping Bag</Link></span>
+                            <span className="mr-1"><Link href="/shop/shoppingbag">Shopping Bag</Link></span>
                             <span className="mr-1"><ChevronRight className="w-4"/></span>
-                            <span className="ttcommon_font mr-1"><Link href="/shop/checkout">Checkout</Link></span>
+                            <span className="mr-1"><Link href="/shop/checkout">Checkout</Link></span>
                             <span className="mr-1"><ChevronRight className="w-4"/></span>
                             <span className="ttcommon_font_bold"><Link href="/shop/checkout/confirm">Confirmation</Link></span>
                         </div>

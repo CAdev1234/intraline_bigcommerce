@@ -207,7 +207,7 @@ export default function MyAccount() {
     }
 
     return (
-        <div className="ttcommon_font_thin text-c_00080D
+        <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <div className="h-15 w-full"></div>
             <div className="pt-12_5 pb-25 bg-c_CCE7EF
@@ -238,15 +238,15 @@ export default function MyAccount() {
                             <span className="ml-2.5">{user.mobile}</span>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Edit information</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {logoutHandler()}}>Log out</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {delAccountHandler()}}>Delete account</button>
                         </div>
                     </div>
@@ -262,7 +262,7 @@ export default function MyAccount() {
                             <div>{ship_address.city}, {ship_address.country} {ship_address.postcode}</div>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editShippingAddressHandler()}}>Edit information</button>
                         </div>
                         <div className="mt-7_5 leading-14_26">
@@ -277,12 +277,12 @@ export default function MyAccount() {
                             }
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editBillAddressHandler()}}>Edit information</button>
                         </div>
                         {bill_address.address === "" && 
                             <div>
-                                <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
+                                <button className="mt-5 uppercase leading-14_17 tracking-widest underline"
                                     onClick={() => {addBillAddressHandler()}}>Add Address</button>
                             </div>
                         }
@@ -303,11 +303,11 @@ export default function MyAccount() {
                                     </div>
                         })}
                         <div>
-                            <button className="ttcommon_font mt-7_5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-7_5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {editPaymentHandler()}}>Edit Payment Method</button>
                         </div>
                         <div>
-                            <button className="ttcommon_font mt-5 uppercase leading-14_17 tracking-widest underline"
+                            <button className="mt-5 uppercase leading-14_17 tracking-widest underline"
                                 onClick={() => {addPaymentHandler()}}>Add Payment Method</button>
                         </div>
                     </div>
@@ -326,7 +326,7 @@ export default function MyAccount() {
                     <div className="text-base leading-14_26 text-center uppercase w-1/5">tracking</div>
                 </div>
                 {order_li.length === 0 &&
-                    <div className="text-5xl text-c_00080D ttcommon_font text-center my-10">There is no order.</div>
+                    <div className="text-5xl text-c_00080D text-center my-10">There is no order.</div>
                 }
                 <div className="">
                     {order_li.map((item, index) => {
@@ -450,7 +450,7 @@ export default function MyAccount() {
                     })}
                 </div>
                 {/* {order_li.length === 0 &&
-                    <div className="text-5xl text-c_00080D ttcommon_font text-center my-10">There is no order.</div>
+                    <div className="text-5xl text-c_00080D text-center my-10">There is no order.</div>
                 } */}
             </div>
 
@@ -462,7 +462,7 @@ export default function MyAccount() {
                     <div className="ttcommon_font_bold text-2xl leading-24_29 tracking-widest uppercase text-center">Product Reviews</div>
                     <div className="mt-7_5">
                         {review_li.length === 0 && 
-                            <div className="text-center text-5xl ttcommon_font mb-25">There is no review.</div>
+                            <div className="text-center text-5xl mb-25">There is no review.</div>
                         }
                         {review_li.map((item, index) => {
                             return <div className="bg-white p-7_5 mb-2.5
@@ -481,7 +481,7 @@ export default function MyAccount() {
                                             <RatingView ratingValue={item.rating as number} size={30} className="foo" fillColor="#52B5D3" emptyColor="rgba(82, 181, 211, 0.3)" />
                                         </div>
                                         <div className="mt-2_5 leading-14_17 break-words">{item.detail}</div>
-                                        <div className="ttcommon_font mt-7_5 leading-14_17 tracking-widest uppercase underline flex items-center">
+                                        <div className="mt-7_5 leading-14_17 tracking-widest uppercase underline flex items-center">
                                             <button className="uppercase" onClick={() => {showEditReviewModalHandler(index)}}>Edit</button>
                                             <button className="ml-5 uppercase" onClick={() => {showDelReviewModalHandler(index)}}>Delete review</button>
                                         </div>
@@ -530,7 +530,7 @@ export default function MyAccount() {
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-base h-11 w-64"
                                         onClick={() => {submitUpdatedUserHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
+                                    <button className="uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {showEditAccountModalHandler(enableEditAccountModal)}}>
@@ -585,7 +585,7 @@ export default function MyAccount() {
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-base h-11 w-64"
                                         onClick={() => {submitNewReviewHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
+                                    <button className="uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {showAddReviewModalHandler(enableAddReviewModal)}}>
@@ -646,7 +646,7 @@ export default function MyAccount() {
                                 <div className="mt-7_5 flex items-center">
                                     <Button className="text-base h-11 w-64"
                                         onClick={() => {submitEditReviewHandler()}}>Submit</Button>
-                                    <button className="ttcommon_font uppercase underline tracking-widest ml-7_5"
+                                    <button className="uppercase underline tracking-widest ml-7_5"
                                         onClick={() => {closeEditReviewModalHandler()}}>Cancel</button>
                                 </div>
                                 <button className="absolute top-6 right-6" onClick={() => {closeEditReviewModalHandler()}}>

@@ -119,7 +119,7 @@ export default function PDOThread() {
                                 </div>
                             </div>
                         </div>
-                        <div className="ttcommon_font font-semibold uppercase text-2xl leading-24_29 text-center">{item.title}</div>
+                        <div className="uppercase text-2xl leading-24_29 text-center">{item.title}</div>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col opacity-0 group-hover:opacity-100">
                             <button className="my-auto mx-auto w-20 h-20 flex justify-center items-center bg-c_00080D rounded-full text-white"
                                     onClick={() => {router.push(item.link)}}>
@@ -139,7 +139,7 @@ export default function PDOThread() {
                     dotCss={"mt-7_5"}/>
     }
     return(
-        <div className="ttcommon_font text-c_00080D
+        <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-white w-full flex-col
@@ -164,13 +164,13 @@ export default function PDOThread() {
                     <div className="flex w-full h-full px-15">
                         <div className="w-7/12 flex flex-col">
                             <div className="">
-                                <div className="ttcommon_font_thin font-semibold
+                                <div className="ttcommon_font
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                 leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160">PDO</div>
                                 <div className="ttcommon_font_bold
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                 leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160" >Threads</div>
-                                <div className="leading-36_48 ttcommon_font_thin font-semibold mt-8 mx-auto max-w-134_5
+                                <div className="leading-36_48 mt-8 mx-auto max-w-134_5
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                             </div>
                         </div>
@@ -206,13 +206,13 @@ export default function PDOThread() {
                     <div className="flex w-full h-full px-5">
                         <div className="flex flex-col">
                             <div className="">
-                                <div className="ttcommon_font_thin font-semibold
+                                <div className="ttcommon_font
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                 leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160">PDO</div>
                                 <div className="ttcommon_font_bold
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                 leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160" >Threads</div>
-                                <div className="leading-36_48 ttcommon_font_thin font-semibold mt-8 mx-auto max-w-134_5
+                                <div className="leading-36_48 mt-8 mx-auto max-w-134_5
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@ export default function PDOThread() {
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Polydioxanone Threads.</div>
-                    <p className="leading-36_48 mt-6 ttcommon_font_thin text-center
+                    <p className="leading-36_48 mt-6 text-center
                                 px-5 md:px-15
                                 text-2xl md:text-4xl">Intraline’s PDO threads are CE marked with an excellent safety profile and virtually non-allergenic. PDO suture use has nearly 40 years of medical history supporting its use.</p>
                     <div className="mt-8">
@@ -283,12 +283,12 @@ export default function PDOThread() {
                                 return <div key={`ingredient_detail_${index}`} className={`${enableQues[index] ? 'block' : 'hidden'}`}>
                                         <animated.div style={fade_in_out_spring}>
                                             <div className="ttcommon_font_bold text-4xl leading-36_48">{item.title}</div>
-                                            <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
+                                            <div className="mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div>
                                         </animated.div>
                                             
                                         
                                         {/* <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_48">{item.title}</div>
-                                        <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div> */}
+                                        <div className="mt-5 leading-14_26 whitespace-pre-wrap max-w-128">{item.detail}</div> */}
                                     </div>
                             })}
                             
@@ -328,7 +328,7 @@ export default function PDOThread() {
                                                                 <ChevronUp />
                                                             </div>
                                                         </div>
-                                                        <div className={`ttcommon_font_thin ${enableQuesMobile[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
+                                                        <div className={`${enableQuesMobile[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
                                                                
                                                     </div>
                                         })}
@@ -366,7 +366,7 @@ export default function PDOThread() {
                         <div className="ttcommon_font_bold
                                         leading-none md:leading-36_26
                                         text-2xl md:text-4xl">Any more questions?</div>
-                        <p className="ttcommon_font_thin leading-14_26
+                        <p className="leading-14_26
                                         mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
                             <Input type="text" placeholder="Full Name"/>
@@ -390,17 +390,17 @@ export default function PDOThread() {
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin leading-14_17">
+                            <div className="leading-14_17">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font_bold underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="pdo_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="pdo_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="ttcommon_font_thin leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
                             <Button className="h-11 w-full">SUBMIT</Button>
                         </div>

@@ -32,7 +32,7 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
     let render_ele = testimonial_li.map((item, index) => {
       return <div className="keen-slider__slide text-center" key={`testimonial_${index}`}>
                 <div className="w-full flex justify-center items-center">
-                    <p className="ttcommon_font_thin text-xl text-center w-10/12">{item.detail}</p>
+                    <p className="text-xl text-center w-10/12">{item.detail}</p>
                 </div>
                 {Object.keys(item).includes('rate') && 
                     <div className="flex justify-center mt-7_5">

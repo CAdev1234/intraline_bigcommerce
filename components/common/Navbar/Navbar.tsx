@@ -140,9 +140,9 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
       return <div key={`shop_menu_${index}`}>
               <div className="text-xs text-left tracking-widest leading-tight">
                 <div className="mb-10 cursor-pointer">
-                <div className="ttcommon_font uppercase" onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</div>
+                <div className="uppercase" onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</div>
                   {(item.subItem_li || []).map((item1, index1) => {
-                    return <div className="ttcommon_font mt-5 cursor-pointer" key={`shop_menu-${index}-${index1}`}>
+                    return <div className="mt-5 cursor-pointer" key={`shop_menu-${index}-${index1}`}>
                               <div onClick={() => {gotoOtherPageHandler(item1.link)}}>{item1.name}</div>
                             </div>
                   })}
@@ -156,7 +156,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   return (
     <NavbarRoot c_name={c_name || ''}>
       <Container>
-        <div className="h-15">
+        <div className="h-15 ttcommon_font">
           <div className="flex relative h-full">
             <div className="absolute top-0 left-0 h-full flex
                              justify-center md:justify-start
@@ -170,7 +170,7 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
               </div>
             </div>
             <div className="absolute top-0 left-0 h-full flex w-full">
-              <div className="h-full items-center mx-auto ttcommon_font font-normal
+              <div className="h-full items-center mx-auto font-normal
                               hidden md:flex xl:flex 2xl:flex">
                 <div className={s.nav_item}>
                   <div className={s.link}>SHOP</div>

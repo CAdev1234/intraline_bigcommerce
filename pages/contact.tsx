@@ -71,7 +71,7 @@ export default function ContactUs() {
         }
     }, [contact_info, enableContactHubspotForm])
     return (
-        <div className="ttcommon_font_thin text-c_00080D
+        <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
@@ -94,7 +94,7 @@ export default function ContactUs() {
                                 md:w-131_5 lg:w-131_5 xl:w-154_5">
                     <div className="flex items-center uppercase leading-14_17 tracking-widest">
                         <div className="flex items-center cursor-pointer">
-                            <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                            <span className="mr-1"><Link href="/">Home</Link></span>
                             <span className="mr-1"><ChevronRight className="w-4" /></span>
                             <span className="ttcommon_font_bold"><Link href="/contact">Contact</Link></span>
                         </div>
@@ -155,7 +155,7 @@ export default function ContactUs() {
                             <textarea className="border-none bg-c_F7F7F7 w-full pl-5 py-2 h-24" placeholder="Write Your Message" onChange={(event) => { setMsgHandler(event.target.value) }} />
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin leading-extra-loose">
+                            <div className="leading-extra-loose">
                                 <Link href="/privacypolicy">
                                     <span className="ttcommon_font_bold underline mr-1">Intraline’s Privacy Policy.</span>
                                 </Link>
@@ -163,7 +163,7 @@ export default function ContactUs() {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="contact_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="contact_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
                         <div className="text-c_00080D mt-5 leading-extra-loose">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-10">
@@ -185,31 +185,31 @@ export default function ContactUs() {
                         <div className="pt-10">
                             <div className="flex flex-col">
                                 <div className="flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Address:</div>
+                                    <div className="leading-14_17 uppercase">Address:</div>
                                 </div>
                                 <div className="flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-36_48
+                                    <div className="leading-36_48
                                                     text-2xl md:text-4xl">520 - 1632 Dickson Ave. Kelowna, B.C. Canada</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Canada phone:</div>
+                                    <div className="leading-14_17 uppercase">Canada phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-36_48
+                                    <div className="leading-36_48
                                                     text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-14_17 uppercase">UK Phone:</div>
+                                    <div className="leading-14_17 uppercase">UK Phone:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-36_48
+                                    <div className="leading-36_48
                                                     text-2xl md:text-4xl">+ 1 778 738 0351</div>
                                 </div>
                                 <div className="mt-5 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-14_17 uppercase">Email:</div>
+                                    <div className="leading-14_17 uppercase">Email:</div>
                                 </div>
                                 <div className="mt-2 flex items-start w-full">
-                                    <div className="ttcommon_font_thin leading-36_48
+                                    <div className="leading-36_48
                                                     text-2xl md:text-4xl">info@intraline.com</div>
                                 </div>
                             </div>

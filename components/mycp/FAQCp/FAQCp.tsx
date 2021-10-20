@@ -38,7 +38,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                           <div className="flex items-center w-full cursor-pointer
                                           mt-7_5 sm:mt-10
                                           pb-2.5 sm:pb-5" onClick={() => clickChevron(index)}>
-                            <div className="ttcommon_font uppercase pr-5 text-c_00080D
+                            <div className="uppercase pr-5 text-c_00080D
                                             text-xs sm:text-base
                                             leading-tight sm:leading-14_17">{item.title}</div>
                             <div className="ml-auto">
@@ -48,7 +48,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                           <div className="bg-c_00080D h-px w-full"></div>
                           <animated.div style={ani_props}>
                             {
-                              <div className={`ttcommon_font_thin text-c_00080D whitespace-pre-wrap transition-all duration-500 ease-linear
+                              <div className={`text-c_00080D whitespace-pre-wrap transition-all duration-500 ease-linear
                                                 text-base sm:text-base ${enable_faq[index] ? 'block' : 'hidden'}
                                                 pt-5 
                                                 leading-relaxed sm:leading-14_26`}>{item.detail}</div>

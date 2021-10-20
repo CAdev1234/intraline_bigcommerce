@@ -26,7 +26,7 @@ const SideReview:FC<SideReviewProps> = ({reviewList, className}) => {
     return (
         <div className={rootClassName}>
             <div className={`${s.side_review_bg} ${enableSideReview ? 'block' : 'hidden'}`}></div>
-            <div className={`ttcommon_font_thin ${s.side_review_body}`} 
+            <div className={`${s.side_review_body}`} 
                 style={{transform: `${enableSideReview ? 'translateX(0px)' : 'translateX(1000px)'}`}}>
                 <div className="pl-7_5 pr-5">
                     <div className="ttcommon_font_bold text-4xl leading-36_26 mt-12_5">Read {reviewList.length} Reviews.</div>

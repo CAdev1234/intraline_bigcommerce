@@ -87,7 +87,7 @@ export default function LiftingThread() {
                                          <Image src={item.img} alt="" layout="fill" />
                                     </div>
                                     
-                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 hover:opacity-100">
+                                    <div className="absolute top-0 w-full h-full flex flex-col opacity-0 transition duration-500 ease-linear hover:opacity-100">
                                         <div className="my-auto mx-auto w-10/12">
                                             <div className="flex flex-col text-white w-64 mx-auto">
                                                 <Link href={item.link}>
@@ -107,7 +107,7 @@ export default function LiftingThread() {
                                 </div>
                                 
                             </div>
-                            <div className="ttcommon_font_thin textellipsis_2 mt-7 leading-36_48
+                            <div className="textellipsis_2 mt-7 leading-36_48
                                             md:text-2xl lg:text-3xl">{item.detail}</div>
                         </div>
                         
@@ -122,7 +122,7 @@ export default function LiftingThread() {
                     dotCss={"mt-7_5"}/>
     }
     return(
-        <div className="ttcommon_font text-c_00080D
+        <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_F5DBDD w-full flex flex-col">
@@ -148,7 +148,7 @@ export default function LiftingThread() {
                         <div className="flex flex-col
                                         w-full md:w-7/12">
                             <div className="">
-                                <div className="ttcommon_font_thin  font-semibold
+                                <div className="ttcommon_font
                                                 text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px 2xl:text-200px
                                                 leading-64_76 xl:leading-200_160">Lifting</div>
                                 <div className="ttcommon_font_bold
@@ -158,7 +158,7 @@ export default function LiftingThread() {
                         </div>
                         <div className="flex-1 flex flex-col
                                         mt-5 md:mt-0">
-                            <div className="ttcommon_font_thin leading-36_48
+                            <div className="leading-36_48
                                             text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The goal of Lifting Threads is to provide a small amount of lift while also stimulating skin rejuvenation.</div>
                         </div>
                     </div>
@@ -192,11 +192,11 @@ export default function LiftingThread() {
                                 leading-none md:leading-36_26">Lifting PDO Threads.</div>
                 <div className="mt-6 items-center
                                 block md:flex">
-                    <div className="ttcommon_font_thin leading-36_48
+                    <div className="leading-36_48
                                     w-full md:w-1/2
                                     text-2xl md:text-4xl
                                     pr-0 md:pr-10 xl:pr-28">Lifting threads have barbs, also known as Cogs along the length of the thread with the aim of affixing the skin in a position to give the appearance of a minor facelift. </div>
-                    <div className="bg-white ttcommon_font_thin leading-14_26
+                    <div className="bg-white leading-14_26
                                     w-full md:w-1/2
                                     mt-12_5 md:mt-0
                                     px-5 md:px-10
@@ -223,7 +223,7 @@ export default function LiftingThread() {
                         <div className="ttcommon_font_bold
                                         text-2xl md:text-4xl
                                         leading-none md:leading-36_26">Any more questions?</div>
-                        <p className="ttcommon_font_thin leading-14_26
+                        <p className="leading-14_26
                                     mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
                             <Input type="text" placeholder="Full Name"/>
@@ -247,17 +247,17 @@ export default function LiftingThread() {
                             <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
                         </div>
                         <div className="mt-5">
-                            <div className="ttcommon_font_thin leading-14_17">
+                            <div className="leading-14_17">
                                 <Link href="/privacypolicy">
-                                    <span className="ttcommon_font underline mr-2">Intraline’s Privacy Policy.</span>
+                                    <span className="ttcommon_font_bold underline mr-2">Intraline’s Privacy Policy.</span>
                                 </Link> 
                                 If you consent to us contacting you for this purpose, please tick below:
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Checkbox id="lifting_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font_thin" label="I agree to receive other communications from Intraline."></Checkbox>
+                            <Checkbox id="lifting_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font" label="I agree to receive other communications from Intraline."></Checkbox>
                         </div>
-                        <div className="ttcommon_font_thin leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
+                        <div className="leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
                             <Button className="h-11 w-full">SUBMIT</Button>
                         </div>

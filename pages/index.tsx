@@ -71,10 +71,6 @@ const RenderCategorySwiper = () => {
                     <div className="w-full h-full flex flex-col px-3 pt-3">
                       <div className='image-container'>
                         <Image className='image' src={item.img} alt="" layout="fill" />
-                        {/* {item.img !== undefined && <Image className='image' src={item.img} alt="" layout="fill" />} */}
-                        {/* <div className={`w-full aspect-w-1 aspect-h-1 bg-c_F4511E ${item.img !== undefined ? 'hidden' : 'block'}`}>
-                          <div className='w-full h-full'></div>
-                        </div> */}
                       </div>
                       <div className="flex-1 ttcommon_font_bold uppercase text-center tracking-widest flex justify-center items-center text-xl
                                        leading-14_17 md:leading-none">{item.name}</div>
@@ -221,7 +217,7 @@ export default function Home({
       return <div className="keen-slider__slide flex flex-col bg-white relative
                              pb-5 sm:pb-12" 
                   key={`m_${index}_product`}>
-                {logined && <div className="ttcommon_font_bold absolute top-0 right-0 z-10 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
+                <div className={`ttcommon_font_bold absolute top-0 right-0 z-10 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 ${logined ? 'block' : 'hidden'}`}>${item.price}</div>
                 <div className="">
                   <div className="aspect-w-1 aspect-h-1 w-full">
                     <div className="w-full">
@@ -298,7 +294,7 @@ export default function Home({
           <div className="ttcommon_font_bold
                           text-2xl md:text-4xl
                           leading-tight md:leading-36_26">Intraline is Confidence.</div>
-          <p className="ttcommon_font_thin my-auto text-c_00080D mx-auto max-w-lg
+          <p className="my-auto text-c_00080D mx-auto max-w-lg
                         text-2xl md:text-4xl
                         leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <a href="/aboutus">

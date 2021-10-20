@@ -56,12 +56,12 @@ const RenderCategorySwiper:FC = () => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">
-                      <div className="relative flex-1">
-                          <Image src={item.img} alt="" layout="fill" />
-                      </div>
-                      <div className="flex-1 ttcommon_font_bold uppercase text-center tracking-widest h-12 flex justify-center items-center
-                                       md:text-2xl
-                                       leading-14_17 md:leading-none">{item.name}</div>
+                        <div className='image-container'>
+                            <Image className='image' src={item.img} alt="" layout="fill" />
+                        </div>
+                        <div className="flex-1 ttcommon_font_bold uppercase text-center tracking-widest h-12 flex justify-center items-center
+                                        md:text-2xl
+                                        leading-14_17 md:leading-none">{item.name}</div>
                     </div>
                       
                   </div>
@@ -166,9 +166,9 @@ export default function AllProducts() {
             <div className="relative bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="flex items-center cursor-pointer mt-12_5
                                 px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
-                    <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                    <span className="mr-1"><Link href="/">Home</Link></span>
                     <span className="mr-1"><ChevronRight className="w-4" /></span>
-                    <span className="mr-1 ttcommon_font uppercase">Shop</span>
+                    <span className="mr-1 uppercase">Shop</span>
                     <span className="mr-1"><ChevronRight className="w-4"/></span>
                     <span className="ttcommon_font_bold uppercase">All Products</span>
                 </div>

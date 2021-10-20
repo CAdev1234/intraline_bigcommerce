@@ -33,7 +33,7 @@ export default function ShoppingBag() {
     }
 
     return (
-        <div className="ttcommon_font bg-white
+        <div className="bg-white ttcommon_font
                         mt-16 md:mt-0
                         px-5 md:px-15">
             <div className="bg-transparent h-15 w-full"></div>
@@ -44,7 +44,7 @@ export default function ShoppingBag() {
                     <span className="ttcommon_font_bold">Shopping Bag</span>
                 </div>
             </div>
-            <div className="ttcommon_font_thin mt-10 text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag </span>({total_quantity})</div>
+            <div className="mt-10 text-4xl leading-36_26"><span className="ttcommon_font_bold">Shopping Bag </span>({total_quantity})</div>
             <div className="flex mt-7_5 items-start pb-15">
                 <div className="w-full xl:w-8/12">
                     <div className="h-0.5 w-full bg-c_00080D"></div>
@@ -86,14 +86,14 @@ export default function ShoppingBag() {
                                 <div className="uppercase">Shipping Estimate:</div>
                                 <div className="ttcommon_font_bold ml-auto">$30.00</div>
                             </div>
-                            <div className="ttcommon_font_thin mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
+                            <div className="mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
                         </div>
                         <div className="pt-7">
                             <div className="flex items-center leading-14_17 tracking-widest">
                                 <div className="uppercase">Total:</div>
                                 <div className=" ttcommon_font_bold ml-auto">${total_price}</div>
                             </div>
-                            <div className="ttcommon_font_thin mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
+                            <div className="mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
                             <Link href="/shop/checkout">
                                 <Button className="mt-15 h-11 w-full">Checkout</Button>
                             </Link>
@@ -126,14 +126,14 @@ export default function ShoppingBag() {
                             <div className="uppercase">Shipping Estimate:</div>
                             <div className="ttcommon_font_bold ml-auto">$30.00</div>
                         </div>
-                        <div className="ttcommon_font_thin mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
+                        <div className="mt-2 leading-14_26">Free if you add $200.00 to your bag.</div>
                     </div>
                     <div className="pt-7">
                         <div className="flex items-center leading-14_17 tracking-widest">
                             <div className="uppercase">Total:</div>
                             <div className=" ttcommon_font_bold ml-auto">${total_price}</div>
                         </div>
-                        <div className="ttcommon_font_thin mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
+                        <div className="mt-2 leading-14_26">Addtional taxes and duties may apply. <Link href="/"><span className="underline">Details.</span></Link></div>
                         <Link href="/shop/checkout">
                             <Button className="mt-15 h-11 w-full">Checkout</Button>
                         </Link>

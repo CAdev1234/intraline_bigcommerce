@@ -14,13 +14,13 @@
     size-adjust: 97.38%;
     ascent-override: 99%;
 }
-@font-face {
-    font-family: ttcommon_font_thin;
+/* @font-face {
+    font-family: ttcommon_font;
     src: url("../public/assets/fonts/TTCommons/TTCommons-Thin.woff2");
     font-display: fallback;
     size-adjust: 97.38%;
     ascent-override: 99%;
-}
+} */
 @font-face {
     font-family: ttcommon_font_bold;
     src: url("../public/assets/fonts/TTCommons/TTCommons-Bold.woff2");
@@ -32,7 +32,6 @@
 /* custom css */
 button:focus, input:focus, select:focus {outline: none;}
 .ttcommon_font {font-family: ttcommon_font;}
-.ttcommon_font_thin {font-family: ttcommon_font_thin;}
 .ttcommon_font_bold {font-family: ttcommon_font_bold;}
 .pos_center {position: absolute;left: 50%;transform: translate(-50%);}
 

@@ -47,14 +47,14 @@ export default function FAQ() {
         return <FAQCp faq_li={items}/>
     }
     return (
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 sm:mt-0">
             <div className="bg-transparent w-full h-15"></div>
             <div className="bg-c_C3E0DC">
                 <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest
                                 px-5 sm:px-15">
                     <div className="flex items-center">
-                        <span className="ttcommon_font mr-1">Home</span>
+                        <span className="mr-1">Home</span>
                         <span className="mr-1 ttcommon_font"><ChevronRight className="w-4"/></span>
                         <span className="ttcommon_font_bold">FAQ</span>
                     </div>

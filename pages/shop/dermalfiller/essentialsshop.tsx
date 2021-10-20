@@ -14,7 +14,7 @@ export default function EssentialsShop() {
     let items = [
         {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
         {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
-        {id: 'product_0000-000000-0006', title: 'Intraline Three', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
+        {id: 'product_0000-000000-0006', title: 'Intraline For Men', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralinethree'},
     ]
 
     const [logined, setLogined] = useState(false)
@@ -78,14 +78,14 @@ export default function EssentialsShop() {
         })
     }
     return (
-        <div className="ttcommon_font flex flex-col
+        <div className="flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="w-full min-h-15 bg-transparent"></div>
             <div className="bg-c_F5DBDD w-full flex flex-col pb-40">
                 <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest
                                 mx-5 sm:px-15">
                     <div className="flex items-center cursor-pointer">
-                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
                         <span className="mr-1 ttcommon_font">Shop</span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>

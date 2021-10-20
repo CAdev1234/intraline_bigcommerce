@@ -137,7 +137,7 @@ export default function ScarKit() {
         setEnableQues(new_array)
     }
     return(
-        <div className="ttcommon_font_thin text-c_00080D flex flex-col
+        <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <ToastContainer
                 position="bottom-center"
@@ -183,21 +183,20 @@ export default function ScarKit() {
                         <div className="flex-1 flex flex-col">
                             <div className="">
                                 <div className="hidden md:block">
-                                    <div className="ttcommon_font_thin
+                                    <div className="ttcommon_font
                                                     text-6xl sm:text-7xl md:text-9xl lg:text-9xl xl:text-200px
                                                     leading-14_17 xl:leading-200_160">Scar</div>
-                                    <div className=" font-semibold
-                                                    md:text-9xl lg:text-9xl xl:text-200px
+                                    <div className="md:text-9xl lg:text-9xl xl:text-200px
                                                     leading-14_17 xl:leading-200_160" ><span className="ttcommon_font_bold">Kit</span></div>
                                     
                                 </div>
                                 <div className="block md:hidden text-64px leading-none">
-                                    <span className="ttcommon_font_thin">Scar</span>
+                                    <span className="ttcommon_font">Scar</span>
                                     <span className="ttcommon_font_bold"> Kit</span>
                                 </div>
-                                <div className="ttcommon_font_thin mt-5 leading-36_48
+                                <div className="mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.</div>
-                                <div className="ttcommon_font_thin mt-2 leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
+                                <div className="mt-2 leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Weight: 500GR</span>
@@ -236,7 +235,7 @@ export default function ScarKit() {
             </div>
             <div className="bg-c_C3E0DC pb-15 pt-9">
                 <div className="flex items-center justify-center">
-                    <span className="ttcommon_font uppercase tracking-widest">Scroll for more details</span>
+                    <span className="uppercase tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>
             </div>
@@ -256,13 +255,13 @@ export default function ScarKit() {
                             <div className="mt-2 bg-c_CCE7EF pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-7_5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">Specifics</div>
-                                    <div className="ttcommon_font_thin leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
+                                    <div className="leading-14_17 tracking-widest mt-7_5">SELECT A QUESTION TO LEARN MORE.</div>
                                 </div>
                                 <div className="pt-7">
                                     <div className="flex flex-col">
                                         {specific_li.map((item, index) => {
                                             return <div key={`specific_${index}}`}>
-                                                <button className={`text-4xl leading-36_48 ${index != 0 && 'mt-7_5'} ${enableSpecific[index] ? 'ttcommon_font_bold' : 'ttcommon_font_thin'}`}
+                                                <button className={`text-4xl leading-36_48 ${index != 0 && 'mt-7_5'} ${enableSpecific[index] ? 'ttcommon_font_bold' : 'ttcommon_font'}`}
                                                     onClick={() => {updateSpecificDetail(index)}}>{item.title}</button>
                                             </div>
                                         })}
@@ -277,7 +276,7 @@ export default function ScarKit() {
                                 return enableSpecific[index] && 
                                     <div>
                                         <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{item.title}</div>
-                                        <div className="ttcommon_font_thin mt-5 leading-14_26 whitespace-pre-wrap">{item.detail}</div>
+                                        <div className="mt-5 leading-14_26 whitespace-pre-wrap">{item.detail}</div>
                                     </div>
                             })}
                         </div>
@@ -315,7 +314,7 @@ export default function ScarKit() {
                                                                 <ChevronUp />
                                                             </div>
                                                         </div>
-                                                        <div className={`ttcommon_font_thin ${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
+                                                        <div className={`${enableQues[index] ? 'block' : 'hidden'}`}>{item.detail}</div>
                                                                
                                                     </div>
                                         })}
