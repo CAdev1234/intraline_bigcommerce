@@ -63,7 +63,7 @@ export const products = [
         indication: 'Intraline For Men One is used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline',
         img: '/assets/img/products/intraline_3.webp', 
         detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", 
-        link: '/shop/dermalfiller/essentials/intralineforman'
+        link: '/shop/dermalfiller/essentials/intralineformen'
     },
     
     {

@@ -29,7 +29,7 @@ type ParamsType = {
 }
 
 function removeSpaceFromStr(str: string) {
-    return str.replace(' ', '')
+    return str.replace(/\s/g, '')
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       paths: [
         { params: { name: 'intralineone', id: 'product_0000-000000-0004' } },
         { params: { name: 'intralinetwo', id: 'product_0000-000000-0005' } },
-        { params: { name: 'intralineforman', id: 'product_0000-000000-0006' } },
+        { params: { name: 'intralineformen', id: 'product_0000-000000-0006' } },
       ],
       fallback: false,
     };
@@ -61,7 +61,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
     let essential_li = [
         {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
         {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
-        {id: 'product_0000-000000-0006', title: 'Intraline For Men', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralineforman'},
+        {id: 'product_0000-000000-0006', title: 'Intraline For Men', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralineformen'},
     ]
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
@@ -250,7 +250,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
-                                            ${router.asPath.includes('intralineforman') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                            ${router.asPath.includes('intralineformen') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/intraline_3.webp'} alt={``} layout="fill" />
                                 {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
@@ -275,7 +275,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                                 leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
-                                    <div className={`${router.asPath.includes('/essentials/intralineforman') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> For Man</div>
+                                    <div className={`${router.asPath.includes('/essentials/intralineformen') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> For Man</div>
                                 </div>
                                 <div className="mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Enhancing more of what you love.</div>
@@ -313,7 +313,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
                             <div className={`relative mt-10 w-full image-container mx-auto
-                                            ${router.asPath.includes('/essentials/intralineforman') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
+                                            ${router.asPath.includes('/essentials/intralineformen') ? 'block' : 'hidden'}`} style={{minWidth:134, maxWidth:270}}>
                                 <Image className={`image`} src={'/assets/img/intraline_3.webp'} alt={``} layout="fill" />
                                 {logined && <Button className="absolute top-7 -right-10 h-9 w-30 ttcommon_font_bold text-lg z-10" variant="primary">${product_info.price}</Button>}
                             </div>
