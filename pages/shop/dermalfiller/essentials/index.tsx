@@ -95,7 +95,7 @@ export default function Essentials() {
         let essential_series_li = [
             {title: "INTRALINE ONE", price: 100, img: '/assets/img/intraline_1.webp', link: '/shop/dermalfiller/essentials/intralineone'},
             {title: "INTRALINE TWO", price: 100, img: '/assets/img/intraline_2.webp', link: '/shop/dermalfiller/essentials/intralinetwo'},
-            {title: "INTRALINE FOR MEN", price: 100, img: '/assets/img/intraline_3.webp', link: '/shop/dermalfiller/essentials/intralinethree'},
+            {title: "INTRALINE FOR MEN", price: 100, img: '/assets/img/intraline_3.webp', link: '/shop/dermalfiller/essentials/intralineforman'},
         ]
         let render_ele = essential_series_li.map((item, index) => {
             return <div className="keen-slider__slide flex flex-col relative group" 
