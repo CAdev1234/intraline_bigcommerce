@@ -275,7 +275,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                                 leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160" >
                                     <div className={`${router.asPath.includes('/essentials/intralineone') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> One</div>
                                     <div className={`${router.asPath.includes('/essentials/intralinetwo') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> Two</div>
-                                    <div className={`${router.asPath.includes('/essentials/intralineformen') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> For Man</div>
+                                    <div className={`${router.asPath.includes('/essentials/intralineformen') ? 'block' : 'hidden'}`}><span className='ttcommon_font_bold'>Intraline</span> For Men</div>
                                 </div>
                                 <div className="mt-5 leading-36_48
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">Enhancing more of what you love.</div>
