@@ -23,6 +23,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
+import { downloadFile } from '@utils/simpleMethod'
 
 type ParamsType = {
     name: string
@@ -121,6 +122,10 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
             })
         }
         return <FAQCp faq_li={items}/>
+    }
+
+    const downloadIndicationChart = () => {
+        downloadFile(product_info.title, product_info.indication_chart, 'application/webp')
     }
     
 
@@ -355,7 +360,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 text-2xl md:text-4xl
                                 leading-36_48 md:leading-36_48">{product_info.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-72">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72" onClick={() => {downloadIndicationChart()}}>download indication chart</Button>
                     </div>
                 </div>
             </div>

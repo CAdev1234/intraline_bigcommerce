@@ -129,7 +129,7 @@ export default function Essentials() {
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
-            <div className="absolute top-0 left-0 w-full flex overflow-hidden
+            <div className="absolute top-0 left-0 w-full flex overflow-hidden bg-white
                             h-auto sm:h-175 md:h-225 lg:h-225 xl:h-225 2xl:h-225">
                 <div className="h-full
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>

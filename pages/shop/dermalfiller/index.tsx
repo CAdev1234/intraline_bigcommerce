@@ -8,7 +8,7 @@ const FAQCp = dynamic(import('@components/mycp/FAQCp/FAQCp'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
 const Link = dynamic(import('@components/ui/Link'))
-import { validateEmail } from 'utils/simpleMethod'
+import { downloadFile, validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast} from 'react-toastify'
 const Image = dynamic(import('next/image'))
@@ -100,20 +100,21 @@ export default function DemeralFiller() {
     const [catalogEmail, setCatalogEmail] = useState('')
     const downloadCatalogHandler = () => {
         if (validateEmail(catalogEmail)) {
-            let mimetype = 'application/pdf';
-            let filename = 'IntralineCatalog.pdf';
+            downloadFile('IntralineCatalog.pdf', '/assets/catalog/intraline_catalog.pdf', 'application/pdf')
+            // let mimetype = 'application/pdf';
+            // let filename = 'IntralineCatalog.pdf';
 
-            // Create Dummy A Element
-            let a = window.document.createElement('a');
+            // // Create Dummy A Element
+            // let a = window.document.createElement('a');
 
-            // createObjectURL for local data as a Blob type
-            a.href = '/assets/catalog/intraline_catalog.pdf';
-            a.download = filename;
+            // // createObjectURL for local data as a Blob type
+            // a.href = '/assets/catalog/intraline_catalog.pdf';
+            // a.download = filename;
 
-            // Download file and remove dummy element
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
+            // // Download file and remove dummy element
+            // document.body.appendChild(a);
+            // a.click();
+            // a.remove();
         }else {
             toast.error("Email error.", {
                 position: toast.POSITION.TOP_RIGHT

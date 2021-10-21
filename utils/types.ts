@@ -4,6 +4,8 @@ export interface ProductObject  {
     price?: number,
     amount?: number,
     quantity?: number,
+    indication_chart?: string,
+    indication?: string,
     img?: string,
     detail?: string,
     link?: string

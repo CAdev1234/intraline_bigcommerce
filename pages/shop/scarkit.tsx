@@ -15,7 +15,7 @@ const Link = dynamic(import('@components/ui/Link'))
 import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
-import { validateEmail } from '@utils/simpleMethod'
+import { downloadFile, validateEmail } from '@utils/simpleMethod'
 
 import { ToastContainer, toast} from 'react-toastify'
 
@@ -111,20 +111,21 @@ export default function ScarKit() {
     }
     const downloadCatalogHandler = () => {
         if (validateEmail(catalogEmail)) {
-            let mimetype = 'application/pdf';
-            let filename = 'IntralineCatalog.pdf';
+            downloadFile('Scarkit Catalog.pdf', '/assets/catalog/intraline_catalog.pdf', 'application/pdf')
+            // let mimetype = 'application/pdf';
+            // let filename = 'IntralineCatalog.pdf';
 
-            // Create Dummy A Element
-            let a = window.document.createElement('a');
+            // // Create Dummy A Element
+            // let a = window.document.createElement('a');
 
-            // createObjectURL for local data as a Blob type
-            a.href = '/assets/catalog/intraline_catalog.pdf';
-            a.download = filename;
+            // // createObjectURL for local data as a Blob type
+            // a.href = '/assets/catalog/intraline_catalog.pdf';
+            // a.download = filename;
 
-            // Download file and remove dummy element
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
+            // // Download file and remove dummy element
+            // document.body.appendChild(a);
+            // a.click();
+            // a.remove();
         }else {
             toast.error("Email error.", {
                 position: toast.POSITION.TOP_RIGHT

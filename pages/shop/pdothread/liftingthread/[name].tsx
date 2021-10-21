@@ -24,6 +24,7 @@ import { useRouter } from 'next/router'
 
 const Image = dynamic(import('next/image'))
 import threadSampleImg from 'public/assets/img/thread_detail.webp'
+import { downloadFile } from '@utils/simpleMethod'
 
 type ParamsType = {
     name: string
@@ -198,6 +199,10 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     const increaseNumHandler = () => {
         setNumDimension720(numDimension720 + 1)
     }
+
+    const downloadIndicationChart = () => {
+        downloadFile(product_info.title, product_info.indication_chart, 'application/webp')
+    }
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -326,7 +331,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     <p className="leading-36_48 mt-6 text-center
                                 text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-72">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72" onClick={() => {downloadIndicationChart()}}>download indication chart</Button>
                     </div>
                 </div>
             </div>

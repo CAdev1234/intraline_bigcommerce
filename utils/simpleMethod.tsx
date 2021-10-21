@@ -10,3 +10,20 @@ export const generateID = () => {
     // format
     return  [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
 }
+
+export const downloadFile = (resultName: string, link: string, mimeType: string) => {
+    let mimetype = mimeType;
+    let filename = resultName;
+
+    // Create Dummy A Element
+    let a = window.document.createElement('a');
+
+    // createObjectURL for local data as a Blob type
+    a.href = link;
+    a.download = filename;
+
+    // Download file and remove dummy element
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}

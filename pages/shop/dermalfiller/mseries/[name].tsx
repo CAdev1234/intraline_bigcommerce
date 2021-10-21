@@ -23,6 +23,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
+import { downloadFile } from '@utils/simpleMethod'
 
 type ParamsType = {
     name: string
@@ -200,6 +201,10 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
         dispatch(activeSideReview())
     }
     
+    const downloadIndicationChart = () => {
+        downloadFile(product_info.title, product_info.indication_chart, 'application/webp')
+    }
+
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -211,12 +216,12 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-100 lg:w-full">
                         <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1 ttcommon_font">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{product_info.title}</span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1 ttcommon_font">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">{product_info.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">
@@ -373,7 +378,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                 text-2xl md:text-4xl
                                 leading-36_48 md:leading-36_48">{product_info.title} with lidocaine is best suited for treatment of fine to medium wrinkles in the frown lines, cupid’s bow, labial commissure, neck folds and lip definition.</p>
                     <div className="mt-8">
-                        <Button className="mx-auto h-11 w-72">download indication chart</Button>
+                        <Button className="mx-auto h-11 w-72" onClick={() => {downloadIndicationChart()}}>download indication chart</Button>
                     </div>
                 </div>
             </div>
