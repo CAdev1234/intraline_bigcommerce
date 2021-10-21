@@ -64,8 +64,8 @@ const TreatmentSlider:FC<TreatmentSliderProps> = ({treatment_item_li, leftside_b
     const render_ele_detail = treatment_item_li.map((item, index) => {
         return <div key={`face_${index}`} className="keen-slider__slide">
                     <div className="ttcommon_font_bold text-2xl leading-24_29">0{index + 1}</div>
-                    <div className="ttcommon_font_bold text-2xl leading-24_29">{item.title}</div>
-                    <div className="mt-5 text-base leading-14_26 max-w-xs">{item.detail}</div>
+                    <div className="ttcommon_font_bold text-c_00080D text-2xl leading-24_29">{item.title}</div>
+                    <div className="mt-5 text-base text-c_00080D leading-14_26 max-w-xs">{item.detail}</div>
                 </div>
     })
     const render_ele_img = treatment_item_li.map((item, index) => {

@@ -235,7 +235,7 @@ export default function Home({
                         <div className="flex flex-col">
                             <Button className=" h-11" onClick={() => {gotoProductHandler(item.link)}}>learn more</Button>
                             {logined && <div className="mt-2 flex items-center h-11 text-white">
-                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full">
+                                <div className="bg-c_00080D flex items-center justify-center w-24 h-full mr-2.5">
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {decreaseNumHandler(event)}}>-</button>
                                     <div className="mx-auto">1</div>
                                     <button className="mx-auto bg-transparent border-none p-1" onClick={(event) => {increaseNumHandler(event)}}>+</button>

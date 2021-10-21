@@ -87,7 +87,7 @@ export default function Login() {
                         {!loginResult && 
                             <div className="mb-5 w-full py-3 px-7_5 rounded-lg bg-c_F4511E bg-opacity-30 text-c_F4511E">Wrong email and password. If you don't have account, please sign up.</div>
                         }
-                        <Input placeholder="Email Address" onChange={setEmail}/>
+                        <Input className='bg-white' placeholder="Email Address" onChange={setEmail}/>
                         {email === '' && <span className=" text-c_F4511E">Required</span>}
                         {email !== '' && !validateEmail(email) &&
                             <span className="vali-span text-c_F4511E">Email is incorrect.</span>
@@ -95,7 +95,7 @@ export default function Login() {
                     </div>
                     <div className="mt-5 flex items-center">
                         <div className="w-full">
-                            <Input className="w-full" type="password" placeholder="Password" onChange={setPassword}/>
+                            <Input className="w-full bg-white" type="password" placeholder="Password" onChange={setPassword}/>
                         </div>
                         <div className="-ml-40">
                             <Link href="/account/forgotpassword">

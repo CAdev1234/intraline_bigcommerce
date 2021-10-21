@@ -219,55 +219,7 @@ function Checkout() {
                     <div className="ttcommon_font_bold text-4xl leading-36_26 mt-10">Order Review.</div>
                 }
 
-                {/* auth part */}
-                {/* {!logined && !enableRegister &&
-                    <div>
-                        <div className="bg-c_CCE7EF flex flex-col ttcommon_font">
-                            <div className="my-52 mx-auto 
-                                        w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                                <div className="leading-36_26 font-bold text-4xl text-left">Login to Your Account.</div>
-                                <div className="mt-10">
-                                    {!loginResult && 
-                                        <div className="mb-5 w-full py-3 px-7_5 rounded-lg bg-c_F4511E bg-opacity-30 text-c_F4511E">Wrong email and password. If you don't have account, please sign up.</div>
-                                    }
-                                    <Input type="text" placeholder="Email Address" onChange={getEmailFromInputHandler} />
-                                </div>
-                                <div className="mt-5 flex items-center">
-                                    <div className="w-full">
-                                        <Input type="password" placeholder="Password" onChange={getPasswordFromInputHandler} />
-                                    </div>
-                                    <div className="-ml-40">
-                                        <Link href="/">
-                                            <span className="text-c_8D97BC">Forgot Your Password?</span>
-                                        </Link>
-                                    </div>
-                                </div>
-                                <Button className="mt-8 w-full h-11" onClick={() => { loginSubmitHandler() }}>Login</Button>
-                                <div className="text-center mt-5">
-                                    <button className="leading-36_26 underline" onClick={() => { setEnableRegister(true) }}>Don't have an account?</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                } */}
-
-                {/* {!logined && enableRegister &&
-                    <div className="my-25 mx-auto
-                    w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                        <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
-                        <Input className="mt-10" type="text" placeholder="Email Address" />
-                        <Input className="mt-5" type="text" placeholder="First Name" />
-                        <Input className="mt-5" type="text" placeholder="Last Name" />
-                        <Input className="mt-5" type="number" placeholder="Phone Number" />
-                        <Input className="mt-5" type="password" placeholder="Password" />
-                        <Input className="mt-5" type="password" placeholder="Confirm Password" />
-
-                        <Button className="mt-8 w-full h-11">Register</Button>
-                        <div className="text-center mt-5">
-                            <button className="leading-36_26 underline" onClick={() => { setEnableRegister(false) }}>Already have an account?</button>
-                        </div>
-                    </div>
-                } */}
+                
 
                 {logined &&
                     <div className="mt-12_5 bg-white flex items-center py-7_5
@@ -304,7 +256,7 @@ function Checkout() {
                                         px-2.5 sm:px-7_5">
                             <div className="flex justify-center items-center border border-c_00080D rounded-full text-black leading-14_17 tracking-widest min-w-7
                                             w-7 sm:w-9
-                                            h-7 sm:h-7">2</div>
+                                            h-7 sm:h-9">2</div>
                             <div className="ttcommon_font_bold uppercase leading-24_29 tracking-widest
                                             text-lg sm:text-2xl
                                             ml-5 sm:ml-11">Shipping address</div>
@@ -315,13 +267,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
-                                    <Input type="text" onChange={getSAFNameFromInputHandler} value={ship_address.f_name}/>
+                                    <Input className='bg-white' type="text" onChange={getSAFNameFromInputHandler} value={ship_address.f_name}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 mt-3 sm:mt-0
                                                 ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
-                                    <Input type="text" onChange={getSALNameFromInputHandler} value={ship_address.l_name}/>
+                                    <Input className='bg-white' type="text" onChange={getSALNameFromInputHandler} value={ship_address.l_name}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -329,13 +281,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
-                                    <Input type="text" onChange={getSAAddressFromInputHandler} value={ship_address.address}/>
+                                    <Input className='bg-white' type="text" onChange={getSAAddressFromInputHandler} value={ship_address.address}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 mt-3 sm:mt-0
                                                 ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
-                                    <Input type="text" onChange={getSAAptFromInputHandler} value={ship_address.apt}/>
+                                    <Input className='bg-white' type="text" onChange={getSAAptFromInputHandler} value={ship_address.apt}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -343,7 +295,7 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
-                                    <Input type="text" onChange={getSACityFromInputHandler} value={ship_address.city}/>
+                                    <Input className='bg-white' type="text" onChange={getSACityFromInputHandler} value={ship_address.city}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 ml-0 sm:ml-2
@@ -363,7 +315,7 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
-                                    <Input type="text" onChange={getSAPostcodeFromInputHandler} value={ship_address.postcode}/>
+                                    <Input className='bg-white' type="text" onChange={getSAPostcodeFromInputHandler} value={ship_address.postcode}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 ml-0 sm:ml-2">
@@ -386,7 +338,7 @@ function Checkout() {
                     {checkedShippingAddress &&
                         <div className="bg-white flex items-center mt-5 py-7_5
                                         px-2.5 sm:px-7_5">
-                            <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest min-w-7
+                            <div className="flex justify-center items-center bg-c_00080D rounded-full text-white leading-14_17 tracking-widest
                                             w-7 sm:w-9
                                             h-7 sm:h-9">2</div>
                             <div className="ml-5 sm:ml-11">
@@ -425,13 +377,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
-                                    <Input type="text" onChange={getBAFNameFromInputHandler} value={bill_address.f_name}/>
+                                    <Input className='bg-white' type="text" onChange={getBAFNameFromInputHandler} value={bill_address.f_name}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 w-full sm:w-1/2
                                                 mt-3 sm:mt-0">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
-                                    <Input type="text" onChange={getBALNameFromInputHandler} value={bill_address.l_name}/>
+                                    <Input className='bg-white' type="text" onChange={getBALNameFromInputHandler} value={bill_address.l_name}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -439,13 +391,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
-                                    <Input type="text" onChange={getBAAddressFromInputHandler} value={bill_address.address}/>
+                                    <Input className='bg-white' type="text" onChange={getBAAddressFromInputHandler} value={bill_address.address}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
-                                    <Input type="text" onChange={getBAAptFromInputHandler} value={bill_address.apt}/>
+                                    <Input className='bg-white' type="text" onChange={getBAAptFromInputHandler} value={bill_address.apt}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -453,7 +405,7 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
-                                    <Input type="text" onChange={getBACityFromInputHandler} value={bill_address.city}/>
+                                    <Input className='bg-white' type="text" onChange={getBACityFromInputHandler} value={bill_address.city}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 w-full sm:w-1/2
@@ -473,7 +425,7 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
-                                    <Input type="text" onChange={getBAPostcodeFromInputHandler} value={bill_address.postcode}/>
+                                    <Input className='bg-white' type="text" onChange={getBAPostcodeFromInputHandler} value={bill_address.postcode}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
@@ -533,13 +485,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Name on Card</label>
-                                    <Input type="text" placeholder="Name on Card" onChange={getCardNameFromInputHandler} value={payment.name}/>
+                                    <Input className='bg-white' type="text" placeholder="Name on Card" onChange={getCardNameFromInputHandler} value={payment.name}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Card Number</label>
-                                    <Input type="text" placeholder="1234 5678 1234 5678 0000" onChange={getCardNumberFromInputHandler} value={payment.number}/>
+                                    <Input className='bg-white' type="text" placeholder="1234 5678 1234 5678 0000" onChange={getCardNumberFromInputHandler} value={payment.number}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -547,7 +499,7 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Expiration Date</label>
-                                    <Input type="text" placeholder="(mm/yyyy)" onChange={getCardDateFromInputHandler} value={payment.date}/>
+                                    <Input className='bg-white' type="text" placeholder="(mm/yyyy)" onChange={getCardDateFromInputHandler} value={payment.date}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0

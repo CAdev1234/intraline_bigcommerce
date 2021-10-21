@@ -85,9 +85,9 @@ export default function ContactUs() {
                 pauseOnHover
                 className="toast-container"
             />
-            <div className="items-start
+            <div className="items-start bg-white
                             block md:flex
-                            mb-0 md:mb-25">
+                            pb-0 md:pb-25">
                 <div className="pt-28
                                 pl-5 md:pl-15
                                 pr-5 md:pr-0

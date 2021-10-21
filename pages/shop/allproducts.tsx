@@ -105,6 +105,13 @@ export default function AllProducts() {
         router.push('/account/login')
     }
 
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
     const renderProducts = () => {
         return all_product_li.map((item, index) => {
             return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" key={`product_${index}`}>
@@ -180,7 +187,7 @@ export default function AllProducts() {
                     </div>
                 </div>
                 <div className="mt-10 mx-auto flex items-center justify-center">
-                    <div className="uppercase tracking-widest text-c_00080D">Scroll to browser all</div>
+                    <div className="uppercase tracking-widest text-c_00080D cursor-pointer" onClick={() => {scrollToBottomHandler()}}>Scroll to browser all</div>
                     <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
                 </div>
             </div>

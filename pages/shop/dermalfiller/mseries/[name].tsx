@@ -205,6 +205,13 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
         downloadFile(product_info.title, product_info.indication_chart, 'application/webp')
     }
 
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -358,8 +365,9 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                 
             </div>
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
-                <div className="items-center justify-center
-                                hidden md:flex">
+                <div className="items-center justify-center cursor-pointer
+                                hidden md:flex"
+                    onClick={() => {scrollToBottomHandler()}}>
                     <span className="uppercase tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>

@@ -207,7 +207,7 @@ export default function SkinCare() {
                 </div>
             </div>
 
-            <div className="bg-transparent w-full
+            <div className="bg-white w-full
                             pb-10 md:pb-20 lg:pb-25">
                 <div className="w-full grid gap-x-5 -mt-56
                                 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2

@@ -32,14 +32,14 @@ const TestimonialCp:FC<TestimonialProps> = ({head_line, bg_color, quote_color, t
     let render_ele = testimonial_li.map((item, index) => {
       return <div className="keen-slider__slide text-center" key={`testimonial_${index}`}>
                 <div className="w-full flex justify-center items-center">
-                    <p className="text-xl text-center w-10/12">{item.detail}</p>
+                    <p className="text-xl text-center w-10/12 text-c_00080D">{item.detail}</p>
                 </div>
                 {Object.keys(item).includes('rate') && 
                     <div className="flex justify-center mt-7_5">
                         <RatingView ratingValue={5} size={30} className="foo" fillColor="#87C1B9" emptyColor="rgba(135, 193, 185, 0.3)" />
                     </div>
                 }
-                <div className="leading-14_17 text-center mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
+                <div className="leading-14_17 text-center text-c_00080D mt-7 tracking-widest mx-auto" style={{maxWidth: 426}}>{item.title}</div>
             </div>
     })
     return <div className={`py-24 ${bg_color}`}>

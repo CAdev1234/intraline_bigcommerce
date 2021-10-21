@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Link = dynamic(import('@components/ui/Link'));
 
-export default function PrivacyPolicy() {
+export default function CookiePolicy() {
     return <div className="text-c_00080D0 ttcommon_font bg-white
                            mt-16 md:mt-0">
                 <div className="bg-transparent w-full h-15"></div>
@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="mr-1"><Link href="/">Home</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4" /></span>
-                        <span className="ttcommon_font_bold">privacy policy</span>
+                        <span className="ttcommon_font_bold">cookie policy</span>
                     </div>
                 </div>
                 <div className="flex flex-col pt-10 pb-25 mx-auto
@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
                                 px-5 md:px-0">
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl
-                                    leading-tight md:leading-36_48">Intraline's Privacy Policy</div>
+                                    leading-tight md:leading-36_48">Intraline's Cookie Policy</div>
                     <p className="mt-12_5 leading-14_26">
                         This privacy notice discloses the privacy practices for (www.intraline.com). This privacy notice applies solely to information collected by this website. It will notify you of the following:
                     </p>
@@ -47,4 +47,4 @@ export default function PrivacyPolicy() {
             </div>
 }
 
-PrivacyPolicy.Layout = Layout
+CookiePolicy.Layout = Layout

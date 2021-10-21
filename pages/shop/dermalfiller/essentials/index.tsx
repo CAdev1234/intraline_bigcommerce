@@ -126,6 +126,13 @@ export default function Essentials() {
                     dotCss={"mt-7_5"}/>
     }
 
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -192,8 +199,9 @@ export default function Essentials() {
                         {renderMSeriesSwiper()}
                         <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
                     </div>
-                    <div className="items-center justify-center mt-auto
-                                    hidden sm:flex">
+                    <div className="items-center justify-center mt-auto cursor-pointer
+                                    hidden sm:flex"
+                        onClick={() => {scrollToBottomHandler()}}>
                         <span className="uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>

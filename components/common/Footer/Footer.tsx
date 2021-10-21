@@ -47,7 +47,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
     {title: 'About Us', link: '/aboutus'},
     {title: 'Contact', link: '/contact'},
     {title: 'Privacy Policy', link: '/privacypolicy'},
-    {title: 'Cookie Policy', link: '/privacypolicy'},
+    {title: 'Cookie Policy', link: '/cookiepolicy'},
   ]
 
   let account_link_li = [
@@ -105,65 +105,6 @@ const Footer: FC<Props> = ({ className, pages }) => {
 
   return (
     <footer className={rootClassName}>
-      {/* <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-accent-2 py-12 text-primary bg-primary transition-colors duration-150">
-          <div className="col-span-1 lg:col-span-2">
-            <Link href="/">
-              <a className="flex flex-initial items-center font-bold md:mr-24">
-                <span className="rounded-full border border-accent-6 mr-2">
-                  <Logo />
-                </span>
-                <span>ACME</span>
-              </a>
-            </Link>
-          </div>
-          <div className="col-span-1 lg:col-span-8">
-            <div className="grid md:grid-rows-4 md:grid-cols-3 md:grid-flow-col">
-              {[...links, ...sitePages].map((page) => (
-                <span key={page.url} className="py-3 md:py-0 md:pb-4">
-                  <Link href={page.url!}>
-                    <a className="text-accent-9 hover:text-accent-6 transition ease-in-out duration-150">
-                      {page.name}
-                    </a>
-                  </Link>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="col-span-1 lg:col-span-2 flex items-start lg:justify-end text-primary">
-            <div className="flex space-x-6 items-center h-10">
-              <a
-                className={s.link}
-                aria-label="Github Repository"
-                href="https://github.com/vercel/commerce"
-              >
-                <Github />
-              </a>
-              <I18nWidget />
-            </div>
-          </div>
-        </div>
-        <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6">
-          <div>
-            <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
-          </div>
-          <div className="flex items-center text-primary">
-            <span className="text-primary">Created by</span>
-            <a
-              rel="noopener noreferrer"
-              href="https://vercel.com"
-              aria-label="Vercel.com Link"
-              target="_blank"
-              className="text-primary"
-            >
-              <Vercel
-                className="inline-block h-6 ml-3 text-primary"
-                alt="Vercel.com Logo"
-              />
-            </a>
-          </div>
-        </div>
-      </Container> */}
 
       <ToastContainer
           position="bottom-center"
@@ -312,45 +253,44 @@ const Footer: FC<Props> = ({ className, pages }) => {
           <div className="flex items-center
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
             <div className="flex items-center">
-              <label className="text-xs md:text-sm" htmlFor="Currency ">Currency:</label>
+              <label className="ttcommon_font mr-1" htmlFor="Currency ">Currency:</label>
               {/* <SelectInput option_li={['$US', '$US', '$US', '$US']} default_option="$US" /> */}
-              <select name="" id="" className="bg-transparent">
+              <span className='ttcommon_font'>$US</span>
+              {/* <select name="" id="" className="bg-transparent">
                 <option value="us">$US</option>
                 <option value="us">$US</option>
                 <option value="us">$US</option>
                 <option value="us">$US</option>
                 <option value="us">$US</option>
-              </select>
+              </select> */}
             </div>
             <div className="flex items-center mx-auto">
-              <label className="text-xs md:text-sm" htmlFor="Currency">Language:</label>
-              <select name="" id="" className="bg-transparent">
+              <label className="ttcommon_font" htmlFor="Currency">Language:</label>
+              <span className='ttcommon_font'>EN</span>
+              {/* <select name="" id="" className="bg-transparent">
                 <option value="en">EN</option>
                 <option value="en">EN</option>
                 <option value="en">EN</option>
                 <option value="en">EN</option>
                 <option value="en">EN</option>
                 <option value="en">EN</option>
-              </select>
+              </select> */}
             </div>
-            <div className="text_overflow_one_line
-                            mr-0 md:mr-12 lg:mr-12 xl:mr-12
-                            text-xs md:text-sm">info@intraline.com</div>
+            <div className="ttcommon_font text_overflow_one_line
+                            mr-0 md:mr-12 lg:mr-12 xl:mr-12">info@intraline.com</div>
           </div>
           
           <div className="flex items-center
                           flex-row-reverse sm:flex-row
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2
                           mt-6 md:mt-0 lg:mt-0 xl:mt-0">
-            <div className="text_overflow_one_line 
-                            text-xs sm:text-sm
+            <div className="ttcommon_font text_overflow_one_line 
                             ml-auto sm:ml-0
                             mr-0 sm:mr-auto">+1 (778) 738-0351</div>
             <div className="flex items-center 
                             ml-0 sm:ml-auto">
               <label htmlFor="" 
-                    className="text_overflow_one_line
-                              text-xs sm:text-sm">Payment Methods:</label>
+                    className="text_overflow_one_line ttcommon_font">Payment Methods:</label>
               <div className="flex items-center
                               ml-2.5 sm:ml-5 
                               w-12 sm:w-auto">

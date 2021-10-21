@@ -26,7 +26,7 @@ export default function ForgotPassword() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Forgot Password.</div>
                     <div className="mt-10">
-                        <Input placeholder="Email Address"/>
+                        <Input className='bg-white' placeholder="Email Address"/>
                     </div>
                     <Button className="mt-8 w-full h-11">Send Verification Code</Button>
                 </div>

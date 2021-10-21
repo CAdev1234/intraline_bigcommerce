@@ -168,11 +168,11 @@ export default function Rejuvenation() {
                 </div>
             </div>
 
-            <div className="ml-15 pb-24
+            <div className="px-15 pb-24 bg-white
                             hidden md:block" style={{marginTop: -240}}>
                 {renderLiftingThreadSwiper()}
             </div>
-            <div className="relative z-10 px-5
+            <div className="relative z-10 px-5 bg-white pt-10
                             block md:hidden" style={{marginTop: -240}}>
                 {thread_li.map((item, index) => {
                     return <div key={`thread_${index}`} className="w-full mb-10">
@@ -229,13 +229,13 @@ export default function Rejuvenation() {
                         <p className="leading-14_26
                                     mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
-                            <Input type="text" placeholder="Full Name"/>
+                            <Input className='bg-white' type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Company Name"/>
+                            <Input className='bg-white' type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Email"/>
+                            <Input className='bg-white' type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

@@ -138,6 +138,13 @@ export default function PDOThread() {
                     nextNavCss={"my-auto"}
                     dotCss={"mt-7_5"}/>
     }
+
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
     return(
         <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
@@ -175,7 +182,8 @@ export default function PDOThread() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center mt-auto">
+                    <div className="flex items-center justify-center mt-auto cursor-pointer"
+                        onClick={() => {scrollToBottomHandler()}}>
                         <span className="uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
@@ -369,13 +377,13 @@ export default function PDOThread() {
                         <p className="leading-14_26
                                         mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
-                            <Input type="text" placeholder="Full Name"/>
+                            <Input className='bg-white' type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Company Name"/>
+                            <Input className='bg-white' type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Email"/>
+                            <Input className='bg-white' type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

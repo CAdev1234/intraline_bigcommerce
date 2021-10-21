@@ -167,7 +167,7 @@ const Layout: FC<Props> = ({
           <link rel="shortcut icon" href="/assets/img/favicon.webp" />
       </Head>
         <Navbar c_name="bg-c_00080D"/>
-        <main className="fit ttcommon_font text-c_8D97BC">{children}</main>
+        <main className="fit ttcommon_font text-c_00080D">{children}</main>
         <Footer pages={pageProps.pages} />
         {/* <ModalUI /> */}
         {/* <SidebarUI /> */}

@@ -79,6 +79,13 @@ export default function Masque() {
     const increaseNumHandler = () => {
         setNumMasque(numMasque + 1)
     }
+
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -154,8 +161,9 @@ export default function Masque() {
                         </div>
                     </div>
                     <div className="mt-16 pb-15">
-                        <div className="items-center justify-center
-                                        hidden md:flex">
+                        <div className="items-center justify-center cursor-pointer
+                                        hidden md:flex"
+                            onClick={() => {scrollToBottomHandler()}}>
                             <span className="uppercase tracking-widest
                                             ">Scroll for more details</span>
                             <ChevronDown className="w-4 ml-4" />
@@ -199,13 +207,13 @@ export default function Masque() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <Input type="text" placeholder="Full Name"/>
+                            <Input className='bg-white' type="text" placeholder="Full Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Company Name"/>
+                            <Input className='bg-white' type="text" placeholder="Company Name"/>
                         </div>
                         <div className="mt-5">
-                            <Input type="text" placeholder="Email"/>
+                            <Input className='bg-white' type="text" placeholder="Email"/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

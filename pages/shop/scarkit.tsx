@@ -112,20 +112,6 @@ export default function ScarKit() {
     const downloadCatalogHandler = () => {
         if (validateEmail(catalogEmail)) {
             downloadFile('Scarkit Catalog.pdf', '/assets/catalog/intraline_catalog.pdf', 'application/pdf')
-            // let mimetype = 'application/pdf';
-            // let filename = 'IntralineCatalog.pdf';
-
-            // // Create Dummy A Element
-            // let a = window.document.createElement('a');
-
-            // // createObjectURL for local data as a Blob type
-            // a.href = '/assets/catalog/intraline_catalog.pdf';
-            // a.download = filename;
-
-            // // Download file and remove dummy element
-            // document.body.appendChild(a);
-            // a.click();
-            // a.remove();
         }else {
             toast.error("Email error.", {
                 position: toast.POSITION.TOP_RIGHT
@@ -137,6 +123,14 @@ export default function ScarKit() {
         new_array[index] = !new_array[index]
         setEnableQues(new_array)
     }
+
+    const scrollToBottomHandler = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+    
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -235,7 +229,7 @@ export default function ScarKit() {
 
             </div>
             <div className="bg-c_C3E0DC pb-15 pt-9">
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center cursor-pointer" onClick={() => {scrollToBottomHandler()}}>
                     <span className="uppercase tracking-widest">Scroll for more details</span>
                     <ChevronDown className="w-4 ml-4" />
                 </div>
@@ -365,7 +359,7 @@ export default function ScarKit() {
                                     text-xs sm:text-base 
                                     leading-14_26 sm:leading-14_26">Discover Intraline’s Dermal Fillers and PDO Threads. Enter your email to receive our complete product catalog.</p>
                         <div className="mt-7_5 sm:mt-10">
-                            <Input type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
+                            <Input className='bg-white' type="text" placeholder="Your Email Address" onChange={setCatalogEmail}/>
                         </div>
                         <div className="mt-7_5 sm:mt-10">
                             <Button className="h-11 w-full" onClick={() => {downloadCatalogHandler()}}>SUBMIT</Button>
