@@ -21,8 +21,8 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
       reset: true,
     })
     function renderChevronUpDown(index: any) {
-      if (enable_faq[index]) return <ChevronUp className="h-4 w-4" />;
-      else return <ChevronDown className="h-4 w-4" />
+      if (enable_faq[index]) return <ChevronUp className="h-4 w-4 text-c_00080D" />;
+      else return <ChevronDown className="h-4 w-4 text-c_00080D" />
     }
     
     function clickChevron(index: any) {

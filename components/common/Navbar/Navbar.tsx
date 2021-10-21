@@ -36,7 +36,7 @@ const renderSubMenu = (category_li: NavLinkArray) => {
   return category_li.map((item, index) => {
     return <div key={`shop_menu_${index}`}>
             <div>
-              <div className="uppercase text-center tracking-widest leading-14_17 cursor-pointer hover:underline">
+              <div className="text-c_00080D uppercase text-center tracking-widest leading-14_17 cursor-pointer hover:underline">
                 <Link href={item.link}>{item.name}</Link>
               </div>
               {(item.subItem_li || []).map((item1, index1) => {
