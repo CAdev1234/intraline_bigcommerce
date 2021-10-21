@@ -17,10 +17,11 @@
 
 /*position new box*/
 .root input + label::before {
-    @apply border border-solid absolute left-0 top-1/2 transform -translate-y-1/2 bg-white;
+    @apply border border-solid absolute left-0 top-1/2 bg-white;
     content: "";
     height: 14px;
     width: 14px;
+    transform: translateY(-50%);
 }
 
 /*svg background styles*/
