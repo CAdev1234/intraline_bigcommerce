@@ -178,7 +178,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
           className="toast-container"
       />
 
-      <Container className="bg-black 
+      <Container className="bg-black
                               px-5 lg:px-15">
         <div className=" ttcommon_font
                          pt-5 sm:pt-20
@@ -305,7 +305,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
         
       </Container>
 
-      <Container className="bg-c_CCE7EF
+      <Container className="bg-c_CCE7EF text-c_00080D
                             px-5 lg:px-15">
         <div className="items-center py-5
                         block md:flex lg:flex xl:flex">
