@@ -59,7 +59,7 @@ export default function AboutUs() {
 
             {/* Confidence is Ageless. */}
             <div className="bg-white mx-auto
-                            w-full md:w-162_5 lg:w-162_5 xl:w-162_5 2xl:w-162_5">
+                            w-full">
                 <div className="flex flex-col max-w-2xl mx-auto py-28
                                 px-5 md:px-0">
                     <div className="ttcommon_font_bold leading-36_26 text-center
