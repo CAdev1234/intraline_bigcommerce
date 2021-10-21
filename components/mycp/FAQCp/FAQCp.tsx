@@ -39,8 +39,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                                           mt-7_5 sm:mt-10
                                           pb-2.5 sm:pb-5" onClick={() => clickChevron(index)}>
                             <div className="uppercase pr-5
-                                            text-c_00080D sm:text-c_00080D
-                                            text-xs sm:text-base
+                                            text-c_00080D
                                             leading-tight sm:leading-14_17">{item.title}</div>
                             <div className="ml-auto">
                                 {renderChevronUpDown(index)}
@@ -50,7 +49,7 @@ const FAQCp:FC<FAQCpProps> = ({faq_li}) => {
                           <animated.div style={ani_props}>
                             {
                               <div className={`text-c_00080D whitespace-pre-wrap transition-all duration-500 ease-linear
-                                                text-base sm:text-base ${enable_faq[index] ? 'block' : 'hidden'}
+                                                ${enable_faq[index] ? 'block' : 'hidden'}
                                                 pt-5 
                                                 leading-relaxed sm:leading-14_26`}>{item.detail}</div>
                             }
