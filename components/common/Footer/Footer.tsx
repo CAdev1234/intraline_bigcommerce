@@ -13,7 +13,7 @@ import { Button } from '@components/mycp'
 import { useAppSelector } from '@utils/redux/hooks'
 import { validateEmail } from 'utils/simpleMethod'
 
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 import visaImage from 'public/assets/img/visa.webp'
@@ -63,6 +63,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
 
   const subscribeHandle = async (bool_var: boolean) => {
     if (!validateEmail(subescribeEmail)) {
+      toast.configure()
       toast.error("Invalid Email.", {
           position: toast.POSITION.TOP_RIGHT
       });
@@ -105,19 +106,6 @@ const Footer: FC<Props> = ({ className, pages }) => {
 
   return (
     <footer className={rootClassName}>
-
-      <ToastContainer
-          position="bottom-center"
-          autoClose={1500}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          className="toast-container"
-      />
 
       <Container className="bg-black
                               px-5 lg:px-15">

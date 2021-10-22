@@ -46,7 +46,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
-    console.log(all_products)
     const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {

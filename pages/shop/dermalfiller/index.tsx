@@ -10,7 +10,8 @@ const Button = dynamic(import('@components/mycp/Button'))
 const Link = dynamic(import('@components/ui/Link'))
 import { downloadFile, validateEmail } from 'utils/simpleMethod'
 import { useRouter } from 'next/router'
-import { ToastContainer, toast} from 'react-toastify'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const Image = dynamic(import('next/image'))
 import MSeriesImg from 'public/assets/img/m_series.webp'
 import bluePurpleSmokeImg from 'public/assets/img/BluePurpleSmoke.webp'
@@ -116,6 +117,7 @@ export default function DemeralFiller() {
             // a.click();
             // a.remove();
         }else {
+            toast.configure()
             toast.error("Email error.", {
                 position: toast.POSITION.TOP_RIGHT
             });
@@ -124,18 +126,7 @@ export default function DemeralFiller() {
     return(
         <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
-            <ToastContainer
-                position="bottom-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                className="toast-container"
-            />
+            
             <div className="bg-transparent w-full h-15"></div>
             <div className="relative bg-c_CCE7EF w-full pb-32 flex flex-col
                             h-160 sm:h-160 md:h-150 lg:h-175 xl:h-210 2xl:h-210
@@ -181,7 +172,7 @@ export default function DemeralFiller() {
                         <div className="ttcommon_font_bold text-c_00080D
                                         text-3xl xl:text-4xl 2xl:text-4xl
                                         leading-none sm:leading-36_48">The Essential Series.</div>
-                        <div className="relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
+                        <div className="shadow-custom relative mt-10 bg-c_C6CBDD w-full border-none flex flex-col">
                             <Image className="max-h-96" src={essentialSeriesImg} alt="" />
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">
@@ -200,7 +191,7 @@ export default function DemeralFiller() {
                     <div className="">
                         <div className="leading-36_48 ttcommon_font_bold text-c_00080D
                                         text-3xl xl:text-4xl 2xl:text-4xl">The M Series.</div>
-                        <div className="relative mt-10 w-full border-none flex flex-col">
+                        <div className="shadow-custom relative mt-10 w-full border-none flex flex-col">
                             <Image src={MSeriesImg} alt="mseries image"/>
                             <div className="absolute top-0 w-full h-full flex flex-col opacity-0 bg-opacity-50 transition duration-500 ease-linear hover:opacity-100">
                                 <div className="my-auto mx-auto w-64">

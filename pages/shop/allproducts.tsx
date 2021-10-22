@@ -120,7 +120,7 @@ export default function AllProducts() {
                                 <Image src={item.img as any} alt="" layout="fill"/>
                                 {logined && 
                                     <div>
-                                        <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}.00</Button>
+                                        <Button className="absolute top-0 right-0 h-9 w-30 ttcommon_font_bold text-lg py-1 px-8" variant="primary">${item.price}</Button>
                                     </div>
                                 }
                             </div>

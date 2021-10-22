@@ -149,14 +149,14 @@ export default function PDOThread() {
         <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
             <div className="bg-transparent w-full h-15"></div>
-            <div className="relative bg-white w-full flex-col
-                            sm:h-160 md:h-160 lg:h-175 xl:h-210
-                            hidden sm:flex">
+            <div className="relative bg-white w-full flex-col flex">
                 <div className="absolute w-full h-full flex">
-                    <div className="w-1/2 h-full"></div>
-                    <div className="w-1/2 h-full bg-c_F5DBDD"></div>
+                    <div className="flex-1 h-full"></div>
+                    <div className="h-full
+                                    w-full sm:8/12 md:w-1/2
+                                    bg-white sm:bg-c_F5DBDD"></div>
                 </div>
-                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
+                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest relative">
                     <div className="flex items-center cursor-pointer
                                     px-5 md:px-15 lg:px-15 xl:px-15 2xl:px-15">
                         <span className="mr-1"><Link href="/">Home</Link></span>
@@ -166,10 +166,14 @@ export default function PDOThread() {
                         <span className="ttcommon_font_bold"><Link href="/shop/pdothread">PDO Threads</Link></span>
                     </div>
                 </div>
-                <div className="z-10 flex flex-col h-full mb-15
-                                sm:mt-20 md:mt-30 xl:mt-30">
-                    <div className="flex w-full h-full px-15">
-                        <div className="w-7/12 flex flex-col">
+                <div className="z-10 flex flex-col h-full mb-15">
+                    <div className="w-full h-full
+                                    px-0 sm:px-10 md:px-15 lg:px-15 xl:px-15 2xl:px-15
+                                    block sm:flex">
+                        <div className="flex flex-col
+                                        w-full md:w-7/12
+                                        sm:mt-20 md:mt-30 xl:mt-30
+                                        px-5 sm:px-0">
                             <div className="">
                                 <div className="ttcommon_font
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
@@ -177,63 +181,37 @@ export default function PDOThread() {
                                 <div className="ttcommon_font_bold
                                                 text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
                                                 leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160" >Threads</div>
-                                <div className="leading-36_48 mt-8 mx-auto max-w-134_5
+                                <div className="leading-36_48 mt-8 mx-auto
+                                                max-w-none md:max-w-134_5
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                             </div>
                         </div>
+                        <div className='relative
+                                        w-full sm:w-70 md:w-100'>
+                            <div className='px-5 sm:px-0'>
+                                {renderPDOThreadSwiper()}
+                            </div>
+                            <div className="absolute top-15 bg-c_F5DBDD h-full w-full
+                                            block sm:hidden"></div>
+                        </div>
                     </div>
-                    <div className="flex items-center justify-center mt-auto cursor-pointer"
+                    <div className="flex items-center justify-center cursor-pointer mt-5"
                         onClick={() => {scrollToBottomHandler()}}>
                         <span className="uppercase tracking-widest">Scroll for more details</span>
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute top-0 right-0 w-5/12">
+                {/* <div className="absolute top-0 right-0 w-5/12">
                     <div className="flex flex-col ml-auto mr-15 h-120_5">
                         <div className="my-auto">
                             {renderPDOThreadSwiper()}
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
 
-            <div className="relative bg-white w-full flex-col
-                            block sm:hidden">
-                <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">
-                    <div className="flex items-center cursor-pointer
-                                    px-5">
-                        <span className="mr-1"><Link href="/">Home</Link></span>
-                        <span className="mr-1"><ChevronRight className="w-4" /></span>
-                        <span className="mr-1">Shop</span>
-                        <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold"><Link href="/shop/pdothread">PDO Threads</Link></span>
-                    </div>
-                </div>
-                <div className="z-10 flex flex-col h-full mb-25 mt-16">
-                    <div className="flex w-full h-full px-5">
-                        <div className="flex flex-col">
-                            <div className="">
-                                <div className="ttcommon_font
-                                                text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
-                                                leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160">PDO</div>
-                                <div className="ttcommon_font_bold
-                                                text-6xl sm:text-7xl md:text-7xl lg:text-9xl xl:text-200px
-                                                leading-14_17 md:leading-200_160 lg:leading-200_160 xl:leading-200_160" >Threads</div>
-                                <div className="leading-36_48 mt-8 mx-auto max-w-134_5
-                                                text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-c_F5DBDD px-5 pb-15">
-                    <div className="flex flex-col">
-                        <div className="-mt-40">
-                            {renderPDOThreadSwiper()}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <div className="bg-white relative z-10">
                 <div className="flex flex-col max-w-2xl mx-auto py-28">

@@ -46,7 +46,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
-    console.log(all_products)
     const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {
@@ -365,7 +364,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                 
             </div>
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
-                <div className="items-center justify-center cursor-pointer
+                <div className="items-center justify-center cursor-pointer relative z-10
                                 hidden md:flex"
                     onClick={() => {scrollToBottomHandler()}}>
                     <span className="uppercase tracking-widest">Scroll for more details</span>
@@ -453,7 +452,12 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                         </div>
                                     </div>
                                     {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">Buy {product_info.title} now</Button>
+                                        <Button className="h-full flex-1" 
+                                                onClick={() => {
+                                                    let product = product_info
+                                                    product.quantity = 1
+                                                    dispatch(addProductToCart(product))
+                                                }}>Buy {product_info.title} now</Button>
                                     </div>}
                                 </div>
                                 

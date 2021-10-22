@@ -104,7 +104,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
-    console.log(all_products)
     const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {
@@ -145,7 +144,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
         return items.map((item, index) => {
             return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
                         key={`m_${index}_product`}>
-                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
+                        {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 z-10">${item.price}</div>}
                         <div className="flex aspect-w-1 aspect-h-1">
                             <Image src={item.img} alt="" layout="fill" />
                         </div>
@@ -251,9 +250,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         variant="primary">$100.00</Button>}
                             </div>
                         </div>
-                        <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
-                            <Image src={threadSampleImg} alt="" layout="fill" />
+                        <div className='absolute top-0 left-0 w-full h-full'>
+                            <img className='rounded-full w-full h-full' src={product_info.img} alt="" />
                         </div>
+                        {/* <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
+                            <Image src={threadSampleImg} alt="" layout="fill" />
+                        </div> */}
                     </div>
                 </div>
 
@@ -293,6 +295,14 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                                     text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
                                                     leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160">
                                         <span className="ttcommon_font_bold">Double Spirals</span>
+                                    </div>
+                                </div>
+                                <div className={`${router.asPath.includes('/rejuvenation/spirals') ? 'block' : 'hidden'}`}>
+                                    <div className="ttcommon_font_bold text-4xl leading-36_48">The</div>
+                                    <div className="ttcommon_font
+                                                    text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-200px
+                                                    leading-none sm:leading-none md:leading-none lg:leading-none xl:leading-200_160">
+                                        <span className="ttcommon_font_bold">Spirals</span>
                                     </div>
                                 </div>
                                 <div className={`${router.asPath.includes('/rejuvenation/microcannulas') ? 'block' : 'hidden'}`}>
@@ -338,16 +348,19 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 md:w-80 lg:w-131_5
                                 hidden md:flex">
                     <div className="relative h-full w-full flex flex-col">
-                        <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
+                        <div className="relative bg-transparent rounded-full my-auto aspect-w-1 aspect-h-1">
                             {logined && 
                                 <div className="">
                                     <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
                                 </div>
                             }
+                            <div className='absolute top-0 left-0 w-full h-full'>
+                                <img className='rounded-full w-full h-full' src={product_info.img} alt="" />
+                            </div>
                         </div>
-                        <div className="h-full absolute top-0 left-0 w-full flex flex-col">
+                        {/* <div className="h-full absolute top-0 left-0 w-full flex flex-col">
                             <Image src={threadSampleImg} alt="" layout="fill" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -422,7 +435,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <div className="text-base leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">BUY {product_info.title} NOW</Button>
+                                        <Button className="h-full flex-1"
+                                                onClick={() => {
+                                                    let product = product_info
+                                                    product.quantity = 1
+                                                    dispatch(addProductToCart(product))
+                                                }}>BUY {product_info.title} NOW</Button>
                                     </div>}
                                 </div>
                                 
@@ -587,10 +605,10 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     mb-5 md:mb-2">
                         <div className="ttcommon_font_bold
                                         text-2xl md:text-4xl
-                                        leading-none md:leading-36_26">Lifting PDO Threads.</div>
+                                        leading-none md:leading-36_26">Rejuvenation Threads.</div>
                         <div className="flex items-center ml-auto">
                             <div className="ttcommon_font_bold
-                                            md:text-lg"><Link href="/shop/dermalfiller/mseries">Learn More</Link></div>
+                                            md:text-lg"><Link href="/shop/pdothread/rejuvenation">Learn More</Link></div>
                             <div className="ml-2">
                                 <ChevronRight className="h-4 w-4" />
                             </div>

@@ -216,7 +216,7 @@ export default function SkinCare() {
                         return <div className="mb-10 md:mb-0" key={`skincare_${index}`}>
                                     <div className="leading-36_48 ttcommon_font_bold text-c_00080D
                                                     text-2xl xl:text-4xl 2xl:text-4xl">{item.title}.</div>
-                                    <div className="relative bg-c_F5DBDD w-full border-none aspect-w-8 aspect-h-5
+                                    <div className="shadow-custom relative bg-c_F5DBDD w-full border-none aspect-w-8 aspect-h-5
                                                     mt-5 md:mt-10">
                                         <div className="flex h-full justify-center">
                                             <div className="w-full h-full relative flex justify-center items-center">

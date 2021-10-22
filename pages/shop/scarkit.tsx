@@ -17,7 +17,7 @@ import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import { downloadFile, validateEmail } from '@utils/simpleMethod'
 
-import { ToastContainer, toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 import scarkitImg from 'public/assets/img/scarkit.webp'
 const Image = dynamic(import('next/image'))
@@ -113,6 +113,7 @@ export default function ScarKit() {
         if (validateEmail(catalogEmail)) {
             downloadFile('Scarkit Catalog.pdf', '/assets/catalog/intraline_catalog.pdf', 'application/pdf')
         }else {
+            toast.configure()
             toast.error("Email error.", {
                 position: toast.POSITION.TOP_RIGHT
             });
@@ -134,18 +135,7 @@ export default function ScarKit() {
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
-            <ToastContainer
-                position="bottom-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                className="toast-container"
-            />
+            
             <div className="h-15 w-full bg-transparent"></div>
             <div className="relative bg-c_C3E0DC w-full flex flex-col">
                 <div className="mt-12_5 flex items-center uppercase leading-14_17 tracking-widest">

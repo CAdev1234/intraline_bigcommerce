@@ -3,11 +3,13 @@ import { setCookie, getCookie, removeCookie } from "./cookie";
 import { authenticate } from "../services/authApi";
 import { createUser } from "../services/userApi";
 import { validateCredentials, validateNewUser } from "./validateNewUser";
+import { decodeEmail } from "./simpleMethod";
 
 
 export const loginAuth = async (email: string, password: string) => {
   const error = validateCredentials(email, password);
   if (error) {
+    console.log("error=", error)
     return error;
   }
 
@@ -15,7 +17,6 @@ export const loginAuth = async (email: string, password: string) => {
   console.log("res=", res)
   if (typeof(res) === 'object') {
     setCookie("jwt", res.jwt);
-    redirect("/");
     return res
   }else {
     return res
@@ -37,6 +38,11 @@ export const logoutAuth = (ctx = {}) => {
     redirect("/account/login", ctx);
   }
 };
+
+export const updatePassword = (new_password: string, email_encoded: string) => {
+  let email = decodeEmail(email_encoded)
+  // localStorage.getItem('')
+}
 
 export const getJwt = (ctx : any) => {
   return getCookie("jwt", ctx.req);

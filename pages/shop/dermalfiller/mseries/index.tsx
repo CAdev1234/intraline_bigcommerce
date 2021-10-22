@@ -12,9 +12,10 @@ const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const Link = dynamic(import('@components/ui/Link'))
 const Image = dynamic(import('next/image'))
-
+// import Image from 'next/image'
 
 import { getCookie } from 'utils/cookie'
+import KeenSliderA from '@components/mycp/KeenSlider/KeenSliderA'
 
 
 
@@ -124,10 +125,15 @@ export default function MSeries() {
                     render_ele={render_ele} 
                     slidesPerView={[1,1,1,1,1]} 
                     enableDot={true} 
-                    prevNavCss={"my-auto"} 
+                    prevNavCss={"my-auto "} 
                     nextNavCss={"my-auto"}
                     dotCss={"mt-7_5"}/>
+
+
     }
+
+
+    
 
     const scrollToBottomHandler = () => {
         window.scrollTo({
@@ -140,7 +146,7 @@ export default function MSeries() {
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
             <div className="absolute top-0 left-0 w-full flex overflow-hidden bg-white
-                            h-auto sm:h-175 md:h-225 lg:h-225 xl:h-225 2xl:h-225">
+                            h-auto sm:h-225 md:h-225 lg:h-225 xl:h-225 2xl:h-225">
                 <div className="h-full
                                 w-0 xl:w-154_5 2xl:w-154_5"></div>
                 <div className="relative flex-1 h-full
@@ -150,7 +156,7 @@ export default function MSeries() {
             </div>
             <div className="w-full h-15 bg-transparent"></div>
             <div className="relative w-full flex flex-col
-                            h-auto sm:h-160 md:h-210 lg:h-210 xl:h-210 2xl:h-210
+                            
                             bg-c_CCE7EF sm:bg-white
                             bg-opacity-100 sm:bg-opacity-0">
                 
@@ -171,10 +177,11 @@ export default function MSeries() {
                 <div className="z-10 h-full flex flex-col
                                 mb-0 sm:mb-15">
                     <div className="w-full
-                                    mt-12 md:mt-30
                                     block sm:flex
-                                    px-5 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
-                        <div className="flex flex-col">
+                                    px-0 sm:px-10 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
+                        <div className="flex flex-col flex-1
+                                        mt-12 md:mt-30
+                                        px-5 sm:px-0">
                             <div className="">
                                 <div>
                                     <div className="ttcommon_font
@@ -186,7 +193,7 @@ export default function MSeries() {
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
-                                                sm:w-6/12 md:w-5/12 lg:w-131_5">
+                                                sm:w-11/12 md:w-10/12 lg:w-131_5">
                                     <div className="w-full mt-8 text-c_00080D
                                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
                                                     leading-36_48 sm:leading-36_48 md:leading-36_48 lg:leading-36_48 xl:leading-36_48
@@ -195,12 +202,16 @@ export default function MSeries() {
                                 
                             </div>
                         </div>
-                    </div>
-                    <div className="mt-10 pb-15 relative overflow-hidden
-                                    block sm:hidden
-                                    px-5 sm:px-0">
-                        {renderMSeriesSwiper()}
-                        <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
+                        <div className='relative overflow-hidden
+                                        mx-0 sm:mx-auto
+                                        mt-5 sm:mt-0
+                                        px-5 sm:px-0'>
+                            <div className='w-full sm:w-70 md:w-100'>
+                            {renderMSeriesSwiper()}
+                            </div>
+                            <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2
+                                            block sm:hidden"></div>
+                        </div>
                     </div>
                     <div className="items-center justify-center mt-auto cursor-pointer
                                     hidden sm:flex"
@@ -209,7 +220,7 @@ export default function MSeries() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute h-full
+                {/* <div className="absolute h-full
                                 top-28 sm:top-0 md:top-0
                                 sm:right-5 md:right-10 lg:right-15
                                 sm:w-75 md:w-90 lg:w-100
@@ -219,7 +230,7 @@ export default function MSeries() {
                             {renderMSeriesSwiper()}
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* pure part */}

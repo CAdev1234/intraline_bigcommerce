@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
@@ -19,11 +19,18 @@ import AboutUsSec4Img from 'public/assets/img/aboutus_sec_4.webp'
 
 
 export default function AboutUs() {
-    const [fullName, setFullName] = useState('')
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
     const [companyName, setCompanyName] = useState('')
     const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [comment, setComment] = useState('')
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [companyNameValiObj, setCompanyNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
+    const [numValiSpan, setNumValiSpan] = useState(100)
     const our_sec = [
         {
             title: 'Education.',
@@ -46,6 +53,44 @@ export default function AboutUs() {
             img: AboutUsSec4Img
         }
     ]
+    useEffect(() => {
+        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisableSubmitBtn(true)
+        else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
+    })
+    const getFNameHandler = (str: string) => {
+        setFName(str)
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getLNameHandler = (str: string) => {
+        setLName(str)
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCompanyNameHandler = (str: string) => {
+        setCompanyName(str)
+        if (str === '') {
+            setCompanyNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setCompanyNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -95,13 +140,40 @@ export default function AboutUs() {
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-10">
-                            <Input className="bg-c_F7F7F7" type="text" placeholder="Full name"/>
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg} 
+                                valiMsgText={fnameValiObj.valiMsgText}
+                                onChange={getFNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className="bg-c_F7F7F7" type="text" placeholder="Company Name"/>
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="Last Name"
+                                enableValiMsg={lnameValiObj.enableValiMsg} 
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={getLNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className="bg-c_F7F7F7" type="text" placeholder="Email"/>
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="Company Name"
+                                enableValiMsg={companyNameValiObj.enableValiMsg} 
+                                valiMsgText={companyNameValiObj.valiMsgText}
+                                onChange={getCompanyNameHandler}/>
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="Email"
+                                enableValiMsg={emailValiObj.enableValiMsg} 
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={getEmailHandler}/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 
@@ -131,7 +203,7 @@ export default function AboutUs() {
                         </div>
                         <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full" disabled={disableSubmitBtn}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

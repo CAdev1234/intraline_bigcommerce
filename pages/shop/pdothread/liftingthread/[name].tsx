@@ -98,7 +98,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (params) => {
     const all_products = products;
-    console.log(all_products)
     const product_info = all_products.filter(item => removeSpaceFromStr(item.title).toLowerCase() === (params.params as ParamsType).name)[0]
     return {
         props: {
@@ -242,10 +241,13 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                             variant="primary">$100.00</Button>
                                 }
                             </div>
+                            <div className='absolute top-0 left-0 w-full h-full'>
+                                <img className='w-full h-full rounded-full' src={product_info.img} alt="" />
+                            </div>
                         </div>
-                        <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
+                        {/* <div className="h-full absolute -top-10 left-0 w-full flex flex-col">
                             <Image className="mix-blend-multiply m-auto h-full" src={threadSampleImg} alt="" layout="fill" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -319,11 +321,14 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
                                 </div>
                             }
-                            <div className="w-full h-full transform scale-y-125">
+                            <div className='absolute top-0 left-0 w-full h-full'>
+                                <img className='w-full h-full rounded-full' src={product_info.img} alt="" />
+                            </div>
+                            {/* <div className="w-full h-full transform scale-y-125">
                                 <div className="w-full h-full relative">
                                     <Image className="mix-blend-multiply m-auto h-full" src={threadSampleImg} alt="" layout="fill" />
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

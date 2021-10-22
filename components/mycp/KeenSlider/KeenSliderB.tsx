@@ -47,12 +47,11 @@ interface KeenSliderBProps{
 }
 const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCss, nextNavCss, enableDot, dotCss}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const [ele_ref, slider] = useKeenSlider<HTMLDivElement>({
+    const [sliderB_ref, sliderB] = useKeenSlider<HTMLDivElement>({
       // slidesPerView: slidesPerView,
       spacing: 20,
       loop: true,
       mode: 'snap',
-      resetSlide: true,
       breakpoints: {
         '(max-width: 600px)': {
           slidesPerView: slidesPerView[0]
@@ -74,48 +73,49 @@ const KeenSliderB: FC<KeenSliderBProps> = ({render_ele, slidesPerView, prevNavCs
         setCurrentSlide(s.details().relativeSlide)
       }
     })
-      return <>
-              <div className="relative z-10">
-                <div ref={ele_ref} className="keen-slider">
-                  {render_ele}
-                </div>
-                {slider && (
-                  <div className={``}>
-                    <div className={`absolute bottom-0 left-0 flex flex-col h-full`}>
-                      <div className={`${prevNavCss}`}>
-                        <ArrowLeft
-                          onClick={(e:any) => e.stopPropagation() || slider.prev()}
-                          disabled={currentSlide === 0}
-                        />
-                      </div>
-                    </div>
-                    <div className={`absolute top-0 right-0 flex flex-col h-full`}>
-                      <div className={`${nextNavCss}`}>
-                        <ArrowRight
-                          onClick={(e:any) => e.stopPropagation() || slider.next()}
-                          disabled={currentSlide === slider.details().size - 1}
-                        />
-                      </div>
+    // console.log(sliderB.details().size)
+    return <>
+            <div className="relative z-10">
+              <div ref={sliderB_ref} className="keen-slider">
+                {render_ele}
+              </div>
+              {sliderB && (
+                <div className={``}>
+                  <div className={`absolute bottom-0 left-0 flex flex-col h-full`}>
+                    <div className={`${prevNavCss}`}>
+                      <ArrowLeft
+                        onClick={(e:any) => e.stopPropagation() || sliderB.prev()}
+                        disabled={currentSlide === 0}
+                      />
                     </div>
                   </div>
-                )}
-                {slider && enableDot && (
-                    <div className={`dots mx-auto ${dotCss}`}>
-                    {[...Array(slider.details().size).keys()].map((idx) => {
-                        return (
-                        <button
-                            key={idx}
-                            onClick={() => {
-                            slider.moveToSlideRelative(idx)
-                            }}
-                            className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
-                        ></button>
-                        )
-                    })}
+                  <div className={`absolute top-0 right-0 flex flex-col h-full`}>
+                    <div className={`${nextNavCss}`}>
+                      <ArrowRight
+                        onClick={(e:any) => e.stopPropagation() || sliderB.next()}
+                        disabled={currentSlide === sliderB.details().size - 1}
+                      />
                     </div>
-                )}
-              </div>
-            </>
+                  </div>
+                </div>
+              )}
+              {sliderB && enableDot && (
+                  <div className={`dots mx-auto ${dotCss}`}>
+                  {[...Array(sliderB.details().size).keys()].map((idx) => {
+                      return (
+                      <button
+                          key={idx}
+                          onClick={() => {
+                            sliderB.moveToSlideRelative(idx)
+                          }}
+                          className={"dot" + (currentSlide === idx ? " active" : "") + " w-2_5 h-2_5"}
+                      ></button>
+                      )
+                  })}
+                  </div>
+              )}
+            </div>
+          </>
   }
 
 export default KeenSliderB

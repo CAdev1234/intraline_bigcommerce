@@ -4,11 +4,13 @@ import React, { InputHTMLAttributes } from 'react'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
-  onChange?: (...args: any[]) => any
+  onChange?: (...args: any[]) => any,
+  enableValiMsg?: boolean,
+  valiMsgText?: string
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const { className, children, onChange, ...rest } = props
+  const { className, children, onChange, enableValiMsg, valiMsgText, ...rest } = props
 
   const rootClassName = cn(s.root, {}, className)
 
@@ -30,6 +32,7 @@ const Input: React.FC<InputProps> = (props) => {
         spellCheck="false"
         {...rest}
       />
+      <span className={`vali-span text-c_F4511E ${enableValiMsg ? 'block' : 'hidden'}`}>{valiMsgText}</span>
     </label>
   )
 }

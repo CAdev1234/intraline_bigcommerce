@@ -9,9 +9,6 @@ const Input = dynamic(import('@components/mycp/Input'))
 const Checkbox = dynamic(import("@components/mycp/Checkbox"))
 
 
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 import { validateEmail } from "@utils/simpleMethod"
 const HubspotForm = dynamic(import("@components/mycp/HubspotForm"))
 
@@ -73,18 +70,7 @@ export default function ContactUs() {
     return (
         <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
-            <ToastContainer
-                position="bottom-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                className="toast-container"
-            />
+            
             <div className="items-start bg-white
                             block md:flex
                             pb-0 md:pb-25">

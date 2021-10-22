@@ -1,12 +1,45 @@
 import { Layout, Navbar } from '@components/common'
+import { validateEmail } from '@utils/simpleMethod';
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react';
 const Link = dynamic(import('@components/ui/Link'));
 
 const Button = dynamic(import('@components/mycp/Button'))
 const Input = dynamic(import('@components/mycp/Input'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function ForgotPassword() {
+    const [email, setEmail] = useState('')
+    const [enableSubmitBtn, setEnableSubmitBtn] = useState(false)
+    useEffect(() => {
+        if (validateEmail(email)) setEnableSubmitBtn(true)
+    }, [email])
+    const forgotPasswordSubmitHandler = async() => {
+        let res_data = await fetch('/api/hubspot/forgotpassword', {
+            method: 'POST',
+            body: JSON.stringify({email: email})
+        }).then(res => res.json())
+        
+        toast.configure()
+        if (res_data.status === 'success') {
+            let user = JSON.parse(localStorage.getItem('user') as string)
+            if (user !== null && user.email === email ) {
+                localStorage.setItem('rp_key', res_data.data.rp_key)
+                localStorage.setItem('rp_end_time', res_data.data.rp_end_time)
+                toast.success("Success. Please confirm verification link.", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }else {
+                toast.error("Email doesnot exist.", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }
+            
+        }
+    }
     
     return (
         <div className='ttcommon_font'>
@@ -26,9 +59,13 @@ export default function ForgotPassword() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Forgot Password.</div>
                     <div className="mt-10">
-                        <Input className='bg-white' placeholder="Email Address"/>
+                        <Input className='bg-white' placeholder="Email Address" onChange={setEmail}/>
+                        {email === '' && <span className="vali-span text-c_F4511E">Required.</span>}
+                        {email !== '' && !validateEmail(email) &&
+                            <span className="vali-span text-c_F4511E">Email is incorrect.</span>
+                        }
                     </div>
-                    <Button className="mt-8 w-full h-11">Send Verification Code</Button>
+                    <Button className="mt-8 w-full h-11" disabled={!enableSubmitBtn} onClick={() => {forgotPasswordSubmitHandler()}}>Send Verification Code</Button>
                 </div>
             </div>
         </div>

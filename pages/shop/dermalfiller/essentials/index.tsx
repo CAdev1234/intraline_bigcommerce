@@ -168,10 +168,11 @@ export default function Essentials() {
                 <div className="z-10 h-full flex flex-col
                                 mb-0 sm:mb-15">
                     <div className="w-full
-                                    mt-12 md:mt-30
                                     block sm:flex
-                                    px-5 md:px-10 lg:px-15 xl:px-15 2xl:px-15">
-                        <div className="flex flex-col">
+                                    px-0 sm:px-10 lg:px-15 xl:px-15 2xl:px-15">
+                        <div className="flex flex-col flex-1
+                                        mt-12 md:mt-30
+                                        px-5 sm:px-0">
                             <div className="">
                                 <div>
                                     <div className="ttcommon_font
@@ -183,7 +184,7 @@ export default function Essentials() {
                                 </div>
                                 <div className="mr-10
                                                 ml-0 lg:ml-auto
-                                                sm:w-6/12 md:w-5/12 lg:w-131_5">
+                                                sm:w-11/12 md:w-11/12 lg:w-131_5">
                                     <div className="w-full mt-8 text-c_00080D
                                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
                                                     leading-36_48 sm:leading-36_48 md:leading-36_48 lg:leading-36_48 xl:leading-36_48
@@ -192,13 +193,23 @@ export default function Essentials() {
                                 
                             </div>
                         </div>
+                        <div className='relative overflow-hidden
+                                        mx-0 sm:mx-auto
+                                        mt-5 sm:mt-0
+                                        px-5 sm:px-0'>
+                            <div className='w-full sm:w-70 md:w-100'>
+                                {renderMSeriesSwiper()}
+                            </div>
+                            <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2
+                                            block sm:hidden"></div>
+                        </div>
                     </div>
-                    <div className="mt-10 pb-15 relative overflow-hidden
+                    {/* <div className="mt-10 pb-15 relative overflow-hidden
                                     block sm:hidden
                                     px-5 sm:px-0">
                         {renderMSeriesSwiper()}
                         <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
-                    </div>
+                    </div> */}
                     <div className="items-center justify-center mt-auto cursor-pointer
                                     hidden sm:flex"
                         onClick={() => {scrollToBottomHandler()}}>
@@ -206,7 +217,7 @@ export default function Essentials() {
                         <ChevronDown className="w-4 ml-4" />
                     </div>
                 </div>
-                <div className="absolute h-full
+                {/* <div className="absolute h-full
                                 top-28 sm:top-0 md:top-0
                                 sm:right-5 md:right-10 lg:right-15
                                 sm:w-75 md:w-90 lg:w-100
@@ -216,7 +227,7 @@ export default function Essentials() {
                             {renderMSeriesSwiper()}
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* pure part */}
