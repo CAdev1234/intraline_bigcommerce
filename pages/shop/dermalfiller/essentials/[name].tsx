@@ -20,7 +20,7 @@ import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
+import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST, essential_products } from 'utils/productData'
 const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 import { downloadFile } from '@utils/simpleMethod'
@@ -58,11 +58,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
-    let essential_li = [
-        {id: 'product_0000-000000-0004', title: 'Intraline One', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_1.webp', detail: "Used to treat tear troughs, perioral “smoker’s lines”, cupid’s bow and lips for enhancement or subtle definition; marionette lines,  nasolabial folds, and crow’s feet/fine lines.", link: '/shop/dermalfiller/essentials/intralineone'},
-        {id: 'product_0000-000000-0005', title: 'Intraline Two', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_2.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral, cupid’s bow and lips. Intraline Two can also be used in nonsurgical rhinoplasty, cheeks, and facial contouring, in addition to treatments for chin and jawline enhancement.", link: '/shop/dermalfiller/essentials/intralinetwo'},
-        {id: 'product_0000-000000-0006', title: 'Intraline For Men', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/intraline_3.webp', detail: "Used to treat deep-set wrinkles, marionette lines, nasolabial folds, perioral “smoker’s lines”; cupid’s bow and lips (high definition). Intraline For Men can also be used for nonsurgical rhinoplasty and facial contouring of the cheeks, chin, and jawline.", link: '/shop/dermalfiller/essentials/intralineformen'},
-    ]
+    let essential_li = essential_products
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
     const [numM2Plus, setNumM2Plus] = useState(1)
@@ -347,16 +343,17 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
             </div>
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="items-center justify-center cursor-pointer
-                                hidden md:flex"
-                    onClick={() => {scrollToBottomHandler()}}>
-                    <span className="uppercase tracking-widest">Scroll for more details</span>
-                    <ChevronDown className="w-4 ml-4" />
+                                hidden md:flex">
+                    <a href='#essentials_indication' className='flex items-center'>
+                        <span className="uppercase tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </a>
                 </div>
             </div>
             
 
             {/* Indications */}
-            <div className="bg-white">
+            <div id='essentials_indication' className="bg-white">
                 <div className="flex flex-col mx-auto py-28
                                 w-full md:w-162_5
                                 px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">

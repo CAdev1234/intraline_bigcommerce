@@ -264,17 +264,21 @@ const Footer: FC<Props> = ({ className, pages }) => {
                 <option value="en">EN</option>
               </select> */}
             </div>
-            <div className="ttcommon_font text_overflow_one_line
-                            mr-0 md:mr-12 lg:mr-12 xl:mr-12">info@intraline.com</div>
+            <div className="ttcommon_font text_overflow_one_line cursor-pointer
+                            mr-0 md:mr-12 lg:mr-12 xl:mr-12">
+              <a href="/#">info@intraline.com</a>
+            </div>
           </div>
           
           <div className="flex items-center
                           flex-row-reverse sm:flex-row
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2
                           mt-6 md:mt-0 lg:mt-0 xl:mt-0">
-            <div className="ttcommon_font text_overflow_one_line 
+            <div className="ttcommon_font text_overflow_one_line cursor-pointer
                             ml-auto sm:ml-0
-                            mr-0 sm:mr-auto">+1 (778) 738-0351</div>
+                            mr-0 sm:mr-auto">
+              <a href="tel:+1 (778) 738-0351">+1 (778) 738-0351</a>
+            </div>
             <div className="flex items-center 
                             ml-0 sm:ml-auto">
               <label htmlFor="" 

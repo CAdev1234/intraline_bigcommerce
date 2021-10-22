@@ -214,10 +214,12 @@ export default function MSeries() {
                         </div>
                     </div>
                     <div className="items-center justify-center mt-auto cursor-pointer
-                                    hidden sm:flex"
-                        onClick={() => {scrollToBottomHandler()}}>
-                        <span className="uppercase tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
+                                    hidden sm:flex">
+                        <a href='#mseries_purepart' className='flex items-center'>
+                            <span className="uppercase tracking-widest">Scroll for more details</span>
+                            <ChevronDown className="w-4 ml-4" />
+                        </a>
+                        
                     </div>
                 </div>
                 {/* <div className="absolute h-full
@@ -234,7 +236,7 @@ export default function MSeries() {
             </div>
 
             {/* pure part */}
-            <div className="hidden sm:block bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
+            <div id='mseries_purepart' className="hidden sm:block bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
                 <div className="mt-12_5 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32

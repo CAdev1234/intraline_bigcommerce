@@ -195,10 +195,11 @@ export default function PDOThread() {
                                             block sm:hidden"></div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center cursor-pointer mt-5"
-                        onClick={() => {scrollToBottomHandler()}}>
-                        <span className="uppercase tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
+                    <div className="flex items-center justify-center cursor-pointer mt-5">
+                        <a href='#pdo_thread_catalog' className='flex items-center'>
+                            <span className="uppercase tracking-widest">Scroll for more details</span>
+                            <ChevronDown className="w-4 ml-4" />
+                        </a>
                     </div>
                 </div>
                 {/* <div className="absolute top-0 right-0 w-5/12">
@@ -213,7 +214,7 @@ export default function PDOThread() {
 
             
 
-            <div className="bg-white relative z-10">
+            <div id='pdo_thread_catalog' className="bg-white relative z-10">
                 <div className="flex flex-col max-w-2xl mx-auto py-28">
                     <div className="ttcommon_font_bold text-center
                                     text-2xl md:text-4xl

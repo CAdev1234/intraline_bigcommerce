@@ -162,27 +162,27 @@ export default function ContactUs() {
                         <div className="mt-2_5">
                             <div className="flex items-center">
                                 <input type="radio" id="help_type_1" value="distributor inquiry" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_1" className="text-base leading-14_26 ml-3">Distributor Inquiry</label>
+                                <label htmlFor="help_type_1" className="text-c_00080D leading-14_26 ml-3">Distributor Inquiry</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_2" value="purchasing intraline" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_2" className="text-base leading-14_26 ml-3">Purchasing Intraline</label>
+                                <label htmlFor="help_type_2" className="text-c_00080D leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_3" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_3" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_3" className="text-c_00080D leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_4" value="purchasing intraline" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_4" className="text-base leading-14_26 ml-3">Purchasing Intraline</label>
+                                <label htmlFor="help_type_4" className="text-c_00080D leading-14_26 ml-3">Purchasing Intraline</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_5" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_5" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_5" className="text-c_00080D leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                             <div className="mt-1 flex items-center">
                                 <input type="radio" id="help_type_6" value="aesthetic training" name="help_type" onChange={(event) => radioHandle(event)} />
-                                <label htmlFor="help_type_6" className="text-base leading-14_26 ml-3">Aesthetic Training</label>
+                                <label htmlFor="help_type_6" className="text-c_00080D leading-14_26 ml-3">Aesthetic Training</label>
                             </div>
                         </div>
                         <div className="mt-4">

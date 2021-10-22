@@ -365,16 +365,18 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
             </div>
             <div className="bg-c_CCE7EF w-full flex flex-col pb-15">
                 <div className="items-center justify-center cursor-pointer relative z-10
-                                hidden md:flex"
-                    onClick={() => {scrollToBottomHandler()}}>
-                    <span className="uppercase tracking-widest">Scroll for more details</span>
-                    <ChevronDown className="w-4 ml-4" />
+                                hidden md:flex">
+                    <a href='#mseries_indication' className='flex items-center'>
+                        <span className="uppercase tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </a>
+                    
                 </div>
             </div>
             
 
             {/* Indications */}
-            <div className="bg-white">
+            <div id='mseries_indication' className="bg-white">
                 <div className="flex flex-col mx-auto py-28
                                 w-full md:w-162_5
                                 px-5 md:px-0 lg:px-0 xl:px-0 2xl:px-0">

@@ -165,7 +165,7 @@ export default function Treatments() {
                         headline={"Body Treatments."}
                         sub_headline={"The choice is yours. Find the perfect treatment for you."}
                         treatment_item_li={body_treatment_li}
-                        leftside_bg={"bg-c_white"}
+                        leftside_bg={"bg-white"}
                         rightside_bg={"bg-c_CCE7EF"}
                         enable_path={false}/>
                 </div>

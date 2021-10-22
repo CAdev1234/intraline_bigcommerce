@@ -219,15 +219,17 @@ export default function ScarKit() {
 
             </div>
             <div className="bg-c_C3E0DC pb-15 pt-9">
-                <div className="flex items-center justify-center cursor-pointer" onClick={() => {scrollToBottomHandler()}}>
-                    <span className="uppercase tracking-widest">Scroll for more details</span>
-                    <ChevronDown className="w-4 ml-4" />
+                <div className="flex items-center justify-center cursor-pointer">
+                    <a href='#scarkit_questionpart' className='flex items-center'>
+                        <span className="uppercase tracking-widest">Scroll for more details</span>
+                        <ChevronDown className="w-4 ml-4" />
+                    </a>
                 </div>
             </div>
 
 
             {/* question part */}
-            <div className="bg-white w-full relative
+            <div id='scarkit_questionpart' className="bg-white w-full relative
                             hidden md:block">
                 <div className="absolute h-full flex flex-col" style={{left: -244}}>
                     <div className="my-auto ttcommon_font_bold transform -rotate-90 text-c_F7F7F7 text-200px leading-200_160" style={{transformOrigin: 'center'}}>Scar Kit</div>

@@ -165,18 +165,19 @@ export default function Moisturizer() {
                     </div>
                     <div className="mt-16 pb-15">
                         <div className="items-center justify-center cursor-pointer
-                                        hidden md:flex"
-                            onClick={() => {scrollToBottomHandler()}}>
-                            <span className="uppercase tracking-widest
-                                            ">Scroll for more details</span>
-                            <ChevronDown className="w-4 ml-4" />
+                                        hidden md:flex">
+                            <a href='#catalog_section' className='flex items-center'>
+                                <span className="uppercase tracking-widest
+                                                ">Scroll for more details</span>
+                                <ChevronDown className="w-4 ml-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Lorem Ipsum. */}
-            <div className="bg-white
+            <div id='catalog_section' className="bg-white
                             px-5 md:px-15 lg:px-40">
                 <div className="flex flex-col max-w-2xl mx-auto
                                 py-25 md:py-28">

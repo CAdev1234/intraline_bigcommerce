@@ -337,10 +337,11 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     </div>
                     <div className="mt-15 items-center justify-center pb-15">
                         <div className="items-center mt-20 justify-center cursor-pointer
-                                        hidden md:flex"
-                            onClick={() => {scrollToBottomHandler()}}>
-                            <span className="uppercase tracking-widest">Scroll for more details</span>
-                            <ChevronDown className="w-4 ml-4" />
+                                        hidden md:flex">
+                            <a href='#rejuvenation_indication' className='flex items-center'>
+                                <span className="uppercase tracking-widest">Scroll for more details</span>
+                                <ChevronDown className="w-4 ml-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -366,7 +367,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
             </div>
 
             {/* Indications */}
-            <div className="bg-white
+            <div id='rejuvenation_indication' className="bg-white
                             px-5 md:px-40">
                 <div className="flex flex-col max-w-2xl mx-auto py-28">
                     <div className="ttcommon_font_bold text-center

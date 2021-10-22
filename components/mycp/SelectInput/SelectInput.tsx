@@ -28,7 +28,7 @@ const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class,
                     </div>
                     {enableSelect && 
                         <div className="absolute top-11 left-0 w-full">
-                            <div className="max-h-80 overflow-y-auto">
+                            <div className="max-h-80 overflow-y-auto text-c_00080D">
                                 {(option_li as Array<string> | Array<ProductObject>).map((item, index) => {
                                     return <div key={`index_${index}`} onClick={() => {
                                             typeof(item) === 'string' ? setCurrentVal(item) : setCurrentVal(item.title)

@@ -211,10 +211,12 @@ export default function Essentials() {
                         <div className="absolute top-15 bg-white h-full rounded-t-full w-150vw left-1/2 transform -translate-x-1/2"></div>
                     </div> */}
                     <div className="items-center justify-center mt-auto cursor-pointer
-                                    hidden sm:flex"
-                        onClick={() => {scrollToBottomHandler()}}>
-                        <span className="uppercase tracking-widest">Scroll for more details</span>
-                        <ChevronDown className="w-4 ml-4" />
+                                    hidden sm:flex">
+                        <a href='#essentials_indication' className='flex items-center'>
+                            <span className="uppercase tracking-widest">Scroll for more details</span>
+                            <ChevronDown className="w-4 ml-4" />
+                        </a>
+                        
                     </div>
                 </div>
                 {/* <div className="absolute h-full
@@ -231,7 +233,7 @@ export default function Essentials() {
             </div>
 
             {/* pure part */}
-            <div className="hidden sm:block bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
+            <div id='essentials_indication' className="hidden sm:block bg-c_C6CBDD w-full relative z-10" style={{height: 880}}>
                 <div className="mt-12_5 relative z-10">
                     <div className="w-full flex items-center">
                         <div className="pr-5 xl:pr-32 2xl:pr-32
