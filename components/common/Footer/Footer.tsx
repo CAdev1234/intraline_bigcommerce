@@ -266,7 +266,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             </div>
             <div className="ttcommon_font text_overflow_one_line cursor-pointer
                             mr-0 md:mr-12 lg:mr-12 xl:mr-12">
-              <a href="/#">info@intraline.com</a>
+              <a href="mailto:info@intraline.com">info@intraline.com</a>
             </div>
           </div>
           
