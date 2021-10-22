@@ -187,15 +187,17 @@ export default function AllProducts() {
                     </div>
                 </div>
                 <div className="mt-10 mx-auto flex items-center justify-center">
-                    <div className="uppercase tracking-widest text-c_00080D cursor-pointer" onClick={() => {scrollToBottomHandler()}}>Scroll to browser all</div>
-                    <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
+                    <a href="#all_products" className='flex items-center'>
+                        <div className="uppercase tracking-widest text-c_00080D cursor-pointer">Scroll to browser all</div>
+                        <div className="ml-4"><ChevronDown className="w-4 h-4"/></div>
+                    </a>
                 </div>
             </div>
 
 
 
             {/* Products part */}
-            <div className="bg-c_C6CBDD py-25 flex flex-col">
+            <div id='all_products' className="bg-c_C6CBDD py-25 flex flex-col">
                 <div className="uppercase text-xs ml-5 mb-8
                                 block sm:hidden">Showing All Products <span className="ttcommon_font_bold">({all_product_li.length})</span></div>
                 <div className="flex items-center tracking-widest uppercase
