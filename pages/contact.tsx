@@ -15,20 +15,50 @@ const HubspotForm = dynamic(import("@components/mycp/HubspotForm"))
 
 
 export default function ContactUs() {
-    const [contact_info, setContactInfo] = useState({ full_name: '', email: '', mobile: '', help_type: '', msg: '' })
+    const [contact_info, setContactInfo] = useState({ f_name: '', l_name: '', email: '', mobile: '', help_type: '', msg: '' })
     const [enableSubmit, setEnableSubmit] = useState(false)
     const [enableContactHubspotForm, setEnableContactHubspotForm] = useState(false)
     const [hubspotFormFields, setHubspotFormFields] = useState(null)
 
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [mobileValiObj, setMobileValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
 
-    const setFullNameHandler = (str: string) => {
-        setContactInfo({ ...contact_info, full_name: str })
+
+    const setFNameHandler = (str: string) => {
+        setContactInfo({ ...contact_info, f_name: str })
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const setLNameHandler = (str: string) => {
+        setContactInfo({ ...contact_info, l_name: str })
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const setEmailHandler = (str: string) => {
         setContactInfo({ ...contact_info, email: str })
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const setMobileHandler = (str: string) => {
         setContactInfo({ ...contact_info, mobile: str })
+        if (str === '') {
+            setMobileValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setMobileValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const setHelpTypeHandler = (str: string) => {
         setContactInfo({ ...contact_info, help_type: str })
@@ -42,7 +72,7 @@ export default function ContactUs() {
     };
 
     const submitHandler = async() => {
-        if (contact_info.full_name && contact_info.email && contact_info.mobile) {
+        if (contact_info.f_name && contact_info.email && contact_info.mobile) {
             let res_data = await fetch('/api/hubspot/getformbyid', {
                 method: 'POST',
             }).then(res => res.json())
@@ -63,7 +93,7 @@ export default function ContactUs() {
     }
 
     useEffect(() => {
-        if (contact_info.full_name && contact_info.email && contact_info.mobile) {
+        if (contact_info.f_name && contact_info.email && contact_info.mobile) {
             setEnableSubmit(true)
         }
     }, [contact_info, enableContactHubspotForm])
@@ -91,22 +121,40 @@ export default function ContactUs() {
                         <div className="ttcommon_font_bold text-4xl leading-36_26">Contact Intraline.</div>
                         <div className="mt-5">We are here to help-reach out with any questions.</div>
                         <div className="mt-10">
-                            <Input className="bg-c_F7F7F7" type="text" placeholder="Full name" onChange={setFullNameHandler} />
-                            {contact_info.full_name === '' &&
-                                <span className="text-c_F4511E font-bold">Required.</span>
-                            }
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg} 
+                                valiMsgText={fnameValiObj.valiMsgText} 
+                                onChange={setFNameHandler} />
                         </div>
                         <div className="mt-5">
-                            <Input className="bg-c_F7F7F7" type="text" placeholder="Email" onChange={setEmailHandler} />
-                            {!validateEmail(contact_info.email) &&
-                                <span className="text-c_F4511E font-bold">Required.</span>
-                            }
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="Last Name" 
+                                enableValiMsg={lnameValiObj.enableValiMsg} 
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={setLNameHandler} />
                         </div>
                         <div className="mt-5">
-                            <Input className="bg-c_F7F7F7" type="number" placeholder="Phone Number" onChange={setMobileHandler} />
-                            {contact_info.mobile === '' &&
-                                <span className="text-c_F4511E font-bold">Required.</span>
-                            }
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="text" 
+                                placeholder="Email" 
+                                enableValiMsg={emailValiObj.enableValiMsg} 
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={setEmailHandler} />
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className="bg-c_F7F7F7" 
+                                type="number" 
+                                placeholder="Phone Number" 
+                                enableValiMsg={mobileValiObj.enableValiMsg} 
+                                valiMsgText={mobileValiObj.valiMsgText}
+                                onChange={setMobileHandler} />
                         </div>
                         <div className="mt-5">
                             <div className="leading-14_26">How can we best help you?</div>
