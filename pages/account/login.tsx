@@ -70,8 +70,8 @@ export default function Login() {
         let vali_span_li = document.querySelectorAll('body span.vali-span.block')
         setNumValiSpan(vali_span_li.length)
         if (numValiSpan !== 0) setDisableLoginBtn(true)
-        else if(email !== '' && password !== '') setDisableLoginBtn(false)
-    }, [email, password])
+        else if(email !== '' && password.length > 7) setDisableLoginBtn(false)
+    })
 
 
     return (
