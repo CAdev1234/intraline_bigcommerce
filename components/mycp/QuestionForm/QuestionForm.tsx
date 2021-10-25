@@ -88,7 +88,7 @@ const QuestionForm:FC<QuestionFormProps> = ({bg_color, input_bg}) => {
                             valiMsgText={fnameValiObj.valiMsgText}
                             onChange={getFNameHandler}/>
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-1">
                         <Input 
                             className={`${input_bg}`} 
                             type="text" 
@@ -97,7 +97,7 @@ const QuestionForm:FC<QuestionFormProps> = ({bg_color, input_bg}) => {
                             valiMsgText={lnameValiObj.valiMsgText}
                             onChange={getLNameHandler}/>
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-1">
                         <Input 
                             className={`${input_bg}`} 
                             type="text" 
@@ -106,7 +106,7 @@ const QuestionForm:FC<QuestionFormProps> = ({bg_color, input_bg}) => {
                             valiMsgText={companyNameValiObj.valiMsgText}
                             onChange={getCompanyNameHandler}/>
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-1">
                         <Input 
                             className={`${input_bg}`} 
                             type="text" 
@@ -115,7 +115,7 @@ const QuestionForm:FC<QuestionFormProps> = ({bg_color, input_bg}) => {
                             valiMsgText={emailValiObj.valiMsgText}
                             onChange={getEmailHandler}/>
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-1">
                         <SelectInput 
                             enable_underline={false}
                             default_option="Choose Country or Region"

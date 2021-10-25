@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = (props) => {
 
   return (
     <label>
-      <div className='relative h-16'>
+      <div className='relative h-15'>
         <input
           className={rootClassName}
           onChange={handleOnChange}
@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = (props) => {
           spellCheck="false"
           {...rest}
         />
-        <span className={`vali-span text-c_F4511E ${enableValiMsg ? 'block' : 'hidden'}`}>{valiMsgText}</span>
+        <span className={`vali-span text-c_F4511E text-sm ${enableValiMsg ? 'block' : 'hidden'}`}>{valiMsgText}</span>
       </div>
       
     </label>

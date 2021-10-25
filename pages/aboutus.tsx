@@ -70,7 +70,10 @@ export default function AboutUs() {
                         return <div key={`our_sec_${index}`}>
                                     <div className="ttcommon_font_bold leading-36_48 text-4xl">{item.title}</div>
                                     <div className="mt-7_5">
-                                        <Image className="w-full" src={item.img} alt={`aboutus_sec_${index}`} />
+                                        {/* <img className='w-full' src={item.img as sr} alt="" /> */}
+                                        <div className='image-container'>
+                                            <Image className="image" src={item.img} alt={`aboutus_sec_${index}`} layout="fill"/>
+                                        </div>
                                     </div>
                                     <div className="mt-7_5 leading-14_26">{item.detail}</div>
                                 </div>
