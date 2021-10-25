@@ -13,6 +13,7 @@ const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
+import { validateEmail } from '@utils/simpleMethod'
 const Image = dynamic(import('next/image'))
 
 
@@ -49,11 +50,18 @@ export default function Rejuvenation() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    const [fullName, setFullName] = useState('')
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
     const [companyName, setCompanyName] = useState('')
     const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [comment, setComment] = useState('')
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [companyNameValiObj, setCompanyNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
+    const [numValiSpan, setNumValiSpan] = useState(100)
     const [logined, setLogined] = useState(false)
     let thread_li = [
         {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.webp', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation/monos'},
@@ -68,6 +76,12 @@ export default function Rejuvenation() {
             setLogined(true)
         }
     }, [])
+    useEffect(() => {
+        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisableSubmitBtn(true)
+        else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
+    })
     
     const addToCartByDom = new AddToCartByDom(thread_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -78,6 +92,40 @@ export default function Rejuvenation() {
     }
     const addToBagHandler = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
         addToCartByDom.addToBagHandler(event, index)
+    }
+    const getFNameHandler = (str: string) => {
+        setFName(str)
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getLNameHandler = (str: string) => {
+        setLName(str)
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCompanyNameHandler = (str: string) => {
+        setCompanyName(str)
+        if (str === '') {
+            setCompanyNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setCompanyNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const renderLiftingThreadSwiper = () => {
         let render_ele = thread_li.map((item, index) => {
@@ -229,13 +277,40 @@ export default function Rejuvenation() {
                         <p className="leading-14_26
                                     mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
-                            <Input className='bg-white' type="text" placeholder="Full Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg} 
+                                valiMsgText={fnameValiObj.valiMsgText}
+                                onChange={getFNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Company Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Last Name"
+                                enableValiMsg={lnameValiObj.enableValiMsg} 
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={getLNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Email"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Company Name"
+                                enableValiMsg={companyNameValiObj.enableValiMsg} 
+                                valiMsgText={companyNameValiObj.valiMsgText}
+                                onChange={getCompanyNameHandler}/>
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Email"
+                                enableValiMsg={emailValiObj.enableValiMsg} 
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={getEmailHandler}/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 
@@ -262,7 +337,7 @@ export default function Rejuvenation() {
                         </div>
                         <div className="leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full" disabled={disableSubmitBtn}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

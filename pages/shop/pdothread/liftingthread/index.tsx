@@ -73,11 +73,14 @@ export default function LiftingThread() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
+    }, [])
+
+    useEffect(() => {
         let vali_span_li = document.querySelectorAll('body span.vali-span.block')
         setNumValiSpan(vali_span_li.length)
         if (numValiSpan !== 0) setDisableSubmitBtn(true)
         else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
-    }, [])
+    })
     
     const addToCartByDom = new AddToCartByDom(thread_li)
     const decreaseNumHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
