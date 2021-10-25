@@ -58,11 +58,9 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
-    let mseries_li = [
-        {id: 'product_0000-000000-0001', title: 'M2 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m2plus.webp', detail: "M2 Plus is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love.", link: '/shop/dermalfiller/mseries/m2plus'},
-        {id: 'product_0000-000000-0002', title: 'M3 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m3plus.webp', detail: "M3 Plus style embraces a minimal aesthetic, with maximum impact of all the important things. It’s all about minimally enhancing your features for maximum impact.", link: '/shop/dermalfiller/mseries/m3plus'},
-        {id: 'product_0000-000000-0003', title: 'M4 Plus', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/m4plus.webp', detail: "M4 Plus is a style that encourages utilizing your features in the boldest way possible. It welcomes diverse aesthetics. Maximalism is big, bold, and brave.", link: '/shop/dermalfiller/mseries/m4plus'},
-    ]
+    let mseries_li = products.filter(item => {
+        if (item.link.includes('dermalfiller/mseries')) return item
+    })
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
     const [numM2Plus, setNumM2Plus] = useState(1)

@@ -117,14 +117,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
-    var items = [
-        {id: 'product_0000-000000-0010', title: 'MONOS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_monos.webp', detail: "Explore Intraline Mono PDO Threads.", link: '/shop/pdothread/rejuvenation/monos'},
-        {id: 'product_0000-000000-0011', title: 'DOUBLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_doubles.webp', detail: "A Double PDO Thread is two smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Double PDO Threads.", link: '/shop/pdothread/rejuvenation/doubles'},
-        {id: 'product_0000-000000-0012', title: 'TRIPLES', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_triples.webp', detail: "A Triple PDO Thread is three smooth PDO filaments twisted around each other and folded in half. Learn more about Intraline Triple PDO Threads.", link: '/shop/pdothread/rejuvenation/triples'},
-        {id: 'product_0000-000000-0013', title: 'DOUBLE SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_double_spirals.webp', detail: "A Double Spiral is two smooth PDO filaments twisted around each other and around the needle. Learn more about Intraline Double Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation/doublespirals'},
-        {id: 'product_0000-000000-0014', title: 'SPIRALS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_spirals.webp', detail: "A Spiral PDO Thread is one smooth filament that is wrapped around the needle. Learn more about Intraline Spiral PDO Threads.", link: '/shop/pdothread/rejuvenation/spirals'},
-        {id: 'product_0000-000000-0015', title: 'MICRO CANNULAS', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/rejuvenation_micro_cannulas.webp', detail: "A Micro Cannula is a smooth Rejuvenation PDO Thread that comes in a cannula instead of a sharp tip needle. Learn more about Intraline's Micro Cannula PDO Threads.", link: '/shop/pdothread/rejuvenation/microcannulas'},
-    ]
+    let items = products.filter(item => {
+        if (item.link.includes('pdothread/rejuvenation')) return item
+    })
 
     const [logined, setLogined] = useState(false)
     const [numDimension720, setNumDimension720] = useState(1)
@@ -449,7 +444,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             
                         </div>
                         <div className="flex-1">
-                            <div className="text-4xl leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
+                            <div className="text-4xl leading-36_48">Amongst the {product_info.title}’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
                             <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{product_info.title} Offerings.</div>
                             <div className="mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                         </div>
@@ -516,7 +511,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     
                 </div>
                 <div className="w-full text-2xl text-center mt-10">
-                    <div className="leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
+                    <div className="leading-36_48">Amongst the {product_info.title}’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">{product_info.title} Offerings.</div>
                     <div className="mt-2_5 leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                 </div>

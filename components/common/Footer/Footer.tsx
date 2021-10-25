@@ -160,7 +160,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                               <Link href="/account/myaccount">
                                 <a className=" text-white leading-14_26" >{item.title}</a>
                               </Link>
-                            } */}
+                            } */} 
                             {item.title === "Register/Login" && !logined &&
                               <Link href={item.link}>
                                 <a className=" text-white leading-14_26" >{item.title}</a>

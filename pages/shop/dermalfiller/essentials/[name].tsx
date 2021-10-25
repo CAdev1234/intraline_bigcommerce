@@ -20,7 +20,7 @@ import {activeSideReview} from 'utils/redux/slices/reviewSlice'
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST, essential_products } from 'utils/productData'
+import { products, MSERIES_FAQ_LIST, MSERIES_TESTIMONIAL_LIST } from 'utils/productData'
 const Image = dynamic(import('next/image'))
 import smokeM2Img from 'public/assets/img/SmokeM2.webp'
 import { downloadFile } from '@utils/simpleMethod'
@@ -58,7 +58,9 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
-    let essential_li = essential_products
+    let essential_li = products.filter(item => {
+        if (item.link.includes('dermalfiller/essentials')) return item
+    })
     const enableSideReview = useAppSelector(state => state.review.enableSideReview)
     const [logined, setLogined] = useState(false)
     const [numM2Plus, setNumM2Plus] = useState(1)
@@ -289,7 +291,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 <div className="mt-2 leading-14_26
                                                 md:mr-5 lg:mr-36">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD ${product_info.price}</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white

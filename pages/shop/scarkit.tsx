@@ -20,6 +20,7 @@ import { downloadFile, validateEmail } from '@utils/simpleMethod'
 import { toast } from 'react-toastify'
 
 import scarkitImg from 'public/assets/img/scarkit.webp'
+import { products } from '@utils/productData'
 const Image = dynamic(import('next/image'))
 
 
@@ -54,7 +55,10 @@ export default function ScarKit() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    let scarkit = {id: 'product_0000-000000-0018', title: 'SCAR KIT', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/scarkit.webp', detail: "The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.This cannula gently treats both the cause and appearance of depressed scars.Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.", link: '/shop/scarkit'}
+    let filter_res = products.filter(item => {
+        if (item.link.includes('shop/scarkit')) return item
+    })
+    let scarkit = filter_res[0]
     let specific_li = [
         {
             title: 'Product Specifics.', 
@@ -153,7 +157,7 @@ export default function ScarKit() {
                                 block md:hidden">
                     <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
                         <div className="absolute w-full left-0 top-0">
-                            {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                            {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">${scarkit.price}</Button>}
                         </div>
                         <div className="flex">
                             <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>
@@ -183,7 +187,7 @@ export default function ScarKit() {
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl">The Scar Kit, developed by aesthetics company Intraline, features a revolutionary new type of cannula, designed by Mr. Olivier Amar.</div>
                                 <div className="mt-2 leading-14_26">This cannula gently treats both the cause and appearance of depressed scars. Indented scars have fibrous tissue that develops under the injury, tethering the skin to underlying tissue and pulling it downwards.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD ${scarkit.price}</span>
                                     <span className="ml-5">Weight: 500GR</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white
@@ -207,7 +211,7 @@ export default function ScarKit() {
                                         hidden md:block">
                             <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
                                 <div className="absolute w-full left-0 top-0">
-                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">$100.00</Button>}
+                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">${scarkit.price}</Button>}
                                 </div>
                                 <div className="flex">
                                     <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>

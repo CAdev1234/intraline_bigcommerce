@@ -111,11 +111,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     let testimonial_li = MSERIES_TESTIMONIAL_LIST.filter(item => {
         if (item.detail.toLowerCase().includes(product_info.title)) return item
     })
-    var items = [
-        {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.webp', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/liftingthread/dimension720'},
-        {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.webp', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/liftingthread/dimension360'},
-        {id: 'product_0000-000000-0009', title: 'Nose Thread', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_nose.webp', detail: "Nose PDO Threads are short barbed threads used in nonsurgical rhinoplasty. Learn more about Intraline's Nose Threads.", link: '/shop/pdothread/liftingthread/nosethread'},
-    ]
+    let items = products.filter(item => {
+        if (item.link.includes('pdothread/liftingthread')) return item
+    })
     
     const [logined, setLogined] = useState(false)
     const [numDimension720, setNumDimension720] = useState(1)
@@ -281,7 +279,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 </div>
                                 {/* <div className="mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div> */}
                                 <div className="mt-2 leading-14_26
-                                                mr-0 md:mr-36">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
+                                                mr-0 md:mr-36">{product_info.title} has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the {product_info.title} PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
                                     <span>USD $100.00</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
@@ -362,7 +360,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <div className="w-1/2 pr-32">
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
-                                    <div className="ttcommon_font_bold text-6xl leading-64_76">720 PDO</div>
+                                    <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}</div>
                                     <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
                                         <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 2} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-base ">({testimonial_li.length})</div>
@@ -403,7 +401,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <div className="text-base leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">BUY 720 PDO NOW</Button>
+                                        <Button className="h-full flex-1">BUY {product_info.title} NOW</Button>
                                     </div>}
                                 </div>
                                 
@@ -411,9 +409,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             
                         </div>
                         <div className="flex-1">
-                            <div className="text-4xl leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
-                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">Dimension 720 Offerings.</div>
-                            <div className="mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                            <div className="text-4xl leading-36_48">Amongst the {product_info.title}’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
+                            <div className="ttcommon_font_bold mt-12_5 text-4xl leading-36_26">{product_info.title} Offerings.</div>
+                            <div className="mt-5 text-4xl leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                         </div>
                     </div>
                     
@@ -478,9 +476,9 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                     
                 </div>
                 <div className="w-full text-2xl text-center mt-10">
-                    <div className="leading-36_48">Amongst the 720’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
+                    <div className="leading-36_48">Amongst the {product_info.title}’s effects we can find lifting of the skin, immediate tightening, scaffolding, new collagen production, versatile and correction of fine wrinkles.</div>
                     <div className="ttcommon_font_bold mt-7_5 leading-36_26">{product_info.title} Offerings.</div>
-                    <div className="mt-2_5 leading-36_48">We have 2 different SKU’s of the Dimension 720, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
+                    <div className="mt-2_5 leading-36_48">We have 2 different SKU’s of the {product_info.title}, they are differenciated by the length of the cannula, the length of the thread and the gauge of the cannula.</div>
                 </div>
             </div>
 

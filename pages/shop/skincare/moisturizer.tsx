@@ -15,6 +15,7 @@ import { getCookie } from '@utils/cookie'
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
 import QuestionForm from '@components/mycp/QuestionForm'
+import { products } from '@utils/productData'
 
 const Image = dynamic(import('next/image'))
 
@@ -50,8 +51,10 @@ export default function Moisturizer() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    let moisturizer = {id: 'product_0000-000000-0016', title: 'MOISTURIZER', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/moisturizer.webp', detail: "Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.", link: '/shop/skincare/moisturizer'}
-    
+    let skincare = products.filter(item => {
+        if (item.link.includes('skincare/moisturizer')) return item
+    })
+    let moisturizer = skincare[0]
     const [logined, setLogined] = useState(false)
     const [numMoisturizer, setNumMoisturizer] = useState(1)
 
@@ -105,7 +108,7 @@ export default function Moisturizer() {
                     <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                         <div className="absolute w-full left-0 top-0">
                             {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
-                                                            right-0 md:right-15" variant="primary">$100.00</Button>}
+                                                            right-0 md:right-15" variant="primary">${moisturizer.price}</Button>}
                             <div className="relative w-full h-full">
                                 <Image className="w-full transform scale-75" src="/assets/img/skincare3.webp" alt="" layout="fill" />
                             </div>
@@ -126,7 +129,7 @@ export default function Moisturizer() {
                                 <div className="mt-2 leading-14_26
                                                 mr-5 lg:mr-36">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD ${moisturizer.price}</span>
                                     <span className="ml-5">Volume: 100ML</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white
@@ -150,7 +153,7 @@ export default function Moisturizer() {
                             <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                                 <div className="absolute w-full left-0 top-0">
                                     {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
-                                                                    right-0 md:right-15" variant="primary">$100.00</Button>}
+                                                                    right-0 md:right-15" variant="primary">${moisturizer.price}</Button>}
                                     <div className="relative w-full h-full">
                                         <Image className="w-full transform scale-75" src="/assets/img/skincare3.webp" alt="" layout="fill" />
                                     </div>
