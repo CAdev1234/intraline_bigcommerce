@@ -126,7 +126,7 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
 
     const RenderMseries = () => {
         return essential_li.map((item, index) => {
-            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" 
                         key={`mseires_${index}`}>
                         {logined && <Button className="ttcommon_font_bold h-9 w-30 absolute top-0 right-0 text-lg" variant="primary">${item.price}</Button>}
                         <div className="flex">
@@ -382,9 +382,9 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}.</div>
-                                    <div className="flex items-center" onClick={() => {ShowSideReviewHandler()}}>
+                                    <div className="flex items-center cursor-pointer" onClick={() => {ShowSideReviewHandler()}}>
                                         <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
-                                        <div className="text-base ">({testimonial_li.length})</div>
+                                        <div className="text-c_00080D">({testimonial_li.length})</div>
                                     </div>
                                 </div>
                                 <div className="pt-7">

@@ -13,6 +13,7 @@ import { validateEmail } from 'utils/simpleMethod'
 import { useAppDispatch } from '@utils/redux/hooks';
 import { loginUser } from '@utils/redux/slices/userSlice';
 import { loginAuth } from '@utils/auth';
+import { useAuth } from '@utils/context/auth';
 
 export default function Login() {
     const router = useRouter()
@@ -24,6 +25,7 @@ export default function Login() {
     const [numValiSpan, setNumValiSpan] = useState(100)
     const [disableLoginBtn, setDisableLoginBtn] = useState(true)
     // const user = useAppSelector((state) => state.user.userInfo)
+    // const { login } = useAuth()
     
     const dispatch = useAppDispatch()
 
@@ -50,6 +52,7 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async () => {
+        // let login_res = login(email, password)
         let res = await loginAuth(email, password)
         if (typeof(res) === 'string') {
             setLoginResultMsg(false)

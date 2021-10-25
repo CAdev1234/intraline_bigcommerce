@@ -1,4 +1,4 @@
-import { post } from "../utils/request";
+import { login } from "@utils/firebase/auth"
 
 
 export const authenticate = async (email: string, password: string) => {
@@ -10,6 +10,10 @@ export const authenticate = async (email: string, password: string) => {
     //   }
     // });
     // return res.data;
+    
+    // login using firebase
+    // const res = login(email, password)
+
     if (localStorage.getItem('user')) {
       let userInfo = JSON.parse(localStorage.getItem('user') as string)
       if (userInfo.email === email && userInfo.password === password) {

@@ -253,7 +253,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
               </select> */}
             </div>
             <div className="flex items-center mx-auto">
-              <label className="ttcommon_font" htmlFor="Currency">Language:</label>
+              <label className="ttcommon_font mr-1" htmlFor="Currency">Language:</label>
               <span className='ttcommon_font'>EN</span>
               {/* <select name="" id="" className="bg-transparent">
                 <option value="en">EN</option>

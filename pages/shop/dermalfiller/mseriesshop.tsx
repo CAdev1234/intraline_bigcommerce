@@ -41,7 +41,7 @@ export default function MseriesShop() {
     const RenderMseries = () => {
         
         return items.map((item, index) => {
-            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" 
                         key={`m_${index}_product`}>
                         {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8">${item.price}</div>}
                         <div className="flex">

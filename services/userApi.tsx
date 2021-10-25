@@ -1,3 +1,4 @@
+import { register } from "@utils/firebase/auth";
 import { post, get } from "../utils/request";
 
 export const createUser = async (
@@ -18,6 +19,10 @@ export const createUser = async (
     //   }
     // });
     // return response;
+
+    // firebase register
+    // register(email, password)
+    
     localStorage.setItem("user", JSON.stringify({email: email, f_name: f_name, l_name: l_name, mobile: mobile, password: password}))
   } catch (error) {
     // return error.response && error.response.status === 422

@@ -11,6 +11,8 @@ import {store} from '../utils/redux/store'
 
 import { Provider as ReduxProvider } from 'react-redux'
 import { CookiesProvider } from 'react-cookie';
+import { AuthProvider } from '@utils/context/auth'
+
 
 const Noop: FC = ({ children }) => <>{children}</>
 
@@ -18,7 +20,7 @@ const Noop: FC = ({ children }) => <>{children}</>
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop
-
+  
   useEffect(() => {
     document.body.classList?.remove('loading')
   }, [])
@@ -29,9 +31,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <ManagedUIContext>
         <CookiesProvider>
           <ReduxProvider store={store}>
-            <Layout pageProps={pageProps}>
-              <Component {...pageProps} />
-            </Layout>
+            <AuthProvider>
+              <Layout pageProps={pageProps}>
+                <Component {...pageProps} />
+              </Layout>
+            </AuthProvider>
           </ReduxProvider>
         </CookiesProvider>
       </ManagedUIContext>

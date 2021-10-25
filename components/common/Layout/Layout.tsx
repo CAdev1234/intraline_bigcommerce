@@ -129,6 +129,7 @@ const Layout: FC<Props> = ({
     }
     window.addEventListener('scroll', () => scrollHandler())
     return window.removeEventListener('scroll', scrollHandler)
+
   }, [])
 
   const scrollToUpHandler = () => {

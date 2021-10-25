@@ -1,4 +1,4 @@
-import { Layout, Navbar } from '@components/common'
+import { Layout } from '@components/common'
 import { validateEmail } from '@utils/simpleMethod';
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react';
@@ -13,12 +13,35 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ForgotPassword() {
     const [email, setEmail] = useState('')
-    const [enableSubmitBtn, setEnableSubmitBtn] = useState(false)
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [numValiSpan, setNumValiSpan] = useState(0)
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
+
+
+
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
     useEffect(() => {
-        if (validateEmail(email)) setEnableSubmitBtn(true)
+        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisableSubmitBtn(true)
+        else if(email !== "") setDisableSubmitBtn(false)
     }, [email])
+    
+    // useEffect(() => {
+    //     initFirebaseApp()
+    // })
+
     const forgotPasswordSubmitHandler = async() => {
-        let res_data = await fetch('/api/hubspot/forgotpassword', {
+        let res_data = await fetch('/api/auth/forgotpassword', {
             method: 'POST',
             body: JSON.stringify({email: email})
         }).then(res => res.json())
@@ -37,7 +60,6 @@ export default function ForgotPassword() {
                     position: toast.POSITION.TOP_RIGHT
                 });
             }
-            
         }
     }
     
@@ -59,13 +81,14 @@ export default function ForgotPassword() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Forgot Password.</div>
                     <div className="mt-10">
-                        <Input className='bg-white' placeholder="Email Address" onChange={setEmail}/>
-                        {email === '' && <span className="vali-span text-c_F4511E">Required.</span>}
-                        {email !== '' && !validateEmail(email) &&
-                            <span className="vali-span text-c_F4511E">Email is incorrect.</span>
-                        }
+                        <Input 
+                            className='bg-white' 
+                            placeholder="Email Address" 
+                            onChange={getEmailHandler} 
+                            enableValiMsg={emailValiObj.enableValiMsg} 
+                            valiMsgText={emailValiObj.valiMsgText}/>
                     </div>
-                    <Button className="mt-8 w-full h-11" disabled={!enableSubmitBtn} onClick={() => {forgotPasswordSubmitHandler()}}>Send Verification Code</Button>
+                    <Button className="mt-8 w-full h-11" disabled={disableSubmitBtn} onClick={() => {forgotPasswordSubmitHandler()}}>Send Verification Code</Button>
                 </div>
             </div>
         </div>

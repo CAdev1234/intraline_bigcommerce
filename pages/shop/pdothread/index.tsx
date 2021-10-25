@@ -16,6 +16,7 @@ const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import { useRouter } from 'next/router'
 import {useSpring, animated, useTransition} from '@react-spring/web'
+import { validateEmail } from '@utils/simpleMethod'
 const Image = dynamic(import('next/image'))
 
 
@@ -71,8 +72,9 @@ export default function PDOThread() {
         },
     ]
     const [enablePDOQues, setEnablePDOQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
-    const [fullName, setFullName] = useState('')
-    const [companyName, setCompanyName] = useState('')
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
+    const [cName, setCName] = useState('')
     const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [enableQuesMobile, setEnableQuesMobile] = useState(new Array(pdo_question_li.length - 1).fill(false));
@@ -91,6 +93,45 @@ export default function PDOThread() {
         to: { opacity: 1 },
         delay: 500
     })
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [cnameValiObj, setCNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getFNameHandler = (str: string) => {
+        setFName(str)
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getLNameHandler = (str: string) => {
+        setLName(str)
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCNameHandler = (str: string) => {
+        setCName(str)
+        if (str === '') {
+            setCNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setCNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
 
     const updatePDOQuesHandler = (index:number) => {
         let new_array = new Array(enablePDOQues.length).fill(false)
@@ -186,13 +227,15 @@ export default function PDOThread() {
                                                 text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">An excellent treatment option for combatting facial ageing, skin stress, and other related concerns.</div>
                             </div>
                         </div>
-                        <div className='relative
-                                        w-full sm:w-70 md:w-100'>
-                            <div className='px-5 sm:px-0'>
-                                {renderPDOThreadSwiper()}
+                        <div className='w-full flex flex-col'>
+                            <div className='relative mx-auto
+                                            w-full sm:w-70 md:w-100'>
+                                <div className='px-5 sm:px-0'>
+                                    {renderPDOThreadSwiper()}
+                                </div>
+                                <div className="absolute top-15 bg-c_F5DBDD h-full w-full
+                                                block sm:hidden"></div>
                             </div>
-                            <div className="absolute top-15 bg-c_F5DBDD h-full w-full
-                                            block sm:hidden"></div>
                         </div>
                     </div>
                     <div className="flex items-center justify-center cursor-pointer mt-5">
@@ -356,13 +399,40 @@ export default function PDOThread() {
                         <p className="leading-14_26
                                         mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
-                            <Input className='bg-white' type="text" placeholder="Full Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg}
+                                valiMsgText={fnameValiObj.valiMsgText}
+                                onChange={getFNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Company Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Last Name"
+                                enableValiMsg={lnameValiObj.enableValiMsg}
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={getLNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Email"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Company Name"
+                                enableValiMsg={cnameValiObj.enableValiMsg}
+                                valiMsgText={cnameValiObj.valiMsgText}
+                                onChange={getCNameHandler}/>
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Email" 
+                                enableValiMsg={emailValiObj.enableValiMsg}
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={getEmailHandler}/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 

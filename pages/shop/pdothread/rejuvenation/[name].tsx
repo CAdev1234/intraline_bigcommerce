@@ -142,7 +142,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
     }
     const renderPDOThreads = () => {
         return items.map((item, index) => {
-            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50" 
+            return <div className="flex flex-col pb-5 bg-white relative hover:bg-opacity-50 shadow-custom" 
                         key={`m_${index}_product`}>
                         {logined && <div className="ttcommon_font_bold absolute top-0 right-0 bg-c_52B5D3 text-c_00080D text-lg py-1 px-8 z-10">${item.price}</div>}
                         <div className="flex aspect-w-1 aspect-h-1">
@@ -175,7 +175,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <div className="ttcommon_font_bold mt-5 uppercase text-center text-c_00080D tracking-widest
                                     sm:text-2xl
                                     leading-14_17 sm:leading-none">{item.title}</div>
-                        <div className="textellipsis_2 mt-2 text-center px-4
+                        <div className="mt-2 text-center px-4
                                     text-xs sm:text-base
                                     leading-normal sm:leading-14_26">{item.detail}</div>
                         <div className="absolute top-0 w-full h-full flex flex-col transition duration-500 ease-linear opacity-0 bg-c_C6CBDD bg-opacity-50 hover:opacity-100">
@@ -352,7 +352,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <div className="relative bg-transparent rounded-full my-auto aspect-w-1 aspect-h-1">
                             {logined && 
                                 <div className="">
-                                    <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                                    <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">${product_info.price}</Button>
                                 </div>
                             }
                             <div className='absolute top-0 left-0 w-full h-full'>
@@ -396,7 +396,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                             <div className="mt-2 bg-white pt-8 pb-10 px-7 divide-y divide-c_00080D">
                                 <div className="pb-5">
                                     <div className="ttcommon_font_bold text-6xl leading-64_76">{product_info.title}</div>
-                                    <div className="flex items-center" onClick={() => {showEnableSideReviewHandler()}}>
+                                    <div className="flex items-center cursor-pointer" onClick={() => {showEnableSideReviewHandler()}}>
                                         <RatingView ratingValue={testimonial_li.length === 0 ? 0 : 4} size={30} className="foo" fillColor="#000" emptyColor="rgba(0, 8, 13, 0.3)" />
                                         <div className="text-base ">({testimonial_li.length})</div>
                                     </div>

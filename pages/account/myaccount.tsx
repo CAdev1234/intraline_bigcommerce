@@ -18,6 +18,9 @@ import { logoutUser, updateUser } from "@utils/redux/slices/userSlice"
 import { createReview, deleteReview, updateReview } from "@utils/redux/slices/reviewSlice"
 
 import { ProductObject } from 'utils/types'
+import { useAuth } from "@utils/context/auth"
+import { deleteUser } from "@firebase/auth"
+import { logout } from "@utils/firebase/auth"
 
 
 export default function MyAccount() {
@@ -43,6 +46,9 @@ export default function MyAccount() {
     const [enableEditReviewModal, setEnableEditReviewModal] = useState(false)
     const [enableDelReviewModal, setEnableDelReviewModal] = useState(false)
     const [rating, setRating] = useState(0)
+
+    const firebaseUser = useAuth()
+
 
     useEffect(() => {
         if (!logined) {
@@ -92,10 +98,15 @@ export default function MyAccount() {
 
     const logoutHandler = () => {
         removeCookie('jwt')
+        logout()
         dispatch(logoutUser())
         router.push('/account/login')
     }
     const delAccountHandler = () => {
+        console.log(firebaseUser.user)
+        if (firebaseUser.user) {
+            deleteUser(firebaseUser.user)
+        }
         removeCookie('jwt')
         localStorage.clear()
         dispatch(logoutUser())
