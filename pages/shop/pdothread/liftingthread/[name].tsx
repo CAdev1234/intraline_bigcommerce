@@ -401,7 +401,12 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <div className="text-base leading-14_26 mt-7">It comes in 2 different cannula gauges. Each gauge has one option in both cannula and thread length. Each gauge has a different grip or handle colour.</div>
                                     </div>
                                     {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">BUY {product_info.title} NOW</Button>
+                                        <Button className="h-full flex-1" 
+                                                onClick={() => {
+                                                    let product = product_info
+                                                    product.quantity = 1
+                                                    dispatch(addProductToCart(product))
+                                                }}>BUY {product_info.title} NOW</Button>
                                     </div>}
                                 </div>
                                 
