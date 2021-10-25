@@ -1,5 +1,5 @@
 .root {
-    @apply h-11 border-none w-full pl-5 py-2 appearance-none transition duration-150 ease-in-out;
+    @apply h-11 border-none w-full pl-5 py-2 appearance-none transition duration-150 ease-in-out text-c_00080D;
   }
   
   .root:focus {

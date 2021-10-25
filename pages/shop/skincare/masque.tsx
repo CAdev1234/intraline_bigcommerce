@@ -15,6 +15,7 @@ import { getCookie } from '@utils/cookie'
 
 import { useAppDispatch } from '@utils/redux/hooks'
 import { addProductToCart } from '@utils/redux/slices/cartSlice'
+import { validateEmail } from '@utils/simpleMethod'
 
 const Image = dynamic(import('next/image'))
 
@@ -54,17 +55,32 @@ export default function Masque() {
     
     const [logined, setLogined] = useState(false)
     const [numMasque, setNumMasque] = useState(1)
-    const [fullName, setFullName] = useState('')
+
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
     const [companyName, setCompanyName] = useState('')
     const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [comment, setComment] = useState('')
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [companyNameValiObj, setCompanyNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
+    const [numValiSpan, setNumValiSpan] = useState(100)
+
     const dispatch = useAppDispatch()
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
     }, [])
+    useEffect(() => {
+        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisableSubmitBtn(true)
+        else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
+    })
     const addToBagHandler = () => {
         masque.quantity = numMasque
         dispatch(addProductToCart(masque))
@@ -79,7 +95,40 @@ export default function Masque() {
     const increaseNumHandler = () => {
         setNumMasque(numMasque + 1)
     }
-
+    const getFNameHandler = (str: string) => {
+        setFName(str)
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getLNameHandler = (str: string) => {
+        setLName(str)
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCompanyNameHandler = (str: string) => {
+        setCompanyName(str)
+        if (str === '') {
+            setCompanyNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setCompanyNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -93,7 +142,7 @@ export default function Masque() {
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
                         <span className="mr-1"><Link href="/shop/skincare">Skin Care</Link></span>
                         <span className="mr-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold">Moisturizer</span>
+                        <span className="ttcommon_font_bold">Masque</span>
                     </div>
                 </div>
                 <div className="w-full mt-9
@@ -101,7 +150,7 @@ export default function Masque() {
                     <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                         <div className="absolute w-full left-0 top-0">
                             {logined && <Button className="ttcommon_font_bold absolute top-5 h-9 w-32 text-lg
-                                                            right-0 md:right-15" variant="primary">$100.00</Button>}
+                                                            right-0 md:right-15" variant="primary">$100</Button>}
                             <div className="relative w-full h-full">
                                 <Image className="w-full transform scale-75" src="/assets/img/skincare2.webp" alt="" layout="fill" />
                             </div>
@@ -122,7 +171,7 @@ export default function Masque() {
                                 <div className="mt-2 leading-14_26
                                                 mr-5 lg:mr-36">Our Restorative Moisturizer is designed to smooth and protect your skin, helping to fight the visible signs of ageing. Formulated for all skin types, our cream features high molecular  density Hyaluronic Acid and Sea Buckthorn Berry oil, which benefit skin elasticity, water  retention, and hydration.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD $100</span>
                                     <span className="ml-5">Volume: 100ML</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white
@@ -140,13 +189,13 @@ export default function Masque() {
                                 </div>}
                             </div>
                         </div>
-                        <div className="w-full my-auto
+                        <div className="w-full my-auto max-w-xl
                                         ml-10 lg:ml-20 xl:ml-36
                                         hidden md:block">
                             <div className="relative aspect-h-1 aspect-w-1 bg-c_CCE7EF rounded-full">
                                 <div className="absolute w-full left-0 top-0">
                                     {logined && <Button className="ttcommon_font_bold absolute  top-5 h-9 w-32 text-lg
-                                                                    right-0 md:right-15" variant="primary">$100.00</Button>}
+                                                                    right-0 md:right-15" variant="primary">$100</Button>}
                                     <div className="relative w-full h-full">
                                         <Image className="w-full transform scale-75" src="/assets/img/skincare2.webp" alt="" layout="fill" />
                                     </div>
@@ -202,14 +251,41 @@ export default function Masque() {
                                     px-5 md:px-0">
                         <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
                         <p className="mt-5">We are here to help --- reach out with any questions.</p>
-                        <div className="mt-10">
-                            <Input className='bg-white' type="text" placeholder="Full Name"/>
+                        <div className="mt-7_5 md:mt-10">
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg} 
+                                valiMsgText={fnameValiObj.valiMsgText}
+                                onChange={getFNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Company Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Last Name"
+                                enableValiMsg={lnameValiObj.enableValiMsg} 
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={getLNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Email"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Company Name"
+                                enableValiMsg={companyNameValiObj.enableValiMsg} 
+                                valiMsgText={companyNameValiObj.valiMsgText}
+                                onChange={getCompanyNameHandler}/>
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Email"
+                                enableValiMsg={emailValiObj.enableValiMsg} 
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={getEmailHandler}/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 
@@ -236,7 +312,7 @@ export default function Masque() {
                         </div>
                         <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full" disabled={disableSubmitBtn}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

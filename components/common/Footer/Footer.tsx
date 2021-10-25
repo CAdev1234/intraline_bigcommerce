@@ -187,7 +187,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                                   mt-0 sm:mt-4">
                     <input 
                       type="text" 
-                      className="h-full w-full border-none bg-white pl-5 py-2" 
+                      className="h-full w-full border-none bg-white pl-5 py-2 text-c_00080D" 
                       placeholder="Your email address"
                       onChange={(event) => {setSubscribeEmail(event.target.value)}}/>
                     <Button className="w-36 h-full text-white" variant="primary" onClick={() => {subscribeHandle(true)}}>submit</Button>
