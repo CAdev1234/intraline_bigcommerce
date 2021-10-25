@@ -236,7 +236,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 {logined && 
                                     <Button className="absolute top-3 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10
                                                         right-3 md:right-14" 
-                                            variant="primary">$100.00</Button>
+                                            variant="primary">${product_info.price}</Button>
                                 }
                             </div>
                             <div className='absolute top-0 left-0 w-full h-full'>
@@ -281,7 +281,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 <div className="mt-2 leading-14_26
                                                 mr-0 md:mr-36">{product_info.title} has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the {product_info.title} PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD ${product_info.price}</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white
@@ -318,7 +318,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                         <div className="relative bg-white rounded-full my-auto aspect-w-1 aspect-h-1">
                             {logined && 
                                 <div className="">
-                                    <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">$100.00</Button>
+                                    <Button className="absolute top-3 right-5 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10" variant="primary">${product_info.price}</Button>
                                 </div>
                             }
                             <div className='absolute top-0 left-0 w-full h-full'>

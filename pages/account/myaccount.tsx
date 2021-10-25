@@ -42,6 +42,7 @@ export default function MyAccount() {
 
     const [enableShowMore, setEnableShowMore] = useState(new Array(order_li.length).fill(false))
     const [enableEditAccountModal, setEnableAccountModal] = useState(false)
+    const [enableDelAccountModal, setEnableDelAccountModal] = useState(false)
     const [enableAddReviewModal, setEnableAddReviewModal] = useState(false)
     const [enableEditReviewModal, setEnableEditReviewModal] = useState(false)
     const [enableDelReviewModal, setEnableDelReviewModal] = useState(false)
@@ -78,7 +79,6 @@ export default function MyAccount() {
     // account handler
     const submitUpdatedUserHandler = () => {
         dispatch(updateUser(selectedAccont))
-        console.log(selectedAccont)
         setUser(JSON.parse(localStorage.getItem('user') as string))
         setEnableAccountModal(false)
     }
@@ -103,10 +103,6 @@ export default function MyAccount() {
         router.push('/account/login')
     }
     const delAccountHandler = () => {
-        console.log(firebaseUser.user)
-        if (firebaseUser.user) {
-            deleteUser(firebaseUser.user)
-        }
         removeCookie('jwt')
         localStorage.clear()
         dispatch(logoutUser())
@@ -176,6 +172,9 @@ export default function MyAccount() {
     }
 
     const submitNewReviewHandler = () => {
+        if (newReview.title === '' || newReview.detail === '' || newReview.product === '') {
+            return
+        }
         setNewReview({...newReview, id: '', created_at: '', rating: rating})
         dispatch(createReview(newReview))
         setNewReview({id: '', product: '', title: '', created_at: '', rating: 0, detail: ''})
@@ -556,6 +555,34 @@ export default function MyAccount() {
                 </div>
             }
 
+            {/* account delete modal */}
+            {enableDelAccountModal &&
+                <div className="fixed top-0 left-0 w-full h-screen flex flex-col z-40 bg-black bg-opacity-50">
+                    <div className="md:w-1/3 sm:w-full rounded-lg shadow-lg bg-white my-auto mx-auto">
+                        <div className="flex justify-between border-b border-gray-100 px-5 py-4">
+                        <div>
+                            <i className="fas fa-exclamation-circle text-blue-500"></i>
+                            <span className="font-bold text-gray-700 text-lg">Delete</span>
+                            </div>
+                        <div>
+                            <button><i className="fa fa-times-circle text-red-500 hover:text-red-600 transition duration-150"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div className="px-10 py-5 text-gray-600">Do you want to delete review correctly?</div>
+                    
+                        <div className="px-5 py-4 flex justify-end">
+                            <button className="text-base py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                                onClick={() => {submitDelReviewHandler()}}>Yes
+                            </button>
+                            <button className="text-base py-2 px-3 text-gray-500 hover:text-gray-600 transition duration-150"
+                                onClick={() => {closeDelReviewModalHandler()}}>Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+
             {/* new review modal */}
             {enableAddReviewModal && 
                 <div className="fixed top-0 left-0 w-full h-screen z-50">
@@ -699,6 +726,8 @@ export default function MyAccount() {
                     </div>
                 </div>
             }
+
+
         </div>
     )
 }

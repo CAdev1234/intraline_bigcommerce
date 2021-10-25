@@ -157,7 +157,7 @@ export default function ScarKit() {
                                 block md:hidden">
                     <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
                         <div className="absolute w-full left-0 top-0">
-                            {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">${scarkit.price}</Button>}
+                            {logined && <Button className="ttcommon_font_bold absolute right-0 top-5 h-9 w-32 text-lg z-10" variant="primary">${scarkit.price}</Button>}
                         </div>
                         <div className="flex">
                             <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>
@@ -211,7 +211,7 @@ export default function ScarKit() {
                                         hidden md:block">
                             <div className="relative aspect-h-1 aspect-w-1 bg-white rounded-full">
                                 <div className="absolute w-full left-0 top-0">
-                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg" variant="primary">${scarkit.price}</Button>}
+                                    {logined && <Button className="ttcommon_font_bold absolute right-15 top-5 h-9 w-32 text-lg z-10" variant="primary">${scarkit.price}</Button>}
                                 </div>
                                 <div className="flex">
                                     <Image className="transform scale-90" src={scarkitImg} alt="scarkit image" layout="fill"/>

@@ -125,10 +125,10 @@ export default function Register() {
                 <div className="my-25 mx-auto
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Create Your Account.</div>
-                    <div className="w-full">
-                        {registerResultFail && <span className="vali-span text-c_F4511E">Oops, Sorry, register was failed.</span>}
+                    {/* {registerResultFail && <span className="vali-span text-c_F4511E mt-5">Oops, Sorry, register was failed.</span>} */}
+                    <div className="w-full mt-10">
                         <Input 
-                            className="mt-10 h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="border-none bg-white" 
                             type="text" 
                             placeholder="Email Address" 
                             onChange={getEmailHandler}
@@ -136,9 +136,9 @@ export default function Register() {
                             valiMsgText={emailValiObj.valiMsgText}/>
                         
                     </div>
-                    <div className="w-full mt-5 flex flex-col">
+                    <div className="w-full mt-1 flex flex-col">
                         <Input 
-                            className="h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="bg-white" 
                             type="text"
                             placeholder="First Name" 
                             onChange={getFNameHandler}
@@ -146,36 +146,36 @@ export default function Register() {
                             valiMsgText={fnameValiObj.valiMsgText}/>
                         
                     </div>
-                    <div className="mt-5 w-full flex flex-col">
+                    <div className="mt-1 w-full flex flex-col">
                         <Input 
-                            className="h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="border-none bg-white" 
                             type="text" 
                             placeholder="Last Name" 
                             onChange={getLNameHandler}
                             enableValiMsg={lnameValiObj.enableValiMsg} 
                             valiMsgText={lnameValiObj.valiMsgText}/>
                     </div>
-                    <div className="mt-5 w-full flex flex-col">
+                    <div className="mt-1 w-full flex flex-col">
                         <Input 
-                            className="h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="bg-white w-full" 
                             type="number" 
                             placeholder="Phone Number" 
                             onChange={getMobileHandler}
                             enableValiMsg={mobileValiObj.enableValiMsg} 
                             valiMsgText={mobileValiObj.valiMsgText}/>
                     </div>
-                    <div className="mt-5 w-full flex flex-col">
+                    <div className="mt-1 w-full flex flex-col">
                         <Input 
-                            className="h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="bg-white" 
                             type="password" 
                             placeholder="Password" 
                             onChange={getPwdHandler}
                             enableValiMsg={pwdValiObj.enableValiMsg} 
                             valiMsgText={pwdValiObj.valiMsgText}/>
                     </div>
-                    <div className="mt-5 w-full flex flex-col">
+                    <div className="mt-1 w-full flex flex-col">
                         <Input 
-                            className="h-11 border-none bg-white w-full pl-5 py-2" 
+                            className="bg-white" 
                             type="password" 
                             placeholder="Confirm Password" 
                             onChange={getCPwdHandler}

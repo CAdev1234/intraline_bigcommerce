@@ -25,8 +25,8 @@ const checkoutSlice = createSlice({
             state.logined = false
         },
         updateUser: (state, {payload}) => {
-            // payload.password = JSON.parse(localStorage.getItem('user') as string).password
-            // localStorage.setItem('user', payload)
+            payload.password = JSON.parse(localStorage.getItem('user') as string).password
+            localStorage.setItem('user', JSON.stringify(payload))
         }
     }
 })

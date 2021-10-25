@@ -242,7 +242,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                 {logined && 
                                 <Button className="absolute top-3 w-30 h-9 text-lg leading-36_48 ttcommon_font_bold z-10
                                                     right-3 md:right-14" 
-                                        variant="primary">$100.00</Button>}
+                                        variant="primary">${product_info.price}</Button>}
                             </div>
                         </div>
                         <div className='absolute top-0 left-0 w-full h-full'>

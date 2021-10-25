@@ -93,6 +93,8 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
   const router = useRouter()
   useEffect(() => {
     setCurrentUrl(window.location.pathname)
+    console.log(router.asPath)
+    console.log(router.asPath.includes('/shop/'))
   }, [])
 
   const showSearchBarHandler = (bool_var: boolean) => {
@@ -287,14 +289,22 @@ const Navbar: FC<NavbarProps> = ({ links, c_name }) => {
       </Container>
       <SideCart />
       {/* {enableSideCart && <SideCart />} */}
+      
       {enableMobileMenu && 
         <div className="fixed top-15 left-0 w-full h-screen z-40">
           <div className="w-full h-screen absolute top-0 left-0 flex">
             <div className="w-36 bg-c_00080D bg-opacity-95 pt-12_5 pl-5">
               {page_li.map((item, index) => {
                 return <div key={`page_${index}_mobile`} className="mb-8 flex">
-                        <button className={`pb-1 uppercase text-white text-xs leading-tight flex ${router.asPath.includes(item.link) ? 'border-c_52B5D3 border-b-2' : 'border-none'}`}
-                              onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</button>
+                        {item.name === 'Shop' && 
+                          <button className={`pb-1 uppercase text-white text-xs leading-tight flex ${(router.asPath === '/' || router.asPath.includes('/shop/')) ? 'border-c_52B5D3 border-b-2' : 'border-none'}`}
+                          onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</button>
+                        }
+                        {item.name !== 'Shop' && 
+                          <button className={`pb-1 uppercase text-white text-xs leading-tight flex ${router.asPath === item.link ? 'border-c_52B5D3 border-b-2' : 'border-none'}`}
+                          onClick={() => {gotoOtherPageHandler(item.link)}}>{item.name}</button>
+                        }
+                        
                       </div>
               })}
             </div>

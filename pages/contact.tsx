@@ -161,7 +161,7 @@ export default function ContactUs() {
                         </div>
                         <div className="mt-2_5">
                             <div className="flex items-center">
-                                <input type="radio" id="help_type_1" value="distributor inquiry" name="help_type" onChange={(event) => radioHandle(event)} />
+                                <input type="radio" id="help_type_1" value="distributor inquiry" name="help_type" defaultChecked={true} onChange={(event) => radioHandle(event)} />
                                 <label htmlFor="help_type_1" className="text-c_00080D leading-14_26 ml-3">Distributor Inquiry</label>
                             </div>
                             <div className="mt-1 flex items-center">

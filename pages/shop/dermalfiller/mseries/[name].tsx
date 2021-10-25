@@ -291,7 +291,7 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                 <div className="mt-2 leading-14_26
                                                 md:mr-5 lg:mr-36">Minimalism is about modern simplicity and living with intention. Minimally enhance your features so you can create more time and freedom to do the things you love. This style sets out to expose the true essence, essentials or identity of individuals.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
-                                    <span>USD $100.00</span>
+                                    <span>USD ${product_info.price}</span>
                                     <span className="ml-5">Volume: 1.1ML</span>
                                 </div>}
                                 {logined && <div className="mt-5 items-center h-12 text-white

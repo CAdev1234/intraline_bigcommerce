@@ -101,13 +101,13 @@ export default function Login() {
                         <Input className='bg-white' placeholder="Email Address" onChange={getEmailHandler} enableValiMsg={emailValiObj.enableValiMsg} valiMsgText={emailValiObj.valiMsgText}/>
                         
                     </div>
-                    <div className="mt-5 flex items-center">
+                    <div className="mt-1 flex items-center">
                         <div className="w-full">
                             <Input className="w-full bg-white" type="password" placeholder="Password" onChange={getPWDHandler} enableValiMsg={pwdValiObj.enableValiMsg} valiMsgText={pwdValiObj.valiMsgText}/>
                         </div>
-                        <div className="-ml-40">
+                        <div className="-ml-40 mb-3 z-10">
                             <Link href="/account/forgotpassword">
-                                <span className="text-c_8D97BC">Forgot Your Password?</span>
+                                <span className=" text-gray-400">Forgot Your Password?</span>
                             </Link>
                         </div>
                     </div>
