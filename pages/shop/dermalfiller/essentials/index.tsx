@@ -183,7 +183,7 @@ export default function Essentials() {
                                                     leading-none md:leading-tight lg:leading-none xl:leading-200_160" >Essentials</div>
                                 </div>
                                 <div className="mr-10
-                                                ml-0 lg:ml-auto
+                                                ml-0 lg:ml-auto xl:ml-25
                                                 sm:w-11/12 md:w-11/12 lg:w-131_5">
                                     <div className="w-full mt-8 text-c_00080D
                                                     text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
