@@ -173,7 +173,7 @@ export default function Moisturizer() {
             </div>
 
             {/* Lorem Ipsum. */}
-            <div id='catalog_section' className="bg-white
+            {/* <div id='catalog_section' className="bg-white
                             px-5 md:px-15 lg:px-40">
                 <div className="flex flex-col max-w-2xl mx-auto
                                 py-25 md:py-28">
@@ -186,7 +186,7 @@ export default function Moisturizer() {
                         <Button className="mx-auto h-11 w-64">Browse catalog</Button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Testimonials part */}
             <TestimonialCp

@@ -279,7 +279,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                         <span className="ttcommon_font_bold">Nose</span>
                                     </div>
                                 </div>
-                                <div className="mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div>
+                                {/* <div className="mt-5 text-4xl leading-36_48">Lorem ipsum doloris secantum.</div> */}
                                 <div className="mt-2 leading-14_26
                                                 mr-0 md:mr-36">Dimension 720 has a single premium molded cogged PDO filament. With maximum strenght and hold, ultra thin walls and w-type silicone-coated cannula for ease of insertion, the Dimension 720 PDO Threads are lorem ipsum doloris.</div>
                                 {logined && <div className="ttcommon_font_bold mt-5 flex items-center">
@@ -344,7 +344,7 @@ export default function LiftingThreadProduct({ product_info }: InferGetStaticPro
                                     text-2xl md:text-4xl
                                     leading-none md:leading-36_26">Indications</div>
                     <p className="leading-36_48 mt-6 text-center
-                                text-2xl md:text-4xl">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                                text-2xl md:text-4xl">Face and body skin tightening, Correction of minor wrinkles, Neck, Jawline, Perioral lines, Periorbital lines, Forehead and Glabellas</p>
                     <div className="mt-8">
                         <Button className="mx-auto h-11 w-72" onClick={() => {downloadIndicationChart()}}>download indication chart</Button>
                     </div>

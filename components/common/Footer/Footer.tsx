@@ -156,11 +156,11 @@ const Footer: FC<Props> = ({ className, pages }) => {
                 </Link>
                 {account_link_li.map((item, index) => {
                   return <div className="mb-1" key={`account_link_${index}`}>
-                            {item.title === "Register/Login" && logined &&
+                            {/* {item.title === "Register/Login" && logined &&
                               <Link href="/account/myaccount">
                                 <a className=" text-white leading-14_26" >{item.title}</a>
                               </Link>
-                            }
+                            } */}
                             {item.title === "Register/Login" && !logined &&
                               <Link href={item.link}>
                                 <a className=" text-white leading-14_26" >{item.title}</a>

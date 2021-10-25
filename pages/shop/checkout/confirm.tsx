@@ -36,7 +36,7 @@ export default function CheckoutConfirm() {
                     </div>
                     <div className="text-3xl leading-36_48
                                     mt-5 md:mt-10">Your order has been confirmed.</div>
-                    <div className="mt-5 leading-14_26">Your order will be processed and shipped soon. You will receive an email with all the details. We are glad you are part of Intraline. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                    <div className="mt-5 leading-14_26">Your order will be processed and shipped soon. You will receive an email with all the details. We are glad you are part of Intraline.</div>
                 </div>
                 <div className="flex-1 flex flex-col h-full bg-white
                                 px-5 md:px-0">
