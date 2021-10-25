@@ -12,6 +12,7 @@ const SelectInput = dynamic(import('@components/mycp/SelectInput'))
 
 import { AddToCartByDom } from '@utils/addToCartByDom'
 import { getCookie } from '@utils/cookie'
+import { validateEmail } from '@utils/simpleMethod'
 const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 const Image = dynamic(import('next/image'))
@@ -49,12 +50,20 @@ export default function LiftingThread() {
             detail: 'I was amazed by the extra lift and tightening they generated compared to the already impressive cutting cog of the Intraline Dimension 360 thread. The patient who was previously treated with 19G Dimension 360 threads 18 months ago could not belevie the dramatic improvement in the result compared to last time. I am excited about using these in my practice!'
         },
     ]
-    const [fullName, setFullName] = useState('')
+    const [f_name, setFName] = useState('')
+    const [l_name, setLName] = useState('')
     const [companyName, setCompanyName] = useState('')
     const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [comment, setComment] = useState('')
+    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [companyNameValiObj, setCompanyNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
+    const [numValiSpan, setNumValiSpan] = useState(100)
     const [logined, setLogined] = useState(false)
+
     let thread_li = [
         {id: 'product_0000-000000-0007', title: 'Dimension 720', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension720.webp', detail: "Our newest Cog PDO Thread is the Dimension 720. It is a molded Cog PDO Thread. Our molded technology allows the thread to maintain its integrity of shape and provides four times the strength of non molded threads. Learn more about Intraline's Dimension 720's.", link: '/shop/pdothread/liftingthread/dimension720'},
         {id: 'product_0000-000000-0008', title: 'Dimension 360', price: 100, amount: 10, quantity: 0, img: '/assets/img/products/lifting_dimension360.webp', detail: "Dimension 360 Lifting PDO Threads are a barbed or cogged thread. Dimension 360's are made by cutting cogs in a spiral pattern into a mono PDO filament. Learn more about Intraline's Dimension 360's.", link: '/shop/pdothread/liftingthread/dimension360'},
@@ -64,6 +73,10 @@ export default function LiftingThread() {
         if (getCookie('jwt', '') != null) {
             setLogined(true)
         }
+        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
+        setNumValiSpan(vali_span_li.length)
+        if (numValiSpan !== 0) setDisableSubmitBtn(true)
+        else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
     }, [])
     
     const addToCartByDom = new AddToCartByDom(thread_li)
@@ -120,6 +133,41 @@ export default function LiftingThread() {
                     prevNavCss={"my-auto ml-7_5"} 
                     nextNavCss={"my-auto mr-22_5"}
                     dotCss={"mt-7_5"}/>
+    }
+
+    const getFNameHandler = (str: string) => {
+        setFName(str)
+        if (str === '') {
+            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getLNameHandler = (str: string) => {
+        setLName(str)
+        if (str === '') {
+            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCompanyNameHandler = (str: string) => {
+        setCompanyName(str)
+        if (str === '') {
+            setCompanyNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setCompanyNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getEmailHandler = (str: string) => {
+        setEmail(str)
+        if (str === '') {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
+        }else {
+            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     return(
         <div className="text-c_00080D ttcommon_font
@@ -226,13 +274,40 @@ export default function LiftingThread() {
                         <p className="leading-14_26
                                     mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
                         <div className="mt-7_5 md:mt-10">
-                            <Input className='bg-white' type="text" placeholder="Full Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="First Name"
+                                enableValiMsg={fnameValiObj.enableValiMsg} 
+                                valiMsgText={fnameValiObj.valiMsgText}
+                                onChange={getFNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Company Name"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Last Name"
+                                enableValiMsg={lnameValiObj.enableValiMsg} 
+                                valiMsgText={lnameValiObj.valiMsgText}
+                                onChange={getLNameHandler}/>
                         </div>
                         <div className="mt-5">
-                            <Input className='bg-white' type="text" placeholder="Email"/>
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Company Name"
+                                enableValiMsg={companyNameValiObj.enableValiMsg} 
+                                valiMsgText={companyNameValiObj.valiMsgText}
+                                onChange={getCompanyNameHandler}/>
+                        </div>
+                        <div className="mt-5">
+                            <Input 
+                                className='bg-white' 
+                                type="text" 
+                                placeholder="Email"
+                                enableValiMsg={emailValiObj.enableValiMsg} 
+                                valiMsgText={emailValiObj.valiMsgText}
+                                onChange={getEmailHandler}/>
                         </div>
                         <div className="mt-5">
                             <SelectInput 
@@ -259,7 +334,7 @@ export default function LiftingThread() {
                         </div>
                         <div className="leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
                         <div className="mt-7_5">
-                            <Button className="h-11 w-full">SUBMIT</Button>
+                            <Button className="h-11 w-full" disabled={disableSubmitBtn}>SUBMIT</Button>
                         </div>
                     </div>
                 </div>

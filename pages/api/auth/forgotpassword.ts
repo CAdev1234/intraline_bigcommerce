@@ -45,7 +45,12 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
             from: 'info@intraline.com',
             to: `${JSON.parse(req.body).email}`,
             subject: `Reset Your Intraline Password`,
-            html: resetPWDEmailTemplate(verification_link)
+            html: resetPWDEmailTemplate(verification_link),
+        //     attachments: [{
+        //         filename: 'resetpwd_email_bg.webp',
+        //         path: __dirname +'../../../../public/assets/img/resetpwd_email_bg.webp',
+        //         cid: 'resetpwd_email_bg' //my mistake was putting "cid:logo@cid" here! 
+        //    }]
         }
 
         transporter.sendMail(mailData)

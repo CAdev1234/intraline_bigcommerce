@@ -11,41 +11,65 @@ const Input = dynamic(import('@components/mycp/Input'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 
 export default function ForgotPassword() {
-    const [newPassword, setNewPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [n_pwd, setNPwd] = useState('')
+    const [c_pwd, setCPwd] = useState('')
+    const [n_pwdValiObj, setNewPWDValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [c_pwdValiObj, setCPWDValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
     const [enableSubmitBtn, setEnableSubmitBtn] = useState(false)
     const router = useRouter()
+
+    const getNPwdHandler = (str: string) => {
+        setNPwd(str)
+        if (str === '') {
+            setNewPWDValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (str.length < 8) {
+            setNewPWDValiObj({enableValiMsg: true, valiMsgText: 'At least 8 characters.'})
+        }else {
+            setNewPWDValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+    const getCPwdHandler = (str: string) => {
+        setCPwd(str)
+        if (str === '') {
+            setCPWDValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (n_pwd !== str) {
+            setCPWDValiObj({enableValiMsg: true, valiMsgText: 'No matched.'})
+        }else {
+            setCPWDValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
+    }
+
     useEffect(() => {
         if (router.isReady) {
-            let key = localStorage.getItem('rp_key')
-            let rp_end_time = localStorage.getItem('rp_end_time')
-            console.log(router.query)
-            if (router.query.key === undefined || key !== router.query.key || Number(rp_end_time) < Number(Date.now().toString())) {
-                router.push('/404')
-            }
+            // let key = localStorage.getItem('rp_key')
+            // let rp_end_time = localStorage.getItem('rp_end_time')
+            // console.log(router.query.key === undefined || key !== router.query.key || Number(rp_end_time) < Number(Date.now().toString()))
+            // if (router.query.key === undefined || key !== router.query.key || Number(rp_end_time) < Number(Date.now().toString())) {
+            //     router.push('/404')
+            // }
         }
     })
 
     useEffect(() => {
-        if (newPassword === confirmPassword && newPassword !== '') {
+        if (n_pwd === c_pwd && n_pwd !== '') {
             setEnableSubmitBtn(true)
         }else {
             setEnableSubmitBtn(false)
         }
-    }, [newPassword, confirmPassword])
+    }, [n_pwd, c_pwd])
     
     const updatePWDHandler = () => {
         // updatePassword(newPassword, router.query.email as string)
         let user = JSON.parse(localStorage.getItem('user') as string)
         toast.configure()
         console.log(user.password)
-        console.log(newPassword)
-        if (user.password === newPassword) {
+        console.log(n_pwd)
+        if (user.password === n_pwd) {
             toast.warning("Password is duplicated. Please use another password.", {
                 position: toast.POSITION.TOP_RIGHT
             });    
         }else {
-            user.password = newPassword
+            user.password = n_pwd
             localStorage.setItem('user', JSON.stringify(user))
             router.push('/account/login')
             // toast.success("Password updated succesfully. Please log in.", {
@@ -72,17 +96,23 @@ export default function ForgotPassword() {
                             w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
                     <div className="leading-36_26 font-bold text-4xl text-left">Reset Password.</div>
                     <div className="mt-10">
-                        <Input className='bg-white' type='password' placeholder="New Password" onChange={setNewPassword}/>
-                        {newPassword === '' && <span className=" text-c_F4511E">Required</span>}
-                        {newPassword.length < 8 && newPassword !== '' && <span className=" text-c_F4511E">At least 8 characters</span>}
+                        <Input 
+                            className='bg-white' 
+                            type='password' 
+                            placeholder="New Password" 
+                            onChange={getNPwdHandler}
+                            enableValiMsg={n_pwdValiObj.enableValiMsg} 
+                            valiMsgText={n_pwdValiObj.valiMsgText}/>
                         
                     </div>
                     <div className="mt-5">
-                        <Input className='bg-white' type='password' placeholder="Confirm Password" onChange={setConfirmPassword}/>
-                        {confirmPassword === '' && <span className="vali-span text-c_F4511E">Required.</span>}
-                        {newPassword !== confirmPassword && confirmPassword !== '' &&
-                            <span className="vali-span text-c_F4511E">Not matched.</span>
-                        }
+                        <Input 
+                            className='bg-white' 
+                            type='password' 
+                            placeholder="Confirm Password" 
+                            onChange={getCPwdHandler}
+                            enableValiMsg={c_pwdValiObj.enableValiMsg} 
+                            valiMsgText={c_pwdValiObj.valiMsgText}/>
                     </div>
                     <Button className="mt-8 w-full h-11" disabled={!enableSubmitBtn} onClick={() => {updatePWDHandler()}}>Update Password</Button>
                 </div>

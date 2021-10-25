@@ -14,6 +14,7 @@ import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
 import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'
 import AboutUsSec3Img from 'public/assets/img/aboutus_sec_3.webp'
 import AboutUsSec4Img from 'public/assets/img/aboutus_sec_4.webp'
+import { validateEmail } from '@utils/simpleMethod'
 
 
 
@@ -87,6 +88,8 @@ export default function AboutUs() {
         setEmail(str)
         if (str === '') {
             setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else if (!validateEmail(str)) {
+            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
         }else {
             setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
         }
