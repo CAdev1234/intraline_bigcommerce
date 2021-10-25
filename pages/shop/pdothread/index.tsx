@@ -5,18 +5,16 @@ import { Layout } from '@components/common'
 const KeenSliderB = dynamic(import('@components/mycp/KeenSlider/KeenSliderB'))
 const TestimonialCp = dynamic(import('@components/mycp/TestimonialCp/TestimonialCp'))
 const Button = dynamic(import('@components/mycp/Button'))
-const Input = dynamic(import('@components/mycp/Input'))
 const ChevronDown = dynamic(import('@components/icons/ChevronDown'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const ChevronUp = dynamic(import('@components/icons/ChevronUp'))
 const Plus = dynamic(import('@components/icons/Plus'))
 const Link = dynamic(import('@components/ui/Link'))
-const SelectInput = dynamic(import('@components/mycp/SelectInput'))
-const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 import { useRouter } from 'next/router'
 import {useSpring, animated, useTransition} from '@react-spring/web'
 import { validateEmail } from '@utils/simpleMethod'
+import QuestionForm from '@components/mycp/QuestionForm'
 const Image = dynamic(import('next/image'))
 
 
@@ -72,11 +70,6 @@ export default function PDOThread() {
         },
     ]
     const [enablePDOQues, setEnablePDOQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
-    const [f_name, setFName] = useState('')
-    const [l_name, setLName] = useState('')
-    const [cName, setCName] = useState('')
-    const [email, setEmail] = useState('')
-    const [country, setCountry] = useState('')
     const [enableQuesMobile, setEnableQuesMobile] = useState(new Array(pdo_question_li.length - 1).fill(false));
     const [enableQues, setEnableQues] = useState([true, ...new Array(pdo_question_li.length - 1).fill(false)])
     const router = useRouter()
@@ -93,45 +86,6 @@ export default function PDOThread() {
         to: { opacity: 1 },
         delay: 500
     })
-    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [cnameValiObj, setCNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-
-    const getEmailHandler = (str: string) => {
-        setEmail(str)
-        if (str === '') {
-            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else if (!validateEmail(str)) {
-            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
-        }else {
-            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getFNameHandler = (str: string) => {
-        setFName(str)
-        if (str === '') {
-            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getLNameHandler = (str: string) => {
-        setLName(str)
-        if (str === '') {
-            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getCNameHandler = (str: string) => {
-        setCName(str)
-        if (str === '') {
-            setCNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setCNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
 
     const updatePDOQuesHandler = (index:number) => {
         let new_array = new Array(enablePDOQues.length).fill(false)
@@ -180,12 +134,6 @@ export default function PDOThread() {
                     dotCss={"mt-7_5"}/>
     }
 
-    const scrollToBottomHandler = () => {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-        });
-    }
     return(
         <div className="text-c_00080D ttcommon_font
                         mt-16 md:mt-0">
@@ -387,83 +335,8 @@ export default function PDOThread() {
             
             
             {/* Question part */}
-            <div className=" bg-c_C6CBDD">
-                <div className="mx-auto
-                                py-15 md:py-25
-                                px-5 md:px-0
-                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5">
-                    <div className="flex flex-col max-w-lg mx-auto">
-                        <div className="ttcommon_font_bold
-                                        leading-none md:leading-36_26
-                                        text-2xl md:text-4xl">Any more questions?</div>
-                        <p className="leading-14_26
-                                        mt-2_5 md:mt-5">We are here to help --- reach out with any questions.</p>
-                        <div className="mt-7_5 md:mt-10">
-                            <Input 
-                                className='bg-white' 
-                                type="text" 
-                                placeholder="First Name"
-                                enableValiMsg={fnameValiObj.enableValiMsg}
-                                valiMsgText={fnameValiObj.valiMsgText}
-                                onChange={getFNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className='bg-white' 
-                                type="text" 
-                                placeholder="Last Name"
-                                enableValiMsg={lnameValiObj.enableValiMsg}
-                                valiMsgText={lnameValiObj.valiMsgText}
-                                onChange={getLNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className='bg-white' 
-                                type="text" 
-                                placeholder="Company Name"
-                                enableValiMsg={cnameValiObj.enableValiMsg}
-                                valiMsgText={cnameValiObj.valiMsgText}
-                                onChange={getCNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className='bg-white' 
-                                type="text" 
-                                placeholder="Email" 
-                                enableValiMsg={emailValiObj.enableValiMsg}
-                                valiMsgText={emailValiObj.valiMsgText}
-                                onChange={getEmailHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <SelectInput 
-                                enable_underline={false}
-                                default_option="Choose Country or Region"
-                                option_li={['United States', 'United Kingdom']} 
-                                className="bg-white"
-                                option_class="bg-white hover:bg-opacity-80"
-                                returnVal={setCountry} />
-                        </div>
-                        <div className="mt-5">
-                            <textarea className="h-24 border-none bg-white w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
-                        </div>
-                        <div className="mt-5">
-                            <div className="leading-14_17">
-                                <Link href="/privacypolicy">
-                                    <span className="ttcommon_font_bold underline mr-2">Intraline’s Privacy Policy.</span>
-                                </Link> 
-                                If you consent to us contacting you for this purpose, please tick below:
-                            </div>
-                        </div>
-                        <div className="mt-5">
-                            <Checkbox id="pdo_thread_checkbox" type="checkbox" defaultChecked={true} className="ttcommon_font" label="I agree to receive other communications from Intraline."></Checkbox>
-                        </div>
-                        <div className="leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
-                        <div className="mt-7_5">
-                            <Button className="h-11 w-full">SUBMIT</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <QuestionForm bg_color='bg-c_C6CBDD' input_bg='bg-white'/>
+            
 
         </div>
     )

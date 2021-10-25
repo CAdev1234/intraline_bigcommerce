@@ -3,35 +3,18 @@ import dynamic from 'next/dynamic'
 
 import { Layout } from '@components/common'
 
-const Button = dynamic(import('@components/mycp/Button'))
-const Input = dynamic(import('@components/mycp/Input'))
-const SelectInput = dynamic(import('@components/mycp/SelectInput'))
-const Link = dynamic(import('@components/ui/Link'))
-const Checkbox = dynamic(import('@components/mycp/Checkbox'))
 
 const Image = dynamic(import('next/image'))
 import AboutUsSec1Img from 'public/assets/img/aboutus_sec_1.webp'
 import AboutUsSec2Img from 'public/assets/img/aboutus_sec_2.webp'
 import AboutUsSec3Img from 'public/assets/img/aboutus_sec_3.webp'
 import AboutUsSec4Img from 'public/assets/img/aboutus_sec_4.webp'
-import { validateEmail } from '@utils/simpleMethod'
+import QuestionForm from '@components/mycp/QuestionForm'
 
 
 
 
 export default function AboutUs() {
-    const [f_name, setFName] = useState('')
-    const [l_name, setLName] = useState('')
-    const [companyName, setCompanyName] = useState('')
-    const [email, setEmail] = useState('')
-    const [country, setCountry] = useState('')
-    const [comment, setComment] = useState('')
-    const [fnameValiObj, setFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [lnameValiObj, setLNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [emailValiObj, setEmailValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [companyNameValiObj, setCompanyNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
-    const [disableSubmitBtn, setDisableSubmitBtn] = useState(true)
-    const [numValiSpan, setNumValiSpan] = useState(100)
     const our_sec = [
         {
             title: 'Education.',
@@ -54,46 +37,7 @@ export default function AboutUs() {
             img: AboutUsSec4Img
         }
     ]
-    useEffect(() => {
-        let vali_span_li = document.querySelectorAll('body span.vali-span.block')
-        setNumValiSpan(vali_span_li.length)
-        if (numValiSpan !== 0) setDisableSubmitBtn(true)
-        else if(email !== "" && f_name !== "" && l_name !== "" && companyName !== '') setDisableSubmitBtn(false)
-    })
-    const getFNameHandler = (str: string) => {
-        setFName(str)
-        if (str === '') {
-            setFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setFNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getLNameHandler = (str: string) => {
-        setLName(str)
-        if (str === '') {
-            setLNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setLNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getCompanyNameHandler = (str: string) => {
-        setCompanyName(str)
-        if (str === '') {
-            setCompanyNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else {
-            setCompanyNameValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
-    const getEmailHandler = (str: string) => {
-        setEmail(str)
-        if (str === '') {
-            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
-        }else if (!validateEmail(str)) {
-            setEmailValiObj({enableValiMsg: true, valiMsgText: 'Email is incorrect.'})
-        }else {
-            setEmailValiObj({enableValiMsg: false, valiMsgText: ''})
-        }
-    }
+    
     return(
         <div className="text-c_00080D flex flex-col ttcommon_font
                         mt-16 md:mt-0">
@@ -135,82 +79,8 @@ export default function AboutUs() {
             </div>
 
             {/* Question part */}
-            <div className="bg-white">
-                <div className="mx-auto py-28
-                                w-full md:w-106_5 lg:w-106_5 xl:w-106_5 2xl:w-106_5
-                                px-5 md:px-0">
-                    <div className="flex flex-col max-w-lg mx-auto">
-                        <div className="ttcommon_font_bold leading-36_26 text-4xl">Any more questions?</div>
-                        <p className="mt-5">We are here to help --- reach out with any questions.</p>
-                        <div className="mt-10">
-                            <Input 
-                                className="bg-c_F7F7F7" 
-                                type="text" 
-                                placeholder="First Name"
-                                enableValiMsg={fnameValiObj.enableValiMsg} 
-                                valiMsgText={fnameValiObj.valiMsgText}
-                                onChange={getFNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className="bg-c_F7F7F7" 
-                                type="text" 
-                                placeholder="Last Name"
-                                enableValiMsg={lnameValiObj.enableValiMsg} 
-                                valiMsgText={lnameValiObj.valiMsgText}
-                                onChange={getLNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className="bg-c_F7F7F7" 
-                                type="text" 
-                                placeholder="Company Name"
-                                enableValiMsg={companyNameValiObj.enableValiMsg} 
-                                valiMsgText={companyNameValiObj.valiMsgText}
-                                onChange={getCompanyNameHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <Input 
-                                className="bg-c_F7F7F7" 
-                                type="text" 
-                                placeholder="Email"
-                                enableValiMsg={emailValiObj.enableValiMsg} 
-                                valiMsgText={emailValiObj.valiMsgText}
-                                onChange={getEmailHandler}/>
-                        </div>
-                        <div className="mt-5">
-                            <SelectInput 
-                                enable_underline={false}
-                                default_option="Choose Country or Region"
-                                option_li={['Choose Country or Region', 'UK', "US"]} 
-                                option_class="bg-c_F7F7F7 hover:bg-opacity-80" 
-                                className="bg-c_F7F7F7"
-                                returnVal={setCountry}
-                                />
-                        </div>
-                        <div className="mt-5">
-                            <textarea className="h-24 border-none bg-c_F7F7F7 w-full pl-5 py-2" placeholder="Write Your Comment"></textarea>
-                        </div>
-                        <div className="mt-5">
-                            <div className="leading-14_17">
-                                <Link href="/privacypolicy">
-                                    <span className="ttcommon_font_bold underline mr-2">Intraline’s Privacy Policy.</span>
-                                </Link> 
-                                If you consent to us contacting you for this purpose, please tick below:
-                            </div>
-                        </div>
-                        <div className="mt-5 flex items-center">
-                            <div className="flex">
-                                <Checkbox id="aboutus_checkbox" defaultChecked={true} className="ttcommon_font" type="checkbox" label="I agree to receive other communications from Intraline."/>
-                            </div>
-                        </div>
-                        <div className="text-base leading-14_17 text-c_00080D mt-5">You can unsubscribe from these communications at any time. By clicking submit below, you consent to allow Intraline to store and process the personal information submitted above to provide you the content requested.</div>
-                        <div className="mt-7_5">
-                            <Button className="h-11 w-full" disabled={disableSubmitBtn}>SUBMIT</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <QuestionForm bg_color='bg-white' input_bg='bg-c_F7F7F7'/>
+            
             
 
         </div>
