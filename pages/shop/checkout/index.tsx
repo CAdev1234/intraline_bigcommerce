@@ -12,11 +12,15 @@ import { loginUser, logoutUser } from '@utils/redux/slices/userSlice';
 import { useRouter, withRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getCookie, removeCookie, setCookie } from 'utils/cookie'
+import { generateID } from '@utils/simpleMethod'
 
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function Checkout() {
     const router = useRouter()
     const dispatch = useAppDispatch()
+    const cart_products = useAppSelector(state => state.cart.products)
     const [user, setUser] = useState({email: '', password: '', f_name: '', l_name: '', mobile: ''})
     
     const [logined, setLogined] = useState(false)
@@ -24,18 +28,46 @@ function Checkout() {
     const [enableRegister, setEnableRegister] = useState(false)
     const [enableLoginForm, setEnableLoginForm] = useState(false)
 
+    
+    
     const [checkedShippingAddress, setCheckedShippingAddress] = useState(false)
     const [ship_address, setShipAddress] = useState({f_name: '', l_name: '', address: '', apt: '', city: '', country: '', postcode: ''})
     
+    const [saFNameValiObj, setSAFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saLNameValiObj, setSALNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saAddressValiObj, setSAAddressValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saAptValiObj, setSAAptValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saCityValiObj, setSACityValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saCountryValiObj, setSACountryValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [saPostCodeValiObj, setSAPostCodeValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
 
+    
+
+    
+    
     const [checkedBillAddress, setCheckedBillAddress] = useState(false)
     const [bill_address, setBillAddress] = useState({f_name: '', l_name: '', address: '', city: '', apt: '', country: '', postcode: ''})
     
+    const [baFNameValiObj, setBAFNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baLNameValiObj, setBALNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baAddressValiObj, setBAAddressValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baAptValiObj, setBAAptValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baCityValiObj, setBACityValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baCountryValiObj, setBACountryValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [baPostCodeValiObj, setBAPostCodeValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    
+
+
+
 
     const [checkedPayment, setCheckedPayment] = useState(false)
     const [payment, setPayment] = useState({name: '', number: '', date: '', cvc: ''})
-
     
+    const [pmNameValiObj, setPMNameValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [pmNumValiObj, setPMNumValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [pmExpireValiObj, setPMExpireValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+    const [pmCVCValiObj, setPMCVCValiObj] = useState({enableValiMsg: false, valiMsgText: ''})
+
 
     useEffect(() => {
         if (getCookie('jwt', '') != null) {
@@ -75,8 +107,12 @@ function Checkout() {
                 setCheckedShippingAddress(true)
                 setCheckedBillAddress(true)
             }
+            // if (router.query.status === 'add payment') {
+
+            // }
         }
     }, [])
+
     let loginSubmitHandler = async () => {
         let res = await loginAuth(user.email, user.password)
         if (typeof(res) === 'string') setLoginResult(false)
@@ -91,72 +127,174 @@ function Checkout() {
 
     const getSAFNameFromInputHandler = (f_name: string) => {
         setShipAddress({...ship_address, f_name: f_name})
+        if (f_name === '') {
+            setSAFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSAFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getSALNameFromInputHandler = (l_name: string) => {
         setShipAddress({...ship_address, l_name: l_name})
+        if (l_name === '') {
+            setSALNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSALNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getSAAddressFromInputHandler = (addres: string) => {
         setShipAddress({...ship_address, address: addres})
+        if (addres === '') {
+            setSAAddressValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSAAddressValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getSAAptFromInputHandler = (apt: string) => {
         setShipAddress({...ship_address, apt: apt})
+        if (apt === '') {
+            setSAAptValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSAAptValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getSACityFromInputHandler = (city: string) => {
         setShipAddress({...ship_address, city: city})
+        if (city === '') {
+            setSACityValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSACityValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getSACountryFromInputHandler = (country: string) => {
         setShipAddress({...ship_address, country: country})
+        // if (country === '') {
+        //     setSACityValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        // }else {
+        //     setSACityValiObj({enableValiMsg: false, valiMsgText: ''})
+        // }
     }
     const getSAPostcodeFromInputHandler = (postcode: string) => {
         setShipAddress({...ship_address, postcode: postcode})
+        if (postcode === '') {
+            setSAPostCodeValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSAPostCodeValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
 
     const getBAFNameFromInputHandler = (f_name: string) => {
         setBillAddress({...bill_address, f_name: f_name})
+        if (f_name === '') {
+            setBAFNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBAFNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getBALNameFromInputHandler = (l_name: string) => {
         setBillAddress({...bill_address, l_name: l_name})
+        if (l_name === '') {
+            setBALNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBALNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
-    const getBAAddressFromInputHandler = (addres: string) => {
-        setBillAddress({...bill_address, address: addres})
+    const getBAAddressFromInputHandler = (address: string) => {
+        setBillAddress({...bill_address, address: address})
+        if (address === '') {
+            setSAAddressValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setSAAddressValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getBAAptFromInputHandler = (apt: string) => {
         setBillAddress({...bill_address, apt: apt})
+        if (apt === '') {
+            setBAAptValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBAAptValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getBACityFromInputHandler = (city: string) => {
         setBillAddress({...bill_address, city: city})
+        if (city === '') {
+            setBACityValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBACityValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getBACountryFromInputHandler = (country: string) => {
         setBillAddress({...bill_address, country: country})
+        if (country === '') {
+            setBACountryValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBACountryValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getBAPostcodeFromInputHandler = (postcode: string) => {
         setBillAddress({...bill_address, postcode: postcode})
+        if (postcode === '') {
+            setBAPostCodeValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setBAPostCodeValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
 
     const getCardNameFromInputHandler = (name: string) => {
         setPayment({...payment, name: name})
+        if (name === '') {
+            setPMNameValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setPMNameValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
-    const getCardNumberFromInputHandler = (number: string) => {
-        setPayment({...payment, number: number})
+    const getCardNumberFromInputHandler = (num: string) => {
+        setPayment({...payment, number: num})
+        if (num === '') {
+            setPMNumValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setPMNumValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getCardDateFromInputHandler = (date: string) => {
         setPayment({...payment, date: date})
+        if (date === '') {
+            setPMExpireValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setPMExpireValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
     const getCardCVCFromInputHandler = (cvc: string) => {
         setPayment({...payment, cvc: cvc})
+        if (cvc === '') {
+            setPMCVCValiObj({enableValiMsg: true, valiMsgText: 'Required.'})
+        }else {
+            setPMCVCValiObj({enableValiMsg: false, valiMsgText: ''})
+        }
     }
 
     const saveShippingAddressHander = () => {
+        const isEmpty = Object.values(ship_address).every(x => (x === null || x === ''))
+        if (isEmpty) {
+            return
+        }
         setCheckedShippingAddress(true)
         localStorage.setItem('sa', JSON.stringify(ship_address))
         setCookie('sa', JSON.stringify(ship_address))
     }
     const saveBillAddressHander = () => {
+        const isEmpty = Object.values(bill_address).every(x => (x === null || x === ''))
+        if (isEmpty) {
+            return
+        }
         setCheckedBillAddress(true)
         localStorage.setItem('ba', JSON.stringify(bill_address))
         setCookie('ba', JSON.stringify(bill_address))
     }
     const savePaymentHandler = () => {
+        const isEmpty = Object.values(payment).every(x => (x === null || x === ''))
+        if (isEmpty) {
+            return
+        }
         setCheckedPayment(true)
         localStorage.setItem('pm', JSON.stringify(payment))
         setCookie('pm', JSON.stringify(payment))
@@ -166,9 +304,8 @@ function Checkout() {
         dispatch(logoutUser())
         removeCookie('jwt')
         router.replace('/account/login')
-        
-        
     }
+
     const updateShippindAddressHandler = () => {
         setCheckedShippingAddress(false)
     }
@@ -180,8 +317,18 @@ function Checkout() {
     }
 
     const placeOrderHandler = () => {
-        dispatch(createOrder())
-        router.push('/shop/checkout/confirm')
+        if (cart_products.length === 0) {
+            toast.configure()
+            toast.warn("Cart is empty. Please add products to bag.", {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        }else {
+            let order_id = generateID()
+            dispatch(createOrder(order_id))
+            localStorage.setItem('order_id', order_id)
+            router.push('/shop/checkout/confirm')
+        }
+        
     }
     return (
         <div className="text-c_00080D bg-c_CCE7EF ttcommon_font">
@@ -267,13 +414,25 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
-                                    <Input className='bg-white' type="text" onChange={getSAFNameFromInputHandler} value={ship_address.f_name}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSAFNameFromInputHandler} 
+                                        defaultValue={ship_address.f_name}
+                                        enableValiMsg={saFNameValiObj.enableValiMsg} 
+                                        valiMsgText={saFNameValiObj.valiMsgText}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 mt-3 sm:mt-0
                                                 ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
-                                    <Input className='bg-white' type="text" onChange={getSALNameFromInputHandler} value={ship_address.l_name}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSALNameFromInputHandler} 
+                                        defaultValue={ship_address.l_name}
+                                        enableValiMsg={saLNameValiObj.enableValiMsg} 
+                                        valiMsgText={saLNameValiObj.valiMsgText}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -281,13 +440,25 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
-                                    <Input className='bg-white' type="text" onChange={getSAAddressFromInputHandler} value={ship_address.address}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSAAddressFromInputHandler} 
+                                        defaultValue={ship_address.address}
+                                        enableValiMsg={saAddressValiObj.enableValiMsg} 
+                                        valiMsgText={saAddressValiObj.valiMsgText}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 mt-3 sm:mt-0
                                                 ml-0 sm:ml-2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
-                                    <Input className='bg-white' type="text" onChange={getSAAptFromInputHandler} value={ship_address.apt}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSAAptFromInputHandler} 
+                                        defaultValue={ship_address.apt}
+                                        enableValiMsg={saAptValiObj.enableValiMsg} 
+                                        valiMsgText={saAptValiObj.valiMsgText}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -295,7 +466,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
-                                    <Input className='bg-white' type="text" onChange={getSACityFromInputHandler} value={ship_address.city}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSACityFromInputHandler} 
+                                        defaultValue={ship_address.city}
+                                        enableValiMsg={saCityValiObj.enableValiMsg} 
+                                        valiMsgText={saCityValiObj.valiMsgText}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 ml-0 sm:ml-2
@@ -308,6 +485,7 @@ function Checkout() {
                                         className="bg-white"
                                         option_class="bg-white hover:bg-opacity-80"
                                         returnVal={getSACountryFromInputHandler} />
+                                    <span className='text-transparent'>ddd</span>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -315,7 +493,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
-                                    <Input className='bg-white' type="text" onChange={getSAPostcodeFromInputHandler} value={ship_address.postcode}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getSAPostcodeFromInputHandler} 
+                                        defaultValue={ship_address.postcode}
+                                        enableValiMsg={saPostCodeValiObj.enableValiMsg} 
+                                        valiMsgText={saPostCodeValiObj.valiMsgText}/>
                                 </div>
                                 <div className="w-full sm:w-1/2
                                                 ml-0 sm:ml-2">
@@ -324,11 +508,12 @@ function Checkout() {
                                         <input className="h-3" type="radio" id="billing_address_cb" />
                                         <label className="ml-2 leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
                                     </div>
+                                    <span className='text-transparent'>ddd</span>
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
                                 <Button className="h-11 w-64" onClick={() => { saveShippingAddressHander() }}>Save & Continue</Button>
-                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => { }}>Cancel</button>
+                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => {setCheckedShippingAddress(true)}}>Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -377,13 +562,25 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">First Name</label>
-                                    <Input className='bg-white' type="text" onChange={getBAFNameFromInputHandler} value={bill_address.f_name}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBAFNameFromInputHandler} 
+                                        defaultValue={bill_address.f_name}
+                                        enableValiMsg={baFNameValiObj.enableValiMsg} 
+                                        valiMsgText={baFNameValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 w-full sm:w-1/2
                                                 mt-3 sm:mt-0">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Last Name</label>
-                                    <Input className='bg-white' type="text" onChange={getBALNameFromInputHandler} value={bill_address.l_name}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBALNameFromInputHandler} 
+                                        defaultValue={bill_address.l_name}
+                                        enableValiMsg={baLNameValiObj.enableValiMsg} 
+                                        valiMsgText={baLNameValiObj.valiMsgText}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -391,13 +588,25 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Address</label>
-                                    <Input className='bg-white' type="text" onChange={getBAAddressFromInputHandler} value={bill_address.address}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBAAddressFromInputHandler} 
+                                        defaultValue={bill_address.address}
+                                        enableValiMsg={baAddressValiObj.enableValiMsg} 
+                                        valiMsgText={baAddressValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Apt, Suite</label>
-                                    <Input className='bg-white' type="text" onChange={getBAAptFromInputHandler} value={bill_address.apt}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBAAptFromInputHandler} 
+                                        defaultValue={bill_address.apt}
+                                        enableValiMsg={baAptValiObj.enableValiMsg} 
+                                        valiMsgText={baAptValiObj.valiMsgText}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -405,7 +614,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">City</label>
-                                    <Input className='bg-white' type="text" onChange={getBACityFromInputHandler} value={bill_address.city}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBACityFromInputHandler} 
+                                        defaultValue={bill_address.city}
+                                        enableValiMsg={baCityValiObj.enableValiMsg} 
+                                        valiMsgText={baCityValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 w-full sm:w-1/2
@@ -418,6 +633,7 @@ function Checkout() {
                                         className="bg-white"
                                         option_class="bg-white hover:bg-opacity-80" 
                                         returnVal={getBACountryFromInputHandler}/>
+                                    <span className='text-transparent'>ddd</span>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -425,7 +641,13 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Postal Code</label>
-                                    <Input className='bg-white' type="text" onChange={getBAPostcodeFromInputHandler} value={bill_address.postcode}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        onChange={getBAPostcodeFromInputHandler} 
+                                        defaultValue={bill_address.postcode}
+                                        enableValiMsg={baPostCodeValiObj.enableValiMsg} 
+                                        valiMsgText={baPostCodeValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
@@ -435,11 +657,12 @@ function Checkout() {
                                         <input className="h-3" type="radio" id="billing_address_cb" />
                                         <label className="ml-2 leading-14_26" htmlFor="billing_address_cb">Use this address as billing address</label>
                                     </div>
+                                    <span className='text-transparent'>ddd</span>
                                 </div>
                             </div>
                             <div className="mt-7 flex items-center">
                                 <Button className="h-11 w-64" onClick={() => { saveBillAddressHander() }}>Save & Continue</Button>
-                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => { updateBillingAddressHandler() }}>Cancel</button>
+                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => { setCheckedBillAddress(true) }}>Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -485,13 +708,27 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Name on Card</label>
-                                    <Input className='bg-white' type="text" placeholder="Name on Card" onChange={getCardNameFromInputHandler} value={payment.name}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        placeholder="Name on Card" 
+                                        onChange={getCardNameFromInputHandler} 
+                                        defaultValue={payment.name}
+                                        enableValiMsg={pmNameValiObj.enableValiMsg} 
+                                        valiMsgText={pmNameValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Card Number</label>
-                                    <Input className='bg-white' type="text" placeholder="1234 5678 1234 5678 0000" onChange={getCardNumberFromInputHandler} value={payment.number}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        placeholder="1234 5678 1234 5678 0000" 
+                                        onChange={getCardNumberFromInputHandler} 
+                                        defaultValue={payment.number}
+                                        enableValiMsg={pmNumValiObj.enableValiMsg} 
+                                        valiMsgText={pmNumValiObj.valiMsgText}/>
                                 </div>
                             </div>
                             <div className="mt-3 items-center
@@ -499,14 +736,27 @@ function Checkout() {
                                 <div className="mr-2
                                                 w-full sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">Expiration Date</label>
-                                    <Input className='bg-white' type="text" placeholder="(mm/yyyy)" onChange={getCardDateFromInputHandler} value={payment.date}/>
+                                    <Input 
+                                        className='bg-white' 
+                                        type="text" 
+                                        placeholder="(mm/yyyy)" 
+                                        onChange={getCardDateFromInputHandler} 
+                                        defaultValue={payment.date}
+                                        enableValiMsg={pmExpireValiObj.enableValiMsg} 
+                                        valiMsgText={pmExpireValiObj.valiMsgText}/>
                                 </div>
                                 <div className="ml-0 sm:ml-2
                                                 mt-3 sm:mt-0
                                                 w-11/12 sm:w-1/2">
                                     <label className="ttcommon_font_bold leading-14_26" htmlFor="">CVC</label>
                                     <div className="relative">
-                                        <Input type="text" placeholder="xxx" onChange={getCardCVCFromInputHandler} value={payment.cvc}/>
+                                        <Input 
+                                            type="text" 
+                                            placeholder="xxx" 
+                                            onChange={getCardCVCFromInputHandler} 
+                                            defaultValue={payment.cvc}
+                                            enableValiMsg={pmCVCValiObj.enableValiMsg} 
+                                            valiMsgText={pmCVCValiObj.valiMsgText}/>
                                         <div className="absolute top-0 -right-6 h-full flex flex-col">
                                             <button className="my-auto text-white w-4 h-4 rounded-full bg-c_00080D flex items-center justify-center">?</button>
                                         </div>
@@ -515,7 +765,7 @@ function Checkout() {
                             </div>
                             <div className="mt-7 flex items-center">
                                 <Button className="h-11 w-64" onClick={() => savePaymentHandler()}>Save & Continue</Button>
-                                <button className="uppercase ml-7 tracking-widest underline">Cancel</button>
+                                <button className="uppercase ml-7 tracking-widest underline" onClick={() => {setCheckedPayment(true)}}>Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -545,7 +795,7 @@ function Checkout() {
                         </div>
                         <div className="mt-7 flex items-center">
                             <Button className="h-11 w-64" onClick={() => {placeOrderHandler()}}>Place Order</Button>
-                            <button className="uppercase ml-7 tracking-widest underline">Cancel</button>
+                            <button className="uppercase ml-7 tracking-widest underline" onClick={() => {router.back()}}>Cancel</button>
                         </div>
                     </div>
                 }

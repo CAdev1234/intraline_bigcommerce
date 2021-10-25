@@ -23,16 +23,19 @@ const Input: React.FC<InputProps> = (props) => {
 
   return (
     <label>
-      <input
-        className={rootClassName}
-        onChange={handleOnChange}
-        autoComplete="off"
-        autoCorrect="off"
-        autoCapitalize="off"
-        spellCheck="false"
-        {...rest}
-      />
-      <span className={`vali-span text-c_F4511E ${enableValiMsg ? 'block' : 'hidden'}`}>{valiMsgText}</span>
+      <div className='relative h-16'>
+        <input
+          className={rootClassName}
+          onChange={handleOnChange}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
+          {...rest}
+        />
+        <span className={`vali-span text-c_F4511E ${enableValiMsg ? 'block' : 'hidden'}`}>{valiMsgText}</span>
+      </div>
+      
     </label>
   )
 }

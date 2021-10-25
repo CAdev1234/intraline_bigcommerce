@@ -87,10 +87,10 @@ const cartSlice = createSlice({
             state.totalQuantity = calcTotalQuantity(state.products)
             state.totalPrice = calcTotalPrice(state.products)
         },
-        createOrder: (state) => {
+        createOrder: (state, {payload}) => {
             let cart_products = state.products
             state.orderList.push({
-                order_id: generateID(),
+                order_id: payload,
                 order_state: 'Shipped',
                 order_tracking: '1234567890',
                 order_date: date.format(new Date(), 'DD MMM YYYY'),

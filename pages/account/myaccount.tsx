@@ -137,7 +137,10 @@ export default function MyAccount() {
         })
     }
     const addPaymentHandler = () => {
-        
+        // router.push({
+        //     pathname: '/shop/checkout',
+        //     query: {status: 'add payment'}
+        // })
     }
 
     const showEditAccountModalHandler = (bool_var: boolean) => {

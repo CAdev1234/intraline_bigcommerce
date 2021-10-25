@@ -1,11 +1,18 @@
 import { Layout } from "@components/common"
 import dynamic from 'next/dynamic'
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 const Check = dynamic(import('@components/icons/Check'))
 const ChevronRight = dynamic(import('@components/icons/ChevronRight'))
 const Button = dynamic(import('@components/mycp/Button'))
 const Link = dynamic(import('@components/ui/Link'))
 
 export default function CheckoutConfirm() {
+    const router = useRouter()
+    const [order_id, setOrderID] = useState('')
+    useEffect(() => {
+        setOrderID(localStorage.getItem('order_id') as string)
+    }, [])
     return (
         <div className="text-c_00080D ttcommon_font">
             <div className="bg-transparent h-15 w-full"></div>
@@ -49,7 +56,7 @@ export default function CheckoutConfirm() {
                                         mt-15 md:mt-7_5
                                         text-2xl md:text-4xl">Order Successfully Placed.</div>
                         <div className="mt-5 leading-36_48
-                                        text-2xl md:text-4xl">Your order Number: 1234567890</div>
+                                        text-2xl md:text-4xl">Your order Number: {order_id}</div>
                         <div className="max-w-sm mx-auto
                                         mt-5 md:mt-2_5
                                         text-sm md:text-base">
