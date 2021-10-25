@@ -19,6 +19,7 @@ import { AddToCartByDom } from '@utils/addToCartByDom'
 import router from 'next/router'
 import tripleRedImg from 'public/assets/img/triple_red.webp'
 import tripleBlueImg from 'public/assets/img/triple_blue.png'
+import { category_li } from '@utils/productData'
 
 export async function getStaticProps({
   preview,
@@ -51,14 +52,7 @@ export async function getStaticProps({
 }
 
 const RenderCategorySwiper = () => {
-  var render_ele = [
-      { name: 'M Series', img: "/assets/img/category/mseries.webp", link: "/shop/dermalfiller/mseries" },
-      { name: 'Essentials', img: "/assets/img/category/essentials.webp", link: "/shop/dermalfiller/essentials" },
-      { name: 'Rejuvenation Threads', img: "/assets/img/category/rejuvenation.webp", link: "/shop/pdothread/rejuvenation" },
-      { name: 'Lifting Threads', img: "/assets/img/category/lifting.webp", link: "/shop/pdothread/liftingthread" },
-      { name: 'Skincare', img: "/assets/img/category/skincare.webp", link: "/shop/skincare" },
-      { name: 'Scar Kit', img: "/assets/img/category/scarkit.webp", link: "/shop/scarkit" },
-  ].map((item, index) => {
+  var render_ele = category_li.map((item, index) => {
       return <div className="keen-slider__slide relative" key={`category_${index}`}>
                   <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">

@@ -15,6 +15,9 @@ const productSlice = createSlice({
             let result = state.products.filter(item => item.title.toLowerCase().includes(payload));
             state.searchResult = result as any
         },
+        sortProducts: (state, {payload}) => {
+            
+        } 
     }
 })
 

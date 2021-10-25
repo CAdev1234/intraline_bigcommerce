@@ -221,6 +221,14 @@ export const products = [
     },
 ]
 
+export const category_li = [
+    { name: 'M Series', img: "/assets/img/category/mseries.webp", link: "/shop/dermalfiller/mseries" },
+    { name: 'Essentials', img: "/assets/img/category/essentials.webp", link: "/shop/dermalfiller/essentials" },
+    { name: 'Rejuvenation Threads', img: "/assets/img/category/rejuvenation.webp", link: "/shop/pdothread/rejuvenation" },
+    { name: 'Lifting Threads', img: "/assets/img/category/lifting.webp", link: "/shop/pdothread/liftingthread" },
+    { name: 'Skincare', img: "/assets/img/category/skincare.webp", link: "/shop/skincare" },
+    { name: 'Scar Kit', img: "/assets/img/category/scarkit.webp", link: "/shop/scarkit" },
+]
 
 export const MSERIES_FAQ_LIST = [
     {

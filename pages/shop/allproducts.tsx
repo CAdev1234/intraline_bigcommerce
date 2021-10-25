@@ -13,6 +13,7 @@ import {getCookie} from 'utils/cookie'
 import {AddToCartByDom} from 'utils/addToCartByDom'
 import {useAppSelector} from 'utils/redux/hooks'
 import router from 'next/router'
+import { category_li } from '@utils/productData'
 const Image = dynamic(import('next/image'))
 
 type ProductType = {
@@ -45,14 +46,7 @@ export async function getStaticProps() {
 }
 
 const RenderCategorySwiper:FC = () => {
-    var render_ele = [
-        { name: 'M Series', img: "/assets/img/category/mseries.webp", link: "/shop/dermalfiller/mseries" },
-        { name: 'Essentials', img: "/assets/img/category/essentials.webp", link: "/shop/dermalfiller/essentials" },
-        { name: 'Rejuvenation Threads', img: "/assets/img/category/rejuvenation.webp", link: "/shop/pdothread/rejuvenation" },
-        { name: 'Lifting Threads', img: "/assets/img/category/lifting.webp", link: "/shop/pdothread/liftingthread" },
-        { name: 'Skincare', img: "/assets/img/category/skincare.webp", link: "/shop/skincare" },
-        { name: 'Scar Kit', img: "/assets/img/category/scarkit.webp", link: "/shop/scarkit" },
-    ].map((item, index) => {
+    var render_ele = category_li.map((item, index) => {
         return <div className="keen-slider__slide relative" key={`category_${index}`}>
                     <div className="flex flex-col bg-white w-full aspect-w-11 aspect-h-14">
                     <div className="w-full h-full flex flex-col px-3 pt-3">
@@ -105,11 +99,8 @@ export default function AllProducts() {
         router.push('/account/login')
     }
 
-    const scrollToBottomHandler = () => {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-        });
+    const filterProducts = (str: string) => {
+        setFilter(str)
     }
 
     const renderProducts = () => {
@@ -212,7 +203,7 @@ export default function AllProducts() {
                             option_li={['Filter 1', 'Filter 2', 'Filter 3']} 
                             className={"bg-transparent relative z-10 w-30 text-xs sm:text-base"} 
                             option_class={"bg-white justify-center hover:bg-gray-100"} 
-                            returnVal={setFilter}/>
+                            returnVal={filterProducts}/>
                     </div>
                     {logined && 
                         <div className="flex items-center cursor-pointer

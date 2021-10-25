@@ -19,7 +19,7 @@ const SelectInput : FC<SelectInputProps> = ({option_li, className, option_class,
     
     return <div>
                 <div className={`border-none pl-5 py-2 relative cursor-pointer ${className}`} onClick={() => {setEnableSelect(!enableSelect)}}>
-                    <div className={currentVal === default_option ? `text-c_00080D text-opacity-50` : ''}>{typeof(currentVal) === 'string' ? currentVal : currentVal?.title}</div>
+                    <div className={currentVal === default_option ? `text-c_00080D` : ''}>{typeof(currentVal) === 'string' ? currentVal : currentVal?.title}</div>
                     <div className="absolute top-0 right-4 flex flex-col h-full">
                         <div className="my-auto">
                             {!enableSelect && <TriangleDown />}
