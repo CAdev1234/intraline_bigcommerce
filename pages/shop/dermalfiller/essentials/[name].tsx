@@ -219,13 +219,13 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                     <div className="flex items-center flex-wrap cursor-pointer relative z-10
                                     pl-5 md:pl-10 lg:pl-15 xl:pl-15 2xl:pl-15
                                     md:w-100 lg:w-full">
-                        <span className="ttcommon_font"><Link href="/">Home</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4" /></span>
-                        <span className="ml-1 ttcommon_font">Shop</span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ml-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
-                        <span className="ml-1"><ChevronRight className="w-4"/></span>
-                        <span className="ttcommon_font_bold ml-1">{product_info.title}</span>
+                        <span className="ttcommon_font mr-1"><Link href="/">Home</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4" /></span>
+                        <span className="mr-1 ttcommon_font">Shop</span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="mr-1 ttcommon_font"><Link href="/shop/dermalfiller">MONOPHASIC DERMAL FILLERS</Link></span>
+                        <span className="mr-1"><ChevronRight className="w-4"/></span>
+                        <span className="ttcommon_font_bold">{product_info.title}</span>
                     </div>
                 </div>
                 <div className="h-full z-10 flex flex-col">

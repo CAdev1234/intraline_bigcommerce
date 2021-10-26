@@ -239,6 +239,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
         <div className="items-center py-5
                         block md:flex lg:flex xl:flex">
           <div className="flex items-center
+                          text-sm md:text-base
+                        text-c_00080D md:text-c_00080D
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
             <div className="flex items-center">
               <label className="ttcommon_font mr-1" htmlFor="Currency ">Currency:</label>
@@ -272,6 +274,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
           
           <div className="flex items-center
                           flex-row-reverse sm:flex-row
+                          text-sm md:text-base
+                        text-c_00080D md:text-c_00080D
                           w-full md:w-1/2 lg:w-1/2 xl:w-1/2
                           mt-6 md:mt-0 lg:mt-0 xl:mt-0">
             <div className="ttcommon_font text_overflow_one_line cursor-pointer
