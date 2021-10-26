@@ -533,7 +533,12 @@ export default function MSeriesProduct({ product_info }: InferGetStaticPropsType
                                 </div>
                             </div>
                             {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1">Buy {product_info.title} now</Button>
+                                <Button className="h-full flex-1"
+                                        onClick={() => {
+                                            let product = product_info
+                                            product.quantity = 1
+                                            dispatch(addProductToCart(product))
+                                        }}>Buy {product_info.title} now</Button>
                             </div>}
                         </div>
                         

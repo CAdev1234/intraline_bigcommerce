@@ -281,7 +281,7 @@ export default function Home({
                         leading-normal md:leading-36_48">Our mission is to inspire confidence through safe and effective medical aesthetic products.</p>
           <a href="/aboutus">
             <div className='flex justify-center'>
-              <Button className="w-52 h-11 mx-auto mt-7_5">About us</Button>
+              <Button className="w-52 h-11 mx-auto mt-7_5 relative z-10">About us</Button>
             </div>
           </a>
         </div>

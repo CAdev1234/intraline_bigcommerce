@@ -433,7 +433,12 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                         </div>
                                     </div>
                                     {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                        <Button className="h-full flex-1">Buy {product_info.title} now</Button>
+                                        <Button className="h-full flex-1"
+                                                onClick={() => {
+                                                    let product = product_info
+                                                    product.quantity = 1
+                                                    dispatch(addProductToCart(product))
+                                                }}>Buy {product_info.title} now</Button>
                                     </div>}
                                 </div>
                                 
@@ -509,7 +514,12 @@ export default function EssentialsProduct({ product_info }: InferGetStaticPropsT
                                 </div>
                             </div>
                             {logined && <div className="mt-10 flex items-center h-11 text-white">
-                                <Button className="h-full flex-1">Buy {product_info.title} now</Button>
+                                <Button className="h-full flex-1"
+                                        onClick={() => {
+                                            let product = product_info
+                                            product.quantity = 1
+                                            dispatch(addProductToCart(product))
+                                        }}>Buy {product_info.title} now</Button>
                             </div>}
                         </div>
                         
